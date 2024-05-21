@@ -1,0 +1,81 @@
+Traceback (most recent call last):
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+Table4 %>%
+  mutate(
+    Date = lubridate::dmy(gsub('\\[.\\]$', '', Date)),
+    Time = lubridate::as.duration(lubridate::ms(Time))
+  ) %>%
+  ggplot(aes(x = Date, y = Time)) +
+    geom_point() +
+    geom_text(aes(label = Athlete, hjust = -0.1, vjust = -1)) +
+    labs(x = 'Year', y = 'Time (s)')
+------------------
+
+
+[1m[33mError[39m in `mutate()`:[22m
+[1m[22m[36mℹ[39m In argument: `Date = lubridate::dmy(gsub("\\[.\\]$", "", Date))`.
+[1mCaused by error in `as.character()`:[22m
+[33m![39m cannot coerce type 'closure' to vector of type 'character'
+Traceback:
+
+1. Table4 %>% mutate(Date = lubridate::dmy(gsub("\\[.\\]$", "", 
+ .     Date)), Time = lubridate::as.duration(lubridate::ms(Time))) %>% 
+ .     ggplot(aes(x = Date, y = Time))
+2. ggplot(., aes(x = Date, y = Time))
+3. mutate(., Date = lubridate::dmy(gsub("\\[.\\]$", "", Date)), 
+ .     Time = lubridate::as.duration(lubridate::ms(Time)))
+4. mutate.data.frame(., Date = lubridate::dmy(gsub("\\[.\\]$", "", 
+ .     Date)), Time = lubridate::as.duration(lubridate::ms(Time)))
+5. mutate_cols(.data, dplyr_quosures(...), by)
+6. withCallingHandlers(for (i in seq_along(dots)) {
+ .     poke_error_context(dots, i, mask = mask)
+ .     context_poke("column", old_current_column)
+ .     new_columns <- mutate_col(dots[[i]], data, mask, new_columns)
+ . }, error = dplyr_error_handler(dots = dots, mask = mask, bullets = mutate_bullets, 
+ .     error_call = error_call, error_class = "dplyr:::mutate_error"), 
+ .     warning = dplyr_warning_handler(state = warnings_state, mask = mask, 
+ .         error_call = error_call))
+7. mutate_col(dots[[i]], data, mask, new_columns)
+8. mask$eval_all_mutate(quo)
+9. eval()
+10. lubridate::dmy(gsub("\\[.\\]$", "", Date))
+11. .parse_xxx(..., orders = "dmy", quiet = quiet, tz = tz, locale = locale, 
+  .     truncated = truncated)
+12. unlist(lapply(list(...), .num_to_date), use.names = FALSE)
+13. lapply(list(...), .num_to_date)
+14. gsub("\\[.\\]$", "", Date)
+15. .handleSimpleError(function (cnd) 
+  . {
+  .     local_error_context(dots, i = frame[[i_sym]], mask = mask)
+  .     if (inherits(cnd, "dplyr:::internal_error")) {
+  .         parent <- error_cnd(message = bullets(cnd))
+  .     }
+  .     else {
+  .         parent <- cnd
+  .     }
+  .     message <- c(cnd_bullet_header(action), i = if (has_active_group_context(mask)) cnd_bullet_cur_group_label())
+  .     abort(message, class = error_class, parent = parent, call = error_call)
+  . }, "cannot coerce type 'closure' to vector of type 'character'", 
+  .     base::quote(as.character(x)))
+16. h(simpleError(msg, call))
+17. abort(message, class = error_class, parent = parent, call = error_call)
+18. signal_abort(cnd, .file)
+

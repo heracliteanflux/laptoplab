@@ -1,0 +1,61 @@
+Traceback (most recent call last):
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+bind_rows(Japan, China) %>%
+  mutate(Country = ifelse(name %in% unique(Japan$name), 'Japan', 'China')) %>%
+  head()
+------------------
+
+
+[1m[33mError[39m in `bind_rows()`:[22m
+[33m![39m Can't combine `..1$reactor` <integer> and `..2$reactor` <character>.
+Traceback:
+
+1. bind_rows(Japan, China) %>% mutate(Country = ifelse(name %in% 
+ .     unique(Japan$name), "Japan", "China")) %>% head()
+2. head(.)
+3. mutate(., Country = ifelse(name %in% unique(Japan$name), "Japan", 
+ .     "China"))
+4. bind_rows(Japan, China)
+5. vec_rbind(!!!dots, .names_to = .id, .error_call = current_env())
+6. (function () 
+ . vec_default_ptype2(x = x, y = y, x_arg = x_arg, y_arg = y_arg, 
+ .     call = call, `vctrs:::from_dispatch` = `vctrs:::from_dispatch`, 
+ .     `vctrs:::s3_fallback` = `vctrs:::s3_fallback`))()
+7. vec_default_ptype2(x = x, y = y, x_arg = x_arg, y_arg = y_arg, 
+ .     call = call, `vctrs:::from_dispatch` = `vctrs:::from_dispatch`, 
+ .     `vctrs:::s3_fallback` = `vctrs:::s3_fallback`)
+8. withRestarts(stop_incompatible_type(x, y, x_arg = x_arg, y_arg = y_arg, 
+ .     `vctrs:::from_dispatch` = match_from_dispatch(...), call = call), 
+ .     vctrs_restart_ptype2 = function(ptype) {
+ .         ptype
+ .     })
+9. withOneRestart(expr, restarts[[1L]])
+10. doWithOneRestart(return(expr), restart)
+11. stop_incompatible_type(x, y, x_arg = x_arg, y_arg = y_arg, `vctrs:::from_dispatch` = match_from_dispatch(...), 
+  .     call = call)
+12. stop_incompatible(x, y, x_arg = x_arg, y_arg = y_arg, details = details, 
+  .     ..., message = message, class = c(class, subclass, "vctrs_error_incompatible_type"), 
+  .     call = call)
+13. stop_vctrs(message, class = c(class, "vctrs_error_incompatible"), 
+  .     x = x, y = y, details = details, ..., call = call)
+14. abort(message, class = c(class, "vctrs_error"), ..., call = call)
+15. signal_abort(cnd, .file)
+

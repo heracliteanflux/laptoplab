@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy  as np
+import pandas as pd
+
+obs = pd.DataFrame(
+  data=[
+    ['hæd','æ',772.2623598361888 ,1731.6866205977226],
+    ['hɛd','ɛ',574.208631287283  ,1918.637682685363 ],
+    ['hid','i',305.92339403193955,2458.4996663060283],
+    ['hɪd','ɪ',453.5730951234637 ,2072.92348845572  ],
+    ['hɑd','ɑ',714.6610521359538 ,1214.4713341175295],
+    ['hʊd','ʊ',476.80292121316353,1338.2178121189354],
+    ['hʌd','ʌ',618.9116494455797 ,1425.8562296798175],
+    ['hud','u',318.0286268276335 ,1095.993125792178 ],
+    ['hɔd','ɔ',610.8859754665131 ,935.5714048615686 ],
+    ['bæt','æ',812.4152837356295 ,1702.1079409783133],
+    ['bɛd','ɛ',534.3448157343192 ,1891.7585442888867],
+    ['bid','i',289.82041231188634,2429.2999144902774],
+    ['bɪd','ɪ',450.1635653561586 ,2009.4880143110365],
+    ['bɑd','ɑ',708.1091727260111 ,1189.9926250011079],
+    ['bʊk','ʊ',497.65304819673605,1020.9113547201716],
+    ['bʌd','ʌ',606.6914116015801 ,1372.059084614637 ],
+    ['bud','u',323.43445114657317,1264.2416721859588],
+    ['bɔt','ɔ',636.7402932330717 ,994.824262278683  ],
+  ],
+  columns=[
+  'word',
+  'vowel',
+  'F1_Hz',
+  'F2_Hz',
+  ],
+)
+obs.drop(columns=['word'])   \
+  .set_index(keys=['vowel']) \
+  .to_csv('lab3_obs.csv')
+obs.round(2)
+------------------
+
+
+Error in parse(text = x, srcfile = src): <text>:1:8: unexpected symbol
+1: import numpy
+           ^
+Traceback:
+
+

@@ -1,0 +1,1874 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to Linear Systems &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'math/linear_algebra/01';</script>
+    <script src="../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Linear Combinations" href="02.html" />
+    <link rel="prev" title="Linear Algebra" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Laptop Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus/index.html">Calculus</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Linear Algebra</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/math/linear_algebra/01.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Linear Systems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-linear-equation"><span style="color: #0096FF; font-family: Romans; font-size: 24px;">Definition</span>    <span style="font-family: Romans; font-size: 24px;">Linear Equation</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example"><span style="color: #32CD32; font-family: Romans; font-size: 18px;">Example</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-linear-system"><span style="color: #0096FF; font-family: Romans; font-size: 24px;">Definition</span>    <span style="font-family: Romans; font-size: 24px;">Linear System</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-solution-set-of-a-linear-system"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Solution Set of a linear system</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-consistency-of-a-linear-system"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Consistency of a linear system</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-matrix-coefficient-matrix-augmented-matrix"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Matrix, Coefficient Matrix, Augmented Matrix</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-equivalence-of-linear-systems"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Equivalence of linear systems</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-elementary-row-operations"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Elementary Row Operations</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-solving-linear-systems"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Procedure - Solving linear systems</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-row-equivalence-of-matrices"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Row Equivalence of matrices</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-determine-whether-a-linear-system-is-consistent"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Determine whether a linear system is consistent</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-row-echelon-matrix"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Row Echelon Matrix</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-reduced-row-echelon-matrix"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Reduced Row Echelon Matrix</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Theorem</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-pivot-position"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Pivot Position</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-row-reduction"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Algorithm - Row Reduction</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-read-off-the-solution-set-of-a-linear-system-whose-augmented-matrix-is-a-reduced-row-echelon-matrix"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Procedure - Read off the solution set of a linear system whose augmented matrix is a reduced row echelon matrix</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-rouche-capelli"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Theorem - Rouché-Capelli</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-linear-systems">
+<h1><a class="toc-backref" href="#id11" role="doc-backlink">Introduction to Linear Systems</a><a class="headerlink" href="#introduction-to-linear-systems" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction-to-linear-systems" id="id11">Introduction to Linear Systems</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id12">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#definition-linear-equation" id="id13"><span style="color: #0096FF; font-family: Romans; font-size: 24px;">Definition</span>    <span style="font-family: Romans; font-size: 24px;">Linear Equation</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#example" id="id14"><span style="color: #32CD32; font-family: Romans; font-size: 18px;">Example</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#definition-linear-system" id="id15"><span style="color: #0096FF; font-family: Romans; font-size: 24px;">Definition</span>    <span style="font-family: Romans; font-size: 24px;">Linear System</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id16"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#definition-solution-set-of-a-linear-system" id="id17"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Solution Set of a linear system</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id18"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#definition-consistency-of-a-linear-system" id="id19"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Consistency of a linear system</span></a></p></li>
+<li><p><a class="reference internal" href="#definition-matrix-coefficient-matrix-augmented-matrix" id="id20"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Matrix, Coefficient Matrix, Augmented Matrix</span></a></p></li>
+<li><p><a class="reference internal" href="#definition-equivalence-of-linear-systems" id="id21"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Equivalence of linear systems</span></a></p></li>
+<li><p><a class="reference internal" href="#definition-elementary-row-operations" id="id22"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Elementary Row Operations</span></a></p></li>
+<li><p><a class="reference internal" href="#procedure-solving-linear-systems" id="id23"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Procedure - Solving linear systems</span></a></p></li>
+<li><p><a class="reference internal" href="#definition-row-equivalence-of-matrices" id="id24"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Row Equivalence of matrices</span></a></p></li>
+<li><p><a class="reference internal" href="#definition-determine-whether-a-linear-system-is-consistent" id="id25"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Determine whether a linear system is consistent</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id26"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id27"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id28"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id29"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#definition-row-echelon-matrix" id="id30"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Row Echelon Matrix</span></a></p></li>
+<li><p><a class="reference internal" href="#definition-reduced-row-echelon-matrix" id="id31"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Reduced Row Echelon Matrix</span></a></p></li>
+<li><p><a class="reference internal" href="#theorem" id="id32"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Theorem</span></a></p></li>
+<li><p><a class="reference internal" href="#definition-pivot-position" id="id33"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Pivot Position</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id34"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id35"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#algorithm-row-reduction" id="id36"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Algorithm - Row Reduction</span></a></p></li>
+<li><p><a class="reference internal" href="#procedure-read-off-the-solution-set-of-a-linear-system-whose-augmented-matrix-is-a-reduced-row-echelon-matrix" id="id37"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Procedure - Read off the solution set of a linear system whose augmented matrix is a reduced row echelon matrix</span></a></p></li>
+<li><p><a class="reference internal" href="#theorem-rouche-capelli" id="id38"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Theorem - Rouché-Capelli</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#id9" id="id39"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id40"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<hr class="docutils" />
+<section id="definition-linear-equation">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 24px;">Definition</span>    <span style="font-family: Romans; font-size: 24px;">Linear Equation</span></a><a class="headerlink" href="#definition-linear-equation" title="Link to this heading">#</a></h2>
+<fieldset>
+<p>An equation which can be written in the form</p>
+<p><span class="math notranslate nohighlight">\(a_1x_1 + a_2x_2 + \dots + a_nx_n = b\)</span></p>
+<p>for given numbers <span class="math notranslate nohighlight">\(a_1, a_2, \dots, a_n, b\)</span> and unknown variables <span class="math notranslate nohighlight">\(x_1, x_2, \dots, x_n\)</span> is called <span style="color: #0096FF"><b>linear</b></span>.</p>
+<p>(The numbers <span class="math notranslate nohighlight">\(a_1, a_2, \dots, a_n\)</span> are called coefficients.)</p>
+</fieldset><section id="example">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span style="color: #32CD32; font-family: Romans; font-size: 18px;">Example</span></a><a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>The following equations are linear.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+6x_1 - 3x_2 + 4 = x_1          &amp;&amp; \iff &amp;&amp;  5x_1 &amp;&amp; - &amp;&amp; 3x_2 &amp;&amp;   &amp;&amp;      &amp;&amp; = &amp;&amp;        -4 \\
+x_2 = 3(\sqrt{5} - x_1) + 2x_3 &amp;&amp; \iff &amp;&amp; -3x_1 &amp;&amp; - &amp;&amp;  x_2 &amp;&amp; + &amp;&amp; 2x_3 &amp;&amp; = &amp;&amp; 3\sqrt{5} \\
+\end  {aligned}
+\)</span></p>
+<p>The following equations are non linear.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+5x_1 + x_2 = 6x_1x_2   &amp;&amp; \iff &amp;&amp;                         5x_1 &amp;&amp; + &amp;&amp;  x_2 &amp;&amp; - &amp;&amp; \textcolor{red}{6x_1x_2} &amp;&amp; = &amp;&amp; 0 \\
+3x_2 = 4\sqrt{x_1} - 5 &amp;&amp; \iff &amp;&amp; \textcolor{red}{4\sqrt{x_1}} &amp;&amp; - &amp;&amp; 3x_2 &amp;&amp;   &amp;&amp;                          &amp;&amp; = &amp;&amp; 5 \\
+\end  {aligned}
+\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="definition-linear-system">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 24px;">Definition</span>    <span style="font-family: Romans; font-size: 24px;">Linear System</span></a><a class="headerlink" href="#definition-linear-system" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 20px 20px 0 20px;">
+<p>A system of linear equations (or <span style="color: #0096FF;"><b>linear system</b></span>) is a collection of one or more linear equations involving the same variables.</p>
+</fieldset><section id="id1">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  2x_1 &amp;&amp; - &amp;&amp;  x_2 &amp;&amp; + &amp;&amp; \frac{3}{2} x_3 &amp;&amp; = &amp;&amp;  8 \\
+   x_1 &amp;&amp; - &amp;&amp;      &amp;&amp;   &amp;&amp;            4x_3 &amp;&amp; = &amp;&amp; -7 \\
+  5x_1 &amp;&amp; + &amp;&amp; 2x_2 &amp;&amp; + &amp;&amp;             x_3 &amp;&amp; = &amp;&amp; 11 \\
+\end  {aligned}
+\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="definition-solution-set-of-a-linear-system">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Solution Set of a linear system</span></a><a class="headerlink" href="#definition-solution-set-of-a-linear-system" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b>Solution to a Linear System</b></legend>
+<p>A solution to a linear system is a collection of numerical values that when substituted for the variables of the system make each equation true.</p>
+</fieldset><section id="id2">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\((-3, -12.5, 1)\)</span> is a solution to the following linear system</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2x_1 - x_2 + 1.5x_3 &amp;= 8 \\
+x_1 - 4x_3 &amp;= -7 \\
+\end  {aligned}
+\)</span></p>
+<p>because the following equations are true.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2(-3) - (-12.5) + 1.5(1) &amp;= 8 \\
+(-3) - 4(1) &amp;= -7 \\
+\end  {aligned}
+\)</span></p>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b>Solution Set of a Linear System</b></legend>
+<p>The solution set of a linear system is the set of all possible solutions of that system.</p>
+</fieldset><hr class="docutils" />
+<p>How many solutions does the linear system have?</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x_1 - 2x_2 &amp;= -1 &amp;\iff x_2 = \frac{1}{2}x_1 + \frac{1}{2} \\
+-x_1 + 2x_2 &amp;= 3 &amp;\iff x_2 = \frac{1}{2}x_1 + \frac{3}{2} \\
+\end  {aligned}
+\)</span></p>
+<p>No solution.</p>
+<p>How many solutions does the linear system have?</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x_1 - 2x_2 &amp;= -1 &amp;\iff x_2 = \frac{1}{2}x_1 + \frac{1}{2} \\
+-x_1 + 3x_2 &amp;= 3 &amp;\iff x_2 = \frac{1}{3}x_1 + 1 \\
+\end  {aligned}
+\)</span></p>
+<p>One solution.</p>
+<p>How many solutions does the linear system have?</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x_1 - 2x_2 &amp;= -1 &amp;\iff x_2 = \frac{1}{2}x_1 + \frac{1}{2} \\
+-x_1 + 2x_2 &amp;= 1 &amp;\iff x_2 = \frac{1}{2}x_1 + \frac{1}{2} \\
+\end  {aligned}
+\)</span></p>
+<p>Infinitely many solutions.</p>
+<p>How many solutions does the linear system have?</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1x + 0y + 0z = 2 \\
+0x + 1y + 0z = 3 \\
+0x + 0y + 1z = 5 \\
+\end  {aligned}
+\)</span></p>
+<p>One solution, the point <span class="math notranslate nohighlight">\((2, 3, 5)\)</span>.</p>
+<p>How many solutions does the linear system have?</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1x + 0y - 1z = 0 \\
+0x - 1y + 1z = 0 \\
+-1x + 1y + 0z = 0 \\
+\end  {aligned}
+\)</span></p>
+<p>Infinitely many solutions, points of the form <span class="math notranslate nohighlight">\((t, t, t)\)</span>.</p>
+<p>How many solutions does the linear system have?</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1x + 0y - 1z = 2 \\
+0x - 1y + 1z = 3 \\
+-1x + 1y + 0z = 5 \\
+\end  {aligned}
+\)</span></p>
+<p>No solution.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="definition-consistency-of-a-linear-system">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Consistency of a linear system</span></a><a class="headerlink" href="#definition-consistency-of-a-linear-system" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b>Consistency of a Linear System</b></legend>
+<p>Consider a linear system. One of the following holds:</p>
+<p>1. The system has no solution.</p>
+<p>2. The system has exactly one solution.</p>
+<p>3. The system has infinitely many solutions.</p>
+<p>If a linear system admits at least one solution then it is said to be <em><strong>consistent</strong></em>.</p>
+<p>If a linear system admits no solution then it is said to be <em><strong>inconsistent</strong></em>.</p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="definition-matrix-coefficient-matrix-augmented-matrix">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Matrix, Coefficient Matrix, Augmented Matrix</span></a><a class="headerlink" href="#definition-matrix-coefficient-matrix-augmented-matrix" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b>Matrix, Coefficient and Augmented</b></legend>
+<p>A <em><strong>matrix</strong></em> is a rectangular array of numbers.</p>
+<p>An <span class="math notranslate nohighlight">\(m \times n\)</span> matrix contains <span class="math notranslate nohighlight">\(m\)</span> rows and <span class="math notranslate nohighlight">\(n\)</span> columns.</p>
+<hr class="docutils" />
+<p>Matrices can be used to record the essential information of a linear system.</p>
+<p>For example, to the linear system</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  x_1 &amp;&amp; - &amp;&amp; 2x_2 &amp;&amp; + &amp;&amp;  x_3 &amp;&amp; = &amp;&amp;  0 \\
+      &amp;&amp;   &amp;&amp;  x_2 &amp;&amp; - &amp;&amp; 8x_3 &amp;&amp; = &amp;&amp;  8 \\
+-4x_1 &amp;&amp; + &amp;&amp; 5x_2 &amp;&amp; + &amp;&amp; 9x_3 &amp;&amp; = &amp;&amp; -9 \\
+\end  {aligned}
+\)</span></p>
+<p>we associate the <em><strong>coefficient matrix</strong></em></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix*}[r]
+ 1 &amp; -2 &amp;  1 \\
+ 0 &amp;  1 &amp; -8 \\
+-4 &amp;  5 &amp;  9 \\
+\end  {bmatrix*}
+\)</span></p>
+<p>and the <em><strong>augmented matrix</strong></em></p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -2 &amp;  1 \\
+ 0 &amp;  1 &amp; -8 \\
+-4 &amp;  5 &amp;  9 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   0 \\
+   8 \\
+  -9 \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="definition-equivalence-of-linear-systems">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Equivalence of linear systems</span></a><a class="headerlink" href="#definition-equivalence-of-linear-systems" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b>Equivalence of Linear Systems</b></legend>
+<p>Two linear systems are <em><strong>equivalent</strong></em> if they have exactly the same solution set: every solution of the first system is a solution of the seconds system and every solution of the second system is a solution of the first system.</p>
+</fieldset><p>Given a linear system, one can produce an equivalent linear system by performing an elementary operation on the equations of the system–or equivalently by performing an elementary operation on the rows of the augmented matrix representing the system.</p>
+</section>
+<hr class="docutils" />
+<section id="definition-elementary-row-operations">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Elementary Row Operations</span></a><a class="headerlink" href="#definition-elementary-row-operations" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b>Elementary Operations on the Rows of a Matrix</b></legend>
+<p>There are three elementary row operations (or elementary operations on the rows of a matrix).</p>
+<p>1. We can replace one row of the matrix by the sum of itself and a multiple of another row.</p>
+<p>2. We can interchange two rows of the matrix.</p>
+<p>3. We can rescale a row by multiplying all its entries by a nonzero constant</p>
+<hr class="docutils" />
+<p>To solve a linear system, we perform elementary row operations on the augmented matrix representing the system.</p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="procedure-solving-linear-systems">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Procedure - Solving linear systems</span></a><a class="headerlink" href="#procedure-solving-linear-systems" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b>Solving a Linear System</b></legend>
+<p>STEP 1 - Write down the augmented matrix of the system.</p>
+<p>STEP 2 - Apply a carefully chosen sequence of elementary row operations so as to obtain an upper triangular matrix (more precisely, a row echelon matrix) with all rows having a one as their first nonzero entry.</p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+1 &amp; * &amp; * \\
+0 &amp; 1 &amp; * \\
+0 &amp; 0 &amp; 1 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+    * \\
+    * \\
+    * \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+<p>STEP 3 - Apply a carefully chosen sequence of elementary row operations to the matrix resulting from Step 2 so as to obtain <span style="color: red;">zeros</span> above the <span style="color: blue;">leading ones</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+\textcolor{blue}{1} &amp; \textcolor{red}{0}  &amp; \textcolor{red}{0}  \\
+0                   &amp; \textcolor{blue}{1} &amp; \textcolor{red}{0}  \\
+0                   &amp; 0                   &amp; \textcolor{blue}{1} \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+    * \\
+    * \\
+    * \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+<p>STEP 4 - Rewrite the matrix resulting from Step 3 as a linear system. This system has the same solutions set as the original system and its solutions are very easy to read off.</p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="definition-row-equivalence-of-matrices">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Row Equivalence of matrices</span></a><a class="headerlink" href="#definition-row-equivalence-of-matrices" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b>Row Equivalence of Matrices</b></legend>
+<p>Two matrices are said to be row equivalent if there exists a sequence of elementary row operations transforming one matrix into the other.</p>
+</fieldset><fieldset style="border: 2px solid white; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b></b></legend>
+<p>If the augmented matrices representing two linear systems are row equivalent (derived from one another via elementary row operations) then these two linear systems have exactly the same solution set (and are thus equivalent).</p>
+<p>Two augmented matrices which are row equivalent represent two equivalent linear systems (two linear systems with the same solutions set).</p>
+<p>augmented matrices <span class="math notranslate nohighlight">\(A, B\)</span> are row equivalent <span class="math notranslate nohighlight">\(\implies\)</span> linear systems <span class="math notranslate nohighlight">\(A, B\)</span> are equivalent</p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="definition-determine-whether-a-linear-system-is-consistent">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Determine whether a linear system is consistent</span></a><a class="headerlink" href="#definition-determine-whether-a-linear-system-is-consistent" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; padding: 0 20px 20px 20px;">
+<legend style="color: #0096FF; font-family: Romans; font-size: 18px; padding: 0 10px 10px 10px;"><b>Determining whether a linear system is consistent</b></legend>
+<p>STEP 1 - Write down the augmented matrix representing the linear system.</p>
+<p>STEP 2 - Apply a carefully chosen sequence of elementary row operations so as to obtain a <span style="color: #0096FF;"><b>ROW ECHELON MATRIX</b></span>: in each row, the leftmost nonzero entry is located in a column to the right of the leftmost nonzero entry of the row above it. (In the following schematic, a <span class="math notranslate nohighlight">\(*\)</span> represents any number and a <span class="math notranslate nohighlight">\(\blacksquare\)</span> represents any nonzero number.)</p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+\blacksquare &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * \\
+0 &amp; 0 &amp; 0 &amp; \blacksquare &amp; * &amp; * &amp; * &amp; * &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \blacksquare &amp; * &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \blacksquare &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+    * \\
+    * \\
+    * \\
+    * \\
+    0 \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+<p>If in the resulting row echelon matrix a row has its leading (leftmost) nonzero coefficient in the last (rightmost) column then the linear system is inconsistent.</p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+\textcolor{blue}{1} &amp; * &amp; * \\
+0 &amp; 0 &amp; \textcolor{blue}{5} \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+    * \\
+    * \\
+    \textcolor{red}{2} \\
+    0 \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+<p>If in the resulting row echelon matrix no row has its leading (leftmost) nonzero coefficient in the last (rightmost) column then the linear system is consistent.</p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+\textcolor{blue}{6} &amp; * &amp; * \\
+0 &amp; 0 &amp; \textcolor{blue}{4} \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+    * \\
+    * \\
+    0 \\
+    0 \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+</fieldset><section id="id3">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p>Use elementary row operations to solve the system. Check the solution by substituting it back into the original system.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  x_1 &amp;&amp; - &amp;&amp; 2x_2 &amp;&amp; + &amp;&amp;  x_3 &amp;&amp; = &amp;&amp;  0 \\
+      &amp;&amp;   &amp;&amp; 2x_2 &amp;&amp; - &amp;&amp; 8x_3 &amp;&amp; = &amp;&amp;  8 \\
+-4x_1 &amp;&amp; + &amp;&amp; 5x_2 &amp;&amp; + &amp;&amp; 9x_3 &amp;&amp; = &amp;&amp; -9 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -2 &amp;  1 \\
+ 0 &amp;  2 &amp; -8 \\
+-4 &amp;  5 &amp;  9 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   0 \\
+   8 \\
+  -9 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_2 \leftarrow \frac{1}{2} r_2}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -2 &amp;  1 \\
+ 0 &amp;  1 &amp; -4 \\
+-4 &amp;  5 &amp;  9 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   0 \\
+   4 \\
+  -9 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_3 \leftarrow r_3 + 4r_1}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -2 &amp;  1 \\
+ 0 &amp;  1 &amp; -4 \\
+ 0 &amp; -3 &amp; 13 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   0 \\
+   4 \\
+  -9 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_3 \leftarrow r_3 + 3r_2}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ \textcolor{blue}{1} &amp; -2 &amp;  1 \\
+ 0 &amp;  \textcolor{blue}{1} &amp; -4 \\
+ 0 &amp;  0 &amp;  \textcolor{blue}{1} \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   0 \\
+   4 \\
+   3 \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+<p>The system is <span style="color: blue;"><b>consistent</b></span> since the last column of the row echelon matrix contains no leading nonzero coefficient.</p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -2 &amp;  1 \\
+ 0 &amp;  1 &amp; -4 \\
+ 0 &amp;  0 &amp;  1 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   0 \\
+   4 \\
+   3 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_2 \leftarrow r_2 + 4r_3}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -2 &amp;  1 \\
+ 0 &amp;  1 &amp;  0 \\
+ 0 &amp;  0 &amp;  1 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+    0 \\
+   16 \\
+    3 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_1 \leftarrow r_1 - r_3}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -2 &amp;  0 \\
+ 0 &amp;  1 &amp;  0 \\
+ 0 &amp;  0 &amp;  1 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   -3 \\
+   16 \\
+    3 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_1 \leftarrow r_1 + 2r_2}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp;  0 &amp;  0 \\
+ 0 &amp;  1 &amp;  0 \\
+ 0 &amp;  0 &amp;  1 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   29 \\
+   16 \\
+    3 \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  (29) &amp;&amp; - &amp;&amp; 2(16) &amp;&amp; + &amp;&amp;  (3) &amp;&amp; = &amp;&amp;  0 \\
+       &amp;&amp;   &amp;&amp; 2(16) &amp;&amp; - &amp;&amp; 8(3) &amp;&amp; = &amp;&amp;  8 \\
+-4(29) &amp;&amp; + &amp;&amp; 5(16) &amp;&amp; + &amp;&amp; 9(3) &amp;&amp; = &amp;&amp; -9 \\
+\end  {aligned}
+\)</span></p>
+<p>The solution set to this linear system is <span class="math notranslate nohighlight">\(\{(29, 16, 3)\}\)</span>.</p>
+</div></section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p>Determine whether the linear system is consistent or not.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+      &amp;&amp;   &amp;&amp;  x_2 &amp;&amp; - &amp;&amp; 4x_3 &amp;&amp; = &amp;&amp;  8 \\
+ 2x_1 &amp;&amp; - &amp;&amp; 3x_2 &amp;&amp; + &amp;&amp; 2x_3 &amp;&amp; = &amp;&amp;  1 \\
+ 5x_1 &amp;&amp; - &amp;&amp; 8x_2 &amp;&amp; + &amp;&amp; 7x_3 &amp;&amp; = &amp;&amp;  1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+ 0 &amp;  1 &amp; -4 \\
+ 2 &amp; -3 &amp;  2 \\
+ 5 &amp; -8 &amp;  7 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   8 \\
+   1 \\
+   1 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_1 \leftrightarrow r_3}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 5 &amp; -8 &amp;  7 \\
+ 2 &amp; -3 &amp;  2 \\
+ 0 &amp;  1 &amp; -4 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   1 \\
+   1 \\
+   8 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_1 \leftarrow r_1 + (-2)r_2}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -2 &amp;  3 \\
+ 2 &amp; -3 &amp;  2 \\
+ 0 &amp;  1 &amp; -4 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+  -1 \\
+   1 \\
+   8 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_2 \leftarrow r_2 + (-2)r_1}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -2 &amp;  3 \\
+ 0 &amp;  1 &amp; -4 \\
+ 0 &amp;  1 &amp; -4 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+  -1 \\
+   3 \\
+   8 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_3 \leftarrow r_3 + (-1)r_2}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ \textcolor{blue}{1} &amp; -2 &amp;  3 \\
+ 0 &amp;  \textcolor{blue}{1} &amp; -4 \\
+ 0 &amp;  0 &amp;  0 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+  -1 \\
+   3 \\
+   \textcolor{red}{5} \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+<p>The system is <span style="color: red;"><b>inconsistent</b></span> since the last column of the row echelon matrix contains at least one leading nonzero coefficient.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  x_1 &amp;&amp; - &amp;&amp; 2x_2 &amp;&amp; + &amp;&amp; 3x_3 &amp;&amp; = &amp;&amp; -1 \\
+      &amp;&amp;   &amp;&amp;  x_2 &amp;&amp; - &amp;&amp; 4x_3 &amp;&amp; = &amp;&amp;  3 \\
+      &amp;&amp;   &amp;&amp;      &amp;&amp;   &amp;&amp;    0 &amp;&amp; = &amp;&amp;  5 \\
+\end  {aligned}
+\)</span></p>
+<p>The last equation is not true no matter which values are plugged in for <span class="math notranslate nohighlight">\(x_1, x_2, x_3\)</span>. Therefore, the system has no solution.</p>
+</div></section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>For what value of parameter <span class="math notranslate nohighlight">\(h\)</span> is the linear system consistent?</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+ 3x_1 &amp;&amp; - &amp;&amp; 9x_2 &amp;&amp; = &amp;&amp;  4 \\
+-2x_1 &amp;&amp; + &amp;&amp; 6x_2 &amp;&amp; = &amp;&amp;  h \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+ 3 &amp; -9 \\
+-2 &amp;  6 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   4 \\
+   h \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_1 \leftarrow \frac{1}{3} r_1}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -3 \\
+-2 &amp;  6 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   \frac{4}{3} \\
+   h \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_2 \leftarrow r_2 + 2r_1}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -3 \\
+ 0 &amp;  0 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   \frac{4}{3} \\
+   h + \frac{8}{3} \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(h + \frac{8}{3} = 0 \iff h = -\frac{8}{3}\)</span> then the last column contains no leading nonzero coefficient and so the linear system is consistent.</p>
+<p>If <span class="math notranslate nohighlight">\(h + \frac{8}{3} \ne 0 \iff h \ne -\frac{8}{3}\)</span> then the last column contains at least one leading nonzero coefficient and so the linear system is inconsistent.</p>
+</section>
+<section id="id6">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Find the point of intersection of the lines <span class="math notranslate nohighlight">\(x_1 - x_2 = 1\)</span> and <span class="math notranslate nohighlight">\(x_1 + 2x_2 = 4\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x_1 &amp;&amp; - &amp;&amp;  x_2 &amp;&amp; = &amp;&amp; 1 \\
+x_1 &amp;&amp; + &amp;&amp; 2x_2 &amp;&amp; = &amp;&amp; 4 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -1 \\
+ 1 &amp;  2 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   1 \\
+   4 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_2 \leftarrow r_2 + (-1)r_1}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp; -1 \\
+ 0 &amp;  3 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   1 \\
+   3 \\
+  \end  {matrix*}
+\right.
+\right]
+\underset{r_2 \leftarrow \frac{1}{3} r_2}{\rightarrow}
+\underbrace{
+\left[
+\begin{matrix*}[r]
+ \textcolor{#0096FF}{1} &amp; -1 \\
+ 0 &amp;  \textcolor{#0096FF}{1} \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   1 \\
+   1 \\
+  \end  {matrix*}
+\right.
+\right]
+}_{\textcolor{#0096FF}{\textbf{consistent}}}
+\underset{r_1 \leftarrow r_1 + r_2}{\rightarrow}
+\left[
+\begin{matrix*}[r]
+ 1 &amp;  0 \\
+ 0 &amp;  1 \\
+\end  {matrix*}
+\left|
+  \begin{matrix*}[r]
+   2 \\
+   1 \\
+  \end  {matrix*}
+\right.
+\right]
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(2) &amp;&amp; - &amp;&amp;  (1) &amp;&amp; = &amp;&amp; 1 \\
+(2) &amp;&amp; + &amp;&amp; 2(1) &amp;&amp; = &amp;&amp; 4 \\
+\end  {aligned}
+\)</span></p>
+<p>The solution set of the linear system is <span class="math notranslate nohighlight">\(\{(2, 1)\}\)</span>.</p>
+<p>The two lines intersect at the point <span class="math notranslate nohighlight">\((2, 1)\)</span>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="definition-row-echelon-matrix">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Row Echelon Matrix</span></a><a class="headerlink" href="#definition-row-echelon-matrix" title="Link to this heading">#</a></h2>
+<div style="color: #0096FF;"><b>DEFINITION - Row Echelon Matrix</b></div>
+<p>A <em><strong>zero row</strong></em> of a matrix is a row whose entries are all zero.</p>
+<p>A <em><strong>nonzero row</strong></em> of a matrix is a row that contains at least one nonzero entry.</p>
+<p>The <em><strong>leading entry of a (nonzero) row</strong></em> is the leftmost nonzero entry in that row.</p>
+<p>A <em><strong>row echelon matrix</strong></em> is a matrix possessing the following two properties: (1) the nonzero rows are located above the zero rows, and (2) in each row, the leading entry is located in a column to the right of the leading entry of the row above it.</p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+\blacksquare &amp; * &amp; * &amp; * &amp; * \\
+0 &amp; \blacksquare &amp; * &amp; * &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\end  {matrix*}
+\right]
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+\blacksquare &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * \\
+0 &amp; 0 &amp; 0 &amp; \blacksquare &amp; * &amp; * &amp; * &amp; * &amp; * &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \blacksquare &amp; * &amp; * &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \blacksquare &amp; * &amp; * \\
+\end  {matrix*}
+\right]
+\)</span></p>
+</section>
+<section id="definition-reduced-row-echelon-matrix">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Reduced Row Echelon Matrix</span></a><a class="headerlink" href="#definition-reduced-row-echelon-matrix" title="Link to this heading">#</a></h2>
+<div style="color: #0096FF;"><b>DEFINITION - Reduced Row Echelon Matrix</b></div>
+<p>A <em><strong>reduced row echelon matrix</strong></em> is a row echelon matrix possessing the following two additional properties: (1) in each nonzero row the leading entry is a <span class="math notranslate nohighlight">\(1\)</span> and (2) each leading <span class="math notranslate nohighlight">\(1\)</span> is the only nonzero entry in its column.</p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+1 &amp; 0 &amp; * \\
+0 &amp; 1 &amp; * \\
+0 &amp; 0 &amp; 0 \\
+\end  {matrix*}
+\right]
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+\begin{matrix*}[r]
+0 &amp; 1 &amp; * &amp; 0 &amp; 0 &amp; * &amp; * &amp; 0 &amp; 0 &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; * &amp; * &amp; 0 &amp; 0 &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; * &amp; * &amp; 0 &amp; 0 &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; * \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; * \\
+\end  {matrix*}
+\right]
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="theorem">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Theorem</span></a><a class="headerlink" href="#theorem" title="Link to this heading">#</a></h2>
+<div style="color: #0096FF;"><b>THEOREM</b></div>
+<p>Each matrix is row equivalent to one and only one reduced row echelon matrix.</p>
+<p>Each (nonzero) matrix is row equivalent to several different row echelon matrices (a matrix whose entries are all zero is not row equivalent to any other matrix).</p>
+<p>If two row echelon matrices are row equivalent then their leading entries occupy exactly the same positions in both matrices.</p>
+</section>
+<hr class="docutils" />
+<section id="definition-pivot-position">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Pivot Position</span></a><a class="headerlink" href="#definition-pivot-position" title="Link to this heading">#</a></h2>
+<div style="color: #0096FF;"><b>DEFINITION - Pivots</b></div>
+<p>The <em><strong>pivot positions</strong></em> of a matrix are the positions occupied by the leading entries of the associated reduced row echelon matrix.</p>
+<p>A <em><strong>pivot column</strong></em> is a column containing a pivot position.</p>
+<section id="id7">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p>Find the pivot positions and pivot columns of the following matrix.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix*}[r]
+1 &amp; 2 &amp; 4 &amp; 5 \\
+2 &amp; 4 &amp; 5 &amp; 4 \\
+4 &amp; 5 &amp; 4 &amp; 2 \\
+\end  {bmatrix*}
+\underset{r_2 \leftarrow r_2 + (-2)r_1}{\rightarrow}
+\begin{bmatrix*}[r]
+1 &amp; 2 &amp;  4 &amp;  5 \\
+0 &amp; 0 &amp; -3 &amp; -6 \\
+4 &amp; 5 &amp;  4 &amp;  2 \\
+\end  {bmatrix*}
+\underset{r_2 \leftarrow (-\frac{1}{3})r_2}{\rightarrow}
+\begin{bmatrix*}[r]
+1 &amp; 2 &amp; 4 &amp; 5 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+4 &amp; 5 &amp; 4 &amp; 2 \\
+\end  {bmatrix*}
+\underset{r_2 \leftrightarrow r_3}{\rightarrow}
+\begin{bmatrix*}[r]
+1 &amp; 2 &amp; 4 &amp; 5 \\
+4 &amp; 5 &amp; 4 &amp; 2 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+\end  {bmatrix*}
+\underset{r_2 \leftarrow r_2 + (-4)r_1}{\rightarrow}
+\underbrace{
+\begin{bmatrix*}[r]
+1 &amp;  2 &amp;   4 &amp;   5 \\
+0 &amp; -3 &amp; -12 &amp; -18 \\
+0 &amp;  0 &amp;   1 &amp;   2 \\
+\end  {bmatrix*}
+}_{\textbf{row echelon}}
+\underset{r_2 \leftarrow (-\frac{1}{3})r_2}{\rightarrow}
+\begin{bmatrix*}[r]
+1 &amp; 2 &amp; 4 &amp; 5 \\
+0 &amp; 1 &amp; 4 &amp; 6 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+\end  {bmatrix*}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix*}[r]
+1 &amp; 2 &amp; 4 &amp; 5 \\
+0 &amp; 1 &amp; 4 &amp; 6 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
+\end  {bmatrix*}
+\underset{r_2 \leftarrow r_2 + (-4)r_3}{\rightarrow}
+\begin{bmatrix*}[r]
+1 &amp; 2 &amp; 4 &amp;  5 \\
+0 &amp; 1 &amp; 0 &amp; -2 \\
+0 &amp; 0 &amp; 1 &amp;  2 \\
+\end  {bmatrix*}
+\underset{r_1 \leftarrow r_1 + (-2)r_2}{\rightarrow}
+\begin{bmatrix*}[r]
+1 &amp; 0 &amp; 4 &amp;  9 \\
+0 &amp; 1 &amp; 0 &amp; -2 \\
+0 &amp; 0 &amp; 1 &amp;  2 \\
+\end  {bmatrix*}
+\underset{r_1 \leftarrow r_1 + (-4)r_3}{\rightarrow}
+\underbrace{
+\begin{bmatrix*}[r]
+\boxed{1} &amp; 0 &amp; 0 &amp;  1 \\
+0 &amp; \boxed{1} &amp; 0 &amp; -2 \\
+0 &amp; 0 &amp; \boxed{1} &amp;  2 \\
+\end  {bmatrix*}
+}_{\textbf{reduced}}
+\)</span></p>
+</div></section>
+<section id="id8">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p>Find the pivot positions and pivot columns of the following matrix.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix*}[r]
+ 0 &amp; -3 &amp; -6 &amp;  4 &amp;  9 \\
+-1 &amp; -2 &amp; -1 &amp;  3 &amp;  1 \\
+-2 &amp; -3 &amp;  0 &amp;  3 &amp; -1 \\
+ 1 &amp;  4 &amp;  5 &amp; -9 &amp; -7 \\
+\end  {bmatrix*}
+\underset{r_1 \leftrightarrow r_4}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp; -9 &amp; -7 \\
+-1 &amp; -2 &amp; -1 &amp;  3 &amp;  1 \\
+-2 &amp; -3 &amp;  0 &amp;  3 &amp; -1 \\
+ 0 &amp; -3 &amp; -6 &amp;  4 &amp;  9 \\
+\end  {bmatrix*}
+\underset{r_2 \leftarrow r_2 + r_1}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp; -9 &amp; -7 \\
+ 0 &amp;  2 &amp;  4 &amp; -6 &amp; -6 \\
+-2 &amp; -3 &amp;  0 &amp;  3 &amp; -1 \\
+ 0 &amp; -3 &amp; -6 &amp;  4 &amp;  9 \\
+\end  {bmatrix*}
+\underset{r_2 \leftarrow \frac{1}{2} r_2}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp; -9 &amp; -7 \\
+ 0 &amp;  1 &amp;  2 &amp; -3 &amp; -3 \\
+-2 &amp; -3 &amp;  0 &amp;  3 &amp; -1 \\
+ 0 &amp; -3 &amp; -6 &amp;  4 &amp;  9 \\
+\end  {bmatrix*}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp; -9 &amp; -7 \\
+ 0 &amp;  1 &amp;  2 &amp; -3 &amp; -3 \\
+-2 &amp; -3 &amp;  0 &amp;  3 &amp; -1 \\
+ 0 &amp; -3 &amp; -6 &amp;  4 &amp;  9 \\
+\end  {bmatrix*}
+\underset{r_3 \leftarrow r_3 + 2r_1}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;  -9 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;  -3 &amp;  -3 \\
+ 0 &amp;  5 &amp; 10 &amp; -15 &amp; -15 \\
+ 0 &amp; -3 &amp; -6 &amp;   4 &amp;   9 \\
+\end  {bmatrix*}
+\underset{r_3 \leftarrow \frac{1}{5} r_3}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;  -9 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;  -3 &amp;  -3 \\
+ 0 &amp;  1 &amp;  2 &amp;  -3 &amp;  -3 \\
+ 0 &amp; -3 &amp; -6 &amp;   4 &amp;   9 \\
+\end  {bmatrix*}
+\underset{r_3 \leftarrow r_3 + (-1)r_2}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;  -9 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;  -3 &amp;  -3 \\
+ 0 &amp;  0 &amp;  0 &amp;   0 &amp;   0 \\
+ 0 &amp; -3 &amp; -6 &amp;   4 &amp;   9 \\
+\end  {bmatrix*}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;  -9 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;  -3 &amp;  -3 \\
+ 0 &amp;  0 &amp;  0 &amp;   0 &amp;   0 \\
+ 0 &amp; -3 &amp; -6 &amp;   4 &amp;   9 \\
+\end  {bmatrix*}
+\underset{r_3 \leftrightarrow r_4}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;  -9 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;  -3 &amp;  -3 \\
+ 0 &amp; -3 &amp; -6 &amp;   4 &amp;   9 \\
+ 0 &amp;  0 &amp;  0 &amp;   0 &amp;   0 \\
+\end  {bmatrix*}
+\underset{r_3 \leftarrow r_3 + 3r_2}{\rightarrow}
+\underbrace{
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;  -9 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;  -3 &amp;  -3 \\
+ 0 &amp;  0 &amp;  0 &amp;  -5 &amp;   0 \\
+ 0 &amp;  0 &amp;  0 &amp;   0 &amp;   0 \\
+\end  {bmatrix*}
+}_{\textbf{row echelon}}
+\underset{r_3 \leftarrow (-\frac{1}{5})r_3}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;  -9 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;  -3 &amp;  -3 \\
+ 0 &amp;  0 &amp;  0 &amp;   1 &amp;   0 \\
+ 0 &amp;  0 &amp;  0 &amp;   0 &amp;   0 \\
+\end  {bmatrix*}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;  -9 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;  -3 &amp;  -3 \\
+ 0 &amp;  0 &amp;  0 &amp;   1 &amp;   0 \\
+ 0 &amp;  0 &amp;  0 &amp;   0 &amp;   0 \\
+\end  {bmatrix*}
+\underset{r_2 \leftarrow r_2 + 3r_3}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;  -9 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;   0 &amp;  -3 \\
+ 0 &amp;  0 &amp;  0 &amp;   1 &amp;   0 \\
+ 0 &amp;  0 &amp;  0 &amp;   0 &amp;   0 \\
+\end  {bmatrix*}
+\underset{r_1 \leftarrow r_1 + 9r_3}{\rightarrow}
+\begin{bmatrix*}[r]
+ 1 &amp;  4 &amp;  5 &amp;   0 &amp;  -7 \\
+ 0 &amp;  1 &amp;  2 &amp;   0 &amp;  -3 \\
+ 0 &amp;  0 &amp;  0 &amp;   1 &amp;   0 \\
+ 0 &amp;  0 &amp;  0 &amp;   0 &amp;   0 \\
+\end  {bmatrix*}
+\underset{r_1 \leftarrow r_1 + (-4)r_2}{\rightarrow}
+\underbrace{
+\begin{bmatrix*}[r]
+ \boxed{1} &amp;  0 &amp;  -3 &amp;   0 &amp;   5 \\
+ 0 &amp;  \boxed{1} &amp;   2 &amp;   0 &amp;  -3 \\
+ 0 &amp;  0 &amp;   0 &amp;   \boxed{1} &amp;   0 \\
+ 0 &amp;  0 &amp;   0 &amp;   0 &amp;   0 \\
+\end  {bmatrix*}
+}_{\textbf{reduced}}
+\)</span></p>
+</div></section>
+</section>
+<hr class="docutils" />
+<section id="algorithm-row-reduction">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Algorithm - Row Reduction</span></a><a class="headerlink" href="#algorithm-row-reduction" title="Link to this heading">#</a></h2>
+<div style="color: #0096FF;"><b>PROCEDURE - Row Reduction Algorithm (or how to find the reduced row echelon matrix which is row equivalent to a given matrix)</b></div>
+<p>FORWARD PHASE - produces a row echelon matrix which is row equivalent to the given matrix</p>
+<p>STEP 1 - Begin with the leftmost nonzero column. The first pivot position is at the top of the column.</p>
+<p>STEP 2 - Select a nonzero entry in the pivot column as the pivot. Interchange rows if necessary to move this entry into the pivot position.</p>
+<p>STEP 3 - Use row replacement operations to create zeros in all positions below the pivot.</p>
+<p>STEP 4 - Ignoring the rows containing previously identified pivot positions, repeat Steps 1 to 3 until there are no more nonzero rows to modify.</p>
+<p>BACKWARD PHASE - produces a reduced row echelon matrix which is row equivalent to the given matrix</p>
+<p>STEP 5 - Beginning with the rightmost pivot and working upward and to the left, create zeros above each pivot. If a pivot is not 1, make it 1 by a scaling operation.</p>
+<div class="full-width">
+<p>Use the row reduction algorithm to find the reduced row echelon matrix which is row equivalent to the given matrix.</p>
+<p><span class="math notranslate nohighlight">\(
+\text{STEP 1}
+\left[
+\left|
+  \begin{matrix*}[r]
+   \boxed{0} \\
+   3 \\
+   3 \\
+  \end  {matrix*}
+\right|
+\begin{matrix*}[r]
+  3 &amp; -6 &amp;  6 &amp; 4 &amp; -5 \\
+ -7 &amp;  8 &amp; -5 &amp; 8 &amp;  9 \\
+ -9 &amp; 12 &amp; -9 &amp; 6 &amp; 15 \\
+\end  {matrix*}
+\right]
+\underset{r_1 \leftrightarrow r_2}{\text{STEP 2}\rightarrow}
+\left[
+\left|
+  \begin{matrix*}[r]
+   \boxed{3} \\
+   0 \\
+   3 \\
+  \end  {matrix*}
+\right|
+\begin{matrix*}[r]
+ -7 &amp;  8 &amp; -5 &amp; 8 &amp;  9 \\
+  3 &amp; -6 &amp;  6 &amp; 4 &amp; -5 \\
+ -9 &amp; 12 &amp; -9 &amp; 6 &amp; 15 \\
+\end  {matrix*}
+\right]
+\underset{r_3 \leftarrow r_3 + (-1)r_1}{\text{STEP 3}\rightarrow}
+\left[
+\left|
+  \begin{matrix*}[r]
+   \boxed{3} \\
+   0 \\
+   0 \\
+  \end  {matrix*}
+\right|
+\begin{matrix*}[r]
+ -7 &amp;  8 &amp; -5 &amp;  8 &amp;  9 \\
+  3 &amp; -6 &amp;  6 &amp;  4 &amp; -5 \\
+ -2 &amp;  4 &amp; -4 &amp; -2 &amp;  6 \\
+\end  {matrix*}
+\right]
+\text{STEP 4}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\text{STEP 1}
+\left[
+  \begin{matrix*}[r]
+    \boxed{3} \\
+    0         \\
+    0         \\
+  \end  {matrix*}
+  \left |
+    \begin{matrix*}[r]
+    -7        \\
+    \boxed{3} \\
+    -2        \\
+  \end  {matrix*}
+  \right|
+  \begin{matrix*}[r]
+    8 &amp; -5 &amp;  8 &amp;  9 \\
+   -6 &amp;  6 &amp;  4 &amp; -5 \\
+    4 &amp; -4 &amp; -2 &amp;  6 \\
+  \end  {matrix*}
+\right]
+\underset{r_3 \leftarrow r_3 + \frac{2}{3} r_2}{\text{STEP 3}\rightarrow}
+\left[
+  \begin{matrix*}[r]
+    \boxed{3} \\
+    0         \\
+    0         \\
+  \end  {matrix*}
+  \left |
+    \begin{matrix*}[r]
+      -7        \\
+      \boxed{3} \\
+       0        \\
+    \end  {matrix*}
+  \right|
+  \begin{matrix*}[r]
+    8 &amp; -5 &amp;  8 &amp;  9 \\
+   -6 &amp;  6 &amp;  4 &amp; -5 \\
+    0 &amp;  0 &amp; \frac{2}{3} &amp; \frac{8}{3} \\
+  \end  {matrix*}
+\right]
+\text{STEP 4}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\text{STEP 1}
+\left[
+  \begin{matrix*}[r]
+    \boxed{3} &amp; -7        &amp;  8 &amp; -5 \\
+    0         &amp; \boxed{3} &amp; -6 &amp;  6 \\
+    0         &amp; 0         &amp;  0 &amp;  0 \\
+  \end  {matrix*}
+  \left |
+    \begin{matrix*}[r]
+      8           \\
+      4           \\
+      \boxed{2/3} \\
+    \end  {matrix*}
+  \right|
+  \begin{matrix*}[r]
+     9          \\
+    -5          \\
+    \frac{8}{3} \\
+  \end  {matrix*}
+\right]
+\underset{r_3 \leftarrow \frac{3}{2} r_3}{\text{STEP 3}\rightarrow}
+\underbrace{
+\left[
+  \begin{matrix*}[r]
+    \boxed{3} &amp; -7        &amp;  8 &amp; -5 \\
+    0         &amp; \boxed{3} &amp; -6 &amp;  6 \\
+    0         &amp; 0         &amp;  0 &amp;  0 \\
+  \end  {matrix*}
+  \left |
+    \begin{matrix*}[r]
+      8         \\
+      4         \\
+      \boxed{1} \\
+    \end  {matrix*}
+  \right|
+  \begin{matrix*}[r]
+     9 \\
+    -5 \\
+     4 \\
+  \end  {matrix*}
+\right]
+}_{\textbf{row echelon}}
+\text{STEP 5}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix*}[r]
+\boxed{3} &amp; -7        &amp;  8 &amp; -5 &amp; 8         &amp;  9 \\
+0         &amp; \boxed{3} &amp; -6 &amp;  6 &amp; 4         &amp; -5 \\
+0         &amp; 0         &amp;  0 &amp;  0 &amp; \boxed{1} &amp;  4 \\
+\end  {bmatrix*}
+\underset{r_2 \leftarrow r_2 + (-4)r_3}{\rightarrow}
+\begin{bmatrix*}[r]
+\boxed{3} &amp; -7        &amp;  8 &amp; -5 &amp; 8         &amp;   9 \\
+0         &amp; \boxed{3} &amp; -6 &amp;  6 &amp; 0         &amp; -21 \\
+0         &amp; 0         &amp;  0 &amp;  0 &amp; \boxed{1} &amp;   4 \\
+\end  {bmatrix*}
+\underset{r_1 \leftarrow r_1 + (-8)r_3}{\rightarrow}
+\begin{bmatrix*}[r]
+\boxed{3} &amp; -7        &amp;  8 &amp; -5 &amp; 0         &amp; -15 \\
+0         &amp; \boxed{3} &amp; -6 &amp;  6 &amp; 0         &amp; -21 \\
+0         &amp; 0         &amp;  0 &amp;  0 &amp; \boxed{1} &amp;   4 \\
+\end  {bmatrix*}
+\underset{r_2 \leftarrow \frac{1}{3} r_2}{\rightarrow}
+\begin{bmatrix*}[r]
+\boxed{3} &amp; -7        &amp;  8 &amp; -5 &amp; 0         &amp; -15 \\
+0         &amp; \boxed{1} &amp; -2 &amp;  2 &amp; 0         &amp;  -7 \\
+0         &amp; 0         &amp;  0 &amp;  0 &amp; \boxed{1} &amp;   4 \\
+\end  {bmatrix*}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix*}[r]
+\boxed{3} &amp; -7        &amp;  8 &amp; -5 &amp; 0         &amp; -15 \\
+0         &amp; \boxed{1} &amp; -2 &amp;  2 &amp; 0         &amp;  -7 \\
+0         &amp; 0         &amp;  0 &amp;  0 &amp; \boxed{1} &amp;   4 \\
+\end  {bmatrix*}
+\underset{r_1 \leftarrow r_1 + 7r_2}{\rightarrow}
+\begin{bmatrix*}[r]
+\boxed{3} &amp; 0         &amp; -6 &amp;  9 &amp; 0         &amp; -64 \\
+0         &amp; \boxed{1} &amp; -2 &amp;  2 &amp; 0         &amp;  -7 \\
+0         &amp; 0         &amp;  0 &amp;  0 &amp; \boxed{1} &amp;   4 \\
+\end  {bmatrix*}
+\underset{r_1 \leftarrow \frac{1}{3} r_1}{\rightarrow}
+\underbrace{
+\begin{bmatrix*}[r]
+\boxed{1} &amp; 0         &amp; -2 &amp;  3 &amp; 0         &amp; -24 \\
+0         &amp; \boxed{1} &amp; -2 &amp;  2 &amp; 0         &amp;  -7 \\
+0         &amp; 0         &amp;  0 &amp;  0 &amp; \boxed{1} &amp;   4 \\
+\end  {bmatrix*}
+}_{\textbf{reduced}}
+\)</span></p>
+</div></section>
+<hr class="docutils" />
+<section id="procedure-read-off-the-solution-set-of-a-linear-system-whose-augmented-matrix-is-a-reduced-row-echelon-matrix">
+<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Procedure - Read off the solution set of a linear system whose augmented matrix is a reduced row echelon matrix</span></a><a class="headerlink" href="#procedure-read-off-the-solution-set-of-a-linear-system-whose-augmented-matrix-is-a-reduced-row-echelon-matrix" title="Link to this heading">#</a></h2>
+<div style="color: #0096FF;"><b>PROCEDURE - How to read off the solutions of a linear system whose augmented matrix is a reduced row echelon matrix?</b></div>
+<p>STEP 1 - Is the linear system consistent?</p>
+<ul class="simple">
+<li><p>If the last column of a row echelon augmented matrix contains a pivot then the linear system it represents is inconsistent and there is no solution. STOP HERE.</p></li>
+<li><p>If the last column of a row echelon augmented matrix contains no pivot then the linear system it represents is consistent and there is either one solution or there are infinitely many solutions. PROCEED.</p></li>
+</ul>
+<p>STEP 2 - How many solutions are there? The variables corresponding to the columns of the coefficient matrix that do not contain a pivot act as parameters and are called <span style="color: #0096FF;"><b>free variables</b></span>.</p>
+<ul class="simple">
+<li><p>The linear system has exactly one solution when there is no free variable (i.e., when every column of the coefficient matrix contains a pivot)</p></li>
+<li><p>The linear system has exactly one solution when there is at least one free variable (i.e., when at least one column of the coefficient matrix does not contain a pivot)</p></li>
+</ul>
+<p>STEP 3 - How to describe the solution set?</p>
+<p>The variables corresponding to pivot columns are called <span style="color: #0096FF;"><b>pivot variables</b></span> (or <span style="color: #0096FF;"><b>basic variables</b></span>). It’s easy to solve the equations of the linear system in reduced row echelon form for the pivot variables in terms of the free variables. The equations should be solved sequentially starting from the bottommost (last) equation and ending with the topmost (first) equation. This procedure yields a parametric description of the solution set.</p>
+</section>
+<hr class="docutils" />
+<section id="theorem-rouche-capelli">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Theorem - Rouché-Capelli</span></a><a class="headerlink" href="#theorem-rouche-capelli" title="Link to this heading">#</a></h2>
+<div style="color: #0096FF;"><b>THEOREM - Rouché-Capelli - Existence and Uniqueness of Solutions of a Linear System</b></div>
+<p>For a linear system in row echelon form</p>
+<ul class="simple">
+<li><p>When there is a pivot in the last column of the augmented matrix the system is inconsistent</p></li>
+<li><p>When there is no pivot in the last column of the augmented matrix the system is consistent</p></li>
+<li><p>A consistent system with free variables (pivot-free columns in the coefficient matrix) has infinitely many solutions</p></li>
+<li><p>A consistent system with no free variables (every column of the coefficient matrix contains a pivot) has a unique (one and only one) solution</p></li>
+</ul>
+<hr class="docutils" />
+<section id="id9">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>Write the linear system as an augmented matrix; identify the pivot and free variables; and express the pivot variables in terms of the free variables.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  x_1 &amp;&amp; + &amp;&amp; 6x_2 &amp;&amp;   &amp;&amp;      &amp;&amp; + &amp;&amp; 3x_4 &amp;&amp; &amp;&amp;     &amp;&amp; = &amp;&amp;  0 \\
+      &amp;&amp;   &amp;&amp;      &amp;&amp;   &amp;&amp;  x_3 &amp;&amp; - &amp;&amp; 8x_4 &amp;&amp; &amp;&amp;     &amp;&amp; = &amp;&amp;  5 \\
+      &amp;&amp;   &amp;&amp;      &amp;&amp;   &amp;&amp;      &amp;&amp;   &amp;&amp;      &amp;&amp; &amp;&amp; x_5 &amp;&amp; = &amp;&amp; -9 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+  \begin{matrix*}[r]
+     \boxed{1} &amp;  6 &amp; 0         &amp;  3 &amp; 0         \\
+     0         &amp;  0 &amp; \boxed{1} &amp; -8 &amp; 0         \\
+     0         &amp;  0 &amp; 0         &amp;  0 &amp; \boxed{1} \\
+  \end  {matrix*}
+  \left|
+    \begin{matrix*}[r]
+       0 \\
+       5 \\
+      -9 \\
+    \end  {matrix*}
+  \right.
+\right]
+\)</span></p>
+<p>The basic variables are <span class="math notranslate nohighlight">\(x_1, x_3, x_5\)</span> and the free variables are <span class="math notranslate nohighlight">\(x_2, x_4\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x_5 &amp;= -9 \\
+x_3 - 8x_4 = 5 \iff x_3 &amp;= 8x_4 + 5 \\
+x_1 + 6x_2 + 3x_4 = 0 \iff x_1 &amp;= -6x_2 - 3x_4 \\
+\end  {aligned}
+\)</span></p>
+<p>The solution set of the linear system is <span class="math notranslate nohighlight">\(\{(\underbrace{-6x_2 - 3x_4}_{x_1}, x_2, \underbrace{8x_4 + 5}_{x_3}, x_4, \underbrace{-9}_{x_5})\}\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="id10">
+<h3><a class="toc-backref" href="#id40" role="doc-backlink"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a><a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>Determine the numerical values of <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(k\)</span> for which the linear system has (1) no solution, (2) a unique solution, and (3) infinitely many solutions.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  x_1 &amp;&amp; - &amp;&amp; 3x_2 &amp;&amp; = &amp;&amp; 1 \\
+ 2x_1 &amp;&amp; + &amp;&amp; hx_2 &amp;&amp; = &amp;&amp; k \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\left[
+  \begin{matrix*}[r]
+     1 &amp; -3 \\
+     2 &amp;  h \\
+  \end  {matrix*}
+  \left|
+    \begin{matrix*}[r]
+       1 \\
+       k \\
+    \end  {matrix*}
+  \right.
+\right]
+\underset{r_2 \leftarrow r_2 + (-2)r_1}{\rightarrow}
+\left[
+  \begin{matrix*}[r]
+     1 &amp; -3    \\
+     0 &amp; h + 6 \\
+  \end  {matrix*}
+  \left|
+    \begin{matrix*}[r]
+       1     \\
+       k - 2 \\
+    \end  {matrix*}
+  \right.
+\right]
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{no solution} &amp;
+\begin{cases}
+h + 6   = 0 \iff h   = -6 \\
+k - 2 \ne 0 \iff k \ne  2 \\
+\end  {cases} \\
+\text{one solution} &amp;
+\begin{cases}
+h + 6 \ne 0 \iff h \ne -6 \\
+\end  {cases} \\
+\text{infinitely many solutions} &amp;
+\begin{cases}
+h + 6 = 0 \iff h = -6 \\
+k - 2 = 0 \iff k =  2 \\
+\end  {cases} \\
+\end{aligned}
+\)</span></p>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./math/linear_algebra"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Linear Algebra</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Linear Combinations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-linear-equation"><span style="color: #0096FF; font-family: Romans; font-size: 24px;">Definition</span>    <span style="font-family: Romans; font-size: 24px;">Linear Equation</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example"><span style="color: #32CD32; font-family: Romans; font-size: 18px;">Example</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-linear-system"><span style="color: #0096FF; font-family: Romans; font-size: 24px;">Definition</span>    <span style="font-family: Romans; font-size: 24px;">Linear System</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-solution-set-of-a-linear-system"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Solution Set of a linear system</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-consistency-of-a-linear-system"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Consistency of a linear system</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-matrix-coefficient-matrix-augmented-matrix"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Matrix, Coefficient Matrix, Augmented Matrix</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-equivalence-of-linear-systems"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Equivalence of linear systems</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-elementary-row-operations"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Elementary Row Operations</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-solving-linear-systems"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Procedure - Solving linear systems</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-row-equivalence-of-matrices"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Row Equivalence of matrices</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-determine-whether-a-linear-system-is-consistent"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Determine whether a linear system is consistent</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-row-echelon-matrix"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Row Echelon Matrix</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-reduced-row-echelon-matrix"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Reduced Row Echelon Matrix</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Theorem</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-pivot-position"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Definition - Pivot Position</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-row-reduction"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Algorithm - Row Reduction</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-read-off-the-solution-set-of-a-linear-system-whose-augmented-matrix-is-a-reduced-row-echelon-matrix"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Procedure - Read off the solution set of a linear system whose augmented matrix is a reduced row echelon matrix</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-rouche-capelli"><span style="color: #0096FF; font-family: Romans; font-size: 18px;">Theorem - Rouché-Capelli</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><span style="color: green; font-family: Romans; font-size: 18px;"><b>Example</b></span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
