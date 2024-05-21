@@ -1,0 +1,1349 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A02 - Graphical Exploration &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c/programming/rlang/STAT184/A02';</script>
+    <script src="../../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="A04 - Data Wrangling" href="A04.html" />
+    <link rel="prev" title="A01 - Tidy Data" href="A01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../index.html">Computery Things</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../index.html">Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../index.html">R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A02 - Graphical Exploration</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a02">A02</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a02-graphical-exploration">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">A02 - Graphical Exploration</a><a class="headerlink" href="#a02-graphical-exploration" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<div class="admonition-revised admonition">
+<p class="admonition-title">Revised</p>
+<p>21 May 2023</p>
+</div>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#a02-graphical-exploration" id="id1">A02 - Graphical Exploration</a></p>
+<ul>
+<li><p><a class="reference internal" href="#programming-environment" id="id2">Programming Environment</a></p></li>
+<li><p><a class="reference internal" href="#a02" id="id3">A02</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Programming Environment</a><a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span>
+<span class="w">  </span><span class="s">&#39;COUNT&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&#39;dcData&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&#39;esquisse&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&#39;mosaic&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&#39;rmarkdown&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&#39;tidytuesdayR&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&#39;tidyverse&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Install packages not yet installed</span>
+<span class="n">installed_packages</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">packages</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">rownames</span><span class="p">(</span><span class="nf">installed.packages</span><span class="p">())</span>
+<span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="n">installed_packages</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">install.packages</span><span class="p">(</span><span class="n">packages</span><span class="p">[</span><span class="o">!</span><span class="n">installed_packages</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="c1"># Load packages</span>
+<span class="nf">invisible</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="n">packages</span><span class="p">,</span><span class="w"> </span><span class="n">library</span><span class="p">,</span><span class="w"> </span><span class="n">character.only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span>
+
+<span class="nf">sessionInfo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: msme
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: MASS
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: lattice
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: sandwich
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Registered S3 method overwritten by &#39;mosaic&#39;:
+  method                           from   
+  fortify.SpatialPolygonsDataFrame ggplot2
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The &#39;mosaic&#39; package masks several functions from core packages in order to add 
+additional features.  The original behavior of these functions should not be affected by this.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attaching package: ‘mosaic’
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The following objects are masked from ‘package:dplyr’:
+
+    count, do, tally
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The following object is masked from ‘package:Matrix’:
+
+    mean
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The following object is masked from ‘package:ggplot2’:
+
+    stat
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The following objects are masked from ‘package:stats’:
+
+    binom.test, cor, cor.test, cov, fivenum, IQR, median, prop.test,
+    quantile, sd, t.test, var
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The following objects are masked from ‘package:base’:
+
+    max, mean, min, prod, range, sample, sum
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching core tidyverse packages</span> ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">forcats  </span> 1.0.0     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">stringr  </span> 1.5.0
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">lubridate</span> 1.9.2     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble   </span> 3.2.1
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr    </span> 1.0.2     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr    </span> 1.3.0
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">readr    </span> 2.1.4     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">mosaic</span>::<span class=" -Color -Color-Green">count()</span> masks <span class=" -Color -Color-Blue">dplyr</span>::count()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">purrr</span>::<span class=" -Color -Color-Green">cross()</span>  masks <span class=" -Color -Color-Blue">mosaic</span>::cross()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">mosaic</span>::<span class=" -Color -Color-Green">do()</span>    masks <span class=" -Color -Color-Blue">dplyr</span>::do()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tidyr</span>::<span class=" -Color -Color-Green">expand()</span> masks <span class=" -Color -Color-Blue">Matrix</span>::expand()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tidyr</span>::<span class=" -Color -Color-Green">pack()</span>   masks <span class=" -Color -Color-Blue">Matrix</span>::pack()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">select()</span> masks <span class=" -Color -Color-Blue">MASS</span>::select()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">mosaic</span>::<span class=" -Color -Color-Green">stat()</span>  masks <span class=" -Color -Color-Blue">ggplot2</span>::stat()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">mosaic</span>::<span class=" -Color -Color-Green">tally()</span> masks <span class=" -Color -Color-Blue">dplyr</span>::tally()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tidyr</span>::<span class=" -Color -Color-Green">unpack()</span> masks <span class=" -Color -Color-Blue">Matrix</span>::unpack()
+<span class=" -Color -Color-Cyan">ℹ</span> Use the conflicted package (<span class=" -Color -Color-Blue">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
+Platform: aarch64-apple-darwin20 (64-bit)
+Running under: macOS 14.4.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] lubridate_1.9.2    forcats_1.0.0      stringr_1.5.0      purrr_1.0.2       
+ [5] readr_2.1.4        tidyr_1.3.0        tibble_3.2.1       tidyverse_2.0.0   
+ [9] tidytuesdayR_1.0.2 rmarkdown_2.22     mosaic_1.8.4.2     mosaicData_0.20.3 
+[13] ggformula_0.10.4   dplyr_1.1.2        Matrix_1.5-4       ggplot2_3.4.3     
+[17] esquisse_1.1.2     dcData_0.1.0       COUNT_1.3.4        sandwich_3.0-2    
+[21] msme_0.5.3         lattice_0.21-8     MASS_7.3-58.4     
+
+loaded via a namespace (and not attached):
+ [1] writexl_1.4.2       tidyselect_1.2.0    IRdisplay_1.1      
+ [4] farver_2.1.1        fastmap_1.1.1       tweenr_2.0.2       
+ [7] promises_1.2.0.1    labelled_2.11.0     digest_0.6.31      
+[10] timechange_0.2.0    mime_0.12           lifecycle_1.0.3    
+[13] ellipsis_0.3.2      magrittr_2.0.3      compiler_4.3.0     
+[16] rlang_1.1.1         sass_0.4.6          tools_4.3.0        
+[19] utf8_1.2.3          data.table_1.14.8   knitr_1.43         
+[22] htmlwidgets_1.6.2   curl_5.0.2          shinybusy_0.3.1    
+[25] ggstance_0.3.6      xml2_1.3.4          repr_1.1.6         
+[28] pbdZMQ_0.3-9        foreign_0.8-84      withr_2.5.0        
+[31] shinyWidgets_0.7.6  grid_4.3.0          polyclip_1.10-4    
+[34] mosaicCore_0.9.2.1  fansi_1.0.4         xtable_1.8-4       
+[37] colorspace_2.1-0    scales_1.2.1        ggridges_0.5.4     
+[40] cli_3.6.1           crayon_1.5.2        datamods_1.4.0     
+[43] generics_0.1.3      rstudioapi_0.15.0   tzdb_0.4.0         
+[46] httr_1.4.6          readxl_1.4.2        cachem_1.0.8       
+[49] ggforce_0.4.1       rvest_1.0.3         cellranger_1.1.0   
+[52] base64enc_0.1-3     vctrs_0.6.3         jsonlite_1.8.5     
+[55] hms_1.1.3           jquerylib_0.1.4     rio_0.5.29         
+[58] glue_1.6.2          stringi_1.7.12      gtable_0.3.3       
+[61] later_1.3.1         munsell_0.5.0       pillar_1.9.0       
+[64] htmltools_0.5.5     IRkernel_1.3.2      reactable_0.4.4    
+[67] R6_2.5.1            evaluate_0.21       shiny_1.7.4        
+[70] haven_2.5.2         openxlsx_4.2.5.2    httpuv_1.6.11      
+[73] bslib_0.5.0         phosphoricons_0.1.2 Rcpp_1.0.10        
+[76] zip_2.3.0           uuid_1.1-0          xfun_0.39          
+[79] fs_1.6.2            usethis_2.1.6       zoo_1.8-12         
+[82] pkgconfig_2.0.3    
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>glyph (mark, symbol) - the basic graphical unit, often corresponding to a case</p>
+<ul class="simple">
+<li><p>e.g., scatter, density, bar, etc.</p></li>
+</ul>
+<p>aesthetic - a visual property of a glyph (e.g., position, size, shape, color, etc.)</p>
+<ul class="simple">
+<li><p>may be mapped, based on the data values (e.g., sex -&gt; color)</p></li>
+<li><p>may be set, or fixed to arbitrary non-data values (color=blue)</p></li>
+</ul>
+<p>scale - a mapping that translates data values to aesthetics</p>
+<p>frame - the position scale, describing how data are mapped to the coordinate system</p>
+<ul class="simple">
+<li><p>What are the axis limits?</p></li>
+<li><p>What kind of scale?: linear, logarithmic, etc.</p></li>
+</ul>
+<p>guide - the legend, helpful for the reader to translage aesthetics back to data values</p>
+<ul class="simple">
+<li><p>axis ticks, axis labels; legend; labels</p></li>
+</ul>
+<p>facet</p>
+<p>layer</p>
+<p>stat</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="s">&#39;iris&#39;</span><span class="p">)</span>
+<span class="n">iris.glyphready</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">iris</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">rename</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">Petal.Length</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">Species</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">iris.glyphready</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris.glyphready</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="nf">as.factor</span><span class="p">(</span><span class="n">color</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_smooth</span><span class="p">(</span><span class="n">se</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Petal.Width</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_histogram</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="m">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 5</caption>
+<thead>
+	<tr><th></th><th scope=col>x</th><th scope=col>Sepal.Width</th><th scope=col>y</th><th scope=col>Petal.Width</th><th scope=col>color</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><th scope=row>2</th><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><th scope=row>3</th><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr>
+	<tr><th scope=row>4</th><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr>
+	<tr><th scope=row>5</th><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr>
+	<tr><th scope=row>6</th><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr>
+</tbody>
+</table>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../../_images/9d71c841b8bbb1db52f3d7d2e10149e3ac23b69d7cf038e9fc06c55826c2a066.png"><img alt="../../../../_images/9d71c841b8bbb1db52f3d7d2e10149e3ac23b69d7cf038e9fc06c55826c2a066.png" src="../../../../_images/9d71c841b8bbb1db52f3d7d2e10149e3ac23b69d7cf038e9fc06c55826c2a066.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../../_images/fa84db37bd9ecde144974912b57d9e051177edd385e5fedb1159c994edff5f9e.png"><img alt="../../../../_images/fa84db37bd9ecde144974912b57d9e051177edd385e5fedb1159c994edff5f9e.png" src="../../../../_images/fa84db37bd9ecde144974912b57d9e051177edd385e5fedb1159c994edff5f9e.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+<section id="a02">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">A02</a><a class="headerlink" href="#a02" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="s">&#39;diamonds&#39;</span><span class="p">,</span><span class="n">package</span><span class="o">=</span><span class="s">&#39;ggplot2&#39;</span><span class="p">)</span>
+<span class="n">diamonds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 53940 × 10</caption>
+<thead>
+	<tr><th scope=col>carat</th><th scope=col>cut</th><th scope=col>color</th><th scope=col>clarity</th><th scope=col>depth</th><th scope=col>table</th><th scope=col>price</th><th scope=col>x</th><th scope=col>y</th><th scope=col>z</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;ord&gt;</th><th scope=col>&lt;ord&gt;</th><th scope=col>&lt;ord&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>0.23</td><td>Ideal    </td><td>E</td><td>SI2 </td><td>61.5</td><td>55</td><td>326</td><td>3.95</td><td>3.98</td><td>2.43</td></tr>
+	<tr><td>0.21</td><td>Premium  </td><td>E</td><td>SI1 </td><td>59.8</td><td>61</td><td>326</td><td>3.89</td><td>3.84</td><td>2.31</td></tr>
+	<tr><td>0.23</td><td>Good     </td><td>E</td><td>VS1 </td><td>56.9</td><td>65</td><td>327</td><td>4.05</td><td>4.07</td><td>2.31</td></tr>
+	<tr><td>0.29</td><td>Premium  </td><td>I</td><td>VS2 </td><td>62.4</td><td>58</td><td>334</td><td>4.20</td><td>4.23</td><td>2.63</td></tr>
+	<tr><td>0.31</td><td>Good     </td><td>J</td><td>SI2 </td><td>63.3</td><td>58</td><td>335</td><td>4.34</td><td>4.35</td><td>2.75</td></tr>
+	<tr><td>0.24</td><td>Very Good</td><td>J</td><td>VVS2</td><td>62.8</td><td>57</td><td>336</td><td>3.94</td><td>3.96</td><td>2.48</td></tr>
+	<tr><td>0.24</td><td>Very Good</td><td>I</td><td>VVS1</td><td>62.3</td><td>57</td><td>336</td><td>3.95</td><td>3.98</td><td>2.47</td></tr>
+	<tr><td>0.26</td><td>Very Good</td><td>H</td><td>SI1 </td><td>61.9</td><td>55</td><td>337</td><td>4.07</td><td>4.11</td><td>2.53</td></tr>
+	<tr><td>0.22</td><td>Fair     </td><td>E</td><td>VS2 </td><td>65.1</td><td>61</td><td>337</td><td>3.87</td><td>3.78</td><td>2.49</td></tr>
+	<tr><td>0.23</td><td>Very Good</td><td>H</td><td>VS1 </td><td>59.4</td><td>61</td><td>338</td><td>4.00</td><td>4.05</td><td>2.39</td></tr>
+	<tr><td>0.30</td><td>Good     </td><td>J</td><td>SI1 </td><td>64.0</td><td>55</td><td>339</td><td>4.25</td><td>4.28</td><td>2.73</td></tr>
+	<tr><td>0.23</td><td>Ideal    </td><td>J</td><td>VS1 </td><td>62.8</td><td>56</td><td>340</td><td>3.93</td><td>3.90</td><td>2.46</td></tr>
+	<tr><td>0.22</td><td>Premium  </td><td>F</td><td>SI1 </td><td>60.4</td><td>61</td><td>342</td><td>3.88</td><td>3.84</td><td>2.33</td></tr>
+	<tr><td>0.31</td><td>Ideal    </td><td>J</td><td>SI2 </td><td>62.2</td><td>54</td><td>344</td><td>4.35</td><td>4.37</td><td>2.71</td></tr>
+	<tr><td>0.20</td><td>Premium  </td><td>E</td><td>SI2 </td><td>60.2</td><td>62</td><td>345</td><td>3.79</td><td>3.75</td><td>2.27</td></tr>
+	<tr><td>0.32</td><td>Premium  </td><td>E</td><td>I1  </td><td>60.9</td><td>58</td><td>345</td><td>4.38</td><td>4.42</td><td>2.68</td></tr>
+	<tr><td>0.30</td><td>Ideal    </td><td>I</td><td>SI2 </td><td>62.0</td><td>54</td><td>348</td><td>4.31</td><td>4.34</td><td>2.68</td></tr>
+	<tr><td>0.30</td><td>Good     </td><td>J</td><td>SI1 </td><td>63.4</td><td>54</td><td>351</td><td>4.23</td><td>4.29</td><td>2.70</td></tr>
+	<tr><td>0.30</td><td>Good     </td><td>J</td><td>SI1 </td><td>63.8</td><td>56</td><td>351</td><td>4.23</td><td>4.26</td><td>2.71</td></tr>
+	<tr><td>0.30</td><td>Very Good</td><td>J</td><td>SI1 </td><td>62.7</td><td>59</td><td>351</td><td>4.21</td><td>4.27</td><td>2.66</td></tr>
+	<tr><td>0.30</td><td>Good     </td><td>I</td><td>SI2 </td><td>63.3</td><td>56</td><td>351</td><td>4.26</td><td>4.30</td><td>2.71</td></tr>
+	<tr><td>0.23</td><td>Very Good</td><td>E</td><td>VS2 </td><td>63.8</td><td>55</td><td>352</td><td>3.85</td><td>3.92</td><td>2.48</td></tr>
+	<tr><td>0.23</td><td>Very Good</td><td>H</td><td>VS1 </td><td>61.0</td><td>57</td><td>353</td><td>3.94</td><td>3.96</td><td>2.41</td></tr>
+	<tr><td>0.31</td><td>Very Good</td><td>J</td><td>SI1 </td><td>59.4</td><td>62</td><td>353</td><td>4.39</td><td>4.43</td><td>2.62</td></tr>
+	<tr><td>0.31</td><td>Very Good</td><td>J</td><td>SI1 </td><td>58.1</td><td>62</td><td>353</td><td>4.44</td><td>4.47</td><td>2.59</td></tr>
+	<tr><td>0.23</td><td>Very Good</td><td>G</td><td>VVS2</td><td>60.4</td><td>58</td><td>354</td><td>3.97</td><td>4.01</td><td>2.41</td></tr>
+	<tr><td>0.24</td><td>Premium  </td><td>I</td><td>VS1 </td><td>62.5</td><td>57</td><td>355</td><td>3.97</td><td>3.94</td><td>2.47</td></tr>
+	<tr><td>0.30</td><td>Very Good</td><td>J</td><td>VS2 </td><td>62.2</td><td>57</td><td>357</td><td>4.28</td><td>4.30</td><td>2.67</td></tr>
+	<tr><td>0.23</td><td>Very Good</td><td>D</td><td>VS2 </td><td>60.5</td><td>61</td><td>357</td><td>3.96</td><td>3.97</td><td>2.40</td></tr>
+	<tr><td>0.23</td><td>Very Good</td><td>F</td><td>VS1 </td><td>60.9</td><td>57</td><td>357</td><td>3.96</td><td>3.99</td><td>2.42</td></tr>
+	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><td>0.70</td><td>Premium  </td><td>E</td><td>SI1 </td><td>60.5</td><td>58</td><td>2753</td><td>5.74</td><td>5.77</td><td>3.48</td></tr>
+	<tr><td>0.57</td><td>Premium  </td><td>E</td><td>IF  </td><td>59.8</td><td>60</td><td>2753</td><td>5.43</td><td>5.38</td><td>3.23</td></tr>
+	<tr><td>0.61</td><td>Premium  </td><td>F</td><td>VVS1</td><td>61.8</td><td>59</td><td>2753</td><td>5.48</td><td>5.40</td><td>3.36</td></tr>
+	<tr><td>0.80</td><td>Good     </td><td>G</td><td>VS2 </td><td>64.2</td><td>58</td><td>2753</td><td>5.84</td><td>5.81</td><td>3.74</td></tr>
+	<tr><td>0.84</td><td>Good     </td><td>I</td><td>VS1 </td><td>63.7</td><td>59</td><td>2753</td><td>5.94</td><td>5.90</td><td>3.77</td></tr>
+	<tr><td>0.77</td><td>Ideal    </td><td>E</td><td>SI2 </td><td>62.1</td><td>56</td><td>2753</td><td>5.84</td><td>5.86</td><td>3.63</td></tr>
+	<tr><td>0.74</td><td>Good     </td><td>D</td><td>SI1 </td><td>63.1</td><td>59</td><td>2753</td><td>5.71</td><td>5.74</td><td>3.61</td></tr>
+	<tr><td>0.90</td><td>Very Good</td><td>J</td><td>SI1 </td><td>63.2</td><td>60</td><td>2753</td><td>6.12</td><td>6.09</td><td>3.86</td></tr>
+	<tr><td>0.76</td><td>Premium  </td><td>I</td><td>VS1 </td><td>59.3</td><td>62</td><td>2753</td><td>5.93</td><td>5.85</td><td>3.49</td></tr>
+	<tr><td>0.76</td><td>Ideal    </td><td>I</td><td>VVS1</td><td>62.2</td><td>55</td><td>2753</td><td>5.89</td><td>5.87</td><td>3.66</td></tr>
+	<tr><td>0.70</td><td>Very Good</td><td>E</td><td>VS2 </td><td>62.4</td><td>60</td><td>2755</td><td>5.57</td><td>5.61</td><td>3.49</td></tr>
+	<tr><td>0.70</td><td>Very Good</td><td>E</td><td>VS2 </td><td>62.8</td><td>60</td><td>2755</td><td>5.59</td><td>5.65</td><td>3.53</td></tr>
+	<tr><td>0.70</td><td>Very Good</td><td>D</td><td>VS1 </td><td>63.1</td><td>59</td><td>2755</td><td>5.67</td><td>5.58</td><td>3.55</td></tr>
+	<tr><td>0.73</td><td>Ideal    </td><td>I</td><td>VS2 </td><td>61.3</td><td>56</td><td>2756</td><td>5.80</td><td>5.84</td><td>3.57</td></tr>
+	<tr><td>0.73</td><td>Ideal    </td><td>I</td><td>VS2 </td><td>61.6</td><td>55</td><td>2756</td><td>5.82</td><td>5.84</td><td>3.59</td></tr>
+	<tr><td>0.79</td><td>Ideal    </td><td>I</td><td>SI1 </td><td>61.6</td><td>56</td><td>2756</td><td>5.95</td><td>5.97</td><td>3.67</td></tr>
+	<tr><td>0.71</td><td>Ideal    </td><td>E</td><td>SI1 </td><td>61.9</td><td>56</td><td>2756</td><td>5.71</td><td>5.73</td><td>3.54</td></tr>
+	<tr><td>0.79</td><td>Good     </td><td>F</td><td>SI1 </td><td>58.1</td><td>59</td><td>2756</td><td>6.06</td><td>6.13</td><td>3.54</td></tr>
+	<tr><td>0.79</td><td>Premium  </td><td>E</td><td>SI2 </td><td>61.4</td><td>58</td><td>2756</td><td>6.03</td><td>5.96</td><td>3.68</td></tr>
+	<tr><td>0.71</td><td>Ideal    </td><td>G</td><td>VS1 </td><td>61.4</td><td>56</td><td>2756</td><td>5.76</td><td>5.73</td><td>3.53</td></tr>
+	<tr><td>0.71</td><td>Premium  </td><td>E</td><td>SI1 </td><td>60.5</td><td>55</td><td>2756</td><td>5.79</td><td>5.74</td><td>3.49</td></tr>
+	<tr><td>0.71</td><td>Premium  </td><td>F</td><td>SI1 </td><td>59.8</td><td>62</td><td>2756</td><td>5.74</td><td>5.73</td><td>3.43</td></tr>
+	<tr><td>0.70</td><td>Very Good</td><td>E</td><td>VS2 </td><td>60.5</td><td>59</td><td>2757</td><td>5.71</td><td>5.76</td><td>3.47</td></tr>
+	<tr><td>0.70</td><td>Very Good</td><td>E</td><td>VS2 </td><td>61.2</td><td>59</td><td>2757</td><td>5.69</td><td>5.72</td><td>3.49</td></tr>
+	<tr><td>0.72</td><td>Premium  </td><td>D</td><td>SI1 </td><td>62.7</td><td>59</td><td>2757</td><td>5.69</td><td>5.73</td><td>3.58</td></tr>
+	<tr><td>0.72</td><td>Ideal    </td><td>D</td><td>SI1 </td><td>60.8</td><td>57</td><td>2757</td><td>5.75</td><td>5.76</td><td>3.50</td></tr>
+	<tr><td>0.72</td><td>Good     </td><td>D</td><td>SI1 </td><td>63.1</td><td>55</td><td>2757</td><td>5.69</td><td>5.75</td><td>3.61</td></tr>
+	<tr><td>0.70</td><td>Very Good</td><td>D</td><td>SI1 </td><td>62.8</td><td>60</td><td>2757</td><td>5.66</td><td>5.68</td><td>3.56</td></tr>
+	<tr><td>0.86</td><td>Premium  </td><td>H</td><td>SI2 </td><td>61.0</td><td>58</td><td>2757</td><td>6.15</td><td>6.12</td><td>3.74</td></tr>
+	<tr><td>0.75</td><td>Ideal    </td><td>D</td><td>SI2 </td><td>62.2</td><td>55</td><td>2757</td><td>5.83</td><td>5.87</td><td>3.64</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="n">diamonds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_full-width docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span><span class="n">repr.plot.height</span><span class="o">=</span><span class="m">30</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diamonds</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">carat</span><span class="p">,</span>
+<span class="w">                 </span><span class="n">y</span><span class="o">=</span><span class="n">price</span><span class="p">,</span>
+<span class="w">                 </span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+<span class="w">                 </span><span class="c1">#shape=clarity,</span>
+<span class="w">                 </span><span class="n">size</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span>
+<span class="w">                 </span><span class="n">alpha</span><span class="o">=</span><span class="n">table</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">facet_wrap</span><span class="p">(</span><span class="n">clarity</span><span class="o">~</span><span class="n">cut</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">8</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="nf">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">20</span><span class="p">))</span>
+<span class="n">plt</span>
+
+<span class="c1">#suppressWarnings(print(plt))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../../_images/583d0ea8d71fce2f84c021001c494d3bed83712cfe66b7a2b6e1c329b2c26400.png"><img alt="../../../../_images/583d0ea8d71fce2f84c021001c494d3bed83712cfe66b7a2b6e1c329b2c26400.png" src="../../../../_images/583d0ea8d71fce2f84c021001c494d3bed83712cfe66b7a2b6e1c329b2c26400.png" style="width: 1200px; height: 1800px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://www.kaggle.com/datasets/crawford/80-cereals</span>
+<span class="n">cereal</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#39;cereal.csv&#39;</span><span class="p">)</span>
+<span class="n">cereal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">77</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">16</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
+<span class=" -Color -Color-Red">chr</span>  (3): name, mfr, type
+<span class=" -Color -Color-Green">dbl</span> (13): calories, protein, fat, sodium, fiber, carbo, sugars, potass, vita...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">ℹ</span> Use `spec()` to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A spec_tbl_df: 77 × 16</caption>
+<thead>
+	<tr><th scope=col>name</th><th scope=col>mfr</th><th scope=col>type</th><th scope=col>calories</th><th scope=col>protein</th><th scope=col>fat</th><th scope=col>sodium</th><th scope=col>fiber</th><th scope=col>carbo</th><th scope=col>sugars</th><th scope=col>potass</th><th scope=col>vitamins</th><th scope=col>shelf</th><th scope=col>weight</th><th scope=col>cups</th><th scope=col>rating</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>100% Bran                             </td><td>N</td><td>C</td><td> 70</td><td>4</td><td>1</td><td>130</td><td>10.0</td><td> 5.0</td><td> 6</td><td>280</td><td>25</td><td>3</td><td>1.00</td><td>0.33</td><td>68.40297</td></tr>
+	<tr><td>100% Natural Bran                     </td><td>Q</td><td>C</td><td>120</td><td>3</td><td>5</td><td> 15</td><td> 2.0</td><td> 8.0</td><td> 8</td><td>135</td><td> 0</td><td>3</td><td>1.00</td><td>1.00</td><td>33.98368</td></tr>
+	<tr><td>All-Bran                              </td><td>K</td><td>C</td><td> 70</td><td>4</td><td>1</td><td>260</td><td> 9.0</td><td> 7.0</td><td> 5</td><td>320</td><td>25</td><td>3</td><td>1.00</td><td>0.33</td><td>59.42551</td></tr>
+	<tr><td>All-Bran with Extra Fiber             </td><td>K</td><td>C</td><td> 50</td><td>4</td><td>0</td><td>140</td><td>14.0</td><td> 8.0</td><td> 0</td><td>330</td><td>25</td><td>3</td><td>1.00</td><td>0.50</td><td>93.70491</td></tr>
+	<tr><td>Almond Delight                        </td><td>R</td><td>C</td><td>110</td><td>2</td><td>2</td><td>200</td><td> 1.0</td><td>14.0</td><td> 8</td><td> -1</td><td>25</td><td>3</td><td>1.00</td><td>0.75</td><td>34.38484</td></tr>
+	<tr><td>Apple Cinnamon Cheerios               </td><td>G</td><td>C</td><td>110</td><td>2</td><td>2</td><td>180</td><td> 1.5</td><td>10.5</td><td>10</td><td> 70</td><td>25</td><td>1</td><td>1.00</td><td>0.75</td><td>29.50954</td></tr>
+	<tr><td>Apple Jacks                           </td><td>K</td><td>C</td><td>110</td><td>2</td><td>0</td><td>125</td><td> 1.0</td><td>11.0</td><td>14</td><td> 30</td><td>25</td><td>2</td><td>1.00</td><td>1.00</td><td>33.17409</td></tr>
+	<tr><td>Basic 4                               </td><td>G</td><td>C</td><td>130</td><td>3</td><td>2</td><td>210</td><td> 2.0</td><td>18.0</td><td> 8</td><td>100</td><td>25</td><td>3</td><td>1.33</td><td>0.75</td><td>37.03856</td></tr>
+	<tr><td>Bran Chex                             </td><td>R</td><td>C</td><td> 90</td><td>2</td><td>1</td><td>200</td><td> 4.0</td><td>15.0</td><td> 6</td><td>125</td><td>25</td><td>1</td><td>1.00</td><td>0.67</td><td>49.12025</td></tr>
+	<tr><td>Bran Flakes                           </td><td>P</td><td>C</td><td> 90</td><td>3</td><td>0</td><td>210</td><td> 5.0</td><td>13.0</td><td> 5</td><td>190</td><td>25</td><td>3</td><td>1.00</td><td>0.67</td><td>53.31381</td></tr>
+	<tr><td>Cap'n'Crunch                          </td><td>Q</td><td>C</td><td>120</td><td>1</td><td>2</td><td>220</td><td> 0.0</td><td>12.0</td><td>12</td><td> 35</td><td>25</td><td>2</td><td>1.00</td><td>0.75</td><td>18.04285</td></tr>
+	<tr><td>Cheerios                              </td><td>G</td><td>C</td><td>110</td><td>6</td><td>2</td><td>290</td><td> 2.0</td><td>17.0</td><td> 1</td><td>105</td><td>25</td><td>1</td><td>1.00</td><td>1.25</td><td>50.76500</td></tr>
+	<tr><td>Cinnamon Toast Crunch                 </td><td>G</td><td>C</td><td>120</td><td>1</td><td>3</td><td>210</td><td> 0.0</td><td>13.0</td><td> 9</td><td> 45</td><td>25</td><td>2</td><td>1.00</td><td>0.75</td><td>19.82357</td></tr>
+	<tr><td>Clusters                              </td><td>G</td><td>C</td><td>110</td><td>3</td><td>2</td><td>140</td><td> 2.0</td><td>13.0</td><td> 7</td><td>105</td><td>25</td><td>3</td><td>1.00</td><td>0.50</td><td>40.40021</td></tr>
+	<tr><td>Cocoa Puffs                           </td><td>G</td><td>C</td><td>110</td><td>1</td><td>1</td><td>180</td><td> 0.0</td><td>12.0</td><td>13</td><td> 55</td><td>25</td><td>2</td><td>1.00</td><td>1.00</td><td>22.73645</td></tr>
+	<tr><td>Corn Chex                             </td><td>R</td><td>C</td><td>110</td><td>2</td><td>0</td><td>280</td><td> 0.0</td><td>22.0</td><td> 3</td><td> 25</td><td>25</td><td>1</td><td>1.00</td><td>1.00</td><td>41.44502</td></tr>
+	<tr><td>Corn Flakes                           </td><td>K</td><td>C</td><td>100</td><td>2</td><td>0</td><td>290</td><td> 1.0</td><td>21.0</td><td> 2</td><td> 35</td><td>25</td><td>1</td><td>1.00</td><td>1.00</td><td>45.86332</td></tr>
+	<tr><td>Corn Pops                             </td><td>K</td><td>C</td><td>110</td><td>1</td><td>0</td><td> 90</td><td> 1.0</td><td>13.0</td><td>12</td><td> 20</td><td>25</td><td>2</td><td>1.00</td><td>1.00</td><td>35.78279</td></tr>
+	<tr><td>Count Chocula                         </td><td>G</td><td>C</td><td>110</td><td>1</td><td>1</td><td>180</td><td> 0.0</td><td>12.0</td><td>13</td><td> 65</td><td>25</td><td>2</td><td>1.00</td><td>1.00</td><td>22.39651</td></tr>
+	<tr><td>Cracklin' Oat Bran                    </td><td>K</td><td>C</td><td>110</td><td>3</td><td>3</td><td>140</td><td> 4.0</td><td>10.0</td><td> 7</td><td>160</td><td>25</td><td>3</td><td>1.00</td><td>0.50</td><td>40.44877</td></tr>
+	<tr><td>Cream of Wheat (Quick)                </td><td>N</td><td>H</td><td>100</td><td>3</td><td>0</td><td> 80</td><td> 1.0</td><td>21.0</td><td> 0</td><td> -1</td><td> 0</td><td>2</td><td>1.00</td><td>1.00</td><td>64.53382</td></tr>
+	<tr><td>Crispix                               </td><td>K</td><td>C</td><td>110</td><td>2</td><td>0</td><td>220</td><td> 1.0</td><td>21.0</td><td> 3</td><td> 30</td><td>25</td><td>3</td><td>1.00</td><td>1.00</td><td>46.89564</td></tr>
+	<tr><td><span style=white-space:pre-wrap>Crispy Wheat &amp; Raisins                </span></td><td>G</td><td>C</td><td>100</td><td>2</td><td>1</td><td>140</td><td> 2.0</td><td>11.0</td><td>10</td><td>120</td><td>25</td><td>3</td><td>1.00</td><td>0.75</td><td>36.17620</td></tr>
+	<tr><td>Double Chex                           </td><td>R</td><td>C</td><td>100</td><td>2</td><td>0</td><td>190</td><td> 1.0</td><td>18.0</td><td> 5</td><td> 80</td><td>25</td><td>3</td><td>1.00</td><td>0.75</td><td>44.33086</td></tr>
+	<tr><td>Froot Loops                           </td><td>K</td><td>C</td><td>110</td><td>2</td><td>1</td><td>125</td><td> 1.0</td><td>11.0</td><td>13</td><td> 30</td><td>25</td><td>2</td><td>1.00</td><td>1.00</td><td>32.20758</td></tr>
+	<tr><td>Frosted Flakes                        </td><td>K</td><td>C</td><td>110</td><td>1</td><td>0</td><td>200</td><td> 1.0</td><td>14.0</td><td>11</td><td> 25</td><td>25</td><td>1</td><td>1.00</td><td>0.75</td><td>31.43597</td></tr>
+	<tr><td>Frosted Mini-Wheats                   </td><td>K</td><td>C</td><td>100</td><td>3</td><td>0</td><td>  0</td><td> 3.0</td><td>14.0</td><td> 7</td><td>100</td><td>25</td><td>2</td><td>1.00</td><td>0.80</td><td>58.34514</td></tr>
+	<tr><td>Fruit &amp; Fibre Dates; Walnuts; and Oats</td><td>P</td><td>C</td><td>120</td><td>3</td><td>2</td><td>160</td><td> 5.0</td><td>12.0</td><td>10</td><td>200</td><td>25</td><td>3</td><td>1.25</td><td>0.67</td><td>40.91705</td></tr>
+	<tr><td>Fruitful Bran                         </td><td>K</td><td>C</td><td>120</td><td>3</td><td>0</td><td>240</td><td> 5.0</td><td>14.0</td><td>12</td><td>190</td><td>25</td><td>3</td><td>1.33</td><td>0.67</td><td>41.01549</td></tr>
+	<tr><td>Fruity Pebbles                        </td><td>P</td><td>C</td><td>110</td><td>1</td><td>1</td><td>135</td><td> 0.0</td><td>13.0</td><td>12</td><td> 25</td><td>25</td><td>2</td><td>1.00</td><td>0.75</td><td>28.02576</td></tr>
+	<tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><td>Multi-Grain Cheerios     </td><td>G</td><td>C</td><td>100</td><td>2</td><td>1</td><td>220</td><td>2.0</td><td>15.0</td><td> 6</td><td> 90</td><td> 25</td><td>1</td><td>1.00</td><td>1.00</td><td>40.10596</td></tr>
+	<tr><td><span style=white-space:pre-wrap>Nut&amp;Honey Crunch         </span></td><td>K</td><td>C</td><td>120</td><td>2</td><td>1</td><td>190</td><td>0.0</td><td>15.0</td><td> 9</td><td> 40</td><td> 25</td><td>2</td><td>1.00</td><td>0.67</td><td>29.92429</td></tr>
+	<tr><td>Nutri-Grain Almond-Raisin</td><td>K</td><td>C</td><td>140</td><td>3</td><td>2</td><td>220</td><td>3.0</td><td>21.0</td><td> 7</td><td>130</td><td> 25</td><td>3</td><td>1.33</td><td>0.67</td><td>40.69232</td></tr>
+	<tr><td>Nutri-grain Wheat        </td><td>K</td><td>C</td><td> 90</td><td>3</td><td>0</td><td>170</td><td>3.0</td><td>18.0</td><td> 2</td><td> 90</td><td> 25</td><td>3</td><td>1.00</td><td>1.00</td><td>59.64284</td></tr>
+	<tr><td>Oatmeal Raisin Crisp     </td><td>G</td><td>C</td><td>130</td><td>3</td><td>2</td><td>170</td><td>1.5</td><td>13.5</td><td>10</td><td>120</td><td> 25</td><td>3</td><td>1.25</td><td>0.50</td><td>30.45084</td></tr>
+	<tr><td>Post Nat. Raisin Bran    </td><td>P</td><td>C</td><td>120</td><td>3</td><td>1</td><td>200</td><td>6.0</td><td>11.0</td><td>14</td><td>260</td><td> 25</td><td>3</td><td>1.33</td><td>0.67</td><td>37.84059</td></tr>
+	<tr><td>Product 19               </td><td>K</td><td>C</td><td>100</td><td>3</td><td>0</td><td>320</td><td>1.0</td><td>20.0</td><td> 3</td><td> 45</td><td>100</td><td>3</td><td>1.00</td><td>1.00</td><td>41.50354</td></tr>
+	<tr><td>Puffed Rice              </td><td>Q</td><td>C</td><td> 50</td><td>1</td><td>0</td><td>  0</td><td>0.0</td><td>13.0</td><td> 0</td><td> 15</td><td>  0</td><td>3</td><td>0.50</td><td>1.00</td><td>60.75611</td></tr>
+	<tr><td>Puffed Wheat             </td><td>Q</td><td>C</td><td> 50</td><td>2</td><td>0</td><td>  0</td><td>1.0</td><td>10.0</td><td> 0</td><td> 50</td><td>  0</td><td>3</td><td>0.50</td><td>1.00</td><td>63.00565</td></tr>
+	<tr><td>Quaker Oat Squares       </td><td>Q</td><td>C</td><td>100</td><td>4</td><td>1</td><td>135</td><td>2.0</td><td>14.0</td><td> 6</td><td>110</td><td> 25</td><td>3</td><td>1.00</td><td>0.50</td><td>49.51187</td></tr>
+	<tr><td>Quaker Oatmeal           </td><td>Q</td><td>H</td><td>100</td><td>5</td><td>2</td><td>  0</td><td>2.7</td><td>-1.0</td><td>-1</td><td>110</td><td>  0</td><td>1</td><td>1.00</td><td>0.67</td><td>50.82839</td></tr>
+	<tr><td>Raisin Bran              </td><td>K</td><td>C</td><td>120</td><td>3</td><td>1</td><td>210</td><td>5.0</td><td>14.0</td><td>12</td><td>240</td><td> 25</td><td>2</td><td>1.33</td><td>0.75</td><td>39.25920</td></tr>
+	<tr><td>Raisin Nut Bran          </td><td>G</td><td>C</td><td>100</td><td>3</td><td>2</td><td>140</td><td>2.5</td><td>10.5</td><td> 8</td><td>140</td><td> 25</td><td>3</td><td>1.00</td><td>0.50</td><td>39.70340</td></tr>
+	<tr><td>Raisin Squares           </td><td>K</td><td>C</td><td> 90</td><td>2</td><td>0</td><td>  0</td><td>2.0</td><td>15.0</td><td> 6</td><td>110</td><td> 25</td><td>3</td><td>1.00</td><td>0.50</td><td>55.33314</td></tr>
+	<tr><td>Rice Chex                </td><td>R</td><td>C</td><td>110</td><td>1</td><td>0</td><td>240</td><td>0.0</td><td>23.0</td><td> 2</td><td> 30</td><td> 25</td><td>1</td><td>1.00</td><td>1.13</td><td>41.99893</td></tr>
+	<tr><td>Rice Krispies            </td><td>K</td><td>C</td><td>110</td><td>2</td><td>0</td><td>290</td><td>0.0</td><td>22.0</td><td> 3</td><td> 35</td><td> 25</td><td>1</td><td>1.00</td><td>1.00</td><td>40.56016</td></tr>
+	<tr><td>Shredded Wheat           </td><td>N</td><td>C</td><td> 80</td><td>2</td><td>0</td><td>  0</td><td>3.0</td><td>16.0</td><td> 0</td><td> 95</td><td>  0</td><td>1</td><td>0.83</td><td>1.00</td><td>68.23588</td></tr>
+	<tr><td>Shredded Wheat 'n'Bran   </td><td>N</td><td>C</td><td> 90</td><td>3</td><td>0</td><td>  0</td><td>4.0</td><td>19.0</td><td> 0</td><td>140</td><td>  0</td><td>1</td><td>1.00</td><td>0.67</td><td>74.47295</td></tr>
+	<tr><td>Shredded Wheat spoon size</td><td>N</td><td>C</td><td> 90</td><td>3</td><td>0</td><td>  0</td><td>3.0</td><td>20.0</td><td> 0</td><td>120</td><td>  0</td><td>1</td><td>1.00</td><td>0.67</td><td>72.80179</td></tr>
+	<tr><td>Smacks                   </td><td>K</td><td>C</td><td>110</td><td>2</td><td>1</td><td> 70</td><td>1.0</td><td> 9.0</td><td>15</td><td> 40</td><td> 25</td><td>2</td><td>1.00</td><td>0.75</td><td>31.23005</td></tr>
+	<tr><td>Special K                </td><td>K</td><td>C</td><td>110</td><td>6</td><td>0</td><td>230</td><td>1.0</td><td>16.0</td><td> 3</td><td> 55</td><td> 25</td><td>1</td><td>1.00</td><td>1.00</td><td>53.13132</td></tr>
+	<tr><td>Strawberry Fruit Wheats  </td><td>N</td><td>C</td><td> 90</td><td>2</td><td>0</td><td> 15</td><td>3.0</td><td>15.0</td><td> 5</td><td> 90</td><td> 25</td><td>2</td><td>1.00</td><td>1.00</td><td>59.36399</td></tr>
+	<tr><td>Total Corn Flakes        </td><td>G</td><td>C</td><td>110</td><td>2</td><td>1</td><td>200</td><td>0.0</td><td>21.0</td><td> 3</td><td> 35</td><td>100</td><td>3</td><td>1.00</td><td>1.00</td><td>38.83975</td></tr>
+	<tr><td>Total Raisin Bran        </td><td>G</td><td>C</td><td>140</td><td>3</td><td>1</td><td>190</td><td>4.0</td><td>15.0</td><td>14</td><td>230</td><td>100</td><td>3</td><td>1.50</td><td>1.00</td><td>28.59278</td></tr>
+	<tr><td>Total Whole Grain        </td><td>G</td><td>C</td><td>100</td><td>3</td><td>1</td><td>200</td><td>3.0</td><td>16.0</td><td> 3</td><td>110</td><td>100</td><td>3</td><td>1.00</td><td>1.00</td><td>46.65884</td></tr>
+	<tr><td>Triples                  </td><td>G</td><td>C</td><td>110</td><td>2</td><td>1</td><td>250</td><td>0.0</td><td>21.0</td><td> 3</td><td> 60</td><td> 25</td><td>3</td><td>1.00</td><td>0.75</td><td>39.10617</td></tr>
+	<tr><td>Trix                     </td><td>G</td><td>C</td><td>110</td><td>1</td><td>1</td><td>140</td><td>0.0</td><td>13.0</td><td>12</td><td> 25</td><td> 25</td><td>2</td><td>1.00</td><td>1.00</td><td>27.75330</td></tr>
+	<tr><td>Wheat Chex               </td><td>R</td><td>C</td><td>100</td><td>3</td><td>1</td><td>230</td><td>3.0</td><td>17.0</td><td> 3</td><td>115</td><td> 25</td><td>1</td><td>1.00</td><td>0.67</td><td>49.78744</td></tr>
+	<tr><td>Wheaties                 </td><td>G</td><td>C</td><td>100</td><td>3</td><td>1</td><td>200</td><td>3.0</td><td>17.0</td><td> 3</td><td>110</td><td> 25</td><td>1</td><td>1.00</td><td>1.00</td><td>51.59219</td></tr>
+	<tr><td>Wheaties Honey Gold      </td><td>G</td><td>C</td><td>110</td><td>2</td><td>1</td><td>200</td><td>1.0</td><td>16.0</td><td> 8</td><td> 60</td><td> 25</td><td>1</td><td>1.00</td><td>0.75</td><td>36.18756</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">cereal</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">mfr</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">cereal</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">cereal</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">calories</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">cereal</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">protein</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">cereal</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">fat</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A spec_tbl_df: 7 × 2</caption>
+<thead>
+	<tr><th scope=col>mfr</th><th scope=col>n</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>K</td><td>23</td></tr>
+	<tr><td>G</td><td>22</td></tr>
+	<tr><td>P</td><td> 9</td></tr>
+	<tr><td>Q</td><td> 8</td></tr>
+	<tr><td>R</td><td> 8</td></tr>
+	<tr><td>N</td><td> 6</td></tr>
+	<tr><td>A</td><td> 1</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A spec_tbl_df: 2 × 2</caption>
+<thead>
+	<tr><th scope=col>type</th><th scope=col>n</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>C</td><td>74</td></tr>
+	<tr><td>H</td><td> 3</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A spec_tbl_df: 11 × 2</caption>
+<thead>
+	<tr><th scope=col>calories</th><th scope=col>n</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>110</td><td>29</td></tr>
+	<tr><td>100</td><td>17</td></tr>
+	<tr><td>120</td><td>10</td></tr>
+	<tr><td> 90</td><td> 7</td></tr>
+	<tr><td> 50</td><td> 3</td></tr>
+	<tr><td>140</td><td> 3</td></tr>
+	<tr><td> 70</td><td> 2</td></tr>
+	<tr><td>130</td><td> 2</td></tr>
+	<tr><td>150</td><td> 2</td></tr>
+	<tr><td> 80</td><td> 1</td></tr>
+	<tr><td>160</td><td> 1</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A spec_tbl_df: 6 × 2</caption>
+<thead>
+	<tr><th scope=col>protein</th><th scope=col>n</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>3</td><td>28</td></tr>
+	<tr><td>2</td><td>25</td></tr>
+	<tr><td>1</td><td>13</td></tr>
+	<tr><td>4</td><td> 8</td></tr>
+	<tr><td>6</td><td> 2</td></tr>
+	<tr><td>5</td><td> 1</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A spec_tbl_df: 5 × 2</caption>
+<thead>
+	<tr><th scope=col>fat</th><th scope=col>n</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1</td><td>30</td></tr>
+	<tr><td>0</td><td>27</td></tr>
+	<tr><td>2</td><td>14</td></tr>
+	<tr><td>3</td><td> 5</td></tr>
+	<tr><td>5</td><td> 1</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">20</span><span class="p">,</span><span class="n">repr.plot.height</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">cereal</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">sugars</span><span class="p">,</span>
+<span class="w">                 </span><span class="n">y</span><span class="o">=</span><span class="n">rating</span><span class="p">,</span>
+<span class="w">                 </span><span class="c1">#color=color,</span>
+<span class="w">                 </span><span class="n">shape</span><span class="o">=</span><span class="n">type</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                 </span><span class="c1">#size=depth,</span>
+<span class="w">                 </span><span class="c1">#alpha=table)) +</span>
+<span class="w">  </span><span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">mfr</span><span class="p">,</span><span class="n">nrow</span><span class="o">=</span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">theme</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="nf">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">30</span><span class="p">))</span>
+<span class="n">plt</span>
+
+<span class="c1">#suppressWarnings(print(plt))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../../_images/3fda5bc9386f90ae23bb41d30601ea1cb8f684641fff86902fe0b33462c360e5.png"><img alt="../../../../_images/3fda5bc9386f90ae23bb41d30601ea1cb8f684641fff86902fe0b33462c360e5.png" src="../../../../_images/3fda5bc9386f90ae23bb41d30601ea1cb8f684641fff86902fe0b33462c360e5.png" style="width: 1200px; height: 600px;" /></a>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./c/programming/rlang/STAT184"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="A01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A01 - Tidy Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="A04.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A04 - Data Wrangling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a02">A02</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

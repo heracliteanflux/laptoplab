@@ -1,0 +1,1739 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Science from Scratch 2e &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c/programming/python/book_data_science_from_scratch';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="R" href="../rlang/index.html" />
+    <link rel="prev" title="Anaconda and Package Management" href="package.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Computery Things</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="package.html">Packages</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Science from Scratch 2e</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">[01] Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-algebra">[04] Linear algebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">[05] Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">[18] Neural Networks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-science-from-scratch-2e">
+<h1><em>Data Science from Scratch</em> 2e<a class="headerlink" href="#data-science-from-scratch-2e" title="Link to this heading">#</a></h1>
+<p>[ <a class="reference external" href="https://github.com/joelgrus/data-science-from-scratch">g</a> ] Grus, Joel. (2019). <em>Data Science from Scratch</em>. 2e. O’Reilly.</p>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2>Programming Environment<a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span>   <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span><span class="p">,</span> <span class="n">defaultdict</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span>   <span class="nn">typing</span>      <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="n">Vector</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
+<span class="n">Matrix</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">Vector</span><span class="p">]</span> <span class="c1"># List[List[float]]</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2>[01] Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">users</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Hero&quot;</span>  <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Dunn&quot;</span>  <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Sue&quot;</span>   <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Chi&quot;</span>   <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Thor&quot;</span>  <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Clive&quot;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Hicks&quot;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Devin&quot;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Kate&quot;</span>  <span class="p">},</span>
+  <span class="p">{</span> <span class="s2">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;Klein&quot;</span> <span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">friendship_pairs</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the dict with an empty list for each user id</span>
+<span class="n">friendships</span> <span class="o">=</span> <span class="p">{</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">}</span>
+<span class="n">friendships</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [], 9: []}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop over the friendship pairs to populate the list</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">friendship_pairs</span><span class="p">:</span>
+  <span class="n">friendships</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="c1"># add j as a friend of user i</span>
+  <span class="n">friendships</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1"># add i as a friend of user j</span>
+
+<span class="n">friendships</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: [1, 2],
+ 1: [0, 2, 3],
+ 2: [0, 1, 3],
+ 3: [1, 2, 4],
+ 4: [3, 5],
+ 5: [4, 6, 7],
+ 6: [5, 8],
+ 7: [5, 8],
+ 8: [6, 7, 9],
+ 9: [8]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What&#39;s the average number of connections?</span>
+
+<span class="k">def</span> <span class="nf">number_of_friends</span> <span class="p">(</span><span class="n">user</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;How many friends does user have?&quot;&quot;&quot;</span>
+  <span class="n">user_id</span>    <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+  <span class="n">friend_ids</span> <span class="o">=</span> <span class="n">friendships</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>
+  <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">friend_ids</span><span class="p">)</span>
+
+<span class="n">total_connections</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">number_of_friends</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Total connections&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">total_connections</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">num_users</span>       <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+<span class="n">avg_connections</span> <span class="o">=</span> <span class="n">total_connections</span> <span class="o">/</span> <span class="n">num_users</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Average connections&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">avg_connections</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total connections    : 24
+Average connections  : 2.4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Who are the most connected users?</span>
+
+<span class="c1"># (user_id, number_of_friends)</span>
+<span class="n">num_friends_by_id</span> <span class="o">=</span> <span class="p">[(</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">number_of_friends</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+                     <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">]</span>
+
+<span class="n">num_friends_by_id</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
+  <span class="n">key</span>    <span class="o">=</span><span class="k">lambda</span> <span class="n">id_and_friends</span><span class="p">:</span> <span class="n">id_and_friends</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+  <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">num_friends_by_id</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, 3),
+ (2, 3),
+ (3, 3),
+ (5, 3),
+ (8, 3),
+ (0, 2),
+ (4, 2),
+ (6, 2),
+ (7, 2),
+ (9, 1)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foaf_ids_bad</span> <span class="p">(</span><span class="n">user</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;foaf is short for &quot;friend of a friend&quot; &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">foaf_id</span>
+          <span class="k">for</span> <span class="n">friend_id</span> <span class="ow">in</span> <span class="n">friendships</span><span class="p">[</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]]</span>
+          <span class="k">for</span> <span class="n">foaf_id</span>   <span class="ow">in</span> <span class="n">friendships</span><span class="p">[</span><span class="n">friend_id</span><span class="p">]]</span>
+
+<span class="n">foaf_ids_bad</span><span class="p">(</span><span class="n">users</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 3, 0, 1, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">friends_of_friends</span> <span class="p">(</span><span class="n">user</span><span class="p">):</span>
+  <span class="n">user_id</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">Counter</span><span class="p">(</span>
+    <span class="n">foaf_id</span>
+    <span class="k">for</span> <span class="n">friend_id</span>   <span class="ow">in</span> <span class="n">friendships</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>   <span class="c1"># for each of my friends</span>
+    <span class="k">for</span> <span class="n">foaf_id</span>     <span class="ow">in</span> <span class="n">friendships</span><span class="p">[</span><span class="n">friend_id</span><span class="p">]</span> <span class="c1"># find their friends</span>
+    <span class="k">if</span>  <span class="n">foaf_id</span> <span class="o">!=</span> <span class="n">user_id</span>                    <span class="c1"># who aren&#39;t me</span>
+    <span class="ow">and</span> <span class="n">foaf_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">friendships</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span>   <span class="c1"># and aren&#39;t my friends</span>
+  <span class="p">)</span>
+
+<span class="n">friends_of_friends</span><span class="p">(</span><span class="n">users</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({3: 2})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interests</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Hadoop&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Big Data&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;HBase&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Java&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Spark&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Storm&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Cassandra&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;NoSQL&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;MongoDB&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Cassandra&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;HBase&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Postgres&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;scikit-learn&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;scipy&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;numpy&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;statsmodels&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;pandas&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;statistics&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;regression&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;probability&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;machine learning&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;regression&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;decision trees&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;libsvm&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Java&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;C++&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Haskell&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;programming languages&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;statistics&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;probability&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;mathematics&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;theory&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;machine learning&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;scikit-learn&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;Mahout&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;neural networks&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;neural networks&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;deep learning&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Big Data&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;artificial intelligence&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;Hadoop&quot;</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;Java&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;MapReduce&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;Big Data&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">data_scientists_who_like</span> <span class="p">(</span><span class="n">target_interest</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Find the ids of all users who like the target interest.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">user_id</span>
+          <span class="k">for</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">user_interest</span> <span class="ow">in</span> <span class="n">interests</span>
+          <span class="k">if</span> <span class="n">user_interest</span> <span class="o">==</span> <span class="n">target_interest</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># keys are interests, values are lists of user_ids with that interest</span>
+<span class="n">user_ids_by_interest</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">interest</span> <span class="ow">in</span> <span class="n">interests</span><span class="p">:</span>
+  <span class="n">user_ids_by_interest</span><span class="p">[</span><span class="n">interest</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+<span class="n">user_ids_by_interest</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>defaultdict(list,
+            {&#39;Hadoop&#39;: [0, 9],
+             &#39;Big Data&#39;: [0, 8, 9],
+             &#39;HBase&#39;: [0, 1],
+             &#39;Java&#39;: [0, 5, 9],
+             &#39;Spark&#39;: [0],
+             &#39;Storm&#39;: [0],
+             &#39;Cassandra&#39;: [0, 1],
+             &#39;NoSQL&#39;: [1],
+             &#39;MongoDB&#39;: [1],
+             &#39;Postgres&#39;: [1],
+             &#39;Python&#39;: [2, 3, 5],
+             &#39;scikit-learn&#39;: [2, 7],
+             &#39;scipy&#39;: [2],
+             &#39;numpy&#39;: [2],
+             &#39;statsmodels&#39;: [2],
+             &#39;pandas&#39;: [2],
+             &#39;R&#39;: [3, 5],
+             &#39;statistics&#39;: [3, 6],
+             &#39;regression&#39;: [3, 4],
+             &#39;probability&#39;: [3, 6],
+             &#39;machine learning&#39;: [4, 7],
+             &#39;decision trees&#39;: [4],
+             &#39;libsvm&#39;: [4],
+             &#39;C++&#39;: [5],
+             &#39;Haskell&#39;: [5],
+             &#39;programming languages&#39;: [5],
+             &#39;mathematics&#39;: [6],
+             &#39;theory&#39;: [6],
+             &#39;Mahout&#39;: [7],
+             &#39;neural networks&#39;: [7, 8],
+             &#39;deep learning&#39;: [8],
+             &#39;artificial intelligence&#39;: [8],
+             &#39;MapReduce&#39;: [9]})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># keys are user_ids, values are lists of interests for that user_id</span>
+<span class="n">interests_by_user_id</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">interest</span> <span class="ow">in</span> <span class="n">interests</span><span class="p">:</span>
+  <span class="n">interests_by_user_id</span><span class="p">[</span><span class="n">user_id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interest</span><span class="p">)</span>
+
+<span class="n">interests_by_user_id</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>defaultdict(list,
+            {0: [&#39;Hadoop&#39;,
+              &#39;Big Data&#39;,
+              &#39;HBase&#39;,
+              &#39;Java&#39;,
+              &#39;Spark&#39;,
+              &#39;Storm&#39;,
+              &#39;Cassandra&#39;],
+             1: [&#39;NoSQL&#39;, &#39;MongoDB&#39;, &#39;Cassandra&#39;, &#39;HBase&#39;, &#39;Postgres&#39;],
+             2: [&#39;Python&#39;,
+              &#39;scikit-learn&#39;,
+              &#39;scipy&#39;,
+              &#39;numpy&#39;,
+              &#39;statsmodels&#39;,
+              &#39;pandas&#39;],
+             3: [&#39;R&#39;, &#39;Python&#39;, &#39;statistics&#39;, &#39;regression&#39;, &#39;probability&#39;],
+             4: [&#39;machine learning&#39;, &#39;regression&#39;, &#39;decision trees&#39;, &#39;libsvm&#39;],
+             5: [&#39;Python&#39;,
+              &#39;R&#39;,
+              &#39;Java&#39;,
+              &#39;C++&#39;,
+              &#39;Haskell&#39;,
+              &#39;programming languages&#39;],
+             6: [&#39;statistics&#39;, &#39;probability&#39;, &#39;mathematics&#39;, &#39;theory&#39;],
+             7: [&#39;machine learning&#39;,
+              &#39;scikit-learn&#39;,
+              &#39;Mahout&#39;,
+              &#39;neural networks&#39;],
+             8: [&#39;neural networks&#39;,
+              &#39;deep learning&#39;,
+              &#39;Big Data&#39;,
+              &#39;artificial intelligence&#39;],
+             9: [&#39;Hadoop&#39;, &#39;Java&#39;, &#39;MapReduce&#39;, &#39;Big Data&#39;]})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Who has the most interests in common with a given user?</span>
+<span class="k">def</span> <span class="nf">most_common_interests_with</span> <span class="p">(</span><span class="n">user</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">Counter</span><span class="p">(</span>
+    <span class="n">interested_user_id</span>
+    <span class="k">for</span> <span class="n">interest</span> <span class="ow">in</span> <span class="n">interests_by_user_id</span><span class="p">[</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]]</span>         <span class="c1"># for each interest</span>
+    <span class="k">for</span> <span class="n">interested_user_id</span> <span class="ow">in</span> <span class="n">user_ids_by_interest</span><span class="p">[</span><span class="n">interest</span><span class="p">]</span> <span class="c1"># iterate over the other users with that interest</span>
+    <span class="k">if</span>  <span class="n">interested_user_id</span> <span class="o">!=</span> <span class="n">user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>                     <span class="c1"># who aren&#39;t me</span>
+  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salaries_and_tenures</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">(</span><span class="mi">83000</span><span class="p">,</span>  <span class="mf">8.7</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">88000</span><span class="p">,</span>  <span class="mf">8.1</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">48000</span><span class="p">,</span>  <span class="mf">0.7</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">76000</span><span class="p">,</span>  <span class="mf">6.0</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">69000</span><span class="p">,</span>  <span class="mf">6.5</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">76000</span><span class="p">,</span>  <span class="mf">7.5</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">60000</span><span class="p">,</span>  <span class="mf">2.5</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">83000</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">48000</span><span class="p">,</span>  <span class="mf">1.9</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">63000</span><span class="p">,</span>  <span class="mf">4.2</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_by_tenure</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">salary</span><span class="p">,</span> <span class="n">tenure</span> <span class="ow">in</span> <span class="n">salaries_and_tenures</span><span class="p">:</span>
+  <span class="n">salary_by_tenure</span><span class="p">[</span><span class="n">tenure</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+
+<span class="n">average_salary_by_tenure</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">tenure</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">tenure</span><span class="p">,</span> <span class="n">salaries</span> <span class="ow">in</span> <span class="n">salary_by_tenure</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="n">average_salary_by_tenure</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{8.7: 83000.0,
+ 8.1: 88000.0,
+ 0.7: 48000.0,
+ 6.0: 76000.0,
+ 6.5: 69000.0,
+ 7.5: 76000.0,
+ 2.5: 60000.0,
+ 10.0: 83000.0,
+ 1.9: 48000.0,
+ 4.2: 63000.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tenure_bucket</span> <span class="p">(</span><span class="n">tenure</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">tenure</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s1">&#39;less than two&#39;</span>
+  <span class="k">elif</span> <span class="n">tenure</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s1">&#39;between two and five&#39;</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s1">&#39;more than five&#39;</span>
+  
+<span class="n">salary_by_tenure_bucket</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">salary</span><span class="p">,</span> <span class="n">tenure</span> <span class="ow">in</span> <span class="n">salaries_and_tenures</span><span class="p">:</span>
+  <span class="n">bucket</span> <span class="o">=</span> <span class="n">tenure_bucket</span><span class="p">(</span><span class="n">tenure</span><span class="p">)</span>
+  <span class="n">salary_by_tenure_bucket</span><span class="p">[</span><span class="n">bucket</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+
+<span class="n">average_salary_by_bucket</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">tenure_bucket</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">salaries</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">tenure_bucket</span><span class="p">,</span> <span class="n">salaries</span> <span class="ow">in</span> <span class="n">salary_by_tenure_bucket</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="n">average_salary_by_bucket</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;more than five&#39;: 79166.66666666667,
+ &#39;less than two&#39;: 48000.0,
+ &#39;between two and five&#39;: 61500.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_and_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">word</span>
+                           <span class="k">for</span> <span class="n">user</span><span class="p">,</span> <span class="n">interest</span> <span class="ow">in</span> <span class="n">interests</span>
+                           <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">interest</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="n">words_and_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({&#39;big&#39;: 3,
+         &#39;data&#39;: 3,
+         &#39;java&#39;: 3,
+         &#39;python&#39;: 3,
+         &#39;learning&#39;: 3,
+         &#39;hadoop&#39;: 2,
+         &#39;hbase&#39;: 2,
+         &#39;cassandra&#39;: 2,
+         &#39;scikit-learn&#39;: 2,
+         &#39;r&#39;: 2,
+         &#39;statistics&#39;: 2,
+         &#39;regression&#39;: 2,
+         &#39;probability&#39;: 2,
+         &#39;machine&#39;: 2,
+         &#39;neural&#39;: 2,
+         &#39;networks&#39;: 2,
+         &#39;spark&#39;: 1,
+         &#39;storm&#39;: 1,
+         &#39;nosql&#39;: 1,
+         &#39;mongodb&#39;: 1,
+         &#39;postgres&#39;: 1,
+         &#39;scipy&#39;: 1,
+         &#39;numpy&#39;: 1,
+         &#39;statsmodels&#39;: 1,
+         &#39;pandas&#39;: 1,
+         &#39;decision&#39;: 1,
+         &#39;trees&#39;: 1,
+         &#39;libsvm&#39;: 1,
+         &#39;c++&#39;: 1,
+         &#39;haskell&#39;: 1,
+         &#39;programming&#39;: 1,
+         &#39;languages&#39;: 1,
+         &#39;mathematics&#39;: 1,
+         &#39;theory&#39;: 1,
+         &#39;mahout&#39;: 1,
+         &#39;deep&#39;: 1,
+         &#39;artificial&#39;: 1,
+         &#39;intelligence&#39;: 1,
+         &#39;mapreduce&#39;: 1})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">words_and_counts</span><span class="o">.</span><span class="n">most_common</span><span class="p">():</span>
+  <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>big 3
+data 3
+java 3
+python 3
+learning 3
+hadoop 2
+hbase 2
+cassandra 2
+scikit-learn 2
+r 2
+statistics 2
+regression 2
+probability 2
+machine 2
+neural 2
+networks 2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="linear-algebra">
+<h2>[04] Linear algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span> <span class="p">(</span><span class="n">v</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">,</span>
+         <span class="n">w</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+  <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="s1">&#39;vectors must be the same length&#39;</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">v_i</span> <span class="o">+</span> <span class="n">w_i</span> <span class="k">for</span> <span class="n">v_i</span><span class="p">,</span> <span class="n">w_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">subtract</span> <span class="p">(</span><span class="n">v</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">,</span>
+              <span class="n">w</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+  <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="s1">&#39;vectors must be the same length&#39;</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">v_i</span> <span class="o">-</span> <span class="n">w_i</span> <span class="k">for</span> <span class="n">v_i</span><span class="p">,</span> <span class="n">w_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">vector_sum</span> <span class="p">(</span><span class="n">vectors</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Vector</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Sums all corresponding elements.&quot;&quot;&quot;</span>
+  <span class="k">assert</span> <span class="n">vectors</span><span class="p">,</span> <span class="s1">&#39;no vectors provided&#39;</span>
+  <span class="n">num_elements</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vectors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="n">num_elements</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vectors</span><span class="p">),</span> <span class="s1">&#39;different sizes&#39;</span>
+  <span class="k">return</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">vector</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">vector</span> <span class="ow">in</span> <span class="n">vectors</span><span class="p">)</span>
+          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_elements</span><span class="p">)]</span>
+
+<span class="k">def</span> <span class="nf">scalar_multiply</span> <span class="p">(</span><span class="n">c</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                     <span class="n">v</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Multiplies every element by c.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">c</span> <span class="o">*</span> <span class="n">v_i</span> <span class="k">for</span> <span class="n">v_i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">vector_mean</span> <span class="p">(</span><span class="n">vectors</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Vector</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Computes the element-wise average.&quot;&quot;&quot;</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">scalar_multiply</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="n">vector_sum</span><span class="p">(</span><span class="n">vectors</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">dot</span> <span class="p">(</span><span class="n">v</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">,</span>
+         <span class="n">w</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Computes v_1 * w_1 + ... + v_n * w_n.&quot;&quot;&quot;</span>
+  <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="s1">&#39;vectors must be the same length&#39;</span>
+  <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">v_i</span> <span class="o">*</span> <span class="n">w_i</span> <span class="k">for</span> <span class="n">v_i</span><span class="p">,</span> <span class="n">w_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">sum_of_squares</span> <span class="p">(</span><span class="n">v</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns v_1 * v_1 + ... + v_n * v_n.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">magnitude</span> <span class="p">(</span><span class="n">v</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns the magnitude of v.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sum_of_squares</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">squared_distance</span> <span class="p">(</span><span class="n">v</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">,</span>
+                      <span class="n">w</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Computes (v_1 - w_1) ** 2 + ... + (v_n - w_n) ** 2.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">sum_of_squares</span><span class="p">(</span><span class="n">subtract</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">distance</span> <span class="p">(</span><span class="n">v</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">,</span>
+              <span class="n">w</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Computes the distance between v and w.&quot;&quot;&quot;</span>
+  <span class="c1">#return math.sqrt(squared_distance(v, w))</span>
+  <span class="k">return</span> <span class="n">magnitude</span><span class="p">(</span><span class="n">subtract</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">shape</span> <span class="p">(</span><span class="n">A</span> <span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns (# of rows of A, # of columns of A).&quot;&quot;&quot;</span>
+  <span class="n">num_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+  <span class="n">num_cols</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">A</span> <span class="k">else</span> <span class="mi">0</span> <span class="c1"># number of elements in the first row</span>
+  <span class="k">return</span> <span class="n">num_rows</span><span class="p">,</span> <span class="n">num_cols</span>
+
+<span class="k">def</span> <span class="nf">get_row</span> <span class="p">(</span><span class="n">A</span> <span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span>
+             <span class="n">i</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns the i-th row of A (as a Vector).&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">get_col</span> <span class="p">(</span><span class="n">A</span> <span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span>
+             <span class="n">j</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns the j-th column of A (as a Vector).&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">A_i</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>        <span class="c1"># j-th element of row A_i</span>
+          <span class="k">for</span> <span class="n">A_i</span> <span class="ow">in</span> <span class="n">A</span><span class="p">]</span> <span class="c1"># for each row A_i</span>
+
+<span class="k">def</span> <span class="nf">make_matrix</span> <span class="p">(</span><span class="n">num_rows</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">num_cols</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                 <span class="n">entry_fn</span> <span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns a num_rows x num_cols matrix whose (i, j)-th entry is entry_fn(i, j).&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="p">[[</span><span class="n">entry_fn</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>            <span class="c1"># given i, create a list</span>
+           <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_cols</span><span class="p">)]</span> <span class="c1"># [entry_fn(i, 0), ...]</span>
+           <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_rows</span><span class="p">)]</span> <span class="c1"># create one list for each i</span>
+
+<span class="k">def</span> <span class="nf">identity_matrix</span> <span class="p">(</span><span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns the n x n identity matrix.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">make_matrix</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span>
+  <span class="n">add</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span>
+  <span class="n">subtract</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span>
+  <span class="n">vector_sum</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]),</span>
+  <span class="n">scalar_multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span>
+  <span class="n">vector_mean</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span>
+  <span class="n">dot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]),</span>
+  <span class="n">sum_of_squares</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span>
+  <span class="n">magnitude</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]),</span>
+  <span class="n">shape</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span>
+  <span class="n">identity_matrix</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 7, 9]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[16, 20]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 6]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.0, 4.0]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 0, 0, 0, 0],
+ [0, 1, 0, 0, 0],
+ [0, 0, 1, 0, 0],
+ [0, 0, 0, 1, 0],
+ [0, 0, 0, 0, 1]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#            user 0  1  2  3  4  5  6  7  8  9</span>
+<span class="c1">#</span>
+<span class="n">friend_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># user 0</span>
+                 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># user 1</span>
+                 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># user 2</span>
+                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># user 3</span>
+                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># user 4</span>
+                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># user 5</span>
+                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># user 6</span>
+                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>  <span class="c1"># user 7</span>
+                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>  <span class="c1"># user 8</span>
+                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>  <span class="c1"># user 9</span>
+
+<span class="n">friends_of_five</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span>
+                   <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">is_friend</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">friend_matrix</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+                   <span class="k">if</span> <span class="n">is_friend</span><span class="p">]</span>
+<span class="n">friends_of_five</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 6, 7]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="statistics">
+<h2>[05] Statistics<a class="headerlink" href="#statistics" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_friends</span>   <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">49</span><span class="p">,</span><span class="mi">41</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">friend_counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">num_friends</span><span class="p">)</span>
+<span class="n">friend_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({6: 22,
+         1: 22,
+         4: 20,
+         3: 20,
+         9: 18,
+         5: 17,
+         2: 17,
+         10: 15,
+         7: 15,
+         8: 13,
+         15: 4,
+         13: 4,
+         21: 2,
+         19: 2,
+         18: 2,
+         14: 2,
+         12: 2,
+         100: 1,
+         49: 1,
+         41: 1,
+         40: 1,
+         25: 1,
+         16: 1,
+         11: 1})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">num_friends</span><span class="p">))</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="n">friend_counts</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">]);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of friend counts&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# of friends&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;# of people&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/4c238e29f674a96aa71233d9f795d1e30f72b2b66fee6f00be071bafe7b80ad8.png" src="../../../_images/4c238e29f674a96aa71233d9f795d1e30f72b2b66fee6f00be071bafe7b80ad8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+  <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;mean&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">mean</span><span class="p">(</span><span class="n">num_friends</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_median_odd</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;If len(xs) is odd, the median is the middle element.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">xs</span><span class="p">)[</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">_median_even</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;If len(xs) is even, it&#39;s the average of the middle two elements.&quot;&quot;&quot;</span>
+  <span class="n">sorted_xs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+  <span class="n">hi_midpoint</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">sorted_xs</span><span class="p">[</span><span class="n">hi_midpoint</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">sorted_xs</span><span class="p">[</span><span class="n">hi_midpoint</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="c1"># MEDIAN</span>
+<span class="c1">#   represents the value under which 50% of the data lies</span>
+<span class="k">def</span> <span class="nf">median</span> <span class="p">(</span><span class="n">v</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Finds the &#39;middle-most&#39; value of v.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">_median_even</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">_median_odd</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;median&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">median</span><span class="p">(</span><span class="n">num_friends</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># QUANTILE</span>
+<span class="c1">#   represents the value under which a certain percentile of the data lies</span>
+<span class="k">def</span> <span class="nf">quantile</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+              <span class="n">p</span>  <span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns the p-th percentile value in x.&quot;&quot;&quot;</span>
+  <span class="n">p_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span>
+  <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">xs</span><span class="p">)[</span><span class="n">p_index</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;10th percentile&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">quantile</span><span class="p">(</span><span class="n">num_friends</span><span class="p">,</span><span class="w"> </span><span class="mf">0.10</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;25th percentile&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">quantile</span><span class="p">(</span><span class="n">num_friends</span><span class="p">,</span><span class="w"> </span><span class="mf">0.25</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;75th percentile&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">quantile</span><span class="p">(</span><span class="n">num_friends</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;90th percentile&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">quantile</span><span class="p">(</span><span class="n">num_friends</span><span class="p">,</span><span class="w"> </span><span class="mf">0.90</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">mode</span> <span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns a list, since there might be more than one mode.&quot;&quot;&quot;</span>
+  <span class="n">counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">max_count</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">x_i</span> <span class="k">for</span> <span class="n">x_i</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+          <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="n">max_count</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;mode&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">set</span><span class="p">(</span><span class="n">mode</span><span class="p">(</span><span class="n">num_friends</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># DISPERSION</span>
+<span class="c1">#   dispersion refers to measures of how spread out our data is</span>
+<span class="c1">#   values near zero signify not spread out at all</span>
+<span class="c1">#   large values signify very spread out</span>
+
+<span class="c1"># RANGE</span>
+<span class="c1">#   the difference between the largest and smallest elements</span>
+<span class="k">def</span> <span class="nf">data_range</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+  <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;range&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">data_range</span><span class="p">(</span><span class="n">num_friends</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">de_mean</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Translate xs by subtracting its mean (so the result has mean 0).&quot;&quot;&quot;</span>
+  <span class="n">x_bar</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_bar</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">variance</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Almost the average squared deviation from the mean.&quot;&quot;&quot;</span>
+  <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;variance requires at least two elements&#39;</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+  <span class="n">deviations</span> <span class="o">=</span> <span class="n">de_mean</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">sum_of_squares</span><span class="p">(</span><span class="n">deviations</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;variance&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">variance</span><span class="p">(</span><span class="n">num_friends</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">standard_deviation</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;The standard deviation is the square root of the variance.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;standard deviation&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">standard_deviation</span><span class="p">(</span><span class="n">num_friends</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">interquartile_range</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Returns the difference between the 75%-ile and the 25%-ile.&quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">quantile</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">quantile</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;interquartile range&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">interquartile_range</span><span class="p">(</span><span class="n">num_friends</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">covariance</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                <span class="n">ys</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+  <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">ys</span><span class="p">),</span> <span class="s1">&#39;xs and ys must have same number of elements&#39;</span>
+  <span class="k">return</span> <span class="n">dot</span><span class="p">(</span><span class="n">de_mean</span><span class="p">(</span><span class="n">xs</span><span class="p">),</span> <span class="n">de_mean</span><span class="p">(</span><span class="n">ys</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">daily_minutes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">68.77</span><span class="p">,</span><span class="mf">51.25</span><span class="p">,</span><span class="mf">52.08</span><span class="p">,</span><span class="mf">38.36</span><span class="p">,</span><span class="mf">44.54</span><span class="p">,</span><span class="mf">57.13</span><span class="p">,</span><span class="mf">51.4</span><span class="p">,</span><span class="mf">41.42</span><span class="p">,</span><span class="mf">31.22</span><span class="p">,</span><span class="mf">34.76</span><span class="p">,</span><span class="mf">54.01</span><span class="p">,</span><span class="mf">38.79</span><span class="p">,</span><span class="mf">47.59</span><span class="p">,</span><span class="mf">49.1</span><span class="p">,</span><span class="mf">27.66</span><span class="p">,</span><span class="mf">41.03</span><span class="p">,</span><span class="mf">36.73</span><span class="p">,</span><span class="mf">48.65</span><span class="p">,</span><span class="mf">28.12</span><span class="p">,</span><span class="mf">46.62</span><span class="p">,</span><span class="mf">35.57</span><span class="p">,</span><span class="mf">32.98</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mf">26.07</span><span class="p">,</span><span class="mf">23.77</span><span class="p">,</span><span class="mf">39.73</span><span class="p">,</span><span class="mf">40.57</span><span class="p">,</span><span class="mf">31.65</span><span class="p">,</span><span class="mf">31.21</span><span class="p">,</span><span class="mf">36.32</span><span class="p">,</span><span class="mf">20.45</span><span class="p">,</span><span class="mf">21.93</span><span class="p">,</span><span class="mf">26.02</span><span class="p">,</span><span class="mf">27.34</span><span class="p">,</span><span class="mf">23.49</span><span class="p">,</span><span class="mf">46.94</span><span class="p">,</span><span class="mf">30.5</span><span class="p">,</span><span class="mf">33.8</span><span class="p">,</span><span class="mf">24.23</span><span class="p">,</span><span class="mf">21.4</span><span class="p">,</span><span class="mf">27.94</span><span class="p">,</span><span class="mf">32.24</span><span class="p">,</span><span class="mf">40.57</span><span class="p">,</span><span class="mf">25.07</span><span class="p">,</span><span class="mf">19.42</span><span class="p">,</span><span class="mf">22.39</span><span class="p">,</span><span class="mf">18.42</span><span class="p">,</span><span class="mf">46.96</span><span class="p">,</span><span class="mf">23.72</span><span class="p">,</span><span class="mf">26.41</span><span class="p">,</span><span class="mf">26.97</span><span class="p">,</span><span class="mf">36.76</span><span class="p">,</span><span class="mf">40.32</span><span class="p">,</span><span class="mf">35.02</span><span class="p">,</span><span class="mf">29.47</span><span class="p">,</span><span class="mf">30.2</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mf">38.11</span><span class="p">,</span><span class="mf">38.18</span><span class="p">,</span><span class="mf">36.31</span><span class="p">,</span><span class="mf">21.03</span><span class="p">,</span><span class="mf">30.86</span><span class="p">,</span><span class="mf">36.07</span><span class="p">,</span><span class="mf">28.66</span><span class="p">,</span><span class="mf">29.08</span><span class="p">,</span><span class="mf">37.28</span><span class="p">,</span><span class="mf">15.28</span><span class="p">,</span><span class="mf">24.17</span><span class="p">,</span><span class="mf">22.31</span><span class="p">,</span><span class="mf">30.17</span><span class="p">,</span><span class="mf">25.53</span><span class="p">,</span><span class="mf">19.85</span><span class="p">,</span><span class="mf">35.37</span><span class="p">,</span><span class="mf">44.6</span><span class="p">,</span><span class="mf">17.23</span><span class="p">,</span><span class="mf">13.47</span><span class="p">,</span><span class="mf">26.33</span><span class="p">,</span><span class="mf">35.02</span><span class="p">,</span><span class="mf">32.09</span><span class="p">,</span><span class="mf">24.81</span><span class="p">,</span><span class="mf">19.33</span><span class="p">,</span><span class="mf">28.77</span><span class="p">,</span><span class="mf">24.26</span><span class="p">,</span><span class="mf">31.98</span><span class="p">,</span><span class="mf">25.73</span><span class="p">,</span><span class="mf">24.86</span><span class="p">,</span><span class="mf">16.28</span><span class="p">,</span><span class="mf">34.51</span><span class="p">,</span><span class="mf">15.23</span><span class="p">,</span><span class="mf">39.72</span><span class="p">,</span><span class="mf">40.8</span><span class="p">,</span><span class="mf">26.06</span><span class="p">,</span><span class="mf">35.76</span><span class="p">,</span><span class="mf">34.76</span><span class="p">,</span><span class="mf">16.13</span><span class="p">,</span><span class="mf">44.04</span><span class="p">,</span><span class="mf">18.03</span><span class="p">,</span><span class="mf">19.65</span><span class="p">,</span><span class="mf">32.62</span><span class="p">,</span><span class="mf">35.59</span><span class="p">,</span><span class="mf">39.43</span><span class="p">,</span><span class="mf">14.18</span><span class="p">,</span><span class="mf">35.24</span><span class="p">,</span><span class="mf">40.13</span><span class="p">,</span><span class="mf">41.82</span><span class="p">,</span><span class="mf">35.45</span><span class="p">,</span><span class="mf">36.07</span><span class="p">,</span><span class="mf">43.67</span><span class="p">,</span><span class="mf">24.61</span><span class="p">,</span><span class="mf">20.9</span><span class="p">,</span><span class="mf">21.9</span><span class="p">,</span><span class="mf">18.79</span><span class="p">,</span><span class="mf">27.61</span><span class="p">,</span><span class="mf">27.21</span><span class="p">,</span><span class="mf">26.61</span><span class="p">,</span><span class="mf">29.77</span><span class="p">,</span><span class="mf">20.59</span><span class="p">,</span><span class="mf">27.53</span><span class="p">,</span><span class="mf">13.82</span><span class="p">,</span><span class="mf">33.2</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mf">33.1</span><span class="p">,</span><span class="mf">36.65</span><span class="p">,</span><span class="mf">18.63</span><span class="p">,</span><span class="mf">14.87</span><span class="p">,</span><span class="mf">22.2</span><span class="p">,</span><span class="mf">36.81</span><span class="p">,</span><span class="mf">25.53</span><span class="p">,</span><span class="mf">24.62</span><span class="p">,</span><span class="mf">26.25</span><span class="p">,</span><span class="mf">18.21</span><span class="p">,</span><span class="mf">28.08</span><span class="p">,</span><span class="mf">19.42</span><span class="p">,</span><span class="mf">29.79</span><span class="p">,</span><span class="mf">32.8</span><span class="p">,</span><span class="mf">35.99</span><span class="p">,</span><span class="mf">28.32</span><span class="p">,</span><span class="mf">27.79</span><span class="p">,</span><span class="mf">35.88</span><span class="p">,</span><span class="mf">29.06</span><span class="p">,</span><span class="mf">36.28</span><span class="p">,</span><span class="mf">14.1</span><span class="p">,</span><span class="mf">36.63</span><span class="p">,</span><span class="mf">37.49</span><span class="p">,</span><span class="mf">26.9</span><span class="p">,</span><span class="mf">18.58</span><span class="p">,</span><span class="mf">38.48</span><span class="p">,</span><span class="mf">24.48</span><span class="p">,</span><span class="mf">18.95</span><span class="p">,</span><span class="mf">33.55</span><span class="p">,</span><span class="mf">14.24</span><span class="p">,</span><span class="mf">29.04</span><span class="p">,</span><span class="mf">32.51</span><span class="p">,</span><span class="mf">25.63</span><span class="p">,</span><span class="mf">22.22</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mf">32.73</span><span class="p">,</span><span class="mf">15.16</span><span class="p">,</span><span class="mf">13.9</span><span class="p">,</span><span class="mf">27.2</span><span class="p">,</span><span class="mf">32.01</span><span class="p">,</span><span class="mf">29.27</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mf">13.74</span><span class="p">,</span><span class="mf">20.42</span><span class="p">,</span><span class="mf">27.32</span><span class="p">,</span><span class="mf">18.23</span><span class="p">,</span><span class="mf">35.35</span><span class="p">,</span><span class="mf">28.48</span><span class="p">,</span><span class="mf">9.08</span><span class="p">,</span><span class="mf">24.62</span><span class="p">,</span><span class="mf">20.12</span><span class="p">,</span><span class="mf">35.26</span><span class="p">,</span><span class="mf">19.92</span><span class="p">,</span><span class="mf">31.02</span><span class="p">,</span><span class="mf">16.49</span><span class="p">,</span><span class="mf">12.16</span><span class="p">,</span><span class="mf">30.7</span><span class="p">,</span><span class="mf">31.22</span><span class="p">,</span><span class="mf">34.65</span><span class="p">,</span><span class="mf">13.13</span><span class="p">,</span><span class="mf">27.51</span><span class="p">,</span><span class="mf">33.2</span><span class="p">,</span><span class="mf">31.57</span><span class="p">,</span><span class="mf">14.1</span><span class="p">,</span><span class="mf">33.42</span><span class="p">,</span><span class="mf">17.44</span><span class="p">,</span><span class="mf">10.12</span><span class="p">,</span><span class="mf">24.42</span><span class="p">,</span><span class="mf">9.82</span><span class="p">,</span><span class="mf">23.39</span><span class="p">,</span><span class="mf">30.93</span><span class="p">,</span><span class="mf">15.03</span><span class="p">,</span><span class="mf">21.67</span><span class="p">,</span><span class="mf">31.09</span><span class="p">,</span><span class="mf">33.29</span><span class="p">,</span><span class="mf">22.61</span><span class="p">,</span><span class="mf">26.89</span><span class="p">,</span><span class="mf">23.48</span><span class="p">,</span><span class="mf">8.38</span><span class="p">,</span><span class="mf">27.81</span><span class="p">,</span><span class="mf">32.35</span><span class="p">,</span><span class="mf">23.84</span><span class="p">]</span>
+<span class="n">daily_hours</span>   <span class="o">=</span> <span class="p">[</span><span class="n">dm</span> <span class="o">/</span> <span class="mi">60</span> <span class="k">for</span> <span class="n">dm</span> <span class="ow">in</span> <span class="n">daily_minutes</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;covariance&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">covariance</span><span class="p">(</span><span class="n">num_friends</span><span class="p">,</span><span class="w"> </span><span class="n">daily_minutes</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;covariance&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">covariance</span><span class="p">(</span><span class="n">num_friends</span><span class="p">,</span><span class="w"> </span><span class="n">daily_hours</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">correlation</span> <span class="p">(</span><span class="n">xs</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                 <span class="n">ys</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Measures how much xs and ys vary in tandem about their means.&quot;&quot;&quot;</span>
+  <span class="n">stdev_x</span> <span class="o">=</span> <span class="n">standard_deviation</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+  <span class="n">stdev_y</span> <span class="o">=</span> <span class="n">standard_deviation</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">stdev_x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">stdev_y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">covariance</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">)</span> <span class="o">/</span> <span class="n">stdev_x</span> <span class="o">/</span> <span class="n">stdev_y</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;correlation&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">correlation</span><span class="p">(</span><span class="n">num_friends</span><span class="p">,</span><span class="w"> </span><span class="n">daily_minutes</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;correlation&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">correlation</span><span class="p">(</span><span class="n">num_friends</span><span class="p">,</span><span class="w"> </span><span class="n">daily_hours</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">outlier</span> <span class="o">=</span> <span class="n">num_friends</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">num_friends_good</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>
+                    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">num_friends</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">outlier</span><span class="p">]</span>
+
+<span class="n">daily_minutes_good</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span>
+                      <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">daily_minutes</span><span class="p">)</span>
+                      <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">outlier</span><span class="p">]</span>
+
+<span class="n">daily_hours_good</span> <span class="o">=</span> <span class="p">[</span><span class="n">dm</span> <span class="o">/</span> <span class="mi">60</span> <span class="k">for</span> <span class="n">dm</span> <span class="ow">in</span> <span class="n">daily_minutes_good</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;correlation&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">correlation</span><span class="p">(</span><span class="n">num_friends_good</span><span class="p">,</span><span class="w"> </span><span class="n">daily_minutes_good</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;correlation&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">correlation</span><span class="p">(</span><span class="n">num_friends_good</span><span class="p">,</span><span class="w"> </span><span class="n">daily_hours_good</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean                : 7.333333333333333
+median              : 6.0
+
+10th percentile     : 1
+25th percentile     : 3
+75th percentile     : 9
+90th percentile     : 13
+
+mode                : {1, 6}
+range               : 99
+variance            : 81.54351395730716
+standard deviation  : 9.03014473623248
+interquartile range : 6
+
+covariance          : 22.425435139573064
+covariance          : 0.37375725232621776
+
+correlation         : 0.24736957366478218
+correlation         : 0.24736957366478196
+correlation         : 0.5736792115665573
+correlation         : 0.5736792115665579
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="neural-networks">
+<h2>[18] Neural Networks<a class="headerlink" href="#neural-networks" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">step_function</span> <span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+  <span class="k">return</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+<span class="k">def</span> <span class="nf">perceptron_output</span> <span class="p">(</span><span class="n">weights</span> <span class="p">:</span> <span class="n">Vector</span><span class="p">,</span>
+                       <span class="n">bias</span>    <span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                       <span class="n">x</span>       <span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Parameters</span>
+<span class="sd">  ==========</span>
+<span class="sd">  weights [Vector]</span>
+<span class="sd">  bias    [float]</span>
+<span class="sd">  x       [Vector]</span>
+
+<span class="sd">  Return</span>
+<span class="sd">  ======</span>
+<span class="sd">  1 if the perceptron fires else 0</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">calculation</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">bias</span>
+  <span class="k">return</span> <span class="n">step_function</span><span class="p">(</span><span class="n">calculation</span><span class="p">)</span>
+
+<span class="c1"># AND GATE</span>
+<span class="n">and_weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">and_bias</span>    <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">and_weights</span><span class="p">,</span> <span class="n">and_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">and_weights</span><span class="p">,</span> <span class="n">and_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">and_weights</span><span class="p">,</span> <span class="n">and_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">and_weights</span><span class="p">,</span> <span class="n">and_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="c1"># OR GATE</span>
+<span class="n">or_weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">or_bias</span>    <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">or_weights</span><span class="p">,</span> <span class="n">or_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">or_weights</span><span class="p">,</span> <span class="n">or_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">or_weights</span><span class="p">,</span> <span class="n">or_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">or_weights</span><span class="p">,</span> <span class="n">or_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="c1"># NOT GATE</span>
+<span class="n">not_weights</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">not_bias</span>    <span class="o">=</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">not_weights</span><span class="p">,</span> <span class="n">not_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">perceptron_output</span><span class="p">(</span><span class="n">not_weights</span><span class="p">,</span> <span class="n">not_bias</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="c1"># we don&#39;t really need NNs to construct logic gates</span>
+<span class="n">and_gate</span> <span class="o">=</span> <span class="nb">min</span>
+<span class="n">or_gate</span>  <span class="o">=</span> <span class="nb">max</span>
+<span class="n">xor_gate</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="k">else</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="bibliography">
+<h2>Bibliography<a class="headerlink" href="#bibliography" title="Link to this heading">#</a></h2>
+<p>[ <a class="reference external" href="https://github.com/joelgrus/data-science-from-scratch">g</a> ] Grus, Joel. (2019). <em>Data Science from Scratch</em>. 2e. O’Reilly.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./c/programming/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="package.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Anaconda and Package Management</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../rlang/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">R</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">[01] Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-algebra">[04] Linear algebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">[05] Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-networks">[18] Neural Networks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

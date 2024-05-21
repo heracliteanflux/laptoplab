@@ -1,0 +1,1537 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Logic &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/logic/index';</script>
+    <script src="../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction" href="introduction.html" />
+    <link rel="prev" title="Counting" href="../counting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../counting.html">Counting</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Logic</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/index.html">Computery Things</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/index.html">Programming</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Logic</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-logic">Formal Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informal">Informal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automata-and-computation">Automata and Computation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-languages">Programming Languages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-logic">Digital Logic</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="logic">
+<h1>Logic<a class="headerlink" href="#logic" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="sections">
+<h2>Sections<a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p>[ <a class="reference external" href="https://www.youtube.com/&#64;LogicPhilosophy">Y</a> ] David Agler. Logic and Philosophy.</p>
+<p>Jan Reimann. Math 557, Mathematical Logic, Penn State, Spring 2021.</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=PMpW-8WCOZY">y</a> ] <code class="docutils literal notranslate"><span class="pre">01-31-2021</span></code>. “Math 557 - Cardinals and Alephs”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=bcRg1RwzneA">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-03-2021</span></code>. “Math 557 - Cardinal arithmetic and the Continuum Hypothesis”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=i15h3s0DKcg">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-06-2021</span></code>. “Math 557 – Cofinality”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=2IYmywVEc9Y">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-07-2021</span></code>. “Math 557 – First-order languages”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=MakV6GWBDzo">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-08-2021</span></code>. “Math 557 – Properties of terms and formulas”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=gM8fQ4Gyu9o">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-09-2021</span></code>. “Math 557 – Semantics of First-order Logic”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=mmQKxdnyPbM">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-23-2021</span></code>. “Math 557 – Validities”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=CM94203SzDY">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-23-2021</span></code>. “Math 557 – Substitution”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=fs4ImYH0GRg">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-23-2021</span></code>. “Math 557 – Logical Implication and Proof”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=Y5s-dQRvpKw">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-23-2021</span></code>. “Math 557 – Consistency and Completeness”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=N4_iteekluI">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-23-2021</span></code>. “Math 557 – The Completeness Theorem”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=Sd-Avd1r64U">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-28-2021</span></code>. “Math 557 – Henkin Theories”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=LMDKdi3P1b0">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-26-2021</span></code>. “Math 557 – Completing Theories”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=kfK24K3ZXV4">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-02-2021</span></code>. “Math 557 — Proving the Model Existence Theorem”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=rXlQmgnoQbA">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-06-2021</span></code>. “Math 557 - Elementary Equivalence”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=O-TA5GFbrvU">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-08-2021</span></code>. “Math 557 – Elementary Substructures”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=RX3gMdvxLfE">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-07-2021</span></code>. “Math 557 – The Löwenheim-Skolem Theorems”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=62IeRf8s6AY">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-13-2021</span></code>. “Math 557 – Quantifier Elimination”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=aybUkZFozbg">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-16-2021</span></code>. “Math 557 – Quantifier Elimination for Algebraically Closed Fields”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=NTgfGqf9260">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-20-2021</span></code>. “Math 557 – Turing Machines”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=bFWAsmg3OMA">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-22-2021</span></code>. “Math 557 – Enumerating Turing Machines”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=BTqZVvLREnE">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-23-2021</span></code>. “Math 557 – Unsolvable Problems”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=XVdXFTA54oE">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-28-2021</span></code>. “Math 557 – Primitive recursive functions”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=FSNF3ysnMOs">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-28-2021</span></code>. “Math 557 – The Ackermann function”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=Tn3fuAQYedE">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-31-2021</span></code>. “Math 557 – Recursive Functions”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=0TeCvOCRzhU">y</a> ] <code class="docutils literal notranslate"><span class="pre">04-03-2021</span></code>. “Math 557 – Coding Formulas”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=sJyU8Pekb9U">y</a> ] <code class="docutils literal notranslate"><span class="pre">04-05-2021</span></code>. “Math 557 – Deciding Theories”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=oJPahtviyks">y</a> ] <code class="docutils literal notranslate"><span class="pre">04-11-2021</span></code>. “Math 557 – Peano Arithmetic”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=zRQfSHdgV1o">y</a> ] <code class="docutils literal notranslate"><span class="pre">04-12-2021</span></code>. “Math 557 – Arithmetic Formulas”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=NB-3MTJwzjQ">y</a> ] <code class="docutils literal notranslate"><span class="pre">04-13-2021</span></code>. “Math 557 – Defining Computable Functions in Arithmetic”.</p></li>
+</ul>
+<p>Jan Reimann. MATH 574, Topics in Logic, Penn State, Spring 2014.</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=I4AqxEtohq8">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Introductory Lecture: three approaches to quantity of information”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=ZjWHh1mAUsQ">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 1-1: Strings”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=dUofthrSolQ">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 1-2: Sequence Spaces”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=pxXdgoclgpk">y</a> ] <code class="docutils literal notranslate"><span class="pre">01-13-2014</span></code>. “Math 574, Lesson 1-3: Infinite paths through trees”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=WKdy_OxdUbk">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 1-4: Measure Spaces”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=7Sd3mHXv31I">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 1-5: Measures on Sequence Spaces”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=UJikr32PLk4">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 1-6: Stochastic Processes”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=ZqfLzZVhn7U">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-04-2014</span></code>. “Math 574, Lesson 2-1: Finite Automata”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=oc0kPb-Hgvk">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-09-2014</span></code>. “Math 574, Lesson 2-2: Turing Machines”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=3y1KgxdTIMI">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 2-3: Turing machines - an example”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=qvCXYqjbPD4">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 2-4: Computable Functions”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=47KpZvA39dA">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574. Lesson 2-5: The Halting Problem”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=cCvB2MDdNBg">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 2-6: Undecidability of the Halting Problem”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=erTYybQ5cSM">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 3-1: Subshifts”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=cnNIVLerMeo">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 3-2: Measurable Dynamics”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=MUGl040EVxY">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 3-3: Markov Shifts”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=SHQcQ5Kd1kA">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 3-3: Markov Shifts”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=P2FC-kYY-P4">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 3-4: Markov Chains”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=B0JI593utaM">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 3-5: Ergodicity”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=9LpAX0wBT5Q">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 3-6: The Ergodic Theorem”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=QYA_4_drfm0">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 4-1: Information Measures”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=96zUS8PzMvo">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 4-2: The Definition of Entropy”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=S31CbvpZBU4">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 4-3: Kolmogorov Complexity”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=oUpBtlKwBf0">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 4-4: Prefix-free Complexity”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=fc5FyE41zeo">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 4-5: Mutual Information”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=AeZdZbxMqI4">y</a> ] <code class="docutils literal notranslate"><span class="pre">02-13-2015</span></code>. “Math 574, Lesson 5-1: Optimal Codes”.</p></li>
+</ul>
+<p>more</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=skqB7AbR1G0">y</a> ] <code class="docutils literal notranslate"><span class="pre">01-13-2024</span></code>. UCLA Automated Reasoning Group. “Beyond Truth &amp; Falsehood: Logic as a Calculus of Events”.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="texts">
+<h2>Texts<a class="headerlink" href="#texts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="http://www.davidagler.com/">h</a> ][ <a class="reference external" href="https://www.youtube.com/&#64;LogicPhilosophy">y</a> ] Agler, David w. (2012). <em>Symbolic Logic: Syntax, Semantics, and Proof</em>. Rowman and Littlefield.</p></li>
+<li><p>Andrews, Peter B. (2002). <em>An Introduction to Mathematical Logic and Type Theory: To Truth Through Proof</em>. Springer: Applied Logic Series.</p></li>
+<li><p>Ayala-Rincón, Mauricio &amp; Flávio L. C. de Moura. (2017). <em>Applied Logic for Computer Scientists: Computational Deduction and Formal Proofs</em>. Springer: Undergraduate Topics in Computer Science.</p></li>
+<li><p>Ayer, Alfred J. (1952). <em>Language, Turth, and Logic</em>. Dover.</p></li>
+<li><p>Boolos, George s.; John H. Burgess; &amp; Richard C. Jeffrey. (2007). <em>Computability and Logic</em>. 5th Ed. Cambridge University Press.</p></li>
+<li><p>Burgess, John P. (2012). <em>Philosophical Logic</em>. Princeton University Press.</p></li>
+<li><p>Carroll, Lewis. (1958). <em>Symbolic Logic and the Game of Logic</em>. Dover.</p></li>
+<li><p>Cellucci, Carlo. (2016). <em>Rethinking Logic: Logic in Relation to Mathematics, Evolution, and Method</em>. Springer.</p></li>
+<li><p>Csirmaz, Laszlo &amp; Zalán Gyenis. (2022). <em>Mathematical Logic: Exercises and Solutions</em>. Springer: Problem Books in Mathematics.</p></li>
+<li><p>Dau, Frithjof. (2003). <em>The Logic System of Concept Graphs with Negation: And Its Relationship to Predicate Logic</em>. Springer: Lecture Notes in Computer Science.</p></li>
+<li><p>De Swart, Harrie. (2018). <em>Philosophical and Mathematical Logic</em>. Springer Undergraduate Texts in Philosophy.</p></li>
+<li><p>Enderton, Herbert B. (2001). <em>A Mathematical Introduction to Logic</em>. 2nd Ed. Academic Press.</p></li>
+<li><p>Freund, Max A. (2019). <em>The Logic of Sortals: A Conceptualist Approach</em>. Springer: Synthese Library.</p></li>
+<li><p>Gamut, L. T. F. (2020). <em>Logic, Language, and Meaning, Vol. I: Introduction to Logic</em>. University of Chicago Press.</p></li>
+<li><p>Gamut, L. T. F. (2020). <em>Logic, Language, and Meaning, Vol. II: Intensional Logic and Logical Grammar</em>. University of Chicago Press.</p></li>
+<li><p>Haack. Susan. (1978). <em>Philosophy of Logics</em>. Cambridge University Press.</p></li>
+<li><p>Harrison, John. (2009). <em>Handbook of Practical Logic and Automated Reasoning</em>. Cambridge University Press.</p></li>
+<li><p>Hitzler, Pascal &amp; Anthony Seda. (2016). <em>Mathematical Aspects of Logic Programming Semantics</em>. CRC Press.</p></li>
+<li><p>Iacona, Andrea. <em>LOGIC: Lecture Notes for Philosophy, Mathematics, and Computer Science</em>. Springer Undergraduate Texts in Philosophy.</p></li>
+<li><p>Jongsma, Calvin. (2019). <em>Introduction to Discrete Mathematics via Logic and Proof</em>. Springer Undergraduate Texts in Mathematics.</p></li>
+<li><p>Kac, Mark &amp; Stanislaw M. Ulam. (1992). <em>Mathematics and Logic</em>. Dover.</p></li>
+<li><p>Kripke, Saul. (1981). <em>Naming and Necessity</em>. Wiley-Blackwell.</p></li>
+<li><p>[ <a class="reference external" href="https://milneopentextbooks.org/a-friendly-introduction-to-mathematical-logic/">b</a> ] Leary, Christopher &amp; Lars Kristiansen. (2015). <em>A Friendly Introduction to Mathematical Logic</em>. Milne Library.</p></li>
+<li><p>Mates, Benson. <em>Stoic Logic</em>.</p></li>
+<li><p>Mendelson, Elliot. (2015). <em>Introduction to Mathematical Logic</em>. CRC Press..</p></li>
+<li><p>Milanic, Martin; Brigitte Servatius; &amp; Herman Servatius. (2023). <em>Discrete Mathematics with Logic</em>. Acadmeic Press.</p></li>
+<li><p>Nerode, Anil &amp; Richard A. Shore. (1997). <em>Logic for Applications</em>. 2nd Ed. Springer: Graduate Texts in Computer Science.</p></li>
+<li><p>Novaes, Catarina Dutilh. (2012). <em>Formal Languages in Logic: A Philosophical and Congitive Analysis</em>. Cambridge University Press.</p></li>
+<li><p>Parry, William T. &amp; Edward A. Hacker. (1991). <em>Aristotelian Logic</em>. SUNY Press.</p></li>
+<li><p>Peregrin, Jaroslav. (2021). <em>Philosophy of Logical Systems</em>. Routledge Studies in Contemporary Philosophy.</p></li>
+<li><p>Quine, Willard Van Orman. (1986). <em>Philosophy of Logic</em>. 2nd Ed. Harvard University Press.</p></li>
+<li><p>Rini, Adriane. (2011). <em>Aristotle’s Modal Proofs: Prior Analytics A8-22 in Predicate Logic</em>. Springer: The New Synthese Historical Library.</p></li>
+<li><p>Sider, Theodore. (2010). <em>Logic for Philosophy</em>. Oxford University Press.</p></li>
+<li><p>Soames, Scott. (2012). <em>Philosophy of Language</em>. Princeton University Press.</p></li>
+<li><p>Stillwell, John. (2022). <em>The Story of Proof: Logic and the History of Mathematics</em>. Princeton University Press.</p></li>
+<li><p>Suppes, Patrick &amp; Shirley Hill. (2010). <em>First Course in Mathematical Logic</em>. Dover.</p></li>
+<li><p>Vingron, Shimon Peter. (2004). <em>Switching Theory: Insight through Predicate Logic</em>. Springer.</p></li>
+<li><p>Wasilewska, Anita. (2018). <em>Logics for Computer Science: Classical and Non-Classical</em>. Springer.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2>Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ w ] Aristotle</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/aristotle-logic/">s</a> ] Aristotle’s Logic</p></li>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/aristotle-noncontradiction/">s</a> ] Aristotle on Non Contradiction</p></li>
+</ul>
+</li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/boole/">s</a> ] Boole, George (1815-1864)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Georg_Cantor">w</a> ] Cantor, Georg (1845-1918)</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cantor%27s_first_set_theory_article">w</a> ] Cantor’s First Set Theory Article</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Chrysippus">w</a> ] Chrysippus of Soli</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Haskell_Curry">w</a> ] Curry, Haskell (1900-1982)</p></li>
+<li><p>[ w ] De Morgan, Augustus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ferdinand_de_Saussure">w</a> ] De Saussure, Ferdinand (1857-1913)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Richard_Dedekind">w</a> ] Dedekind, Richard</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Michael_Dummett">w</a> ] Dummett, Michael</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Abraham_Fraenkel">w</a> ] Fraenkel, Abraham (1891-1965)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gottlob_Frege">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/frege/">s</a> ] Frege, Gottlob (1848-1925)</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/frege-logic/">s</a> ] Frege’s Logic</p></li>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/frege-theorem/">s</a> ] Frege’s Theorem and Foundations for Arithmetic</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gerhard_Gentzen">w</a> ] Gentzen, Gerhard (1909-1945)</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/goedel/">s</a> ] Gödel, Kurt</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jaakko_Hintikka">w</a> ] Hintikka, Jaakko</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/G%C3%A9rard_Huet">w</a> ] Huet, Gérard (1947-)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Saul_Kripke">w</a> ] Kripke, Saul</p></li>
+<li><p>[ w ] Leibniz</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/leibniz-logic-influence/">s</a> ] Leibniz’ Influence on 19th Century Logic</p></li>
+</ul>
+</li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/lesniewski/">s</a> ] Leśniewski, Stanisław (1886-1939)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/C._I._Lewis">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/lewis-ci/">s</a> ] Lewis, Clarence Irving (1883-1964)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jan_%C5%81ukasiewicz">w</a> ] Lukasiewicz, Jan (1878-1956)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ruth_Barcan_Marcus">w</a> ] Marcus, Ruth (1921-2012)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Richard_Montague">w</a> ] Montague, Richard (1930-1971)</p></li>
+<li><p>[ w ] Peano, Giuseppe</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetices_principia,_nova_methodo_exposita">w</a> ] (1889). <em>Arithmetices principia, nova methodo exposita</em>.</p></li>
+</ul>
+</li>
+<li><p>[ w ] Peirce, Charles Sanders</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Charles_Sanders_Peirce">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/peirce/">s</a> ] Peirce, Charles Sanders</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Emil_Leon_Post">w</a> ] Post, Emil (1897-1954)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arthur_Prior">w</a> ] Prior, Arthur</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bertrand_Russell">w</a> ] Russell, Bertrand</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/On_Denoting">w</a> ] (1905). “On Denoting”.</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Moses_Sch%C3%B6nfinkel">w</a> ] Schonfinkel, Moses</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Henry_M._Sheffer">w</a> ] Sheffer, Henry (1882-1964)</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/tarski/">s</a> ] Tarski, Alfred (1901-1983)</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/tarski-truth/">s</a> ] Tarski’s Truth Definitions</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/John_Venn">w</a> ] Venn, John (1834-1923)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ludwig_Wittgenstein">w</a> ] Wittgenstein, Ludwig</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ernst_Zermelo">w</a> ] Zermelo, Ernst (1871-1953)</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/zermelo-set-theory/">s</a> ] Zermelo’s Axiomatization of Set Theory</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2>Terms<a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<section id="formal-logic">
+<h3>Formal Logic<a class="headerlink" href="#formal-logic" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Abductive_reasoning">w</a> ] Abduction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Material_nonimplication">w</a> ] Abjunction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Abstract_rewriting_system">w</a> ] Abstract Rewriting System</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/M%C3%BCnchhausen_trilemma">w</a> ] Aggrippan Trilemma</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/algebra/">s</a> ] Algebra</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/algebra-logic-tradition/">s</a> ] Algebra of Logic</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-algebraic-propositional/">s</a> ] Algebraic Propositional Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Alphabet_(formal_languages)">w</a> ] Alphabet</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ampliative">w</a> ] Ampliativity</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/analytic-synthetic/">s</a> ] Analysis</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-ancient/">s</a> ] Ancient Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Antecedent_(logic)">w</a> ] Antecedent</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Argument">w</a> ] Argument</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Argumentation_theory">w</a> ] Argumentation Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Term_logic">w</a> ] Aristotelian Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arity">w</a> ] Arity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Atomic_formula">w</a> ] Atomic Formula</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Atomic_sentence">w</a> ] Atomic Sentence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axiom">w</a> ] Axiom</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axiom_schema">w</a> ] Axiom Schema</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Barcan_formula">w</a> ] Barcan Formula</p></li>
+<li><p>[ w ] Biconditional</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_algebra">w</a> ] Boolean Algebra</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/boolalg-math/">s</a> ] Boolean Algebra, Mathematics</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_algebra_(structure)">w</a> ] Boolean Algebra Structure</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_function">w</a> ] Boolean Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Buridan_formula">w</a> ] Buridan Formula</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Canonical_normal_form">w</a> ] Canonical Normal Form</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cardinality">w</a> ] Cardinality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Categorical_proposition">w</a> ] Categorical Proposition</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/category-theory/">s</a> ] Category Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Classical_logic">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-classical/">s</a> ] Classical Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Combinational_logic">w</a> ] Combinational Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Combinatory_logic">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-combinatory/">s</a> ] Combinatory Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Compactness_theorem">w</a> ] Compactness Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Completeness_(logic)">w</a> ] Completeness</p></li>
+<li><p>[ w ] Compound Proposition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Comprehension_(logic)">w</a> ] Comprehension</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-conditionals/">s</a> ] Conditional</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Confluence_(abstract_rewriting)">w</a> ] Confluence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_conjunction">w</a> ] Conjunction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">w</a> ] Conjunctive Normal Form</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-connexive/">s</a> ] Connexive Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Connotation">w</a> ] Connotation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Consequent">w</a> ] Consequent</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Consistency">w</a> ] Consistency</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_constant">w</a> ] Constant Symbol</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Constructive_dilemma">w</a> ] Constructive Dilemma</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Contingency_(philosophy)">w</a> ] Contingency</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Contradiction">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/contradiction/">s</a> ] Contradiction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Contraposition">w</a> ] Contraposition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Converse_(logic)">w</a> ] Converse Conditional/Implication</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Converse_nonimplication">w</a> ] Converse Nonimplication</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/counterfactuals/">s</a> ] Counterfactual</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Criteria_of_truth">w</a> ] Criteria of Truth</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Critical_thinking">w</a> ] Critical Thinking</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/De_dicto_and_de_re">w</a> ] De Dicto</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws">w</a> ] De Morgan’s Laws</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/De_dicto_and_de_re">w</a> ] De Re</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Deductive_reasoning">w</a> ] Deductive Reasoning</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Defeasible_reasoning">w</a> ] Defeasible Reasoning</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/definitions/">s</a> ] Definition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Denotation">w</a> ] Denotation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Deontic_logic">w</a> ] Deontic Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Destructive_dilemma">w</a> ] Destructive Dilemma</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Diagonal_lemma">w</a> ] Diagonal Lemma</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_disjunction">w</a> ] Disjunction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Disjunctive_normal_form">w</a> ] Disjunctive Normal Form</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Disjunctive_syllogism">w</a> ] Disjunctive Syllogism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Domain_of_discourse">w</a> ] Domain of Discourse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Enthymeme">w</a> ] Enthymeme ἐνθύμημα</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Enumeration">w</a> ] Enumeration</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equivocation">w</a> ] Equivocation</p></li>
+<li><p>[ w ] Exclusive Disjunction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Existential_generalization">w</a> ] Existential Generalization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Existential_instantiation">w</a> ] Existential Instantiation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Existential_quantification">w</a> ] Existential Quantification</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Explicit_substitution">w</a> ] Explicit Substitution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Extension_(predicate_logic)">w</a> ] Extension, Predicate Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Extension_(semantics)">w</a> ] Extension, Semantics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Extensionality">w</a> ] Extensionality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fallacy">w</a> ] Fallacy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/False_(logic)">w</a> ] Falsity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Up_tack">w</a> ] Falsum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Finitary">w</a> ] Finitarity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/First-order_logic">w</a> ] First-Order Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formal_language">w</a> ] Formal Language</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formal_proof">w</a> ] Formal Proof</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Semantics_of_logic">w</a> ] Formal Semantics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formal_system">w</a> ] Formal System</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formalism_(philosophy_of_mathematics)">w</a> ] Formalism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formation_rule">w</a> ] Formation Rule</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sentence_(mathematical_logic)">w</a> ] Formula, Closed</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Well-formed_formula">w</a> ] Formula</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Open_formula">w</a> ] Formula, Open</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Free_object">w</a> ] Free Object</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Principle_of_compositionality">w</a> ] Frege’s Principle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Uninterpreted_function">w</a> ] Function Symbol</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_completeness">w</a> ] Functional Completeness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_predicate">w</a> ] Functional Predicate</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/future-contingents/">s</a> ] Future Contingent</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-fuzzy/">s</a> ] Fuzzy Logic</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/generalized-quantifiers/">s</a> ] Generalized Quantifier</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/G%C3%B6del%27s_completeness_theorem">w</a> ] Gödel’s Completeness Theorems</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems">w</a> ] Gödel’s Incompleteness Theorems</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ground_expression">w</a> ] Ground Expression</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Herbrand_structure">w</a> ] Herbrand Structure</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Heuristic">w</a> ] Heuristic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Higher-order_logic">w</a> ] Higher-Order Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/History_of_logic">w</a> ] History of Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hypothetical_syllogism">w</a> ] Hypothetical Syllogism</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/identity-indiscernible/">s</a> ] Identity of Indiscernibles</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/If_and_only_if">w</a> ] If and only if</p></li>
+<li><p>[ w ] Implication</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inclusion_(Boolean_algebra)">w</a> ] Inclusion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_disjunction">w</a> ] Inclusive Disjunction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Indian_logic">w</a> ] Indian Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inductive_reasoning">w</a> ] Induction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inference">w</a> ] Inference</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Finitary">w</a> ] Infinitarity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Infinite_regress">w</a> ] Infinite Regress</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Infix_notation">w</a> ] Infix Notation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Informal_logic">w</a> ] Informal Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Intension">w</a> ] Intension</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Intensional_logic">w</a> ] Intensional Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Interpretation_(logic)">w</a> ] Interpretation, Logical</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Interpretation_(model_theory)">w</a> ] Interpretation, Model-Theoretic</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-intuitionistic/">s</a> ] Intuitionistic Logic</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/intuitionistic-logic-development/">s</a> ] The Development of Intuitionistic Logic</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inverse_(logic)">w</a> ] Inverse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logic_in_Islamic_philosophy">w</a> ] Islamic Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Justification_(epistemology)">w</a> ] Justification</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Definitions_of_knowledge">w</a> ] Knowledge, definitions</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Principle_of_bivalence">w</a> ] Law of Bivalence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Principle_of_explosion">w</a> ] Law of Explosion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_excluded_middle">w</a> ] Law of Excluded Middle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_identity">w</a> ] Law of Identity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_noncontradiction">w</a> ] Law of Non Contradiction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_thought">w</a> ] Law of Thought</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/liar-paradox/">s</a> ] Liar Paradox</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-linear/">s</a> ] Linear Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logic">w</a> ] Logic</p>
+<ul>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-games/">s</a> ] Logic and Games</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-ontology/">s</a> ] Logic and Ontology</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-belief-revision/">s</a> ] Logic of Belief Revision</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logica_nova">w</a> ] Logica Nova</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_conjunction">w</a> ] Logical AND</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Judgment_(mathematical_logic)">w</a> ] Logical Assertion</p></li>
+<li><p>[ w ] Logical Atomism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_biconditional">w</a> ] Logical Biconditional</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_connective">w</a> ] Logical Connective</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_consequence">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logical-consequence/">s</a> ] Logical Consequence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_constant">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logical-constants/">s</a> ] Logical Constant</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_equivalence">w</a> ] Logical Equivalence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formal_fallacy">w</a> ] Logical Fallacy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_form">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logical-form/">s</a> ] Logical Form</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Interpretation_(logic)">w</a> ] Logical Interpretation</p></li>
+<li><p>[ w ] Logical NAND</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_NOR">w</a> ] Logical NOR</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Negation">w</a> ] Logical NOT</p></li>
+<li><p>[ w ] Logical Operation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_disjunction">w</a> ] Logical OR</p></li>
+<li><p>[ w ] Logical Positivism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Structure_(mathematical_logic)">w</a> ] Logical Structure</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Symbol_(formal)">w</a> ] Logical Symbol</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_truth">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logical-truth/">s</a> ] Logical Truth</p></li>
+<li><p>[ w ] Logical XNOR</p></li>
+<li><p>[ w ] Logical XOR</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logicism/">s</a> ] Logicism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Many-valued_logic">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-manyvalued/">s</a> ] Many-Valued Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_biconditional">w</a> ] Material Biconditional</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Material_conditional">w</a> ] Material Conditional/Implication</p></li>
+<li><p>[ w ] Material Nonimplication</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Constant_(mathematics)">w</a> ] Mathematical Constant</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Expression_(mathematics)">w</a> ] Mathematical Expression</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_induction">w</a> ] Mathematical Induction</p></li>
+<li><p>[ w ] Mathematical Language</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_logic">w</a> ] Mathematical Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_model">w</a> ] Mathematical Model</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_structure">w</a> ] Mathematical Structure</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Variable_(mathematics)">w</a> ] Mathematical Variable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Metalogic">w</a> ] Metalogic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Metavariable">w</a> ] Metavariable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Middle_term">w</a> ] Middle Term</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Modal_logic">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-modal/">s</a> ] Modal Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Model_theory">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/model-theory/">s</a> ] Model Theory</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/modeltheory-fo/">s</a> ] First Order Model Theory</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Modus_ponens">w</a> ] Modus Ponens</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Modus_tollens">w</a> ] Modus Tollens</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Montague_grammar">w</a> ] Montague Grammar</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/montague-semantics/">s</a> ] Montague Semantics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Natural_deduction">w</a> ] Natural Deduction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Natural_number">w</a> ] Natural Number</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Necessity_and_sufficiency">w</a> ] Necessity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Negation">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/negation/">s</a> ] Negation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Non-logical_symbol">w</a> ] Non Logical Symbol</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_form_(abstract_rewriting)">w</a> ] Normal Form</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Operand">w</a> ] Operand</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Operation_(mathematics)">w</a> ] Operation</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-paraconsistent/">s</a> ] Paraconsistent Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Paradox">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/paradoxes-contemporary-logic/">s</a> ] Paradox</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Particular">w</a> ] Particular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Philosophical_logic">w</a> ] Philosophical Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Philosophy_of_language">w</a> ] Philosophy of Language</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Philosophy_of_logic">w</a> ] Philosophy of Logic</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/plural-quant/">s</a> ] Plural Quantification</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Polish_notation">w</a> ] Polish Notation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Possible_world">w</a> ] Possible World</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Predicate_(mathematical_logic)">w</a> ] Predicate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Predicate_(grammar)">w</a> ] Predicate, Grammatical</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/First-order_logic">w</a> ] Predicate Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Predicate_variable">w</a> ] Predicate Variable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Predication_(philosophy)">w</a> ] Predication</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Premise">w</a> ] Premise</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Prenex_normal_form">w</a> ] Prenex Normal Form</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Principle_of_compositionality">w</a> ] Principle of Compositionality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Problem_of_the_criterion">w</a> ] Problem of the Criterion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Problem_of_future_contingents">w</a> ] Problem of Future Contingents</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Problem_of_universals">w</a> ] Problem of Universals</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Product_term">w</a> ] Product Term</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Proof_calculus">w</a> ] Proof System</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Proof_theory">w</a> ] Proof Theory</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/proof-theoretic-semantics/">s</a> ] Proof-Theoretic Semantics</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Proposition">w</a> ] Proposition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Propositional_formula">w</a> ] Propositional Formula</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Propositional_function">w</a> ] Propositional Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Propositional_calculus">w</a> ] Propositional Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Propositional_variable">w</a> ] Propositional Variable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quantifier_(logic)">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/quantification/">s</a> ] Quantifier</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reason">w</a> ] Reason</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Recursion">w</a> ] Recursion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Recursive_definition">w</a> ] Recursive Definition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reduct">w</a> ] Reduct</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reductio_ad_absurdum">w</a> ] Reductio ad absurdum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Abstract_rewriting_system">w</a> ] Reduction System</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/reference/">s</a> ] Reference</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Regress_argument">w</a> ] Regress Argument</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Relations_(philosophy)">w</a> ] Relation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Finitary_relation">w</a> ] Relation, Finitary</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Relevance">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-relevance/">s</a> ] Relevance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Resolution_(logic)">w</a> ] Resolution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rewriting">w</a> ] Rewriting</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rule_of_inference">w</a> ] Rule of Inference</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/russell-paradox/">s</a> ] Russell’s Paradox</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Satisfiability">w</a> ] Satisfiability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Scope_(logic)">w</a> ] Scope</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Second-order_logic">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-higher-order/">s</a> ] Second-Order Logic</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/self-reference/">s</a> ] Self-Reference</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sentence_(mathematical_logic)">w</a> ] Sentence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sequence">w</a> ] Sequence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sequent">w</a> ] Sequent</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sequent_calculus">w</a> ] Sequent Calculus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sheffer_stroke">w</a> ] Sheffer Stroke</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sign_(semiotics)">w</a> ] Sign</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Signature_(logic)">w</a> ] Signature</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/sorites-paradox/">s</a> ] Sorites Paradox</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Soundness">w</a> ] Soundness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Square_of_opposition">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/square/">s</a> ] Square of Opposition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statement_(logic)">w</a> ] Statement</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stoic_logic">w</a> ] Stoic Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/String_(computer_science)">w</a> ] String</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Structure_(mathematical_logic)">w</a> ] Structure</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Subject_(grammar)">w</a> ] Subject</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Subjunctive_possibility">w</a> ] Subjunctive Possibility</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Substitution_(logic)">w</a> ] Substitution</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-substructural/">s</a> ] Substructural Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Necessity_and_sufficiency">w</a> ] Sufficiency</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Syllogism">w</a> ] Syllogism</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/medieval-syllogism/">s</a> ] Medieval Theories of the Syllogism</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Syntax_(logic)">w</a> ] Syntax</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/analytic-synthetic/">s</a> ] Synthesis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tautology_(logic)">w</a> ] Tautology ταυτολογία</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Temporal_logic">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/logic-temporal/">s</a> ] Temporal Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Term_(logic)">w</a> ] Term</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Term_algebra">w</a> ] Term Algebra</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Term_logic">w</a> ] Term Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Three-valued_logic">w</a> ] Three-Valued Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Transition_system">w</a> ] Transition System</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Truth">w</a> ] Truth</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Truth_table">w</a> ] Truth Table</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Truth_value">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/truth-values/">s</a> ] Truth Value</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Truth_function">w</a> ] Truth Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Truth-bearer">w</a> ] Truth-Bearer</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/type-theory/">s</a> ] Type Theory</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://plato.stanford.edu/entries/type-theory-intuitionistic/">s</a> ] Intuitionistic Type Theory</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unification_(computer_science)">w</a> ] Unification</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Uninterpreted_function">w</a> ] Uninterpreted Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Universal_(metaphysics)">w</a> ] Universal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Universal_algebra">w</a> ] Universal Algebra</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Universal_generalization">w</a> ] Universal Generalization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Universal_instantiation">w</a> ] Universal Instantiation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Universal_quantification">w</a> ] Universal Quantification</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Vacuous_truth">w</a> ] Vacuous Truth</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/vagueness/">s</a> ] Vagueness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Validity_(logic)">w</a> ] Validity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Valuation_(logic)">w</a> ] Valuation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Free_variables_and_bound_variables">w</a> ] Variable, Bound</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Free_variables_and_bound_variables">w</a> ] Variable, Free</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Venn_diagram">w</a> ] Venn Diagram</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tee_(symbol)">w</a> ] Verum</p></li>
+<li><p>[ w ][ <a class="reference external" href="https://plato.stanford.edu/entries/vienna-circle/">s</a> ] Vienna Circle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Well-formed_formula">w</a> ] Well-Formed Formula (wff)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Zeroth-order_logic">w</a> ] Zeroth-Order Logic</p></li>
+</ul>
+</section>
+<section id="informal">
+<h3>Informal<a class="headerlink" href="#informal" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ad_hominem">w</a> ] Ad Hominem [argumentum ad hominem]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Affirmative_conclusion_from_a_negative_premise">w</a> ] Affirmative Conclusion from a Negative Premise</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Affirming_the_consequent">w</a> ] Affirming the Consequent</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Affirming_a_disjunct">w</a> ] Affirming a Disjunct</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Appeal_to_consequences">w</a> ] Appeal to Consequences [argumentum ad consequentiam]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Appeal_to_emotion">w</a> ] Appeal to Emotion [argumentum ad passiones]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Appeal_to_fear">w</a> ] Appeal to Fear [argumentum ad metum, argumentum in terrorem]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Appeal_to_flattery">w</a> ] Appeal to Flattery [argumentum ad superbiam]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Appeal_to_pity">w</a> ] Appeal to Pity [argumentum ad misericordiam]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Appeal_to_ridicule">w</a> ] Appeal to Ridicule [argumentum ad absurdo]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Appeal_to_spite">w</a> ] Appeal to Spite [argumentum ad odium]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Argument_from_authority">w</a> ] Argument from Authority, Appeal to Authority [argumentum ab auctoritate, argumentum ad verecundiam]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Argument_from_fallacy">w</a> ] Argument from Fallacy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Argument_from_ignorance">w</a> ] Argument from Ignorance, Appeal to Ignorance [argumentum ad ignorantiam]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Argument_from_silence">w</a> ] Argument from Silence [argumentum ex silentio]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Begging_the_question">w</a> ] Begging the Question [petitio principii]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cherry_picking">w</a> ] Cherry Picking</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_reasoning">w</a> ] Circular Reasoning</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_cognitive_biases">w</a> ] Cognitive Biases (list)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_of_the_inverse">w</a> ] Confusion of the Inverse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quoting_out_of_context">w</a> ] Contextomy (quoting out of context)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Denying_the_antecedent">w</a> ] Denying the Antecedent</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equivocation">w</a> ] Equivocation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_fallacies">w</a> ] Fallacies (list)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fallacy_of_composition">w</a> ] Fallacy of Composition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fallacies_of_definition">w</a> ] Fallacy of Definition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fallacy_of_division">w</a> ] Fallacy of Division</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fallacy_of_four_terms">w</a> ] Fallacy of Four Terms</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fallacy_of_the_single_cause">w</a> ] Fallacy of the Single Cause</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fallacy_of_the_undistributed_middle">w</a> ] Fallacy of the Undistributed Middle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/False_dilemma">w</a> ] False Dilemma</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Faulty_generalization">w</a> ] Faulty Generalization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formal_fallacy">w</a> ] Formal Fallacy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Illicit_major">w</a> ] Illicit Major</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Illicit_minor">w</a> ] Illicit Minor</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Informal_fallacy">w</a> ] Informal Fallacy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Irrelevant_conclusion">w</a> ] Irrelevant Conclusion [ignoratio elenchi]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jumping_to_conclusions">w</a> ] Jumping to Conclusions</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ludic_fallacy">w</a> ] Ludic Fallacy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_fallacy">w</a> ] Mathematical Fallacy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Principle_of_charity">w</a> ] Principle of Charity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Principle_of_humanity">w</a> ] Principle of Humanity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Procatalepsis">w</a> ] Procatalepsis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Red_herring">w</a> ] Red Herring</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reification_(fallacy)">w</a> ] Reification</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Slippery_slope">w</a> ] Slippery Slope</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sorites_paradox">w</a> ] Sorites Paradox</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Straw_man">w</a> ] Strawman</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trivial_objections">w</a> ] Trivial Objection</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Wishful_thinking">w</a> ] Wishful Thinking</p></li>
+</ul>
+</section>
+<section id="sets">
+<h3>Sets<a class="headerlink" href="#sets" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Algebraic_number">w</a> ] Algebraic Number</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axiom_of_choice">w</a> ][ <a class="reference external" href="https://plato.stanford.edu/entries/axiom-choice/">s</a> ] Axiom of Choice</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axiom_of_empty_set">w</a> ] Axiom of Empty Set</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axiom_of_extensionality">w</a> ] Axiom of Extensionality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axiom_of_infinity">w</a> ] Axiom of Infinity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axiom_of_power_set">w</a> ] Axiom of Power Set</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument">w</a> ] Cantor’s Diagonal Argument</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cantor%27s_theorem">w</a> ] Cantor’s Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cardinal_number">w</a> ] Cardinal Number</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cardinality_of_the_continuum">w</a> ] Cardinality of the Continuum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cartesian_product">w</a> ] Cartesian Product</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Class_(set_theory)">w</a> ] Class</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Continuum_(set_theory)">w</a> ] Continuum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Continuum_hypothesis">w</a> ] Continuum Hypothesis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dedekind_cut">w</a> ] Dedekind Cut</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Element_(mathematics)">w</a> ] Element</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Empty_set">w</a> ] Empty Set</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equinumerosity">w</a> ] Equinumerosity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Family_of_sets">w</a> ] Family</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Intension">w</a> ] Intension</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_object">w</a> ] Mathematical Object</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Multiset">w</a> ] Multiset</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ordinal_arithmetic">w</a> ] Ordinal Arithmetic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ordinal_number">w</a> ] Ordinal Number</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Power_set">w</a> ] Power Set</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Real_number">w</a> ] Real Number</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Decimal_representation">w</a> ] Real Number, Decimal Representation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Set_(mathematics)">w</a> ] Set</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Countable_set">w</a> ] Set, Countable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Infinite_set">w</a> ] Set, Infinite</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Uncountable_set">w</a> ] Set, Uncountable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Set-builder_notation">w</a> ] Set-Builder Notation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Singleton_(mathematics)">w</a> ] Singleton</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Subset">w</a> ] Subset</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Successor_cardinal">w</a> ] Successor Cardinal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Successor_ordinal">w</a> ] Successor Ordinal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Transcendental_number">w</a> ] Transcendental Number</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Union_(set_theory)">w</a> ] Union</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Well-order">w</a> ] Well-Order</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Zermelo_set_theory">w</a> ] Zermelo Set Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory">w</a> ] Zermelo-Fraenkel Set Theory</p></li>
+</ul>
+</section>
+<section id="arithmetic">
+<h3>Arithmetic<a class="headerlink" href="#arithmetic" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Addition">w</a> ] Addition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic">w</a> ] Arithmetic</p></li>
+<li><p>[ w ] Difference</p></li>
+<li><p>[ w ] Dividend</p></li>
+<li><p>[ w ] Division</p></li>
+<li><p>[ w ] Divisor</p></li>
+<li><p>[ w ] Exponentiation</p></li>
+<li><p>[ w ] Factor</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Function_(mathematics)">w</a> ] Function</p></li>
+<li><p>[ w ] Function Notation</p></li>
+<li><p>[ w ] Logarithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_table">w</a> ] Mathematical Table</p></li>
+<li><p>[ w ] Modulation</p></li>
+<li><p>[ w ] Multiplicand</p></li>
+<li><p>[ w ] Multiplication</p></li>
+<li><p>[ w ] Multiplier</p></li>
+<li><p>[ w ] Nth Root</p></li>
+<li><p>[ w ] Product</p></li>
+<li><p>[ w ] Quotient</p></li>
+<li><p>[ w ] Remainder</p></li>
+<li><p>[ w ] Subtraction</p></li>
+<li><p>[ w ] Subtrahend</p></li>
+<li><p>[ w ] Sum</p></li>
+<li><p>[ w ] Summand</p></li>
+</ul>
+</section>
+<section id="automata-and-computation">
+<h3>Automata and Computation<a class="headerlink" href="#automata-and-computation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Abstract_machine">w</a> ] Abstract Machine</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Automata_theory">w</a> ] Automata Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Automaton">w</a> ] Automaton</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Computation">w</a> ] Computation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Finite-state_machine">w</a> ] Finite-State Machine</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hybrid_automaton">w</a> ] Hybrid Automaton</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Model_of_computation">w</a> ] Model of Computation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/State_(computer_science)">w</a> ] State</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Timed_automaton">w</a> ] Timed Automaton</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Turing_machine">w</a> ] Turing Machine</p></li>
+</ul>
+</section>
+<section id="programming-languages">
+<h3>Programming Languages<a class="headerlink" href="#programming-languages" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axiomatic_semantics">w</a> ] Axiomatic Semantics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Correctness_(computer_science)">w</a> ] Correctness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Denotational_semantics">w</a> ] Denotational Semantics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formal_specification">w</a> ] Formal Specification</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formal_verification">w</a> ] Formal Verification</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hoare_logic">w</a> ] Hoare Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logic_programming">w</a> ] Logic Programming</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Operational_semantics">w</a> ] Operational Semantics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Programming_language_theory">w</a> ] Programming Language Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Prolog">w</a> ] Prolog</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pure_function">w</a> ] Pure Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Semantics_(computer_science)">w</a> ] Semantics</p></li>
+</ul>
+</section>
+<section id="digital-logic">
+<h3>Digital Logic<a class="headerlink" href="#digital-logic" title="Link to this heading">#</a></h3>
+<p>Figures</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Frank_Gray_(researcher)">w</a> ] Gray, Frank (1887-1969)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Maurice_Karnaugh">w</a> ] Karnaugh, Maurice (1924-2022)</p></li>
+</ul>
+<p>Terms</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Adder_(electronics)">w</a> ] Adder</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_logic_unit">w</a> ] Arithmetic Logic Unit</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_circuit">w</a> ] Boolean Circuit</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circuit_complexity">w</a> ] Circuit Complexity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Coincidence_circuit">w</a> ] Coincidence Circuit</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Combinational_logic">w</a> ] Combinational Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Digital_electronics">w</a> ] Digital Electronics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Encoder_(digital)">w</a> ] Encoder</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Flip-flop_(electronics)">w</a> ] Flip-Flop</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gray_code">w</a> ] Gray Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hazard_(logic)">w</a> ] Hazard</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Karnaugh_map">w</a> ] Karnaugh Map</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ladder_logic">w</a> ] Ladder Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logic_gate">w</a> ] Logic Gate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logic_optimization">w</a> ] Logic Optimization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplexer">w</a> ] Multiplexer</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/One-hot">w</a> ] One-Hot</p></li>
+<li><p>[ w ] Product of Sums (POS) Expression</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Relay_logic">w</a> ] Relay Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sequential_logic">w</a> ] Sequential Logic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Signal_propagation_delay">w</a> ] Signal Propagation Delay</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Signalling_block_system">w</a> ] Signalling Block System</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Subtractor">w</a> ] Subtractor</p></li>
+<li><p>[ w ] Sum of Products (SOP) Expression</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Switching_circuit_theory">w</a> ] Switching Circuit Theory</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/logic"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../counting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Counting</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="introduction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formal-logic">Formal Logic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#informal">Informal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automata-and-computation">Automata and Computation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-languages">Programming Languages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-logic">Digital Logic</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

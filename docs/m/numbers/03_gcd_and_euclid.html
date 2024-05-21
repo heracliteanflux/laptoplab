@@ -1,0 +1,1498 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>GCD &amp; Euclid’s Algorithm &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/numbers/03_gcd_and_euclid';</script>
+    <script src="../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mathematical Induction" href="04_induction.html" />
+    <link rel="prev" title="Divisibility" href="02_divisibility.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/index.html">Computery Things</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/index.html">Programming</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>GCD & Euclid’s Algorithm</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-theorem">Division Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bezout-s-identity">Bézout’s Identity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gcd">Computing GCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-algorithm">Euclid’s Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-gcd-as-a-linear-combination-via-matrices">Find the GCD as a linear combination via matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-of-gcd">Generalization of GCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcm">LCM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-euclidean-algorithm">Extended Euclidean Algorithm</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="gcd-euclid-s-algorithm">
+<h1>GCD &amp; Euclid’s Algorithm<a class="headerlink" href="#gcd-euclid-s-algorithm" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2>Programming Environment<a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="division-theorem">
+<h2>Division Theorem<a class="headerlink" href="#division-theorem" title="Link to this heading">#</a></h2>
+<p>The division theorem expresses a key property of integer division (that is, when an integer is divided by a non-zero integer).</p>
+<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest 1.1.1 pp. 3-4] [Bressoud pp. 7]</p>
+<blockquote>
+<div><p>Given integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with <span class="math notranslate nohighlight">\(a \ne 0\)</span> there exist unique integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> such that<br />
+<span class="math notranslate nohighlight">\(b = q \times a + r\)</span> where <span class="math notranslate nohighlight">\(0 \le r \lt |a|\)</span><br />
+where <span class="math notranslate nohighlight">\(q\)</span> is the quotient of <span class="math notranslate nohighlight">\(b\)</span> by <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(r\)</span> is the remainder.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\color{red}
+\forall a, b \in \mathbb{Z} \,\,
+((b \ne 0) \implies \exists q, r \in \mathbb{Z} \,\,
+((abs(b) \gt r \ge 0) \land (a = qb + r)))
+\]</div>
+<blockquote>
+<div><p>It is proved elsewhere that if <span class="math notranslate nohighlight">\(a \mid b\)</span>, then <span class="math notranslate nohighlight">\(r = 0\)</span>.<br />
+If <span class="math notranslate nohighlight">\(a \nmid b\)</span>, then <span class="math notranslate nohighlight">\(r\)</span> satisfies the stronger inequalities <span class="math notranslate nohighlight">\(0 \lt r \lt |a|\)</span>.<br />
+In other words, remainders are always non-negative.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 4]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a = 3\)</span> and <span class="math notranslate nohighlight">\(b = 7\)</span>.<br />
+Then there are integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> st <span class="math notranslate nohighlight">\(7 = 3q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt |3|\)</span>.<br />
+<span class="math notranslate nohighlight">\(7 = 2 \cdot 3 + 1\)</span> with <span class="math notranslate nohighlight">\(0 \le 1 \lt |3|\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 4]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a = 4\)</span> and <span class="math notranslate nohighlight">\(b = 12\)</span>.<br />
+Then there are integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> st <span class="math notranslate nohighlight">\(12 = 4q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt |4|\)</span>.<br />
+<span class="math notranslate nohighlight">\(12 = 3 \cdot 4 + 0\)</span> with <span class="math notranslate nohighlight">\(0 \le 0 \lt |4|\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 14]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a = 4\)</span> and <span class="math notranslate nohighlight">\(b = -9\)</span>.<br />
+Then there are integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> st <span class="math notranslate nohighlight">\(-9 = 4q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt |4|\)</span>.<br />
+<span class="math notranslate nohighlight">\(-9 = (-3) \cdot 4 + 3\)</span> with <span class="math notranslate nohighlight">\(0 \le 3 \lt |4|\)</span>.<br />
+Note that <span class="math notranslate nohighlight">\(q = -2\)</span> and <span class="math notranslate nohighlight">\(r = -1\)</span> do not satisfy <span class="math notranslate nohighlight">\(0 \le r \lt |4|\)</span>.<br />
+<span class="math notranslate nohighlight">\(-9 = (-2) \cdot 4 + (-1)\)</span> but not with <span class="math notranslate nohighlight">\(0 \le -1 \lt |4|\)</span>.</p>
+</div></blockquote>
+<div style="color: red;">
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, contradiction\)</span></p>
+<p>Assume <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive.</p>
+<p>If <span class="math notranslate nohighlight">\(b \gt a\)</span>, then just take <span class="math notranslate nohighlight">\(q = 0, r = a\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+a = 0 \times b + a
+\]</div>
+<p>Therefore, let <span class="math notranslate nohighlight">\(b \le a\)</span>.</p>
+<p>Consider the set of non-negative differences between <span class="math notranslate nohighlight">\(b\)</span> and integer multiples of <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+D = \{ a - bk : a - bk \ge 0 \land k \in \mathbb{N} \}
+\]</div>
+<p><span class="math notranslate nohighlight">\(D\)</span> is non-empty since it contains <span class="math notranslate nohighlight">\(a = a - b \cdot 0\)</span> and <span class="math notranslate nohighlight">\(a \ge b \gt 0\)</span>.</p>
+<p>By the well-ordering principle, <span class="math notranslate nohighlight">\(D\)</span> contains a least element: <span class="math notranslate nohighlight">\(r = a - bq\)</span>, say.</p>
+<p><span class="math notranslate nohighlight">\(Contradictory \,\, step\)</span></p>
+<p>If it were the case that <span class="math notranslate nohighlight">\(r\)</span> was not strictly less than <span class="math notranslate nohighlight">\(b\)</span>, then we would have <span class="math notranslate nohighlight">\(r - b \ge 0\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+r \not\lt b \implies r - b \ge 0
+\]</div>
+<p>and, therefore, <span class="math notranslate nohighlight">\(r - b = (a - bq) - b = a - b(q + 1)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+r     &amp;= a - bq       \\
+r - b &amp;= a - b(q + 1) \\
+\implies r - b &amp;\lt r &amp;&amp; Contradiction! \\
+\end{align*}
+\end{split}\]</div>
+<p>Then <span class="math notranslate nohighlight">\(r - b\)</span> would be a member of <span class="math notranslate nohighlight">\(D\)</span> strictly less than <span class="math notranslate nohighlight">\(r\)</span>, contradicting the minimality of <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>Therefore, <span class="math notranslate nohighlight">\(r\)</span> does satisfy <span class="math notranslate nohighlight">\(0 \le r \lt b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<red></section>
+<hr class="docutils" />
+<section id="gcd">
+<h2>GCD<a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest 1.1.2 pp. 6]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be positive integers. <span class="math notranslate nohighlight">\(a, b \in \mathbb{P}\)</span><br />
+There is a positive integer <span class="math notranslate nohighlight">\(d\)</span> such that</p>
+<blockquote>
+<div><p>(i) <span class="math notranslate nohighlight">\(d\)</span> divides <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(d\)</span> divides <span class="math notranslate nohighlight">\(b\)</span>, and<br />
+(ii) if <span class="math notranslate nohighlight">\(c\)</span> is a positive integer which divides both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> then <span class="math notranslate nohighlight">\(c\)</span> divides <span class="math notranslate nohighlight">\(d\)</span> (i.e., any common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> divides <span class="math notranslate nohighlight">\(d\)</span>).</p>
+</div></blockquote>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall a, b \in \mathbb{P} \,\,
+[ \,\, \exists d \in \mathbb{P} \,\, ((d \mid a \land d \mid b) \land (\forall c \in \mathbb{P} ((c \mid a \land c \mid b) \implies c \mid d))) \,\, ]
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, contradiction\)</span> [Humphreys &amp; Prest pp. 6]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(D\)</span> be the set of all positive integers of the form <span class="math notranslate nohighlight">\(as + bt\)</span> where <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> vary over the set of all integers.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+D = \{ as + bt : s, t \in \mathbb{Z}, as + bt \gt 0 \}
+\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(D\)</span> is non-empty since <span class="math notranslate nohighlight">\(a = a \cdot 1 + b \cdot 0\)</span> is in <span class="math notranslate nohighlight">\(D\)</span>.<br />
+<span class="math notranslate nohighlight">\(D\)</span> has a least element <span class="math notranslate nohighlight">\(d\)</span> by the well-ordering principle.<br />
+Since <span class="math notranslate nohighlight">\(d\)</span> is in <span class="math notranslate nohighlight">\(D\)</span>, there are integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> such that <span class="math notranslate nohighlight">\(d = as + bt\)</span>.<br />
+We must show that (ii) any common divisor <span class="math notranslate nohighlight">\(c\)</span> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is a divisor of <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(c \mid a\)</span> and <span class="math notranslate nohighlight">\(c \mid b\)</span>.<br />
+Then there are integers <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> such that <span class="math notranslate nohighlight">\(a = cg\)</span> and <span class="math notranslate nohighlight">\(b = ch\)</span>.<br />
+<span class="math notranslate nohighlight">\(as + bt = (cg)s + (ch)t = c(gs + ht) \implies c \mid c(gs + ht) \implies c \mid as + bt \implies c \mid d\)</span><br />
+<span class="math notranslate nohighlight">\(\therefore c \mid d\)</span></p>
+</div></blockquote>
+<p>We must show that (i) <span class="math notranslate nohighlight">\(d \mid a\)</span> and <span class="math notranslate nohighlight">\(d \mid b\)</span>.<br />
+Showing that <span class="math notranslate nohighlight">\(d \mid a\)</span> is sufficient because <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are interchangeable throughout the proof and so, by symmetry, <span class="math notranslate nohighlight">\(d \mid b\)</span>.</p>
+<blockquote>
+<div><p>We may write <span class="math notranslate nohighlight">\(a = dq + r \,\, , \,\, 0 \le r \lt d\)</span> by the division theorem.<br />
+To show that <span class="math notranslate nohighlight">\(d \mid a\)</span> is to show that <span class="math notranslate nohighlight">\(r = 0\)</span>.<br />
+<span class="math notranslate nohighlight">\(a = dq + r \implies \textcolor{green}{r} = a - dq = a - (as + bt)q = \textcolor{green}{a(1 - sq) + b(-tq)}\)</span><br />
+If <span class="math notranslate nohighlight">\(r\)</span> were positive then it would meet the criteria of <span class="math notranslate nohighlight">\(D\)</span> and so would belong to <span class="math notranslate nohighlight">\(D\)</span>.<br />
+But <span class="math notranslate nohighlight">\(d\)</span> was chosen to be minimal in <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(r\)</span> is strictly less than <span class="math notranslate nohighlight">\(d\)</span>. <span class="math notranslate nohighlight">\(Contradiction!\)</span><br />
+<span class="math notranslate nohighlight">\(\therefore (r = 0) \land (d \mid a) \land (d \mid b)\)</span></p>
+</div></blockquote>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(Definition\)</span> [Humphreys &amp; Prest pp. 7] [Bressoud pp. 6]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers.<br />
+The integer <span class="math notranslate nohighlight">\(d\)</span> satisfying conditions (i) and (ii) of theorem 1.1.2 is called the greatest common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> and is denoted <span class="math notranslate nohighlight">\(gcd(a, b)\)</span>.<br />
+In other words, the greatest common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is the largest positive integer which divides both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Note that <span class="math notranslate nohighlight">\(gcd(a, b) = gcd(b, a)\)</span>.<br />
+Note that if <span class="math notranslate nohighlight">\(a \mid b\)</span> then <span class="math notranslate nohighlight">\(a = gcd(a, b)\)</span>.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="bezout-s-identity">
+<h2>Bézout’s Identity<a class="headerlink" href="#bezout-s-identity" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Corollary\)</span> [Humphreys &amp; Prest 1.1.3 pp. 7-8]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be positive integers.<br />
+The greatest common divisor <span class="math notranslate nohighlight">\(d\)</span> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is the smallest positive integral linear combination of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.<br />
+That is, <span class="math notranslate nohighlight">\(d = as + bt\)</span> for some integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Lemma\)</span> [Bressoud 1.5 pp. 6]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers and let <span class="math notranslate nohighlight">\(g = gcd(a, b)\)</span>.<br />
+Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(g = ma + nb\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Proof\)</span> [Bressoud pp. 6]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(p\)</span> be a prime and let <span class="math notranslate nohighlight">\(p \mid ab\)</span>.<br />
+If <span class="math notranslate nohighlight">\(p \mid a\)</span> then we are done.<br />
+If <span class="math notranslate nohighlight">\(p \nmid a\)</span> then <span class="math notranslate nohighlight">\(gcd(p, a) = 1\)</span> because <span class="math notranslate nohighlight">\(1\)</span> is the only other positive integer that divides <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<blockquote>
+<div><p>Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> s.t. <span class="math notranslate nohighlight">\(gcd(p, a) = 1 = mp + na \iff b = mpb + nab\)</span>.<br />
+Show that <span class="math notranslate nohighlight">\(p \mid mpb\)</span>.</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(p \mid p(mb) = mpb\)</span> since <span class="math notranslate nohighlight">\(p\)</span> divides integer multiples of itself.</p>
+</div></blockquote>
+<p>Show that <span class="math notranslate nohighlight">\(p \mid nab\)</span>.</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(p \mid ab\)</span> and so it follows that <span class="math notranslate nohighlight">\(p \mid ab(n)\)</span> since <span class="math notranslate nohighlight">\(p\)</span> divides integer multiples of itself.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\therefore p \mid b = mpb + nab\)</span>.</p>
+</div></blockquote>
+<p>Therefore, if <span class="math notranslate nohighlight">\(p \nmid a\)</span> then <span class="math notranslate nohighlight">\(p \mid b\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Bressoud pp. 6]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a = 21\)</span> and <span class="math notranslate nohighlight">\(b = 6\)</span> so that <span class="math notranslate nohighlight">\(g = 3 = gcd(21, 6)\)</span>.<br />
+Then there are integers <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(-3\)</span> st <span class="math notranslate nohighlight">\(3 = 1 \cdot 21 + (-3) \cdot 6\)</span>.<br />
+There are also integers <span class="math notranslate nohighlight">\(-1\)</span> and <span class="math notranslate nohighlight">\(4\)</span> st <span class="math notranslate nohighlight">\(3 = (-1) \cdot 21 + 4 \cdot 6\)</span>.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="computing-gcd">
+<h2>Computing GCD<a class="headerlink" href="#computing-gcd" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Lemma\)</span> [Humphreys &amp; Prest 1.1.4 pp. 8] Euclid’s <em>Elements</em> Book VII Proposition 1</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be natural numbers and let <span class="math notranslate nohighlight">\(a\)</span> be non-zero.<br />
+Let <span class="math notranslate nohighlight">\(b = aq + r\)</span> where <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> are positive integers.<br />
+Then <span class="math notranslate nohighlight">\(gcd(a, b) = gcd(a, r)\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\color{red}
+\forall a, b \in \mathbb{N} \,\,
+[ \,\,
+((a \ne 0) \land
+(\exists q, r \in \mathbb{P} \,\,
+(b = aq + r)))
+\implies
+gcd(a, b) = gcd(a, r)
+\,\, ]
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof\)</span> [Humphreys &amp; Prest pp. 8]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(d = gcd(a, b)\)</span>.<br />
+<span class="math notranslate nohighlight">\(b = aq + r \iff b - aq = r\)</span></p>
+<blockquote>
+<div><p>By definition, <span class="math notranslate nohighlight">\(d \mid a\)</span> and <span class="math notranslate nohighlight">\(d \mid b\)</span>.<br />
+Then <span class="math notranslate nohighlight">\(d \mid b - aq \iff d \mid r\)</span> and so <span class="math notranslate nohighlight">\(d\)</span> is a common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(r\)</span>.<br />
+<span class="math notranslate nohighlight">\(\therefore d \mid gcd(a, r)\)</span> since a common divisor of two integers also divides their <span class="math notranslate nohighlight">\(gcd\)</span>.</p>
+</div></blockquote>
+<blockquote>
+<div><p>By definition, <span class="math notranslate nohighlight">\(gcd(a, r) \mid a\)</span> and <span class="math notranslate nohighlight">\(gcd(a, r) \mid r\)</span>.<br />
+<span class="math notranslate nohighlight">\(gcd(a, r) \mid aq + r \iff gcd(a, r) \mid b\)</span> and so <span class="math notranslate nohighlight">\(gcd(a, r)\)</span> is a common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.<br />
+<span class="math notranslate nohighlight">\(\therefore gcd(a, r) \mid d\)</span> since a common divisor of two integers also divides their <span class="math notranslate nohighlight">\(gcd\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\therefore d = gcd(a, r) = gcd(a, b)\)</span> since <span class="math notranslate nohighlight">\(d \mid gcd(a, r)\)</span> and <span class="math notranslate nohighlight">\(gcd(a, r) \mid d\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 8-9]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a = 30\)</span> and <span class="math notranslate nohighlight">\(b = 171\)</span>.<br />
+Then we can write <span class="math notranslate nohighlight">\(171 = 30q + r\)</span> with <span class="math notranslate nohighlight">\(q = 5\)</span> and <span class="math notranslate nohighlight">\(r = 21\)</span> (or <span class="math notranslate nohighlight">\(q = 3\)</span> and <span class="math notranslate nohighlight">\(r = 81\)</span>).<br />
+Let <span class="math notranslate nohighlight">\(d = gcd(30, 171)\)</span>.<br />
+<span class="math notranslate nohighlight">\(171 = 30 \cdot 5 + 21 \iff 171 - 30 \cdot 5 = 21\)</span></p>
+<blockquote>
+<div><p>By definition, <span class="math notranslate nohighlight">\(d \mid 30\)</span> and <span class="math notranslate nohighlight">\(d \mid 171\)</span>.<br />
+Then <span class="math notranslate nohighlight">\(d \mid 171 - 30 \cdot 5 \iff d \mid 21\)</span>.<br />
+<span class="math notranslate nohighlight">\(\therefore d \mid gcd(30, 21)\)</span>.</p>
+</div></blockquote>
+<blockquote>
+<div><p>By definition, <span class="math notranslate nohighlight">\(gcd(30, 21) \mid 30\)</span> and <span class="math notranslate nohighlight">\(gcd(30, 21) \mid 21\)</span>.<br />
+<span class="math notranslate nohighlight">\(gcd(30, 21) \mid 30 \cdot 5 + 21 \iff gcd(30, 21) \mid 171\)</span>.<br />
+<span class="math notranslate nohighlight">\(gcd(30, 21) \mid d\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\therefore d = gcd(30, 21) = gcd(30, 171)\)</span>.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="euclid-s-algorithm">
+<h2>Euclid’s Algorithm<a class="headerlink" href="#euclid-s-algorithm" title="Link to this heading">#</a></h2>
+<p>Euclid’s Elements Book VII Props. 1 &amp; 2</p>
+<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest 1.1.5 pp. 9] Euclid’s <em>Elements</em> Book VII Proposition 2</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be positive integers.  <span class="math notranslate nohighlight">\(a, b \in \mathbb{P}\)</span><br />
+If <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(b\)</span> then <span class="math notranslate nohighlight">\(a\)</span> is the greatest common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.<br />
+Otherwise, applying the division theorem repeatedly define a sequence of positive integers by <span class="math notranslate nohighlight">\(r_1, r_2, \dots, r_n\)</span> by</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+b &amp;= a  q_1 + r_1 &amp;&amp; 0 \le r_1 \lt |a|   \\
+a &amp;= r_1q_2 + r_2 &amp;&amp; 0 \le r_2 \lt r_1 \\
+\vdots \\
+r_{n - 2} &amp;= r_{n - 1}q_n + r_n &amp;&amp; 0 \le r_n \lt r_{n - 1} \\
+r_{n - 1} &amp;= r_nq_{n + 1} \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p>Then <span class="math notranslate nohighlight">\(r_n\)</span> is the greatest common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Proof\)</span> [Humphreys &amp; Prest pp. 9]</p>
+<blockquote>
+<div><p>Apply the division theorem to the successive non-zero remainders <span class="math notranslate nohighlight">\(r_1, r_2, \dots, r_n\)</span>.<br />
+Since <span class="math notranslate nohighlight">\(a, r_1, r_2, \dots, r_n\)</span> is a decreasing sequence of positive integers, it must eventually stop, terminating with an integer <span class="math notranslate nohighlight">\(r_n\)</span> which–because no non-zero remainder <span class="math notranslate nohighlight">\(r_{n + 1}\)</span> is produced–must, therefore, divide <span class="math notranslate nohighlight">\(r_{n - 1}\)</span>.<br />
+Then apply the gcd lemma back up the sequence of equations so that <span class="math notranslate nohighlight">\(gcd(b, a) = gcd(a, r_1) = \dots = gcd(r_{n - 2}, r_{n - 1}) = gcd(r_{n - 1}, r_n) = r_n\)</span>.<br />
+<span class="math notranslate nohighlight">\(\therefore r_n = gcd(a, b)\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div style="color: red";>
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, construction\)</span> [Bressoud pp. 7]</p>
+<p>Assume that <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive.</p>
+<p>This process continues until the remainder is <span class="math notranslate nohighlight">\(0\)</span>, which must eventually happen since the remainders are always nonnegative and each remainder is strictly smaller than the previous one.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  a &amp;= m_1 \times   b + r_1 &amp;&amp; 0 \le r_1 \lt |b| &amp;&amp; r_1 = 0 \implies b \mid a, gcd(a, b) = b, m = 0, n = 1 \\
+  b &amp;= m_2 \times r_1 + r_2 &amp;&amp; 0 \le r_2 \lt r_1 &amp;&amp; r_2 = 0 \implies gcd(a, b) = r_1 \\
+r_1 &amp;= m_3 \times r_2 + r_3 &amp;&amp; 0 \le r_3 \lt r_2 &amp;&amp; r_3 = 0 \implies gcd(a, b) = r_2 \\
+\vdots \\
+r_{k - 2} &amp;= m_k \times r_{k - 1} + r_k &amp;&amp; 0 \lt r_k \lt r_{k - 1} \\
+r_{k - 1} &amp;= m_{k + 1} \times r_k + 0 &amp;&amp; &amp;&amp; gcd(a, b) = r_k \\
+\end{aligned}
+\)</span></p>
+<p>The last non-zero remainder, <span class="math notranslate nohighlight">\(r_k\)</span>, is the greatest common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>We work back up the list of equalities to show that <span class="math notranslate nohighlight">\(r_k\)</span> is a common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+r_k &amp;\mid r_k \\
+r_k &amp;\mid r_{k - 1} &amp;&amp; \text{by the last equality} \\
+r_k &amp;\mid r_{k - 2} &amp;&amp; \text{by the second to last equality} \\
+\vdots \\
+r_k &amp;\mid r_3 \\
+r_k &amp;\mid r_2 \\
+r_k &amp;\mid r_1 &amp;&amp; \text{by the third equality} \\
+r_k &amp;\mid b   &amp;&amp; \text{by the second equality} \\
+r_k &amp;\mid a   &amp;&amp; \text{by the first equality} \\
+\end{aligned}
+\)</span></p>
+<p>To show that <span class="math notranslate nohighlight">\(r_k\)</span> is the largest common divisor, let <span class="math notranslate nohighlight">\(d\)</span> be any other common divisor.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+d &amp;\mid a \\
+d &amp;\mid b \\
+d &amp;\mid r_1 &amp;&amp; \text{by} \,\, a = m_1 \times b + r_1
+\end{aligned}
+\)</span></p>
+</div><p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 10]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a = 30\)</span> and <span class="math notranslate nohighlight">\(b = 171\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+b &amp;= aq + r &amp;&amp; 0 \le r \lt |a| \\
+171 &amp;= 5 \cdot 30 + 21 &amp;&amp; 0 \le 21 \lt 30 &amp;&amp; gcd(171, 30) = gcd(30, 21) \\
+ 30 &amp;= 1 \cdot 21 + 9  &amp;&amp; 0 \le  9 \lt 21 &amp;&amp; gcd(30, 21) = gcd(21, 9) \\
+ 21 &amp;= 2 \cdot  9 + 3  &amp;&amp; 0 \le  3 \lt  9 &amp;&amp; gcd(21, 9) = gcd(9, 3) \\
+  9 &amp;= 3 \cdot  3 + 0  &amp;&amp; 0 \le  0 \lt  3 &amp;&amp; gcd(9, 3) = 3 \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(3 = gcd(9, 3) = gcd(21, 9) = gcd(30, 21) = gcd(171, 30)\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+3
+&amp;= 21 - 2 \cdot 9 &amp;&amp; 3 = 21 - 2 \cdot 9 \\
+&amp;= 21 - 2 \cdot (30 - 21) &amp;&amp; 9 = 30 - 1 \cdot 21 \\
+&amp;= 3 \cdot 21 - 2 \cdot 30 \\
+&amp;= 3 \cdot (171 - 5 \cdot 30) - 2 \cdot 30 &amp;&amp; 21 = 171 - 5 \cdot 30 \\
+&amp;= 3 \cdot 171 - 17 \cdot 30 \\
+&amp;= 3 \cdot 171 + (-17) \cdot 30 \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(3 = (-17) \cdot 30 + 3 \cdot 171\)</span></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span>  <span class="mi">30</span><span class="p">,</span> <span class="mi">171</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">17</span><span class="p">,</span>   <span class="mi">3</span>
+<span class="n">c</span>    <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">y</span>
+
+<span class="k">assert</span> <span class="n">c</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 14]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a = -24\)</span> and <span class="math notranslate nohighlight">\(b = -102\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+   b &amp;= qa + r              &amp;&amp; 0 \le  r \lt |a| &amp;&amp; gcd(b, a) = gcd(a, r) \\
+-102 &amp;=  5 \cdot (-24) + 18 &amp;&amp; 0 \le 18 \lt 24  &amp;&amp; gcd(-102, -24) = gcd(-24, 18) \\
+ -24 &amp;= -2 \cdot   18  + 12 &amp;&amp; 0 \le 12 \lt 18  &amp;&amp; gcd(-24, 18) = gcd(18, 12) \\
+  18 &amp;=  1 \cdot   12  +  6 &amp;&amp; 0 \le  6 \lt 12  &amp;&amp; gcd(18, 12) = gcd(12, 6) \\
+  12 &amp;=  2 \cdot    6  +  0 &amp;&amp; 0 \le  0 \lt  6  &amp;&amp; gcd(12, 6) = 6 \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(6 = gcd(12, 6) = gcd(18, 12) = gcd(-24, 18) = gcd(-102, -24)\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+6
+&amp;= 18 - 1 \cdot 12 &amp;&amp; 6 = 18 - 1 \cdot 12 \\
+&amp;= 18 - 1 \cdot (-24 - (-2) \cdot 18) &amp;&amp; 12 = -24 - (-2) \cdot 18 \\
+&amp;= 18 - 1 \cdot (-24 + 2 \cdot 18) \\
+&amp;= (-1) \cdot 18 - 1 \cdot (-24) \\
+&amp;= (-1) \cdot (-102 - 5 \cdot (-24)) - 1 \cdot (-24) &amp;&amp; 18 = -102 - 5 \cdot (-24) \\
+&amp;= (-1) \cdot (-102) + 5 \cdot (-24) - 1 \cdot (-24) \\
+&amp;= (-1) \cdot (-102) + 4 \cdot (-24) \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(6 = 4 \cdot (-24) + (-1) \cdot (-102)\)</span></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span>   <span class="mi">4</span><span class="p">,</span>   <span class="o">-</span><span class="mi">1</span>
+<span class="n">c</span>    <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">y</span>
+
+<span class="k">assert</span> <span class="n">c</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="find-the-gcd-as-a-linear-combination-via-matrices">
+<h2>Find the GCD as a linear combination via matrices<a class="headerlink" href="#find-the-gcd-as-a-linear-combination-via-matrices" title="Link to this heading">#</a></h2>
+<p>[Humphreys &amp; Prest pp. 10-11]</p>
+<p>Find <span class="math notranslate nohighlight">\(gcd(a, b)\)</span> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> as a linear combination <span class="math notranslate nohighlight">\(as + bt\)</span>.</p>
+<blockquote>
+<div><p>Set up a partitoned matrix which represents the equations <span class="math notranslate nohighlight">\(x = b\)</span> and <span class="math notranslate nohighlight">\(y = a\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{cc|c}
+1 &amp; 0 &amp; b \\
+0 &amp; 1 &amp; a \\
+\end{array}
+\right)
+\iff
+\left(
+\begin{array}{cc|c}
+1 &amp; 0 &amp; aq_1 + r_1 \\
+0 &amp; 1 &amp; a \\
+\end{array}
+\right)
+\end{split}\]</div>
+<blockquote>
+<div><p>If <span class="math notranslate nohighlight">\(r_1 = 0\)</span> then<br />
+<span class="math notranslate nohighlight">\(a = gcd(a, b)\)</span><br />
+<span class="math notranslate nohighlight">\(a = 0 \cdot b + 1 \cdot a\)</span><br />
+and we are done.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Otherwise, subtract <span class="math notranslate nohighlight">\(q_1\)</span> times the bottom row from the top row.<br />
+<span class="math notranslate nohighlight">\(b = aq_1 + r_1\)</span> with <span class="math notranslate nohighlight">\(0 \le r_1 \lt |a|\)</span><br />
+<span class="math notranslate nohighlight">\(b = aq_1 + r_1 \iff b - aq_1 = r_1\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{cc|c}
+1 &amp; -q_1 &amp; b - aq_1 \\
+0 &amp; 1 &amp; a \\
+\end{array}
+\right)
+\iff
+\left(
+\begin{array}{cc|c}
+1 &amp; -q_1 &amp; r_1 \\
+0 &amp; 1 &amp; a \\
+\end{array}
+\right)
+\end{split}\]</div>
+<blockquote>
+<div><p>If <span class="math notranslate nohighlight">\(r_2 = 0\)</span> then<br />
+<span class="math notranslate nohighlight">\(r_1 = gcd(r_1, a) = gcd(a, b)\)</span><br />
+<span class="math notranslate nohighlight">\(r_1 = 1 \cdot b + (-q_1) \cdot a\)</span><br />
+and we are done.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Otherwise, subtract <span class="math notranslate nohighlight">\(q_2\)</span> times the top row from the bottom row.<br />
+<span class="math notranslate nohighlight">\(a = r_1q_2 + r_2\)</span> with <span class="math notranslate nohighlight">\(0 \le r_2 \lt r_1\)</span><br />
+<span class="math notranslate nohighlight">\(a = r_1q_2 + r_2 \iff a - r_1q_2 = r_2\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{cc|c}
+1 &amp; -q_1 &amp; r_1 \\
+-q_2 &amp; 1 + q_1q_2 &amp; a - r_1q_2 \\
+\end{array}
+\right)
+\iff
+\left(
+\begin{array}{cc|c}
+1 &amp; -q_1 &amp; r_1 \\
+-q_2 &amp; 1 + q_1q_2 &amp; r_2 \\
+\end{array}
+\right)
+\end{split}\]</div>
+<blockquote>
+<div><p>If <span class="math notranslate nohighlight">\(r_3 = 0\)</span> then<br />
+<span class="math notranslate nohighlight">\(r_2 = gcd(r_2, r_1) = gcd(r_1, a) = gcd(a, b)\)</span><br />
+<span class="math notranslate nohighlight">\(r_2 = (-q_2) \cdot b + (1 + q_1q_2) \cdot a\)</span><br />
+and we are done.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Otherwise, subtract <span class="math notranslate nohighlight">\(q_3\)</span> times the bottom row from the top row.<br />
+<span class="math notranslate nohighlight">\(r_1 = r_2q_3 + r_3\)</span> with <span class="math notranslate nohighlight">\(0 \le r_3 \lt r_2\)</span><br />
+<span class="math notranslate nohighlight">\(r_1 = r_2q_3 + r_3 \iff r_1 - r_2q_3 = r_3\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(
+\begin{array}{cc|c}
+1 + q_2q_3 &amp; -q_1 - q_3 - q_1q_2q_3 &amp; r_1 - r_2q_3 \\
+-q_2 &amp; 1 + q_1q_2 &amp; r_2 \\
+\end{array}
+\right)
+\iff
+\left(
+\begin{array}{cc|c}
+1 + q_2q_3 &amp; -q_1 - q_3 - q_1q_2q_3 &amp; r_3 \\
+-q_2 &amp; 1 + q_1q_2 &amp; r_2 \\
+\end{array}
+\right)
+\end{split}\]</div>
+<blockquote>
+<div><p>And so on. If at some stage one of the rows is</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc|c}
+n_i &amp; m_i &amp; r_i &amp; (*)
+\end{array}
+\]</div>
+<blockquote>
+<div><p>representing the equation</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+bn_i + am_i = r_i
+\end{align*}
+\]</div>
+<blockquote>
+<div><p>and if the other row reads</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc|c}
+n_{i + 1} &amp; m_{i + 1} &amp; r_{i + 1} &amp; (**)
+\end{array}
+\]</div>
+<blockquote>
+<div><p>then we set</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+r_i &amp;= r_{i + 1}q_{i + 2} + r_{i + 2} &amp;&amp; 0 \le r_{i + 2} \lt r_{i + 1}
+\end{align*}
+\]</div>
+<blockquote>
+<div><p>and we subtract <span class="math notranslate nohighlight">\(q_{i + 2}\)</span> times the second of these rows from the first and replace <span class="math notranslate nohighlight">\((*)\)</span> with the result.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Note that these operations reduce the size of the non-negative numbers in the right-hand column and so eventually the process will stop. When it stops, we will have the <span class="math notranslate nohighlight">\(gcd\)</span>.<br />
+If the row containing the <span class="math notranslate nohighlight">\(gcd\)</span> reads</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{array}{cc|c}
+n &amp; m &amp; d
+\end{array}
+\]</div>
+<blockquote>
+<div><p>then we have the expression</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\begin{align*}
+bn + am = d
+\end{align*}
+\]</div>
+<blockquote>
+<div><p>of <span class="math notranslate nohighlight">\(d\)</span> as the integral linear combination of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 11]</p>
+<p><span class="math notranslate nohighlight">\(
+\newcommand{\bmat}{\left(\begin{array}{cc|c}}
+\newcommand{\emat}{\end{array}\right)}
+\begin{aligned}
+&amp; \bmat
+1 &amp; 0 &amp; 171 \\
+0 &amp; 1 &amp;  30 \\
+\emat
+&amp;&amp;
+\begin{aligned}
+1 \cdot 171 + 0 \cdot 30 &amp;= 171 \\
+0 \cdot 171 + 1 \cdot 30 &amp;=  30 \\
+\end{aligned}
+\\ \to
+&amp; \bmat
+1 &amp; -5 &amp; 21 \\
+0 &amp;  1 &amp; 30 \\
+\emat
+\\ \to
+&amp; \bmat
+ 1 &amp; -5 &amp; 21 \\
+-1 &amp;  6 &amp;  9 \\
+\emat
+\\ \to
+&amp; \bmat
+ 3 &amp; -17 &amp; 3 \\
+-1 &amp;   6 &amp; 9 \\
+\emat
+\\ \to
+&amp; \bmat
+  3 &amp; -17 &amp; 3 \\
+-10 &amp;  57 &amp; 0 \\
+\emat
+&amp;&amp;
+\begin{aligned}
+3 \cdot 171 - 17 \cdot 30 &amp;= 3 = gcd(171, 30) \\
+(-10) \cdot 171 + 57 \cdot 30 &amp;= 0 \\
+\end{aligned}
+\end{aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="generalization-of-gcd">
+<h2>Generalization of GCD<a class="headerlink" href="#generalization-of-gcd" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Definition\)</span> [Humphreys &amp; Prest pp. 12]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a_1, \dots, a_n\)</span> be positive integers.<br />
+Then <span class="math notranslate nohighlight">\(gcd(a_1, \dots, a_n)\)</span> is the positive integer <span class="math notranslate nohighlight">\(m\)</span> with the property that <span class="math notranslate nohighlight">\(m \mid a_i\)</span> for each <span class="math notranslate nohighlight">\(i\)</span> and, whenever <span class="math notranslate nohighlight">\(c\)</span> is an integer with <span class="math notranslate nohighlight">\(c \mid a_i\)</span> for each <span class="math notranslate nohighlight">\(i\)</span>, we have <span class="math notranslate nohighlight">\(c \mid m\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Proof \,\, idea\)</span> [Humphreys &amp; Prest pp. 12]</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(gcd(a_1, \dots, a_n) = gcd(gcd(a_1, \dots, a_{n - 1}), a_n)\)</span><br />
+In other words, we can compute the <span class="math notranslate nohighlight">\(gcd\)</span> of <span class="math notranslate nohighlight">\(n\)</span> numbers <span class="math notranslate nohighlight">\(a_1, \dots, a_n\)</span> by computing the <span class="math notranslate nohighlight">\(gcd\)</span> of the first <span class="math notranslate nohighlight">\(n - 1\)</span> of them and then computing the <span class="math notranslate nohighlight">\(gcd\)</span> of that and the last number <span class="math notranslate nohighlight">\(a_n\)</span>.<br />
+If we can compute the <span class="math notranslate nohighlight">\(gcd\)</span> of two numbers, then we can compute the <span class="math notranslate nohighlight">\(gcd\)</span> of <span class="math notranslate nohighlight">\(n\)</span> numbers.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Claim\)</span> [Humphreys &amp; Prest pp. 12]</p>
+<blockquote>
+<div><p>For all <span class="math notranslate nohighlight">\(n\)</span> and integers <span class="math notranslate nohighlight">\(a_1, \dots, a_n\)</span> it is the case that <span class="math notranslate nohighlight">\(gcd(a_1, \dots, a_n) = gcd(gcd(a_1, \dots, a_{n - 1}), a_n)\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Proof\)</span></p>
+<div style="background-color: red;">TODO</div>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 12]</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp; gcd(24, 60, 30, 8) \\
+= &amp; gcd(gcd(24, 60, 30), 8) \\
+= &amp; gcd(gcd(gcd(24, 60), 30), 8) \\
+= &amp; gcd(gcd(12, 30), 8) \\
+= &amp; gcd(6, 8) \\
+= &amp; 2 \\
+\end{align*}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="lcm">
+<h2>LCM<a class="headerlink" href="#lcm" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Definition\)</span> [Humphreys &amp; Prest pp. 14]</p>
+<blockquote>
+<div><p>The least common multiple <span class="math notranslate nohighlight">\(lcm(a, b)\)</span> of integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is the positive integer <span class="math notranslate nohighlight">\(m\)</span> s.t. both</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> divide <span class="math notranslate nohighlight">\(m\)</span> (so <span class="math notranslate nohighlight">\(m\)</span> is a common multiple of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>), and s.t.</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> divides every common multiple of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
+</ol>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Claim\)</span> [Humphreys &amp; Prest pp. 14]</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(m = lcm(a, b)\)</span> exists and is unique.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\color{red}
+\forall a, b \in \mathbb{Z} \,\,
+\exists m \in \mathbb{P} \,\,
+[ \,\,
+m = lcm(a, b)
+\iff
+(((a \mid m) \land (b \mid m)) \land (m \mid CommonMultiple(a, b)))
+\,\, ]
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof\)</span></p>
+<div style="background-color: red;">TODO</div>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(Definition\)</span> [Humphreys &amp; Prest pp. 14]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a_1, \dots, a_n\)</span> be non-zero integers.<br />
+<span class="math notranslate nohighlight">\(lcm(a_1, \dots, a_n)\)</span> is the unique positive integer <span class="math notranslate nohighlight">\(m\)</span> which satisfies <span class="math notranslate nohighlight">\(a_i \mid m\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> and, whenever an integer <span class="math notranslate nohighlight">\(c\)</span> satisfies <span class="math notranslate nohighlight">\(a_i \mid c\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>, we have <span class="math notranslate nohighlight">\(m \mid c\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 14]</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(lcm(6, 15, 4) = lcm(lcm(6, 15), 4) = lcm(30, 4) = 60\)</span>.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="extended-euclidean-algorithm">
+<h2>Extended Euclidean Algorithm<a class="headerlink" href="#extended-euclidean-algorithm" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/numbers"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_divisibility.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Divisibility</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_induction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mathematical Induction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-theorem">Division Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bezout-s-identity">Bézout’s Identity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gcd">Computing GCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-algorithm">Euclid’s Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-gcd-as-a-linear-combination-via-matrices">Find the GCD as a linear combination via matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-of-gcd">Generalization of GCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcm">LCM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-euclidean-algorithm">Extended Euclidean Algorithm</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1479 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>R &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c/programming/rlang/index';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Data Computing 2" href="DC.html" />
+    <link rel="prev" title="Data Science from Scratch 2e" href="../python/book_data_science_from_scratch.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Computery Things</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>R</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r-lang">R Lang</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-resources">Other Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-viz">Data Viz</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="r">
+<h1>R<a class="headerlink" href="#r" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="sections">
+<h2>Sections<a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<section id="r-lang">
+<h3>R Lang<a class="headerlink" href="#r-lang" title="Link to this heading">#</a></h3>
+<p>R</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.r-project.org/about.html">Home</a></p></li>
+<li><p>Docs</p>
+<ul>
+<li><p><a class="reference external" href="https://cran.r-project.org/manuals.html">The R Manuals</a></p>
+<ul>
+<li><p><a class="reference external" href="https://cran.r-project.org/doc/manuals/r-release/R-intro.html">An Introduction to R</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/R_(programming_language)">Wiki</a></p></li>
+</ul>
+<p>R Markdown</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://rmarkdown.rstudio.com/">Home</a></p>
+<ul>
+<li><p><a class="reference external" href="https://rmarkdown.rstudio.com/authoring_quick_tour.html">Quick Tour</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/REditorSupport/vscode-R/wiki/R-Markdown">R Markdown for VSCode</a></p></li>
+</ul>
+<p>R and Jupyter</p>
+<ul class="simple">
+<li><p>IRkernel for Jupyter</p>
+<ul>
+<li><p><a class="reference external" href="https://irkernel.github.io/">Home</a></p></li>
+</ul>
+</li>
+</ul>
+<p>R and Anaconda</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/tasks/using-r-language/">Using R with Anaconda</a></p></li>
+</ul>
+<p>Packages</p>
+<ul class="simple">
+<li><p>Esquisse</p>
+<ul>
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html">CRAN</a> Get started with esquisse</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.tidyverse.org/">Tidyverse</a></p>
+<ul>
+<li><p><a class="reference external" href="https://dplyr.tidyverse.org/">dplyr</a></p></li>
+<li><p><a class="reference external" href="https://ggplot2.tidyverse.org/">ggplot2</a></p></li>
+<li><p><a class="reference external" href="https://readr.tidyverse.org/">readr</a></p></li>
+</ul>
+</li>
+<li><p>vowels</p>
+<ul>
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/vowels/vowels.pdf">Docs</a></p></li>
+</ul>
+</li>
+</ul>
+<p>Cheatsheets</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://posit.co/resources/cheatsheets/">https://posit.co/resources/cheatsheets/</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/rstudio/cheatsheets/tree/main">rstudio/cheatsheets</a></p></li>
+</ul>
+<p><a class="reference external" href="https://swirlstats.com/">https://swirlstats.com/</a></p>
+</section>
+<section id="other-resources">
+<h3>Other Resources<a class="headerlink" href="#other-resources" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.statslectures.com/">Marin Stats Lectures</a></p></li>
+<li><p>Ansell, Brendan. “Introduction to R - tidyverse”. <a class="reference external" href="https://bookdown.org/ansellbr/WEHI_tidyR_course_book/">Home</a>.</p></li>
+<li><p>[<a class="reference external" href="https://github.com/jennybc">G</a>] Bryan, Jennifer. “Happy Git and GitHub for the useR”. <a class="reference external" href="https://happygitwithr.com/index.html">Home</a>.</p></li>
+<li><p>Coltekin, Cagri. (2015). <a class="reference external" href="http://coltekin.net/cagri/R/r-exercises.html">A hands-on tutorial on using R for (mostly) linguistics research</a>.</p></li>
+<li><p>Guilherme D. Garcia</p>
+<ul>
+<li><p><a class="reference external" href="https://gdgarcia.ca/praatexperiment">Automating Praat experiments</a></p></li>
+<li><p><a class="reference external" href="https://gdgarcia.ca/dvaslr.html">Data visualization and analysis</a></p></li>
+<li><p>(2018). <a class="reference external" href="https://gdgarcia.ca/vowels.html">Plotting vowels in R</a>.</p></li>
+</ul>
+</li>
+<li><p>freeCodeCamp. (2021). “R Shiny for Data Science Tutorial - Build Interactive Data-Driven Web Apps”. <a class="reference external" href="https://www.youtube.com/watch?v=9uFQECk30kA">YouTube</a>.</p></li>
+<li><p>Stewart, Matthew. (2019). “Guide to R and Python in a Single Jupyter Notebook”. Towards Data Science. <a class="reference external" href="https://towardsdatascience.com/guide-to-r-and-python-in-a-single-jupyter-notebook-ff12532eb3ba">Page</a>.</p></li>
+<li><p>“Using R for Time Series Analysis”. <a class="reference external" href="https://a-little-book-of-r-for-time-series.readthedocs.io/en/latest/src/timeseries.html">https://a-little-book-of-r-for-time-series.readthedocs.io/en/latest/src/timeseries.html</a></p></li>
+<li><p>Unofficial solution manual to the first editiion of <em>R for Data Science</em>: <a class="reference external" href="https://jrnold.github.io/r4ds-exercise-solutions/">https://jrnold.github.io/r4ds-exercise-solutions/</a></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="texts">
+<h2>Texts<a class="headerlink" href="#texts" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://bookdown.org/">Bookdown</a></p>
+<ul class="simple">
+<li><p>Baayen, R. H. <em>Analyzing Linguistic Data: A Practical Introduction to Statistics using R</em>. <a class="reference external" href="https://www.cambridge.org/highereducation/books/analyzing-linguistic-data/B2AF752A30911F4144CA35E075C6B233#overview">Cambridge University Press</a>.</p></li>
+<li><p>Baumer, Benjamin; Daniel Kaplan; &amp; Nicholas J. Horton. <em>Modern Data Science with R</em>. 2nd Ed. CRC Press. <a class="reference external" href="https://mdsr-book.github.io/mdsr2e/">Home</a>.</p></li>
+<li><p>Buisson, Florent. (2021). <em>Behavioral Data Analysis with R and Python: Customer-Driven Data for Real Business Results</em>. O’Reilly.</p></li>
+<li><p>Bruce, Peter; Andrew Bruce; &amp; Peter Gedeck. (2020). <em>Practical Statistics for Data Scientists: 50+ Essential Concepts Using R and Python</em>. O’Reilly.</p></li>
+<li><p>Chang, Winston. (2018). <em>R Graphics Cookbook: Practical Recipes for Visualizing Data</em>. 2nd Ed. O’Reilly. <a class="reference external" href="https://r-graphics.org/">Home</a>.</p></li>
+<li><p>Davies, Tilman M. (2016). <em>The Book of R: A First Course in Programming and Statistics</em>. <a class="reference external" href="https://nostarch.com/bookofr">No Starch Press</a>.</p></li>
+<li><p>Grolemund, Garrett. <em>Hands-On Programming with R: Write Your Own Functions and Simulations</em>. O’Reilly. <a class="reference external" href="https://rstudio-education.github.io/hopr/">Home</a>. <a class="reference external" href="https://github.com/rstudio-education/hopr">GitHub</a>.</p></li>
+<li><p>Hvitfeldt, Emil &amp; Julia Silge. (2022). <em>Supervised Machine Learning for Text Analysis in R</em>. <a class="reference external" href="https://smltar.com/">Home</a>.</p></li>
+<li><p>Hyndman, Rob J. &amp; George Athanasopoulos. (2021). <em>Forecasting: Principles and Practice</em>. 3rd Ed. <a class="reference external" href="https://otexts.com/fpp3/">Home</a>.</p></li>
+<li><p>Kaplan, Daniel &amp; Matthew Beckman. (2021). <em>Data Computing</em>. 2nd Ed. <a class="reference external" href="https://dtkaplan.github.io/DataComputingEbook/">Home</a>.</p></li>
+<li><p>Kuhn, Max &amp; Julia Silge. (2022). <em>Tidy Modeling with R: A Framework for Modeling in the Tidyverse</em>. O’Reilly. <a class="reference external" href="https://www.tmwr.org/">Home</a>.</p></li>
+<li><p>Long, J. D. &amp; Paul Teetor. (2019). <em>R Cookbook: Proven Recipes for Data Analysis, Statistics, and Graphics</em>. 2nd Ed. O’Reilly.</p></li>
+<li><p>Matloff, Norman. (2023). <em>The Art of Machine Learning: Algorithms + Data + R</em>. <a class="reference external" href="https://nostarch.com/art-machine-learning">No Starch Press</a>.</p></li>
+<li><p>Matloff, Norman. (2011). <em>The Art of R Programming: A Tour of Statistical Software Design</em>. <a class="reference external" href="https://nostarch.com/artofr.htm">No Starch Press</a>.</p></li>
+<li><p>Nolan, Deborah &amp; Duncan Temple Lang. (2015). <em>Data Science in R: A Case Studies Approach to Computational Reasoning and Problem Solving</em>. CRC Press.</p></li>
+<li><p>Scavetta, Rick &amp; Boyan Angelov. (2021). <em>Python and R for the Modern Data Scientist: The Best of Both Worlds</em>. O’Reilly.</p></li>
+<li><p>Silge, Julia &amp; David Robinson. <em>Text Mining with R: A Tidy Approach</em>. <a class="reference external" href="https://www.tidytextmining.com/index.html">Home</a>.</p></li>
+<li><p>Unwin, Antony. (2015). <em>Graphical Data Analysis with R</em>. CRC Press. <a class="reference external" href="http://www.gradaanwr.net/">Home</a>.</p></li>
+<li><p>Wickham, Hadley. (????). <em>ggplot2: Elegant Graphics for Data Analysis</em>. 3rd Ed. Springer. <a class="reference external" href="https://ggplot2-book.org/">Home</a>.</p></li>
+<li><p>Wickham, Hadley. (2021). <em>Mastering Shiny: Build Interactive Apps, Reports, and Dashboards Powered by R</em>. O’Reilly.</p></li>
+<li><p>Wickham, Hadley. (2019). <em>Advanced R</em>. 2nd Ed. CRC Press.</p></li>
+<li><p>Wickham, Hadley. (2014). “Tidy Data”. <a class="reference external" href="https://vita.had.co.nz/papers/tidy-data.html">Home</a>. <a class="reference external" href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">CRAN</a>.</p></li>
+<li><p>Wickham, Hadley. (2010). “A Layered Grammar of Graphics”. <a class="reference external" href="http://vita.had.co.nz/papers/layered-grammar.pdf">Paper</a>.</p></li>
+<li><p>Wickham, Hadley &amp; Jennifer Bryan. (????). <em>R Packages: Organize, Test, Document, and Share Your Code</em>. O’Reilly. <a class="reference external" href="https://r-pkgs.org/">Home</a>.</p></li>
+<li><p>Wickham, Hadley; Mine Çetinkaya-Rundel; &amp; Garrett Grolemund. (2023). <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 2nd Ed. O’Reilly. <a class="reference external" href="https://r4ds.hadley.nz/">Home</a>.</p></li>
+<li><p>Wickham, Hadley; Mine Çetinkaya-Rundel; &amp; Garrett Grolemund. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. 1st Ed. O’Reilly. <a class="reference external" href="https://r4ds.had.co.nz/">Home</a>.</p>
+<ul>
+<li><p><a class="reference external" href="https://jrnold.github.io/r4ds-exercise-solutions/">unofficial solution guide</a></p></li>
+</ul>
+</li>
+<li><p>Wilkinson, Leland. (2005). <em>The Grammar of Graphics</em>. 2nd Ed. Springer.</p></li>
+<li><p>Xie, Emily; Christophe Dervieux; &amp; Emily Riederer. (2023). <em>R Markdown Cookbook</em>. CRC Press. <a class="reference external" href="https://bookdown.org/yihui/rmarkdown-cookbook/">Home</a>.</p></li>
+<li><p>Xie, Yihui, J. J. Allaire, and Garrett Grolemund. (2018). <em>R Markdown: The Definitive Guide</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a class="reference external" href="https://bookdown.org/yihui/rmarkdown">Home</a>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2>Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hadley_Wickham">W</a>] Wickham, Hadley</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2>Terms<a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[W] Comprehensive R Archive Network (CRAN)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Dplyr">W</a>] dplyr</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Ggplot2">W</a>] ggplot2</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/R_(programming_language)">W</a>] R</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/R_package">W</a>] R Package</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/RStudio">W</a>] RStudio</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Tidyverse">W</a>] Tidyverse</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<p>Most builtin R functions work with vectors of values.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.libPaths()</span></code> get local path to R library installation location <a class="reference external" href="https://stackoverflow.com/questions/2615128/where-does-r-store-packages">StackOverflow</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">installed.packages()</span></code> get installed packages</p></li>
+</ul>
+<section id="data-viz">
+<h3>Data Viz<a class="headerlink" href="#data-viz" title="Link to this heading">#</a></h3>
+<p>Scatterplot</p>
+<ul class="simple">
+<li><p>shows the relationship between two (or more) variables, across some number of cases</p></li>
+<li><p>usually: Cartesian coordinate system where axes represent a variable</p></li>
+</ul>
+<p>Histogram</p>
+<ul class="simple">
+<li><p>shows a distribution</p></li>
+<li><p>shows how many cases fall into given ranges of the variable</p></li>
+</ul>
+<p>Frequency Polygon</p>
+<ul class="simple">
+<li><p>like a histogram, but lets you break up cases by other variables</p></li>
+</ul>
+<p>Bar Chart</p>
+<ul class="simple">
+<li><p>compares values of a single variable across groups</p></li>
+<li><p>effective when you want to compare a few different quantities</p></li>
+</ul>
+<p>Map</p>
+<ul class="simple">
+<li><p>shows how a variable relates to geography</p></li>
+</ul>
+<p>Choropleth Map</p>
+<ul class="simple">
+<li><p>the fill color of each region reflects the value of a variable</p></li>
+</ul>
+<p>Network Diagram</p>
+<ul class="simple">
+<li><p>shows how entities are connected to one another</p></li>
+<li><p>a vertex corresponds to a case, and the network describes which cases are connected to which other cases</p></li>
+</ul>
+<p>How to create a data graphic:</p>
+<ul class="simple">
+<li><p>choose the glyph-ready data frame</p></li>
+<li><p>select the kind of graphic</p></li>
+<li><p>MAPPING a variable to a graphical attribute: decide which variables from the data frame will be assigned to which roles in the graphic</p>
+<ul>
+<li><p>axes</p></li>
+<li><p>bar lengths</p></li>
+<li><p>glyphs</p>
+<ul>
+<li><p>fill color</p></li>
+<li><p>border color</p></li>
+<li><p>shapes</p></li>
+<li><p>sizes</p></li>
+<li><p>transparency</p></li>
+</ul>
+</li>
+<li><p>etc.</p></li>
+</ul>
+</li>
+</ul>
+<p>interactive</p>
+<ul class="simple">
+<li><p>mosaic</p>
+<ul>
+<li><p>mplot()</p></li>
+<li><p>mWorldMap(key=,fill=)</p></li>
+<li><p>mUSMap(key=,fill=)</p></li>
+</ul>
+</li>
+<li><p>esquisse</p></li>
+</ul>
+<p>coordinate systems</p>
+<ul class="simple">
+<li><p>coord_fixed</p></li>
+<li><p>coord_flip</p></li>
+<li><p>coord_map</p></li>
+<li><p>coord_polar</p></li>
+<li><p>coord_quickmap</p></li>
+</ul>
+<p>facets</p>
+<ul class="simple">
+<li><p>facet_grid(. ~ v)</p></li>
+<li><p>facet_wrap(~ v)</p></li>
+</ul>
+<p>geoms</p>
+<ul class="simple">
+<li><p>geom_abline</p></li>
+<li><p>geom_bar</p></li>
+<li><p>geom_boxplot</p></li>
+<li><p>geom_col</p></li>
+<li><p>geom_count</p></li>
+<li><p>geom_histogram</p></li>
+<li><p>geom_jitter</p></li>
+<li><p>geom_line</p></li>
+<li><p>geom_point</p></li>
+<li><p>geom_pointrange</p></li>
+</ul>
+<p>position adjustments</p>
+<ul class="simple">
+<li><p>position_dodge</p></li>
+<li><p>position_fill</p></li>
+<li><p>position_identity</p></li>
+<li><p>position_jitter</p></li>
+<li><p>position_stack</p></li>
+</ul>
+<p>scales</p>
+<ul class="simple">
+<li><p>scale_color_brewer</p></li>
+</ul>
+<p>stats</p>
+<ul class="simple">
+<li><p>stat</p></li>
+<li><p>stat_bin</p></li>
+<li><p>stat_count</p></li>
+<li><p>stat_smooth</p></li>
+<li><p>stat_summary</p></li>
+</ul>
+<p>Data Verb</p>
+<ul class="simple">
+<li><p>single-table in, single-table out</p>
+<ul>
+<li><p>arrange()</p></li>
+<li><p>filter()</p></li>
+<li><p>mutate()</p></li>
+<li><p>summarize()</p></li>
+<li><p>transmute()</p></li>
+</ul>
+</li>
+<li><p>double-table in, single-table out</p>
+<ul>
+<li><p>left_join()  - the output has all the cases from the left, even if there is no match in the right</p></li>
+<li><p>inner_join() - the output has only the cases from the left with a match in the right</p></li>
+<li><p>full_join()  - the output will have all the cases from both the left and the right</p></li>
+</ul>
+</li>
+</ul>
+<p>MUTATION</p>
+<ul class="simple">
+<li><p>to mutate means to add new variables to a data frame</p></li>
+<li><p>data verb <code class="docutils literal notranslate"><span class="pre">mutate()</span></code> allows you to add new variables constructed by transformation operations on existing variables (join data verbs allow something similar, constructing new variables by pulling them out of a different data frame)</p></li>
+<li><p>translation, a special kind of mutation</p>
+<ul>
+<li><p>translate levels in one variable into a different set of levels</p></li>
+</ul>
+</li>
+</ul>
+<p>JOIN - a data verb that looks for info to match rows in one table to zero or more rows in a second table</p>
+<ul>
+<li><p>when there is a match between a case in the left table and a case in the right table, the remaining variables from the right table are concatenated onto the case from the left table</p></li>
+<li><p>Remaining questions</p>
+<ul class="simple">
+<li><p>What happens when a case in the right table has no matches in the left table?</p></li>
+<li><p>What happens when a case in the left table has no matches in the right table?</p></li>
+<li><p>What happens when there are multiple cases in the left table that match a case in the right table?</p></li>
+</ul>
+</li>
+<li><p>all joins behave the same when there are multiple matches in the right table for a case in the left table: each of these multiple matches will produce a case in the output</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">LeftTable</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">joinOperation</span><span class="p">(</span><span class="n">RightTable</span><span class="p">,</span><span class="w"> </span><span class="n">vars_for_matching</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>When used with the chaining syntax <code class="docutils literal notranslate"><span class="pre">%&gt;%</span></code>, most data verbs have arguments that consist only of reduction and transformation functions, constants, and variables.</p>
+<p>MUTATING JOINS</p>
+<ul class="simple">
+<li><p>inner equijoin</p></li>
+<li><p>outer joins</p>
+<ul>
+<li><p>left outer join</p></li>
+<li><p>right outer join</p></li>
+<li><p>full outer join</p></li>
+</ul>
+</li>
+</ul>
+<p>INNER EQUIJOIN</p>
+<ul class="simple">
+<li><p>an inner join matches pairs of observations whenever their keys are equal</p></li>
+<li><p>inner equijoin, because the keys are matched using the equality operator</p></li>
+<li><p>unmatched rows are not included in the result</p></li>
+<li><p>an inner join keeps observations that appear in both tables</p></li>
+</ul>
+<p>OUTER JOIN</p>
+<ul class="simple">
+<li><p>an outer join keeps observations that appear in at least one of the tables</p></li>
+<li><p>outer joins work by adding an additional virtual observation to each table; this observation has a key that always matches (if no other key matches), and a value filled with NA</p></li>
+</ul>
+<p>LEFT OUTER JOIN</p>
+<ul class="simple">
+<li><p>keeps all observations in <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+</ul>
+<p>RIGHT OUTER JOIN</p>
+<ul class="simple">
+<li><p>keeps all observations in <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+</ul>
+<p>FULL OUTER JOIN</p>
+<ul class="simple">
+<li><p>keeps all observations in <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+</ul>
+<p>NATURAL JOIN</p>
+<ul class="simple">
+<li><p>the default <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">=</span> <span class="pre">NULL</span></code> uses all variables that appear in both tables</p></li>
+</ul>
+<p>Filtering Joins</p>
+<ul class="simple">
+<li><p>match observations in the same way as mutating joins but affect observations, not variables</p></li>
+</ul>
+<p>SEMI JOIN</p>
+<ul class="simple">
+<li><p>keeps all observations in <code class="docutils literal notranslate"><span class="pre">x</span></code> that have a match in <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>useful for matching filtered summary tables back to the original rows</p></li>
+</ul>
+<p>ANTI JOIN</p>
+<ul class="simple">
+<li><p>drops all observations in <code class="docutils literal notranslate"><span class="pre">x</span></code> that have a match in <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>useful for diagnosing join mismatches</p></li>
+</ul>
+<p>Keys</p>
+<ul class="simple">
+<li><p>the variables used to connect each pair of tables are called keys</p></li>
+<li><p>a key is a variable or set of variables that uniquely identifies an observation</p></li>
+<li><p>a primary key uniquely identifies an observation in its own table</p></li>
+<li><p>a foreign key uniquely identifies an observation in another table</p></li>
+<li><p>a variable can be both a primary key and a foreign key</p></li>
+<li><p>verify that the primary key uniquely identifies each observation: one way to do this is to <code class="docutils literal notranslate"><span class="pre">count()</span></code> the primary keys and look for entries where <code class="docutils literal notranslate"><span class="pre">n</span></code> is greater than one</p></li>
+<li><p>sometimes a table doesn’t have an explicit primary key: each row is an observation, but no combination of variables reliably identifies it</p></li>
+<li><p>surrogate key: if a table lacks a primary key, it’s sometimes useful to add one with <code class="docutils literal notranslate"><span class="pre">mutate()</span></code> and <code class="docutils literal notranslate"><span class="pre">row_number()</span></code></p></li>
+<li><p>a primary key and the corresponding foreign key in another table form a relation</p></li>
+<li><p>relations are typically one-to-many</p></li>
+</ul>
+<p>Relations</p>
+<ul class="simple">
+<li><p>one-to-many</p></li>
+<li><p>one-to-one, a special case of one-to-many</p></li>
+<li><p>many-to-many = many-to-one + one-to-many</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">filter</span>    <span class="o">-</span> <span class="n">select</span> <span class="n">observations</span> <span class="n">by</span> <span class="n">their</span> <span class="n">values</span>
+<span class="n">arrange</span>   <span class="o">-</span> <span class="n">reorder</span> <span class="n">rows</span>
+<span class="n">select</span>    <span class="o">-</span> <span class="n">select</span> <span class="n">variables</span> <span class="n">by</span> <span class="n">their</span> <span class="n">names</span>
+              <span class="n">starts_with</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">matches</span> <span class="n">names</span> <span class="n">that</span> <span class="n">begin</span> <span class="k">with</span> <span class="s1">&#39;abc&#39;</span>
+              <span class="n">ends_with</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>   <span class="o">-</span> <span class="n">mathces</span> <span class="n">names</span> <span class="n">that</span> <span class="n">end</span> <span class="k">with</span> <span class="s1">&#39;abc&#39;</span>
+              <span class="n">contains</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>    <span class="o">-</span> <span class="n">matches</span> <span class="n">names</span> <span class="n">that</span> <span class="n">contain</span> <span class="s1">&#39;abc&#39;</span>
+              <span class="n">matches</span><span class="p">(</span><span class="s1">&#39;(.)</span><span class="se">\\</span><span class="s1">1&#39;</span><span class="p">)</span>  <span class="o">-</span> <span class="n">selects</span> <span class="n">variables</span> <span class="n">that</span> <span class="n">match</span> <span class="n">a</span> <span class="n">regular</span> <span class="n">expression</span>
+              <span class="n">num_range</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">matches</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="ow">and</span> <span class="n">x3</span>
+              <span class="n">rename</span><span class="p">()</span>
+              <span class="n">everything</span><span class="p">()</span>
+              <span class="n">any_of</span><span class="p">()</span>
+              <span class="n">contains</span><span class="p">()</span>
+<span class="n">mutate</span>    <span class="o">-</span> <span class="n">create</span> <span class="n">new</span> <span class="n">variables</span> <span class="k">with</span> <span class="n">functions</span> <span class="n">of</span> <span class="n">existing</span> <span class="n">variables</span>
+              <span class="n">transmute</span><span class="p">()</span>
+<span class="n">summarize</span> <span class="o">-</span> <span class="n">collapse</span> <span class="n">many</span> <span class="n">values</span> <span class="n">down</span> <span class="n">to</span> <span class="n">a</span> <span class="n">single</span> <span class="n">summary</span>
+<span class="n">group_by</span>  <span class="o">-</span> <span class="n">changes</span> <span class="n">the</span> <span class="n">scope</span> <span class="n">of</span> <span class="n">each</span> <span class="n">function</span> <span class="kn">from</span> <span class="nn">operating</span> <span class="n">on</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">dataset</span> <span class="n">to</span> <span class="n">operating</span> <span class="n">on</span> <span class="n">it</span> <span class="n">group</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">group</span>
+
+<span class="o">+</span>           <span class="n">addition</span>
+<span class="o">-</span>           <span class="n">subtraction</span>
+<span class="o">*</span>           <span class="n">multiplication</span>
+<span class="o">/</span>           <span class="n">division</span>
+<span class="o">^</span>           <span class="n">exponentiation</span>
+<span class="n">x</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="n">the</span> <span class="n">proportion</span> <span class="n">of</span> <span class="n">a</span> <span class="n">total</span>
+<span class="n">y</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">the</span> <span class="n">difference</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">mean</span>
+<span class="o">%/%</span>         <span class="n">integer</span> <span class="n">division</span>
+<span class="o">%%</span>          <span class="n">remainder</span>
+<span class="n">log</span><span class="p">()</span>
+<span class="n">log2</span><span class="p">()</span>
+<span class="n">log10</span><span class="p">()</span>
+<span class="n">lead</span><span class="p">()</span>
+<span class="n">lag</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">-</span> <span class="n">lag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">running</span> <span class="n">difference</span>
+<span class="n">x</span> <span class="o">!=</span> <span class="n">lag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">find</span> <span class="n">when</span> <span class="n">values</span> <span class="n">change</span>
+
+<span class="n">lag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">lead</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">cumprod</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">cummin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">cummax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">cummean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">min_rank</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">min_rank</span><span class="p">(</span><span class="n">desc</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">row_number</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">dense_rank</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">percent_rank</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">cume_dist</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ntile</span><span class="p">()</span>
+
+<span class="n">verb</span>
+<span class="o">*</span> <span class="n">the</span> <span class="n">first</span> <span class="n">argument</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">dataframe</span>
+<span class="o">*</span> <span class="n">the</span> <span class="n">subsequent</span> <span class="n">arguments</span> <span class="n">describe</span> <span class="n">what</span> <span class="n">to</span> <span class="n">do</span> <span class="k">with</span> <span class="n">the</span> <span class="n">dataframe</span> <span class="n">using</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">names</span>
+<span class="o">*</span> <span class="n">the</span> <span class="n">result</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">new</span> <span class="n">dataframe</span>
+</pre></div>
+</div>
+<p>Exploratory Data Analysis (EDA)</p>
+<ul class="simple">
+<li><p>use visualization and transformation to explore data in a systematic way</p></li>
+<li><p>EDA is an iterative process</p>
+<ul>
+<li><p>generate questions about the data</p></li>
+<li><p>search for the answers by visualizing, transforming, modeling the data</p></li>
+<li><p>use what is learned to refine the questions, or generate new questions</p></li>
+</ul>
+</li>
+<li><p>EDA is not a formal process with a strict set of rules</p></li>
+<li><p>some important questions</p>
+<ul>
+<li><p>What type of variation occurs within my variables?</p></li>
+<li><p>What type of covariation occurs between my variables?</p></li>
+</ul>
+</li>
+</ul>
+<p>Variable</p>
+<ul class="simple">
+<li><p>a variable is a quantity, quality, or property that can be measured</p></li>
+</ul>
+<p>Value</p>
+<ul class="simple">
+<li><p>a value is the state of a variable when you measure it; the value of a variable may change from measurement to measurement</p></li>
+</ul>
+<p>Observation</p>
+<ul class="simple">
+<li><p>an observation is a set of measurements made under similar conditions (i.e., at the same time and on the same object)</p></li>
+<li><p>an observation contains several values each of which is associated with a different variable</p></li>
+</ul>
+<p>Tabular Data</p>
+<ul class="simple">
+<li><p>tabular data is a set of values each of which is associated with a variable and an observation</p></li>
+<li><p>tabular data is tidy if each value is placed in its own cell; each variable in its own column; and each observation in its own row</p></li>
+</ul>
+<p>Variation</p>
+<ul class="simple">
+<li><p>variation is the tendency of the values of a variable to change from measurement to measurement</p></li>
+<li><p>if you measure any continuous variable twice, you will get two different results (this is true even if you measure quantities that are constant like the speed of light)</p></li>
+<li><p>each of your measurements will include a small amount of error that varies from measurement to measurement</p></li>
+<li><p>categorical variables can also vary if you measure across different subjects or different times</p></li>
+<li><p>variation describes the behavior within a variable</p></li>
+</ul>
+<p>Categorical Variable</p>
+<ul class="simple">
+<li><p>a variable is categorical if it can only take one of a small set of values</p></li>
+<li><p>in R, categorical variables are usually saved as factors or character vectors</p></li>
+<li><p>use a bar chart to examine the distribution of a categorical variable</p></li>
+<li><p>the height of the bars displays how many observations occurred with each x value (computed manually with dplyr::count())</p></li>
+</ul>
+<p>Continuous Variable</p>
+<ul class="simple">
+<li><p>a variable is continuous if it can take any of an infinite set of ordered values (e.g., numbers and datetimes)</p></li>
+<li><p>use a histogram to examine the distribution of a continuous variable</p></li>
+<li><p>a histogram divides the x-axis into equally spaced bins and then uses the height of a bar to display the number of observations that fall into each bin</p></li>
+</ul>
+<p>many of the questions will prompt you to explore a relationship between variables to see if the values of one variable can explain the behavior of another variable</p>
+<p>Outlier</p>
+<ul class="simple">
+<li><p>outliers are observations that are unusual which don’t seem to fit the pattern; sometimes they are data entry errors; other times they suggest important new science</p></li>
+</ul>
+<p>Covariation</p>
+<ul class="simple">
+<li><p>covariation describes the behavior between variables</p></li>
+<li><p>covariation is the tendency for the values of two or more variables to vary togehter in a related way</p></li>
+<li><p>the best way to spot covariation is to visualize the relationship between two or more variables</p></li>
+</ul>
+<p>Boxplot</p>
+<ul class="simple">
+<li><p>display the distribution of a continuous variable broken down by a categorical variable</p></li>
+<li><p>a boxplot is a type of visual shorthand for a distribution of values</p></li>
+<li><p>a boxplot consists of</p>
+<ul>
+<li><p>a box that stretches from the 25th percentile of the distribution to the 75th percentile, a distance known as the interquartile range (IQR)</p>
+<ul>
+<li><p>in the middle of the box is a line that displays the median, i.e., the 50th percentile of the distribution</p></li>
+<li><p>these three lines provide a sense of the spread of the distribution and whether or not the distribution is symmetric about the median or skewed to one side</p></li>
+</ul>
+</li>
+<li><p>visual points that display observations that fall more than 1.5 times the IQR from either edge of the box</p></li>
+<li><p>a line (or whisker) that extends from each end of the box and goes to the farthest non-outlier point in the distribution</p></li>
+</ul>
+</li>
+</ul>
+<p>Atomic Vectors</p>
+<ul class="simple">
+<li><p>6 types of atomic vectors</p>
+<ul>
+<li><p>Logical</p></li>
+<li><p>Numeric</p>
+<ul>
+<li><p>Integer</p></li>
+<li><p>Double</p></li>
+</ul>
+</li>
+<li><p>Character</p></li>
+<li><p>Complex</p></li>
+<li><p>Raw</p></li>
+</ul>
+</li>
+<li><p>atomic vectors are homogeneous</p></li>
+<li><p>each type of atomic vector has its own missing value; you can always use <code class="docutils literal notranslate"><span class="pre">NA</span></code> and it will be converted to the correct type using the implicit coercion rules</p></li>
+</ul>
+<p>Recursive Vectors (Lists)</p>
+<ul class="simple">
+<li><p>lists can contain other lists</p></li>
+<li><p>lists can be heterogeneous</p></li>
+</ul>
+<p>NULL</p>
+<ul class="simple">
+<li><p>NULL is often used to represent the absence of a vector as opposed to NA which is used to represent the absence of a value in a vector</p></li>
+<li><p>NULL typically behaves like a vector of length 0</p></li>
+</ul>
+<p>Properties of Vectors</p>
+<ul class="simple">
+<li><p>type, determined with <code class="docutils literal notranslate"><span class="pre">typeof()</span></code></p></li>
+<li><p>length, determined with <code class="docutils literal notranslate"><span class="pre">length()</span></code></p></li>
+</ul>
+<p>Augmented Vectors</p>
+<ul class="simple">
+<li><p>vectors can contain arbitrary additional metadata in the form of attributes which are used to create augmented vectors which build on additional behavior</p></li>
+<li><p>3 types of augmented vectors</p>
+<ul>
+<li><p>Factors</p>
+<ul>
+<li><p>factors represent categorical data that can take a fixed set of possible values</p></li>
+<li><p>built on top of integer vectors</p></li>
+<li><p>factors have a level attribute</p></li>
+</ul>
+</li>
+<li><p>Dates and Datetimes</p>
+<ul>
+<li><p>built on top of numeric vectors</p></li>
+<li><p>dates: represent the number of days since 1 Jan 1970</p></li>
+<li><p>datetimes: class POSIXct (Portable Operating System Interface, calendar time), represent the number of seconds since 1 Jan 1970</p></li>
+</ul>
+</li>
+<li><p>Data frames and tibbles, built on top of lists</p></li>
+</ul>
+</li>
+</ul>
+<p>Logical Vectors</p>
+<ul class="simple">
+<li><p>three possible values: FALSE, TRUE, NA</p></li>
+<li><p>logical vectors are usually constructed with comparison operators; they can also be constructed manually with <code class="docutils literal notranslate"><span class="pre">c()</span></code></p></li>
+</ul>
+<p>Numeric Vectors</p>
+<ul class="simple">
+<li><p>in R, numbers are doubles by default; to make an integer, place an <code class="docutils literal notranslate"><span class="pre">L</span></code> after the number</p></li>
+<li><p>doubles are approximations</p></li>
+<li><p>integers have one special value: NA</p></li>
+<li><p>doubles have four special values: NA, NaN, Inf, -Inf, the latter three of which can arise during division</p></li>
+</ul>
+<p>Character Vectors</p>
+<ul class="simple">
+<li><p>each element of a character vector is a string, and a string can contain an arbitrary amount of data</p></li>
+<li><p>R uses a global string pool: this means that each unique string is only stored in memory once and every use of the string points to that representation which reduces the amount of memory needed by duplicated strings</p></li>
+<li><p>a pointer is 8 bytes, so 1000 pointers to a 152 B string is 8 x 1000 + 152 = 8.14 kB</p></li>
+</ul>
+<p>Explicit coercion</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">as.logical()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as.integer()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as.double()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as.character()</span></code></p></li>
+</ul>
+<p>Implicit coercion</p>
+<ul class="simple">
+<li><p>of the type of a vector</p>
+<ul>
+<li><p>when creating a vector containing multiple types with <code class="docutils literal notranslate"><span class="pre">c()</span></code> the most complex type always wins</p></li>
+</ul>
+</li>
+<li><p>of the length of a vector (vector recycling)</p>
+<ul>
+<li><p>the shorter vector is repeated to the same length as the longer vector</p></li>
+<li><p>this is most useful when mxixing vectors and “scalars” (vectors of length 1)</p></li>
+</ul>
+</li>
+</ul>
+<p>Subsetting</p>
+<ul class="simple">
+<li><p>numeric vector of integers</p></li>
+<li><p>logical vector, keeps all values corresponding to a TRUE value</p></li>
+<li><p>named vectors can be subsetted with a character vector</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x[]</span></code> returns the complete <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
+<ul>
+<li><p>this is not useful for subsetting vectors, but it is useful for subsetting matrices and other high-dimensional structures because it lets you select all the rows or all the columns by leaving that index blank</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[[]]</span></code> extracts a single element and always drops names</p></li>
+</ul>
+<p>Attributes</p>
+<ul class="simple">
+<li><p>names, used to name the elements of a vector</p></li>
+<li><p>dimensions (dims), make a vector behave like a matrix or array</p></li>
+<li><p>class, used to implement the S3 object oriented system</p>
+<ul>
+<li><p>controls how generic functions work</p></li>
+</ul>
+</li>
+</ul>
+<p>generic functions</p>
+<ul class="simple">
+<li><p>generic functions are key to object oriented programming in R because they make functions behave differently for different classes of input</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./c/programming/rlang"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../python/book_data_science_from_scratch.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><em>Data Science from Scratch</em> 2e</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="DC.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><em>Data Computing</em> 2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r-lang">R Lang</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-resources">Other Resources</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-viz">Data Viz</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

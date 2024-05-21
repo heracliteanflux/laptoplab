@@ -1,0 +1,1516 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A06 - Project: Bird Species &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c/programming/rlang/STAT184/A06';</script>
+    <script src="../../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="A07 - Project: Bicycle Sharing" href="A07.html" />
+    <link rel="prev" title="A05 - Project: Popular Names" href="A05.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../index.html">Computery Things</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../index.html">Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../index.html">R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A06 - Project: Bird Species</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data">Get the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="a06-project-bird-species">
+<h1>A06 - <a class="reference external" href="https://dtkaplan.github.io/DataComputingEbook/project-bird-species.html#project-bird-species">Project: Bird Species</a><a class="headerlink" href="#a06-project-bird-species" title="Link to this heading">#</a></h1>
+<p>Kaplan, Daniel &amp; Matthew Beckman. (2021). <em>Data Computing</em>. 2nd Ed. <a class="reference external" href="https://dtkaplan.github.io/DataComputingEbook/">Home</a>.</p>
+<hr class="docutils" />
+<div class="admonition-revised admonition">
+<p class="admonition-title">Revised</p>
+<p>19 Jun 2023</p>
+</div>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#a06-project-bird-species" id="id1">A06 - Project: Bird Species</a></p>
+<ul>
+<li><p><a class="reference internal" href="#programming-environment" id="id2">Programming Environment</a></p></li>
+<li><p><a class="reference internal" href="#get-the-data" id="id3">Get the data</a></p></li>
+<li><p><a class="reference internal" href="#task-1" id="id4">Task 1</a></p></li>
+<li><p><a class="reference internal" href="#task-2" id="id5">Task 2</a></p></li>
+<li><p><a class="reference internal" href="#task-3" id="id6">Task 3</a></p></li>
+<li><p><a class="reference internal" href="#task-4" id="id7">Task 4</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Programming Environment</a><a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">dcData</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+
+<span class="nf">sessionInfo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching core tidyverse packages</span> ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr    </span> 1.1.2     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">readr    </span> 2.1.4
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">forcats  </span> 1.0.0     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">stringr  </span> 1.5.0
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2  </span> 3.4.3     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble   </span> 3.2.1
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">lubridate</span> 1.9.2     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr    </span> 1.3.0
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr    </span> 1.0.2     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
+<span class=" -Color -Color-Cyan">ℹ</span> Use the conflicted package (<span class=" -Color -Color-Blue">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
+Platform: aarch64-apple-darwin20 (64-bit)
+Running under: macOS 14.4.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0   dplyr_1.1.2    
+ [5] purrr_1.0.2     readr_2.1.4     tidyr_1.3.0     tibble_3.2.1   
+ [9] ggplot2_3.4.3   tidyverse_2.0.0 dcData_0.1.0   
+
+loaded via a namespace (and not attached):
+ [1] gtable_0.3.3     jsonlite_1.8.5   compiler_4.3.0   crayon_1.5.2    
+ [5] tidyselect_1.2.0 IRdisplay_1.1    scales_1.2.1     uuid_1.1-0      
+ [9] fastmap_1.1.1    IRkernel_1.3.2   R6_2.5.1         generics_0.1.3  
+[13] munsell_0.5.0    pillar_1.9.0     tzdb_0.4.0       rlang_1.1.1     
+[17] utf8_1.2.3       stringi_1.7.12   repr_1.1.6       timechange_0.2.0
+[21] cli_3.6.1        withr_2.5.0      magrittr_2.0.3   digest_0.6.31   
+[25] grid_4.3.0       base64enc_0.1-3  hms_1.1.3        pbdZMQ_0.3-9    
+[29] lifecycle_1.0.3  vctrs_0.6.3      evaluate_0.21    glue_1.6.2      
+[33] fansi_1.0.4      colorspace_2.1-0 tools_4.3.0      pkgconfig_2.0.3 
+[37] htmltools_0.5.5 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="get-the-data">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Get the data</a><a class="headerlink" href="#get-the-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="n">dcData</span><span class="o">::</span><span class="n">OrdwayBirds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="n">dcData</span><span class="o">::</span><span class="n">OrdwaySpeciesNames</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">OrdwayBirds</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Day</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 2</caption>
+<thead>
+	<tr><th></th><th scope=col>Month</th><th scope=col>Day</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>3</th><td>7</td><td>16</td></tr>
+	<tr><th scope=row>4</th><td> </td><td>  </td></tr>
+	<tr><th scope=row>5</th><td>7</td><td>16</td></tr>
+	<tr><th scope=row>6</th><td>7</td><td>16</td></tr>
+	<tr><th scope=row>7</th><td>7</td><td>16</td></tr>
+	<tr><th scope=row>8</th><td>7</td><td>16</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">OrdwayBirds</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">OrdwayBirds</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">SpeciesName</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Day</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span>
+<span class="w">    </span><span class="n">Month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="nf">as.character</span><span class="p">(</span><span class="n">Month</span><span class="p">)),</span>
+<span class="w">    </span><span class="n">Day</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="nf">as.character</span><span class="p">(</span><span class="n">Day</span><span class="p">))</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="n">OrdwayBirds</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>SpeciesName</th><th scope=col>Month</th><th scope=col>Day</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>3</th><td>Song Sparrow </td><td> 7</td><td>16</td></tr>
+	<tr><th scope=row>4</th><td>             </td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>5</th><td>Song Sparrow </td><td> 7</td><td>16</td></tr>
+	<tr><th scope=row>6</th><td>Field Sparrow</td><td> 7</td><td>16</td></tr>
+	<tr><th scope=row>7</th><td>Field Sparrow</td><td> 7</td><td>16</td></tr>
+	<tr><th scope=row>8</th><td>Song Sparrow </td><td> 7</td><td>16</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">OrdwaySpeciesNames</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="nf">is.na</span><span class="p">(</span><span class="n">SpeciesNameCleaned</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 50 × 2</caption>
+<thead>
+	<tr><th scope=col>SpeciesName</th><th scope=col>SpeciesNameCleaned</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>                      </td><td>NA</td></tr>
+	<tr><td>-lost-                </td><td>NA</td></tr>
+	<tr><td>-missing-             </td><td>NA</td></tr>
+	<tr><td>[Nothing, just dashes]</td><td>NA</td></tr>
+	<tr><td>13:00:00              </td><td>NA</td></tr>
+	<tr><td>Bank Swallow          </td><td>NA</td></tr>
+	<tr><td>Barn Swallow          </td><td>NA</td></tr>
+	<tr><td>Bay-breasted Warbler  </td><td>NA</td></tr>
+	<tr><td>Blackpoll Warbler     </td><td>NA</td></tr>
+	<tr><td>Blue Jay              </td><td>NA</td></tr>
+	<tr><td>Blue-headed Vireo     </td><td>NA</td></tr>
+	<tr><td>Blue-winged Warbler   </td><td>NA</td></tr>
+	<tr><td>Bluebird              </td><td>NA</td></tr>
+	<tr><td>Boreal Chickadee      </td><td>NA</td></tr>
+	<tr><td>Brewer's Sparrow      </td><td>NA</td></tr>
+	<tr><td>Brown Creeper         </td><td>NA</td></tr>
+	<tr><td>Brown Thrasher        </td><td>NA</td></tr>
+	<tr><td>Brown Towhee          </td><td>NA</td></tr>
+	<tr><td>Cactus Wren           </td><td>NA</td></tr>
+	<tr><td>Common Crow           </td><td>NA</td></tr>
+	<tr><td>Common Grackle        </td><td>NA</td></tr>
+	<tr><td>Common Nighthawk      </td><td>NA</td></tr>
+	<tr><td>Common Redpoll        </td><td>NA</td></tr>
+	<tr><td>Common Yellowthroat   </td><td>NA</td></tr>
+	<tr><td>Connecticut Warbler   </td><td>NA</td></tr>
+	<tr><td>Downy Woodpecker      </td><td>NA</td></tr>
+	<tr><td>E Bluebird            </td><td>NA</td></tr>
+	<tr><td>Eastern Bluebird      </td><td>NA</td></tr>
+	<tr><td>Eastern Kingbird      </td><td>NA</td></tr>
+	<tr><td>Eastern Meadowlark    </td><td>NA</td></tr>
+	<tr><td>Eastern Robin         </td><td>NA</td></tr>
+	<tr><td>Flicker               </td><td>NA</td></tr>
+	<tr><td>Fox Sparrow           </td><td>NA</td></tr>
+	<tr><td>Goldfinch             </td><td>NA</td></tr>
+	<tr><td>Grackle               </td><td>NA</td></tr>
+	<tr><td>Green Heron           </td><td>NA</td></tr>
+	<tr><td>Ground Dove           </td><td>NA</td></tr>
+	<tr><td>Hairy Woodpecker      </td><td>NA</td></tr>
+	<tr><td>Hermit Thrush         </td><td>NA</td></tr>
+	<tr><td>Horned Lark           </td><td>NA</td></tr>
+	<tr><td>House Finch           </td><td>NA</td></tr>
+	<tr><td>House Sparrow         </td><td>NA</td></tr>
+	<tr><td>Inca Dove             </td><td>NA</td></tr>
+	<tr><td>Indigo Bunting        </td><td>NA</td></tr>
+	<tr><td>Killdeer              </td><td>NA</td></tr>
+	<tr><td>Kingbird              </td><td>NA</td></tr>
+	<tr><td>Kiskadee F.C.         </td><td>NA</td></tr>
+	<tr><td>Magnolia Warbler      </td><td>NA</td></tr>
+	<tr><td>Mockingbird           </td><td>NA</td></tr>
+	<tr><td>Rough-winged Swallow  </td><td>NA</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="task-1">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Task 1</a><a class="headerlink" href="#task-1" title="Link to this heading">#</a></h2>
+<p>[1] Including misspellings, how many different species are there in the <code class="docutils literal notranslate"><span class="pre">OrdwayBirds</span></code> data?</p>
+<p>There are 275 unique values of the variable <code class="docutils literal notranslate"><span class="pre">SpeciesName</span></code>. This reduces to 268 after dropping the following invalid values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'-lost-'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'-missing-'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'13:00:00'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'[Nothing,</span> <span class="pre">just</span> <span class="pre">dashes]'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'lost'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'none'</span></code></p></li>
+</ul>
+<p>[2] Consider the <code class="docutils literal notranslate"><span class="pre">OrdwaySpeciesNames</span></code> data frame also found in the <code class="docutils literal notranslate"><span class="pre">dcData</span></code> package as well. How many distinct species are there in the <code class="docutils literal notranslate"><span class="pre">SpeciesNameCleaned</span></code> variable in <code class="docutils literal notranslate"><span class="pre">OrdwaySpeciesNames</span></code>? You will find it helpful to use <code class="docutils literal notranslate"><span class="pre">n_distinct()</span></code> a reduction function, which counts the number of unique values in a variable.</p>
+<p>There are 108 unique values of the variable <code class="docutils literal notranslate"><span class="pre">SpeciesNameCleaned</span></code> after accounting for the value <code class="docutils literal notranslate"><span class="pre">NA</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">OrdwayBirds</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">SpeciesName</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 275 × 2</caption>
+<thead>
+	<tr><th scope=col>SpeciesName</th><th scope=col>n</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>                       </td><td>   4</td></tr>
+	<tr><td>-lost-                 </td><td>   1</td></tr>
+	<tr><td>-missing-              </td><td>   1</td></tr>
+	<tr><td>13:00:00               </td><td>   1</td></tr>
+	<tr><td>Acadian Flycatcher     </td><td>   1</td></tr>
+	<tr><td>American Gold Finch    </td><td>  50</td></tr>
+	<tr><td>American Goldfinch     </td><td>1153</td></tr>
+	<tr><td>American Golf Finch    </td><td>   1</td></tr>
+	<tr><td>American Redfinch      </td><td>   1</td></tr>
+	<tr><td>American Redstart      </td><td>   3</td></tr>
+	<tr><td>American Robin         </td><td>   4</td></tr>
+	<tr><td>Arkansas Kingbird      </td><td>   1</td></tr>
+	<tr><td>Baltimore Oriole       </td><td> 206</td></tr>
+	<tr><td>Bank Swallow           </td><td>  21</td></tr>
+	<tr><td>Barn Swallow           </td><td>  23</td></tr>
+	<tr><td>Batimore Oriole        </td><td>   1</td></tr>
+	<tr><td>Bay-breasted Warbler   </td><td>   2</td></tr>
+	<tr><td>Blac-capped Chickadee  </td><td>   1</td></tr>
+	<tr><td>Black and White Warbler</td><td>   9</td></tr>
+	<tr><td>Black-Capped Chickadee </td><td>  13</td></tr>
+	<tr><td>Black-and-white Warbler</td><td>   1</td></tr>
+	<tr><td>Black-billed Cookoo    </td><td>   1</td></tr>
+	<tr><td>Black-billed Cuckoo    </td><td>  15</td></tr>
+	<tr><td>Black-capeed Chickadee </td><td>   1</td></tr>
+	<tr><td>Black-capped Chicakdee </td><td>   1</td></tr>
+	<tr><td>Black-capped Chickadee </td><td>1110</td></tr>
+	<tr><td>Black-capped Chikadee  </td><td>   1</td></tr>
+	<tr><td>Black-capped chickadee </td><td> 187</td></tr>
+	<tr><td>Black-throat Sparrow   </td><td>  31</td></tr>
+	<tr><td>Black-throat-Sparrow   </td><td>   1</td></tr>
+	<tr><td>⋮</td><td>⋮</td></tr>
+	<tr><td>White-breast Nuthatch    </td><td> 23</td></tr>
+	<tr><td>White-breasted Nuthatch  </td><td>236</td></tr>
+	<tr><td>White-crown Sparrow      </td><td> 17</td></tr>
+	<tr><td>White-crowned Sparrow    </td><td> 78</td></tr>
+	<tr><td>White-eyed Vireo         </td><td>  1</td></tr>
+	<tr><td>White-thorat Sparrow     </td><td>  1</td></tr>
+	<tr><td>White-throat Sparrow     </td><td> 86</td></tr>
+	<tr><td>White-throated Sparrow   </td><td>229</td></tr>
+	<tr><td>White-winged Junco       </td><td>  2</td></tr>
+	<tr><td>Wht-brstd Nuthatch       </td><td>  1</td></tr>
+	<tr><td>Wilson Warbler           </td><td>  4</td></tr>
+	<tr><td>Wilson's Warbler         </td><td> 22</td></tr>
+	<tr><td>Winter Wren              </td><td>  1</td></tr>
+	<tr><td>Wood Pewee               </td><td> 37</td></tr>
+	<tr><td>Wood Thrush              </td><td>  3</td></tr>
+	<tr><td>Woodcock                 </td><td>  1</td></tr>
+	<tr><td>Wren                     </td><td>  2</td></tr>
+	<tr><td>Yellow Flicker           </td><td>  1</td></tr>
+	<tr><td>Yellow Shafted Flicker   </td><td>  4</td></tr>
+	<tr><td>Yellow Warbler           </td><td> 19</td></tr>
+	<tr><td>Yellow-bellied Flycatcher</td><td>  7</td></tr>
+	<tr><td>Yellow-bellied Sapsucker </td><td>  3</td></tr>
+	<tr><td>Yellow-shaft Flicker     </td><td>  6</td></tr>
+	<tr><td>Yellow-shafted Flicker   </td><td> 34</td></tr>
+	<tr><td>Yellow-shafted flicker   </td><td>  6</td></tr>
+	<tr><td>Yellow-tailed Oriole     </td><td>  1</td></tr>
+	<tr><td>Yellowthroat             </td><td>107</td></tr>
+	<tr><td>[Nothing, just dashes]   </td><td>  1</td></tr>
+	<tr><td>lost                     </td><td>  1</td></tr>
+	<tr><td>none                     </td><td>  2</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">OrdwayBirds</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">SpeciesName</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">n_distinct</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">275</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">OrdwaySpeciesNames</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">SpeciesNameCleaned</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 109 × 2</caption>
+<thead>
+	<tr><th scope=col>SpeciesNameCleaned</th><th scope=col>n</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Acadian Flycatcher       </td><td>1</td></tr>
+	<tr><td>American Goldfinch       </td><td>3</td></tr>
+	<tr><td>American Redfinch        </td><td>1</td></tr>
+	<tr><td>American Redstart        </td><td>1</td></tr>
+	<tr><td>American Robin           </td><td>1</td></tr>
+	<tr><td>Arkansas Kingbird        </td><td>1</td></tr>
+	<tr><td>Baltimore Oriole         </td><td>3</td></tr>
+	<tr><td>Black and White Warbler  </td><td>2</td></tr>
+	<tr><td>Black-billed Cookoo      </td><td>2</td></tr>
+	<tr><td>Black-capped Chickadee   </td><td>8</td></tr>
+	<tr><td>Black-throat Sparrow     </td><td>2</td></tr>
+	<tr><td>Brown-headed Cowbird     </td><td>2</td></tr>
+	<tr><td>Cardinal                 </td><td>2</td></tr>
+	<tr><td>Carolina Chickadee       </td><td>1</td></tr>
+	<tr><td>Catbird                  </td><td>4</td></tr>
+	<tr><td>Cedar Waxwing            </td><td>2</td></tr>
+	<tr><td>Chestnut-backed Chickadee</td><td>1</td></tr>
+	<tr><td>Chestnut-sided Warbler   </td><td>1</td></tr>
+	<tr><td>Chickadee                </td><td>2</td></tr>
+	<tr><td>Chipping Sparrow         </td><td>4</td></tr>
+	<tr><td>Clay-colored Sparrow     </td><td>3</td></tr>
+	<tr><td>Cowbird                  </td><td>1</td></tr>
+	<tr><td>Curve-billed Thrasher    </td><td>2</td></tr>
+	<tr><td>Eastern Phoebe           </td><td>2</td></tr>
+	<tr><td>Eastern Wood Pewee       </td><td>2</td></tr>
+	<tr><td>Field Sparrow            </td><td>2</td></tr>
+	<tr><td>Golden-Crowned Kinglet   </td><td>3</td></tr>
+	<tr><td>Gray - cheeked Thrush    </td><td>4</td></tr>
+	<tr><td>Great Crested Flycatcher </td><td>3</td></tr>
+	<tr><td>Harris's Sparrow         </td><td>3</td></tr>
+	<tr><td>⋮</td><td>⋮</td></tr>
+	<tr><td>Tennessee Warbler        </td><td> 2</td></tr>
+	<tr><td>Traill's Flycatcher      </td><td> 1</td></tr>
+	<tr><td>Tree L                   </td><td> 1</td></tr>
+	<tr><td>Tree Swallow             </td><td> 4</td></tr>
+	<tr><td>Tufted Titmouse          </td><td> 1</td></tr>
+	<tr><td>Unknown                  </td><td> 1</td></tr>
+	<tr><td>Varied Thrush            </td><td> 1</td></tr>
+	<tr><td>Veery                    </td><td> 1</td></tr>
+	<tr><td>Vesper Sparrow           </td><td> 1</td></tr>
+	<tr><td>Warbling Vireo           </td><td> 1</td></tr>
+	<tr><td>White-Crested Sparrow    </td><td> 1</td></tr>
+	<tr><td>White-Fronted Dove       </td><td> 1</td></tr>
+	<tr><td>White-breasted Nuthatch  </td><td> 5</td></tr>
+	<tr><td>White-crowned Sparrow    </td><td> 2</td></tr>
+	<tr><td>White-eyed Vireo         </td><td> 1</td></tr>
+	<tr><td>White-throat Sparrow     </td><td> 5</td></tr>
+	<tr><td>White-winged Junco       </td><td> 1</td></tr>
+	<tr><td>Wilson's Warbler         </td><td> 2</td></tr>
+	<tr><td>Winter Wren              </td><td> 1</td></tr>
+	<tr><td>Wood Pewee               </td><td> 1</td></tr>
+	<tr><td>Wood Thrush              </td><td> 1</td></tr>
+	<tr><td>Woodcock                 </td><td> 1</td></tr>
+	<tr><td>Wren                     </td><td> 1</td></tr>
+	<tr><td>Yellow Shafted Flicker   </td><td> 5</td></tr>
+	<tr><td>Yellow Warbler           </td><td> 1</td></tr>
+	<tr><td>Yellow-bellied Flycatcher</td><td> 1</td></tr>
+	<tr><td>Yellow-bellied Sapsucker </td><td> 1</td></tr>
+	<tr><td>Yellow-tailed Oriole     </td><td> 1</td></tr>
+	<tr><td>Yellowthroat             </td><td> 1</td></tr>
+	<tr><td>NA                       </td><td>50</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">OrdwaySpeciesNames</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">SpeciesNameCleaned</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">n_distinct</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">109</div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="task-2">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Task 2</a><a class="headerlink" href="#task-2" title="Link to this heading">#</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">OrdwaySpeciesNames</span></code> table to create a new data frame that corrects the misspellings in <code class="docutils literal notranslate"><span class="pre">SpeciesNames</span></code>. This can be done easily using the <code class="docutils literal notranslate"><span class="pre">inner_join()</span></code> data verb. Look at the names of the variables in <code class="docutils literal notranslate"><span class="pre">OrdwaySpeciesNames</span></code> and <code class="docutils literal notranslate"><span class="pre">OrdwayBirds</span></code>.</p>
+<p>[1] Which variable(s) was used for matching cases?</p>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">SpeciesName</span></code> was used for matching cases.</p>
+<p>[2] What were the variable(s) that will be added?</p>
+<p>The variables <code class="docutils literal notranslate"><span class="pre">SpeciesNameCleaned</span></code> (renamed to <code class="docutils literal notranslate"><span class="pre">Species</span></code>), <code class="docutils literal notranslate"><span class="pre">Month</span></code>, and <code class="docutils literal notranslate"><span class="pre">Day</span></code> will be added.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Corrected</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">OrdwayBirds</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">inner_join</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OrdwaySpeciesNames</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">select</span><span class="p">(</span><span class="n">Species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpeciesNameCleaned</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Day</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">na.omit</span><span class="p">()</span>
+<span class="n">Corrected</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Joining with `by = join_by(SpeciesName)`
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in inner_join(., y = OrdwaySpeciesNames):
+“Detected an unexpected many-to-many relationship between `x` and `y`.
+<span class=" -Color -Color-Cyan">ℹ</span> Row 4 of `x` matches multiple rows in `y`.
+<span class=" -Color -Color-Cyan">ℹ</span> Row 211 of `y` matches multiple rows in `x`.
+<span class=" -Color -Color-Cyan">ℹ</span> If a many-to-many relationship is expected, set `relationship = &quot;many-to-many&quot;` to silence this warning.”
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>Species</th><th scope=col>Month</th><th scope=col>Day</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>Song Sparrow </td><td>7</td><td>16</td></tr>
+	<tr><th scope=row>3</th><td>Song Sparrow </td><td>7</td><td>16</td></tr>
+	<tr><th scope=row>4</th><td>Field Sparrow</td><td>7</td><td>16</td></tr>
+	<tr><th scope=row>5</th><td>Field Sparrow</td><td>7</td><td>16</td></tr>
+	<tr><th scope=row>6</th><td>Field Sparrow</td><td>7</td><td>16</td></tr>
+	<tr><th scope=row>7</th><td>Field Sparrow</td><td>7</td><td>16</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="task-3">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Task 3</a><a class="headerlink" href="#task-3" title="Link to this heading">#</a></h2>
+<p>Call the variable that contains the total <code class="docutils literal notranslate"><span class="pre">count</span></code>. Arrange this into descending order from the species with the most birds, and look through the list. (Hint: Remember <code class="docutils literal notranslate"><span class="pre">n()</span></code>. Also, one of the arguments to one of the data verbs will be <code class="docutils literal notranslate"><span class="pre">desc(count)</span></code> to arrange the cases into descending order. Display the top 10 species in terms of the number of bird captures.) Define for yourself a “major species” as a species with more than a particular threshold count. Set your threshold so that there are 5 or 6 species designated as major. Filter to produce a data frame with only the birds that belong to a major species. Save the output in a table called <code class="docutils literal notranslate"><span class="pre">Majors</span></code>. (Hint: Remember that summary functions can be used case-by-case when filtering or mutating a data frame that has been grouped.)</p>
+<p>[1] How many bird captures are reported for each of the corrected species?</p>
+<p>See below for the result (major species threshold &gt;= 1000).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Corrected</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">count</span><span class="p">(</span><span class="n">Species</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 10 × 2</caption>
+<thead>
+	<tr><th></th><th scope=col>Species</th><th scope=col>n</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>Slate-colored Junco   </td><td>2732</td></tr>
+	<tr><th scope=row>2</th><td>Tree Swallow          </td><td>1537</td></tr>
+	<tr><th scope=row>3</th><td>Black-capped Chickadee</td><td>1327</td></tr>
+	<tr><th scope=row>4</th><td>American Goldfinch    </td><td>1204</td></tr>
+	<tr><th scope=row>5</th><td>Field Sparrow         </td><td>1164</td></tr>
+	<tr><th scope=row>6</th><td>Lincoln's Sparrow     </td><td> 790</td></tr>
+	<tr><th scope=row>7</th><td>Robin                 </td><td> 608</td></tr>
+	<tr><th scope=row>8</th><td>Catbird               </td><td> 554</td></tr>
+	<tr><th scope=row>9</th><td>Song Sparrow          </td><td> 512</td></tr>
+	<tr><th scope=row>10</th><td>House Wren            </td><td> 460</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Corrected</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">Species</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">summarize</span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">())</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 10 × 2</caption>
+<thead>
+	<tr><th scope=col>Species</th><th scope=col>count</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Slate-colored Junco   </td><td>2732</td></tr>
+	<tr><td>Tree Swallow          </td><td>1537</td></tr>
+	<tr><td>Black-capped Chickadee</td><td>1327</td></tr>
+	<tr><td>American Goldfinch    </td><td>1204</td></tr>
+	<tr><td>Field Sparrow         </td><td>1164</td></tr>
+	<tr><td>Lincoln's Sparrow     </td><td> 790</td></tr>
+	<tr><td>Robin                 </td><td> 608</td></tr>
+	<tr><td>Catbird               </td><td> 554</td></tr>
+	<tr><td>Song Sparrow          </td><td> 512</td></tr>
+	<tr><td>House Wren            </td><td> 460</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Majors</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">Corrected</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">group_by</span><span class="p">(</span><span class="n">Species</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">summarize</span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">())</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">count</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">filter</span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">1000</span><span class="p">)</span>
+<span class="n">Majors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 5 × 2</caption>
+<thead>
+	<tr><th scope=col>Species</th><th scope=col>count</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Slate-colored Junco   </td><td>2732</td></tr>
+	<tr><td>Tree Swallow          </td><td>1537</td></tr>
+	<tr><td>Black-capped Chickadee</td><td>1327</td></tr>
+	<tr><td>American Goldfinch    </td><td>1204</td></tr>
+	<tr><td>Field Sparrow         </td><td>1164</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="task-4">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Task 4</a><a class="headerlink" href="#task-4" title="Link to this heading">#</a></h2>
+<p>When you have correctly produced <code class="docutils literal notranslate"><span class="pre">Majors</span></code>, write a command that produces the month-by-month count of each of the major species. Call this table <code class="docutils literal notranslate"><span class="pre">ByMonth</span></code>. Display this month-by-month count with a bar chart arranged in a way that you think tells the story of what time of year the various species appear. You can use <code class="docutils literal notranslate"><span class="pre">mplot()</span></code> to explore different possibilies. (Warning: <code class="docutils literal notranslate"><span class="pre">mplot()</span></code> and similar interactive functions should not appear in your Rmd file, it needs to be used interactively from the console. Use the “Show Expression” button in <code class="docutils literal notranslate"><span class="pre">mplot()</span></code> to create an expression that you can cut and paste into a chunk in your Rmd document, so that the graph gets created when you compile it.) Once you have the graph, use it to answer these questions:</p>
+<p>[1] Which species are present year-round?</p>
+<ul class="simple">
+<li><p>American Goldfinch (11-12 mo)</p></li>
+<li><p>Black-capped Chickadee (12 mo)</p></li>
+</ul>
+<p>[2] Which species are migratory, that is, primarily present in one or two seasons?</p>
+<ul class="simple">
+<li><p>Field Sparrow (6 mo)</p></li>
+<li><p>Slate-colored Junco (8-9 mo)</p></li>
+<li><p>Tree Swallow (3-5 mo)</p></li>
+</ul>
+<p>[3] What is the peak month for each major species?</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">10</span></code> American Goldfinch</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">11</span></code> Black-capped Chickadee</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">05</span></code> Field Sparrow</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">10</span></code> Slate-colored Junco</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">06</span></code> Tree Swallow</p></li>
+</ul>
+<p>[4] Which major species are seen in good numbers for at least 6 months of the year? (Hint: <code class="docutils literal notranslate"><span class="pre">n_distinct()</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;=</span> <span class="pre">6</span></code>.)</p>
+<p>Arguably, the only species that is not seen in good numbers for at least 6 months of the year is the tree swallow.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ByMonth</span><span class="w"> </span><span class="o">&lt;-</span>
+<span class="w">  </span><span class="n">OrdwayBirds</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">group_by</span><span class="p">(</span><span class="n">SpeciesName</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">as.integer</span><span class="p">(</span><span class="n">Month</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">summarize</span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">())</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">filter</span><span class="p">(</span><span class="n">SpeciesName</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="n">Majors</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span>
+<span class="n">ByMonth</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`summarise()` has grouped output by &#39;SpeciesName&#39;. You can override using the `.groups` argument.
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A grouped_df: 47 × 3</caption>
+<thead>
+	<tr><th scope=col>SpeciesName</th><th scope=col>Month</th><th scope=col>count</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>American Goldfinch    </td><td> 1</td><td>  10</td></tr>
+	<tr><td>American Goldfinch    </td><td> 2</td><td>  51</td></tr>
+	<tr><td>American Goldfinch    </td><td> 3</td><td>  48</td></tr>
+	<tr><td>American Goldfinch    </td><td> 4</td><td>  21</td></tr>
+	<tr><td>American Goldfinch    </td><td> 5</td><td> 125</td></tr>
+	<tr><td>American Goldfinch    </td><td> 6</td><td>  63</td></tr>
+	<tr><td>American Goldfinch    </td><td> 7</td><td>  67</td></tr>
+	<tr><td>American Goldfinch    </td><td> 8</td><td>  70</td></tr>
+	<tr><td>American Goldfinch    </td><td> 9</td><td> 151</td></tr>
+	<tr><td>American Goldfinch    </td><td>10</td><td> 364</td></tr>
+	<tr><td>American Goldfinch    </td><td>11</td><td> 180</td></tr>
+	<tr><td>American Goldfinch    </td><td>12</td><td>   3</td></tr>
+	<tr><td>Black-capped Chickadee</td><td> 1</td><td>  56</td></tr>
+	<tr><td>Black-capped Chickadee</td><td> 2</td><td> 140</td></tr>
+	<tr><td>Black-capped Chickadee</td><td> 3</td><td>  96</td></tr>
+	<tr><td>Black-capped Chickadee</td><td> 4</td><td>  51</td></tr>
+	<tr><td>Black-capped Chickadee</td><td> 5</td><td>  48</td></tr>
+	<tr><td>Black-capped Chickadee</td><td> 6</td><td>  20</td></tr>
+	<tr><td>Black-capped Chickadee</td><td> 7</td><td>  13</td></tr>
+	<tr><td>Black-capped Chickadee</td><td> 8</td><td>  11</td></tr>
+	<tr><td>Black-capped Chickadee</td><td> 9</td><td>  66</td></tr>
+	<tr><td>Black-capped Chickadee</td><td>10</td><td> 173</td></tr>
+	<tr><td>Black-capped Chickadee</td><td>11</td><td> 271</td></tr>
+	<tr><td>Black-capped Chickadee</td><td>12</td><td> 165</td></tr>
+	<tr><td>Field Sparrow         </td><td> 4</td><td>  83</td></tr>
+	<tr><td>Field Sparrow         </td><td> 5</td><td> 197</td></tr>
+	<tr><td>Field Sparrow         </td><td> 6</td><td>  15</td></tr>
+	<tr><td>Field Sparrow         </td><td> 7</td><td>  79</td></tr>
+	<tr><td>Field Sparrow         </td><td> 8</td><td>  64</td></tr>
+	<tr><td>Field Sparrow         </td><td> 9</td><td>  74</td></tr>
+	<tr><td>Field Sparrow         </td><td>10</td><td>  69</td></tr>
+	<tr><td>Field Sparrow         </td><td>11</td><td>   1</td></tr>
+	<tr><td>Slate-colored Junco   </td><td> 1</td><td> 113</td></tr>
+	<tr><td>Slate-colored Junco   </td><td> 2</td><td>  61</td></tr>
+	<tr><td>Slate-colored Junco   </td><td> 3</td><td> 188</td></tr>
+	<tr><td>Slate-colored Junco   </td><td> 4</td><td> 694</td></tr>
+	<tr><td>Slate-colored Junco   </td><td> 5</td><td>   1</td></tr>
+	<tr><td>Slate-colored Junco   </td><td> 8</td><td>   1</td></tr>
+	<tr><td>Slate-colored Junco   </td><td> 9</td><td>  35</td></tr>
+	<tr><td>Slate-colored Junco   </td><td>10</td><td>1178</td></tr>
+	<tr><td>Slate-colored Junco   </td><td>11</td><td> 272</td></tr>
+	<tr><td>Slate-colored Junco   </td><td>12</td><td> 174</td></tr>
+	<tr><td>Tree Swallow          </td><td> 4</td><td>   2</td></tr>
+	<tr><td>Tree Swallow          </td><td> 5</td><td>  11</td></tr>
+	<tr><td>Tree Swallow          </td><td> 6</td><td> 171</td></tr>
+	<tr><td>Tree Swallow          </td><td> 7</td><td>  16</td></tr>
+	<tr><td>Tree Swallow          </td><td>11</td><td>   1</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ByMonth</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">SpeciesName</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">summarize</span><span class="p">(</span>
+<span class="w">    </span><span class="n">MonthsPerYear</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nf">n</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">SixMonthsOrMore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">n_distinct</span><span class="p">(</span><span class="n">Month</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">6</span>
+<span class="w">  </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 5 × 3</caption>
+<thead>
+	<tr><th scope=col>SpeciesName</th><th scope=col>MonthsPerYear</th><th scope=col>SixMonthsOrMore</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;lgl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>American Goldfinch    </td><td>12</td><td> TRUE</td></tr>
+	<tr><td>Black-capped Chickadee</td><td>12</td><td> TRUE</td></tr>
+	<tr><td>Field Sparrow         </td><td> 8</td><td> TRUE</td></tr>
+	<tr><td>Slate-colored Junco   </td><td>10</td><td> TRUE</td></tr>
+	<tr><td>Tree Swallow          </td><td> 5</td><td>FALSE</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ByMonth</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">geom_bar</span><span class="p">(</span>
+<span class="w">      </span><span class="n">mapping</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Month</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpeciesName</span><span class="p">),</span>
+<span class="w">      </span><span class="n">na.rm</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span>
+<span class="w">      </span><span class="n">position</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;stack&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">show.legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">      </span><span class="n">stat</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;identity&#39;</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../../_images/1bedb06c18461fcfb7f548b06bae4b55139fb3c83d148d96ee5c5b47b35daa60.png"><img alt="../../../../_images/1bedb06c18461fcfb7f548b06bae4b55139fb3c83d148d96ee5c5b47b35daa60.png" src="../../../../_images/1bedb06c18461fcfb7f548b06bae4b55139fb3c83d148d96ee5c5b47b35daa60.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./c/programming/rlang/STAT184"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="A05.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A05 - Project: Popular Names</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="A07.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A07 - Project: Bicycle Sharing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data">Get the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1780 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Forecasting: Principles and Practice 3 &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c/programming/rlang/forecasting_principles_and_practice';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="A01 - Tidy Data" href="STAT184/A01.html" />
+    <link rel="prev" title="Silge &amp; Robinson’s Text Mining with R" href="TMWR.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Computery Things</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Forecasting: Principles and Practice 3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-graphics">2 - Time series graphics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tsibble-objects">2.1 <code class="docutils literal notranslate"><span class="pre">tsibble</span></code> objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-plots">2.2 Time plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-plots">2.4 Seasonal plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-subseries-plots">2.5 Seasonal subseries plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots">2.6 Scatterplots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lag-plots">2.7 Lag plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation">2.8 Autocorrelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#white-noise">2.9 White noise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-decomposition">3 - Time series decomposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-and-adjustments">3.1 Transformations and adjustments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="forecasting-principles-and-practice-3">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><em>Forecasting: Principles and Practice</em> 3</a><a class="headerlink" href="#forecasting-principles-and-practice-3" title="Link to this heading">#</a></h1>
+<p>Hyndman, Rob J. &amp; George Athanasopoulos. (2021). <em>Forecasting: Principles and Practice</em>. 3rd Ed. OTexts. <a class="reference external" href="https://otexts.com/fpp3/">Home</a>.</p>
+<hr class="docutils" />
+<div class="admonition-revised admonition">
+<p class="admonition-title">Revised</p>
+<p>14 Jun 2023</p>
+</div>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#forecasting-principles-and-practice-3" id="id1"><em>Forecasting: Principles and Practice</em> 3</a></p>
+<ul>
+<li><p><a class="reference internal" href="#programming-environment" id="id2">Programming Environment</a></p></li>
+<li><p><a class="reference internal" href="#time-series-graphics" id="id3">2 - Time series graphics</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tsibble-objects" id="id4">2.1 <code class="docutils literal notranslate"><span class="pre">tsibble</span></code> objects</a></p></li>
+<li><p><a class="reference internal" href="#time-plots" id="id5">2.2 Time plots</a></p></li>
+<li><p><a class="reference internal" href="#seasonal-plots" id="id6">2.4 Seasonal plots</a></p></li>
+<li><p><a class="reference internal" href="#seasonal-subseries-plots" id="id7">2.5 Seasonal subseries plots</a></p></li>
+<li><p><a class="reference internal" href="#scatterplots" id="id8">2.6 Scatterplots</a></p></li>
+<li><p><a class="reference internal" href="#lag-plots" id="id9">2.7 Lag plots</a></p></li>
+<li><p><a class="reference internal" href="#autocorrelation" id="id10">2.8 Autocorrelation</a></p></li>
+<li><p><a class="reference internal" href="#white-noise" id="id11">2.9 White noise</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#time-series-decomposition" id="id12">3 - Time series decomposition</a></p>
+<ul>
+<li><p><a class="reference internal" href="#transformations-and-adjustments" id="id13">3.1 Transformations and adjustments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#bibliography" id="id14">Bibliography</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Programming Environment</a><a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">fpp3</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">GGally</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">latex2exp</span><span class="p">)</span>
+
+<span class="nf">sessionInfo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching packages</span> ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── fpp3 0.5 ──
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble     </span> 3.2.1     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tsibble    </span> 1.1.3
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr      </span> 1.1.2     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tsibbledata</span> 0.4.1
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr      </span> 1.3.0     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">feasts     </span> 0.3.1
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">lubridate  </span> 1.9.2     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">fable      </span> 0.3.3
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2    </span> 3.4.3     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">fabletools </span> 0.3.3
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── fpp3_conflicts ──
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">lubridate</span>::<span class=" -Color -Color-Green">date()</span>    masks <span class=" -Color -Color-Blue">base</span>::date()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span>      masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tsibble</span>::<span class=" -Color -Color-Green">intersect()</span> masks <span class=" -Color -Color-Blue">base</span>::intersect()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tsibble</span>::<span class=" -Color -Color-Green">interval()</span>  masks <span class=" -Color -Color-Blue">lubridate</span>::interval()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>         masks <span class=" -Color -Color-Blue">stats</span>::lag()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tsibble</span>::<span class=" -Color -Color-Green">setdiff()</span>   masks <span class=" -Color -Color-Blue">base</span>::setdiff()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tsibble</span>::<span class=" -Color -Color-Green">union()</span>     masks <span class=" -Color -Color-Blue">base</span>::union()
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Registered S3 method overwritten by &#39;GGally&#39;:
+  method from   
+  +.gg   ggplot2
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
+Platform: aarch64-apple-darwin20 (64-bit)
+Running under: macOS 14.4.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] latex2exp_0.9.6   GGally_2.1.2      fable_0.3.3       feasts_0.3.1     
+ [5] fabletools_0.3.3  tsibbledata_0.4.1 tsibble_1.1.3     ggplot2_3.4.3    
+ [9] lubridate_1.9.2   tidyr_1.3.0       dplyr_1.1.2       tibble_3.2.1     
+[13] fpp3_0.5         
+
+loaded via a namespace (and not attached):
+ [1] rappdirs_0.3.3       utf8_1.2.3           generics_0.1.3      
+ [4] anytime_0.3.9        stringi_1.7.12       digest_0.6.31       
+ [7] magrittr_2.0.3       evaluate_0.21        grid_4.3.0          
+[10] timechange_0.2.0     RColorBrewer_1.1-3   pbdZMQ_0.3-9        
+[13] fastmap_1.1.1        plyr_1.8.8           jsonlite_1.8.5      
+[16] reshape_0.8.9        purrr_1.0.2          fansi_1.0.4         
+[19] scales_1.2.1         cli_3.6.1            rlang_1.1.1         
+[22] crayon_1.5.2         ellipsis_0.3.2       munsell_0.5.0       
+[25] base64enc_0.1-3      withr_2.5.0          repr_1.1.6          
+[28] tools_4.3.0          uuid_1.1-0           colorspace_2.1-0    
+[31] IRdisplay_1.1        vctrs_0.6.3          R6_2.5.1            
+[34] lifecycle_1.0.3      stringr_1.5.0        pkgconfig_2.0.3     
+[37] pillar_1.9.0         gtable_0.3.3         glue_1.6.2          
+[40] Rcpp_1.0.10          tidyselect_1.2.0     rstudioapi_0.15.0   
+[43] IRkernel_1.3.2       farver_2.1.1         htmltools_0.5.5     
+[46] compiler_4.3.0       distributional_0.3.2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="time-series-graphics">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2 - Time series graphics</a><a class="headerlink" href="#time-series-graphics" title="Link to this heading">#</a></h2>
+<section id="tsibble-objects">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">2.1 <code class="docutils literal notranslate"><span class="pre">tsibble</span></code> objects</a><a class="headerlink" href="#tsibble-objects" title="Link to this heading">#</a></h3>
+<p>[Time Series]</p>
+<p>A time series can be thought of as a list of numbers (the measurements), along with some information about what times those numbers were recorded (the index). This information can be stored as a <code class="docutils literal notranslate"><span class="pre">tsibble</span></code> object in R.</p>
+<p>[Tsibble]</p>
+<ul class="simple">
+<li><p>three components</p>
+<ul>
+<li><p>index: time information about the observation</p></li>
+<li><p>one or more keys: optional unique identifiers for each series</p></li>
+<li><p>one or more measured variables: number of interest</p></li>
+</ul>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">tsibble</span></code> objects extend tidy data frames (<code class="docutils literal notranslate"><span class="pre">tibble</span></code> objects) by introducing temporal structure.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">tsibble</span></code> allows storage and manipulation of multiple time series in R.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">tsibble</span></code> allos multiple time series to be stored in a single object.</p>
+<p>For observations that are more frequent than once per year, we need to use a time class function on the index.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">yearmonth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start:end</span></code> annual</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yearquarter()</span></code> quarterly</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yearmonth()</span></code> monthly</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yearweek()</span></code> weekly</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_date()</span></code>, <code class="docutils literal notranslate"><span class="pre">ymd()</span></code> daily</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_datetime()</span></code>, <code class="docutils literal notranslate"><span class="pre">ymd_hms()</span></code> sub daily</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">global_economy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 9</caption>
+<thead>
+	<tr><th scope=col>Country</th><th scope=col>Code</th><th scope=col>Year</th><th scope=col>GDP</th><th scope=col>Growth</th><th scope=col>CPI</th><th scope=col>Imports</th><th scope=col>Exports</th><th scope=col>Population</th></tr>
+	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Afghanistan</td><td>AFG</td><td>1960</td><td> 537777811</td><td>NA</td><td>NA</td><td> 7.024793</td><td> 4.132233</td><td>8996351</td></tr>
+	<tr><td>Afghanistan</td><td>AFG</td><td>1961</td><td> 548888896</td><td>NA</td><td>NA</td><td> 8.097166</td><td> 4.453443</td><td>9166764</td></tr>
+	<tr><td>Afghanistan</td><td>AFG</td><td>1962</td><td> 546666678</td><td>NA</td><td>NA</td><td> 9.349593</td><td> 4.878051</td><td>9345868</td></tr>
+	<tr><td>Afghanistan</td><td>AFG</td><td>1963</td><td> 751111191</td><td>NA</td><td>NA</td><td>16.863910</td><td> 9.171601</td><td>9533954</td></tr>
+	<tr><td>Afghanistan</td><td>AFG</td><td>1964</td><td> 800000044</td><td>NA</td><td>NA</td><td>18.055555</td><td> 8.888893</td><td>9731361</td></tr>
+	<tr><td>Afghanistan</td><td>AFG</td><td>1965</td><td>1006666638</td><td>NA</td><td>NA</td><td>21.412803</td><td>11.258279</td><td>9938414</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">tsibble</span><span class="o">::</span><span class="n">tourism</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 5</caption>
+<thead>
+	<tr><th scope=col>Quarter</th><th scope=col>Region</th><th scope=col>State</th><th scope=col>Purpose</th><th scope=col>Trips</th></tr>
+	<tr><th scope=col>&lt;qtr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1998 Q1</td><td>Adelaide</td><td>South Australia</td><td>Business</td><td>135.0777</td></tr>
+	<tr><td>1998 Q2</td><td>Adelaide</td><td>South Australia</td><td>Business</td><td>109.9873</td></tr>
+	<tr><td>1998 Q3</td><td>Adelaide</td><td>South Australia</td><td>Business</td><td>166.0347</td></tr>
+	<tr><td>1998 Q4</td><td>Adelaide</td><td>South Australia</td><td>Business</td><td>127.1605</td></tr>
+	<tr><td>1999 Q1</td><td>Adelaide</td><td>South Australia</td><td>Business</td><td>137.4485</td></tr>
+	<tr><td>1999 Q2</td><td>Adelaide</td><td>South Australia</td><td>Business</td><td>199.9126</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">tsibble</span><span class="p">(</span>
+<span class="w">  </span><span class="n">Year</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="m">2015</span><span class="o">:</span><span class="m">2019</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Observation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">123</span><span class="p">,</span><span class="w"> </span><span class="m">39</span><span class="p">,</span><span class="w"> </span><span class="m">78</span><span class="p">,</span><span class="w"> </span><span class="m">52</span><span class="p">,</span><span class="w"> </span><span class="m">110</span><span class="p">),</span>
+<span class="w">  </span><span class="n">index</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">Year</span>
+<span class="p">)</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 5 × 2</caption>
+<thead>
+	<tr><th scope=col>Year</th><th scope=col>Observation</th></tr>
+	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>2015</td><td>123</td></tr>
+	<tr><td>2016</td><td> 39</td></tr>
+	<tr><td>2017</td><td> 78</td></tr>
+	<tr><td>2018</td><td> 52</td></tr>
+	<tr><td>2019</td><td>110</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">tibble</span><span class="p">(</span>
+<span class="w">  </span><span class="n">Month</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;2019 Jan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;2019 Feb&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;2019 Mar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;2019 Apr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;2019 May&#39;</span><span class="p">),</span>
+<span class="w">  </span><span class="n">Observation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="m">23</span><span class="p">,</span><span class="w"> </span><span class="m">34</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="m">25</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">z</span>
+
+<span class="n">z</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">Month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">yearmonth</span><span class="p">(</span><span class="n">Month</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">as_tsibble</span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Month</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 5 × 2</caption>
+<thead>
+	<tr><th scope=col>Month</th><th scope=col>Observation</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>2019 Jan</td><td>50</td></tr>
+	<tr><td>2019 Feb</td><td>23</td></tr>
+	<tr><td>2019 Mar</td><td>34</td></tr>
+	<tr><td>2019 Apr</td><td>30</td></tr>
+	<tr><td>2019 May</td><td>25</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 5 × 2</caption>
+<thead>
+	<tr><th scope=col>Month</th><th scope=col>Observation</th></tr>
+	<tr><th scope=col>&lt;mth&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>2019 Jan</td><td>50</td></tr>
+	<tr><td>2019 Feb</td><td>23</td></tr>
+	<tr><td>2019 Mar</td><td>34</td></tr>
+	<tr><td>2019 Apr</td><td>30</td></tr>
+	<tr><td>2019 May</td><td>25</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">olympic_running</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+
+<span class="n">tsibbledata</span><span class="o">::</span><span class="n">olympic_running</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">distinct</span><span class="p">(</span><span class="n">Length</span><span class="p">,</span><span class="w"> </span><span class="n">Sex</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 4</caption>
+<thead>
+	<tr><th scope=col>Year</th><th scope=col>Length</th><th scope=col>Sex</th><th scope=col>Time</th></tr>
+	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1896</td><td>100</td><td>men</td><td>12.0</td></tr>
+	<tr><td>1900</td><td>100</td><td>men</td><td>11.0</td></tr>
+	<tr><td>1904</td><td>100</td><td>men</td><td>11.0</td></tr>
+	<tr><td>1908</td><td>100</td><td>men</td><td>10.8</td></tr>
+	<tr><td>1912</td><td>100</td><td>men</td><td>10.8</td></tr>
+	<tr><td>1916</td><td>100</td><td>men</td><td>  NA</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A tibble: 6 × 2</caption>
+<thead>
+	<tr><th scope=col>Length</th><th scope=col>Sex</th></tr>
+	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>100</td><td>men  </td></tr>
+	<tr><td>100</td><td>women</td></tr>
+	<tr><td>200</td><td>men  </td></tr>
+	<tr><td>200</td><td>women</td></tr>
+	<tr><td>400</td><td>men  </td></tr>
+	<tr><td>400</td><td>women</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">PBS</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+
+<span class="n">tsibbledata</span><span class="o">::</span><span class="n">PBS</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">ATC2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;A10&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+
+<span class="n">tsibbledata</span><span class="o">::</span><span class="n">PBS</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">ATC2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;A10&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Concession</span><span class="p">,</span><span class="w"> </span><span class="n">Type</span><span class="p">,</span><span class="w"> </span><span class="n">Cost</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+
+<span class="n">tsibbledata</span><span class="o">::</span><span class="n">PBS</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">ATC2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;A10&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Concession</span><span class="p">,</span><span class="w"> </span><span class="n">Type</span><span class="p">,</span><span class="w"> </span><span class="n">Cost</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">summarize</span><span class="p">(</span><span class="n">TotalC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">Cost</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+
+<span class="n">tsibbledata</span><span class="o">::</span><span class="n">PBS</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">ATC2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;A10&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Concession</span><span class="p">,</span><span class="w"> </span><span class="n">Type</span><span class="p">,</span><span class="w"> </span><span class="n">Cost</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">summarize</span><span class="p">(</span><span class="n">TotalC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">Cost</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">Cost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TotalC</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1e6</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">head</span><span class="p">()</span>
+
+<span class="n">a10</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">PBS</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">ATC2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;A10&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="n">Month</span><span class="p">,</span><span class="w"> </span><span class="n">Concession</span><span class="p">,</span><span class="w"> </span><span class="n">Type</span><span class="p">,</span><span class="w"> </span><span class="n">Cost</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">summarize</span><span class="p">(</span><span class="n">TotalC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">Cost</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">Cost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TotalC</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">1e6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 9</caption>
+<thead>
+	<tr><th scope=col>Month</th><th scope=col>Concession</th><th scope=col>Type</th><th scope=col>ATC1</th><th scope=col>ATC1_desc</th><th scope=col>ATC2</th><th scope=col>ATC2_desc</th><th scope=col>Scripts</th><th scope=col>Cost</th></tr>
+	<tr><th scope=col>&lt;mth&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1991 Jul</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A01</td><td>STOMATOLOGICAL PREPARATIONS</td><td>18228</td><td>67877</td></tr>
+	<tr><td>1991 Aug</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A01</td><td>STOMATOLOGICAL PREPARATIONS</td><td>15327</td><td>57011</td></tr>
+	<tr><td>1991 Sep</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A01</td><td>STOMATOLOGICAL PREPARATIONS</td><td>14775</td><td>55020</td></tr>
+	<tr><td>1991 Oct</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A01</td><td>STOMATOLOGICAL PREPARATIONS</td><td>15380</td><td>57222</td></tr>
+	<tr><td>1991 Nov</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A01</td><td>STOMATOLOGICAL PREPARATIONS</td><td>14371</td><td>52120</td></tr>
+	<tr><td>1991 Dec</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A01</td><td>STOMATOLOGICAL PREPARATIONS</td><td>15028</td><td>54299</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 9</caption>
+<thead>
+	<tr><th scope=col>Month</th><th scope=col>Concession</th><th scope=col>Type</th><th scope=col>ATC1</th><th scope=col>ATC1_desc</th><th scope=col>ATC2</th><th scope=col>ATC2_desc</th><th scope=col>Scripts</th><th scope=col>Cost</th></tr>
+	<tr><th scope=col>&lt;mth&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1991 Jul</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A10</td><td>ANTIDIABETIC THERAPY</td><td>89733</td><td>2092878</td></tr>
+	<tr><td>1991 Aug</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A10</td><td>ANTIDIABETIC THERAPY</td><td>77101</td><td>1795733</td></tr>
+	<tr><td>1991 Sep</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A10</td><td>ANTIDIABETIC THERAPY</td><td>76255</td><td>1777231</td></tr>
+	<tr><td>1991 Oct</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A10</td><td>ANTIDIABETIC THERAPY</td><td>78681</td><td>1848507</td></tr>
+	<tr><td>1991 Nov</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A10</td><td>ANTIDIABETIC THERAPY</td><td>70554</td><td>1686458</td></tr>
+	<tr><td>1991 Dec</td><td>Concessional</td><td>Co-payments</td><td>A</td><td>Alimentary tract and metabolism</td><td>A10</td><td>ANTIDIABETIC THERAPY</td><td>75814</td><td>1843079</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 4</caption>
+<thead>
+	<tr><th scope=col>Month</th><th scope=col>Concession</th><th scope=col>Type</th><th scope=col>Cost</th></tr>
+	<tr><th scope=col>&lt;mth&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1991 Jul</td><td>Concessional</td><td>Co-payments</td><td>2092878</td></tr>
+	<tr><td>1991 Aug</td><td>Concessional</td><td>Co-payments</td><td>1795733</td></tr>
+	<tr><td>1991 Sep</td><td>Concessional</td><td>Co-payments</td><td>1777231</td></tr>
+	<tr><td>1991 Oct</td><td>Concessional</td><td>Co-payments</td><td>1848507</td></tr>
+	<tr><td>1991 Nov</td><td>Concessional</td><td>Co-payments</td><td>1686458</td></tr>
+	<tr><td>1991 Dec</td><td>Concessional</td><td>Co-payments</td><td>1843079</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 2</caption>
+<thead>
+	<tr><th scope=col>Month</th><th scope=col>TotalC</th></tr>
+	<tr><th scope=col>&lt;mth&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1991 Jul</td><td>3526591</td></tr>
+	<tr><td>1991 Aug</td><td>3180891</td></tr>
+	<tr><td>1991 Sep</td><td>3252221</td></tr>
+	<tr><td>1991 Oct</td><td>3611003</td></tr>
+	<tr><td>1991 Nov</td><td>3565869</td></tr>
+	<tr><td>1991 Dec</td><td>4306371</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 3</caption>
+<thead>
+	<tr><th scope=col>Month</th><th scope=col>TotalC</th><th scope=col>Cost</th></tr>
+	<tr><th scope=col>&lt;mth&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1991 Jul</td><td>3526591</td><td>3.526591</td></tr>
+	<tr><td>1991 Aug</td><td>3180891</td><td>3.180891</td></tr>
+	<tr><td>1991 Sep</td><td>3252221</td><td>3.252221</td></tr>
+	<tr><td>1991 Oct</td><td>3611003</td><td>3.611003</td></tr>
+	<tr><td>1991 Nov</td><td>3565869</td><td>3.565869</td></tr>
+	<tr><td>1991 Dec</td><td>4306371</td><td>4.306371</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">prison</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">readr</span><span class="o">::</span><span class="nf">read_csv</span><span class="p">(</span><span class="s">&#39;https://OTexts.com/fpp3/extrafiles/prison_population.csv&#39;</span><span class="p">)</span>
+<span class="n">prison</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">prison</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">Quarter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">yearquarter</span><span class="p">(</span><span class="n">Date</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">select</span><span class="p">(</span><span class="o">-</span><span class="n">Date</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">as_tsibble</span><span class="p">(</span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">Gender</span><span class="p">,</span><span class="w"> </span><span class="n">Legal</span><span class="p">,</span><span class="w"> </span><span class="n">Indigenous</span><span class="p">),</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Quarter</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">prison</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">3072</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">6</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
+<span class=" -Color -Color-Red">chr</span>  (4): State, Gender, Legal, Indigenous
+<span class=" -Color -Color-Green">dbl</span>  (1): Count
+<span class=" -Color -Color-Blue">date</span> (1): Date
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">ℹ</span> Use `spec()` to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 6</caption>
+<thead>
+	<tr><th scope=col>State</th><th scope=col>Gender</th><th scope=col>Legal</th><th scope=col>Indigenous</th><th scope=col>Count</th><th scope=col>Quarter</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;qtr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>ACT</td><td>Female</td><td>Remanded</td><td>ATSI</td><td>0</td><td>2005 Q1</td></tr>
+	<tr><td>ACT</td><td>Female</td><td>Remanded</td><td>ATSI</td><td>1</td><td>2005 Q2</td></tr>
+	<tr><td>ACT</td><td>Female</td><td>Remanded</td><td>ATSI</td><td>0</td><td>2005 Q3</td></tr>
+	<tr><td>ACT</td><td>Female</td><td>Remanded</td><td>ATSI</td><td>0</td><td>2005 Q4</td></tr>
+	<tr><td>ACT</td><td>Female</td><td>Remanded</td><td>ATSI</td><td>1</td><td>2006 Q1</td></tr>
+	<tr><td>ACT</td><td>Female</td><td>Remanded</td><td>ATSI</td><td>1</td><td>2006 Q2</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="time-plots">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">2.2 Time plots</a><a class="headerlink" href="#time-plots" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">melsyd_economy</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">ansett</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">Airports</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;MEL-SYD&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">Class</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;Economy&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">Passengers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Passengers</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">100</span><span class="p">)</span>
+
+<span class="nf">autoplot</span><span class="p">(</span><span class="n">melsyd_economy</span><span class="p">,</span><span class="w"> </span><span class="n">Passengers</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">title</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Ansett airlines economy class&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">subtitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Melbourne-Sydney&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">y</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Passengers (&#39;000)&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/ae26f237baa40a1c027ee8a4173e0585e90d4507d818228e0493d0a5d881c55e.png"><img alt="../../../_images/ae26f237baa40a1c027ee8a4173e0585e90d4507d818228e0493d0a5d881c55e.png" src="../../../_images/ae26f237baa40a1c027ee8a4173e0585e90d4507d818228e0493d0a5d881c55e.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">autoplot</span><span class="p">(</span><span class="n">a10</span><span class="p">,</span><span class="w"> </span><span class="n">Cost</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;$ (millions)&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Australian antidiabetic drug sales&#39;</span>
+<span class="w">  </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/d8cf5dfa5b8fa64b743d87a864cb05bab18ce415269415006a750fc8a61a3a8a.png"><img alt="../../../_images/d8cf5dfa5b8fa64b743d87a864cb05bab18ce415269415006a750fc8a61a3a8a.png" src="../../../_images/d8cf5dfa5b8fa64b743d87a864cb05bab18ce415269415006a750fc8a61a3a8a.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+<section id="seasonal-plots">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">2.4 Seasonal plots</a><a class="headerlink" href="#seasonal-plots" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a10</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">gg_season</span><span class="p">(</span><span class="n">Cost</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;both&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;$ (millions)&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Seasonal plot: Antidiabetic drug sales&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/711cdfb5c62f5752d2946a4cb1a54a0257e95b87f5065b951e948a1968b3395b.png"><img alt="../../../_images/711cdfb5c62f5752d2946a4cb1a54a0257e95b87f5065b951e948a1968b3395b.png" src="../../../_images/711cdfb5c62f5752d2946a4cb1a54a0257e95b87f5065b951e948a1968b3395b.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">vic_elec</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">gg_season</span><span class="p">(</span><span class="n">Demand</span><span class="p">,</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;day&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;none&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;MWh&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Electricity demand: Victoria&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/ccf50dd88e4754128770b0b0c3f53a7179ffa60ffa11444635fe4bf702d90f5c.png"><img alt="../../../_images/ccf50dd88e4754128770b0b0c3f53a7179ffa60ffa11444635fe4bf702d90f5c.png" src="../../../_images/ccf50dd88e4754128770b0b0c3f53a7179ffa60ffa11444635fe4bf702d90f5c.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">vic_elec</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">gg_season</span><span class="p">(</span><span class="n">Demand</span><span class="p">,</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;week&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;none&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;MWh&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Electricity demand: Victoria&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/95d74dd41bb4b8d66a18b4859037b874487e5f33b82c685a4a8007d39391bbbb.png"><img alt="../../../_images/95d74dd41bb4b8d66a18b4859037b874487e5f33b82c685a4a8007d39391bbbb.png" src="../../../_images/95d74dd41bb4b8d66a18b4859037b874487e5f33b82c685a4a8007d39391bbbb.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">vic_elec</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">gg_season</span><span class="p">(</span><span class="n">Demand</span><span class="p">,</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;year&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;MWh&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Electricity demand: Victoria&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/50a6f57c56677433ad035bd2c8b762e29bb992d706bc7afca17488c279294555.png"><img alt="../../../_images/50a6f57c56677433ad035bd2c8b762e29bb992d706bc7afca17488c279294555.png" src="../../../_images/50a6f57c56677433ad035bd2c8b762e29bb992d706bc7afca17488c279294555.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+<section id="seasonal-subseries-plots">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">2.5 Seasonal subseries plots</a><a class="headerlink" href="#seasonal-subseries-plots" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a10</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">gg_subseries</span><span class="p">(</span><span class="n">Cost</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;$ (millions)&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Australian antidiabetic drug sales&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/40961a773cdff6603931354ef2b3dcbb54af62bfe20d7a371700e24811dc5d10.png"><img alt="../../../_images/40961a773cdff6603931354ef2b3dcbb54af62bfe20d7a371700e24811dc5d10.png" src="../../../_images/40961a773cdff6603931354ef2b3dcbb54af62bfe20d7a371700e24811dc5d10.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">holidays</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tsibble</span><span class="o">::</span><span class="n">tourism</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">Purpose</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;Holiday&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">State</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">summarize</span><span class="p">(</span><span class="n">Trips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">Trips</span><span class="p">))</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">holidays</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tbl_ts: 6 × 3</caption>
+<thead>
+	<tr><th scope=col>State</th><th scope=col>Quarter</th><th scope=col>Trips</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;qtr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>ACT</td><td>1998 Q1</td><td>196.2186</td></tr>
+	<tr><td>ACT</td><td>1998 Q2</td><td>126.7706</td></tr>
+	<tr><td>ACT</td><td>1998 Q3</td><td>110.6796</td></tr>
+	<tr><td>ACT</td><td>1998 Q4</td><td>170.4722</td></tr>
+	<tr><td>ACT</td><td>1999 Q1</td><td>107.7792</td></tr>
+	<tr><td>ACT</td><td>1999 Q2</td><td>124.6442</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">autoplot</span><span class="p">(</span><span class="n">holidays</span><span class="p">,</span><span class="w"> </span><span class="n">Trips</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Overnight trips (&#39;000)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Australian domestic holidays&#39;</span>
+<span class="w">  </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/469c214f424b9800b7559ffc58ca042dfffe03dd00e15286c8014cccf6113109.png"><img alt="../../../_images/469c214f424b9800b7559ffc58ca042dfffe03dd00e15286c8014cccf6113109.png" src="../../../_images/469c214f424b9800b7559ffc58ca042dfffe03dd00e15286c8014cccf6113109.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">gg_season</span><span class="p">(</span><span class="n">holidays</span><span class="p">,</span><span class="w"> </span><span class="n">Trips</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Overnight trips (&#39;000)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Australian domestic holidays&#39;</span>
+<span class="w">  </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/921fb2297970e35c980200710f837ade77fcdefffa0076aa5146f99b4e1f96c3.png"><img alt="../../../_images/921fb2297970e35c980200710f837ade77fcdefffa0076aa5146f99b4e1f96c3.png" src="../../../_images/921fb2297970e35c980200710f837ade77fcdefffa0076aa5146f99b4e1f96c3.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">gg_subseries</span><span class="p">(</span><span class="n">holidays</span><span class="p">,</span><span class="w"> </span><span class="n">Trips</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Overnight trips (&#39;000)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Australian domestic holidays&#39;</span>
+<span class="w">  </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/ca15bfbd74b55916e2944e4c6eb4d1359cd1e3330bd6d824df91b7a1e76ccb87.png"><img alt="../../../_images/ca15bfbd74b55916e2944e4c6eb4d1359cd1e3330bd6d824df91b7a1e76ccb87.png" src="../../../_images/ca15bfbd74b55916e2944e4c6eb4d1359cd1e3330bd6d824df91b7a1e76ccb87.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+<section id="scatterplots">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">2.6 Scatterplots</a><a class="headerlink" href="#scatterplots" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">vic_elec</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="nf">year</span><span class="p">(</span><span class="n">Time</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2014</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">autoplot</span><span class="p">(</span><span class="n">Demand</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;GW&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Half-hourly electricity demand: Victoria&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/d5f0cee810eae8c854883ccf787f2393e70f7bf32b68d66076bc9448a23b6818.png"><img alt="../../../_images/d5f0cee810eae8c854883ccf787f2393e70f7bf32b68d66076bc9448a23b6818.png" src="../../../_images/d5f0cee810eae8c854883ccf787f2393e70f7bf32b68d66076bc9448a23b6818.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">vic_elec</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="nf">year</span><span class="p">(</span><span class="n">Time</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2014</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">autoplot</span><span class="p">(</span><span class="n">Temperature</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Degrees Celsius&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Half-hourly temperatures: Melbourne, Australia&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/5dea00cdf5cfa40f87a16e4a5d518653d00988604f8f176ac56973d5599036a2.png"><img alt="../../../_images/5dea00cdf5cfa40f87a16e4a5d518653d00988604f8f176ac56973d5599036a2.png" src="../../../_images/5dea00cdf5cfa40f87a16e4a5d518653d00988604f8f176ac56973d5599036a2.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">vic_elec</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="nf">year</span><span class="p">(</span><span class="n">Time</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2014</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Temperature</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Demand</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Temperature (degrees Celsius)&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Electricity demand (GW)&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/043341e1ce68f74d6ccb11cfa490dd95f51a1ded1b1ab7851efeb155a1ac31c3.png"><img alt="../../../_images/043341e1ce68f74d6ccb11cfa490dd95f51a1ded1b1ab7851efeb155a1ac31c3.png" src="../../../_images/043341e1ce68f74d6ccb11cfa490dd95f51a1ded1b1ab7851efeb155a1ac31c3.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">visitors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tsibble</span><span class="o">::</span><span class="n">tourism</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">State</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">summarize</span><span class="p">(</span><span class="n">Trips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">Trips</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">visitors</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Quarter</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Trips</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">geom_line</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">facet_grid</span><span class="p">(</span><span class="nf">vars</span><span class="p">(</span><span class="n">State</span><span class="p">),</span><span class="w"> </span><span class="n">scales</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;free_y&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Australian domestic tourism&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Overnight trips (&#39;000)&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/914618ae5b4370c92b6c6205864624789a2fcdbe418a7dc9ad7a13182a4999b2.png"><img alt="../../../_images/914618ae5b4370c92b6c6205864624789a2fcdbe418a7dc9ad7a13182a4999b2.png" src="../../../_images/914618ae5b4370c92b6c6205864624789a2fcdbe418a7dc9ad7a13182a4999b2.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">visitors</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">pivot_wider</span><span class="p">(</span><span class="n">values_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Trips</span><span class="p">,</span><span class="w"> </span><span class="n">names_from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">State</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="n">GGally</span><span class="o">::</span><span class="nf">ggpairs</span><span class="p">(</span><span class="n">columns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="o">:</span><span class="m">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/cf2649991c2ddd556a8b835ebfadef8db7515434f4c89df1e7a2da5b4a53fa0e.png"><img alt="../../../_images/cf2649991c2ddd556a8b835ebfadef8db7515434f4c89df1e7a2da5b4a53fa0e.png" src="../../../_images/cf2649991c2ddd556a8b835ebfadef8db7515434f4c89df1e7a2da5b4a53fa0e.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+<section id="lag-plots">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">2.7 Lag plots</a><a class="headerlink" href="#lag-plots" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">recent_production</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">aus_production</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="nf">year</span><span class="p">(</span><span class="n">Quarter</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">2000</span><span class="p">)</span>
+<span class="n">recent_production</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">gg_lag</span><span class="p">(</span><span class="n">Beer</span><span class="p">,</span><span class="w"> </span><span class="n">geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;point&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;lag(Beer, k)&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/131ac6558fdb5e16ae8de20915f45f69524b1ecb4a4353d426200f4c563ae4b2.png"><img alt="../../../_images/131ac6558fdb5e16ae8de20915f45f69524b1ecb4a4353d426200f4c563ae4b2.png" src="../../../_images/131ac6558fdb5e16ae8de20915f45f69524b1ecb4a4353d426200f4c563ae4b2.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+<section id="autocorrelation">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">2.8 Autocorrelation</a><a class="headerlink" href="#autocorrelation" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">recent_production</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">ACF</span><span class="p">(</span><span class="n">Beer</span><span class="p">,</span><span class="w"> </span><span class="n">lag_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tbl_cf: 9 × 2</caption>
+<thead>
+	<tr><th scope=col>lag</th><th scope=col>acf</th></tr>
+	<tr><th scope=col>&lt;cf_lag&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1Q</td><td>-0.052981076</td></tr>
+	<tr><td>2Q</td><td>-0.758175440</td></tr>
+	<tr><td>3Q</td><td>-0.026233757</td></tr>
+	<tr><td>4Q</td><td> 0.802204530</td></tr>
+	<tr><td>5Q</td><td>-0.077471204</td></tr>
+	<tr><td>6Q</td><td>-0.657451271</td></tr>
+	<tr><td>7Q</td><td> 0.001194922</td></tr>
+	<tr><td>8Q</td><td> 0.707254078</td></tr>
+	<tr><td>9Q</td><td>-0.088756255</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">recent_production</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">ACF</span><span class="p">(</span><span class="n">Beer</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">autoplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Australian beer production&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/8381cb0335980a2b22610b87ea899085b94a5fd1725943b06e6e3c6747ee0e8e.png"><img alt="../../../_images/8381cb0335980a2b22610b87ea899085b94a5fd1725943b06e6e3c6747ee0e8e.png" src="../../../_images/8381cb0335980a2b22610b87ea899085b94a5fd1725943b06e6e3c6747ee0e8e.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">a10</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">ACF</span><span class="p">(</span><span class="n">Cost</span><span class="p">,</span><span class="w"> </span><span class="n">lag_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">48</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">autoplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Australian antidiabetic drug sales&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/a157e4a2a66bdc871936d6ef33c79e132d9a908170b6ac8b7b9284dc6b9e98fb.png"><img alt="../../../_images/a157e4a2a66bdc871936d6ef33c79e132d9a908170b6ac8b7b9284dc6b9e98fb.png" src="../../../_images/a157e4a2a66bdc871936d6ef33c79e132d9a908170b6ac8b7b9284dc6b9e98fb.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+<section id="white-noise">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">2.9 White noise</a><a class="headerlink" href="#white-noise" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">30</span><span class="p">)</span>
+
+<span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">tsibble</span><span class="p">(</span>
+<span class="w">  </span><span class="n">sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">50</span><span class="p">,</span>
+<span class="w">  </span><span class="n">wn</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">50</span><span class="p">),</span>
+<span class="w">  </span><span class="n">index</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">sample</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">autoplot</span><span class="p">(</span><span class="n">wn</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;White noise&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/95b7120cd3672ffd0147e6c8e1493ef07a0f7a06cf50c2cbe31a7e669d929b0e.png"><img alt="../../../_images/95b7120cd3672ffd0147e6c8e1493ef07a0f7a06cf50c2cbe31a7e669d929b0e.png" src="../../../_images/95b7120cd3672ffd0147e6c8e1493ef07a0f7a06cf50c2cbe31a7e669d929b0e.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">ACF</span><span class="p">(</span><span class="n">wn</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">autoplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;White noise&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/254c20dbffca51e92a790bdf036d639456631a1dae4efa8a9f88809e8db87b41.png"><img alt="../../../_images/254c20dbffca51e92a790bdf036d639456631a1dae4efa8a9f88809e8db87b41.png" src="../../../_images/254c20dbffca51e92a790bdf036d639456631a1dae4efa8a9f88809e8db87b41.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+</section>
+<section id="time-series-decomposition">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">3 - Time series decomposition</a><a class="headerlink" href="#time-series-decomposition" title="Link to this heading">#</a></h2>
+<section id="transformations-and-adjustments">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">3.1 Transformations and adjustments</a><a class="headerlink" href="#transformations-and-adjustments" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">global_economy</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">Country</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;Australia&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">autoplot</span><span class="p">(</span><span class="n">GDP</span><span class="o">/</span><span class="n">Population</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;GDP per capita&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;$US&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/c8105e351a03281e9dcaaa047a09500d8156e89220d9a7efa489b62160ade1d6.png"><img alt="../../../_images/c8105e351a03281e9dcaaa047a09500d8156e89220d9a7efa489b62160ade1d6.png" src="../../../_images/c8105e351a03281e9dcaaa047a09500d8156e89220d9a7efa489b62160ade1d6.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">print_retail</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">aus_retail</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">Industry</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;Newspaper and book retailing&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">group_by</span><span class="p">(</span><span class="n">Industry</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">index_by</span><span class="p">(</span><span class="n">Year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">year</span><span class="p">(</span><span class="n">Month</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">summarize</span><span class="p">(</span><span class="n">Turnover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">Turnover</span><span class="p">))</span>
+<span class="w">  </span>
+<span class="n">aus_economy</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">global_economy</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">filter</span><span class="p">(</span><span class="n">Code</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;AUS&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">print_retail</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">left_join</span><span class="p">(</span><span class="n">aus_economy</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Year&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">Adjusted_turnover</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Turnover</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">CPI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">pivot_longer</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">Turnover</span><span class="p">,</span><span class="w"> </span><span class="n">Adjusted_turnover</span><span class="p">),</span><span class="w"> </span><span class="n">values_to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Turnover&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">mutate</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">levels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;Turnover&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Adjusted_turnover&#39;</span><span class="p">)))</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Year</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Turnover</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">geom_line</span><span class="p">()</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">facet_grid</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="n">scales</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;free_y&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Turnover: Australian print media industry&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">y</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;$AU&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“Removed 1 row containing missing values (`geom_line()`).”
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/e563a6342f53ffd43beb2c912faf9ec2d7cb7239d7e2a8a742c3dd1415e5e380.png"><img alt="../../../_images/e563a6342f53ffd43beb2c912faf9ec2d7cb7239d7e2a8a742c3dd1415e5e380.png" src="../../../_images/e563a6342f53ffd43beb2c912faf9ec2d7cb7239d7e2a8a742c3dd1415e5e380.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">lambda</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">aus_production</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">features</span><span class="p">(</span><span class="n">Gas</span><span class="p">,</span><span class="w"> </span><span class="n">features</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">guerrero</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">pull</span><span class="p">(</span><span class="n">lambda_guerrero</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tsibbledata</span><span class="o">::</span><span class="n">aus_production</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">autoplot</span><span class="p">(</span><span class="nf">box_cox</span><span class="p">(</span><span class="n">Gas</span><span class="p">,</span><span class="w"> </span><span class="n">lambda</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
+<span class="w">  </span><span class="nf">labs</span><span class="p">(</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">latex2exp</span><span class="o">::</span><span class="nf">TeX</span><span class="p">(</span><span class="nf">paste0</span><span class="p">(</span><span class="s">&#39;Transformed gas production with $\\lambda$ = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="n">lambda</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">)))</span>
+<span class="w">  </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/a103eba2d7b8b3adf58d27c7cc81b87096e40a3fb5da11e7252e51847e578215.png"><img alt="../../../_images/a103eba2d7b8b3adf58d27c7cc81b87096e40a3fb5da11e7252e51847e578215.png" src="../../../_images/a103eba2d7b8b3adf58d27c7cc81b87096e40a3fb5da11e7252e51847e578215.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="bibliography">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Bibliography</a><a class="headerlink" href="#bibliography" title="Link to this heading">#</a></h2>
+<p>Hyndman, Rob J. &amp; George Athanasopoulos. (2021). <em>Forecasting: Principles and Practice</em>. 3rd Ed. OTexts. <a class="reference external" href="https://otexts.com/fpp3/">Home</a>.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./c/programming/rlang"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TMWR.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Silge &amp; Robinson’s <em>Text Mining with R</em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="STAT184/A01.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A01 - Tidy Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-graphics">2 - Time series graphics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tsibble-objects">2.1 <code class="docutils literal notranslate"><span class="pre">tsibble</span></code> objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-plots">2.2 Time plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-plots">2.4 Seasonal plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonal-subseries-plots">2.5 Seasonal subseries plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplots">2.6 Scatterplots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lag-plots">2.7 Lag plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autocorrelation">2.8 Autocorrelation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#white-noise">2.9 White noise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-decomposition">3 - Time series decomposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-and-adjustments">3.1 Transformations and adjustments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

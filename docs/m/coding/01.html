@@ -1,0 +1,1487 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to error-correcting codes &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/coding/01';</script>
+    <script src="../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The main coding theory problem" href="02.html" />
+    <link rel="prev" title="Mathematical Coding" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Mathematical Coding</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/index.html">Computery Things</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/index.html">Programming</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to error-correcting codes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q-ary-code">Q-Ary Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-code">Binary Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ternary-code">Ternary Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-code-of-length-n">Block Code of length n</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repetition-code-of-length-n">Repetition Code of length n</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-q-n"><span class="math notranslate nohighlight">\((F_q)^n\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamming-distance">Hamming distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-neighbor-decoding">Nearest Neighbor Decoding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-nearest-neighbor-decoding">Brute Force Nearest Neighbor Decoding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q-ary-symmetric-communication-channel">Q-Ary Symmetric Communication Channel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-symmetric-communication-channel">Binary Symmetric Communication Channel</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#symbol-error-probability">Symbol error probability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#word-error-probability">Word error probability</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-distance-of-a-code">Minimum distance of a code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-distance-and-error-detection-and-correction">Minimum distance and error-detection and -correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-number-of-errors-detected-or-corrected-for-a-given-minimum-distance">The number of errors detected or corrected for a given minimum distance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-m-d-code">(n,M,d)-code</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-error-correcting-codes">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Introduction to error-correcting codes</a><a class="headerlink" href="#introduction-to-error-correcting-codes" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction-to-error-correcting-codes" id="id1">Introduction to error-correcting codes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id2">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#programming-environment" id="id3">Programming Environment</a></p></li>
+<li><p><a class="reference internal" href="#q-ary-code" id="id4">Q-Ary Code</a></p>
+<ul>
+<li><p><a class="reference internal" href="#binary-code" id="id5">Binary Code</a></p></li>
+<li><p><a class="reference internal" href="#ternary-code" id="id6">Ternary Code</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#block-code-of-length-n" id="id7">Block Code of length n</a></p></li>
+<li><p><a class="reference internal" href="#repetition-code-of-length-n" id="id8">Repetition Code of length n</a></p></li>
+<li><p><a class="reference internal" href="#f-q-n" id="id9"><span class="math notranslate nohighlight">\((F_q)^n\)</span></a></p></li>
+<li><p><a class="reference internal" href="#hamming-distance" id="id10">Hamming distance</a></p></li>
+<li><p><a class="reference internal" href="#nearest-neighbor-decoding" id="id11">Nearest Neighbor Decoding</a></p>
+<ul>
+<li><p><a class="reference internal" href="#brute-force-nearest-neighbor-decoding" id="id12">Brute Force Nearest Neighbor Decoding</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#q-ary-symmetric-communication-channel" id="id13">Q-Ary Symmetric Communication Channel</a></p>
+<ul>
+<li><p><a class="reference internal" href="#binary-symmetric-communication-channel" id="id14">Binary Symmetric Communication Channel</a></p>
+<ul>
+<li><p><a class="reference internal" href="#symbol-error-probability" id="id15">Symbol error probability</a></p></li>
+<li><p><a class="reference internal" href="#word-error-probability" id="id16">Word error probability</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#minimum-distance-of-a-code" id="id17">Minimum distance of a code</a></p>
+<ul>
+<li><p><a class="reference internal" href="#minimum-distance-and-error-detection-and-correction" id="id18">Minimum distance and error-detection and -correction</a></p></li>
+<li><p><a class="reference internal" href="#the-number-of-errors-detected-or-corrected-for-a-given-minimum-distance" id="id19">The number of errors detected or corrected for a given minimum distance</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#n-m-d-code" id="id20">(n,M,d)-code</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Programming Environment</a><a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>  <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span>        <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;text.usetex&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">});</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span>   <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span>   <span class="nn">itertools</span>   <span class="kn">import</span> <span class="n">combinations</span><span class="p">,</span><span class="n">product</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="kn">from</span>   <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="k">as</span> <span class="n">d</span>
+<span class="kn">import</span> <span class="nn">locale</span>                   <span class="k">as</span> <span class="nn">l</span>
+<span class="kn">import</span> <span class="nn">platform</span>                 <span class="k">as</span> <span class="nn">p</span>
+<span class="kn">import</span> <span class="nn">sys</span>                      <span class="k">as</span> <span class="nn">s</span>
+
+<span class="n">pad</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Executed&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Platform&#39;</span><span class="w">   </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">mac_ver</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> | &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">system</span><span class="p">()</span><span class="si">}</span><span class="s2"> | &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">release</span><span class="p">()</span><span class="si">}</span><span class="s2"> | &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">machine</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="w">           </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">l</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Python&#39;</span><span class="w">     </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="w">           </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">version_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="w">           </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">python_implementation</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Matplotlib&#39;</span><span class="w"> </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">mpl</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;NumPy&#39;</span><span class="w">      </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">np</span><span class="w"> </span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EXECUTED            : 2024-05-21 15:46:16.115980
+
+Platform            : 14.4.1 | Darwin | 23.4.0 | arm64
+                    : UTF-8
+
+Python              : 3.11.9 | packaged by conda-forge | (main, Apr 19 2024, 18:34:54) [Clang 16.0.6 ]
+                    : sys.version_info(major=3, minor=11, micro=9, releaselevel=&#39;final&#39;, serial=0)
+                    : CPython
+
+Matplotlib          : 3.8.4
+NumPy               : 1.26.4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rc</span> <span class="p">(</span><span class="n">q</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Repetition Code</span>
+<span class="sd">  Generate a q-ary repetition block code of length n.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">S</span><span class="o">=</span><span class="nb">set</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+    <span class="n">S</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">S</span>
+
+<span class="k">def</span> <span class="nf">fqn</span> <span class="p">(</span><span class="n">q</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+         <span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+         <span class="n">g</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Construct a linear space of dimension n over a finite field of order q.</span>
+<span class="sd">  </span>
+<span class="sd">  Parameters</span>
+<span class="sd">  ==========</span>
+<span class="sd">  g : If the space is very large, opt for the first g elements of a generator object.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+    <span class="n">f</span><span class="o">=</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">repeat</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">set</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span> <span class="k">for</span> <span class="n">bit</span> <span class="ow">in</span> <span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">repeat</span><span class="o">=</span><span class="n">n</span><span class="p">)}</span>
+
+<span class="k">def</span> <span class="nf">qarycode_to_nbitstring</span> <span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;3121&#39;</span><span class="p">,</span><span class="s1">&#39;2101&#39;</span><span class="p">},</span><span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Convert a q-ary code &quot;&quot;&quot;</span>
+  <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">code</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="sa">f</span><span class="s1">&#39;0</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">b&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">hd</span> <span class="p">(</span><span class="n">a</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;1001&#39;</span><span class="p">,</span>
+        <span class="n">b</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;0101&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;HAMMING DISTANCE</span>
+<span class="sd">  </span>
+<span class="sd">  Parameters</span>
+<span class="sd">  ==========</span>
+<span class="sd">  x : str</span>
+<span class="sd">  y : str</span>
+
+<span class="sd">  Return</span>
+<span class="sd">  ======</span>
+<span class="sd">  int</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="s1">&#39;x and y must have the same length&#39;</span>
+  <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">!=</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">nbfmd</span> <span class="p">(</span><span class="n">c</span>  <span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+           <span class="n">pr</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;NAIVE BRUTE FORCE MINIMUM DISTANCE d(C)</span>
+
+<span class="sd">  Computes the pairwise Hamming distance for all codewords and returns the minimum value.</span>
+
+<span class="sd">  This is a naive (i.e., non vectorized) implementation using nested for loops.</span>
+<span class="sd">  </span>
+<span class="sd">  Parameters</span>
+<span class="sd">  ==========</span>
+<span class="sd">  c  : code</span>
+<span class="sd">  pr : Print intermediate steps.</span>
+
+<span class="sd">  Returns</span>
+<span class="sd">  =======</span>
+<span class="sd">  d(C)</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="c1"># convert a set of string vectors to a 2D NumPy array of integers</span>
+  <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">codeword</span><span class="p">)</span> <span class="k">for</span> <span class="n">codeword</span> <span class="ow">in</span> <span class="n">c</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
+
+  <span class="c1"># intialize empty hamming distance matrix</span>
+  <span class="n">hamming</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+      <span class="n">hamming</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">!=</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+  <span class="c1"># the diagonal represents the Hamming distance of a codeword with itself, which is always 0.</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">hamming</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="n">pr</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">hamming</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">hamming</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">one_error_detecting</span> <span class="p">(</span><span class="n">q</span>    <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                         <span class="n">code</span> <span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+                         <span class="n">p</span>    <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Verify that a code is one-error detecting.</span>
+<span class="sd">  No one-bit error equals a codeword.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">flag</span><span class="o">=</span><span class="kc">True</span>
+  <span class="n">alphabet</span><span class="o">=</span><span class="nb">set</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>
+  <span class="k">for</span> <span class="n">codeword</span> <span class="ow">in</span> <span class="n">code</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">p</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">()</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;orig cw : &#39;</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">codeword</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">codeword</span><span class="p">)):</span>
+      <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="n">codeword</span><span class="p">[:</span><span class="n">i</span><span class="p">],</span><span class="n">codeword</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">codeword</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+      <span class="n">symbols</span><span class="o">=</span><span class="n">alphabet</span><span class="o">-</span><span class="nb">set</span><span class="p">(</span><span class="n">codeword</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+      <span class="k">for</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="n">symbols</span><span class="p">:</span>
+        <span class="n">cw</span><span class="o">=</span><span class="n">codeword</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">symbol</span><span class="o">+</span><span class="n">codeword</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span> <span class="c1"># SINGLE ERROR</span>
+        <span class="k">if</span> <span class="n">cw</span> <span class="ow">in</span> <span class="n">code</span><span class="p">:</span>
+          <span class="n">flag</span><span class="o">=</span><span class="kc">False</span>
+          <span class="k">if</span> <span class="n">p</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;ERROR&#39;</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">cw</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">p</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">cw</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">flag</span>
+
+<span class="c1"># set(&#39;&#39;.join(l for l in i) for i in itertools.product(&#39;10&#39;,repeat=3))</span>
+<span class="c1"># set(&#39;&#39;.join(l for l in i) for i in itertools.combinations_with_replacement(&#39;012&#39;,r=3))</span>
+<span class="c1"># set(&#39;&#39;.join(l for l in i) for i in itertools.combinations(&#39;01&#39;,r=2))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<p>Redundant symbols add protection to the message, but are themselves subject to error; so there is no way to guarantee accuracy.</p>
+<p>The goal is to maximize the probability of accuracy.</p>
+<p>A good code is one in which the codewords resemble each other as little as possible.</p>
+</section>
+<hr class="docutils" />
+<section id="q-ary-code">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Q-Ary Code</a><a class="headerlink" href="#q-ary-code" title="Link to this heading">#</a></h2>
+<p>[Q-ARY CODE]</p>
+<p>A q-ary code is a set of sequences of symbols where each symbol <span class="math notranslate nohighlight">\(\lambda_i\)</span> is chosed from a set</p>
+<p><span class="math notranslate nohighlight">\(
+F_q=\{\lambda_1,\lambda_2,...,\lambda_q\}
+\)</span></p>
+<p>of <span class="math notranslate nohighlight">\(q\)</span> distinct elements called the alphabet which is often the set</p>
+<p><span class="math notranslate nohighlight">\(
+Z_q=\{0,1,2,...,q-1\}
+\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(q\)</span> is a prime power (if <span class="math notranslate nohighlight">\(q=p^h\)</span> for some prime number <span class="math notranslate nohighlight">\(p\)</span> and some positive integer <span class="math notranslate nohighlight">\(h\)</span>) then the alphabet <span class="math notranslate nohighlight">\(F_q\)</span> is the finite field of order <span class="math notranslate nohighlight">\(q\)</span>.</p>
+<p>[EXAMPLE]</p>
+<p>The set of all words in the English language is a code over the 26-letter alphabet <span class="math notranslate nohighlight">\(F_{26}=\{\text{A},\text{B},...,\text{Z}\}\)</span></p>
+<p>[EXAMPLE]</p>
+<p>The set of all street names is a code over the 27-ary alphabet <span class="math notranslate nohighlight">\(F_{27}=\{\text{A},\text{B},...,\text{Z},\langle\text{SPACE}\rangle\}\)</span></p>
+<section id="binary-code">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Binary Code</a><a class="headerlink" href="#binary-code" title="Link to this heading">#</a></h3>
+<p>[BINARY CODE or 2-ARY CODE]</p>
+<p>A binary code is a set of sequences of 0s and 1s called codewords.</p>
+<p>Since <span class="math notranslate nohighlight">\(2=2^1\)</span> is a prime power, the alphabet <span class="math notranslate nohighlight">\(F_2=\{0,1\}=Z_2\)</span> is the finite field of order <span class="math notranslate nohighlight">\(2\)</span>.</p>
+</section>
+<section id="ternary-code">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Ternary Code</a><a class="headerlink" href="#ternary-code" title="Link to this heading">#</a></h3>
+<p>[TERNARY CODE or 3-ARY CODE]</p>
+<p>A ternary code is a set of sequences of 0s, 1s, and 2s.</p>
+<p>Since <span class="math notranslate nohighlight">\(3=3^1\)</span> is a prime power, the alphabet <span class="math notranslate nohighlight">\(F_3=\{0,1,2\}=Z_3\)</span> is the finite field of order <span class="math notranslate nohighlight">\(3\)</span>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="block-code-of-length-n">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Block Code of length n</a><a class="headerlink" href="#block-code-of-length-n" title="Link to this heading">#</a></h2>
+<p>[BLOCK CODE OF LENGTH N]</p>
+<p>A block code of length <span class="math notranslate nohighlight">\(n\)</span> is a code in which each codeword is a sequence consisting of a fixed number <span class="math notranslate nohighlight">\(n\)</span> of symbols.</p>
+<p>A block code <span class="math notranslate nohighlight">\(C\)</span> with <span class="math notranslate nohighlight">\(M\)</span> codewords of length <span class="math notranslate nohighlight">\(n\)</span> is written as an <span class="math notranslate nohighlight">\(M\times n\)</span> array whose rows are the codewords of <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="repetition-code-of-length-n">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Repetition Code of length n</a><a class="headerlink" href="#repetition-code-of-length-n" title="Link to this heading">#</a></h2>
+<p>[REPETITION CODE OF LENGTH N]</p>
+<p>A repetition code is a code in which each codeword is the repetition of some symbol <span class="math notranslate nohighlight">\(n\)</span> times.</p>
+<p>The <span class="math notranslate nohighlight">\(q\)</span>-ary repetition code of length <span class="math notranslate nohighlight">\(n\)</span> whose codewords are</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix}
+0 &amp; 0 &amp; \dots &amp; 0\\
+1 &amp; 1 &amp; \dots &amp; 1\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+(q-1) &amp; (q-1) &amp; \dots &amp; (q-1)\\
+\end{matrix}
+\)</span></p>
+<p>is an <span class="math notranslate nohighlight">\((n,q,n)\)</span>-code.</p>
+</section>
+<hr class="docutils" />
+<section id="f-q-n">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="math notranslate nohighlight">\((F_q)^n\)</span></a><a class="headerlink" href="#f-q-n" title="Link to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\((F_q)^n\)</span> denote the set of all ordered <span class="math notranslate nohighlight">\(n\)</span>-tuples <span class="math notranslate nohighlight">\(\mathbf{a}=a_1a_2...a_n\)</span> where each <span class="math notranslate nohighlight">\(a_i\in F_q\)</span>.</p>
+<p>The elements of <span class="math notranslate nohighlight">\((F_q)^n\)</span> are called vectors or words.</p>
+<p>The order of the set <span class="math notranslate nohighlight">\((F_q)^n\)</span> is <span class="math notranslate nohighlight">\(q^n\)</span>.</p>
+<p>A <span class="math notranslate nohighlight">\(q\)</span>-ary block code of length <span class="math notranslate nohighlight">\(n\)</span> is a subset of <span class="math notranslate nohighlight">\((F_q)^n\)</span>.</p>
+<p>[EXAMPLE]</p>
+<p><span class="math notranslate nohighlight">\(
+(F_2)^3
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fqn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;000&#39;, &#39;001&#39;, &#39;010&#39;, &#39;011&#39;, &#39;100&#39;, &#39;101&#39;, &#39;110&#39;, &#39;111&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;000&#39;, &#39;111&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">fqn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>[EXAMPLE]</p>
+<p>The set of all <span class="math notranslate nohighlight">\(10\)</span>-digit telephone numbers in the UK is a <span class="math notranslate nohighlight">\(10\)</span>-ary block code of length <span class="math notranslate nohighlight">\(10\)</span>.</p>
+<p>Little thought appears to have been given to allocating numbers so that the frequency of wrong numbers is minimized.</p>
+<p>Even so, this code of about <span class="math notranslate nohighlight">\(82\)</span> million <span class="math notranslate nohighlight">\(10\)</span>-digit telephone numbers such that if just one digit of a number is misdialled the correct connection can still be made.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">q</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span>
+  <span class="sa">r</span><span class="s2">&quot;\begin</span><span class="si">{aligned}</span><span class="s2">&quot;</span>
+  <span class="sa">r</span><span class="s2">&quot;q&amp;=10</span><span class="se">\\</span><span class="s2">&quot;</span>
+  <span class="sa">r</span><span class="s2">&quot;n&amp;=10</span><span class="se">\\</span><span class="s2">&quot;</span>
+  <span class="sa">f</span><span class="s2">&quot;q^n&amp;=</span><span class="si">{</span><span class="n">q</span><span class="o">**</span><span class="n">n</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="sa">r</span><span class="s2">&quot;\end</span><span class="si">{aligned}</span><span class="s2">&quot;</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \begin{aligned}q&amp;=10\\n&amp;=10\\q^n&amp;=10,000,000,000\end{aligned}\end{split}\]</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="hamming-distance">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Hamming distance</a><a class="headerlink" href="#hamming-distance" title="Link to this heading">#</a></h2>
+<p>[HAMMING DISTANCE]</p>
+<p>The Hamming distance <span class="math notranslate nohighlight">\(d(\mathbf{x,y})\)</span> between two vectors <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> of <span class="math notranslate nohighlight">\((F_q)^n\)</span> is the number of places in which they differ.</p>
+<p>The Hamming distance is a metric because it satisfies the following three conditions.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+d(\mathbf{x,y})&amp;=0\iff\mathbf{x=y}
+\\
+d(\mathbf{x,y})&amp;=d(\mathbf{y,x})\,\,\,\forall\mathbf{x,y}\in(F_q)^n
+\\
+d(\mathbf{x,y})&amp;\le d(\mathbf{x,z})+d(\mathbf{z,y})\,\,\,\forall\mathbf{x,y,z}\in(F_q)^n
+\,\,\,\text{triangle inequality}
+\end{aligned}
+\)</span></p>
+<p>Triangle Inequality</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(d(\mathbf{x,y})\)</span> is the minimum number of changes of digits (or bit flips) required to change <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> to <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>.</p></li>
+<li><p>We can also change <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> to <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> by first making <span class="math notranslate nohighlight">\(d(\mathbf{x,z})\)</span> changes and then <span class="math notranslate nohighlight">\(d(\mathbf{z,y})\)</span> changes.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hd</span><span class="p">(</span><span class="s1">&#39;00111&#39;</span><span class="p">,</span><span class="s1">&#39;11001&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hd</span><span class="p">(</span><span class="s1">&#39;0122&#39;</span><span class="p">,</span><span class="s1">&#39;1220&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="nearest-neighbor-decoding">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Nearest Neighbor Decoding</a><a class="headerlink" href="#nearest-neighbor-decoding" title="Link to this heading">#</a></h2>
+<p>[NEAREST NEIGHBOR DECODING]</p>
+<p>Suppose a codeword <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> has been transmitted and that a vector <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> has been received, which may’ve been distorted by noise.</p>
+<p>It seems reasonable to decode <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> as that codeword <span class="math notranslate nohighlight">\(\mathbf{x'}\)</span>, hopefully <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, such that <span class="math notranslate nohighlight">\(d(\mathbf{x',y})\)</span> is as small as possible.</p>
+<p>NND maximizes the decoder’s likelihood of correcting errors assuming a q-ary symmetric channel.</p>
+<p>DECODE A VECTOR TO ITS CLOSEST CODEWORD.</p>
+<section id="brute-force-nearest-neighbor-decoding">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Brute Force Nearest Neighbor Decoding</a><a class="headerlink" href="#brute-force-nearest-neighbor-decoding" title="Link to this heading">#</a></h3>
+<p>[BRUTE-FORCE DECODING]</p>
+<p>Compare the received vector with all codewords and to decode to the nearest.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="q-ary-symmetric-communication-channel">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Q-Ary Symmetric Communication Channel</a><a class="headerlink" href="#q-ary-symmetric-communication-channel" title="Link to this heading">#</a></h2>
+<p>[Q-ARY SYMMETRIC COMMUNICATION CHANNEL]</p>
+<p>Let <span class="math notranslate nohighlight">\(p\)</span> be called the symbol error probability.</p>
+<p>(i) Each symbol transmitted has the same probability <span class="math notranslate nohighlight">\(p(\lt\frac{1}{2})\)</span> of being received in error.</p>
+<p>(ii) If a symbol is received in error, then each of the <span class="math notranslate nohighlight">\(q-1\)</span> possible errors is equally likely.</p>
+<section id="binary-symmetric-communication-channel">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Binary Symmetric Communication Channel</a><a class="headerlink" href="#binary-symmetric-communication-channel" title="Link to this heading">#</a></h3>
+<section id="symbol-error-probability">
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">Symbol error probability</a><a class="headerlink" href="#symbol-error-probability" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{symbol error probability}\,\,\,
+p
+&amp;=P[\text{symbol}\,\,\,i\,\,\,\text{received in error}]
+\lt\frac{1}{2}
+\\
+(1-p)
+&amp;=P[\text{symbol}\,\,\,i\,\,\,\text{not received in error}]
+\gt\frac{1}{2}
+\end{aligned}
+\)</span></p>
+<p>A binary codeword of length <span class="math notranslate nohighlight">\(n\)</span> is transmitted.</p>
+<p>The probability that no errors occur is</p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{(1-p)(1-p)...(1-p)}_{n\,\,\,\text{times}}
+=(1-p)^n
+\)</span></p>
+<p>The probability that a single error occurs is</p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{p}_{1\,\,\,\text{time}}\underbrace{(1-p)(1-p)...(1-p)}_{n-1\,\,\,\text{times}}
+=p(1-p)^{n-1}
+\)</span></p>
+<p>The probability that <span class="math notranslate nohighlight">\(i\)</span> errors occur is</p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{pp...p}_{i\,\,\,\text{times}}\underbrace{(1-p)(1-p)...(1-p)}_{n-i\,\,\,\text{times}}
+=p^i(1-p)^{n-i}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+p\lt\frac{1}{2}
+\implies
+(1-p)^n
+\gt
+p(1-p)^{n-1}
+\gt
+p^i(1-p)^{n-i}
+\end{aligned}
+\)</span></p>
+<p>This last fact means that for a binary symmetric channel, nearest neighbor decoding is also maximum likelihood decoding.</p>
+</section>
+<section id="word-error-probability">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">Word error probability</a><a class="headerlink" href="#word-error-probability" title="Link to this heading">#</a></h4>
+<p>Word error probability <span class="math notranslate nohighlight">\(P_{err}=1-P_\text{correct}\)</span> is the probability that a received vector is not correctly decoded as the transmitted codeword.</p>
+<p>Certain codes, such as the class of linear codes, have the property that <span class="math notranslate nohighlight">\(P_{err}(C)\)</span> is independent of the actual codeword transmitted.</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="minimum-distance-of-a-code">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Minimum distance of a code</a><a class="headerlink" href="#minimum-distance-of-a-code" title="Link to this heading">#</a></h2>
+<p>[MINIMUM DISTANCE OF A CODE]</p>
+<p>The minimum distance <span class="math notranslate nohighlight">\(d(C)\)</span> of a code <span class="math notranslate nohighlight">\(C\)</span> is the smallest of the distances between distinct codewords.</p>
+<p><span class="math notranslate nohighlight">\(d(C)=\min\{d(\mathbf{x,y})\mid\mathbf{x,y}\in C,\mathbf{x\ne y}\}\)</span></p>
+<p><span class="math notranslate nohighlight">\(d(C)\)</span> is a measure of how good a code is at error-correcting.</p>
+<section id="minimum-distance-and-error-detection-and-correction">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Minimum distance and error-detection and -correction</a><a class="headerlink" href="#minimum-distance-and-error-detection-and-correction" title="Link to this heading">#</a></h3>
+<p>[THEOREM]</p>
+<p>(i) A code <span class="math notranslate nohighlight">\(C\)</span> can detect up to <span class="math notranslate nohighlight">\(s\)</span> errors in any codeword if <span class="math notranslate nohighlight">\(d(C)\ge s+1\)</span>.</p>
+<p>(ii) A code <span class="math notranslate nohighlight">\(C\)</span> can correct up to <span class="math notranslate nohighlight">\(t\)</span> errors in any codeword if <span class="math notranslate nohighlight">\(d(C)\ge2t+1\)</span>.</p>
+<p>PROOF (i)</p>
+<p>Suppose <span class="math notranslate nohighlight">\(d(C)\ge s+1\)</span>.</p>
+<p>[In fact we are working with a code <span class="math notranslate nohighlight">\(C\)</span> whose minimum distance <span class="math notranslate nohighlight">\(d(C)\)</span> is no smaller than <span class="math notranslate nohighlight">\(s+1\)</span> for some nonnegative integer <span class="math notranslate nohighlight">\(s\)</span>.]</p>
+<p>Suppose a codeword <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is transmitted and the vector <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is received in which <span class="math notranslate nohighlight">\(s\)</span> or fewer errors have occurred, so that <span class="math notranslate nohighlight">\(d(\mathbf{x,y})\le s\)</span>.</p>
+<p>[In fact we receive a vector <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> in which no more than <span class="math notranslate nohighlight">\(s\)</span> errors have actually occurred.]</p>
+<p>Then the received vector cannot be a different codeword, and so the errors are detected.</p>
+<p>[Since the distance from each codeword to every other codeword is in fact at least one larger than <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> cannot be a codeword.]</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>PROOF (ii)</p>
+<p>Suppose <span class="math notranslate nohighlight">\(d(C)\ge2t+1\)</span>.</p>
+<p>[In fact we are working with a code <span class="math notranslate nohighlight">\(C\)</span> whose minimum distance <span class="math notranslate nohighlight">\(d(C)\)</span> is no smaller than <span class="math notranslate nohighlight">\(2t+1\)</span> for some nonnegative integer <span class="math notranslate nohighlight">\(t\)</span>.]</p>
+<p>Suppose a codeword <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is transmitted and the vector <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is received in which <span class="math notranslate nohighlight">\(t\)</span> or fewer errors have occurred, so that <span class="math notranslate nohighlight">\(d(\mathbf{x,y})\le t\)</span>.</p>
+<p>[In fact we receive a vector <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> in which no more than <span class="math notranslate nohighlight">\(t\)</span> errors have actually occurred.]</p>
+<p>If <span class="math notranslate nohighlight">\(\mathbf{x'}\)</span> is any codeword other than <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, then <span class="math notranslate nohighlight">\(d(\mathbf{x',y})\ge t+1\)</span>.</p>
+<p>[</p>
+<p>The distance between <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is no greater than <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>By <span class="math notranslate nohighlight">\(d(C)\)</span>, the distance between <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and any other codeword <span class="math notranslate nohighlight">\(\mathbf{x'}\)</span> is no smaller than <span class="math notranslate nohighlight">\(2t+1\)</span>.</p>
+<p>Thus by the triangle inequality,</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+d(\mathbf{x,x'})&amp;\le d(\mathbf{x,y})+d(\mathbf{y,x'})
+\\
+2t+1&amp;\le t+d(\mathbf{y,x'})
+\\
+t+1&amp;\le d(\mathbf{y,x'})
+\end{aligned}
+\)</span></p>
+<p>]</p>
+<p>For otherwise, <span class="math notranslate nohighlight">\(d(\mathbf{x',y})\le t\)</span>, which implies by the triangle inequality that <span class="math notranslate nohighlight">\(d(\mathbf{x,x'})\le d(\mathbf{x,y})+d(\mathbf{y,x'})\le2t\)</span>, which contradicts <span class="math notranslate nohighlight">\(d(C)\ge 2t+1\)</span>.</p>
+<p style="color: red;">
+Why does a logical negation work here?
+</p>
+<p>[</p>
+<p>If <span class="math notranslate nohighlight">\(d(\mathbf{x',y})\not\ge t+1\)</span> then <span class="math notranslate nohighlight">\(d(\mathbf{x',y})\le t\)</span></p>
+<p>(If a statement if false then its negation is true.)</p>
+<p>If <span class="math notranslate nohighlight">\(d(\mathbf{x',y})\le t\)</span> then by the triangle inequality</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+d(\mathbf{x,x'})&amp;\le d(\mathbf{x,y})+d(\mathbf{y,x'})
+\\
+2t+1&amp;\le d(\mathbf{x,y})+d(\mathbf{y,x'})\le2t
+\end{aligned}
+\)</span></p>
+<p>]</p>
+<p>Therefore, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the nearest codeword to <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> and nearest neighbor decoding corrects the errors.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>[COROLLARY]</p>
+<p>If a code <span class="math notranslate nohighlight">\(C\)</span> has minimum distance <span class="math notranslate nohighlight">\(d(C)\)</span> then <span class="math notranslate nohighlight">\(C\)</span> can be used either</p>
+<p>(i) to detect up to <span class="math notranslate nohighlight">\(d-1\)</span> errors or</p>
+<p>(ii) to correct up to <span class="math notranslate nohighlight">\(\lfloor\frac{d-1}{2}\rfloor\)</span> errors in any codeword.</p>
+<p>PROOF (i)</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+d(C)&amp;\ge s+1
+\iff
+d(C)-1\ge s
+\end{aligned}
+\)</span></p>
+<p>[</p>
+<p>The number of errors <span class="math notranslate nohighlight">\(s\)</span> must be no larger than one less than the minimum distance of the code.</p>
+<p>When there are no more than <span class="math notranslate nohighlight">\(s\)</span> errors in a vector, that vector will not be any codeword and can thus be detected as an error.</p>
+<p>]</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>PROOF (ii)</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+d(C)\ge2t+1
+\iff
+\frac{d(C)-1}{2}&amp;\ge t
+\\
+\to
+\left\lfloor\frac{d(C)-1}{2}\right\rfloor&amp;\ge t
+\end{aligned}
+\)</span></p>
+</section>
+<section id="the-number-of-errors-detected-or-corrected-for-a-given-minimum-distance">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">The number of errors detected or corrected for a given minimum distance</a><a class="headerlink" href="#the-number-of-errors-detected-or-corrected-for-a-given-minimum-distance" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;d(C)&#39;</span><span class="si">:</span><span class="s2">6</span><span class="si">}{</span><span class="s1">&#39;s&#39;</span><span class="si">:</span><span class="s2">6</span><span class="si">}{</span><span class="s1">&#39;t&#39;</span><span class="si">:</span><span class="s2">6</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">51</span><span class="p">):</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">d</span><span class="o">-</span><span class="mi">1</span>
+  <span class="n">t</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}{</span><span class="n">s</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}{</span><span class="n">t</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d(C)  s     t     
+
+1     0     0     
+2     1     0     
+3     2     1     
+4     3     1     
+5     4     2     
+6     5     2     
+7     6     3     
+8     7     3     
+9     8     4     
+10    9     4     
+11    10    5     
+12    11    5     
+13    12    6     
+14    13    6     
+15    14    7     
+16    15    7     
+17    16    8     
+18    17    8     
+19    18    9     
+20    19    9     
+21    20    10    
+22    21    10    
+23    22    11    
+24    23    11    
+25    24    12    
+26    25    12    
+27    26    13    
+28    27    13    
+29    28    14    
+30    29    14    
+31    30    15    
+32    31    15    
+33    32    16    
+34    33    16    
+35    34    17    
+36    35    17    
+37    36    18    
+38    37    18    
+39    38    19    
+40    39    19    
+41    40    20    
+42    41    20    
+43    42    21    
+44    43    21    
+45    44    22    
+46    45    22    
+47    46    23    
+48    47    23    
+49    48    24    
+50    49    24    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="n-m-d-code">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">(n,M,d)-code</a><a class="headerlink" href="#n-m-d-code" title="Link to this heading">#</a></h2>
+<p>An <span class="math notranslate nohighlight">\((n,M,d)\)</span>-code is a code of length <span class="math notranslate nohighlight">\(n\)</span>, containing <span class="math notranslate nohighlight">\(M\)</span> codewords and having minimum distance <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/coding"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Mathematical Coding</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The main coding theory problem</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q-ary-code">Q-Ary Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-code">Binary Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ternary-code">Ternary Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-code-of-length-n">Block Code of length n</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repetition-code-of-length-n">Repetition Code of length n</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f-q-n"><span class="math notranslate nohighlight">\((F_q)^n\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamming-distance">Hamming distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nearest-neighbor-decoding">Nearest Neighbor Decoding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brute-force-nearest-neighbor-decoding">Brute Force Nearest Neighbor Decoding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q-ary-symmetric-communication-channel">Q-Ary Symmetric Communication Channel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-symmetric-communication-channel">Binary Symmetric Communication Channel</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#symbol-error-probability">Symbol error probability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#word-error-probability">Word error probability</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-distance-of-a-code">Minimum distance of a code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-distance-and-error-detection-and-correction">Minimum distance and error-detection and -correction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-number-of-errors-detected-or-corrected-for-a-given-minimum-distance">The number of errors detected or corrected for a given minimum distance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-m-d-code">(n,M,d)-code</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

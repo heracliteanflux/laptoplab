@@ -1,0 +1,1515 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Speech Perception &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'l/ling/phonetics/05_speech_perception';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Analysis of Speech Sounds" href="06_speech_analysis.html" />
+    <link rel="prev" title="Auditory Phonetics" href="04_auditory.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/index.html">Computery Things</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/index.html">Programming</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/programming/editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/programming/python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/programming/rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Languages &amp; Linguistics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Linguistics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Phonetics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Speech Perception</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-perceptual-similarity-via-multidimensional-scaling">Measuring Perceptual Similarity via Multidimensional Scaling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="speech-perception">
+<h1>Speech Perception<a class="headerlink" href="#speech-perception" title="Link to this heading">#</a></h1>
+<p>Based on Ch. 5 of Johnson, Keith. (2012). <em>Acoustic and Auditory Phonetics</em>. 3rd Ed. <a class="reference external" href="https://www.wiley.com/en-us/Acoustic+and+Auditory+Phonetics%2C+3rd+Edition-p-9781444343083">Wiley-Blackwell</a>.</p>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2>Programming Environment<a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>  <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Speech perception is the active, intentional perception of speech sounds as opposed to the meaning of speech.</p>
+<p>the detection of mispronunciations or speech errors, more prevelant in?</p>
+<ul class="simple">
+<li><p>word-initial or -medial</p></li>
+<li><p>vowels or consonants</p></li>
+<li><p>nouns and verbs or grammatical words</p></li>
+</ul>
+<p>speech perception is shaped by general properties of the auditory system that determine</p>
+<ul class="simple">
+<li><p>what can and cannot be heard</p></li>
+<li><p>what cues will be recoverable in particular segmental contexts</p></li>
+<li><p>how adjacent sounds will influence each other</p></li>
+</ul>
+<p>the cochlea’s nonlinear frequency scale probably underlies the fact that no language distinguishes fricatives on the basis of frequency components above 6000 Hz</p>
+<p>What affects what we hear?</p>
+<ol class="arabic simple">
+<li><p>The nature of the auditory system constrains our perception of speech sounds</p>
+<ol class="arabic simple">
+<li><p>the nonlinearity of the cochlea’s frequency scale: no language distinguishes fricatives on the basis of frequency components above 6K Hz</p></li>
+<li><p>VOT: aspirated stop vs unaspirated stop</p></li>
+<li><p>Compensation for Coarticulation</p></li>
+</ol>
+</li>
+<li><p>Phonetic knowledge applied to speech sounds affects its perception</p>
+<ol class="arabic simple">
+<li><p>Categorical Perception (Johnson and Ralston 1994; Remez et al 1981: sine wave analogs; Best 1995; Flege 1995)</p>
+<ul class="simple">
+<li><p>Categorical Magnets (Kuhl et al 1992)</p></li>
+</ul>
+</li>
+<li><p>Coherence</p>
+<ul class="simple">
+<li><p>DUPLEX PERCEPTION</p></li>
+<li><p>MCGURK EFFECT</p></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Lexical (word; morpheme) knowledge applied to speech sounds affects its perception</p>
+<ul class="simple">
+<li><p>slips of the ear (Bond, Zinny 1999)</p></li>
+<li><p>WORD MAGNETS (Ganong 1980)</p></li>
+<li><p>PHONEME RESTORATION (Warren 1970; Samuel, Arthur 1991)</p></li>
+<li><p>(Elman, Jeff and McClelland, Jay 1988)</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="measuring-perceptual-similarity-via-multidimensional-scaling">
+<h2>Measuring Perceptual Similarity via Multidimensional Scaling<a class="headerlink" href="#measuring-perceptual-similarity-via-multidimensional-scaling" title="Link to this heading">#</a></h2>
+<p>Data from Miller, George &amp; Patricia Nicely. (1955). “An analysis of perceptual confusions among some English consonants.”</p>
+<p>Mathematical approach from Shepard, Roger. (1972). “Psychological Representation of Speech Sounds”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+  <span class="p">[</span><span class="mi">199</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">14</span><span class="p">],</span>
+  <span class="p">[</span>  <span class="mi">3</span><span class="p">,</span><span class="mi">177</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">22</span><span class="p">],</span>
+  <span class="p">[</span> <span class="mi">85</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span><span class="mi">114</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">],</span>
+  <span class="p">[</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">105</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">17</span><span class="p">],</span>
+  <span class="p">[</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">170</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span>
+  <span class="p">[</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span><span class="mi">132</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span><span class="mi">49</span><span class="p">],</span>
+  <span class="p">[</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span><span class="mi">189</span><span class="p">,</span><span class="mi">59</span><span class="p">],</span>
+<span class="p">])</span>
+<span class="n">cm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[199,   0,  46,   1,   4,   0,   0,  14],
+       [  3, 177,   1,  29,   0,   4,   0,  22],
+       [ 85,   2, 114,   0,  10,   0,   0,  21],
+       [  0,  64,   0, 105,   0,  18,   0,  17],
+       [  5,   0,  38,   0, 170,   0,   0,  15],
+       [  0,   4,   0,  22,   0, 132,  17,  49],
+       [  0,   0,   0,   4,   0,   8, 189,  59]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fricatives</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;v&#39;</span><span class="p">,</span><span class="s1">&#39;th&#39;</span><span class="p">,</span><span class="s1">&#39;dh&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="n">cmdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+  <span class="n">data</span>   <span class="o">=</span><span class="n">cm</span><span class="p">,</span>
+  <span class="n">index</span>  <span class="o">=</span><span class="n">fricatives</span><span class="p">,</span>
+  <span class="n">columns</span><span class="o">=</span><span class="n">fricatives</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;other&#39;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">cmdf</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">cmdf</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cmdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>f</th>
+      <th>v</th>
+      <th>th</th>
+      <th>dh</th>
+      <th>s</th>
+      <th>z</th>
+      <th>d</th>
+      <th>other</th>
+      <th>total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>199</td>
+      <td>0</td>
+      <td>46</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>14</td>
+      <td>264</td>
+    </tr>
+    <tr>
+      <th>v</th>
+      <td>3</td>
+      <td>177</td>
+      <td>1</td>
+      <td>29</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>22</td>
+      <td>236</td>
+    </tr>
+    <tr>
+      <th>th</th>
+      <td>85</td>
+      <td>2</td>
+      <td>114</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>21</td>
+      <td>232</td>
+    </tr>
+    <tr>
+      <th>dh</th>
+      <td>0</td>
+      <td>64</td>
+      <td>0</td>
+      <td>105</td>
+      <td>0</td>
+      <td>18</td>
+      <td>0</td>
+      <td>17</td>
+      <td>204</td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td>5</td>
+      <td>0</td>
+      <td>38</td>
+      <td>0</td>
+      <td>170</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15</td>
+      <td>228</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>22</td>
+      <td>0</td>
+      <td>132</td>
+      <td>17</td>
+      <td>49</td>
+      <td>224</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>8</td>
+      <td>189</td>
+      <td>59</td>
+      <td>260</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # submatrices</span>
+<span class="c1"># for i in range(7):</span>
+<span class="c1">#   for j in range(7):</span>
+<span class="c1">#     if i!=j:</span>
+<span class="c1">#       print()</span>
+<span class="c1">#       c=cmdf.iloc[[i,j],[i,j]]</span>
+<span class="c1">#       c.iloc[0]=c.iloc[0]/cmdf.iloc[i,-1]</span>
+<span class="c1">#       c.iloc[1]=c.iloc[1]/cmdf.iloc[j,-1]</span>
+<span class="c1">#       print(c.round(2))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Shepard similarity between category <span class="math notranslate nohighlight">\(i\)</span> and category <span class="math notranslate nohighlight">\(j\)</span> is</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{Shepard similarity}\,\,\,
+S_{ij}=\frac{p_{ij}+p_{ji}}{p_{ii}+p_{jj}}
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{Johnson approximation of Shepard similarity}\,\,\,
+S_{ij}=\frac{p_{ij}+p_{ji}}{2}
+\end{aligned}
+\)</span></p>
+<p>Perceptual distance <span class="math notranslate nohighlight">\(d_{ij}\)</span> according to Shepard’s Law (that similarity is exponentially related to perceptual distance)</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{perceptual distance}\,\,\,
+d_{ij}=-\ln(S_{ij})
+\iff
+e^{-d_{ij}}=S_{ij}
+\end{aligned}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># proportions</span>
+<span class="n">ps</span><span class="o">=</span><span class="n">cmdf</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;total&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">cmdf</span><span class="o">.</span><span class="n">total</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>f</th>
+      <th>v</th>
+      <th>th</th>
+      <th>dh</th>
+      <th>s</th>
+      <th>z</th>
+      <th>d</th>
+      <th>other</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>0.75</td>
+      <td>0.00</td>
+      <td>0.17</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <th>v</th>
+      <td>0.01</td>
+      <td>0.75</td>
+      <td>0.00</td>
+      <td>0.12</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <th>th</th>
+      <td>0.37</td>
+      <td>0.01</td>
+      <td>0.49</td>
+      <td>0.00</td>
+      <td>0.04</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <th>dh</th>
+      <td>0.00</td>
+      <td>0.31</td>
+      <td>0.00</td>
+      <td>0.51</td>
+      <td>0.00</td>
+      <td>0.09</td>
+      <td>0.00</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.17</td>
+      <td>0.00</td>
+      <td>0.75</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.10</td>
+      <td>0.00</td>
+      <td>0.59</td>
+      <td>0.08</td>
+      <td>0.22</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.73</td>
+      <td>0.23</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># similarities</span>
+<span class="n">Ss</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+  <span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">ps</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">ps</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">ps</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">Ssdf</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">Ss</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">fricatives</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">fricatives</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">Ssdf</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>f</th>
+      <th>v</th>
+      <th>th</th>
+      <th>dh</th>
+      <th>s</th>
+      <th>z</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>1.000</td>
+      <td>0.008</td>
+      <td>0.434</td>
+      <td>0.003</td>
+      <td>0.025</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>v</th>
+      <td>0.008</td>
+      <td>1.000</td>
+      <td>0.010</td>
+      <td>0.345</td>
+      <td>0.000</td>
+      <td>0.026</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>th</th>
+      <td>0.434</td>
+      <td>0.010</td>
+      <td>1.000</td>
+      <td>0.000</td>
+      <td>0.170</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>dh</th>
+      <td>0.003</td>
+      <td>0.345</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>0.000</td>
+      <td>0.169</td>
+      <td>0.012</td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td>0.025</td>
+      <td>0.000</td>
+      <td>0.170</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>0.000</td>
+      <td>0.026</td>
+      <td>0.000</td>
+      <td>0.169</td>
+      <td>0.000</td>
+      <td>1.000</td>
+      <td>0.081</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.012</td>
+      <td>0.000</td>
+      <td>0.081</td>
+      <td>1.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># distances</span>
+<span class="n">ds</span><span class="o">=-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Ssdf</span><span class="p">)</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>f</th>
+      <th>v</th>
+      <th>th</th>
+      <th>dh</th>
+      <th>s</th>
+      <th>z</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>f</th>
+      <td>0.000</td>
+      <td>4.773</td>
+      <td>0.834</td>
+      <td>5.814</td>
+      <td>3.700</td>
+      <td>23.026</td>
+      <td>23.026</td>
+    </tr>
+    <tr>
+      <th>v</th>
+      <td>4.773</td>
+      <td>0.000</td>
+      <td>4.570</td>
+      <td>1.064</td>
+      <td>23.026</td>
+      <td>3.650</td>
+      <td>23.026</td>
+    </tr>
+    <tr>
+      <th>th</th>
+      <td>0.834</td>
+      <td>4.570</td>
+      <td>0.000</td>
+      <td>23.026</td>
+      <td>1.774</td>
+      <td>23.026</td>
+      <td>23.026</td>
+    </tr>
+    <tr>
+      <th>dh</th>
+      <td>5.814</td>
+      <td>1.064</td>
+      <td>23.026</td>
+      <td>0.000</td>
+      <td>23.026</td>
+      <td>1.779</td>
+      <td>4.391</td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td>3.700</td>
+      <td>23.026</td>
+      <td>1.774</td>
+      <td>23.026</td>
+      <td>0.000</td>
+      <td>23.026</td>
+      <td>23.026</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>23.026</td>
+      <td>3.650</td>
+      <td>23.026</td>
+      <td>1.779</td>
+      <td>23.026</td>
+      <td>0.000</td>
+      <td>2.513</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>23.026</td>
+      <td>23.026</td>
+      <td>23.026</td>
+      <td>4.391</td>
+      <td>23.026</td>
+      <td>2.513</td>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p>Casey Connor</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://www.youtube.com/watch?v=qdTloDvvy10">Y</a>] Casey Connor. (14 Jan 2022). “Part 7/5 of Psychoacoustics / Audio Illusions”. YouTube.</p></li>
+<li><p>[<a class="reference external" href="https://www.youtube.com/watch?v=wLcqQOJmnio">Y</a>] Casey Connor. (14 Jan 2022). “Part 6/5 of Psychoacoustics / Audio Illusions”. YouTube.</p></li>
+<li><p>[<a class="reference external" href="https://www.youtube.com/watch?v=YQNsCg4z6L8">Y</a>] Casey Connor. (18 Apr 2020). “42 Audio Illusions &amp; Phenomena! - Part 5/5 of Psychoacoustics”. YouTube.</p></li>
+<li><p>[<a class="reference external" href="https://www.youtube.com/watch?v=WMHyYCk7OqE">Y</a>] Casey Connor. (12 Apr 2020). “42 Audio Illusions &amp; Phenomena! - Part 4/5 of Psychoacoustics”. YouTube.</p></li>
+<li><p>[<a class="reference external" href="https://www.youtube.com/watch?v=TVsMiSrlSSc">Y</a>] Casey Connor. (08 Apr 2020). “42 Audio Illusions &amp; Phenomena! - Part 3/5 of Psychoacoustics”. YouTube.</p></li>
+<li><p>[<a class="reference external" href="https://www.youtube.com/watch?v=fBMli2YAR8k">Y</a>] Casey Connor. (28 Mar 2020). “42 Audio Illusions &amp; Phenomena! - Part 2/5 of Psychoacoustics”. YouTube.</p></li>
+<li><p>[<a class="reference external" href="https://www.youtube.com/watch?v=OiW8gzBGz1A">Y</a>] Casey Connor. (26 Mar 2020). “42 Audio Illusions &amp; Phenomena! - Part 1/5 of Psychoacoustics”. YouTube</p></li>
+</ul>
+<p>The Ling Space</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://www.youtube.com/watch?v=Czvgf-Xc-A4">Y</a>] The Ling Space. (24 Jun 2015). “Phonological Illusions”. YouTube.</p></li>
+</ul>
+<p><a class="reference external" href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;amp;type=pdf&amp;amp;doi=067d412ef7ad42401bb89bb826f5aea31a26d40b">https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=067d412ef7ad42401bb89bb826f5aea31a26d40b</a></p>
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2>Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Diana_Deutsch">W</a>] Deutsch, Diana (1938-) [<a class="reference external" href="http://dianadeutsch.ucsd.edu/psychology/pages.php?i=201">Illusions</a>]</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Harry_McGurk">W</a>] McGurk, Harry (1936-1998)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Roger_Shepard">W</a>] Shepard, Roger (1929-2022)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2>Terms<a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Allophone">W</a>] Allophone</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Auditory_cortex">W</a>] Auditory Cortex</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Auditory_illusion">W</a>] Auditory Illusion</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hearing">W</a>] Auditory Perception (Hearing)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Broca%27s_area">W</a>] Broca’s Area</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Categorical_perception">W</a>] Categorical Perception</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Coarticulation">W</a>] Coarticulation</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Common_coding_theory">W</a>] Common Coding Theory</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">W</a>] Confusion Matrix</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Dichotic_listening">W</a>] Dichotic Listening</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Duplex_perception">W</a>] Duplex Perception</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Exemplar_theory">W</a>] Exemplar Theory</p></li>
+<li><p>[W] Ganong Effect</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Haskins_Laboratories">W</a>] Haskins Laboratories</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hierarchical_clustering">W</a>] Hierarchical Cluster Analysis</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Levenshtein_distance">W</a>] Levenshtein Distance</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/McGurk_effect">W</a>] McGurk Effect</p>
+<ul>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=2k8fHR9jKVM">https://www.youtube.com/watch?v=2k8fHR9jKVM</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=kzo45hWXRWU">https://www.youtube.com/watch?v=kzo45hWXRWU</a></p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Motor_theory_of_speech_perception">W</a>] Motor Theory of Speech Perception</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Multidimensional_scaling">W</a>] Multidimensional Scaling (MDS)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Multisensory_integration">W</a>] Multisensory Integration</p></li>
+<li><p>[W] Percept</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Perception">W</a>] Perception</p></li>
+<li><p>[W] Phantom Word Illusion</p>
+<ul>
+<li><p><a class="reference external" href="http://deutsch.ucsd.edu/psychology/pages.php?i=211">Diana Deutsch</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=muCPjK4nGY4">https://www.youtube.com/watch?v=muCPjK4nGY4</a></p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Phoneme">W</a>] Phoneme</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Phonemic_restoration_effect">W</a>] Phoneme Restoration Effect</p>
+<ul>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=kbzL9PxtFf0">https://www.youtube.com/watch?v=kbzL9PxtFf0</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=ZyvyGMkzNQc">https://www.youtube.com/watch?v=ZyvyGMkzNQc</a></p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Precedence_effect">W</a>] Precedence Effect</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Music_psychology">W</a>] Psychology of Music</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Linguistic_relativity">W</a>] Sapir-Whorf Hypothesis</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Shepard_tone">W</a>] Shepard Tone</p>
+<ul>
+<li><p><a class="reference external" href="https://vimeo.com/34749754">https://vimeo.com/34749754</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=BzNzgsAE4F0">https://www.youtube.com/watch?v=BzNzgsAE4F0</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=kzo45hWXRWU">https://www.youtube.com/watch?v=kzo45hWXRWU</a></p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sensory_cue">W</a>] Sensory Cue</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Signal-to-noise_ratio">W</a>] Signal-to-Noise Ratio (SNR)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound_localization">W</a>] Sound Localization</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Speech-to-song_illusion">W</a>] Speech-to-Song Illusion</p>
+<ul>
+<li><p><a class="reference external" href="http://dianadeutsch.ucsd.edu/psychology/pages.php?i=212">Diana Deutsch</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=kbzL9PxtFf0">https://www.youtube.com/watch?v=kbzL9PxtFf0</a></p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Speech_perception">W</a>] Speech Perception</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Speech_segmentation">W</a>] Speech Segmentation</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Speech_shadowing">W</a>] Speech Shadowing</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Speech_synthesis">W</a>] Speech Synthesis</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Stimulus_(physiology)">W</a>] Stimulus</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Triangulation">W</a>] Triangulation</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Tritone">W</a>] Tritone</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Tritone_paradox">W</a>] Tritone Paradox</p>
+<ul>
+<li><p><a class="reference external" href="http://dianadeutsch.ucsd.edu/psychology/pages.php?i=206">Diana Deutsch</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=kbzL9PxtFf0">https://www.youtube.com/watch?v=kbzL9PxtFf0</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=kzo45hWXRWU">https://www.youtube.com/watch?v=kzo45hWXRWU</a></p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Voice_onset_time">W</a>] Voice Onset Time (VOT)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Wernicke%27s_area">W</a>] Wernicke’s Area</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="bibliography">
+<h2>Bibliography<a class="headerlink" href="#bibliography" title="Link to this heading">#</a></h2>
+<p>Johnson, Keith. (2012). <em>Acoustic and Auditory Phonetics</em>. 3rd Ed. <a class="reference external" href="https://www.wiley.com/en-us/Acoustic+and+Auditory+Phonetics%2C+3rd+Edition-p-9781444343083">Wiley-Blackwell</a>.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./l/ling/phonetics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_auditory.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Auditory Phonetics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06_speech_analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analysis of Speech Sounds</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-perceptual-similarity-via-multidimensional-scaling">Measuring Perceptual Similarity via Multidimensional Scaling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

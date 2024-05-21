@@ -1,0 +1,1338 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Troubleshooting &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c/programming/troubleshooting/index';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Computer Systems" href="../../systems/index.html" />
+    <link rel="prev" title="Documentation" href="../doc/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Computery Things</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="../editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../doc/index.html">Documentation</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Troubleshooting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flask">Flask</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-bash-git-for-windows">Git Bash (Git for Windows)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github">GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pgadmin">pgAdmin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-setup-the-postgresql-binary-path-in-pgadmin">How to setup the PostgreSQL binary path in pgAdmin</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgres">Postgres</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operationalerror-psycopg2-operationalerror-could-not-translate-host-name-127-0-0-1-to-address-unknown-server-error"><code class="docutils literal notranslate"><span class="pre">OperationalError:</span> <span class="pre">(psycopg2.OperationalError)</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">translate</span> <span class="pre">host</span> <span class="pre">name</span> <span class="pre">"...@127.0.0.1"</span> <span class="pre">to</span> <span class="pre">address:</span> <span class="pre">unknown</span> <span class="pre">server</span> <span class="pre">error</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">Scikit-Learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlalchemy">SQLAlchemy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-review">To Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condaverificationerror-and-clobbererror-on-windows"><code class="docutils literal notranslate"><span class="pre">CondaVerificationError</span></code> and <code class="docutils literal notranslate"><span class="pre">ClobberError</span></code> on Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-encoding">Character Encoding</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#different-kinds-of-dashes">Different kinds of dashes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">GitHub</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#including-a-large-file-in-one-s-github-repo-with-git-lfs">Including a large file in one’s GitHub repo with Git LFS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-github-pages">Setting up GitHub Pages</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Flask</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-a-local-web-server-with-flask">Starting a local web server with Flask</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript">JavaScript</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-cors-cross-origin-resource-sharing-problems-with-a-local-server">Avoiding CORS Cross Origin Resource Sharing problems with a local server</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-pgadmin">PostgreSQL+pgAdmin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#errno-1-operation-not-permitted-users-username-desktop-when-i-attempt-to-access-my-desktop-from-within-pgadmin-and-there-is-a-red-lock-icon-next-to-my-desktop-folder-icon-in-pgadmin"><code class="docutils literal notranslate"><span class="pre">[Errno</span> <span class="pre">1]:</span> <span class="pre">Operation</span> <span class="pre">not</span> <span class="pre">permitted:</span> <span class="pre">'/Users/username/Desktop'</span></code> when I attempt to access my Desktop from within pgAdmin and there is a red lock icon next to my Desktop folder icon in pgAdmin</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow-installation">TensorFlow Installation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-take-a-screenshot-on-windows">How to take a screenshot on Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-python-on-windows">How to use Python on Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="troubleshooting">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#troubleshooting" id="id3">Troubleshooting</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id4">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#anaconda" id="id5">Anaconda</a></p></li>
+<li><p><a class="reference internal" href="#aws" id="id6">AWS</a></p></li>
+<li><p><a class="reference internal" href="#flask" id="id7">Flask</a></p></li>
+<li><p><a class="reference internal" href="#git-bash-git-for-windows" id="id8">Git Bash (Git for Windows)</a></p></li>
+<li><p><a class="reference internal" href="#github" id="id9">GitHub</a></p></li>
+<li><p><a class="reference internal" href="#jupyter" id="id10">Jupyter</a></p></li>
+<li><p><a class="reference internal" href="#pgadmin" id="id11">pgAdmin</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-to-setup-the-postgresql-binary-path-in-pgadmin" id="id12">How to setup the PostgreSQL binary path in pgAdmin</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#postgres" id="id13">Postgres</a></p>
+<ul>
+<li><p><a class="reference internal" href="#operationalerror-psycopg2-operationalerror-could-not-translate-host-name-127-0-0-1-to-address-unknown-server-error" id="id14"><code class="docutils literal notranslate"><span class="pre">OperationalError:</span> <span class="pre">(psycopg2.OperationalError)</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">translate</span> <span class="pre">host</span> <span class="pre">name</span> <span class="pre">&quot;...&#64;127.0.0.1&quot;</span> <span class="pre">to</span> <span class="pre">address:</span> <span class="pre">unknown</span> <span class="pre">server</span> <span class="pre">error</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#scikit-learn" id="id15">Scikit-Learn</a></p></li>
+<li><p><a class="reference internal" href="#sqlalchemy" id="id16">SQLAlchemy</a></p></li>
+<li><p><a class="reference internal" href="#visual-studio-code" id="id17">Visual Studio Code</a></p></li>
+<li><p><a class="reference internal" href="#to-review" id="id18">To Review</a></p>
+<ul>
+<li><p><a class="reference internal" href="#condaverificationerror-and-clobbererror-on-windows" id="id19"><code class="docutils literal notranslate"><span class="pre">CondaVerificationError</span></code> and <code class="docutils literal notranslate"><span class="pre">ClobberError</span></code> on Windows</a></p></li>
+<li><p><a class="reference internal" href="#character-encoding" id="id20">Character Encoding</a></p>
+<ul>
+<li><p><a class="reference internal" href="#different-kinds-of-dashes" id="id21">Different kinds of dashes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id1" id="id22">GitHub</a></p>
+<ul>
+<li><p><a class="reference internal" href="#including-a-large-file-in-one-s-github-repo-with-git-lfs" id="id23">Including a large file in one’s GitHub repo with Git LFS</a></p></li>
+<li><p><a class="reference internal" href="#setting-up-github-pages" id="id24">Setting up GitHub Pages</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id2" id="id25">Flask</a></p>
+<ul>
+<li><p><a class="reference internal" href="#starting-a-local-web-server-with-flask" id="id26">Starting a local web server with Flask</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#javascript" id="id27">JavaScript</a></p>
+<ul>
+<li><p><a class="reference internal" href="#avoiding-cors-cross-origin-resource-sharing-problems-with-a-local-server" id="id28">Avoiding CORS Cross Origin Resource Sharing problems with a local server</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#postgresql-pgadmin" id="id29">PostgreSQL+pgAdmin</a></p>
+<ul>
+<li><p><a class="reference internal" href="#errno-1-operation-not-permitted-users-username-desktop-when-i-attempt-to-access-my-desktop-from-within-pgadmin-and-there-is-a-red-lock-icon-next-to-my-desktop-folder-icon-in-pgadmin" id="id30"><code class="docutils literal notranslate"><span class="pre">[Errno</span> <span class="pre">1]:</span> <span class="pre">Operation</span> <span class="pre">not</span> <span class="pre">permitted:</span> <span class="pre">'/Users/username/Desktop'</span></code> when I attempt to access my Desktop from within pgAdmin and there is a red lock icon next to my Desktop folder icon in pgAdmin</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tensorflow" id="id31">TensorFlow</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tensorflow-installation" id="id32">TensorFlow Installation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#windows" id="id33">Windows</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-to-take-a-screenshot-on-windows" id="id34">How to take a screenshot on Windows</a></p></li>
+<li><p><a class="reference internal" href="#how-to-use-python-on-windows" id="id35">How to use Python on Windows</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<hr class="docutils" />
+<section id="anaconda">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Anaconda</a><a class="headerlink" href="#anaconda" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://docs.anaconda.com/free/anaconda/reference/faq/">d</a> ] FAQ</p></li>
+<li><p>[ <a class="reference external" href="https://docs.anaconda.com/free/anaconda/reference/troubleshooting/">d</a> ] Troubleshooting</p></li>
+<li><p>[ <a class="reference external" href="https://docs.anaconda.com/free/navigator/troubleshooting/">d</a> ] Anaconda Navigator - Troubleshooting</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="aws">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">AWS</a><a class="headerlink" href="#aws" title="Link to this heading">#</a></h2>
+<p>[ <a class="reference external" href="https://aws.amazon.com/blogs/database/hidden-dangers-of-duplicate-key-violations-in-postgresql-and-how-to-avoid-them/">b</a> ] Hidden dangers of duplicate key violations in PostgreSQL and how to avoid them</p>
+</section>
+<hr class="docutils" />
+<section id="flask">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Flask</a><a class="headerlink" href="#flask" title="Link to this heading">#</a></h2>
+<p>Flask Tutorial in Visual Studio Code - Create and run a minimal Flask app: <a class="reference external" href="https://code.visualstudio.com/docs/python/tutorial-flask#_create-and-run-a-minimal-flask-app">https://code.visualstudio.com/docs/python/tutorial-flask#_create-and-run-a-minimal-flask-app</a></p>
+<p>Development Server - Address already in use: <a class="reference external" href="https://flask.palletsprojects.com/en/latest/server/#address-already-in-use">https://flask.palletsprojects.com/en/latest/server/#address-already-in-use</a></p>
+</section>
+<hr class="docutils" />
+<section id="git-bash-git-for-windows">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Git Bash (Git for Windows)</a><a class="headerlink" href="#git-bash-git-for-windows" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://gitforwindows.org/requirements.html">d</a> ] Requirements</p></li>
+<li><p>[ <a class="reference external" href="https://github.com/git-for-windows/git/wiki/Diagnosing-performance-issues">g</a> ] Diagnosing Performance Issues</p></li>
+<li><p>[ <a class="reference external" href="https://github.com/git-for-windows/git/wiki/FAQ">g</a> ] FAQ</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="github">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">GitHub</a><a class="headerlink" href="#github" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://docs.github.com/en/get-started/getting-started-with-git/why-is-git-always-asking-for-my-password">d</a> ] Why is Git always asking for my password?</p></li>
+<li><p>[ <a class="reference external" href="https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#troubleshooting-remote-origin-already-exists">d</a> ] Troubleshooting: Remote origin already exists</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="jupyter">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Jupyter</a><a class="headerlink" href="#jupyter" title="Link to this heading">#</a></h2>
+<p>[ <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/troubleshooting.html">d</a> ] What to do when things go wrong</p>
+</section>
+<hr class="docutils" />
+<section id="pgadmin">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">pgAdmin</a><a class="headerlink" href="#pgadmin" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.pgadmin.org/support/">d</a> ] Support</p></li>
+<li><p>[ <a class="reference external" href="https://www.pgadmin.org/support/issues/">d</a> ][ <a class="reference external" href="https://github.com/pgadmin-org/pgadmin4/issues">g</a> ] Issues</p></li>
+</ul>
+<section id="how-to-setup-the-postgresql-binary-path-in-pgadmin">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">How to setup the PostgreSQL binary path in pgAdmin</a><a class="headerlink" href="#how-to-setup-the-postgresql-binary-path-in-pgadmin" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Under Construction</p>
+<p>pgAdmin</p>
+<ul class="simple">
+<li><p>File &gt; Preferences &gt; Paths &gt; Binary paths &gt; PostgreSQL Binary Path</p></li>
+</ul>
+<p>Windows Binary Path</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\PostgreSQL\11\bin</span></code></p></li>
+</ul>
+<p>macOS Binary Path</p>
+<ul class="simple">
+<li><p>Interactive Installer by EDB: <code class="docutils literal notranslate"><span class="pre">/Library/Applications/PostgreSQL/11/bin</span></code></p></li>
+<li><p>Homebrew: <code class="docutils literal notranslate"><span class="pre">/opt/homebrew/Cellar/postgresql/11/bin</span></code></p></li>
+<li><p>Postgres.app: <code class="docutils literal notranslate"><span class="pre">/Applications/Postgres.app/Contents/Versions/latest/bin</span></code></p></li>
+</ul>
+<p>Resources to pass along to the student</p>
+<ul class="simple">
+<li><p>pgAdmin <a class="reference external" href="https://www.pgadmin.org/faq/#3">What should I set the Binary Path configuration option?</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="postgres">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Postgres</a><a class="headerlink" href="#postgres" title="Link to this heading">#</a></h2>
+<section id="operationalerror-psycopg2-operationalerror-could-not-translate-host-name-127-0-0-1-to-address-unknown-server-error">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">OperationalError:</span> <span class="pre">(psycopg2.OperationalError)</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">translate</span> <span class="pre">host</span> <span class="pre">name</span> <span class="pre">&quot;...&#64;127.0.0.1&quot;</span> <span class="pre">to</span> <span class="pre">address:</span> <span class="pre">unknown</span> <span class="pre">server</span> <span class="pre">error</span></code></a><a class="headerlink" href="#operationalerror-psycopg2-operationalerror-could-not-translate-host-name-127-0-0-1-to-address-unknown-server-error" title="Link to this heading">#</a></h3>
+<p>This problem arises when the user-set password for the default PostgreSQL user <code class="docutils literal notranslate"><span class="pre">postgres</span></code> includes a special character such as the at sign <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>.</p>
+<p>To solve this problem, you may change the password for the default PostgreSQL user <code class="docutils literal notranslate"><span class="pre">postgres</span></code> to one which does not include special characters such as the at sign <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> or you may percent-encode their current password as follows:</p>
+<p><a class="reference external" href="http://config.py">config.py</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">database_password</span> <span class="o">=</span> <span class="s1">&#39;myPassword@&#39;</span>
+</pre></div>
+</div>
+<p>notebook.ipynb</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span> <span class="nn">config</span> <span class="kn">import</span> <span class="n">db_password</span>
+<span class="kn">import</span> <span class="nn">urllib.parse</span>
+
+<span class="n">database_name</span>   <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">database_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;postgresql://postgres:</span><span class="si">{</span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">database_password</span><span class="p">)</span><span class="si">}</span><span class="s1">@127.0.0.1:5432/</span><span class="si">{</span><span class="n">database_name</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="n">engine</span>          <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">database_string</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span>
+          <span class="n">con</span> <span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What follows is context surrounding this problem:</p>
+<p>The document on <a class="reference external" href="https://docs.sqlalchemy.org/en/14/core/engines.html#database-urls">SQLAlchemy Database URLs</a> states,</p>
+<p>“As the URL is like any other URL, special characters such as those that may be used in the password need to be URL encoded to be parsed correctly.. Below is an example of a URL that includes the password “kx%jj5/g”, where the percent sign and slash characters are represented as %25 and %2F, respectively:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">postgresql</span><span class="o">+</span><span class="n">pg8000</span><span class="p">:</span><span class="o">//</span><span class="n">dbuser</span><span class="p">:</span><span class="n">kx</span><span class="o">%</span><span class="mi">25</span><span class="n">jj5</span><span class="o">%</span><span class="mi">2</span><span class="n">Fg</span><span class="nd">@pghost10</span><span class="o">/</span><span class="n">appdb</span>
+</pre></div>
+</div>
+<p>The encoding for the above password can be generated using <a class="reference external" href="https://docs.python.org/3/library/urllib.parse.html">urllib.parse</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">urllib.parse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote_plus</span><span class="p">(</span><span class="s2">&quot;kx%jj5/g&quot;</span><span class="p">)</span>
+<span class="go">&#39;kx%25jj5%2Fg&#39;</span>
+</pre></div>
+</div>
+<p>The document on <a class="reference external" href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING">PostgreSQL Connection Strings</a> states,</p>
+<p>“The connection URI needs to be encoded with <a class="reference external" href="https://tools.ietf.org/html/rfc3986#section-2.1">percent-encoding</a> if it includes symbols with special meaning in any of its parts. Here is an example where the equal sign (=) is replaced with %3D and the space character with %20:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>postgresql://user@localhost:5433/mydb?options=-c%20synchronous_commit%3Doff
+</pre></div>
+</div>
+<p>Resources</p>
+<ul class="simple">
+<li><p>SQLAlchemy <a class="reference external" href="https://docs.sqlalchemy.org/en/14/errors.html#operationalerror">Error Messages: OperationalError</a></p></li>
+<li><p>SQLAlchemy <a class="reference external" href="https://docs.sqlalchemy.org/en/14/core/engines.html#database-urls">Database URLs</a></p></li>
+<li><p>PostgreSQL <a class="reference external" href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING">34.1.1. Connection Strings</a></p></li>
+<li><p>IETF <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc3986#section-2.1">RFC 3986: Percent Encoding</a></p></li>
+<li><p>Python <a class="reference external" href="https://docs.python.org/3/library/urllib.parse.html">urllib.parse</a></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="scikit-learn">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Scikit-Learn</a><a class="headerlink" href="#scikit-learn" title="Link to this heading">#</a></h2>
+<p>[ <a class="reference external" href="https://scikit-learn.org/stable/common_pitfalls.html#controlling-randomness">d</a> ] 10.3 Controlling randomness</p>
+</section>
+<hr class="docutils" />
+<section id="sqlalchemy">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">SQLAlchemy</a><a class="headerlink" href="#sqlalchemy" title="Link to this heading">#</a></h2>
+<p>Percent-encoded passwords: <a class="reference external" href="https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords">https://docs.sqlalchemy.org/en/20/core/engines.html#escaping-special-characters-such-as-signs-in-passwords</a></p>
+<p>PostgreSQL connection string: <a class="reference external" href="https://docs.sqlalchemy.org/en/20/core/engines.html#postgresql">https://docs.sqlalchemy.org/en/20/core/engines.html#postgresql</a></p>
+<p>SQLite connection string: <a class="reference external" href="https://docs.sqlalchemy.org/en/20/core/engines.html#sqlite">https://docs.sqlalchemy.org/en/20/core/engines.html#sqlite</a></p>
+</section>
+<hr class="docutils" />
+<section id="visual-studio-code">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Visual Studio Code</a><a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h2>
+<p>Terminal Basics - Working directory: <a class="reference external" href="https://code.visualstudio.com/docs/terminal/basics#_working-directory">https://code.visualstudio.com/docs/terminal/basics#_working-directory</a></p>
+<p>Terminal Here (extension): <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here">https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here</a></p>
+<p>“By default, the terminal will open at the folder that is opened in the Explorer. Split terminals on Windows will start in the directory that the parent terminal started with. On macOS and Linux, split terminals will inherit the current working directory of the parent terminal.”</p>
+</section>
+<hr class="docutils" />
+<section id="to-review">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">To Review</a><a class="headerlink" href="#to-review" title="Link to this heading">#</a></h2>
+<section id="condaverificationerror-and-clobbererror-on-windows">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">CondaVerificationError</span></code> and <code class="docutils literal notranslate"><span class="pre">ClobberError</span></code> on Windows</a><a class="headerlink" href="#condaverificationerror-and-clobbererror-on-windows" title="Link to this heading">#</a></h3>
+<div class="warning admonition">
+<p class="admonition-title">Unverified</p>
+<p>Upon attempting to create a new Conda environment</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Preparing</span> <span class="n">transaction</span><span class="p">:</span> <span class="n">done</span>
+<span class="n">Verifying</span> <span class="n">transaction</span><span class="p">:</span> <span class="n">failed</span>
+</pre></div>
+</div>
+<p>the following error messages in several variations prevent its completion.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CondaVerificationError</span><span class="p">:</span> <span class="n">The</span> <span class="n">package</span> <span class="k">for</span> <span class="n">pywin32</span> <span class="n">located</span> <span class="n">at</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>\<span class="n">anaconda3</span>\<span class="n">pkgs</span>\<span class="n">pywin32</span><span class="o">-</span><span class="mi">302</span><span class="o">-</span><span class="n">py37h2bbff1b_2</span> <span class="n">appears</span> <span class="n">to</span> <span class="n">be</span> <span class="n">corrupted</span><span class="o">.</span> <span class="n">The</span> <span class="n">path</span>
+
+<span class="s1">&#39;Lib/site-packages/pywin32_system32/pythoncom37.dll&#39;</span>
+<span class="s1">&#39;Lib/site-packages/pywin32_system32/pywintypes37.dll&#39;</span>
+<span class="s1">&#39;Library/bin/pythoncom37.dll&#39;</span>
+<span class="s1">&#39;Library/bin/pywintypes37.dll&#39;</span>
+
+<span class="n">specified</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">package</span> <span class="n">manifest</span> <span class="n">cannot</span> <span class="n">be</span> <span class="n">found</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ClobberError</span><span class="p">:</span> <span class="n">This</span> <span class="n">transaction</span> <span class="n">has</span> <span class="n">incompatible</span> <span class="n">packages</span> <span class="n">due</span> <span class="n">to</span> <span class="n">a</span> <span class="n">shared</span> <span class="n">path</span><span class="o">.</span>
+  <span class="n">packages</span><span class="p">:</span> <span class="o">...</span>
+  <span class="n">path</span><span class="p">:</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>It may be worth attempting to</p>
+<ul class="simple">
+<li><p>revert Conda dependency <code class="docutils literal notranslate"><span class="pre">anaconda</span></code> in Conda environment <code class="docutils literal notranslate"><span class="pre">base</span></code> from version <code class="docutils literal notranslate"><span class="pre">custom</span></code> to the latest distribution</p></li>
+<li><p>properly uninstall and reinstall Anaconda distribution</p></li>
+</ul>
+<p>These resources may be helpful in troubleshooting related issues.</p>
+<ul class="simple">
+<li><p>Conda</p>
+<ul>
+<li><p>GitHub Issues</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/conda/conda/issues/8615">Windows: Binaries are missing from packages #8615</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PyWin32</p>
+<ul>
+<li><p><a class="reference external" href="https://mhammond.github.io/pywin32/">Docs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mhammond/pywin32">GitHub</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mhammond/pywin32/issues">GitHub Issues</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mhammond/pywin32/releases">GitHub Releases</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/pywin32/">PyPI</a></p></li>
+</ul>
+</li>
+<li><p>Microsoft Docs</p>
+<ul>
+<li><p>Troubleshoot</p>
+<ul>
+<li><p>Windows Client</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/dynamic-link-library">What is a DLL</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>DLL Dynamic Link Library</p>
+<ul>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Dynamic-link_library">Wiki</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="character-encoding">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Character Encoding</a><a class="headerlink" href="#character-encoding" title="Link to this heading">#</a></h3>
+<div class="admonition-resources admonition">
+<p class="admonition-title">Resources</p>
+<p><a class="reference external" href="https://davefriedman01.github.io/LaptopLibrary/encoding.html">Laptop Library ~ Character Encoding</a></p>
+</div>
+<section id="different-kinds-of-dashes">
+<h4><a class="toc-backref" href="#id21" role="doc-backlink">Different kinds of dashes</a><a class="headerlink" href="#different-kinds-of-dashes" title="Link to this heading">#</a></h4>
+<p>Three unique dash-like symbols</p>
+<ul class="simple">
+<li><p>Hyphen-minus <a class="reference external" href="https://en.wikipedia.org/wiki/Hyphen-minus">Wiki</a></p></li>
+<li><p>Em Dash <a class="reference external" href="https://en.wikipedia.org/wiki/Dash">Wiki</a></p></li>
+<li><p>En Dash <a class="reference external" href="https://en.wikipedia.org/wiki/Dash">Wiki</a></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unicodedata</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Symbol&#39;</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Code Point&#39;</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Category&#39;</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Name&#39;</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="s1">&#39;-—–&#39;</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">point</span><span class="p">))</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">format</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">point</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;04x&#39;</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unicodedata</span><span class="o">.</span><span class="n">category</span><span class="p">(</span><span class="n">point</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">unicodedata</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">point</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Symbol     Code Point Category   Name      
+-          002d       Pd         HYPHEN-MINUS
+—          2014       Pd         EM DASH
+–          2013       Pd         EN DASH
+</pre></div>
+</div>
+<p>You can produce a symbol given its code point.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u002D</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u2014</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u2013</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-
+—
+–
+</pre></div>
+</div>
+<p>And you can produce a symbol’s code point given the symbol literal.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;–&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;—&#39;</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mh">0x2d</span>
+<span class="mh">0x2013</span>
+<span class="mh">0x2014</span>
+</pre></div>
+</div>
+<p>On macOS, you can produce each symbol literal in the following way.</p>
+<ul class="simple">
+<li><p>Hyphen-minus: there is a dedicated key on the keyboard for this symbol</p></li>
+<li><p>Em Dash: Option + Hyphen-minus + Shift</p></li>
+<li><p>En Dash: Option + Hyphen-minus</p></li>
+</ul>
+</section>
+</section>
+<section id="id1">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">GitHub</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="including-a-large-file-in-one-s-github-repo-with-git-lfs">
+<h4><a class="toc-backref" href="#id23" role="doc-backlink">Including a large file in one’s GitHub repo with Git LFS</a><a class="headerlink" href="#including-a-large-file-in-one-s-github-repo-with-git-lfs" title="Link to this heading">#</a></h4>
+<div class="admonition-resources admonition">
+<p class="admonition-title">Resources</p>
+<p><a class="reference external" href="https://git-lfs.github.com">Git LFS</a></p>
+</div>
+<p>Make sure to run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">lfs</span> <span class="n">track</span> <span class="n">large</span><span class="o">.</span><span class="n">csv</span>        <span class="o">&amp;&amp;</span>
+<span class="n">git</span> <span class="n">add</span> <span class="o">.</span><span class="n">gitattributes</span>         <span class="o">&amp;&amp;</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;.gitattributes&quot;</span> <span class="o">&amp;&amp;</span>
+<span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+<p>prior to running</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">large</span><span class="o">.</span><span class="n">csv</span>           <span class="o">&amp;&amp;</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;large.csv&quot;</span>   <span class="o">&amp;&amp;</span>
+<span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+</section>
+<section id="setting-up-github-pages">
+<h4><a class="reference external" href="https://docs.github.com/en/pages">Setting up GitHub Pages</a><a class="headerlink" href="#setting-up-github-pages" title="Link to this heading">#</a></h4>
+</section>
+</section>
+<section id="id2">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Flask</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="starting-a-local-web-server-with-flask">
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">Starting a local web server with Flask</a><a class="headerlink" href="#starting-a-local-web-server-with-flask" title="Link to this heading">#</a></h4>
+<div class="admonition-documentation admonition">
+<p class="admonition-title">Documentation</p>
+<p><a class="reference external" href="https://flask.palletsprojects.com/en/2.1.x/quickstart/">Quickstart</a></p>
+</div>
+<p>In the terminal, navigate to your local project directory and run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">flask</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flask</span> <span class="n">run</span>
+</pre></div>
+</div>
+<p>and then open a new tab in your web browser and navigate to the URL</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">localhost</span><span class="p">:</span><span class="mi">5000</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="javascript">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">JavaScript</a><a class="headerlink" href="#javascript" title="Link to this heading">#</a></h3>
+<section id="avoiding-cors-cross-origin-resource-sharing-problems-with-a-local-server">
+<h4><a class="toc-backref" href="#id28" role="doc-backlink">Avoiding CORS Cross Origin Resource Sharing problems with a local server</a><a class="headerlink" href="#avoiding-cors-cross-origin-resource-sharing-problems-with-a-local-server" title="Link to this heading">#</a></h4>
+</section>
+</section>
+<section id="postgresql-pgadmin">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">PostgreSQL+pgAdmin</a><a class="headerlink" href="#postgresql-pgadmin" title="Link to this heading">#</a></h3>
+<section id="errno-1-operation-not-permitted-users-username-desktop-when-i-attempt-to-access-my-desktop-from-within-pgadmin-and-there-is-a-red-lock-icon-next-to-my-desktop-folder-icon-in-pgadmin">
+<h4><a class="toc-backref" href="#id30" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">[Errno</span> <span class="pre">1]:</span> <span class="pre">Operation</span> <span class="pre">not</span> <span class="pre">permitted:</span> <span class="pre">'/Users/username/Desktop'</span></code> when I attempt to access my Desktop from within pgAdmin and there is a red lock icon next to my Desktop folder icon in pgAdmin</a><a class="headerlink" href="#errno-1-operation-not-permitted-users-username-desktop-when-i-attempt-to-access-my-desktop-from-within-pgadmin-and-there-is-a-red-lock-icon-next-to-my-desktop-folder-icon-in-pgadmin" title="Link to this heading">#</a></h4>
+<p>This problem appears to have a relation to the user permissions including which parts of the filesystem the user is allowed to read from and write to.</p>
+<p>On macOS Monterey, navigate to the following setting and verify the pgAdmin has the correct permissions:</p>
+<ul class="simple">
+<li><p>System Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Accessibility</p></li>
+<li><p>System Preferences &gt; Security &amp; Privacy &gt; Privacy &gt; Files and Folders</p></li>
+</ul>
+</section>
+</section>
+<section id="tensorflow">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">TensorFlow</a><a class="headerlink" href="#tensorflow" title="Link to this heading">#</a></h3>
+<section id="tensorflow-installation">
+<h4><a class="toc-backref" href="#id32" role="doc-backlink">TensorFlow Installation</a><a class="headerlink" href="#tensorflow-installation" title="Link to this heading">#</a></h4>
+<div class="warning admonition">
+<p class="admonition-title">Under Development</p>
+<p>macOS + conda-forge?
+<a class="reference external" href="https://davefriedman01.github.io/LAtoolkit/d/b/19-NeuralNets/setup.html#conda">Local CPU TensorFlow in a Conda environment on macOS</a></p>
+<p>Alternative Avenues</p>
+<ul class="simple">
+<li><p>Anaconda User Guide: <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/tasks/tensorflow/">TensorFlow</a></p></li>
+<li><p>Conda-Forge: <a class="reference external" href="https://conda-forge.org/blog/posts/2021-11-03-tensorflow-gpu/">GPU-enabled TensorFlow builds on conda-forge</a></p></li>
+<li><p>TensorFlow: <a class="reference external" href="https://www.tensorflow.org/install">Install TensorFlow 2</a></p></li>
+<li><p>TensorFlow: <a class="reference external" href="https://medium.com/tensorflow/colab-an-easy-way-to-learn-and-use-tensorflow-d74d1686e309">Colab: An easy way to learn and use TensorFlow</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="windows">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Windows</a><a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<section id="how-to-take-a-screenshot-on-windows">
+<h4><a class="toc-backref" href="#id34" role="doc-backlink">How to take a screenshot on Windows</a><a class="headerlink" href="#how-to-take-a-screenshot-on-windows" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b">Use Snipping Tool to capture screenshots</a></p></li>
+</ul>
+</section>
+<section id="how-to-use-python-on-windows">
+<h4><a class="toc-backref" href="#id35" role="doc-backlink">How to use Python on Windows</a><a class="headerlink" href="#how-to-use-python-on-windows" title="Link to this heading">#</a></h4>
+<div class="warning admonition">
+<p class="admonition-title">Under Development</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/using/windows.html">Using Python on Windows</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/using/windows.html#launcher">Python Launcher for Windows</a></p></li>
+<li><p>“What is the difference between ‘py’ and ‘python’ in the Windows terminal?” <a class="reference external" href="https://stackoverflow.com/questions/50896496/what-is-the-difference-between-py-and-python-in-the-windows-terminal">Stackoverflow</a></p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./c/programming/troubleshooting"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../doc/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Documentation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../systems/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Computer Systems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">Anaconda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aws">AWS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flask">Flask</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-bash-git-for-windows">Git Bash (Git for Windows)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github">GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pgadmin">pgAdmin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-setup-the-postgresql-binary-path-in-pgadmin">How to setup the PostgreSQL binary path in pgAdmin</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgres">Postgres</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operationalerror-psycopg2-operationalerror-could-not-translate-host-name-127-0-0-1-to-address-unknown-server-error"><code class="docutils literal notranslate"><span class="pre">OperationalError:</span> <span class="pre">(psycopg2.OperationalError)</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">translate</span> <span class="pre">host</span> <span class="pre">name</span> <span class="pre">"...@127.0.0.1"</span> <span class="pre">to</span> <span class="pre">address:</span> <span class="pre">unknown</span> <span class="pre">server</span> <span class="pre">error</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scikit-learn">Scikit-Learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlalchemy">SQLAlchemy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-review">To Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condaverificationerror-and-clobbererror-on-windows"><code class="docutils literal notranslate"><span class="pre">CondaVerificationError</span></code> and <code class="docutils literal notranslate"><span class="pre">ClobberError</span></code> on Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-encoding">Character Encoding</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#different-kinds-of-dashes">Different kinds of dashes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">GitHub</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#including-a-large-file-in-one-s-github-repo-with-git-lfs">Including a large file in one’s GitHub repo with Git LFS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-github-pages">Setting up GitHub Pages</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Flask</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-a-local-web-server-with-flask">Starting a local web server with Flask</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript">JavaScript</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-cors-cross-origin-resource-sharing-problems-with-a-local-server">Avoiding CORS Cross Origin Resource Sharing problems with a local server</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql-pgadmin">PostgreSQL+pgAdmin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#errno-1-operation-not-permitted-users-username-desktop-when-i-attempt-to-access-my-desktop-from-within-pgadmin-and-there-is-a-red-lock-icon-next-to-my-desktop-folder-icon-in-pgadmin"><code class="docutils literal notranslate"><span class="pre">[Errno</span> <span class="pre">1]:</span> <span class="pre">Operation</span> <span class="pre">not</span> <span class="pre">permitted:</span> <span class="pre">'/Users/username/Desktop'</span></code> when I attempt to access my Desktop from within pgAdmin and there is a red lock icon next to my Desktop folder icon in pgAdmin</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow">TensorFlow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow-installation">TensorFlow Installation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-take-a-screenshot-on-windows">How to take a screenshot on Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-python-on-windows">How to use Python on Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

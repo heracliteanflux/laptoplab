@@ -1,0 +1,2254 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Elementary Complex Analysis &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/calc/01_calculus/elemcomplexanalysis';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Vector Calculus" href="../02_vector_calculus/intro.html" />
+    <link rel="prev" title="Sequences &amp; Series" href="series.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">The Calculus</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="intro.html">The Calculus</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/index.html">Computery Things</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/index.html">Programming</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/programming/editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/programming/python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/programming/rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Elementary Complex Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-i">What is <span class="math notranslate nohighlight">\(i\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers">Complex Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-real-part-of-a-complex-number">The real part of a complex number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-imaginary-part-of-a-complex-number">The imaginary part of a complex number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-set-of-complex-numbers-mathbb-c">The set of complex numbers <span class="math notranslate nohighlight">\(\mathbb{C}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-complex-numbers">Properties of complex numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additive-commutativity">Additive Commutativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-commutativity">Multiplicative Commutativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additive-associativity">Additive Associativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-associativity">Multiplicative Associativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-of-the-additive-identity-element">Existence of the additive identity element</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-of-the-multiplicative-identity-element">Existence of the multiplicative identity element</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-of-additive-inverse-elements">Existence of additive inverse elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-of-multiplicative-inverse-elements">Existence of multiplicative inverse elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distributivity">Distributivity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-complex-numbers">Operations on complex numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-addition">Complex Addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-multiplication">Complex Multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-subtraction">Complex Subtraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-division">Complex Division</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-conjugate-of-a-complex-number">Complex Conjugate of a complex number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-value-of-a-complex-number">Absolute Value of a complex number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-a-complex-number-and-its-conjugate">Operations on a complex number and its conjugate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-of-z-and-bar-z">Sum of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-of-z-and-bar-z">Difference of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-of-z-and-bar-z">Product of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-complex-conjugate-and-the-absolute-value-of-a-complex-number">Properties of the complex conjugate and the absolute value of a complex number</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity-of-the-complex-conjugate">Additivity of the complex conjugate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicativity-of-the-complex-conjugate">Multiplicativity of the complex conjugate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugate-of-the-conjugate">Conjugate of the conjugate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundedness">Boundedness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-value-of-the-complex-conjugate">Absolute value of the complex conjugate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicativity-of-the-absolute-value">Multiplicativity of the absolute value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-inequality">Triangle Inequality</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-formula">Euler’s Formula</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-i"><span class="math notranslate nohighlight">\(i^i\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unit-circle-in-the-complex-plane">The Unit Circle in the Complex Plane</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polar-representation-of-complex-numbers">Polar Representation of Complex Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-via-complex-operations">Transformations via Complex Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="elementary-complex-analysis">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Elementary Complex Analysis</a><a class="headerlink" href="#elementary-complex-analysis" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<div class="admonition-revised admonition">
+<p class="admonition-title">Revised</p>
+<p>07 May 2023</p>
+</div>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#elementary-complex-analysis" id="id1">Elementary Complex Analysis</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-i" id="id2">What is <span class="math notranslate nohighlight">\(i\)</span>?</a></p></li>
+<li><p><a class="reference internal" href="#complex-numbers" id="id3">Complex Numbers</a></p>
+<ul>
+<li><p><a class="reference internal" href="#the-real-part-of-a-complex-number" id="id4">The real part of a complex number</a></p></li>
+<li><p><a class="reference internal" href="#the-imaginary-part-of-a-complex-number" id="id5">The imaginary part of a complex number</a></p></li>
+<li><p><a class="reference internal" href="#the-set-of-complex-numbers-mathbb-c" id="id6">The set of complex numbers <span class="math notranslate nohighlight">\(\mathbb{C}\)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#properties-of-complex-numbers" id="id7">Properties of complex numbers</a></p>
+<ul>
+<li><p><a class="reference internal" href="#additive-commutativity" id="id8">Additive Commutativity</a></p></li>
+<li><p><a class="reference internal" href="#multiplicative-commutativity" id="id9">Multiplicative Commutativity</a></p></li>
+<li><p><a class="reference internal" href="#additive-associativity" id="id10">Additive Associativity</a></p></li>
+<li><p><a class="reference internal" href="#multiplicative-associativity" id="id11">Multiplicative Associativity</a></p></li>
+<li><p><a class="reference internal" href="#existence-of-the-additive-identity-element" id="id12">Existence of the additive identity element</a></p></li>
+<li><p><a class="reference internal" href="#existence-of-the-multiplicative-identity-element" id="id13">Existence of the multiplicative identity element</a></p></li>
+<li><p><a class="reference internal" href="#existence-of-additive-inverse-elements" id="id14">Existence of additive inverse elements</a></p></li>
+<li><p><a class="reference internal" href="#existence-of-multiplicative-inverse-elements" id="id15">Existence of multiplicative inverse elements</a></p></li>
+<li><p><a class="reference internal" href="#distributivity" id="id16">Distributivity</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#operations-on-complex-numbers" id="id17">Operations on complex numbers</a></p>
+<ul>
+<li><p><a class="reference internal" href="#complex-addition" id="id18">Complex Addition</a></p></li>
+<li><p><a class="reference internal" href="#complex-multiplication" id="id19">Complex Multiplication</a></p></li>
+<li><p><a class="reference internal" href="#complex-subtraction" id="id20">Complex Subtraction</a></p></li>
+<li><p><a class="reference internal" href="#complex-division" id="id21">Complex Division</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#complex-conjugate-of-a-complex-number" id="id22">Complex Conjugate of a complex number</a></p></li>
+<li><p><a class="reference internal" href="#absolute-value-of-a-complex-number" id="id23">Absolute Value of a complex number</a></p></li>
+<li><p><a class="reference internal" href="#operations-on-a-complex-number-and-its-conjugate" id="id24">Operations on a complex number and its conjugate</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sum-of-z-and-bar-z" id="id25">Sum of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a></p></li>
+<li><p><a class="reference internal" href="#difference-of-z-and-bar-z" id="id26">Difference of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a></p></li>
+<li><p><a class="reference internal" href="#product-of-z-and-bar-z" id="id27">Product of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#properties-of-the-complex-conjugate-and-the-absolute-value-of-a-complex-number" id="id28">Properties of the complex conjugate and the absolute value of a complex number</a></p>
+<ul>
+<li><p><a class="reference internal" href="#additivity-of-the-complex-conjugate" id="id29">Additivity of the complex conjugate</a></p></li>
+<li><p><a class="reference internal" href="#multiplicativity-of-the-complex-conjugate" id="id30">Multiplicativity of the complex conjugate</a></p></li>
+<li><p><a class="reference internal" href="#conjugate-of-the-conjugate" id="id31">Conjugate of the conjugate</a></p></li>
+<li><p><a class="reference internal" href="#boundedness" id="id32">Boundedness</a></p></li>
+<li><p><a class="reference internal" href="#absolute-value-of-the-complex-conjugate" id="id33">Absolute value of the complex conjugate</a></p></li>
+<li><p><a class="reference internal" href="#multiplicativity-of-the-absolute-value" id="id34">Multiplicativity of the absolute value</a></p></li>
+<li><p><a class="reference internal" href="#triangle-inequality" id="id35">Triangle Inequality</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#euler-s-formula" id="id36">Euler’s Formula</a></p>
+<ul>
+<li><p><a class="reference internal" href="#i-i" id="id37"><span class="math notranslate nohighlight">\(i^i\)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#the-unit-circle-in-the-complex-plane" id="id38">The Unit Circle in the Complex Plane</a></p></li>
+<li><p><a class="reference internal" href="#polar-representation-of-complex-numbers" id="id39">Polar Representation of Complex Numbers</a></p></li>
+<li><p><a class="reference internal" href="#transformations-via-complex-operations" id="id40">Transformations via Complex Operations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rotation" id="id41">Rotation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#resources" id="id42">Resources</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id43">Terms</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>             <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>        <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span>   <span class="nn">matplotlib</span>        <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span>   <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">LinearLocator</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span>  <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">);</span>
+<span class="c1">#mpl.projections.get_projection_names()</span>
+<span class="c1">#plt.style.available</span>
+
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span>   <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+
+<span class="kn">import</span>  <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">cmath</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+
+<span class="kn">from</span>   <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="k">as</span> <span class="n">d</span>
+<span class="kn">import</span> <span class="nn">locale</span>                   <span class="k">as</span> <span class="nn">l</span>
+<span class="kn">import</span> <span class="nn">platform</span>                 <span class="k">as</span> <span class="nn">p</span>
+<span class="kn">import</span> <span class="nn">sys</span>                      <span class="k">as</span> <span class="nn">s</span>
+
+<span class="n">pad</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Executed&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Platform&#39;</span><span class="w">   </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">mac_ver</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> | &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">system</span><span class="p">()</span><span class="si">}</span><span class="s2"> | &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">release</span><span class="p">()</span><span class="si">}</span><span class="s2"> | &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">machine</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="w">           </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">l</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Python&#39;</span><span class="w">     </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="w">           </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">version_info</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="w">           </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">python_implementation</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Matplotlib&#39;</span><span class="w"> </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">mpl</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;NumPy&#39;</span><span class="w">      </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">np</span><span class="w"> </span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;SciPy&#39;</span><span class="w">      </span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s2">: </span><span class="si">{</span><span class="n">scipy</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EXECUTED            : 2024-05-21 15:55:12.663056
+
+Platform            : 14.4.1 | Darwin | 23.4.0 | arm64
+                    : UTF-8
+
+Python              : 3.11.9 | packaged by conda-forge | (main, Apr 19 2024, 18:34:54) [Clang 16.0.6 ]
+                    : sys.version_info(major=3, minor=11, micro=9, releaselevel=&#39;final&#39;, serial=0)
+                    : CPython
+
+Matplotlib          : 3.8.4
+NumPy               : 1.26.4
+SciPy               : 1.10.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">translate</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">z0</span><span class="o">=</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">z0</span><span class="o">+</span><span class="n">z</span>
+<span class="k">def</span> <span class="nf">scale</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">r</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">z</span>
+<span class="k">def</span> <span class="nf">rotate90</span> <span class="p">(</span><span class="n">z</span><span class="p">):</span>
+  <span class="s2">&quot;Multiply z by i to rotate by 90 degrees.&quot;</span>
+  <span class="k">return</span> <span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span><span class="n">z</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">rotate180</span> <span class="p">(</span><span class="n">z</span><span class="p">):</span>
+  <span class="s2">&quot;Multiply z by -1=i^2 to rotate by 180 degrees.&quot;</span>
+  <span class="k">return</span> <span class="o">-</span><span class="n">z</span>
+<span class="k">def</span> <span class="nf">rotate270</span> <span class="p">(</span><span class="n">z</span><span class="p">):</span>
+  <span class="s2">&quot;Multiply z by -i=i^3 to rotate by 270 degrees.&quot;</span>
+  <span class="k">return</span> <span class="nb">complex</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span><span class="o">-</span><span class="n">z</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">rotate</span> <span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">tau</span><span class="p">):</span>
+  <span class="s2">&quot;Rotate z by tau radians.&quot;</span>
+  <span class="k">return</span> <span class="n">z</span><span class="o">*</span><span class="n">cmath</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="n">tau</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">uC</span> <span class="p">(</span><span class="n">z</span><span class="p">):</span>
+  <span class="s2">&quot;Project a complex number onto the unit circle.&quot;</span>
+  <span class="k">return</span> <span class="n">cmath</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">cmath</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">z</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">pC</span> <span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">xl</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span><span class="n">yl</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">,</span><span class="n">v</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">):</span>
+  <span class="s2">&quot;Plot a set of complex numbers in the complex plane.&quot;</span>
+  <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">);</span>
+  <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">();</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">c</span><span class="o">.</span><span class="n">real</span><span class="p">,</span><span class="n">c</span><span class="o">.</span><span class="n">imag</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">]:</span>
+      <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+      <span class="k">if</span> <span class="n">v</span><span class="o">==</span><span class="s1">&#39;y&#39;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.001</span><span class="p">);</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">));</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span><span class="n">yl</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span><span class="n">yl</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span><span class="n">yl</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="si">}</span><span class="s1">i&#39;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span><span class="n">yl</span><span class="o">+</span><span class="mi">1</span><span class="p">)]);</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span><span class="n">yl</span><span class="p">);</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">xl</span><span class="p">,</span><span class="n">yl</span><span class="p">);</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Re&#39;</span><span class="p">);</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Im&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="what-is-i">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">What is <span class="math notranslate nohighlight">\(i\)</span>?</a><a class="headerlink" href="#what-is-i" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+i\overset{\text{def}}=\sqrt{-1}
+}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+i^0&amp;=1\\
+i^1&amp;=\sqrt{-1}\\
+i^2&amp;=(\sqrt{-1})^2=-1\\
+i^3&amp;=ii^2=(i)(-1)=-i\\
+i^4&amp;=i^2i^2=(-1)(-1)=1=i^0\\
+i^5&amp;=ii^4=(i)(1)=i=i^1\\
+i^6&amp;=i^2i^4=(-1)(1)=-1=i^2\\
+i^7&amp;=ii^2i^4=(i)(-1)(1)=-i=i^3\\
+i^8&amp;=i^4i^4=(1)(1)=1=i^0\\
+&amp;...\\
+i^{4n}&amp;=1\\
+i^{4n+1}&amp;=i\\
+i^{4n+2}&amp;=-1\\
+i^{4n+3}&amp;=-i\\
+\end{aligned}
+\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(n={0,1,2,3,...}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">powers_of_i</span> <span class="p">(</span><span class="n">ns</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ns</span><span class="p">):</span>
+    <span class="k">yield</span> <span class="sa">f</span><span class="s2">&quot;i^</span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s2">&gt;02</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="mi">1</span><span class="n">j</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="n">powers_of_i</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;i^00 = (1+0j)&#39;,
+ &#39;i^01 = 1j&#39;,
+ &#39;i^02 = (-1+0j)&#39;,
+ &#39;i^03 = (-0-1j)&#39;,
+ &#39;i^04 = (1+0j)&#39;,
+ &#39;i^05 = 1j&#39;,
+ &#39;i^06 = (-1+0j)&#39;,
+ &#39;i^07 = (-0-1j)&#39;,
+ &#39;i^08 = (1+0j)&#39;,
+ &#39;i^09 = 1j&#39;,
+ &#39;i^10 = (-1+0j)&#39;,
+ &#39;i^11 = (-0-1j)&#39;,
+ &#39;i^12 = (1+0j)&#39;,
+ &#39;i^13 = 1j&#39;,
+ &#39;i^14 = (-1+0j)&#39;,
+ &#39;i^15 = (-0-1j)&#39;,
+ &#39;i^16 = (1+0j)&#39;,
+ &#39;i^17 = 1j&#39;,
+ &#39;i^18 = (-1+0j)&#39;,
+ &#39;i^19 = (-0-1j)&#39;,
+ &#39;i^20 = (1+0j)&#39;,
+ &#39;i^21 = 1j&#39;,
+ &#39;i^22 = (-1+0j)&#39;,
+ &#39;i^23 = (-0-1j)&#39;,
+ &#39;i^24 = (1+0j)&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="complex-numbers">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Complex Numbers</a><a class="headerlink" href="#complex-numbers" title="Link to this heading">#</a></h2>
+<p>A complex number is an ordered pair <span class="math notranslate nohighlight">\((a,b)\)</span> where <span class="math notranslate nohighlight">\(a,b\in\mathbb{R}\)</span>.</p>
+<p>A complex number may take the form</p>
+<p><span class="math notranslate nohighlight">\(z=a+bi\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span>
+<span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3+2j)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>complex
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-real-part-of-a-complex-number">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">The real part of a complex number</a><a class="headerlink" href="#the-real-part-of-a-complex-number" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(z=a+bi\)</span> where <span class="math notranslate nohighlight">\(a,b\in\mathbb{R}\)</span> be a complex number.</p>
+<p>The real part of <span class="math notranslate nohighlight">\(z\)</span> is</p>
+<p><span class="math notranslate nohighlight">\(\text{Re}(z)=a=a+0i\)</span> where <span class="math notranslate nohighlight">\(a,0\in\mathbb{R}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">real</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-imaginary-part-of-a-complex-number">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">The imaginary part of a complex number</a><a class="headerlink" href="#the-imaginary-part-of-a-complex-number" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(z=a+bi\)</span> where <span class="math notranslate nohighlight">\(a,b\in\mathbb{R}\)</span> be a complex number.</p>
+<p>The imaginary part of <span class="math notranslate nohighlight">\(z\)</span> is</p>
+<p><span class="math notranslate nohighlight">\(\text{Im}(z)=bi=0+bi\)</span> where <span class="math notranslate nohighlight">\(b,0\in\mathbb{R}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">imag</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2j
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+z=\text{Re}(z)+\text{Im}(z)
+\)</span></p>
+</section>
+<section id="the-set-of-complex-numbers-mathbb-c">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">The set of complex numbers <span class="math notranslate nohighlight">\(\mathbb{C}\)</span></a><a class="headerlink" href="#the-set-of-complex-numbers-mathbb-c" title="Link to this heading">#</a></h3>
+<p>The set of complex numbers</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\mathbb{C}=\{a+bi\mid a,b\in\mathbb{R}\}
+\end{aligned}
+\)</span></p>
+<hr class="docutils" />
+<p>x is imaginary</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^2&amp;=-1
+\implies
+x=i
+\\
+x^2&amp;=-9
+\implies
+x=3i
+\\
+x^2&amp;=-b
+\implies
+x=i\sqrt{b}
+\end{aligned}
+\)</span></p>
+<p>x is complex</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(x-1)^2&amp;=-9
+\implies
+x-1=3i
+\implies
+x=3i+1
+\end{aligned}
+\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="properties-of-complex-numbers">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Properties of complex numbers</a><a class="headerlink" href="#properties-of-complex-numbers" title="Link to this heading">#</a></h2>
+<section id="additive-commutativity">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Additive Commutativity</a><a class="headerlink" href="#additive-commutativity" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\alpha+\beta=\beta+\alpha
+\,\,\,\forall\alpha,\beta\in\mathbb{C}
+\)</span></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>         <span class="n">b</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">==</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8+6j)
+(8+6j)
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiplicative-commutativity">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Multiplicative Commutativity</a><a class="headerlink" href="#multiplicative-commutativity" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\alpha\beta=\beta\alpha
+\,\,\,\forall\alpha,\beta\in\mathbb{C}
+\)</span></p>
+<p>PROOF</p>
+<p>Let <span class="math notranslate nohighlight">\(\alpha = a + bi\)</span> and <span class="math notranslate nohighlight">\(\beta = c + di\)</span> where <span class="math notranslate nohighlight">\(a, b, c, d \in \mathbb{R}\)</span>.<br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\alpha\beta &amp;= (a + bi)(c + di) \\
+&amp;= ac + adi + bci + bdi^2 \\
+&amp;= (c + di)a + (c + di)bi \\
+&amp;= (c + di)(a + bi) \\
+&amp;= \beta\alpha \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>         <span class="n">b</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">==</span> <span class="n">b</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7+22j)
+(7+22j)
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="additive-associativity">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Additive Associativity</a><a class="headerlink" href="#additive-associativity" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+(\alpha+\beta)+\lambda=\alpha+(\beta+\lambda)
+\,\,\,\forall\alpha,\beta,\lambda\in\mathbb{C}
+\)</span></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">6</span><span class="n">j</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>                    <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>                    <span class="n">b</span> <span class="o">+</span> <span class="n">l</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">l</span>               <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>               <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">l</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">l</span> <span class="o">==</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">l</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8+6j)
+(12+10j)
+(15+12j)
+(15+12j)
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multiplicative-associativity">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Multiplicative Associativity</a><a class="headerlink" href="#multiplicative-associativity" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+(\alpha\beta)\lambda=\alpha(\beta\lambda)
+\,\,\,\forall\alpha,\beta,\lambda\in\mathbb{C}
+\)</span></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">6</span><span class="n">j</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>                    <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>                    <span class="n">b</span> <span class="o">*</span> <span class="n">l</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">l</span>               <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>               <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">l</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">l</span> <span class="o">==</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">l</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7+22j)
+(11+58j)
+(-83+196j)
+(-83+196j)
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="existence-of-the-additive-identity-element">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Existence of the additive identity element</a><a class="headerlink" href="#existence-of-the-additive-identity-element" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\lambda+0=\lambda
+\,\,\,\forall\lambda\in\mathbb{C},0\in\mathbb{R}
+\)</span></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span>         <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>     <span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3+2j)
+(3+2j)
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="existence-of-the-multiplicative-identity-element">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Existence of the multiplicative identity element</a><a class="headerlink" href="#existence-of-the-multiplicative-identity-element" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\lambda1=\lambda
+\,\,\,\forall\lambda\in\mathbb{C},1\in\mathbb{R}
+\)</span></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span>         <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>     <span class="n">l</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span> <span class="o">==</span> <span class="n">l</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3+2j)
+(3+2j)
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="existence-of-additive-inverse-elements">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Existence of additive inverse elements</a><a class="headerlink" href="#existence-of-additive-inverse-elements" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall \alpha \in \mathbb{C}\)</span>, <span class="math notranslate nohighlight">\(\exists \beta \in \mathbb{C}\)</span> s.t. <span class="math notranslate nohighlight">\(\alpha + \beta = 0\)</span><br>
+The additive inverse of an element <span class="math notranslate nohighlight">\(\alpha\)</span> is denoted <span class="math notranslate nohighlight">\(-\alpha\)</span>.<br></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<section id="existence-of-multiplicative-inverse-elements">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Existence of multiplicative inverse elements</a><a class="headerlink" href="#existence-of-multiplicative-inverse-elements" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\forall \alpha \in \mathbb{C}\)</span> with <span class="math notranslate nohighlight">\(\alpha \neq 0\)</span>, <span class="math notranslate nohighlight">\(\exists \beta \in \mathbb{C}\)</span> s.t. <span class="math notranslate nohighlight">\(\alpha\beta = 1\)</span><br>
+The multiplicative inverse of an element <span class="math notranslate nohighlight">\(\alpha \neq 0\)</span> is denoted <span class="math notranslate nohighlight">\(\alpha^{-1}\)</span>.<br></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<section id="distributivity">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Distributivity</a><a class="headerlink" href="#distributivity" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\lambda(\alpha + \beta) = \lambda\alpha + \lambda\beta\)</span><br>
+<span class="math notranslate nohighlight">\(\forall \lambda, \alpha, \beta \in \mathbb{C}\)</span><br></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="operations-on-complex-numbers">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Operations on complex numbers</a><a class="headerlink" href="#operations-on-complex-numbers" title="Link to this heading">#</a></h2>
+<section id="complex-addition">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Complex Addition</a><a class="headerlink" href="#complex-addition" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+(a+bi)+(c+di)=(a+c)+(b+d)i\,\,\,\text{where}\,a,b,c,d\in\mathbb{R}
+\)</span></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp;(a+bi)+(c+di)\\
+&amp;=a+bi+c+di\\
+&amp;=a+c+bi+di\\
+&amp;=(a+c)+(bi+di)\\
+&amp;=(a+c)+(b+d)i\\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">c</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">d</span><span class="o">=</span><span class="mi">4</span>
+
+<span class="n">display</span><span class="p">(</span>
+  <span class="nb">complex</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="nb">complex</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">),</span>
+  <span class="nb">complex</span><span class="p">((</span><span class="n">a</span><span class="o">+</span><span class="n">c</span><span class="p">),</span> <span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">d</span><span class="p">)),</span>
+  <span class="nb">complex</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="nb">complex</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="nb">complex</span><span class="p">((</span><span class="n">a</span><span class="o">+</span><span class="n">c</span><span class="p">),</span> <span class="p">(</span><span class="n">b</span><span class="o">+</span><span class="n">d</span><span class="p">)),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4+6j)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4+6j)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="complex-multiplication">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Complex Multiplication</a><a class="headerlink" href="#complex-multiplication" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+(a+bi)(c+di)=(ac-bd)+(ad+bc)i\,\,\,\text{where}\,a,b,c,d\in\mathbb{R}
+\)</span></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp;(a+bi)(c+di)\\
+&amp;=ac+adi+bci+bdi^2\\
+&amp;=ac+bdi^2+adi+bci\\
+&amp;=ac-bd+adi+bci\\
+&amp;=(ac-bd)+(adi+bci)\\
+&amp;=(ac-bd)+(ad+bc)i\\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="n">j</span>
+<span class="n">c</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="n">j</span>
+
+<span class="n">display</span><span class="p">(</span>
+  <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">d</span><span class="p">),</span>
+  <span class="nb">complex</span><span class="p">((</span><span class="n">a</span><span class="o">*</span><span class="n">c</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">imag</span><span class="o">*</span><span class="n">d</span><span class="o">.</span><span class="n">imag</span><span class="p">),(</span><span class="n">a</span><span class="o">*</span><span class="n">d</span><span class="o">.</span><span class="n">imag</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">imag</span><span class="o">*</span><span class="n">c</span><span class="p">)),</span>
+  <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="nb">complex</span><span class="p">((</span><span class="n">a</span><span class="o">*</span><span class="n">c</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">imag</span><span class="o">*</span><span class="n">d</span><span class="o">.</span><span class="n">imag</span><span class="p">),(</span><span class="n">a</span><span class="o">*</span><span class="n">d</span><span class="o">.</span><span class="n">imag</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">imag</span><span class="o">*</span><span class="n">c</span><span class="p">)),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-5+10j)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-5+10j)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="complex-subtraction">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Complex Subtraction</a><a class="headerlink" href="#complex-subtraction" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\beta-\alpha\equiv\beta+(-\alpha)
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">c</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">d</span><span class="o">=</span><span class="mi">4</span>
+
+<span class="n">display</span><span class="p">(</span>
+  <span class="nb">complex</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span>  <span class="nb">complex</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">),</span>
+  <span class="nb">complex</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="o">-</span><span class="nb">complex</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">),</span>
+  <span class="nb">complex</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span>  <span class="nb">complex</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="nb">complex</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="o">-</span><span class="nb">complex</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2-2j)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2-2j)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="complex-division">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Complex Division</a><a class="headerlink" href="#complex-division" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{\beta}{\alpha}\equiv\beta\alpha^{-1}
+\end{aligned}
+\)</span></p>
+<hr class="docutils" />
+<p>Complex arithmetic obeys the same predence rules as real arithmetic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="o">*</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1+6j)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3+6j)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="n">j</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-36+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="n">j</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-144+0j)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="complex-conjugate-of-a-complex-number">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Complex Conjugate of a complex number</a><a class="headerlink" href="#complex-conjugate-of-a-complex-number" title="Link to this heading">#</a></h2>
+<p><span style="color: blue"><strong>DEFINITION</strong></span><br>
+Let <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>.<br>
+The complex conjugate of <span class="math notranslate nohighlight">\(z\)</span> is <span class="math notranslate nohighlight">\(\bar{z} \overset{\text{def}}= \,(\text{Re}\, z) - \,(\text{Im}\, z) i\)</span>.<br>
+If <span class="math notranslate nohighlight">\(z = a + bi\)</span>, then <span class="math notranslate nohighlight">\(\bar{z} = a - bi\)</span>.<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1-2j)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="absolute-value-of-a-complex-number">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Absolute Value of a complex number</a><a class="headerlink" href="#absolute-value-of-a-complex-number" title="Link to this heading">#</a></h2>
+<p><span style="color: blue"><strong>DEFINITION</strong></span><br>
+Let <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>.<br>
+The absolute value of <span class="math notranslate nohighlight">\(z\)</span> is <span class="math notranslate nohighlight">\(|z| \overset{\text{def}}= \sqrt{\,(\text{Re}\, z)^2 + \,(\text{Im}\, z)^2}\)</span>.<br>
+If <span class="math notranslate nohighlight">\(z = a + bi\)</span>, then <span class="math notranslate nohighlight">\(|z| = \sqrt{a^2 + b^2}\)</span>.<br></p>
+<p><strong>Claim</strong></p>
+<p><span class="math notranslate nohighlight">\(\forall z \in \mathbb{C}, |z| \ge 0\)</span>. (The absolute value of any complex number is nonnegative.)</p>
+<p><strong>Proof</strong></p>
+<p>This follows from the fact that the sum of squares of a collection of real numbers is nonnegative.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><strong>Claim</strong></p>
+<p>If <span class="math notranslate nohighlight">\(z \in \mathbb{R}\)</span>, then <span class="math notranslate nohighlight">\(z = \bar{z}\)</span>. (The complex conjugate of a real number is itself.)</p>
+<p><strong>Proof</strong></p>
+<p><span class="math notranslate nohighlight">\(z = a + 0i = a = a - 0i = \bar{z}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="operations-on-a-complex-number-and-its-conjugate">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Operations on a complex number and its conjugate</a><a class="headerlink" href="#operations-on-a-complex-number-and-its-conjugate" title="Link to this heading">#</a></h2>
+<section id="sum-of-z-and-bar-z">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Sum of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a><a class="headerlink" href="#sum-of-z-and-bar-z" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(z + \bar{z} = 2a\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+z + \bar{z}
+&amp;= (a + bi) + (a - bi) \\
+&amp;= a + bi + a - bi \\
+&amp;= 2a + bi - bi \\
+&amp;= 2a
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+<section id="difference-of-z-and-bar-z">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Difference of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a><a class="headerlink" href="#difference-of-z-and-bar-z" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(z - \bar{z} = 2bi\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+z - \bar{z}
+&amp;= (a + bi) - (a - bi) \\
+&amp;= a + bi - a + bi \\
+&amp;= 2bi + a - a \\
+&amp;= 2bi
+\end{aligned}
+\)</span><br></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+<section id="product-of-z-and-bar-z">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Product of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a><a class="headerlink" href="#product-of-z-and-bar-z" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(z \bar{z} = |z|^2\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+z \bar{z}
+&amp;= (a + bi) (a - bi) \\
+&amp;= a^2 - abi + abi - (bi)^2 \\
+&amp;= a^2 - b^2 i^2 \\
+&amp;= a^2 + b^2 \\
+&amp;= (\sqrt{a^2 + b^2})^2 \\
+&amp;= |z|^2
+\end{aligned}
+\)</span><br></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="properties-of-the-complex-conjugate-and-the-absolute-value-of-a-complex-number">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">Properties of the complex conjugate and the absolute value of a complex number</a><a class="headerlink" href="#properties-of-the-complex-conjugate-and-the-absolute-value-of-a-complex-number" title="Link to this heading">#</a></h2>
+<section id="additivity-of-the-complex-conjugate">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Additivity of the complex conjugate</a><a class="headerlink" href="#additivity-of-the-complex-conjugate" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(w, z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(\overline{w + z} = \bar{w} + \bar{z}\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+w + z
+&amp;= (a + bi) + (c + di) \\
+&amp;= (a + c) + (b + d)i \\
+\overline{w + z}
+&amp;= (a + c) - (b + d)i \\
+&amp;= a + c - bi - di \\
+&amp;= (a - bi) + (c - di) \\
+&amp;= \bar{w} + \bar{z} \\
+\end{aligned}
+\)</span><br></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+<section id="multiplicativity-of-the-complex-conjugate">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Multiplicativity of the complex conjugate</a><a class="headerlink" href="#multiplicativity-of-the-complex-conjugate" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(w, z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(\overline{w z} = \bar{w} \bar{z}\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+w z
+&amp;= (a + bi) (c + di) \\
+&amp;= ac + adi + bci + bdi^2 \\
+&amp;= (ac - bd) + (ad + bc)i \\
+\overline{w z}
+&amp;= (ac - bd) - (ad + bc)i \\
+&amp;= ac - bd - adi - bci \\
+&amp;= ac - adi - bci + bdi^2 \\
+&amp;= (a - bi) (c - di) \\
+&amp;= \bar{w} \bar{z} \\
+\end{aligned}
+\)</span><br></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+<section id="conjugate-of-the-conjugate">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">Conjugate of the conjugate</a><a class="headerlink" href="#conjugate-of-the-conjugate" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(\bar{\bar{z}} = z\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{z}
+&amp;= a - bi \\
+&amp;= (a) + (-b)i \\
+\bar{\bar{z}}
+&amp;= (a) - (-b)i \\
+&amp;= a + bi \\
+&amp;= z \\
+\end{aligned}
+\)</span><br></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+<section id="boundedness">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">Boundedness</a><a class="headerlink" href="#boundedness" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(|a| \le |z|\)</span> and <span class="math notranslate nohighlight">\(|b| \le |z|\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+|a|
+&amp;= \sqrt{a^2} \\
+&amp;\le \sqrt{a^2 + b^2} \\
+&amp;= |z|
+\end{aligned}
+\)</span><br></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+<section id="absolute-value-of-the-complex-conjugate">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Absolute value of the complex conjugate</a><a class="headerlink" href="#absolute-value-of-the-complex-conjugate" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(|\bar{z}| = |z|\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{z}
+&amp;= a - bi \\
+&amp;= (a) + (-b)i \\
+|\bar{z}|
+&amp;= \sqrt{(a)^2 + (-b)^2} \\
+&amp;= \sqrt{a^2 + b^2} \\
+&amp;= |z| \\
+\end{aligned}
+\)</span><br></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+<section id="multiplicativity-of-the-absolute-value">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">Multiplicativity of the absolute value</a><a class="headerlink" href="#multiplicativity-of-the-absolute-value" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(w, z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(|w||z| = |wz|\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+wz
+&amp;= (a + bi) (c + di) \\
+&amp;= ac + adi + bci + bdi^2 \\
+&amp;= (ac - bd) + (ad + bc)i \\
+|wz|
+&amp;= \sqrt{(ac - bd)^2 + (ad + bc)^2} \\
+&amp;= \sqrt{(ac)^2 - 2abcd + (bd)^2 + (ad)^2 + 2abcd + (bc)^2} \\
+&amp;= \sqrt{(ac)^2 + (bd)^2 + (ad)^2 + (bc)^2} \\
+&amp;= \sqrt{(ac)^2 + (ad)^2 + (bd)^2 + (bc)^2} \\
+&amp;= \sqrt{a^2(c^2 + d^2) + b^2(c^2 + d^2)} \\
+&amp;= \sqrt{(a^2 + b^2)(c^2 + d^2)} \\
+&amp;= \sqrt{a^2 + b^2} \sqrt{c^2 + d^2} \\
+&amp;= |w||z| \\
+\end{aligned}
+\)</span><br></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+<section id="triangle-inequality">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Triangle Inequality</a><a class="headerlink" href="#triangle-inequality" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(w, z \in \mathbb{C}\)</span>.<br>
+<span class="math notranslate nohighlight">\(|w + z| \le |w| + |z|\)</span><br></p>
+<p><strong>Proof</strong><br></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+|w + z|^2
+&amp;= (w + z)(\bar{w} + \bar{z}) \\
+&amp;= w \bar{w} + z \bar{z} + w \bar{z} + z \bar{w} \\
+&amp;= |w|^2 + |z|^2 + w \bar{z} + \overline{w \bar{z}} \\
+&amp;= |w|^2 + |z|^2 + w \bar{z} + 2 \,\text{Re}\, (w \bar{z}) \\
+&amp;\le |w|^2 + |z|^2 + w \bar{z} + 2 |w \bar{z}| \\
+&amp;= |w|^2 + |z|^2 + w \bar{z} + 2 |w| |z| \\
+&amp;= (|w| + |z|)^2 \\
+|w + z|
+&amp;\le |w| + |z| \\
+\end{aligned}
+\)</span><br></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span><br></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="euler-s-formula">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">Euler’s Formula</a><a class="headerlink" href="#euler-s-formula" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\begin{aligned}
+e^{i\theta}
+&amp;=\cos\theta+i\sin\theta
+\\
+e^{i\pi}+1
+&amp;=0
+\end{aligned}
+}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+e^x
+&amp;=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\frac{x^4}{4!}+\frac{x^5}{5!}+\frac{x^6}{6!}+\frac{x^7}{7!}+\frac{x^8}{8!}+\frac{x^9}{9!}+...
+&amp;&amp;\text{Taylor series}
+\\
+x&amp;=i\theta
+\\
+e^{i\theta}&amp;=1+(i\theta)+\frac{(i\theta)^2}{2!}+\frac{(i\theta)^3}{3!}+\frac{(i\theta)^4}{4!}+\frac{(i\theta)^5}{5!}+\frac{(i\theta)^6}{6!}+\frac{(i\theta)^7}{7!}+\frac{(i\theta)^8}{8!}+\frac{(i\theta)^9}{9!}+...
+\\
+&amp;=1+i\theta+\frac{(-1)\theta^2}{2!}+\frac{(-i)\theta^3}{3!}+\frac{(1)\theta^4}{4!}+\frac{(i)\theta^5}{5!}+\frac{(-1)\theta^6}{6!}+\frac{(-i)\theta^7}{7!}+\frac{(1)\theta^8}{8!}+\frac{(i)\theta^9}{9!}+...
+\\
+&amp;=1+i\theta-\frac{\theta^2}{2!}-\frac{i\theta^3}{3!}+\frac{\theta^4}{4!}+\frac{i\theta^5}{5!}-\frac{\theta^6}{6!}-\frac{i\theta^7}{7!}+\frac{\theta^8}{8!}+\frac{i\theta^9}{9!}-...
+\\
+&amp;=\left(1-\frac{\theta^2}{2!}+\frac{\theta^4}{4!}-\frac{\theta^6}{6!}+\frac{\theta^8}{8!}-...\right)
++\left(i\theta-\frac{i\theta^3}{3!}+\frac{i\theta^5}{5!}-\frac{i\theta^7}{7!}+\frac{i\theta^9}{9!}-...\right)
+\\
+&amp;=\left(1-\frac{\theta^2}{2!}+\frac{\theta^4}{4!}-\frac{\theta^6}{6!}+\frac{\theta^8}{8!}-...\right)
++i\left(\theta-\frac{\theta^3}{3!}+\frac{\theta^5}{5!}-\frac{\theta^7}{7!}+\frac{\theta^9}{9!}-...\right)
+\\
+&amp;=\cos\theta+i\sin\theta
+\\
+\theta&amp;=\pi
+\\
+e^{i\pi}
+&amp;=\cos\pi+i\sin\pi
+\\
+&amp;=-1+0
+\end{aligned}
+\)</span></p>
+<section id="i-i">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="math notranslate nohighlight">\(i^i\)</span></a><a class="headerlink" href="#i-i" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+i^i=\,\,e^{-\frac{\pi}{2}}
+}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+e^{i\pi}
+&amp;=-1
+\\
+\sqrt{e^{i\pi}}
+&amp;=\sqrt{-1}
+\\
+e^{i\frac{\pi}{2}}
+&amp;=i
+\\
+(e^{i\frac{\pi}{2}})^i
+&amp;=i^i
+\\
+e^{i^2\frac{\pi}{2}}&amp;=
+\\
+e^{-\frac{\pi}{2}}&amp;=
+\end{aligned}
+\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="the-unit-circle-in-the-complex-plane">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">The Unit Circle in the Complex Plane</a><a class="headerlink" href="#the-unit-circle-in-the-complex-plane" title="Link to this heading">#</a></h2>
+<p>Complex exponentials form circles!</p>
+<div class="cell tag_hide-input tag_full-width docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">);</span>
+<span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;rectilinear&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">));</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span> <span class="mi">1</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;$1$&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="s1">&#39;$i$&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;$-1$&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="s1">&#39;$-i$&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Re&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Im&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;-2i&#39;</span><span class="p">,</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;2i&#39;</span><span class="p">]);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$e^{i</span><span class="se">\\</span><span class="s1">theta}$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/3b6eb33fdc252dfaa6aaf596620407cdd61e3880981c0f49a42c7eaca5434cf7.png"><img alt="../../../_images/3b6eb33fdc252dfaa6aaf596620407cdd61e3880981c0f49a42c7eaca5434cf7.png" src="../../../_images/3b6eb33fdc252dfaa6aaf596620407cdd61e3880981c0f49a42c7eaca5434cf7.png" style="width: 600px; height: 600px;" /></a>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+w^0,w^1,...,w^{n-1}
+\,\,\,\text{where}\,\,\,
+w=e^{\frac{2\pi}{n}i}
+\,\,\,\text{and}\,\,\,
+n=N
+\end{aligned}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">8</span>
+<span class="n">unitCircle</span> <span class="o">=</span> <span class="p">{</span><span class="n">math</span><span class="o">.</span><span class="n">e</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">n</span><span class="o">/</span><span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)}</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unitCircle</span><span class="p">):</span>
+  <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span>
+    <span class="sa">fr</span><span class="s1">&#39;w^</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">c</span><span class="o">.</span><span class="n">real</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">c</span><span class="o">.</span><span class="n">imag</span><span class="si">}</span><span class="s1">i&#39;</span>
+  <span class="p">))</span>
+
+<span class="n">pC</span><span class="p">([</span>
+  <span class="n">unitCircle</span><span class="p">,</span>
+<span class="p">],</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle w^0 = 0.7071067811865476 + 0.7071067811865475i\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle w^1 = 1.0 + 0.0i\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle w^2 = -0.7071067811865475 + 0.7071067811865476i\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle w^3 = -0.7071067811865477 + -0.7071067811865475i\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle w^4 = 0.7071067811865474 + -0.7071067811865477i\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle w^5 = -1.0 + 1.2246467991473532e-16i\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle w^6 = 6.123233995736766e-17 + 1.0i\]</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle w^7 = -1.8369701987210297e-16 + -1.0i\]</div>
+<a class="reference internal image-reference" href="../../../_images/35e887a725a2aa74cf13247d7bff6e141c31cc7b68c747add79093b4bce88127.png"><img alt="../../../_images/35e887a725a2aa74cf13247d7bff6e141c31cc7b68c747add79093b4bce88127.png" src="../../../_images/35e887a725a2aa74cf13247d7bff6e141c31cc7b68c747add79093b4bce88127.png" style="width: 600px; height: 600px;" /></a>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="polar-representation-of-complex-numbers">
+<h2><a class="toc-backref" href="#id39" role="doc-backlink">Polar Representation of Complex Numbers</a><a class="headerlink" href="#polar-representation-of-complex-numbers" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\begin{aligned}
+z=re^{\theta i}
+\,\,\,\text{where}\,\,\,
+r=|z|
+\end{aligned}
+}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zs</span><span class="o">=</span><span class="p">{</span>
+  <span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">4</span><span class="o">+</span><span class="mi">5</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">5</span><span class="o">+</span><span class="mi">6</span><span class="n">j</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">pC</span><span class="p">([</span>
+  <span class="n">zs</span><span class="p">,</span>
+  <span class="p">{</span><span class="n">uC</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">zs</span><span class="p">},</span>
+<span class="p">],</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">v</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/29a74aab22047c555777459459377ae6da998c1a7313b9b5712591a981b72613.png"><img alt="../../../_images/29a74aab22047c555777459459377ae6da998c1a7313b9b5712591a981b72613.png" src="../../../_images/29a74aab22047c555777459459377ae6da998c1a7313b9b5712591a981b72613.png" style="width: 600px; height: 600px;" /></a>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="transformations-via-complex-operations">
+<h2><a class="toc-backref" href="#id40" role="doc-backlink">Transformations via Complex Operations</a><a class="headerlink" href="#transformations-via-complex-operations" title="Link to this heading">#</a></h2>
+<section id="rotation">
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">Rotation</a><a class="headerlink" href="#rotation" title="Link to this heading">#</a></h3>
+<p>To rotate a complex number <span class="math notranslate nohighlight">\(z\)</span> where <span class="math notranslate nohighlight">\(\text{arg}\,\,\,z=\theta\)</span> by <span class="math notranslate nohighlight">\(\tau\)</span> radians</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+re^{(\theta+\tau)i}=re^{\theta i}re^{\tau i}=ze^{\tau i}
+\end{aligned}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">=</span><span class="p">{</span>
+  <span class="mi">2</span>   <span class="o">+</span><span class="mf">1.25</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">2</span>   <span class="o">+</span><span class="mf">1.50</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">2</span>   <span class="o">+</span><span class="mf">1.75</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">2</span>   <span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span>
+  <span class="mf">2.25</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span>
+  <span class="mf">2.50</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span>
+  <span class="mf">2.75</span><span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">3</span>   <span class="o">+</span><span class="mi">2</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">2</span>   <span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span>
+  <span class="mf">2.25</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span>
+  <span class="mf">2.5</span> <span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span>
+  <span class="mf">2.75</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">3</span>   <span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">3</span>   <span class="o">+</span><span class="mf">1.25</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">3</span>   <span class="o">+</span><span class="mf">1.50</span><span class="n">j</span><span class="p">,</span>
+  <span class="mi">3</span>   <span class="o">+</span><span class="mf">1.75</span><span class="n">j</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">pC</span><span class="p">([</span>
+  <span class="n">S</span><span class="p">,</span>
+  <span class="p">{</span><span class="n">rotate</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">S</span><span class="p">},</span>
+  <span class="p">{</span><span class="n">rotate</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">S</span><span class="p">},</span>
+  <span class="p">{</span><span class="n">rotate</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">S</span><span class="p">},</span>
+<span class="p">],</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="n">v</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/75e436eaa9fbcba451c353cd9c91a804515f69c0fc1377d6505171233409f9ea.png"><img alt="../../../_images/75e436eaa9fbcba451c353cd9c91a804515f69c0fc1377d6505171233409f9ea.png" src="../../../_images/75e436eaa9fbcba451c353cd9c91a804515f69c0fc1377d6505171233409f9ea.png" style="width: 600px; height: 600px;" /></a>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgRGB</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;gandalf.png&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">();</span>
+<span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">();</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">imgRGB</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">);</span>
+<span class="c1">#ax.axis(&#39;off&#39;);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">imgRGB</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;gandalf.png&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">();</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">();</span>
+
+<span class="nn">File ~/anaconda3/envs/ml/lib/python3.11/site-packages/matplotlib/image.py:1525,</span> in <span class="ni">imread</span><span class="nt">(fname, format)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1518</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">parse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">scheme</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1519</span>     <span class="c1"># Pillow doesn&#39;t handle URLs directly.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1520</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1521</span>         <span class="s2">&quot;Please open the URL for reading and pass the &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1522</span>         <span class="s2">&quot;result to Pillow, e.g. with &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1523</span>         <span class="s2">&quot;``np.array(PIL.Image.open(urllib.request.urlopen(url)))``.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1524</span>         <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1525</span> <span class="k">with</span> <span class="n">img_open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">image</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1526</span>     <span class="k">return</span> <span class="p">(</span><span class="n">_pil_png_to_float_array</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1527</span>             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">PIL</span><span class="o">.</span><span class="n">PngImagePlugin</span><span class="o">.</span><span class="n">PngImageFile</span><span class="p">)</span> <span class="k">else</span>
+<span class="g g-Whitespace">   </span><span class="mi">1528</span>             <span class="n">pil_to_array</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
+
+<span class="nn">File ~/anaconda3/envs/ml/lib/python3.11/site-packages/PIL/ImageFile.py:125,</span> in <span class="ni">ImageFile.__init__</span><span class="nt">(self, fp, filename)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="bp">self</span><span class="o">.</span><span class="n">decodermaxblock</span> <span class="o">=</span> <span class="n">MAXBLOCK</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">if</span> <span class="n">is_path</span><span class="p">(</span><span class="n">fp</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="c1"># filename</span>
+<span class="ne">--&gt; </span><span class="mi">125</span>     <span class="bp">self</span><span class="o">.</span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span>     <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">fp</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_exclusive_fp</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;gandalf.png&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#img=np.flip(np.dot(imgRGB,[0.2989,0.5870,0.1140]),0)</span>
+<span class="n">img</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">imgRGB</span><span class="p">,[</span><span class="mf">0.2989</span><span class="p">,</span><span class="mf">0.5870</span><span class="p">,</span><span class="mf">0.1140</span><span class="p">])</span>
+<span class="n">img</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1200, 952)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">();</span>
+<span class="n">ax</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">();</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">img</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">),</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">);</span>
+<span class="c1">#ax.axis(&#39;off&#39;);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">952</span><span class="p">,</span><span class="mi">952</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span><span class="o">-</span><span class="mi">1200</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/db9d7611cbabdfac05fe6f7325489c3874cfb8d20815bad59e0d081f14c9bf2e.png"><img alt="../../../_images/db9d7611cbabdfac05fe6f7325489c3874cfb8d20815bad59e0d081f14c9bf2e.png" src="../../../_images/db9d7611cbabdfac05fe6f7325489c3874cfb8d20815bad59e0d081f14c9bf2e.png" style="width: 600px; height: 600px;" /></a>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2><a class="toc-backref" href="#id42" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p>[<a class="reference external" href="https://www.youtube.com/watch?v=cy8r7WSuT1I">Y</a>] Sanderson, Grant (3Blue1Brown). (02 Apr 2023). “Why π is in the normal distribution (beyond integral tricks)”. YouTube.</p>
+<ul class="simple">
+<li><p>Zaczyński, Bartosz. “Simplify Complex Numbers with Python”. Real Python. <a class="reference external" href="https://realpython.com/python-complex-numbers/">Page</a>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2><a class="toc-backref" href="#id43" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Complex_analysis">W</a>] Complex Analysis</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Complex_logarithm">W</a>] Complex Logarithm</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Complex_number">W</a>] Complex Number</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Complex_plane">W</a>] Complex Plane</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Euler%27s_formula">W</a>] Euler’s Formula</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Imaginary_unit">W</a>] Imaginary Unit</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Lacunary_value">W</a>] Lacunary Value</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Phasor">W</a>] Phasor</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Root_of_unity">W</a>] Roots of Unity</p></li>
+</ul>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">solve1</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+  <span class="s2">&quot;solves ax + b = c&quot;</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">a</span>
+
+<span class="n">display</span><span class="p">(</span>
+  <span class="n">solve1</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span>
+  <span class="n">solve1</span><span class="p">(</span><span class="mi">10</span><span class="o">+</span><span class="mi">5</span><span class="n">j</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.2-0.6j)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/calc/01_calculus"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="series.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sequences &amp; Series</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../02_vector_calculus/intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Vector Calculus</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-i">What is <span class="math notranslate nohighlight">\(i\)</span>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers">Complex Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-real-part-of-a-complex-number">The real part of a complex number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-imaginary-part-of-a-complex-number">The imaginary part of a complex number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-set-of-complex-numbers-mathbb-c">The set of complex numbers <span class="math notranslate nohighlight">\(\mathbb{C}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-complex-numbers">Properties of complex numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additive-commutativity">Additive Commutativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-commutativity">Multiplicative Commutativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additive-associativity">Additive Associativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-associativity">Multiplicative Associativity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-of-the-additive-identity-element">Existence of the additive identity element</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-of-the-multiplicative-identity-element">Existence of the multiplicative identity element</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-of-additive-inverse-elements">Existence of additive inverse elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#existence-of-multiplicative-inverse-elements">Existence of multiplicative inverse elements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distributivity">Distributivity</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-complex-numbers">Operations on complex numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-addition">Complex Addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-multiplication">Complex Multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-subtraction">Complex Subtraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-division">Complex Division</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-conjugate-of-a-complex-number">Complex Conjugate of a complex number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-value-of-a-complex-number">Absolute Value of a complex number</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-a-complex-number-and-its-conjugate">Operations on a complex number and its conjugate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-of-z-and-bar-z">Sum of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-of-z-and-bar-z">Difference of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-of-z-and-bar-z">Product of <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(\bar{z}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-complex-conjugate-and-the-absolute-value-of-a-complex-number">Properties of the complex conjugate and the absolute value of a complex number</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additivity-of-the-complex-conjugate">Additivity of the complex conjugate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicativity-of-the-complex-conjugate">Multiplicativity of the complex conjugate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugate-of-the-conjugate">Conjugate of the conjugate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundedness">Boundedness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-value-of-the-complex-conjugate">Absolute value of the complex conjugate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicativity-of-the-absolute-value">Multiplicativity of the absolute value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-inequality">Triangle Inequality</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-formula">Euler’s Formula</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-i"><span class="math notranslate nohighlight">\(i^i\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unit-circle-in-the-complex-plane">The Unit Circle in the Complex Plane</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polar-representation-of-complex-numbers">Polar Representation of Complex Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformations-via-complex-operations">Transformations via Complex Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

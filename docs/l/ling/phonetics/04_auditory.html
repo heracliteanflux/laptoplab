@@ -1,0 +1,1445 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Auditory Phonetics &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'l/ling/phonetics/04_auditory';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Speech Perception" href="05_speech_perception.html" />
+    <link rel="prev" title="Speech Processing" href="03_speech_processing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/index.html">Computery Things</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/index.html">Programming</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/programming/editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/programming/python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/programming/rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Languages &amp; Linguistics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Linguistics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">Phonetics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Auditory Phonetics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-formulae">Summary of formulae</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-audition">Basic Audition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceived-loudness">Perceived Loudness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decibel-scale">Decibel Scale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sone-scale">Sone Scale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bark-scale">Bark Scale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="auditory-phonetics">
+<h1>Auditory Phonetics<a class="headerlink" href="#auditory-phonetics" title="Link to this heading">#</a></h1>
+<p>Based on Ch. 4 of Johnson, Keith. (2012). <em>Acoustic and Auditory Phonetics</em>. 3rd Ed. <a class="reference external" href="https://www.wiley.com/en-us/Acoustic+and+Auditory+Phonetics%2C+3rd+Edition-p-9781444343083">Wiley-Blackwell</a>.</p>
+<p>The study of speech sound perception</p>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2>Programming Environment<a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>             <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span>            <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="summary-of-formulae">
+<h2>Summary of formulae<a class="headerlink" href="#summary-of-formulae" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{dB SPL}
+=20\log_{10}\left(\frac{x}{20\,\text{μPa}}\right)
+\end{aligned}
+\)</span>
+where <span class="math notranslate nohighlight">\(x\gt0\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\text{sone}=2^{\frac{\text{dB}-40}{10}}
+\)</span>
+where <span class="math notranslate nohighlight">\(\text{dB}\ge40\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{bark}=6\sinh^{-1}\left(\frac{f}{600}\right)
+\end{aligned}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dBSPL</span> <span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+  <span class="k">assert</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;x &gt; 0&#39;</span>
+  <span class="n">dB</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">dB</span>
+
+<span class="k">def</span> <span class="nf">sone</span> <span class="p">(</span><span class="n">dB</span> <span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+  <span class="k">assert</span> <span class="n">dB</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;dB &gt;= 40&#39;</span>
+  <span class="n">sone</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">((</span><span class="n">dB</span><span class="o">-</span><span class="mi">40</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">sone</span>
+
+<span class="k">def</span> <span class="nf">bark</span> <span class="p">(</span><span class="n">freq</span> <span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+  <span class="n">bark</span> <span class="o">=</span> <span class="mi">6</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arcsinh</span><span class="p">(</span><span class="n">freq</span><span class="o">/</span><span class="mi">600</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">bark</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="basic-audition">
+<h2>Basic Audition<a class="headerlink" href="#basic-audition" title="Link to this heading">#</a></h2>
+<p>Human auditory system, low-fidelity</p>
+<ul class="simple">
+<li><p>amplitude is compressed</p></li>
+<li><p>frequency is warped</p></li>
+<li><p>adjacent sounds may blend into one another</p></li>
+</ul>
+<p>listeners perceive auditory objects (mental), not acoustic objects (physical)</p>
+<p>Peripheral Auditory System</p>
+<ul class="simple">
+<li><p>the part of the auditory system that is not in the brain</p></li>
+<li><p>translates acoustic signals into neural signals</p></li>
+<li><p>performs amplitude compression and a kind of Fourier analysis of the signal</p></li>
+</ul>
+<p>anatomy of the PAS</p>
+<ul class="simple">
+<li><p>ear, outer</p>
+<ul>
+<li><p>ear canal</p></li>
+<li><p>ear drum</p></li>
+</ul>
+</li>
+<li><p>ear, middle</p>
+<ul>
+<li><p>incus</p></li>
+<li><p>malleus</p></li>
+<li><p>stapes</p></li>
+</ul>
+</li>
+<li><p>ear, inner</p>
+<ul>
+<li><p>auditory nerve</p></li>
+<li><p>basilar membrane</p></li>
+<li><p>cochlea</p></li>
+</ul>
+</li>
+</ul>
+<p>the basilar membrane is thinner at the beginning and thicker at the end</p>
+<p>the thin end responds to high-frequency components in the acoustic signal</p>
+<p>the thick end responds to low-frequency components in the acoustic signal</p>
+</section>
+<hr class="docutils" />
+<section id="perceived-loudness">
+<h2>Perceived Loudness<a class="headerlink" href="#perceived-loudness" title="Link to this heading">#</a></h2>
+<p>the most physically violent sounds are on the order of 10^7 (ten million) times more violent than the least violent sounds</p>
+<p>the loudest sounds are on the order of 10^3 (one thousand) times louder than the quietist sounds</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Typical Experience</p></th>
+<th class="head"><p>Absolute Air Pressure Fluctuations [μPa]</p></th>
+<th class="head"><p>Acoustic Intensity [dB SPL]</p></th>
+<th class="head"><p>Perceived Loudness [sones]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>absolute threshold</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\times10\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0.0\times10^2\)</span></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>faint whisper</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\times10^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0.2\times10^2\)</span></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>quiet office</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\times10^3\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0.4\times10^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2^0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>conversation</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\times10^4\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0.6\times10^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2^2\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>city bus</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\times10^5\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0.8\times10^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2^4\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>subway train</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\times10^6\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1.0\times10^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2^6\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>loud thunder</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\times10^7\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1.2\times10^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2^8\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>pain and damage</p></td>
+<td><p><span class="math notranslate nohighlight">\(2\times10^8\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1.4\times10^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2^{10}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>RANGE</p></td>
+<td><p><span class="math notranslate nohighlight">\(10^7\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\sim10^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(2^{10}\approx10^3\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>TIMES GREATER PER STEP</p></td>
+<td><p><span class="math notranslate nohighlight">\(10\)</span></p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(2^2\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="decibel-scale">
+<h2>Decibel Scale<a class="headerlink" href="#decibel-scale" title="Link to this heading">#</a></h2>
+<p>Expressing the amplitude of a sound wave</p>
+<ul class="simple">
+<li><p>acoustic energy as pressure</p></li>
+<li><p>electrical energy as voltage</p></li>
+</ul>
+<p>The decibel scale is a way of expressing sound amplitude that is better correlated with perceived loudness.</p>
+<p>The decibel scale provides an approximation to the nonlinearity of human loudness sensation.</p>
+<p>The relative loudness of a sound is measured in terms of acoustic/sound intensity.</p>
+<p>Acoustic/sound intensity is proportional to the square of the amplitude on a logarithmic scale.</p>
+<p>Acoustic intensity is the amount of acoustic power exerted by the sound wave’s pressure fluctuation per unit of area <span class="math notranslate nohighlight">\([\text{W cm}^{-2}]\)</span></p>
+<hr class="docutils" />
+<p>Consider a sound with average pressure amplitude <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>The intensity of <span class="math notranslate nohighlight">\(x\)</span> relative to a reference sound with pressure amplitude <span class="math notranslate nohighlight">\(r\)</span> is the power ratio</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{x^2}{r^2}
+=\left(\frac{x}{r}\right)^2
+\end{aligned}
+\)</span></p>
+<p>A bel is the base 10 logarithm of this power ratio.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{B}=\log_{10}\left(\frac{x}{r}\right)^2
+\end{aligned}
+\)</span>
+where
+<span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{x}{r}\gt0
+\end{aligned}
+\)</span></p>
+<p>The unit of loudness, the bel, is larger than desired.</p>
+<p>A decibel is one-tenth of a bel.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{dB}
+=10\log_{10}\left(\frac{x}{r}\right)^2
+=20\log_{10}\left(\frac{x}{r}\right)
+\end{aligned}
+\)</span>
+where
+<span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{x}{r}\gt0
+\end{aligned}
+\)</span></p>
+<p>There are two common choices for the reference level <span class="math notranslate nohighlight">\(r\)</span> used in dB measurements.</p>
+<p>1</p>
+<p>20 μPa is the typical absolute threshold (i.e., lowest audible pressure fluctuation) of a 1 kHz tone.</p>
+<p>When this reference value is used the units are dB SPL (sound pressure level).</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{dB SPL}
+=20\log_{10}\left(\frac{x}{20\,\text{μPa}}\right)
+\end{aligned}
+\)</span>
+where <span class="math notranslate nohighlight">\(x\gt0\)</span></p>
+<p>2</p>
+<p>Rather than use the absolute threshold for a 1 kHz tone as the reference for all frequencies, the loudness of a tone is measured relative to the typical absolute threshold level for a tone at that frequency.</p>
+<p>When this approach is employed the units are dB SL (sensation level).</p>
+<p>In speech analysis programs amplitude may be expressed in dB relative to</p>
+<ul class="simple">
+<li><p>the largest value that can be taken by a sample in the digital speech waveform, in which case the amplitude values are negative numbers.</p></li>
+<li><p>the smallest value that can be taken by a sample in the digital speech waveform, in which case the amplitude values are positive numbers.</p></li>
+</ul>
+<p>These reference levels are used when one does not need to know the absolute dB SPL value of the signal.</p>
+<hr class="docutils" />
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">((</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">),</span> <span class="p">(</span><span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">))</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">));</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e8</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e2</span><span class="p">,</span><span class="mf">2e3</span><span class="p">,</span><span class="mf">2e4</span><span class="p">,</span><span class="mf">2e5</span><span class="p">,</span><span class="mf">2e6</span><span class="p">,</span><span class="mf">2e7</span><span class="p">,</span><span class="mf">2e8</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">0.0e2</span><span class="p">,</span><span class="mf">0.2e2</span><span class="p">,</span><span class="mf">0.4e2</span><span class="p">,</span><span class="mf">0.6e2</span><span class="p">,</span><span class="mf">0.8e2</span><span class="p">,</span><span class="mf">1.0e2</span><span class="p">,</span><span class="mf">1.2e2</span><span class="p">,</span><span class="mf">1.4e2</span><span class="p">]):</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure [μPa]&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Acoustic intensity [dB SPL]&#39;</span><span class="p">);</span>
+<span class="c1">#ax1.set_title(&#39;Acoustic intensity [dB SPL] vs Pressure [μPa]&#39;);</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e2</span><span class="p">,</span><span class="mf">2e3</span><span class="p">,</span><span class="mf">2e4</span><span class="p">,</span><span class="mf">2e5</span><span class="p">,</span><span class="mf">2e6</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">0.0e2</span><span class="p">,</span><span class="mf">0.2e2</span><span class="p">,</span><span class="mf">0.4e2</span><span class="p">,</span><span class="mf">0.6e2</span><span class="p">,</span><span class="mf">0.8e2</span><span class="p">,</span><span class="mf">1.0e2</span><span class="p">]):</span>
+  <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure [μPa]&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Acoustic intensity [dB SPL]&#39;</span><span class="p">);</span>
+<span class="c1">#ax2.set_title(&#39;Acoustic intensity [dB SPL] vs Pressure [μPa]&#39;);</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e8</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e2</span><span class="p">,</span><span class="mf">2e3</span><span class="p">,</span><span class="mf">2e4</span><span class="p">,</span><span class="mf">2e5</span><span class="p">,</span><span class="mf">2e6</span><span class="p">,</span><span class="mf">2e7</span><span class="p">,</span><span class="mf">2e8</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">0.0e2</span><span class="p">,</span><span class="mf">0.2e2</span><span class="p">,</span><span class="mf">0.4e2</span><span class="p">,</span><span class="mf">0.6e2</span><span class="p">,</span><span class="mf">0.8e2</span><span class="p">,</span><span class="mf">1.0e2</span><span class="p">,</span><span class="mf">1.2e2</span><span class="p">,</span><span class="mf">1.4e2</span><span class="p">]):</span>
+  <span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure [μPa]&#39;</span><span class="p">);</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">);</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Acoustic intensity [dB SPL]&#39;</span><span class="p">);</span>
+<span class="c1">#ax3.set_title(&#39;Acoustic intensity [dB SPL] vs Pressure [μPa]&#39;);</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e2</span><span class="p">,</span><span class="mf">2e3</span><span class="p">,</span><span class="mf">2e4</span><span class="p">,</span><span class="mf">2e5</span><span class="p">,</span><span class="mf">2e6</span><span class="p">],</span>
+               <span class="p">[</span><span class="mf">0.0e2</span><span class="p">,</span><span class="mf">0.2e2</span><span class="p">,</span><span class="mf">0.4e2</span><span class="p">,</span><span class="mf">0.6e2</span><span class="p">,</span><span class="mf">0.8e2</span><span class="p">,</span><span class="mf">1.0e2</span><span class="p">]):</span>
+  <span class="n">ax4</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure [μPa]&#39;</span><span class="p">);</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">);</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Acoustic intensity [dB SPL]&#39;</span><span class="p">);</span>
+<span class="c1">#ax4.set_title(&#39;Acoustic intensity [dB SPL] vs Pressure [μPa]&#39;);</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Acoustic intensity [dB SPL] vs Pressure [μPa]&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/0345c903a6687a9d0bdd6c24243cb741a85925cde301d88dc0efd195952a6e60.png"><img alt="../../../_images/0345c903a6687a9d0bdd6c24243cb741a85925cde301d88dc0efd195952a6e60.png" src="../../../_images/0345c903a6687a9d0bdd6c24243cb741a85925cde301d88dc0efd195952a6e60.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="sone-scale">
+<h2>Sone Scale<a class="headerlink" href="#sone-scale" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{sone}=2^{\frac{\text{dB}-40}{10}}
+\end{aligned}
+\)</span>
+where <span class="math notranslate nohighlight">\(\text{dB}\ge40\)</span></p>
+<p>The sone scale shows listeners’ judgments of relative loudness scaled so that</p>
+<ul class="simple">
+<li><p>a sound about as loud as a quiet office (<span class="math notranslate nohighlight">\(2\times10^3\)</span> μPa) is unity</p></li>
+<li><p>a sound that is subjectively half as loud as that has a value of one half</p></li>
+<li><p>a sound that is subjectively twice as loud as that has a value double that</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">140</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="mi">40</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mf">0.4e2</span><span class="p">,</span><span class="mf">0.6e2</span><span class="p">,</span><span class="mf">0.8e2</span><span class="p">,</span><span class="mf">1.0e2</span><span class="p">,</span><span class="mf">1.2e2</span><span class="p">,</span><span class="mf">1.4e2</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">10</span><span class="p">]):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Acoustic intensity [dB SPL]&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Perceived loudness [sones]&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Perceived loudness [sones] vs Acoustic intensity [dB SPL]&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/74bde75a0ed684e3e56819f93be8035b8bb9365991eba0e1becbf2da1113591a.png"><img alt="../../../_images/74bde75a0ed684e3e56819f93be8035b8bb9365991eba0e1becbf2da1113591a.png" src="../../../_images/74bde75a0ed684e3e56819f93be8035b8bb9365991eba0e1becbf2da1113591a.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">((</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">),</span> <span class="p">(</span><span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">))</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e8</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="mi">40</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mf">2e3</span><span class="p">,</span><span class="mf">2e4</span><span class="p">,</span><span class="mf">2e5</span><span class="p">,</span><span class="mf">2e6</span><span class="p">,</span><span class="mf">2e7</span><span class="p">,</span><span class="mf">2e8</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">10</span><span class="p">]):</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure [μPa]&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Perceived loudness [sones]&#39;</span><span class="p">);</span>
+<span class="c1">#ax1.set_title(&#39;Perceived loudness [sones] vs Pressure [μPa]&#39;);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.25</span><span class="o">*</span><span class="mf">2e8</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.50</span><span class="o">*</span><span class="mf">2e8</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.75</span><span class="o">*</span><span class="mf">2e8</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.00</span><span class="o">*</span><span class="mf">2e8</span><span class="p">);</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="mi">40</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mf">2e3</span><span class="p">,</span><span class="mf">2e4</span><span class="p">,</span><span class="mf">2e5</span><span class="p">,</span><span class="mf">2e6</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">6</span><span class="p">]):</span>
+  <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure [μPa]&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Perceived loudness [sones]&#39;</span><span class="p">);</span>
+<span class="c1">#ax2.set_title(&#39;Perceived loudness [sones] vs Pressure [μPa]&#39;);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.25</span><span class="o">*</span><span class="mf">2e6</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.50</span><span class="o">*</span><span class="mf">2e6</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.75</span><span class="o">*</span><span class="mf">2e6</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.00</span><span class="o">*</span><span class="mf">2e6</span><span class="p">);</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e8</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="mi">40</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mf">2e3</span><span class="p">,</span><span class="mf">2e4</span><span class="p">,</span><span class="mf">2e5</span><span class="p">,</span><span class="mf">2e6</span><span class="p">,</span><span class="mf">2e7</span><span class="p">,</span><span class="mf">2e8</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">10</span><span class="p">]):</span>
+  <span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure [μPa]&#39;</span><span class="p">);</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">);</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Perceived loudness [sones]&#39;</span><span class="p">);</span>
+<span class="c1">#ax3.set_title(&#39;Perceived loudness [sones] vs Pressure [μPa]&#39;);</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.25</span><span class="o">*</span><span class="mf">2e8</span><span class="p">);</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.50</span><span class="o">*</span><span class="mf">2e8</span><span class="p">);</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.75</span><span class="o">*</span><span class="mf">2e8</span><span class="p">);</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.00</span><span class="o">*</span><span class="mf">2e8</span><span class="p">);</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2e1</span><span class="p">,</span><span class="mf">2e6</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="mi">40</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mf">2e3</span><span class="p">,</span><span class="mf">2e4</span><span class="p">,</span><span class="mf">2e5</span><span class="p">,</span><span class="mf">2e6</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">6</span><span class="p">]):</span>
+  <span class="n">ax4</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure [μPa]&#39;</span><span class="p">);</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">);</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Perceived loudness [sones]&#39;</span><span class="p">);</span>
+<span class="c1">#ax2.set_title(&#39;Perceived loudness [sones] vs Pressure [μPa]&#39;);</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.25</span><span class="o">*</span><span class="mf">2e6</span><span class="p">);</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.50</span><span class="o">*</span><span class="mf">2e6</span><span class="p">);</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.75</span><span class="o">*</span><span class="mf">2e6</span><span class="p">);</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.00</span><span class="o">*</span><span class="mf">2e6</span><span class="p">);</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Perceived loudness [sones] vs Pressure [μPa]&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/90bba4ae50e21a8c377b4fbbd5497abc8d2cadce72efa0a39561792c7b491172.png"><img alt="../../../_images/90bba4ae50e21a8c377b4fbbd5497abc8d2cadce72efa0a39561792c7b491172.png" src="../../../_images/90bba4ae50e21a8c377b4fbbd5497abc8d2cadce72efa0a39561792c7b491172.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<p>This graph shows that</p>
+<ul class="simple">
+<li><p>for soft sounds, small changes in pressure result in large changes in perceived loudness</p></li>
+<li><p>for loud sounds, large changes in pressure result in small changes in perceived loudness</p></li>
+</ul>
+<p>At <span class="math notranslate nohighlight">\(10^5\)</span> μPa, how does the perceived loudness change when the sound pressure is increased by <span class="math notranslate nohighlight">\(10^5\)</span> μPa?</p>
+<p>The perceived loudness increases by about 50%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">1e5</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">2e5</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">2e5</span><span class="p">))</span><span class="o">-</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">1e5</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">2e5</span><span class="p">))</span><span class="o">/</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">1e5</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.54100128020249
+16.0
+5.45899871979751
+1.5178823694908652
+</pre></div>
+</div>
+</div>
+</div>
+<p>At <span class="math notranslate nohighlight">\(2\times10^6\)</span> μPa, how does the perceived loudness change when the sound pressure is increased by <span class="math notranslate nohighlight">\(10^5\)</span> μPa?</p>
+<p>The perceived loudness increases by about 3%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">2e6</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">2e6</span><span class="o">+</span><span class="mf">1e5</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">2e6</span><span class="o">+</span><span class="mf">1e5</span><span class="p">))</span><span class="o">-</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">2e6</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">2e6</span><span class="o">+</span><span class="mf">1e5</span><span class="p">))</span><span class="o">/</span><span class="n">sone</span><span class="p">(</span><span class="n">dBSPL</span><span class="p">(</span><span class="mf">2e6</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64.0
+65.90785888988565
+1.9078588898856452
+1.0298102951544632
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Perceived loudness varies as a function of frequency.</p>
+<p>The human auditory system is most sensitive to sounds that have frequencies between 2 and 5 kHz.</p>
+<p>Sensitivity falls quickly above 10 kHz.</p>
+</section>
+<hr class="docutils" />
+<section id="bark-scale">
+<h2>Bark Scale<a class="headerlink" href="#bark-scale" title="Link to this heading">#</a></h2>
+<p>The auditory system (namely, the basilar membrane of the cochlea) performs a Fourier analysis of incoming sounds.</p>
+<p>However, the auditory system’s frequency response is not linear.</p>
+<p>The bark scale is proportional to a scale of perceived pitch called the Mel scale and to distance along the basilar membrane.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{bark}=6\sinh^{-1}\left(\frac{f}{600}\right)
+\end{aligned}
+\)</span></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">1e4</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="n">vbark</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">bark</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">vbark</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Acoustic Frequency [kHz]&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mf">1e4</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)],</span><span class="n">labels</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Auditory Frequency [barks]&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Auditory Frequency vs Acoustic Frequency&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="../../../_images/3fc8a11f4bce9058a88f4f2a35fde1eaa5c85aeff67afdee0e9be0b258877c25.png"><img alt="../../../_images/3fc8a11f4bce9058a88f4f2a35fde1eaa5c85aeff67afdee0e9be0b258877c25.png" src="../../../_images/3fc8a11f4bce9058a88f4f2a35fde1eaa5c85aeff67afdee0e9be0b258877c25.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+<p>This graph shows that the auditory system is more sensitive to changes in acoustic frequency at the low end of the audible frequency range than at the high end.</p>
+<p>At 0.5 kHz, how does the auditory frequency change when the acoustic frequency increases by 0.5 kHz?</p>
+<p>The auditory frequency increases by about 70%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bark</span><span class="p">(</span><span class="mf">0.5e3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bark</span><span class="p">(</span><span class="mf">1.0e3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bark</span><span class="p">(</span><span class="mf">1.0e3</span><span class="p">)</span><span class="o">-</span><span class="n">bark</span><span class="p">(</span><span class="mf">0.5e3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bark</span><span class="p">(</span><span class="mf">1.0e3</span><span class="p">)</span><span class="o">/</span><span class="n">bark</span><span class="p">(</span><span class="mf">0.5e3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.550916823162454
+7.702773976459156
+3.151857153296702
+1.692576304021848
+</pre></div>
+</div>
+</div>
+</div>
+<p>At 5 kHz, how does the auditory frequency change when the acoustic frequency increases by 0.5 kHz?</p>
+<p>The auditory frequency increases by about 3%.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bark</span><span class="p">(</span><span class="mf">5.0e3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bark</span><span class="p">(</span><span class="mf">5.5e3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bark</span><span class="p">(</span><span class="mf">5.5e3</span><span class="p">)</span><span class="o">-</span><span class="n">bark</span><span class="p">(</span><span class="mf">5.0e3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bark</span><span class="p">(</span><span class="mf">5.5e3</span><span class="p">)</span><span class="o">/</span><span class="n">bark</span><span class="p">(</span><span class="mf">5.0e3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.901948584952663
+17.470097475009343
+0.5681488900566798
+1.033614401747884
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2>Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Alexander_Graham_Bell">W</a>] Bell, Alexander Graham (1847-1922)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Harvey_Fletcher">W</a>] Fletcher, Harvey (1884-1981)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2>Terms<a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Absolute_threshold_of_hearing">W</a>] Absolute Threshold of Hearing</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Acoustical_engineering">W</a>] Acoustic Engineering</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Acoustic_impedance">W</a>] Acoustic Impedance</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound_intensity">W</a>] Acoustic Intensity (Sound Intensity)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound_power">W</a>] Acoustic Power (Sound Power)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound_pressure">W</a>] Acoustic Pressure (Sound Pressure)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Acoustics">W</a>] Acoustics</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Anechoic_chamber">W</a>] Anechoic Chamber</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Audiogram">W</a>] Audiogram</p></li>
+<li><p>[W] Auditory Model</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Auditory_phonetics">W</a>] Auditory Phonetics</p></li>
+<li><p>[W] Auditory Spectrogram (Cochleagram)</p></li>
+<li><p>[W] Auditory Spectrum</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Auditory_system">W</a>] Auditory System</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Bark_scale">W</a>] Bark Scale</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Decibel">W</a>] Bel</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Cent_(music)">W</a>] Cent</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Cochlea">W</a>] Cochlea</p></li>
+<li><p>[W] Cochleagram (Auditory Spectrogram)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Computational_auditory_scene_analysis">W</a>] Computational Auditory Scene Analysis</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Correlogram">W</a>] Correlogram</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Decibel">W</a>] Decibel</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Ear">W</a>] Ear</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Natural_frequency">W</a>] Eigenfrequency (Natural Frequency)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Equal-loudness_contour">W</a>] Equal-Loudness Contour</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Frequency_response">W</a>] Frequency Response</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hearing_level">W</a>] Hearing Level</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hearing_range">W</a>] Hearing Range</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Incus">W</a>] Incus</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Inner_ear">W</a>] Inner Ear</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Logarithmic_scale">W</a>] Logarithmic Scale</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Loudness">W</a>] Loudness</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Loudness_compensation">W</a>] Loudness Compensation</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Malleus">W</a>] Malleus</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Mel_scale">W</a>] Mel Scale</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Multidimensional_scaling">W</a>] Multidimensional Scaling (MDS)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Natural_frequency">W</a>] Natural Frequency (Eigenfrequency)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Neper">W</a>] Neper</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Normal_mode">W</a>] Normal Mode</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Ossicles">W</a>] Ossicles</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Outer_ear">W</a>] Outer Ear</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Pascal_(unit)">W</a>] Pascal</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Perilymph">W</a>] Perilymph</p></li>
+<li><p>[W] Peripheral Auditory System</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Phon">W</a>] Phon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Pitch_(music)">W</a>] Pitch</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Psychoacoustics">W</a>] Psychoacoustics</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Psychophysics">W</a>] Psychophysics</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Resonance">W</a>] Resonance</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Root_mean_square">W</a>] Root Mean Square</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sone">W</a>] Sone</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound">W</a>] Sound</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound_energy">W</a>] Sound Energy</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound_energy_density">W</a>] Sound Energy Density</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound_intensity">W</a>] Sound Intensity (Acoustic Intensity)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound_power">W</a>] Sound Power (Acoustic Power)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sound_pressure">W</a>] Sound Pressure (Acoustic Pressure)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Speed_of_sound">W</a>] Speed of Sound</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Stapes">W</a>] Stapes</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Threshold_of_pain">W</a>] Threshold of Pain</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Voice_onset_time">W</a>] Voice Onset Time (VOT)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="bibliography">
+<h2>Bibliography<a class="headerlink" href="#bibliography" title="Link to this heading">#</a></h2>
+<p>Johnson, Keith. (2012). <em>Acoustic and Auditory Phonetics</em>. 3rd Ed. <a class="reference external" href="https://www.wiley.com/en-us/Acoustic+and+Auditory+Phonetics%2C+3rd+Edition-p-9781444343083">Wiley-Blackwell</a>.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./l/ling/phonetics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_speech_processing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Speech Processing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_speech_perception.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Speech Perception</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-formulae">Summary of formulae</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-audition">Basic Audition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perceived-loudness">Perceived Loudness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decibel-scale">Decibel Scale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sone-scale">Sone Scale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bark-scale">Bark Scale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">Bibliography</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1101 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Domain Name System &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c/sec/dns/index';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="GitOps" href="../gitops/index.html" />
+    <link rel="prev" title="Digital Forensics" href="../forensics/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Computery Things</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../programming/index.html">Programming</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../programming/editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../programming/python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../programming/rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Security</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Domain Name System</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dig"><code class="docutils literal notranslate"><span class="pre">dig</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unbound">Unbound</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#config">Config</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test">Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more">More</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="domain-name-system">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Domain Name System</a><a class="headerlink" href="#domain-name-system" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#domain-name-system" id="id1">Domain Name System</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id2">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#dig" id="id3"><code class="docutils literal notranslate"><span class="pre">dig</span></code></a></p></li>
+<li><p><a class="reference internal" href="#unbound" id="id4">Unbound</a></p>
+<ul>
+<li><p><a class="reference internal" href="#config" id="id5">Config</a></p></li>
+<li><p><a class="reference internal" href="#test" id="id6">Test</a></p></li>
+<li><p><a class="reference internal" href="#more" id="id7">More</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#resources" id="id8">Resources</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id9">Terms</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id10">Notes</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<hr class="docutils" />
+<section id="dig">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">dig</span></code></a><a class="headerlink" href="#dig" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dig<span class="w"> </span>cloudflare.com
+dig<span class="w"> </span>cloudflare.com<span class="w"> </span>+short
+dig<span class="w"> </span>cloudflare.com<span class="w"> </span>+short<span class="w"> </span>+dnssec<span class="w"> </span><span class="c1"># the last line of output is the RRSIG record which a DNS resolver uses to determine whether a DNS response is trusted</span>
+dig<span class="w"> </span>DNSKEY<span class="w"> </span>cloudflare.com<span class="w"> </span>+short<span class="w">  </span><span class="c1"># retrieve the public key used to verify the DNS record</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">257</span> <span class="mi">3</span> <span class="mi">13</span> <span class="n">mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl</span><span class="o">+</span><span class="n">GqJxpVXckHAeF</span><span class="o">+</span> <span class="n">KkxLbxILfDLUT0rAK9iUzy1L53eKGQ</span><span class="o">==</span> <span class="c1"># zone-signing key (ZSK)</span>
+<span class="mi">256</span> <span class="mi">3</span> <span class="mi">13</span> <span class="n">oJMRESz5E4gYzS</span><span class="o">/</span><span class="n">q6XDrvU1qMPYIjCWzJaOau8XNEZeqCYKD5ar0IRd8</span> <span class="n">KqXXFJkqmVfRvMGPmM1x8fGAa2XhSA</span><span class="o">==</span> <span class="c1"># key-signing key (KSK)</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dig<span class="w"> </span>DS<span class="w"> </span>cloudflare.com<span class="w"> </span>+short<span class="w"> </span><span class="c1"># find a DS record</span>
+dig<span class="w"> </span>DS<span class="w"> </span>cloudflare.com<span class="w"> </span>+trace<span class="w"> </span><span class="c1"># dig confirms whether an answer is returned by the nameserver for cloudflare.com or the nameserver for .com</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="unbound">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Unbound</a><a class="headerlink" href="#unbound" title="Link to this heading">#</a></h2>
+<section id="config">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Config</a><a class="headerlink" href="#config" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">unbound</span><span class="o">/</span><span class="n">unbound</span><span class="o">.</span><span class="n">conf</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">unbound</span><span class="o">/</span><span class="n">unbound</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">pi</span><span class="o">-</span><span class="n">hole</span><span class="o">.</span><span class="n">conf</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">server</span><span class="p">:</span>
+    <span class="c1"># can be uncommented if you do not need user privilige protection</span>
+    <span class="c1"># username: &quot;&quot;</span>
+
+    <span class="c1"># can be uncommented if you do not need file access protection</span>
+    <span class="c1"># chroot: &quot;&quot;</span>
+
+    <span class="c1"># location of the trust anchor file that enables DNSSEC. note that</span>
+    <span class="c1"># the location of this file can elsewhere</span>
+    <span class="n">auto</span><span class="o">-</span><span class="n">trust</span><span class="o">-</span><span class="n">anchor</span><span class="o">-</span><span class="n">file</span><span class="p">:</span> <span class="s2">&quot;/usr/local/etc/unbound/root.key&quot;</span>
+    <span class="c1"># auto-trust-anchor-file: &quot;/var/lib/unbound/root.key&quot;</span>
+
+    <span class="n">gg</span><span class="c1"># send minimal amount of information to upstream servers to enhance privacy</span>
+    <span class="n">qname</span><span class="o">-</span><span class="n">minimisation</span><span class="p">:</span> <span class="n">yes</span>
+
+    <span class="c1"># addresses from the IP range that are allowed to connect to the resolver</span>
+    <span class="c1"># access-control: 192.168.0.0/16 allow</span>
+    <span class="c1"># access-control: 2001:DB8/64 allow</span>
+
+    <span class="c1"># If no logfile is specified, syslog is used</span>
+    <span class="n">logfile</span><span class="p">:</span> <span class="s2">&quot;/var/log/unbound/unbound.log&quot;</span>
+    <span class="n">verbosity</span><span class="p">:</span> <span class="mi">2</span>
+
+    <span class="c1"># specify the interfaces to answer queries from by ip-address.</span>
+    <span class="c1"># interface: 0.0.0.0</span>
+    <span class="c1"># interface: ::0</span>
+    <span class="n">interface</span><span class="p">:</span> <span class="mf">127.0.0.1</span>
+    <span class="n">port</span><span class="p">:</span> <span class="mi">5335</span>
+    <span class="n">do</span><span class="o">-</span><span class="n">ip4</span><span class="p">:</span> <span class="n">yes</span>
+    <span class="n">do</span><span class="o">-</span><span class="n">udp</span><span class="p">:</span> <span class="n">yes</span>
+    <span class="n">do</span><span class="o">-</span><span class="n">tcp</span><span class="p">:</span> <span class="n">yes</span>
+
+    <span class="c1"># May be set to yes if you have IPv6 connectivity</span>
+    <span class="n">do</span><span class="o">-</span><span class="n">ip6</span><span class="p">:</span> <span class="n">no</span>
+
+    <span class="c1"># You want to leave this to no unless you have *native* IPv6. With 6to4 and</span>
+    <span class="c1"># Terredo tunnels your web browser should favor IPv4 for the same reasons</span>
+    <span class="n">prefer</span><span class="o">-</span><span class="n">ip6</span><span class="p">:</span> <span class="n">no</span>
+
+    <span class="c1"># Use this only when you downloaded the list of primary root servers!</span>
+    <span class="c1"># If you use the default dns-root-data package, unbound will find it automatically</span>
+    <span class="n">root</span><span class="o">-</span><span class="n">hints</span><span class="p">:</span> <span class="s2">&quot;/var/lib/unbound/root.hints&quot;</span>
+
+    <span class="c1"># Trust glue only if it is within the server&#39;s authority</span>
+    <span class="n">harden</span><span class="o">-</span><span class="n">glue</span><span class="p">:</span> <span class="n">yes</span>
+
+    <span class="c1"># Require DNSSEC data for trust-anchored zones, if such data is absent, the zone becomes BOGUS</span>
+    <span class="n">harden</span><span class="o">-</span><span class="n">dnssec</span><span class="o">-</span><span class="n">stripped</span><span class="p">:</span> <span class="n">yes</span>
+
+    <span class="c1"># Don&#39;t use Capitalization randomization as it known to cause DNSSEC issues sometimes</span>
+    <span class="c1"># see https://discourse.pi-hole.net/t/unbound-stubby-or-dnscrypt-proxy/9378 for further details</span>
+    <span class="n">use</span><span class="o">-</span><span class="n">caps</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nb">id</span><span class="p">:</span> <span class="n">no</span>
+
+    <span class="c1"># Reduce EDNS reassembly buffer size.</span>
+    <span class="c1"># IP fragmentation is unreliable on the Internet today, and can cause</span>
+    <span class="c1"># transmission failures when large DNS messages are sent via UDP. Even</span>
+    <span class="c1"># when fragmentation does work, it may not be secure; it is theoretically</span>
+    <span class="c1"># possible to spoof parts of a fragmented DNS message, without easy</span>
+    <span class="c1"># detection at the receiving end. Recently, there was an excellent study</span>
+    <span class="c1"># &gt;&gt;&gt; Defragmenting DNS - Determining the optimal maximum UDP response size for DNS &lt;&lt;&lt;</span>
+    <span class="c1"># by Axel Koolhaas, and Tjeerd Slokker (https://indico.dns-oarc.net/event/36/contributions/776/)</span>
+    <span class="c1"># in collaboration with NLnet Labs explored DNS using real world data from the</span>
+    <span class="c1"># the RIPE Atlas probes and the researchers suggested different values for</span>
+    <span class="c1"># IPv4 and IPv6 and in different scenarios. They advise that servers should</span>
+    <span class="c1"># be configured to limit DNS messages sent over UDP to a size that will not</span>
+    <span class="c1"># trigger fragmentation on typical network links. DNS servers can switch</span>
+    <span class="c1"># from UDP to TCP when a DNS response is too big to fit in this limited</span>
+    <span class="c1"># buffer size. This value has also been suggested in DNS Flag Day 2020.</span>
+    <span class="n">edns</span><span class="o">-</span><span class="n">buffer</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">1232</span>
+
+    <span class="c1"># Perform prefetching of close to expired message cache entries</span>
+    <span class="c1"># This only applies to domains that have been frequently queried</span>
+    <span class="n">prefetch</span><span class="p">:</span> <span class="n">yes</span>
+
+    <span class="c1"># One thread should be sufficient, can be increased on beefy machines. In reality for most users running on small networks or on a single machine, it should be unnecessary to seek performance enhancement by increasing num-threads above 1.</span>
+    <span class="n">num</span><span class="o">-</span><span class="n">threads</span><span class="p">:</span> <span class="mi">1</span>
+
+    <span class="c1"># Ensure kernel buffer is large enough to not lose messages in traffic spikes</span>
+    <span class="n">so</span><span class="o">-</span><span class="n">rcvbuf</span><span class="p">:</span> <span class="mi">1</span><span class="n">m</span>
+
+    <span class="c1"># Ensure privacy of local IP ranges</span>
+    <span class="n">private</span><span class="o">-</span><span class="n">address</span><span class="p">:</span> <span class="mf">192.168.0.0</span><span class="o">/</span><span class="mi">16</span>
+    <span class="n">private</span><span class="o">-</span><span class="n">address</span><span class="p">:</span> <span class="mf">169.254.0.0</span><span class="o">/</span><span class="mi">16</span>
+    <span class="n">private</span><span class="o">-</span><span class="n">address</span><span class="p">:</span> <span class="mf">172.16.0.0</span><span class="o">/</span><span class="mi">12</span>
+    <span class="n">private</span><span class="o">-</span><span class="n">address</span><span class="p">:</span> <span class="mf">10.0.0.0</span><span class="o">/</span><span class="mi">8</span>
+    <span class="n">private</span><span class="o">-</span><span class="n">address</span><span class="p">:</span> <span class="n">fd00</span><span class="p">::</span><span class="o">/</span><span class="mi">8</span>
+    <span class="n">private</span><span class="o">-</span><span class="n">address</span><span class="p">:</span> <span class="n">fe80</span><span class="p">::</span><span class="o">/</span><span class="mi">10</span>
+
+    <span class="c1"># Remote control config section.</span>
+    <span class="n">remote</span><span class="o">-</span><span class="n">control</span><span class="p">:</span>
+        <span class="c1"># Enable remote control with unbound-control(8) here.</span>
+        <span class="c1"># set up the keys and certificates with unbound-control-setup.</span>
+        <span class="n">control</span><span class="o">-</span><span class="n">enable</span><span class="p">:</span> <span class="n">yes</span>
+
+        <span class="c1"># Set to no and use an absolute path as control-interface to use</span>
+        <span class="c1"># a unix local named pipe for unbound-control.</span>
+        <span class="n">control</span><span class="o">-</span><span class="n">use</span><span class="o">-</span><span class="n">cert</span><span class="p">:</span> <span class="n">no</span>
+</pre></div>
+</div>
+</section>
+<section id="test">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Test</a><a class="headerlink" href="#test" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unbound-checkconf<span class="w"> </span><span class="c1"># unbound-checkconf: no errors in /etc/unbound/unbound.conf</span>
+
+sudo<span class="w"> </span>service<span class="w"> </span>unbound<span class="w"> </span>status
+sudo<span class="w"> </span>service<span class="w"> </span>unbound<span class="w"> </span>restart
+
+sudo<span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;#\|^$&#39;</span><span class="w"> </span>-R<span class="w"> </span>/etc/unbound/unbound.conf.d
+sudo<span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;#\|^$&#39;</span><span class="w"> </span>-R<span class="w"> </span>/etc/dhcpcd.conf
+sudo<span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;#\|^$&#39;</span><span class="w"> </span>-R<span class="w"> </span>/etc/resolvconf.conf
+sudo<span class="w"> </span>cat<span class="w"> </span>/var/cache/unbound/resolvconf_resolvers.conf
+</pre></div>
+</div>
+<p>Test Unbound</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>service<span class="w"> </span>unbound<span class="w"> </span>restart
+dig<span class="w"> </span>pi-hole.net<span class="w"> </span>@127.0.0.1<span class="w"> </span>-p<span class="w"> </span><span class="m">5335</span>
+</pre></div>
+</div>
+<p>Test DNSSEC</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dig<span class="w"> </span>dnssec.works<span class="w"> </span>@127.0.0.1<span class="w"> </span>-p<span class="w"> </span><span class="m">5335</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="o">&lt;&lt;&gt;&gt;</span> <span class="n">DiG</span> <span class="mf">9.11.5</span><span class="o">-</span><span class="n">P4</span><span class="o">-</span><span class="mf">5.1</span><span class="o">+</span><span class="n">deb10u9</span><span class="o">-</span><span class="n">Raspbian</span> <span class="o">&lt;&lt;&gt;&gt;</span> <span class="n">dnssec</span><span class="o">.</span><span class="n">works</span> <span class="o">@</span><span class="mf">127.0.0.1</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5335</span>
+<span class="p">;;</span> <span class="k">global</span> <span class="n">options</span><span class="p">:</span> <span class="o">+</span><span class="n">cmd</span>
+<span class="p">;;</span> <span class="n">Got</span> <span class="n">answer</span><span class="p">:</span>
+<span class="p">;;</span> <span class="o">-&gt;&gt;</span><span class="n">HEADER</span><span class="o">&lt;&lt;-</span> <span class="n">opcode</span><span class="p">:</span> <span class="n">QUERY</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="n">NOERROR</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">24162</span>
+<span class="p">;;</span> <span class="n">flags</span><span class="p">:</span> <span class="n">qr</span> <span class="n">rd</span> <span class="n">ra</span> <span class="n">ad</span><span class="p">;</span> <span class="n">QUERY</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ANSWER</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">AUTHORITY</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ADDITIONAL</span><span class="p">:</span> <span class="mi">1</span>
+
+<span class="p">;;</span> <span class="n">OPT</span> <span class="n">PSEUDOSECTION</span><span class="p">:</span>
+<span class="p">;</span> <span class="n">EDNS</span><span class="p">:</span> <span class="n">version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">flags</span><span class="p">:;</span> <span class="n">udp</span><span class="p">:</span> <span class="mi">1232</span>
+<span class="p">;;</span> <span class="n">QUESTION</span> <span class="n">SECTION</span><span class="p">:</span>
+<span class="p">;</span><span class="n">dnssec</span><span class="o">.</span><span class="n">works</span><span class="o">.</span>			<span class="n">IN</span>	<span class="n">A</span>
+
+<span class="p">;;</span> <span class="n">ANSWER</span> <span class="n">SECTION</span><span class="p">:</span>
+<span class="n">dnssec</span><span class="o">.</span><span class="n">works</span><span class="o">.</span>		<span class="mi">3600</span>	<span class="n">IN</span>	<span class="n">A</span>	<span class="mf">5.45.107.88</span>
+
+<span class="p">;;</span> <span class="n">Query</span> <span class="n">time</span><span class="p">:</span> <span class="mi">104</span> <span class="n">msec</span>
+<span class="p">;;</span> <span class="n">SERVER</span><span class="p">:</span> <span class="mf">127.0.0.1</span><span class="c1">#5335(127.0.0.1)</span>
+<span class="p">;;</span> <span class="n">WHEN</span><span class="p">:</span> <span class="n">Tue</span> <span class="n">Nov</span> <span class="mi">28</span> <span class="mi">23</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">11</span> <span class="n">EST</span> <span class="mi">2023</span>
+<span class="p">;;</span> <span class="n">MSG</span> <span class="n">SIZE</span>  <span class="n">rcvd</span><span class="p">:</span> <span class="mi">57</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dig<span class="w"> </span>fail01.dnssec.works<span class="w"> </span>@127.0.0.1<span class="w"> </span>-p<span class="w"> </span><span class="m">5335</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="o">&lt;&lt;&gt;&gt;</span> <span class="n">DiG</span> <span class="mf">9.11.5</span><span class="o">-</span><span class="n">P4</span><span class="o">-</span><span class="mf">5.1</span><span class="o">+</span><span class="n">deb10u9</span><span class="o">-</span><span class="n">Raspbian</span> <span class="o">&lt;&lt;&gt;&gt;</span> <span class="n">fail01</span><span class="o">.</span><span class="n">dnssec</span><span class="o">.</span><span class="n">works</span> <span class="o">@</span><span class="mf">127.0.0.1</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5335</span>
+<span class="p">;;</span> <span class="k">global</span> <span class="n">options</span><span class="p">:</span> <span class="o">+</span><span class="n">cmd</span>
+<span class="p">;;</span> <span class="n">Got</span> <span class="n">answer</span><span class="p">:</span>
+<span class="p">;;</span> <span class="o">-&gt;&gt;</span><span class="n">HEADER</span><span class="o">&lt;&lt;-</span> <span class="n">opcode</span><span class="p">:</span> <span class="n">QUERY</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="n">SERVFAIL</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">33492</span>
+<span class="p">;;</span> <span class="n">flags</span><span class="p">:</span> <span class="n">qr</span> <span class="n">rd</span> <span class="n">ra</span><span class="p">;</span> <span class="n">QUERY</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ANSWER</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">AUTHORITY</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ADDITIONAL</span><span class="p">:</span> <span class="mi">1</span>
+
+<span class="p">;;</span> <span class="n">OPT</span> <span class="n">PSEUDOSECTION</span><span class="p">:</span>
+<span class="p">;</span> <span class="n">EDNS</span><span class="p">:</span> <span class="n">version</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">flags</span><span class="p">:;</span> <span class="n">udp</span><span class="p">:</span> <span class="mi">1232</span>
+<span class="p">;;</span> <span class="n">QUESTION</span> <span class="n">SECTION</span><span class="p">:</span>
+<span class="p">;</span><span class="n">fail01</span><span class="o">.</span><span class="n">dnssec</span><span class="o">.</span><span class="n">works</span><span class="o">.</span>		<span class="n">IN</span>	<span class="n">A</span>
+
+<span class="p">;;</span> <span class="n">Query</span> <span class="n">time</span><span class="p">:</span> <span class="mi">0</span> <span class="n">msec</span>
+<span class="p">;;</span> <span class="n">SERVER</span><span class="p">:</span> <span class="mf">127.0.0.1</span><span class="c1">#5335(127.0.0.1)</span>
+<span class="p">;;</span> <span class="n">WHEN</span><span class="p">:</span> <span class="n">Tue</span> <span class="n">Nov</span> <span class="mi">28</span> <span class="mi">23</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">51</span> <span class="n">EST</span> <span class="mi">2023</span>
+<span class="p">;;</span> <span class="n">MSG</span> <span class="n">SIZE</span>  <span class="n">rcvd</span><span class="p">:</span> <span class="mi">48</span>
+</pre></div>
+</div>
+</section>
+<section id="more">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">More</a><a class="headerlink" href="#more" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>unbound-control<span class="w"> </span>status
+sudo<span class="w"> </span>unbound-control<span class="w"> </span>lookup<span class="w"> </span>pi-hole.net
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://dnscrypt.info">h</a> ][ d ][ g ] DNSCrypt</p></li>
+<li><p>[ <a class="reference external" href="https://dnsviz.net/">h</a> ] DNSViz</p></li>
+<li><p>[ <a class="reference external" href="https://pi-hole.net">h</a> ][ <a class="reference external" href="https://docs.pi-hole.net">d</a> ][ <a class="reference external" href="https://github.com/pi-hole">g</a> ] Pi-hole</p>
+<ul>
+<li><p><a class="reference external" href="https://firebog.net">The Big Blocklist Collection</a></p></li>
+<li><p>Pi-hole on UDM <a class="reference external" href="https://github.com/boostchicken/udm-utilities/tree/master/run-pihole">run-pihole</a> <a class="reference external" href="https://github.com/boostchicken/udm-utilities/tree/master/on-boot-script">on-boot-script</a></p></li>
+<li><p>[ <a class="reference external" href="https://jekhokie.github.io/unifi/pihole/networking/2020/12/15/unifi-pihole-ad-blocking-with-failover.html">article</a> ] “Pi-hole Ad-Blocking with Failover on UniFi”.</p></li>
+<li><p>[ <a class="reference external" href="https://reposhub.com/linux/system-utilities/tusc-wireguard-kmod.html">article</a> ] “WireGuard for UDM series routers”.</p></li>
+</ul>
+</li>
+<li><p>[ h ][ <a class="reference external" href="https://unbound.docs.nlnetlabs.nl/en/latest/">d</a> ][ <a class="reference external" href="https://github.com/NLnetLabs/unbound">g</a> ] Unbound</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.pi-hole.net/guides/dns/unbound/">https://docs.pi-hole.net/guides/dns/unbound/</a></p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://adguard-dns.io/kb/">d</a> ] Adguard - DNS</p></li>
+<li><p>[ <a class="reference external" href="https://www.cloudflare.com/learning/dns/what-is-dns/">d</a> ] Cloudflare - What is DNS?</p></li>
+<li><p>[ <a class="reference external" href="https://www.cloudflare.com/learning/dns/glossary/dynamic-dns/">d</a> ] Cloudflare - DDNS</p></li>
+<li><p>[ <a class="reference external" href="https://help.firewalla.com/hc/en-us/articles/4570608120979-Firewalla-DNS-Services-Introduction">d</a> ] Firewalla - DNS Services</p></li>
+<li><p>[ <a class="reference external" href="https://help.firewalla.com/hc/en-us/articles/360038449734-DNS-over-HTTPS">d</a> ] Firewalla - DoH</p></li>
+<li><p>[ <a class="reference external" href="https://meshnet.nordvpn.com/how-to/security/protect-network-with-adguard-home">d</a> ] NordVPN - AdGuard Home</p></li>
+</ul>
+<p>online</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://superuser.com/questions/570082/in-etc-resolv-conf-what-exactly-does-the-search-configuration-option-do">o</a> ] StackExchange. “In /etc/resolv.conf, what exactly does the “search” configuration option do?”.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ w ] BIND</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/DNS_over_HTTPS">w</a> ] DNS over HTTPS (DoH)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/DNS_over_TLS">w</a> ] DNS over TLS (DoT)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/DNS_root_zone">w</a> ] DNS Root Zone</p></li>
+<li><p>[ w ] DNS Shield</p></li>
+<li><p>[ w ] DNS Sinkhole</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/DNS_zone">w</a> ] DNS Zone</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/DNSCrypt">w</a> ] DNSCrypt</p></li>
+<li><p>[ w ] Domain Controller</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Domain_name">w</a> ] Domain Name</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Domain_Name_System">w</a> ] Domain Name System (DNS)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">w</a> ] Domain Name System Security Extensions (DNSSEC)</p></li>
+<li><p>[ w ] Dynamic DNS (DDNS)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fully_qualified_domain_name">w</a> ] Fully-Qualified Domain Name (FQDN)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/ICANN">w</a> ] Internet Corporation for Assigned Names and Numbers (ICANN)</p></li>
+<li><p>[ w ] Key-Signing Key (KSK)</p>
+<ul>
+<li><p>used to verify the signatures of the DNSKEY, CDS, and CDNSKEY records</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Name_server">w</a> ] Name Server</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Public_recursive_name_server">w</a> ] Public DNS Resolver</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Public_recursive_name_server">w</a> ] Public Recursive Name Server</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Root_name_server">w</a> ] Root Name Server</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Search_domain">w</a> ] Search Domain</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Top-level_domain">w</a> ] Top-Level Domain (TLD)</p></li>
+<li><p>[ w ] Zone-Signing Key (ZSK)</p>
+<ul>
+<li><p>used to verify the DNS record signatures for A, MX, CNAME, SRV, etc.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="notes">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<p>Static DNS vs DDNS</p>
+<ul class="simple">
+<li><p>DDNS - the automatic process of updating the server list within a domain name server with the server’s IP address and FQDN</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./c/sec/dns"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../forensics/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Digital Forensics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../gitops/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">GitOps</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dig"><code class="docutils literal notranslate"><span class="pre">dig</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unbound">Unbound</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#config">Config</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test">Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more">More</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

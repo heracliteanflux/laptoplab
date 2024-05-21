@@ -1,0 +1,2004 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Advanced Programming in the UNIX Environment, 3e &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c/systems/os/book_apue/index';</script>
+    <script src="../../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="macOS" href="../macos/index.html" />
+    <link rel="prev" title="Operating Systems" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../m/calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/numbers/index.html">Number Theory</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../m/coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../index.html">Computery Things</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../programming/index.html">Programming</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../programming/editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../programming/python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../programming/rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../../index.html">Systems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="../index.html">OS</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Advanced Programming in the UNIX Environment, 3e</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-system-overview">1 - UNIX System Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-architecture">Unix Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login">Login</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shells">Shells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o">I/O</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programs-processes">Programs &amp; Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threads">Threads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling">Error Handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signals">Signals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time">Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-calls">System Calls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-calls-vs-library-functions">System Calls vs Library Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code">Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-standardization-and-implementations">2 - UNIX Standardization and Implementations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-i-o">3 - File I/O</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="advanced-programming-in-the-unix-environment-3e">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><em>Advanced Programming in the UNIX Environment</em>, 3e</a><a class="headerlink" href="#advanced-programming-in-the-unix-environment-3e" title="Link to this heading">#</a></h1>
+<p>[ <a class="reference external" href="http://www.apuebook.com">h</a> ] <em>Advanced Programming in the UNIX Environment</em>. 3e.</p>
+<hr class="docutils" />
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#advanced-programming-in-the-unix-environment-3e" id="id1"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id2">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#unix-system-overview" id="id3">1 - UNIX System Overview</a></p>
+<ul>
+<li><p><a class="reference internal" href="#unix-architecture" id="id4">Unix Architecture</a></p></li>
+<li><p><a class="reference internal" href="#login" id="id5">Login</a></p></li>
+<li><p><a class="reference internal" href="#shells" id="id6">Shells</a></p></li>
+<li><p><a class="reference internal" href="#files" id="id7">Files</a></p></li>
+<li><p><a class="reference internal" href="#i-o" id="id8">I/O</a></p></li>
+<li><p><a class="reference internal" href="#programs-processes" id="id9">Programs &amp; Processes</a></p></li>
+<li><p><a class="reference internal" href="#threads" id="id10">Threads</a></p></li>
+<li><p><a class="reference internal" href="#error-handling" id="id11">Error Handling</a></p></li>
+<li><p><a class="reference internal" href="#signals" id="id12">Signals</a></p></li>
+<li><p><a class="reference internal" href="#time" id="id13">Time</a></p></li>
+<li><p><a class="reference internal" href="#system-calls" id="id14">System Calls</a></p></li>
+<li><p><a class="reference internal" href="#system-calls-vs-library-functions" id="id15">System Calls vs Library Functions</a></p></li>
+<li><p><a class="reference internal" href="#code" id="id16">Code</a></p></li>
+<li><p><a class="reference internal" href="#exercises" id="id17">Exercises</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#unix-standardization-and-implementations" id="id18">2 - UNIX Standardization and Implementations</a></p></li>
+<li><p><a class="reference internal" href="#file-i-o" id="id19">3 - File I/O</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id20">Terms</a></p></li>
+<li><p><a class="reference internal" href="#definitions" id="id21">Definitions</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<hr class="docutils" />
+<section id="unix-system-overview">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1 - UNIX System Overview</a><a class="headerlink" href="#unix-system-overview" title="Link to this heading">#</a></h2>
+<section id="unix-architecture">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Unix Architecture</a><a class="headerlink" href="#unix-architecture" title="Link to this heading">#</a></h3>
+<p>Unix Architecture</p>
+<ul class="simple">
+<li><p>Kernel</p></li>
+<li><p>System Calls</p></li>
+<li><p>Library Routines - libraries of common functions are built on top of the system call interface</p></li>
+<li><p>Shell - a special application that provides an interface for running other applications</p></li>
+<li><p>Applications - can use both library routines that access system calls and system calls themselves</p></li>
+</ul>
+</section>
+<section id="login">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Login</a><a class="headerlink" href="#login" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>The user enters their login name and password.</p></li>
+<li><p>The system looks up the user’s login name in its password file <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>.</p></li>
+<li><p>An entry in the password file consists of 7 colon-separated fields.</p>
+<ul class="simple">
+<li><p>login name</p></li>
+<li><p>encrypted password (modern systems have moved the encrypted password to a different file)</p></li>
+<li><p>numeric user ID</p></li>
+<li><p>numeric group ID</p></li>
+<li><p>comment</p></li>
+<li><p>home directory</p></li>
+<li><p>shell program</p></li>
+</ul>
+</li>
+<li><p>The working directory is set to the user’s home directory (field 6)</p></li>
+<li><p>The user’s shell is executed (field 7)</p></li>
+</ol>
+<p>Process ID (PID)</p>
+<p>User ID (UID)</p>
+<ul class="simple">
+<li><p>found in the password file <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code></p></li>
+<li><p>a unique numeric value that identifies the user to the system</p></li>
+<li><p>assigned by the sysadmin when the user’s login name is assigned</p></li>
+<li><p>immutable?</p></li>
+<li><p>the kernel uses the UID to check whether the user has the appropriate permissions to perform certain ops</p></li>
+<li><p>UID 0 = root or superuser; if a process has superuser privileges then most file permission checks are bypassed; some os functions are restricted to the superuser</p></li>
+</ul>
+<p>Group ID (GID)</p>
+<ul class="simple">
+<li><p>found in the password file <code class="docutils literal notranslate"><span class="pre">/etc/password</span></code></p></li>
+<li><p>a numeric value that collects users together into projects or departments for the purposes of sharing resources among group members</p></li>
+<li><p>assigned by the sysadmin when the user’s login name is assigned</p></li>
+<li><p>the group file <code class="docutils literal notranslate"><span class="pre">/etc/group</span></code> maps group names to GIDs</p></li>
+</ul>
+<p>the file system stores both the UID and the GID of a file’s owner of every file on disk</p>
+<ul class="simple">
+<li><p>4 B = 2 B int (UID) + 2 B int (GID)</p></li>
+<li><p>more disk space would be required if the full ASCII login name and group name were used (strings)</p></li>
+<li><p>comparing strings during permission checks would be more expensive than comparing integers</p></li>
+<li><p>early UNIX systems used 16-bit ints to represent UIDs and GIDs; contemporary systems use 32-bit ints</p></li>
+</ul>
+<p>supplementary GIDs</p>
+<ul class="simple">
+<li><p>started in 4.2BSD</p></li>
+<li><p>users can belong to up to 16 additional groups</p></li>
+<li><p>supplementary GIDs are obtained at login time by reading the file <code class="docutils literal notranslate"><span class="pre">/etc/group</span></code> and finding the first 16 entries that list the user as a member</p></li>
+<li><p>POSIX requires that a system support at least 8 supplementary groups per process, but most systems support at least 16</p></li>
+</ul>
+</section>
+<section id="shells">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Shells</a><a class="headerlink" href="#shells" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">sh</span>   <span class="c1"># Bourne</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">bash</span> <span class="c1"># Bourne-Again</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">dash</span> <span class="c1"># Debian Almquist</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ksh</span>  <span class="c1"># Korn</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">csh</span>  <span class="c1"># C</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">tcsh</span> <span class="c1"># TENEX C</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">zsh</span>  <span class="c1"># Z</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fish</span> <span class="c1"># Fish</span>
+</pre></div>
+</div>
+</section>
+<section id="files">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Files</a><a class="headerlink" href="#files" title="Link to this heading">#</a></h3>
+<p>Directory Entries</p>
+<ul class="simple">
+<li><p>logical view - each directory entry contains a filename along with information describing the file’s attributes</p></li>
+<li><p>physical view - the way it is actually stored on disk</p></li>
+<li><p>most implementations of the UNIX file system don’t store attributes in the directory entries themselves because of the difficulty of keeping them in sync when a file has multiple hard links</p></li>
+</ul>
+<p>File Names</p>
+<ul class="simple">
+<li><p>the only two characters that cannot appear in a file name are the slash <code class="docutils literal notranslate"><span class="pre">/</span></code> and the null character</p>
+<ul>
+<li><p>the slash <code class="docutils literal notranslate"><span class="pre">/</span></code> separates the file names that form a path name</p></li>
+<li><p>the null character terminates a path name</p></li>
+<li><p>it’s good practice to restrict the characters in a file name to a subset of the normal printing characters: if we use the shell’s special characters in a file name then we have to use the shell’s quoting mechanism to reference the file name; POSIX.1 recommends restricting file names to consist of the following characters: letters <code class="docutils literal notranslate"><span class="pre">a-zA-Z</span></code>, numbers <code class="docutils literal notranslate"><span class="pre">0-9</span></code>, period <code class="docutils literal notranslate"><span class="pre">.</span></code>, dash <code class="docutils literal notranslate"><span class="pre">-</span></code>, and underscore <code class="docutils literal notranslate"><span class="pre">_</span></code></p></li>
+</ul>
+</li>
+<li><p>two file names are automatically created whenever a new directory is created</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> dot refers to the current directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">..</span></code> dot-dot refers to the parent directory</p></li>
+<li><p>in the root directory <code class="docutils literal notranslate"><span class="pre">/</span></code>, dot-dot <code class="docutils literal notranslate"><span class="pre">..</span></code> is the same as dot <code class="docutils literal notranslate"><span class="pre">.</span></code></p></li>
+</ul>
+</li>
+<li><p>file name size</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">14</span></code> characters: Research UNIX System &amp; UNIX System V systems</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">255</span></code> characters: BSD</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">255+</span></code> today</p></li>
+</ul>
+</li>
+</ul>
+<p>File Attributes</p>
+<ul class="simple">
+<li><p>file type (regular file, directory)</p></li>
+<li><p>file size</p></li>
+<li><p>file owner</p></li>
+<li><p>file permissions</p></li>
+<li><p>last modification time</p></li>
+<li><p>last access time</p></li>
+</ul>
+</section>
+<section id="i-o">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">I/O</a><a class="headerlink" href="#i-o" title="Link to this heading">#</a></h3>
+<p>Unbuffered I/O</p>
+<ul class="simple">
+<li><p>functions <code class="docutils literal notranslate"><span class="pre">open</span></code>, <code class="docutils literal notranslate"><span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">write</span></code>, <code class="docutils literal notranslate"><span class="pre">lseek</span></code>, and <code class="docutils literal notranslate"><span class="pre">close</span></code> all work with file descriptors</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read</span></code> reads a specified number of bytes</p></li>
+</ul>
+<p>Standard I/O uses header file <code class="docutils literal notranslate"><span class="pre">&lt;stdio.h&gt;</span></code></p>
+<ul class="simple">
+<li><p>standard I/O functions provide a buffered interface to the unbuffered I/O functions</p></li>
+<li><p>functions <code class="docutils literal notranslate"><span class="pre">fgets</span></code>, <code class="docutils literal notranslate"><span class="pre">printf</span></code></p></li>
+<li><p>conveniences</p>
+<ul>
+<li><p>don’t have to choose an optimal buffer size via <code class="docutils literal notranslate"><span class="pre">BUFFSIZE</span></code></p></li>
+<li><p>simplifies dealing with lines of input</p></li>
+<li><p>control the style of buffering</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fgets</span></code> reads an entire line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">printf</span></code></p></li>
+</ul>
+</section>
+<section id="programs-processes">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Programs &amp; Processes</a><a class="headerlink" href="#programs-processes" title="Link to this heading">#</a></h3>
+<p>UNIX guarantees that every process has a unique numeric identifier called the process ID (PID) which is always a non-negative integer.</p>
+<p>Process Control functions</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">exec</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fork</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wait-pid</span></code></p></li>
+</ul>
+</section>
+<section id="threads">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Threads</a><a class="headerlink" href="#threads" title="Link to this heading">#</a></h3>
+<p>Usually a process has only one thread of control–one set of machine instructions executing at a time.</p>
+<p>All threads within a process share the same address space, file descriptors, stacks, and process-related attributes.</p>
+<p>Each thread executes on its own stack, although any thread can access the stacks of other threads in the same process.</p>
+<p>Since they access the same memory, threads need to synchronize access to shared data among themselves to avoid inconsistencies.</p>
+<p>Threads are identified by thread IDs which are local to a process: a thread ID in one process has no meaning in another process.</p>
+</section>
+<section id="error-handling">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Error Handling</a><a class="headerlink" href="#error-handling" title="Link to this heading">#</a></h3>
+<p>Functions that return integers return negative integers to indicate an error and the variable <code class="docutils literal notranslate"><span class="pre">errno</span></code> is set to one of fifteen possible integer values that indicates the nature of the error; for example, function <code class="docutils literal notranslate"><span class="pre">open</span></code> returns either a non-negative file descriptor or <code class="docutils literal notranslate"><span class="pre">-1</span></code> if an error occurs.</p>
+<ul class="simple">
+<li><p>file does not exits</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EACCES</span></code> permission error, insufficient permission to open the requested file</p></li>
+</ul>
+<p>Some function rely on a convention other than returning a negative number; for example, most functions that return a pointer to an object return a null pointer to indicate an error.</p>
+<p>Header file <code class="docutils literal notranslate"><span class="pre">&lt;errno.h&gt;</span></code> defines <code class="docutils literal notranslate"><span class="pre">errno</span></code> along with constants beginning with <code class="docutils literal notranslate"><span class="pre">E</span></code> for each value that it can assume. The first page of Section 2 of the UNIX system manuals named <code class="docutils literal notranslate"><span class="pre">intro(2)</span></code> lists the error constants. On Linux, the error constants are listed in the <code class="docutils literal notranslate"><span class="pre">errno(3)</span></code> manual page. Errors are divided into two categories: fatal and nonfatal. Fatal errors have no recovery action; the best that can be done is to print an error message to the user’s screen or to a log file and then exit. Most nonfatal errors are temporary (e.g., resource shortage) and might not occur when there is less activity on the system. The typical recovery action for a resource-related nonfatal error is to delay and retry later.</p>
+<p>resource-related nonfatal errors</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EAGAIN</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ENFILE</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ENOBUFS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ENOLCK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ENOSPC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EWOULDBLOCK</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ENOMEM</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EBUSY</span></code> can be treated as nonfatal when it indicates that a shared resource is in use</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EINTR</span></code> can be treated as nonfatal when it interrupts a slow system call</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">errno</span></code></p>
+<ul class="simple">
+<li><p>POSIX and ISO C define <code class="docutils literal notranslate"><span class="pre">errno</span></code> as a symbol expanding into a modifiable lvalue of type integer (either an integer that contains the error number or a function that returns a pointer to the error number)</p></li>
+<li><p>historical definition: <code class="docutils literal notranslate"><span class="pre">extern</span> <span class="pre">int</span> <span class="pre">errno;</span></code></p></li>
+<li><p>Linux multithreaded access to <code class="docutils literal notranslate"><span class="pre">errno</span></code>: <code class="docutils literal notranslate"><span class="pre">extern</span> <span class="pre">int</span> <span class="pre">*__errno_location(void);</span> <span class="pre">#define</span> <span class="pre">errno</span> <span class="pre">(*__errno_location())</span></code></p></li>
+</ul>
+<p>two rules</p>
+<ul class="simple">
+<li><p>the value of <code class="docutils literal notranslate"><span class="pre">errno</span></code> is never cleared by a routine if an error does not occur; therefore, we should examine its value only when the return value from a function indicates that an error occurred</p></li>
+<li><p>the value of <code class="docutils literal notranslate"><span class="pre">errno</span></code> is never set to <code class="docutils literal notranslate"><span class="pre">0</span></code> by any of the functions, and none of the constants defined in <code class="docutils literal notranslate"><span class="pre">&lt;errno.h&gt;</span></code> has a value of <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+</ul>
+<p>C standard functions for printing error messages</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* this function maps the `errno` value `errnum`</span>
+<span class="cm"> * into an error message string</span>
+<span class="cm"> * and returns a pointer to the string</span>
+<span class="cm"> */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strerror</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">errnum</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* this function produces an error message on STDERR</span>
+<span class="cm"> * based on the current value of `errno` and returns;</span>
+<span class="cm"> * it outputs the string pointd to by `msg` followed by</span>
+<span class="cm"> * a colon and a space, followed by the error message</span>
+<span class="cm"> * corresponding to the value of `errno`, followed by a newline</span>
+<span class="cm"> */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">perror</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="signals">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Signals</a><a class="headerlink" href="#signals" title="Link to this heading">#</a></h3>
+<p>Signals are a technique to notify a process that some condition has occurred. For example, if a process divides by zero, the signal whose name is <code class="docutils literal notranslate"><span class="pre">SIGFPE</span></code> (floating-point exception) is sent to the process.</p>
+<p>A process has three choices for dealing with a signal</p>
+<ol class="arabic simple">
+<li><p>ignore the signal - this isn’t recommended for signals that denote hardware exceptions (e.g., dividing by zero, referencing memory outside the address space of the process) since the results are undefined</p></li>
+<li><p>let the default action occur (e.g., for a divide-by-zero condition the default action is to terminate the process)</p></li>
+<li><p>provide a function that is called when the signal occurs (“catching the signal”) and handle it</p></li>
+</ol>
+<p>keyboard</p>
+<ul class="simple">
+<li><p>Interrupt <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code></p></li>
+<li><p>Exit <code class="docutils literal notranslate"><span class="pre">Ctrl-\</span></code></p></li>
+</ul>
+<p>functions/commands</p>
+<ul class="simple">
+<li><p>function <code class="docutils literal notranslate"><span class="pre">kill</span></code> can be called from a process to send a signal to another process (we have to be the owner of the process or the superuser to be able to send this signal)</p></li>
+</ul>
+<p>signals</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SIGINT</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SIGFPE</span></code></p></li>
+</ul>
+</section>
+<section id="time">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Time</a><a class="headerlink" href="#time" title="Link to this heading">#</a></h3>
+<p>Calendar Time</p>
+<ul class="simple">
+<li><p>counts the number of seconds since Epoch: 00:00:00 Jan 1, 1970, UTC</p></li>
+<li><p>these time values are used to record the time a file was last modified, for example</p></li>
+<li><p>the primitive system data type <code class="docutils literal notranslate"><span class="pre">time_t</span></code> holds these time values</p></li>
+</ul>
+<p>Process Time (CPU Time)</p>
+<ul class="simple">
+<li><p>measures the central processor resources used by a process</p></li>
+<li><p>process time is measured in clock ticks, which have historically been 50, 60, or 100 ticks per second</p></li>
+<li><p>the primitive system data type <code class="docutils literal notranslate"><span class="pre">clock_t</span></code> holds these values</p></li>
+</ul>
+<p>Measuring the execution time of a process, UNIX maintains three values for a process</p>
+<ul class="simple">
+<li><p>(wall) clock time - the amount of time the process takes to run; its value depends on the number of other processes running on the system</p></li>
+<li><p>CPU time - the sum of the user CPU time and the system CPU time</p></li>
+<li><p>user CPU time - the CPU time attributed to the user instructions</p></li>
+<li><p>system CPU time - the CPU time attributed to the kernel when it executes on behalf of the process (e.g., whenever a process executes a system service such as <code class="docutils literal notranslate"><span class="pre">read</span></code> or <code class="docutils literal notranslate"><span class="pre">write</span></code> the time spent within the kernel performing that system service is charged to the process)</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">time</span></code>(1)</p>
+</section>
+<section id="system-calls">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">System Calls</a><a class="headerlink" href="#system-calls" title="Link to this heading">#</a></h3>
+<p>“All operating systems provide service points through which programs request services from the kernel; all implementations of [UNIX] provide a well-defined, limited number of entry points directly into the kernel called system calls.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p>
+<ul class="simple">
+<li><p>Version 7 Research UNIX System : about 50 system calls</p></li>
+<li><p>4.4BSD : about 110 system calls</p></li>
+<li><p>SVR4 : about 120 system calls</p></li>
+<li><p>Linux 3.2.0 : 380 system calls</p></li>
+<li><p>FreeBSD 8.0 : 450+ system calls</p></li>
+</ul>
+<p>System Call Interface documented in Section 2 of the UNIX Programmer’s Manual. It’s definition is in the C language no matter which implementation technique is actually used to invoke a system call. Older systems traditionally defined kernel entry points in the assembly language of the machine.</p>
+</section>
+<section id="system-calls-vs-library-functions">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">System Calls vs Library Functions</a><a class="headerlink" href="#system-calls-vs-library-functions" title="Link to this heading">#</a></h3>
+<p>memory allocation and garbage collection</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">malloc</span></code>(3) function - implements one particular type of allocation; if we don’t like its operation then we can define our own function <code class="docutils literal notranslate"><span class="pre">malloc</span></code> which will probably use the system call <code class="docutils literal notranslate"><span class="pre">sbrk</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sbrk</span></code>(2) system call - not a general-purpose memory manager; it increases or decreases the address space of the process by a specified number of bytes (how that space is managed is up to the process)</p></li>
+<li><p>garbage collection techniques: best fit, first fit, etc.</p></li>
+</ul>
+<p>datetime</p>
+<ul class="simple">
+<li><p>some operating systems provide one system call for time and another system call for date, and any special handling such as the switch to or from daylight saving time is handled by the kernel or requires human intervention</p></li>
+<li><p>UNIX provides a single system call that returns the number of seconds since the Epoch: 00:00:00 Jan 1, 1970, UTC; any interpretation of this value such as converting it to a human-readable datetime using the local time zone is left to the user process (the standard C library provides algorithms for daylight saving time)</p></li>
+</ul>
+<p>process control</p>
+<ul class="simple">
+<li><p>system calls: <code class="docutils literal notranslate"><span class="pre">exec</span></code>, <code class="docutils literal notranslate"><span class="pre">fork</span></code>, <code class="docutils literal notranslate"><span class="pre">waitpid</span></code></p></li>
+<li><p>functions: <code class="docutils literal notranslate"><span class="pre">system</span></code>, <code class="docutils literal notranslate"><span class="pre">popen</span></code></p></li>
+</ul>
+</section>
+<section id="code">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Code</a><a class="headerlink" href="#code" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* myls.c</span>
+<span class="cm"> *</span>
+<span class="cm"> * print the name of every file in a directory</span>
+<span class="cm"> * </span>
+<span class="cm"> * take an argument from the command line `argv[1]`</span>
+<span class="cm"> * as the name of the directory to list</span>
+<span class="cm"> */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;apue.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;dirent.h&gt;</span><span class="c1"> /* function prototypes for `opendir`, `readdir`; definition of structure `dirent`</span>
+<span class="w">                     </span><span class="o">*</span>
+<span class="w">                     </span><span class="o">*</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="err">`</span><span class="n">opendir</span><span class="err">`</span><span class="p">,</span><span class="w"> </span><span class="err">`</span><span class="n">readdir</span><span class="err">`</span><span class="p">,</span><span class="w"> </span><span class="err">`</span><span class="n">closedir</span><span class="err">`</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">manipulate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">directory</span>
+<span class="w">                     </span><span class="o">*</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">format</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="n">varies</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">UNIX</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">another</span>
+<span class="w">                     </span><span class="o">*/</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">DIR</span><span class="w">           </span><span class="o">*</span><span class="n">dp</span><span class="p">;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">dirent</span><span class="w"> </span><span class="o">*</span><span class="n">dirp</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">err_quit</span><span class="p">(</span><span class="s">&quot;usage: ls directory_name&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opendir</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="cm">/* function `opendir` returns a pointer to a structure `DIR`</span>
+<span class="cm">                                        * which is passed to function `readdir`</span>
+<span class="cm">                                        */</span>
+<span class="w">    </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;can&#39;t open %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">dirp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readdir</span><span class="p">(</span><span class="n">dp</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="cm">/* function `readdir` returns a pointer to a structure `dirent`</span>
+<span class="cm">                                        * or a null pointer when it&#39;s finished with the directory</span>
+<span class="cm">                                        */</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dirp</span><span class="o">-&gt;</span><span class="n">d_name</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">closedir</span><span class="p">(</span><span class="n">dp</span><span class="p">);</span>
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* stdin2stdout.c</span>
+<span class="cm"> *</span>
+<span class="cm"> * Copy STDIN to STDOUT.</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;apue.h&quot;</span>
+<span class="cp">#define BUFFSIZE 4096</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">  </span><span class="n">n</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="n">BUFFSIZE</span><span class="p">];</span>
+
+<span class="w">  </span><span class="cm">/* the constants `STDIN_FILENO` and `STDOUT_FILENO`</span>
+<span class="cm">   * are part of the POSIX standard and</span>
+<span class="cm">   * are defined in the header file `&lt;unistd.h&gt;`</span>
+<span class="cm">   * they specify the file descriptors for STDIN (0) and STDOUT (1)</span>
+<span class="cm">   */</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">STDIN_FILENO</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">BUFFSIZE</span><span class="p">))</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="cm">/* function `read` returns the number of bytes that are read</span>
+<span class="cm">                                                       * and this value is used as the number of bytes to write;</span>
+<span class="cm">                                                       * when the end of the input file is encountered,</span>
+<span class="cm">                                                       * function `read` returns 0 and the program stops;</span>
+<span class="cm">                                                       * if a read error occurs then function `read` returns -1</span>
+<span class="cm">                                                       */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">write</span><span class="p">(</span><span class="n">STDOUT_FILENO</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">      </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;write error&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;read error&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cc<span class="w"> </span>stdin2stdout.c
+./a.out<span class="w"> </span>&gt;<span class="w"> </span>data<span class="w">             </span><span class="c1"># STDIN is the terminal; STDOUT is redirected to the file `data`; STDERR is the terminal</span>
+./a.out<span class="w"> </span>&lt;<span class="w"> </span>infile<span class="w"> </span>&gt;<span class="w"> </span>outfile<span class="w"> </span><span class="c1"># the file named `infile` is copied to the file named `outfile`</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Advanced Programming in the UNIX Environment, 3e</span>
+<span class="cm"> *</span>
+<span class="cm"> * stdin2stdout_buffered.c</span>
+<span class="cm"> *</span>
+<span class="cm"> * Copy STDIN to STDOUT using standard I/O.</span>
+<span class="cm"> *</span>
+<span class="cm"> * the header file `&lt;stdio.h&gt;` defines the following constants</span>
+<span class="cm"> *   stdin</span>
+<span class="cm"> *   stdout</span>
+<span class="cm"> *   EOF</span>
+<span class="cm"> *</span>
+<span class="cm"> * function `getc` reads one character at a time</span>
+<span class="cm"> * which is written by function `putc`;</span>
+<span class="cm"> * after the last byte of input is read,</span>
+<span class="cm"> * `getc` returns the constant `EOF`</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;apue.h&quot;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getc</span><span class="p">(</span><span class="n">stdin</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">putc</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">stdout</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span>
+<span class="w">      </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;output error&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ferror</span><span class="p">(</span><span class="n">stdin</span><span class="p">))</span>
+<span class="w">    </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;input error&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Advanced Programming in the UNIX Environment, 3e</span>
+<span class="cm"> *</span>
+<span class="cm"> * pid.c</span>
+<span class="cm"> *</span>
+<span class="cm"> * Print the PID of this program and exit.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Details</span>
+<span class="cm"> *   function `getpid` returns data type `pid_t`</span>
+<span class="cm"> *</span>
+<span class="cm"> *   we don&#39;t know its size: all we know is that</span>
+<span class="cm"> *   the standard guarantees that it will fit in a long int</span>
+<span class="cm"> *</span>
+<span class="cm"> *   the value must be cast to the largest data type</span>
+<span class="cm"> *   that it might use (in this case, a long int)</span>
+<span class="cm"> *</span>
+<span class="cm"> *   although most PIDs fit in an int,</span>
+<span class="cm"> *   a long int promotes portability</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;apue.h&quot;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello world from PID %1d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">getpid</span><span class="p">());</span>
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cc<span class="w"> </span>pid.c
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="n">world</span> <span class="kn">from</span> <span class="nn">PID</span> <span class="mi">851</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Advanced Programming in the UNIX Environment, 3e</span>
+<span class="cm"> *</span>
+<span class="cm"> * process_control.c</span>
+<span class="cm"> * a demonstration of UNIX&#39;s process control functions</span>
+<span class="cm"> *</span>
+<span class="cm"> * Read commands from STDIN and execute them.</span>
+<span class="cm"> * (This is a bare-bones implementation of a shell-like program.)</span>
+<span class="cm"> *</span>
+<span class="cm"> * Details</span>
+<span class="cm"> *   standard I/O function `fgets` is used to read one line at a time from STDIN</span>
+<span class="cm"> *</span>
+<span class="cm"> *   when the end-of-file character (Ctrl-D) is typed as the first character of a line</span>
+<span class="cm"> *   `fgets` returns a null pointer, the loop stops, and the process terminates</span>
+<span class="cm"> *</span>
+<span class="cm"> *   each line returned by `fgets` is terminated with a newline character followed by a null byte</span>
+<span class="cm"> *   the standard C function `strlen` is used to calculate the length of the string</span>
+<span class="cm"> *   and then replace the newline with a null byte</span>
+<span class="cm"> *   because function `execlp` wants a null-terminated argument, not a newline-terminated argument</span>
+<span class="cm"> *</span>
+<span class="cm"> *   function `fork` is called to create a new process (called the child) which is a copy of the caller (called the parent)</span>
+<span class="cm"> *   and returns the non-negative PID of the child process to the parent process</span>
+<span class="cm"> *   and returns 0 to the child process</span>
+<span class="cm"> *</span>
+<span class="cm"> *   since `fork` creates a new process, we say that</span>
+<span class="cm"> *   it is called once--by the parent--but returns twice--</span>
+<span class="cm"> *   in the parent and in the child</span>
+<span class="cm"> *</span>
+<span class="cm"> *   `execlp` is called in the child to execute the command that was read from STDIN</span>
+<span class="cm"> *   this replaces the child process with the new program file</span>
+<span class="cm"> *</span>
+<span class="cm"> *   on some operating systems, the combination of `fork` followed by `exec` is called</span>
+<span class="cm"> *   &quot;spawning a new process&quot;</span>
+<span class="cm"> *</span>
+<span class="cm"> *   since the child calls `execlp` to execute the new program file</span>
+<span class="cm"> *   the parent waits for the child to terminate</span>
+<span class="cm"> *   by calling function `waitpid` and specifying which process to wait for</span>
+<span class="cm"> *   via argument `pid`, the PID of the child</span>
+<span class="cm"> *</span>
+<span class="cm"> *   `waitpid` also returns the status of the child in variable `status`</span>
+<span class="cm"> *   (we don&#39;t use it here)</span>
+<span class="cm"> *</span>
+<span class="cm"> *   to allow arguments would require that we parse the input line</span>
+<span class="cm"> *   separating the arguments by some convention (e.g., by space or tabs)</span>
+<span class="cm"> *   and then pass each arguments as a separate parameter to function `execlp`</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;apue.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/wait.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w">  </span><span class="n">buf</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span><span class="w"> </span><span class="cm">/* from apue.h */</span>
+<span class="w">  </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">   </span><span class="n">status</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%% &quot;</span><span class="p">);</span><span class="w"> </span><span class="cm">/* print prompt (printf requires %% to print %) */</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">MAXLINE</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">buf</span><span class="p">[</span><span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="cm">/* replace newline with null */</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;fork error&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* child */</span>
+<span class="w">      </span><span class="n">execlp</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">      </span><span class="n">err_ret</span><span class="p">(</span><span class="s">&quot;couldn&#39;t execute: %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
+<span class="w">      </span><span class="n">exit</span><span class="p">(</span><span class="mi">127</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* parent */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">waitpid</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;waitpid error&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%% &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Advanced Programming in the UNIX Environment, 3e</span>
+<span class="cm"> *</span>
+<span class="cm"> * errmsg.c</span>
+<span class="cm"> * a demonstration of the functions `strerror` and `perror`</span>
+<span class="cm"> *</span>
+<span class="cm"> * Details</span>
+<span class="cm"> *   the name of the program `argv[0]` is passed as the argument to function `perror`</span>
+<span class="cm"> *   this is a standard convention in UNIX</span>
+<span class="cm"> *   by doing this, if the program is executed as part of a pipeline</span>
+<span class="cm"> *   we are able to tell which of the three programs generated a particular error message</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;apue.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;EACCES: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">EACCES</span><span class="p">));</span>
+<span class="w">  </span><span class="n">errno</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ENOENT</span><span class="p">;</span>
+<span class="w">  </span><span class="n">perror</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cc<span class="w"> </span>errmsg.c
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EACCES</span><span class="p">:</span> <span class="n">Permission</span> <span class="n">denied</span>
+<span class="o">./</span><span class="n">a</span><span class="o">.</span><span class="n">out</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Advanced Programming in the UNIX Environment, 3e</span>
+<span class="cm"> *</span>
+<span class="cm"> * uid_gid.c</span>
+<span class="cm"> * </span>
+<span class="cm"> * This program prints the UID and the GID.</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;apue.h&quot;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;uid = %d, gid = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">getuid</span><span class="p">(),</span><span class="w"> </span><span class="n">getgid</span><span class="p">());</span>
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cc<span class="w"> </span>uid_gid.c
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uid</span> <span class="o">=</span> <span class="mi">501</span><span class="p">,</span> <span class="n">gid</span> <span class="o">=</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Advanced Programming in the UNIX Environment, 3e</span>
+<span class="cm"> *</span>
+<span class="cm"> * process_control_with_signal.c</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;apue.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/wait.h&gt;</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sig_int</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"> </span><span class="cm">/* our signal-catching function */</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w">  </span><span class="n">buf</span><span class="p">[</span><span class="n">MAXLINE</span><span class="p">];</span><span class="w"> </span><span class="cm">/* from apue.h */</span>
+<span class="w">  </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w">   </span><span class="n">status</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="n">sig_int</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SIG_ERR</span><span class="p">)</span><span class="w"> </span><span class="cm">/* catch the signal `SIGINT` and call function `sig_int` */</span>
+<span class="w">    </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;signal error&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%% &quot;</span><span class="p">);</span><span class="w"> </span><span class="cm">/* print prompt (printf requires %% to print %) */</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">MAXLINE</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buf</span><span class="p">[</span><span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">buf</span><span class="p">[</span><span class="n">strlen</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="cm">/* replace newline with null */</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">())</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;fork error&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* child */</span>
+<span class="w">      </span><span class="n">execlp</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">      </span><span class="n">err_ret</span><span class="p">(</span><span class="s">&quot;couldn&#39;t execute: %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
+<span class="w">      </span><span class="n">exit</span><span class="p">(</span><span class="mi">127</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/* parent */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">waitpid</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="n">err_sys</span><span class="p">(</span><span class="s">&quot;waitpid error&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%% &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">sig_int</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">signo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;interrupt</span><span class="se">\n</span><span class="s">%% &quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="exercises">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Exercises</a><a class="headerlink" href="#exercises" title="Link to this heading">#</a></h3>
+<p>1</p>
+<p>Verify on your system that the directories dot and dot-dot are not the same, except in the root directory.</p>
+<p>2</p>
+<p>In the output from the following program, what happened to the processes with PIDs 852 and 853?</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Advanced Programming in the UNIX Environment, 3e</span>
+<span class="cm"> *</span>
+<span class="cm"> * pid.c</span>
+<span class="cm"> *</span>
+<span class="cm"> * Print the PID of this program and exit.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Details</span>
+<span class="cm"> *   function `getpid` returns data type `pid_t`</span>
+<span class="cm"> *</span>
+<span class="cm"> *   we don&#39;t know its size: all we know is that</span>
+<span class="cm"> *   the standard guarantees that it will fit in a long int</span>
+<span class="cm"> *</span>
+<span class="cm"> *   the value must be cast to the largest data type</span>
+<span class="cm"> *   that it might use (in this case, a long int)</span>
+<span class="cm"> *</span>
+<span class="cm"> *   although most PIDs fit in an int,</span>
+<span class="cm"> *   a long int promotes portability</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;apue.h&quot;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello world from PID %1d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">getpid</span><span class="p">());</span>
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cc<span class="w"> </span>pid.c
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="n">world</span> <span class="kn">from</span> <span class="nn">PID</span> <span class="mi">851</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./a.out
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="n">world</span> <span class="kn">from</span> <span class="nn">PID</span> <span class="mi">854</span>
+</pre></div>
+</div>
+<p>3</p>
+<p>In the following program, the argument to <code class="docutils literal notranslate"><span class="pre">perror</span></code> is defined with the ISO C attribute <code class="docutils literal notranslate"><span class="pre">const</span></code>, whereas the integer argument to <code class="docutils literal notranslate"><span class="pre">strerror</span></code> isn’t defined with this attribute. Why?</p>
+<p>4</p>
+<p>If the calendar time is stored as a signed 32-bit integer, in which year will it overflow? How can we extend the overflow point? Are these strategies compatible with existing applications?</p>
+<p>5</p>
+<p>If the process time is stored as a signed 32-bit integer, and if the system counts 100 ticks per second, after how many days will the value overflow?</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="unix-standardization-and-implementations">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">2 - UNIX Standardization and Implementations</a><a class="headerlink" href="#unix-standardization-and-implementations" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="file-i-o">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">3 - File I/O</a><a class="headerlink" href="#file-i-o" title="Link to this heading">#</a></h2>
+<p>functions</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">open</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lseek</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">close</span></code></p></li>
+</ul>
+<p>The effect of buffer size on functions <code class="docutils literal notranslate"><span class="pre">read</span></code> and <code class="docutils literal notranslate"><span class="pre">write</span></code>.</p>
+<p>Unbuffered I/O means that each <code class="docutils literal notranslate"><span class="pre">read</span></code> or <code class="docutils literal notranslate"><span class="pre">write</span></code> invokes a system call. Unbuffered I/O functions are not part of ISO C but are part of POSIX.1 and the Single UNIX Spec.</p>
+<p>The notion of an atomic op is important in the context of resource sharing among multiple processes.</p>
+<ul class="simple">
+<li><p>arguments to function <code class="docutils literal notranslate"><span class="pre">open</span></code></p></li>
+<li><p>How are files shared among multiple processes? Which kernel data structures are involved?</p></li>
+</ul>
+<p>functions</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fcntl</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sync</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fsync</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ioctl</span></code></p></li>
+</ul>
+<p>FILE DESCRIPTOR</p>
+<p>The kernel refers to open files by means of non-negative integers called file descriptors. When an existing file is opened or a new file is created, the kernel returns a file descriptor to the process. When we want to read or write a file, we identify the file with the file descriptor that was returned by <code class="docutils literal notranslate"><span class="pre">open</span></code> or <code class="docutils literal notranslate"><span class="pre">creat</span></code> as an argument to either <code class="docutils literal notranslate"><span class="pre">read</span></code> or <code class="docutils literal notranslate"><span class="pre">write</span></code>.</p>
+<p>shell and application convention, not a feature of the UNIX kernel</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> STDIN</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> STDOUT</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> STDERR</p></li>
+</ul>
+<p>POSIX-compliant applications use the symbolic constants defined in header <code class="docutils literal notranslate"><span class="pre">&lt;unistd.h&gt;</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">STDIN_FILENO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STDOUT_FILENO</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STDERR_FILENO</span></code></p></li>
+</ul>
+<p>fds range from <code class="docutils literal notranslate"><span class="pre">0</span></code> through <code class="docutils literal notranslate"><span class="pre">OPEN_MAX-1</span></code></p>
+<ul class="simple">
+<li><p>early implementations of UNIX had an upper limit of <code class="docutils literal notranslate"><span class="pre">19</span></code> allowing a maximum of <code class="docutils literal notranslate"><span class="pre">20</span></code> open files per process</p></li>
+<li><p>subsequently, increased to <code class="docutils literal notranslate"><span class="pre">63</span></code></p></li>
+<li><p>limit is limitless with FreeBSD 8.0, Linux 3.2.0, Mac OS X 10.6.8, Solaris 10; bounded only by amount of memory on the system, the size of an integer, and any hard and soft limits configured by the sysadmin</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">open</span></code>, <code class="docutils literal notranslate"><span class="pre">openat</span></code> - open an existing file or create a new file</p>
+<ul class="simple">
+<li><p>returns <code class="docutils literal notranslate"><span class="pre">fd</span></code> on okay, <code class="docutils literal notranslate"><span class="pre">-1</span></code> on error</p></li>
+<li><p>parameter <code class="docutils literal notranslate"><span class="pre">path</span></code> is the name of the file to open or create</p></li>
+<li><p>the function has a multitude of options specified by argument <code class="docutils literal notranslate"><span class="pre">oflag</span></code> which is formed by ORing together with one or more of the following constants from header <code class="docutils literal notranslate"><span class="pre">&lt;fcntl.h&gt;</span></code></p>
+<ul>
+<li><p>one and only one must be specified</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_RDONLY</span></code> open for reading only (defined as <code class="docutils literal notranslate"><span class="pre">0</span></code> for compatibility with older programs)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_WRONLY</span></code> open for writing only (defined as <code class="docutils literal notranslate"><span class="pre">1</span></code> for compatibility with older programs)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_RDWR</span></code> open for reading and writing (defined as <code class="docutils literal notranslate"><span class="pre">2</span></code> for compatibility with older programs)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_EXEC</span></code> open for execute only</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_SEARCH</span></code> open for search only (applies to directories) - the purpose of this constant is to evaluate search permissions at the time a directory is opened; further ops using the directory’s file descriptor will not re-evaluate permission to search the directory</p></li>
+</ul>
+</li>
+<li><p>optional</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_APPEND</span></code> - append to the end of file on each write</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_CLOEXEC</span></code> - set the file descriptor flag <code class="docutils literal notranslate"><span class="pre">FD_CLOEXEC</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_CREAT</span></code> - create the file if it doesn’t exist; this option requires a third argument to function <code class="docutils literal notranslate"><span class="pre">open</span></code> or fourth argument to function <code class="docutils literal notranslate"><span class="pre">openat</span></code> called <code class="docutils literal notranslate"><span class="pre">mode</span></code> which specifies the access permission bits of the new file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_DIRECTORY</span></code> - generate an error is path doesn’t refer to a directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_EXCL</span></code> - generate an error if <code class="docutils literal notranslate"><span class="pre">O_CREAT</span></code> is also specified and the file already exists; this test–whether a file already exists and the creation of the file if it doesn’t exist–is an atomic op</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_NOCTTY</span></code> - if path refers to a terminal device, do not allocate the device as the controlling terminal for this process</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_NOFOLLOW</span></code> - generate an error if path refers to a symbolic link</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_NONBLOCK</span></code> - if path refers to a FIFO, a block special file, or a character special file, this option sets the nonblocking mode for both the opening of the file and subsequent I/O</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_SYNC</span></code> - have each <code class="docutils literal notranslate"><span class="pre">write</span></code> wait for physical I/O to complete, including I/O necessary to update file attributes modified as a result of the <code class="docutils literal notranslate"><span class="pre">write</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_TRUNC</span></code> - if the file exists and if it is successfully opened for either write-only or read-write, truncate its length to <code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_TTY_INIT</span></code> - when opening a terminal device that is not already open, set the nonstandard <code class="docutils literal notranslate"><span class="pre">termios</span></code> parameters to values that result in behavior that conforms to the Single UNIX Spec</p></li>
+</ul>
+</li>
+<li><p>optional - part of the synchronized input and output option of the Single UNIX Spec &amp; POSIX.1</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_DSYNC</span></code> - have each <code class="docutils literal notranslate"><span class="pre">write</span></code> wait for physical I/O to complete but don’t wait for file attributes to be updated if they don’t affect the ability to read the data just written</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">O_RSYNC</span></code> - have each <code class="docutils literal notranslate"><span class="pre">read</span></code> operation on the file descriptor wait until any pending writes for the same portion of the file are complete</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">...</span></code> is the ISO C way to specify that the number and types of the remaining arguments may vary</p></li>
+<li><p>the last argument <code class="docutils literal notranslate"><span class="pre">mode_t</span> <span class="pre">mode</span></code> is used only when a new file is being created</p></li>
+<li><p>parameter <code class="docutils literal notranslate"><span class="pre">fd</span></code></p>
+<ul>
+<li><p>parameter <code class="docutils literal notranslate"><span class="pre">path</span></code> specifies an absolute path name, parameter <code class="docutils literal notranslate"><span class="pre">fd</span></code> is ignored, and function <code class="docutils literal notranslate"><span class="pre">openat</span></code> behaves like function <code class="docutils literal notranslate"><span class="pre">open</span></code></p></li>
+<li><p>parameter <code class="docutils literal notranslate"><span class="pre">path</span></code> specifies a relative path name and parameter <code class="docutils literal notranslate"><span class="pre">fd</span></code> is a file descriptor that specifies the starting location in the file system where the relative path name is to be evaluated; parameter <code class="docutils literal notranslate"><span class="pre">fd</span></code> is obtained by opening the directory where the relative path name is to be evaluated</p></li>
+<li><p>parameter <code class="docutils literal notranslate"><span class="pre">path</span></code> specifies a relative path name and parameter <code class="docutils literal notranslate"><span class="pre">fd</span></code> has the special value <code class="docutils literal notranslate"><span class="pre">AT_FDCWD</span></code>; the path name is evaluated starting in the current working directory and function <code class="docutils literal notranslate"><span class="pre">openat</span></code> behaves like function <code class="docutils literal notranslate"><span class="pre">open</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">open</span><span class="w">   </span><span class="p">(</span><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">oflag</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="cm">/* mode_t mode */</span><span class="w"> </span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">openat</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">oflag</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="cm">/* mode_t mode */</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+</div>
+<p>function <code class="docutils literal notranslate"><span class="pre">openat</span></code> is one of a class of functions introduced in POSIX.1 to address 2 problems</p>
+<ol class="arabic simple">
+<li><p>Threads in the same process share the same current working directory which makes it difficult for multiple threads in the same process to work in different directories at the same time. Function <code class="docutils literal notranslate"><span class="pre">openat</span></code> gives threads a way to use relative path names to open files in directories other than the current working directory</p></li>
+<li><p>Function <code class="docutils literal notranslate"><span class="pre">openat</span></code> provides a way to avoid TOCTTOU errors. A program is vulnerable if it makes two file-based function calls where the second call depends on the results of the first call. Since the two calls are not atomic the file can change between the two calls thereby invalidating the results of the first call and leading to a program error.</p></li>
+</ol>
+<hr class="docutils" />
+<p>POSIX interprocess communication</p>
+<ul class="simple">
+<li><p>signal</p>
+<ul>
+<li><p>SIGUSR1</p></li>
+<li><p>SIGUSR2</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span>           <span class="c1"># file system root</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span> <span class="c1"># passwd file - int UIDs &lt;-&gt; str login names (UID, GID, home directory, interactive login shell)</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">group</span>  <span class="c1"># group  file - int GIDs &lt;-&gt; str group names</span>
+</pre></div>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>OS</p></th>
+<th class="head"><p>Kernel</p></th>
+<th class="head"><p>Shell</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FreeBSD</p></td>
+<td><p></p></td>
+<td><p>ash, dash</p></td>
+</tr>
+<tr class="row-odd"><td><p>GNU</p></td>
+<td><p>Linux</p></td>
+<td><p>bash, dash</p></td>
+</tr>
+<tr class="row-even"><td><p>macOS</p></td>
+<td><p>Darwin</p></td>
+<td><p>bash, zsh</p></td>
+</tr>
+<tr class="row-odd"><td><p>Solaris</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p></p></td>
+<td><p>cmd.exe</p></td>
+</tr>
+</tbody>
+</table>
+<p>UNIX Programmer’s Manual</p>
+<ol class="arabic simple" start="3">
+<li><p>Defines the general-purpose library functions available for programmers. These functions aren’t entry points into the kernel but they may invoke one or more of the kernel’s system calls (e.g., function <code class="docutils literal notranslate"><span class="pre">printf</span></code> may use system call <code class="docutils literal notranslate"><span class="pre">write</span></code> to output a string, but functions <code class="docutils literal notranslate"><span class="pre">strcpy</span></code> and <code class="docutils literal notranslate"><span class="pre">atoi</span></code> don’t involve the kernel at all).</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/8-bit_computing">w</a> ] 8-bit Computing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/16-bit_computing">w</a> ] 16-bit Computing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/32-bit_computing">w</a> ] 32-bit Computing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/64-bit_computing">w</a> ] 64-bit Computing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/128-bit_computing">w</a> ] 128-bit Computing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Address_space">w</a> ] Address Space</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Anonymous_pipe">w</a> ] Anonymous Pipe</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Attribute_(computing)">w</a> ] Attribute</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Background_process">w</a> ] Background Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Barrier_(computer_science)">w</a> ] Barrier</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/BIOS">w</a> ] Basic Input/Output System (BIOS)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Batch_processing">w</a> ] Batch Processing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Berkeley_sockets">w</a> ] Berkeley Sockets</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Booting">w</a> ] Booting</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_buffer">w</a> ] Buffer</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bus_(computing)">w</a> ] Bus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Busy_waiting">w</a> ] Busy-Waiting</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Calling_convention">w</a> ] Calling Convention</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Child_process">w</a> ] Child Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Concurrency_control">w</a> ] Concurrency Control</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Context_switch">w</a> ] Context Switch</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Control_flow">w</a> ] Control Flow</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/CPU_modes">w</a> ] CPU Mode</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Critical_section">w</a> ] Critical Section</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Daemon_(computing)">w</a> ] Daemon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_corruption">w</a> ] Data Corruption</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Deadlock">w</a> ] Deadlock</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Device_driver">w</a> ] Device Driver</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Device_file">w</a> ] Device File</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dining_philosophers_problem">w</a> ] Dining Philosophers Problem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Directory_(computing)">w</a> ] Directory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Epoch_(computing)">w</a> ] Epoch</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Event_(synchronization_primitive)">w</a> ] Event</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Everything_is_a_file">w</a> ] Everything Is a File</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Exception_handling">w</a> ] Exception Handling</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Execution_(computing)">w</a> ] Execution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Exit_status">w</a> ] Exit Status</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Extended_file_attributes">w</a> ] Extended File Attributes</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fatal_exception_error">w</a> ] Fatal Exception Error</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fatal_system_error">w</a> ] Fatal System Error</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Named_pipe">w</a> ] FIFO (Named Pipe)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Computer_file">w</a> ] File</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/File_descriptor">w</a> ] File Descriptor</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/File_locking">w</a> ] File Locking</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Path_(computing)">w</a> ] File Path</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/File_sharing">w</a> ] File Sharing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/File_system">w</a> ] File System</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/File-system_permissions">w</a> ] File System Permissions</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unix_file_types">w</a> ] File Type, Unix</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fork%E2%80%93join_model">w</a> ] Fork-Join Model</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">w</a> ] Garbage Collection (GC)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Group_identifier">w</a> ] Group Identifier (GID)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Handle_(computing)">w</a> ] Handle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Handle_leak">w</a> ] Handle Leak</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hierarchical_file_system">w</a> ] Hierarchical File System</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Input/output">w</a> ] Input/Output (I/O)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Installation_(computer_programs)">w</a> ] Installation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inter-process_communication">w</a> ] Inter-Process Communication (IPC)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Interrupt">w</a> ] Interrupt</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Job_control_(Unix)">w</a> ] Job Control</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Job_scheduler">w</a> ] Job Scheduler</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Job_queue">w</a> ] Job Queue</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Kernel_(operating_system)">w</a> ] Kernel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/User_space_and_kernel_space">w</a> ] Kernel Space</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Library_(computing)">w</a> ] Library</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linearizability">w</a> ] Linearizability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lock_(computer_science)">w</a> ] Lock</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Logical_address">w</a> ] Logical Address</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Memory_address">w</a> ] Memory Address</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Memory_controller">w</a> ] Memory Controller</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Memory_leak">w</a> ] Memory Leak</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Memory_management_unit">w</a> ] Memory Management Unit (MMU)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Page_(computer_memory)">w</a> ] Memory Page</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Memory_segmentation">w</a> ] Memory Segmentation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Message_queue">w</a> ] Message Queue</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Multiprocessing">w</a> ] Multiprocessing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Computer_multitasking">w</a> ] Multitasking</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)">w</a> ] Multithreading</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lock_(computer_science)">w</a> ] Mutex</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mutual_exclusion">w</a> ] Mutual Exclusion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Named_pipe">w</a> ] Named Pipe (FIFO)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Shared_resource">w</a> ] Network Share</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Network_socket">w</a> ] Network Socket</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Operating_system">w</a> ] Operating System (OS)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Page_(computer_memory)">w</a> ] Page</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parent_process">w</a> ] Parent Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Passwd">w</a> ] <code class="docutils literal notranslate"><span class="pre">passwd</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Path_(computing)">w</a> ] Path</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Physical_address">w</a> ] Physical Address</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pipeline_(computing)">w</a> ] Pipeline</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">w</a> ] Pointer</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Software_portability">w</a> ] Portability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Priority_inversion">w</a> ] Priority Inversion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Process_(computing)">w</a> ] Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Process_calculus">w</a> ] Process Calculus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Process_group">w</a> ] Process Group</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Process_identifier">w</a> ] Process Identifier (PID)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Process_isolation">w</a> ] Process Isolation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem">w</a> ] Producer-Consumer Model</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Computer_program">w</a> ] Program</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Protection_ring">w</a> ] Protection Ring</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">w</a> ] Queue</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Race_condition">w</a> ] Race Condition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem">w</a> ] Readers-Writers Problem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Elapsed_real_time">w</a> ] Real Time</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reboot">w</a> ] Reboot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/System_resource">w</a> ] Resource</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization">w</a> ] Resource Acquisition is Initialization (RAII)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Resource_allocation_(computer)">w</a> ] Resource Allocation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Resource_contention">w</a> ] Resource Contention</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Resource_leak">w</a> ] Resource Leak</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Resource_management_(computing)">w</a> ] Resource Management</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Starvation_(computer_science)">w</a> ] Resource Starvation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Return_statement">w</a> ] Return Statement</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Runtime_system">w</a> ] Runtime</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Runtime_library">w</a> ] Runtime Library</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Scheduling_(computing)">w</a> ] Scheduling</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Segmentation_fault">w</a> ] Segmentation Fault</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Semaphore_(programming)">w</a> ] Semaphore</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Serializability">w</a> ] Serializability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Setuid">w</a> ] <code class="docutils literal notranslate"><span class="pre">setgid</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Setuid">w</a> ] <code class="docutils literal notranslate"><span class="pre">setuid</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Shared_memory">w</a> ] Shared Memory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Shared_resource">w</a> ] Shared Resource</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Shell_(computing)">w</a> ] Shell</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Signal_(IPC)">w</a> ] Signal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Software_aging">w</a> ] Software Aging</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Software_bloat">w</a> ] Software Bloat</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spawn_(computing)">w</a> ] Spawn</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spinlock">w</a> ] Spinlock</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Busy_waiting">w</a> ] Spinning</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_streams">w</a> ] Standard Stream</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sticky_bit">w</a> ] Sticky Bit</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stream_(computing)">w</a> ] Stream</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Superuser">w</a> ] Superuser</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Synchronization_(computer_science)">w</a> ] Synchronization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/System_administrator">w</a> ] System Administrator</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/System_call">w</a> ] System Call</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Close_(system_call)">w</a> ] <code class="docutils literal notranslate"><span class="pre">close</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Exec_(system_call)">w</a> ] <code class="docutils literal notranslate"><span class="pre">exec</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Exit_(system_call)">w</a> ] <code class="docutils literal notranslate"><span class="pre">exit</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fork_(system_call)">w</a> ] <code class="docutils literal notranslate"><span class="pre">fork</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Open_(system_call)">w</a> ] <code class="docutils literal notranslate"><span class="pre">open</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Read_(system_call)">w</a> ] <code class="docutils literal notranslate"><span class="pre">read</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Wait_(system_call)">w</a> ] <code class="docutils literal notranslate"><span class="pre">wait</span></code></p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Write_(system_call)">w</a> ] <code class="docutils literal notranslate"><span class="pre">write</span></code></p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/System_time">w</a> ] System Time</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Task_(computing)">w</a> ] Task</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Thread_(computing)">w</a> ] Thread</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Thread_pool">w</a> ] Thread Pool</p></li>
+<li><p>[ w ] Time-Of-Check-To-Time-Of-Use (TOCTTOU)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unix_file_types">w</a> ] Unix File Type</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unix_time">w</a> ] Unix Time</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/User_(computing)">w</a> ] User</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/User_identifier">w</a> ] User Identifier (UID)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/User_space_and_kernel_space">w</a> ] User Space</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Utility_software">w</a> ] Utility Software</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Virtual_address_space">w</a> ] Virtual Address Space</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Virtual_memory">w</a> ] Virtual Memory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Page_(computer_memory)">w</a> ] Virtual Page</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Elapsed_real_time">w</a> ] Wall Time</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Zombie_process">w</a> ] Zombie Process</p></li>
+</ul>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Instruction_cycle">w</a> ] Instruction Cycle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Instruction_set_architecture">w</a> ] Instruction Set Architecture (ISA)</p></li>
+</ul>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ancient_UNIX">w</a> ] Ancient Unix</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Austin_Group">w</a> ] Austin Group</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Berkeley_Software_Distribution">w</a> ] Berkeley Software Distribution (BSD)</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/FreeBSD">w</a> ] FreeBSD</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/OpenBSD">w</a> ] OpenBSD</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Illumos">w</a> ] illumos</p></li>
+<li><p>[ w ] macOS</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Darwin_(operating_system)">w</a> ] Darwin</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mach_(kernel)">w</a> ] Mach</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/The_Open_Group">w</a> ] The Open Group</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs">w</a> ] Plan 9 (Bell Labs)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/POSIX">w</a> ] Portable Operating System Interface (POSIX)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Research_Unix">w</a> ] Research Unix</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Single_UNIX_Specification">w</a> ] Single UNIX Specification (SUS)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Oracle_Solaris">w</a> ] Solaris (Oracle)</p>
+<ul>
+<li><p>heritage in BSD and System V</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sun_Microsystems">w</a> ] Sun Microsystems</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/SunOS">w</a> ] SunOS</p></li>
+</ul>
+</li>
+<li><p>[ w ] TENEX</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unix-like">w</a> ] Unix-like</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/History_of_Unix">w</a> ] Unix History</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/UNIX_System_III">w</a> ] UNIX System III</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/UNIX_System_V">w</a> ] UNIX System V</p>
+<ul>
+<li><p>[ w ] System V/386 Release 3.2</p></li>
+<li><p>[ w ] System V Release 4 (SVR4)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/HP-UX">w</a> ] HP’s HP-UX</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/IBM_AIX">w</a> ] IBM’s Advanced Interactive eXecutive (AIX)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/STREAMS">w</a> ] STREAMS</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unix_wars">w</a> ] Unix Wars</p></li>
+</ul>
+<p>shells</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bourne_shell">w</a> ] Bourne Shell</p>
+<ul>
+<li><p>Steve Bourne (Bell Labs)</p></li>
+<li><p>control flow is similar to Algol 68</p></li>
+</ul>
+</li>
+<li><p>[ w ] Bourne-Again Shell</p>
+<ul>
+<li><p>the GNU shell provided with all Linux systems</p></li>
+<li><p>POSIX conformant &amp; compatible with the Bourne shell</p></li>
+<li><p>supports features from both C shell and Korn shell</p></li>
+</ul>
+</li>
+<li><p>[ w ] C Shell</p>
+<ul>
+<li><p>Bill Joy (Berkeley)</p></li>
+<li><p>comes with BSD</p></li>
+<li><p>features that the Bourne shell lacked: job control, a history mechanism, command-line editing</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cmd.exe">w</a> ] Command Prompt (cmd.exe)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Almquist_shell">w</a> ] Debian Almquist Shell</p>
+<ul>
+<li><p>Kenneth Almquist</p></li>
+<li><p>the BSD replacement for the Bourne shell</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fish_(Unix_shell)">w</a> ] Fish Shell</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/KornShell">w</a> ] Korn Shell</p>
+<ul>
+<li><p>David Korn (Bell Labs)</p></li>
+<li><p>a successor to the Bourne shell</p></li>
+<li><p>first came with SVR4</p></li>
+<li><p>supports features from C shell</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_command_shells">w</a> ] shells</p></li>
+<li><p>[ w ] TENEX C Shell</p>
+<ul>
+<li><p>an enhanced version of the C shell</p></li>
+<li><p>features such as command completion were borrowed from the TENEX operating system</p></li>
+<li><p>standardized in the POSIX 1003.2 standard which included features based on those from Bourne shell and Korn shell</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unix_shell">w</a> ] Unix Shell</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Z_shell">w</a> ] Z Shell</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="definitions">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Definitions</a><a class="headerlink" href="#definitions" title="Link to this heading">#</a></h2>
+<p><strong>Directory</strong></p>
+<ul class="simple">
+<li><p>“A directory is a file that contains directory entries [where] each directory entry [consists of] a file name along with…information describing the file’s attributes.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+</ul>
+<p><strong>File Descriptor</strong> (fd)</p>
+<ul class="simple">
+<li><p>“[A file descriptor is a] small non-negative integer that the kernel uses to identify the files accessed by a process. Whenever it opens an existing file or creates a new file, the kernel returns a file descriptor that we use when we want to read or write the file.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+<li><p>“A file descriptor is a number that the OS assigns to an open file to keep track of it; consider it a simplified file pointer, analogous to a file handle in C.”</p></li>
+</ul>
+<p><strong>File Name</strong> (fn)</p>
+<ul class="simple">
+<li><p>“The names in a directory are called file names.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+</ul>
+<p><strong>Operating System</strong> (OS)</p>
+<ul class="simple">
+<li><p>“In a strict sense, an operating system can be defined as the software that controls the hardware resources of the computer and provides and environment under which programs can run. [This software is called the kernel] since it is relatively small and resides at the core of the environment…In a broad sense, an operating system consists of the kernel and all the other software [e.g., system utilities, libraries, shells, applications, etc.] that makes a computer useful and gives the computer its personality.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+</ul>
+<p><strong>Path Name</strong></p>
+<ul class="simple">
+<li><p>“[A path name is formed by] a sequence of one or more file names…separated by slashes and optionally starting with a slash [and terminated by the null character]. A path name that begins with a slash is called an absolute path name; otherwise, it’s called a relative path name. Relative path names refer to files relative to the current directory. The name for the root of the file system <code class="docutils literal notranslate"><span class="pre">/</span></code> is a special-case absolute path name that has no file name component.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+</ul>
+<p><strong>Process</strong></p>
+<ul class="simple">
+<li><p>“An executing instance of a program is called a process. Some operating systems use the term task to refer to a program that is being executed.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+</ul>
+<p><strong>Program</strong></p>
+<ul class="simple">
+<li><p>“A program is an executable file residing on disk in a directory. A program is read into memory and is executed by the kernel as a result of one of the seven <code class="docutils literal notranslate"><span class="pre">exec</span></code> functions.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+</ul>
+<p><strong>Shell</strong></p>
+<ul class="simple">
+<li><p>“A shell is a command-line interpreter that reads user input and executes commands. The user input to a shell is normally from the terminal (i.e., an interactive shell) or…from a file called a shell script.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+</ul>
+<p><strong>System Call</strong></p>
+<ul class="simple">
+<li><p>“The interface to the kernel is a layer of software called the system calls.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+</ul>
+<p><strong>Working Directory</strong></p>
+<ul class="simple">
+<li><p>“[The working directory] is the directory from which all relative path names are interpreted.” - <em>Advanced Programming in the UNIX Environment</em>, 3e</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./c/systems/os/book_apue"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Operating Systems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../macos/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">macOS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-system-overview">1 - UNIX System Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-architecture">Unix Architecture</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#login">Login</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shells">Shells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-o">I/O</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programs-processes">Programs &amp; Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#threads">Threads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling">Error Handling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signals">Signals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time">Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-calls">System Calls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-calls-vs-library-functions">System Calls vs Library Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code">Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unix-standardization-and-implementations">2 - UNIX Standardization and Implementations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-i-o">3 - File I/O</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

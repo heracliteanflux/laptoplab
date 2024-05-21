@@ -1,0 +1,2144 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mathematical Induction &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/numbers/04_induction';</script>
+    <script src="../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Primality" href="05_primality.html" />
+    <link rel="prev" title="GCD &amp; Euclid’s Algorithm" href="03_gcd_and_euclid.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../math/linear_algebra/index.html">Linear Algebra</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../logic/index.html">Logic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../logic/introduction.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calc/index.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/00_pre_calculus/intro.html">Pre Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/01_calculus/intro.html">The Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/01_calculus/03_integration/intro.html">Integration</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/02_vector_calculus/intro.html">Vector Calculus</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../functions/intro.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../functions/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/ramp.html">Ramp Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../functions/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../coding/index.html">Mathematical Coding</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/exercises.html">Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/index.html">Computery Things</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/index.html">Programming</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/editor/index.html">Editors</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/clang/index.html">C</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/shell/index.html">Shell</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/ps/index.html">PS</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/python/index.html">Python</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/rlang/index.html">R</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/index.html">Systems</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/os/index.html">OS</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/distributed/index.html">Distributed</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/file/index.html">File Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/index.html">Security</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/ctf/index.html">CTF</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/gitops/index.html">GitOps</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/network/index.html">Networking</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/data/index.html">Data</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/data/relational/index.html">Relational</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/learning/index.html">Artificial Intelligence</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../l/index.html">Languages &amp; Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/ling/index.html">Linguistics</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../l/ling/phonetics/index.html">Phonetics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lang/index.html">Languages</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lit/index.html">Literature</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../p/index.html">Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/ancient/index.html">Ancient Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/modern/index.html">Early Modern Philosophy</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/galileo/index.html">Galileo</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/descartes/index.html">Descartes</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/kant.html">Kant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/music.html">Music</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../s/index.html">Science</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/astro/index.html">Astronomy &amp; Astrophysics</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diy/index.html">Home Lab &amp; DIY</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/network/index.html">Network</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mathematical Induction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#induction-principle">Induction Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forall-n-in-mathbb-p-3-mid-a-n-1"><span class="math notranslate nohighlight">\(\forall n \in \mathbb{P} \,\,[ \,\,3 \mid a_n + 1\,\, ]\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forall-n-in-mathbb-n-left-0-1-2-dots-n-frac-n-n-1-2-right"><span class="math notranslate nohighlight">\(\forall n \in \mathbb{N} \,\,\left[ \,\,0 + 1 + 2 + \dots + n = \frac{n(n + 1)}{2}\,\, \right]\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forall-n-in-mathbb-p-13-mid-a-n"><span class="math notranslate nohighlight">\(\forall n \in \mathbb{P} \,\,[ \,\,13 \mid a_n\,\, ]\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-positive-powers-of-an-integer">Definition of the positive powers of an integer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-factorial-symbol">Definition of the factorial symbol</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-theorem">Binomial Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-binomial-coefficients">Definition of binomial coefficients</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Binomial Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-pascal-s-triangle">Constructing Pascal’s Triangle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-coefficients-are-positive-integers">Binomial coefficients are positive integers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-well-ordering-principle-and-mathematical-induction">The well-ordering principle and mathematical induction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variations-on-the-induction-principle">Variations on the induction principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-induction">Strong Induction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-sequence">Fibonacci Sequence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-to-review">Fibonacci - to review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mathematical-induction">
+<h1>Mathematical Induction<a class="headerlink" href="#mathematical-induction" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2>Programming Environment<a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span>   <span class="nn">numba</span> <span class="kn">import</span> <span class="n">njit</span>
+<span class="o">%</span><span class="k">load_ext</span> Cython
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cProfile</span>
+<span class="kn">from</span>   <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">1_000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span>   <span class="nn">numba</span> <span class="kn">import</span> <span class="n">njit</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;load_ext&#39;</span><span class="p">,</span> <span class="s1">&#39;Cython&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numba&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="induction-principle">
+<h2>Induction Principle<a class="headerlink" href="#induction-principle" title="Link to this heading">#</a></h2>
+<p>Construction of the sort by which a process is repeatedly applied to a base case is called inductive.</p>
+<p>Constructing <span class="math notranslate nohighlight">\(\mathbb{P}\)</span></p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(S\)</span> be the successor function <span class="math notranslate nohighlight">\(S(x) = x + 1\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+2 &amp;= S(1) \\
+3 &amp;= S(S(1)) \\
+4 &amp;= S(S(S(1))) \\
+5 &amp;= S(S(S(S(1)))) \\
+\vdots \\
+\end{align*}
+\end{split}\]</div>
+<p>We construct a set of numbers with a certain property. If we let <span class="math notranslate nohighlight">\(S\)</span> stand for the set of numbers for which our theorem holds, in our proof by induction we show the following facts about <span class="math notranslate nohighlight">\(S\)</span>:</p>
+<ol class="arabic simple">
+<li><p>The number <span class="math notranslate nohighlight">\(1\)</span> is in <span class="math notranslate nohighlight">\(S\)</span>. This is proved explicitly in the base case of the proof.</p></li>
+<li><p>If the number <span class="math notranslate nohighlight">\(k\)</span> is an element of <span class="math notranslate nohighlight">\(S\)</span>, then the number <span class="math notranslate nohighlight">\(k + 1\)</span> is an element of <span class="math notranslate nohighlight">\(S\)</span>. This is the content of the inductive step of the proof.</p></li>
+</ol>
+<p>We know that the collection of natural numbers can be defined as the smallest set such that</p>
+<ol class="arabic simple">
+<li><p>The number <span class="math notranslate nohighlight">\(1\)</span> is a natural number.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(k\)</span> is a natural number, then <span class="math notranslate nohighlight">\(k + 1\)</span> is a natural number.</p></li>
+</ol>
+<p>So <span class="math notranslate nohighlight">\(S\)</span>, the collection of numbers for which the theorem holds, is identical with the set of natural numbers, thus the theorem holds for every natural number <span class="math notranslate nohighlight">\(n\)</span>, as needed.</p>
+<p>The use of the induction principle can take complicated forms but, at base, is the fact that the positive integers are constructed by starting somewhere and then applying a rule again and again.</p>
+<p><span class="math notranslate nohighlight">\(Induction \,\, Principle\)</span></p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(P(n)\)</span> be an assertion involving the positive integer variable <span class="math notranslate nohighlight">\(n\)</span>.<br />
+If</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(P(1)\)</span> holds and</p></li>
+<li><p>whenever <span class="math notranslate nohighlight">\(P(k)\)</span> holds so also does <span class="math notranslate nohighlight">\(P(k + 1)\)</span></p></li>
+</ol>
+<p>then <span class="math notranslate nohighlight">\(P(n)\)</span> holds for every positive integer <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div></blockquote>
+<p>That is, if we can prove the base case at <span class="math notranslate nohighlight">\(n = 1\)</span> and if we have an argument that proves the <span class="math notranslate nohighlight">\(k + 1\)</span> case from the <span class="math notranslate nohighlight">\(k\)</span> case then we have the result for all positive integers.</p>
+<p>In the inductive step, we prove the implication if the formula holds for <span class="math notranslate nohighlight">\(k\)</span>, then the formula holds for <span class="math notranslate nohighlight">\(k + 1\)</span>. We prove the implication by assuming the antecedent–that the theorem holds for a fixed but unknown number <span class="math notranslate nohighlight">\(k\)</span>, and from that assumption proving the consequent, that the theorem holds for the next number <span class="math notranslate nohighlight">\(k + 1\)</span>. This is not the same as assuming the theorem that we are trying to prove. The theorem is a universal statement–it claims that a certain formula holds for every natural number.</p>
+<p>The typical structure of a proof by induction is as follows.</p>
+<ol class="arabic simple">
+<li><p>Base Case - show <span class="math notranslate nohighlight">\(P(1)\)</span>.</p></li>
+<li><p>Induction Step - assume that <span class="math notranslate nohighlight">\(P(k)\)</span> holds (this assumption is the induction hypothesis) and deduce that <span class="math notranslate nohighlight">\(P(k + 1)\)</span> follows.</p></li>
+</ol>
+<p>Then the conclusion (by the induction principle) is that <span class="math notranslate nohighlight">\(P(n)\)</span> holds for all positive integers <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<section id="forall-n-in-mathbb-p-3-mid-a-n-1">
+<h3><span class="math notranslate nohighlight">\(\forall n \in \mathbb{P} \,\,[ \,\,3 \mid a_n + 1\,\, ]\)</span><a class="headerlink" href="#forall-n-in-mathbb-p-3-mid-a-n-1" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Claim\)</span> [Humphreys &amp; Prest pp. 16]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> be a sequence whose terms are defined inductively as follows.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+a_n :=
+\begin{cases}
+a_1 &amp;= 2 \\
+a_{n + 1} &amp;= 2a_n + 1 \\
+\end{cases}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+a_1 &amp;= 2 \\
+a_2 &amp;= 2a_1 + 1 =  5 \\
+a_3 &amp;= 2a_2 + 1 = 11 \\
+a_4 &amp;= 2a_3 + 1 = 23 \\
+a_5 &amp;= 2a_4 + 1 = 47 \\
+\vdots \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p>One greater than any term in <span class="math notranslate nohighlight">\(a\)</span> is divisible by <span class="math notranslate nohighlight">\(3\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall n \in \mathbb{P} \,\,
+[ \,\,
+3 \mid a_n + 1
+\,\, ]
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, induction\)</span></p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(a_1 + 1 = 2 + 1 = 3\)</span><br />
+<span class="math notranslate nohighlight">\(\therefore 3 \mid a_1 + 1\)</span>.</p>
+</div></blockquote>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Induction Hypothesis: Let it be the case that <span class="math notranslate nohighlight">\(3 \mid a_k + 1\)</span> for some <span class="math notranslate nohighlight">\(k \in \mathbb{P}\)</span>.<br />
+Then there is an integer <span class="math notranslate nohighlight">\(m\)</span> s.t. <span class="math notranslate nohighlight">\(3m = a_k + 1 \iff 3m - 1 = a_k\)</span>.<br />
+<span class="math notranslate nohighlight">\(a_{k + 1} + 1 = 2a_k + 2 = 2(3m - 1) + 2 = 6m - 2 + 2 = 3(2m)\)</span>.<br />
+<span class="math notranslate nohighlight">\(\therefore 3 \mid a_{k + 1} + 1\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\therefore 3 \mid a_n + 1\)</span> for any <span class="math notranslate nohighlight">\(n \in \mathbb{P}\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="forall-n-in-mathbb-n-left-0-1-2-dots-n-frac-n-n-1-2-right">
+<h3><span class="math notranslate nohighlight">\(\forall n \in \mathbb{N} \,\,\left[ \,\,0 + 1 + 2 + \dots + n = \frac{n(n + 1)}{2}\,\, \right]\)</span><a class="headerlink" href="#forall-n-in-mathbb-n-left-0-1-2-dots-n-frac-n-n-1-2-right" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Claim\)</span> [Humphreys &amp; Prest pp. 17]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(n\)</span> be a natural number.<br />
+The sum <span class="math notranslate nohighlight">\(0 + 1 + 2 + \dots + n\)</span> of the first <span class="math notranslate nohighlight">\(n\)</span> natural numbers is <span class="math notranslate nohighlight">\(\frac{n(n + 1)}{2}\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall n \in \mathbb{N} \,\,
+\left[ \,\,
+0 + 1 + 2 + \dots + n
+= \frac{n(n + 1)}{2}
+= \frac{1}{2} n^2 + \frac{1}{2} n
+\,\, \right]
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, induction\)</span></p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(n = 0 \implies [0 = \frac{0(0 + 1)}{2} \iff 0 = 0]\)</span><br />
+<span class="math notranslate nohighlight">\(n = 1 \implies [0 + 1 = \frac{1(1 + 1)}{2} \iff 1 = 1]\)</span></p>
+</div></blockquote>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Induction Hypothesis: Let <span class="math notranslate nohighlight">\(1 + 2 + \dots + k = \frac{k(k + 1)}{2}\)</span> for some <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span>.</p>
+</div></blockquote>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp; \textcolor{green}{1 + 2 + \dots + k + (k + 1)} \\
+= &amp; \frac{k(k + 1)}{2} + (k + 1) \\
+= &amp; \frac{k(k + 1) + 2(k + 1)}{2} \\
+= &amp; \textcolor{green}{\frac{(k + 1)((k + 1) + 1)}{2}} \\
+= &amp; \frac{(k + 1)(k + 2)}{2} \\
+= &amp; \frac{k^2 + 3k + 2}{2} \\
+= &amp; \frac{1}{2} k^2 + \frac{1}{2} 3k + \frac{1}{2} 2 \\
+= &amp; \frac{1}{2} k^2 + \frac{1}{2} 2k + \frac{1}{2} 1 + \frac{1}{2} k + \frac{1}{2} 1 \\
+= &amp; \frac{1}{2} ( k^2 + 2k + 1 ) + \frac{1}{2} ( k + 1 ) \\
+= &amp; \textcolor{green}{\frac{1}{2} ( k + 1 )^2 + \frac{1}{2} ( k + 1 )} \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p>Therefore the sum <span class="math notranslate nohighlight">\(0 + 1 + 2 + \dots + n\)</span> of the first <span class="math notranslate nohighlight">\(n\)</span> natural numbers is <span class="math notranslate nohighlight">\(\frac{n(n + 1)}{2}\)</span> for any natural number <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="forall-n-in-mathbb-p-13-mid-a-n">
+<h3><span class="math notranslate nohighlight">\(\forall n \in \mathbb{P} \,\,[ \,\,13 \mid a_n\,\, ]\)</span><a class="headerlink" href="#forall-n-in-mathbb-p-13-mid-a-n" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Claim\)</span> [Humphreys &amp; Prest pp. 17-18]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> be a sequence whose terms are defined as follows.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+a_n := 4^{2n - 1} + 3^{n + 1}
+\]</div>
+<blockquote>
+<div><p>Any term in <span class="math notranslate nohighlight">\(a\)</span> is divisible by <span class="math notranslate nohighlight">\(13\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall n \in \mathbb{P} \,\,
+[ \,\,
+13 \mid a_n
+\,\, ]
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, induction\)</span></p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(a_1 = 4^{2(1) - 1} + 3^{(1) + 1} = 4 + 3^2 = 13\)</span><br />
+<span class="math notranslate nohighlight">\(\therefore 13 \mid a_1\)</span>.</p>
+</div></blockquote>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Induction Hypothesis: Let <span class="math notranslate nohighlight">\(13 \mid a_k = 4^{2k - 1} + 3^{k + 1}\)</span> for some <span class="math notranslate nohighlight">\(k \in \mathbb{P}\)</span>.<br />
+Then there is an integer <span class="math notranslate nohighlight">\(m\)</span> s.t. <span class="math notranslate nohighlight">\(13m = 4^{2k - 1} + 3^{k + 1}\)</span>.<br />
+<span class="math notranslate nohighlight">\(a_{k + 1} = 4^{2(k + 1) - 1} + 3^{(k + 1) + 1} = 4^{2k + 1} + 3^{k + 2}\)</span><br />
+<span class="math notranslate nohighlight">\(= 4^2 \cdot 4^{2k - 1} + 3 \cdot 3^{k + 1}\)</span><br />
+<span class="math notranslate nohighlight">\(= 16 \cdot 4^{2k - 1} (+ 16 \cdot 3^{k + 1} - 16 \cdot 3^{k + 1}) + 3 \cdot 3^{k + 1}\)</span><br />
+<span class="math notranslate nohighlight">\(= 16 (4^{2k - 1} + 3^{k + 1}) - 16 \cdot 3^{k + 1} + 3 \cdot 3^{k + 1}\)</span><br />
+<span class="math notranslate nohighlight">\(= 16 (13m) - 13 \cdot 3^{k + 1}\)</span><br />
+<span class="math notranslate nohighlight">\(= 13 (16m - 3^{k + 1})\)</span><br />
+<span class="math notranslate nohighlight">\(\therefore 13 \mid a_{k + 1}\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\therefore 13 \mid a_n\)</span> for any <span class="math notranslate nohighlight">\(n \in \mathbb{P}\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="definition-of-the-positive-powers-of-an-integer">
+<h2>Definition of the positive powers of an integer<a class="headerlink" href="#definition-of-the-positive-powers-of-an-integer" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Definition \,\, by \,\, induction\)</span></p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a^1 := a\)</span>.</p>
+</div></blockquote>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a^{k + 1} := a^k \cdot a\)</span>.</p>
+</div></blockquote>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+a^n :=
+\begin{cases}
+a^1 &amp;= a \\
+a^{k + 1} &amp;= a^k \cdot a \\
+\end{cases}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+a^1 &amp;= a \\
+a^2 &amp;= a^1 \cdot a = a \cdot a \\
+a^3 &amp;= a^2 \cdot a = (a^1 \cdot a) \cdot a = (a \cdot a) \cdot a \\
+a^4 &amp;= a^3 \cdot a = (a^2 \cdot a) \cdot a = ((a^1 \cdot a) \cdot a) \cdot a = ((a \cdot a) \cdot a) \cdot a \\
+a^5 &amp;= a^4 \cdot a = (a^3 \cdot a) \cdot a = ((a^2 \cdot a) \cdot a) \cdot a = (((a^1 \cdot a) \cdot a) \cdot a) \cdot a = (((a \cdot a) \cdot a) \cdot a) \cdot a\\
+\vdots \\
+\end{align*}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="definition-of-the-factorial-symbol">
+<h2>Definition of the factorial symbol<a class="headerlink" href="#definition-of-the-factorial-symbol" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Definition \,\, by \,\, induction\)</span></p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(0! := 1\)</span>.</p>
+</div></blockquote>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\((k + 1)! := (k + 1) \times k!\)</span></p>
+</div></blockquote>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+n! :=
+\begin{cases}
+0! &amp;= 1 \\
+(k + 1)! &amp;= (k + 1) \times k! \\
+\end{cases}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+0! &amp;= 1 \\
+1! &amp;= 1 \times 0! = 1 \times 1 = 1 \\
+2! &amp;= 2 \times 1! = 2 \times (1 \times 0!) = 2 \times (1 \times 1) = 2 \\
+3! &amp;= 3 \times 2! = 3 \times (2 \times 1!) = 3 \times (2 \times (1 \times 0!)) = 3 \times (2 \times (1 \times 1)) = 6 \\
+4! &amp;= 4 \times 3! = 4 \times (3 \times (2 \times 1!)) = 4 \times (3 \times (2 \times (1 \times 0!))) = 4 \times (3 \times (2 \times (1 \times 1))) = 24 \\
+\vdots \\
+\end{align*}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="binomial-theorem">
+<h2>Binomial Theorem<a class="headerlink" href="#binomial-theorem" title="Link to this heading">#</a></h2>
+<section id="definition-of-binomial-coefficients">
+<h3>Definition of binomial coefficients<a class="headerlink" href="#definition-of-binomial-coefficients" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> be integers with <span class="math notranslate nohighlight">\(0 \le k \le n\)</span>.<br />
+The binomial coefficients are the numbers defined as follows.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\binom{n}{k}
+&amp;:= \frac{n!}{k!(n - k)!}
+= \frac{n(n - 1) \dots (n - k + 1)}{k!} \\
+\end{align*}
+\end{split}\]</div>
+<p>Note that</p>
+<div class="math notranslate nohighlight">
+\[
+\forall n \in \mathbb{N} \,\,
+\left[ \,\,
+\binom{n}{n} = \frac{n!}{n!(n - n)!} = 1
+= \frac{n!}{0!(n - 0)!} = \binom{n}{0}
+\,\, \right]
+\]</div>
+<p>Although it is clear from its definition that <span class="math notranslate nohighlight">\(\binom{n}{k} \in \mathbb{Q}^+\)</span> it is not yet clear that <span class="math notranslate nohighlight">\(\binom{n}{k} \in \mathbb{Z}\)</span>.</p>
+</section>
+<section id="id1">
+<h3>Binomial Theorem<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Theorem\)</span></p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(n\)</span> be a positive integer and let <span class="math notranslate nohighlight">\(x, y\)</span> be any numbers.<br />
+Then</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+(x + y)^n
+&amp;= \binom{n}{0} x^n + \dots + \binom{n}{i} x^{n - i} y^i + \dots + \binom{n}{n} y^n \\
+&amp;= \sum_{k = 0}^n \binom{n}{k} x^{n - k} y^k
+= \sum_{k = 0}^n \binom{n}{n - k} x^k y^{n - k}\\
+\end{align*}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(Cases\)</span></p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(n = 1\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+(x + y)^1
+&amp;= \binom{1}{0} x^1 y^0 + \binom{1}{1} x^0 y^1 \\
+&amp;= \frac{1!}{0!(1 - 0)!} x + \frac{1!}{1!(1 - 1)!} y \\
+&amp;= \frac{1}{1 \cdot 1} x + \frac{1}{1 \cdot 1} y \\
+&amp;= x + y \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(n = 2\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+(x + y)^2
+&amp;= \binom{2}{0} x^2 y^0 + \binom{2}{1} x^1 y^1 + \binom{2}{2} x^0 y^2 \\
+&amp;= \frac{2!}{0!(2 - 0)!} x^2 + \frac{2!}{1!(2 - 1)!} xy + \frac{2!}{2!(2 - 2)!} y^2 \\
+&amp;= \frac{2}{1 \cdot 2} x^2 + \frac{2}{1 \cdot 1} xy + \frac{2}{2 \cdot 1} y^2 \\
+&amp;= x^2 + 2xy + y^2 \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(n = 3\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+(x + y)^3
+&amp;= \binom{3}{0} x^3 y^0 + \binom{3}{1} x^2 y^1 + \binom{3}{2} x^1 y^2 + \binom{3}{3} x^0 y^3 \\
+&amp;= \frac{3!}{0!(3 - 0)!} x^3 + \frac{3!}{1!(3 - 1)!} x^2y + \frac{3!}{2!(3 - 2)!} xy^2 + \frac{3!}{3!(3 - 3)!} y^3 \\
+&amp;= \frac{6}{1 \cdot 6} x^3 + \frac{6}{1 \cdot 2} x^2y + \frac{6}{2 \cdot 1} xy^2 + \frac{6}{6 \cdot 1} y^3 \\
+&amp;= x^3 + 3x^2y + 3xy^2 + y^3 \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(n = 4\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+(x + y)^4
+&amp;= \binom{4}{0} x^4 y^0 + \binom{4}{1} x^3 y^1 + \binom{4}{2} x^2 y^2 + \binom{4}{3} x^1 y^3 + \binom{4}{4} x^0 y^4 \\
+&amp;= \frac{4!}{0!(4 - 0)!} x^4 + \frac{4!}{1!(4 - 1)!} x^3y + \frac{4!}{2!(4 - 2)!} x^2y^2 + \frac{4!}{3!(4 - 3)!} xy^3 + \frac{4!}{4!(4 - 4)!} y^4 \\
+&amp;= \frac{24}{1 \cdot 24} x^4 + \frac{24}{1 \cdot 6} x^3y + \frac{24}{2 \cdot 2} x^2y^2 + \frac{24}{6 \cdot 1} xy^3 + \frac{24}{24 \cdot 1} y^4 \\
+&amp;= x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4 \\
+\end{align*}
+\end{split}\]</div>
+<div class="full-width">
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, induction\)</span></p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\((x + y)^1 = \binom{1}{0} x^1 y^0 + \binom{1}{1} x^0 y^1\)</span></p>
+</div></blockquote>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Induction Hypothesis: Let <span class="math notranslate nohighlight">\((x + y)^k = \binom{k}{0} x^k + \dots + \binom{k}{i} x^{k - i} y^i + \dots + \binom{k}{k} y^k\)</span> for some <span class="math notranslate nohighlight">\(k \in \mathbb{P}\)</span>.<br />
+<span class="math notranslate nohighlight">\((x + y)^{k + 1} = (x + y)(x + y)^k\)</span><br />
+<span class="math notranslate nohighlight">\(= (x + y)(\binom{k}{0} x^k + \dots + \binom{k}{i - 1} x^{k - (i - 1)} y^{i - 1} + \binom{k}{i} x^{k - i} y^i + \dots + \binom{k}{k} y^k)\)</span><br />
+<span class="math notranslate nohighlight">\(= \textcolor{green}{\binom{k}{0} x^{k + 1}} + \binom{k}{0} x^k y + \dots + \binom{k}{i - 1} x^{k + 2 - i} y^{i - 1} + \textcolor{green}{\binom{k}{i - 1} x^{k + 1 - i} y^i} + \textcolor{green}{\binom{k}{i} x^{k + 1 - i} y^i} + \binom{k}{i} x^{k - i} y^{i + 1} + \dots + \binom{k}{k} x y^k + \textcolor{green}{\binom{k}{k} y^{k + 1}}\)</span><br />
+Note that <span class="math notranslate nohighlight">\(\binom{k}{0} x^{k + 1} = x^{k + 1} = \binom{k + 1}{0} x^{k + 1}\)</span>.<br />
+Note that <span class="math notranslate nohighlight">\(\binom{k}{k} y^{k + 1} = y^{k + 1} = \binom{k + 1}{k + 1} y^{k + 1}\)</span>.<br />
+Note that <span class="math notranslate nohighlight">\(\binom{k}{i - 1} x^{k + 1 - i} y^i + \binom{k}{i} x^{k + 1 - i} y^i = \left( \binom{k}{i - 1} + \binom{k}{i} \right) x^{k + 1 - i} y^i\)</span>.<br />
+It is left for us to show that <span class="math notranslate nohighlight">\(\binom{k}{i - 1} + \binom{k}{i} = \binom{k + 1}{i}\)</span>.</p>
+</div></blockquote>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+&amp; \binom{k}{i - 1} + \binom{k}{i} \\
+= &amp; \frac{k!}{(i - 1)!(k + 1 - i)!} + \frac{k!}{i!(k - i)!} \\
+= &amp; \frac{k!}{(i - 1)!(k + 1 - i)(k - i)!} + \frac{k!}{i(i - 1)!(k - i)!} \\
+= &amp; \frac{k!}{(i - 1)!(k - i)!} \left( \frac{1}{(k + 1 - i)} + \frac{1}{i} \right) \\
+= &amp; \frac{k!}{(i - 1)!(k - i)!} \cdot \frac{k + 1}{i(k + 1 - i)} \\
+= &amp; \frac{(k + 1) \cdot k!}{i \cdot (i - 1)! \cdot (k + 1 - i) \cdot (k - i)!} \\
+= &amp; \frac{(k + 1)!}{i!(k + 1 - i)!} \\
+= &amp; \binom{k + 1}{i} \\
+\end{align*}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div></section>
+<section id="constructing-pascal-s-triangle">
+<h3>Constructing Pascal’s Triangle<a class="headerlink" href="#constructing-pascal-s-triangle" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|}
+k \\
+\hline
+0 &amp;&amp; 1 \\
+1 &amp;&amp; 1 &amp;&amp; 1 \\
+2 &amp;&amp; 1 &amp;&amp; 2 &amp;&amp; 1 \\
+3 &amp;&amp; 1 &amp;&amp; 3 &amp;&amp; 3 &amp;&amp; 1 \\
+4 &amp;&amp; 1 &amp;&amp; 4 &amp;&amp; 6 &amp;&amp; 4 &amp;&amp; 1 \\
+5 &amp;&amp; 1 &amp;&amp; 5 &amp;&amp; 10 &amp;&amp; 10 &amp;&amp; 5 &amp;&amp; 1 \\
+6 &amp;&amp; 1 &amp;&amp; 6 &amp;&amp; 15 &amp;&amp; 20 &amp;&amp; 15 &amp;&amp; 6 &amp;&amp; 1 \\
+\vdots &amp;&amp; \\
+\hline
+i= &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 2 &amp;&amp; 3 &amp;&amp; 4 &amp;&amp; 5 &amp;&amp; 6 &amp;&amp; \dots \\
+\end{array}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+\binom{k}{i - 1} + \binom{k}{i} = \binom{k + 1}{i}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|}
+k \\
+\hline
+0 &amp;&amp; \binom{0}{0} \\
+1 &amp;&amp; \binom{1}{0} &amp;&amp; \binom{1}{1} \\
+2 &amp;&amp; \binom{2}{0} &amp;&amp; \binom{2}{1} &amp;&amp; \binom{2}{2} \\
+3 &amp;&amp; \binom{3}{0} &amp;&amp; \binom{3}{1} &amp;&amp; \binom{3}{2} &amp;&amp; \binom{3}{3} \\
+4 &amp;&amp; \binom{4}{0} &amp;&amp; \binom{4}{1} &amp;&amp; \binom{4}{2} &amp;&amp; \binom{4}{3} &amp;&amp; \binom{4}{4} \\
+5 &amp;&amp; \binom{5}{0} &amp;&amp; \binom{5}{1} &amp;&amp; \binom{5}{2} &amp;&amp; \binom{5}{3} &amp;&amp; \binom{5}{4} &amp;&amp; \binom{5}{5} \\
+6 &amp;&amp; \binom{6}{0} &amp;&amp; \binom{6}{1} &amp;&amp; \binom{6}{2} &amp;&amp; \binom{6}{3} &amp;&amp; \binom{6}{4} &amp;&amp; \binom{6}{5} &amp;&amp; \binom{6}{6} \\
+\vdots &amp;&amp; \\
+\hline
+i= &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 2 &amp;&amp; 3 &amp;&amp; 4 &amp;&amp; 5 &amp;&amp; 6 &amp;&amp; \dots \\
+\end{array}
+\end{split}\]</div>
+</section>
+<section id="binomial-coefficients-are-positive-integers">
+<h3>Binomial coefficients are positive integers<a class="headerlink" href="#binomial-coefficients-are-positive-integers" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Claim\)</span></p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> be integers with <span class="math notranslate nohighlight">\(0 \le k \le n\)</span>.<br />
+<span class="math notranslate nohighlight">\(\binom{n}{k} \in \mathbb{Z}\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall n, k \in \mathbb{Z} \,\,
+\left[\,\,
+\binom{n}{k} \in \mathbb{Z}
+\,\,\right]
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="the-well-ordering-principle-and-mathematical-induction">
+<h2>The well-ordering principle and mathematical induction<a class="headerlink" href="#the-well-ordering-principle-and-mathematical-induction" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest 1.2.2 pp. 20]</p>
+<blockquote>
+<div><p>The well-ordering principle implies the principle of mathematical induction.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+WellOrdering \implies Induction
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, contradiction\)</span> [Humphreys &amp; Prest pp. 21]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(P(n)\)</span> satisfy the conditions for the induction principle: so <span class="math notranslate nohighlight">\(P(1)\)</span> holds whenever <span class="math notranslate nohighlight">\(P(k)\)</span> holds and so also does <span class="math notranslate nohighlight">\(P(k + 1)\)</span>.<br />
+Let <span class="math notranslate nohighlight">\(S\)</span> be the set of positive integers <span class="math notranslate nohighlight">\(m\)</span> for which <span class="math notranslate nohighlight">\(P(m)\)</span> is false.<br />
+Either <span class="math notranslate nohighlight">\(S\)</span> is the empty set or else <span class="math notranslate nohighlight">\(S\)</span> is non-empty.</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(S\)</span> be non-empty.<br />
+Then the well-ordering principle says that there is a least element <span class="math notranslate nohighlight">\(t \in S\)</span>.<br />
+<span class="math notranslate nohighlight">\(1 \not\in S\)</span> since <span class="math notranslate nohighlight">\(P(1)\)</span> holds and so <span class="math notranslate nohighlight">\(t \gt 1 \iff t - 1 \gt 0\)</span> (i.e., <span class="math notranslate nohighlight">\(t - 1\)</span> is positive).<br />
+<span class="math notranslate nohighlight">\(P(t - 1)\)</span> holds since <span class="math notranslate nohighlight">\(t\)</span> is the least element of <span class="math notranslate nohighlight">\(S\)</span> (the set of positive integers for which <span class="math notranslate nohighlight">\(P(n)\)</span> does not hold).<br />
+But since <span class="math notranslate nohighlight">\(t = (t - 1) + 1\)</span> it follows by our assumption on <span class="math notranslate nohighlight">\(P\)</span> (take <span class="math notranslate nohighlight">\(k = t - 1\)</span>) that <span class="math notranslate nohighlight">\(P(t)\)</span> does hold.<br />
+<span class="math notranslate nohighlight">\(Contradiction!\)</span><br />
+<span class="math notranslate nohighlight">\(\therefore S = \varnothing\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\therefore \forall n \in \mathbb{P} \,\, [ \,\, P(n) \,\, ]\)</span></p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(Claim\)</span></p>
+<blockquote>
+<div><p>The principle of mathematical induction implies the well-ordering principle.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+Induction \implies WellOrdering
+\]</div>
+<p><span class="math notranslate nohighlight">\(Claim\)</span></p>
+<blockquote>
+<div><p>Mathematical induction holds iff the well-ordering principle holds.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+Induction \iff WellOrdering
+\]</div>
+</section>
+<section id="variations-on-the-induction-principle">
+<h2>Variations on the induction principle<a class="headerlink" href="#variations-on-the-induction-principle" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Induction \,\, Principle \,\, variation\)</span></p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(P(n)\)</span> be an assertion involving the variable <span class="math notranslate nohighlight">\(n\)</span>.<br />
+If</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(P(n_0)\)</span> holds for an integer <span class="math notranslate nohighlight">\(n_0\)</span> and</p></li>
+<li><p>for each integer <span class="math notranslate nohighlight">\(k \ge n_0\)</span> whenever <span class="math notranslate nohighlight">\(P(k)\)</span> holds so also does <span class="math notranslate nohighlight">\(P(k + 1)\)</span></p></li>
+</ol>
+<p>then <span class="math notranslate nohighlight">\(P(n)\)</span> holds for all integers <span class="math notranslate nohighlight">\(k \ge n_0\)</span>.</p>
+</div></blockquote>
+<p>In other words, the induction need not start at <span class="math notranslate nohighlight">\(n = 1\)</span>. For example, it may be appropriate to start with the base case at <span class="math notranslate nohighlight">\(n = 0\)</span>.</p>
+<section id="strong-induction">
+<h3>Strong Induction<a class="headerlink" href="#strong-induction" title="Link to this heading">#</a></h3>
+<p>a.k.a. Complete Induction or Course of Values Induction</p>
+<p><span class="math notranslate nohighlight">\(Strong \,\, Induction\)</span></p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(P(n)\)</span> be an assertion involving the integer variable <span class="math notranslate nohighlight">\(n\)</span>.<br />
+If</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(P(0)\)</span> holds and</p></li>
+<li><p>for each <span class="math notranslate nohighlight">\(k \ge 0\)</span>, from the hypothesis that <span class="math notranslate nohighlight">\(P\)</span> holds for all non-negative <span class="math notranslate nohighlight">\(m \le k\)</span>, <span class="math notranslate nohighlight">\(P(k + 1)\)</span> holds</p></li>
+</ol>
+<p>then <span class="math notranslate nohighlight">\(P(n)\)</span> holds for every natural number <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div></blockquote>
+<p>The <span class="math notranslate nohighlight">\(0\)</span> could be replaced by any integer <span class="math notranslate nohighlight">\(n_0\)</span> and the conclusion would be modified accordingly.</p>
+<p>This variation on mathematical induction takes note of the fact that, if in an induction we have reached the stage where we have that <span class="math notranslate nohighlight">\(P(k)\)</span> is true then, in getting there, we also showed that <span class="math notranslate nohighlight">\(P(k - 1), P(k - 2), \dots\)</span> (down to the base case) are true, so it is legitimate to use all this information (not just the fact that <span class="math notranslate nohighlight">\(P(k)\)</span> is true) in trying to prove that <span class="math notranslate nohighlight">\(P(k + 1)\)</span> holds.</p>
+<p>The image of a sequence of dominoes is sometimes used to illustrate the idea of proof by induction. Imagine a straight line of dominoes: these corresponds to the integers. They are sufficiently close together that if any one of them falls, then it will knock over the domino next to it: that corresponds to the induction step (from <span class="math notranslate nohighlight">\(P(k)\)</span> we get <span class="math notranslate nohighlight">\(P(k + 1)\)</span>). One of the dominoes is pushed over: that corresponds to the base case. In these terms, the principle of strong induction says that to knock over the <span class="math notranslate nohighlight">\((k + 1)\)</span> st domino we are not restricted to using just the force of the <span class="math notranslate nohighlight">\(k\)</span> th domino: we can also use the fact that all the previous dominoes have fallen over.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fibonacci-sequence">
+<h2>Fibonacci Sequence<a class="headerlink" href="#fibonacci-sequence" title="Link to this heading">#</a></h2>
+<p>The Fibonacci sequence is the sequence <span class="math notranslate nohighlight">\(1, 1, 2, 3, 5, 8, 13, \dots\)</span> where each term is the sum of the two preceding terms. Show that every two successive terms of the Fibonacci sequence are relatively prime.</p>
+<blockquote>
+<div><p>The Fibonacci sequence is defined as follows.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+F_n :=
+\begin{cases}
+F_1 &amp;= 1 \\
+F_2 &amp;= 1 \\
+F_{n + 1} &amp;= F_n + F_{n - 1} &amp;&amp; n \in \{ 2, 3, \dots \} \\
+\end{cases}
+:=
+\begin{cases}
+F(0) &amp;= 0 \\
+F(1) &amp;= 1 \\
+F(n) &amp;= F(n - 1) + F(n - 2) &amp;&amp; n \in \{ 2, 3, \dots \} \\
+\end{cases}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(Example\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+  &amp; F(5) \\
+= &amp; F(4) + F(3) \\
+= &amp; F(3) + F(2) + F(2) + F(1) \\
+= &amp; F(2) + F(1) + F(1) + F(0) + F(1) + F(0) + 1 \\
+= &amp; F(1) + F(0) + 1 + 1 + 0 + 1 + 0 + 1 \\
+= &amp; 1 + 0 + 4 \\
+= &amp; 5 \\
+\end{align*}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(Claim\)</span></p>
+<blockquote>
+<div><p>Every two successive terms of the Fibonacci sequence are relatively prime.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall n \in \mathbb{P} \,\,
+[\,\,
+gcd(F_n, F_{n + 1}) = 1
+\,\,]
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, induction\)</span></p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(gcd(F_1, F_2) = gcd(1, 1) = 1\)</span></p>
+</div></blockquote>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Induction Hypothesis: Let it be the case that <span class="math notranslate nohighlight">\(gcd(F_k, F_{k + 1}) = 1\)</span> for some positive integer <span class="math notranslate nohighlight">\(k \ge 1\)</span>.<br />
+Let <span class="math notranslate nohighlight">\(d\)</span> be a common divisor of <span class="math notranslate nohighlight">\(F_{k + 1}\)</span> and <span class="math notranslate nohighlight">\(F_{k + 2} = F_{k + 1} + F_k\)</span>.<br />
+Then <span class="math notranslate nohighlight">\(d\)</span> is also a common divisor of <span class="math notranslate nohighlight">\(F_k\)</span>.<br />
+But <span class="math notranslate nohighlight">\(gcd(F_k, F_{k + 1}) = 1\)</span> and so it must be the case that <span class="math notranslate nohighlight">\(d = 1\)</span>.</p>
+</div></blockquote>
+<p>Therefore every two successive terms of the Fibonacci sequence are relatively prime.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">233</span><span class="p">,</span> <span class="mi">377</span><span class="p">,</span> <span class="mi">610</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Pure Python Recursion</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. pure python recursion</span>
+<span class="k">def</span> <span class="nf">F01</span> <span class="p">(</span><span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="c1"># if in {0, 1} : return n</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span>     <span class="p">:</span> <span class="k">return</span> <span class="n">n</span>    <span class="c1">#      base case</span>
+  <span class="k">return</span> <span class="n">F01</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">F01</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># recursive case</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> F01(35) # ~ 1 s
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1 s ± 2.36 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;F01(35)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         29860706 function calls (4 primitive calls) in 4.769 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+29860703/1    4.769    0.000    4.769    4.769 2524435626.py:2(F01)
+        1    0.000    0.000    4.769    4.769 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    4.769    4.769 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Numba-jitted Recursion</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. numba-jitted python recursion</span>
+<span class="nd">@njit</span>
+<span class="k">def</span> <span class="nf">F02</span> <span class="p">(</span><span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">:</span> <span class="k">return</span> <span class="n">n</span>        <span class="c1">#      base case</span>
+  <span class="k">return</span> <span class="n">F02</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">F02</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># recursive case</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r10 -n7 F02(35) # ~ 10 ms
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>41 ms ± 411 µs per loop (mean ± std. dev. of 10 runs, 7 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;F02(35)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         4 function calls in 0.047 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.047    0.047    0.047    0.047 4014199938.py:2(F02)
+        1    0.000    0.000    0.047    0.047 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.047    0.047 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Memoized Recursion - functools</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. memoized python recursion - functools</span>
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">F03</span> <span class="p">(</span><span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">:</span> <span class="k">return</span> <span class="n">n</span>        <span class="c1">#      base case</span>
+  <span class="k">return</span> <span class="n">F03</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">F03</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># recursive case</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r10 -n10 fn = F03(35) # ~ 100 ns
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80.4 ns ± 67.9 ns per loop (mean ± std. dev. of 10 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;F03(35)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         3 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Memoized Recursion - dict</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4. memoized python recursion - dict</span>
+<span class="n">cache</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="k">def</span> <span class="nf">F04</span> <span class="p">(</span><span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">cache</span> <span class="p">:</span> <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="c1">#      base case</span>
+  <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">F04</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">F04</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># recursive case</span>
+  <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r10 -n10 F04(35) # ~ 100 ns
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>136 ns ± 64.4 ns per loop (mean ± std. dev. of 10 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;F04(35)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         4 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 2057090240.py:3(F04)
+        1    0.000    0.000    0.000    0.000 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> F01(35) #                                pure python recursion
+<span class="o">%</span><span class="k">time</span> F02(35) # numba jit doesn&#39;t improve upon pure python recursion
+<span class="o">%</span><span class="k">time</span> F03(35) # memoized python recursion - functools performs best
+<span class="o">%</span><span class="k">time</span> F04(35) # memoized python recursion - dict      performs almost as well
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.11 s, sys: 4.26 ms, total: 1.11 s
+Wall time: 1.11 s
+CPU times: user 40.8 ms, sys: 230 µs, total: 41 ms
+Wall time: 41.1 ms
+CPU times: user 1 µs, sys: 1 µs, total: 2 µs
+Wall time: 2.62 µs
+CPU times: user 2 µs, sys: 0 ns, total: 2 µs
+Wall time: 2.86 µs
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9227465
+</pre></div>
+</div>
+</div>
+</div>
+<p>The memoized pure python function computes very large terms efficiently.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">F03</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">4e2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F04</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">4e2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>176023680645013966468226945392411250770384383304492191886725992896575345044216019675
+176023680645013966468226945392411250770384383304492191886725992896575345044216019675
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sys.setrecursionlimit(2_000)</span>
+<span class="c1"># sys.getrecursionlimit()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sys.setrecursionlimit(1_000)</span>
+<span class="c1"># sys.getrecursionlimit()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Cython recursion</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span>
+def F05 (int n):
+  if n &lt; 2 : return n
+  else     : return F05(n-1) + F05(n-2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r7 -n2 F05(35) # ~ 500 ms
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>460 ms ± 1.36 ms per loop (mean ± std. dev. of 7 runs, 2 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;F05(35)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         3 function calls in 0.476 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.476    0.476    0.476    0.476 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.476    0.476 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Object-oriented Memoization</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6. memoized object-oriented recursion</span>
+<span class="k">class</span> <span class="nc">f06</span><span class="p">:</span>
+
+  <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+  <span class="k">def</span> <span class="fm">__call__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="c1"># validate the value of n</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Positive integer number expected, got &quot;</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="c1"># check for computed Fibonacci numbers</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># compute and cache the requested Fibonacci number</span>
+      <span class="n">fib_number</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fib_number</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+  
+<span class="n">F06</span> <span class="o">=</span> <span class="n">f06</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r10 -n10 F06(35) # ~ 250 ns
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>255 ns ± 86.8 ns per loop (mean ± std. dev. of 10 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;F06(35)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         6 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 1233081411.py:7(__call__)
+        1    0.000    0.000    0.000    0.000 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Pure Python Iterative</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7. pure python iterative</span>
+
+<span class="c1"># def F07 (n : int) -&gt; int:</span>
+<span class="c1">#   # validate the value of n</span>
+<span class="c1">#   if not (isinstance(n, int) and n &gt;= 0) : raise ValueError(f&#39;Positive integer number expected, got &quot;{n}&quot;&#39;)</span>
+<span class="c1">#   # base cases</span>
+<span class="c1">#   if n in {0, 1}                         : return n</span>
+<span class="c1">#   # compute the next Fibonacci number, remember the previous one</span>
+<span class="c1">#   previous, fib_number = 0, 1</span>
+<span class="c1">#   for _ in range(2, n + 1)               : previous, fib_number = fib_number, previous + fib_number</span>
+<span class="c1">#   return fib_number</span>
+
+<span class="k">def</span> <span class="nf">F07</span> <span class="p">(</span><span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+  <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+  <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r10 -n10 F07(35) # ~ 1 micro s
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>963 ns ± 85.6 ns per loop (mean ± std. dev. of 10 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;F07(35)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         4 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 693775523.py:13(F07)
+        1    0.000    0.000    0.000    0.000 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Numba-jitted Iterative</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 8. numba-jitted iterative</span>
+<span class="nd">@njit</span>
+<span class="k">def</span> <span class="nf">F08</span> <span class="p">(</span><span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+  <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+  <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -n10 -r10 F08(35) # ~ 200 ns
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>201 ns ± 158 ns per loop (mean ± std. dev. of 10 runs, 10 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;F08(35)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         4 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 1632023275.py:2(F08)
+        1    0.000    0.000    0.000    0.000 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Cython Iterative 1</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span>
+def F09 (int n):
+  cdef long i
+  cdef long x = 0, y = 1
+  for i in range(1, n + 1):
+    x, y = y, x + y
+  return x
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r7 -n2 F09(35) # ~ 300 ns
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>348 ns ± 305 ns per loop (mean ± std. dev. of 7 runs, 2 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;F09(35)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         3 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects}
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Cython Iterative 2</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span>
+cdef extern from *:
+  ctypedef int int128 &#39;__int128_t&#39;
+def F10 (int n):
+  cdef int128 i
+  cdef int128 x = 0, y = 1
+  for i in range(1, n + 1):
+    x, y = y, x + y
+  return x
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> -r7 -n2 F10(35) # ~ 300 ns
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>300 ns ± 192 ns per loop (mean ± std. dev. of 7 runs, 2 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div style="color: red;">Why does Cython Iterative 2 take longer than Cython Iterative 1?</div><hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print(F01(40)) #                                pure python recursion</span>
+<span class="c1">#print(F02(40)) # numba jit doesn&#39;t improve upon pure python recursion</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F03</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1"># memoized python recursion - functools performs best</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F04</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1"># memoized python recursion - dict      performs almost as well</span>
+<span class="c1">#print(F05(100)) # Cython recursion</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F06</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1"># memoized object-oriented</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F07</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1">#  pure python iterative</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F08</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1"># numba-jitted iterative</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F09</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1"># Cython iterative 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F10</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="c1"># Cython iterative 2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>354224848179261915075
+354224848179261915075
+354224848179261915075
+354224848179261915075
+3736710778780434371
+3736710778780434371
+354224848179261915075
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(Binet \,\, Formula\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+F_n = \frac{\phi^n - \psi^n}{\phi - \psi}
+= \frac{\phi^n - \psi^n}{\sqrt{5}}
+\]</div>
+<blockquote>
+<div><p>where</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\phi = \frac{1 + \sqrt{5}}{2}
+\]</div>
+<blockquote>
+<div><p>is the golden ratio and</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\psi = \frac{1 - \sqrt{5}}{2}
+\]</div>
+<blockquote>
+<div><p>is its conjugate.</p>
+</div></blockquote>
+<hr class="docutils" />
+<section id="fibonacci-to-review">
+<h3>Fibonacci - to review<a class="headerlink" href="#fibonacci-to-review" title="Link to this heading">#</a></h3>
+<p>To calculate <span class="math notranslate nohighlight">\(F(n)\)</span> the maximum depth of the call tree is <span class="math notranslate nohighlight">\(n\)</span>. Each function call produces two additional function calls.</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(O(2^n)\)</span> exponential for    naive recursive<br />
+<span class="math notranslate nohighlight">\(O(n)\)</span>   linear      for memoized recursive and iterative</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F12</span> <span class="p">(</span><span class="n">n</span> <span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+  <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">)[</span><span class="mi">3</span><span class="p">:]:</span>
+    <span class="n">calc</span> <span class="o">=</span> <span class="n">v2</span><span class="o">*</span><span class="n">v2</span>
+    <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span> <span class="o">=</span> <span class="n">v1</span><span class="o">*</span><span class="n">v1</span><span class="o">+</span><span class="n">calc</span><span class="p">,</span> <span class="p">(</span><span class="n">v1</span><span class="o">+</span><span class="n">v3</span><span class="p">)</span><span class="o">*</span><span class="n">v2</span><span class="p">,</span> <span class="n">calc</span><span class="o">+</span><span class="n">v3</span><span class="o">*</span><span class="n">v3</span>
+    <span class="k">if</span> <span class="n">rec</span><span class="o">==</span><span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span> <span class="o">=</span> <span class="n">v1</span><span class="o">+</span><span class="n">v2</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span>
+  <span class="k">return</span> <span class="n">v2</span>
+
+<span class="n">F12</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23416728348467685
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> F12(35)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>516 ns ± 11.1 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/228863/recursive-vs-inductive-definition">https://math.stackexchange.com/questions/228863/recursive-vs-inductive-definition</a></p></li>
+<li><p><a class="reference external" href="https://kconrad.math.uconn.edu/blurbs/proofs/induction.pdf">https://kconrad.math.uconn.edu/blurbs/proofs/induction.pdf</a></p></li>
+<li><p><a class="reference external" href="https://kconrad.math.uconn.edu/blurbs/proofs/binomcoeffintegral.pdf">https://kconrad.math.uconn.edu/blurbs/proofs/binomcoeffintegral.pdf</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2>Terms<a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ w ] Base Case</p></li>
+<li><p>[ w ] Binet Formula</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_(polynomial)">w</a> ] Binomial</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_coefficient">w</a> ] Binomial Coefficient</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_theorem">w</a> ] Binomial Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cassini_and_Catalan_identities">w</a> ] Cassini’s Identity</p></li>
+<li><p>[ w ] Complete Induction</p></li>
+<li><p>[ w ] Course of Values Induction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_sequence">w</a> ] Fibonacci Sequence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_induction">w</a> ] Induction</p></li>
+<li><p>[ w ] Induction Hypothesis</p></li>
+<li><p>[ w ] Induction Step</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Iteration">w</a> ] Iteration</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Iterative_method">w</a> ] Iterative Method</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients">w</a> ] Linear Difference Equation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients">w</a> ] Linear Recurrence Relation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients">w</a> ] Linear Recurrence with Constant Coefficients</p></li>
+<li><p>[ w ] Mathematical Induction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Memoization">w</a> ] Memoization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pascal%27s_triangle">w</a> ] Pascal’s Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Recurrence_relation">w</a> ] Recurrence Relation - A recurrence relation is an equation that expresses each term of a sequence as a function of the preceding ones.</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Recursion">w</a> ] Recursion</p></li>
+<li><p>[ w ] Strong Induction</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p>Bressoud, David M. (1989). <em>Factorization and Primality Testing</em>. Springer Undergraduate Texts in Mathematics.</p>
+<p>Crandall, Richard &amp; Carl Pomerance. (2005). <em>Prime Numbers: A Computational Perspective</em>. Springer.</p>
+<p>Davenport, Harold. (2008). <em>The Higher Arithmetic: An Introduction to the Theory of Numbers</em>. Cambridge University Press.</p>
+<p>Humphreys, J. F. &amp; M. Y. Prest. (2008). <em>Numbers, Groups, and Codes</em>. 2nd Ed. Cambridge University Press.</p>
+<p>LeVeque, William J. (1996). <em>Fundamentals of Number Theory</em>. Dover.</p>
+<p>[ <a class="reference external" href="https://personal.science.psu.edu/rcv4/">h</a> ] Vaughan, Robert. (2023). <em>A Course of Elementary Number Theory</em>. CMPSC/MATH 467 Factorization and Primality Testing. The Pennsylvania State University.</p>
+<p>Wagstaff Jr., Samuel S. (2013). <em>The Joy of Factoring</em>. AMS Student Mathematical Library.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/numbers"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_gcd_and_euclid.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GCD &amp; Euclid’s Algorithm</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_primality.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Primality</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#induction-principle">Induction Principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forall-n-in-mathbb-p-3-mid-a-n-1"><span class="math notranslate nohighlight">\(\forall n \in \mathbb{P} \,\,[ \,\,3 \mid a_n + 1\,\, ]\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forall-n-in-mathbb-n-left-0-1-2-dots-n-frac-n-n-1-2-right"><span class="math notranslate nohighlight">\(\forall n \in \mathbb{N} \,\,\left[ \,\,0 + 1 + 2 + \dots + n = \frac{n(n + 1)}{2}\,\, \right]\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forall-n-in-mathbb-p-13-mid-a-n"><span class="math notranslate nohighlight">\(\forall n \in \mathbb{P} \,\,[ \,\,13 \mid a_n\,\, ]\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-positive-powers-of-an-integer">Definition of the positive powers of an integer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-factorial-symbol">Definition of the factorial symbol</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-theorem">Binomial Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-binomial-coefficients">Definition of binomial coefficients</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Binomial Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-pascal-s-triangle">Constructing Pascal’s Triangle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-coefficients-are-positive-integers">Binomial coefficients are positive integers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-well-ordering-principle-and-mathematical-induction">The well-ordering principle and mathematical induction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variations-on-the-induction-principle">Variations on the induction principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-induction">Strong Induction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-sequence">Fibonacci Sequence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-to-review">Fibonacci - to review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
