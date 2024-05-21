@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def seq ():
+  n=1
+  while True:
+    yield scipy.special.factorial(n)/n**n
+    n+=1
+s=seq()
+x,y=[range(0,50)],[next(s) for _ in range(0,50)]
+
+fig,(ax1,ax2)=plt.subplots(2,1,figsize=(4,6),height_ratios=[1,4]);
+
+ax1.scatter(y, np.zeros(50), c=x, cmap='plasma', s=10);
+ax1.set_xlim(-0.1,1.1);
+ax1.set_xlabel('$a_n$');
+ax1.set_yticks([]);
+ax1.set_ylim(-1,1);
+
+ax2.set_xlim(-1,50);
+ax2.set_xlabel('$n$');
+ax2.set_ylim(-0.1,1.1);
+ax2.set_ylabel('$a_n$');
+ax2.scatter(x, y, c=x, cmap='plasma', s=10);
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[14], line 7[0m
+[1;32m      5[0m     n[38;5;241m+[39m[38;5;241m=[39m[38;5;241m1[39m
+[1;32m      6[0m s[38;5;241m=[39mseq()
+[0;32m----> 7[0m x,y[38;5;241m=[39m[[38;5;28mrange[39m([38;5;241m0[39m,[38;5;241m50[39m)],[43m[[49m[38;5;28;43mnext[39;49m[43m([49m[43ms[49m[43m)[49m[43m [49m[38;5;28;43;01mfor[39;49;00m[43m [49m[43m_[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[38;5;28;43mrange[39;49m[43m([49m[38;5;241;43m0[39;49m[43m,[49m[38;5;241;43m50[39;49m[43m)[49m[43m][49m
+[1;32m      9[0m fig,(ax1,ax2)[38;5;241m=[39mplt[38;5;241m.[39msubplots([38;5;241m2[39m,[38;5;241m1[39m,figsize[38;5;241m=[39m([38;5;241m4[39m,[38;5;241m6[39m),height_ratios[38;5;241m=[39m[[38;5;241m1[39m,[38;5;241m4[39m]);
+[1;32m     11[0m ax1[38;5;241m.[39mscatter(y, np[38;5;241m.[39mzeros([38;5;241m50[39m), c[38;5;241m=[39mx, cmap[38;5;241m=[39m[38;5;124m'[39m[38;5;124mplasma[39m[38;5;124m'[39m, s[38;5;241m=[39m[38;5;241m10[39m);
+
+Cell [0;32mIn[14], line 7[0m, in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m      5[0m     n[38;5;241m+[39m[38;5;241m=[39m[38;5;241m1[39m
+[1;32m      6[0m s[38;5;241m=[39mseq()
+[0;32m----> 7[0m x,y[38;5;241m=[39m[[38;5;28mrange[39m([38;5;241m0[39m,[38;5;241m50[39m)],[[38;5;28;43mnext[39;49m[43m([49m[43ms[49m[43m)[49m [38;5;28;01mfor[39;00m _ [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m0[39m,[38;5;241m50[39m)]
+[1;32m      9[0m fig,(ax1,ax2)[38;5;241m=[39mplt[38;5;241m.[39msubplots([38;5;241m2[39m,[38;5;241m1[39m,figsize[38;5;241m=[39m([38;5;241m4[39m,[38;5;241m6[39m),height_ratios[38;5;241m=[39m[[38;5;241m1[39m,[38;5;241m4[39m]);
+[1;32m     11[0m ax1[38;5;241m.[39mscatter(y, np[38;5;241m.[39mzeros([38;5;241m50[39m), c[38;5;241m=[39mx, cmap[38;5;241m=[39m[38;5;124m'[39m[38;5;124mplasma[39m[38;5;124m'[39m, s[38;5;241m=[39m[38;5;241m10[39m);
+
+Cell [0;32mIn[14], line 4[0m, in [0;36mseq[0;34m()[0m
+[1;32m      2[0m n[38;5;241m=[39m[38;5;241m1[39m
+[1;32m      3[0m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[0;32m----> 4[0m   [38;5;28;01myield[39;00m [43mscipy[49m[38;5;241m.[39mspecial[38;5;241m.[39mfactorial(n)[38;5;241m/[39mn[38;5;241m*[39m[38;5;241m*[39mn
+[1;32m      5[0m   n[38;5;241m+[39m[38;5;241m=[39m[38;5;241m1[39m
+
+[0;31mNameError[0m: name 'scipy' is not defined
+
