@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Summations &#8212; Laptop Lab</title>
+    <title>Summations and sigma notation &#8212; Laptop Lab</title>
   
   
   
@@ -78,7 +78,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Computery Things" href="../../c/index.html" />
-    <link rel="prev" title="Exercises" href="../../m/coding/exercises.html" />
+    <link rel="prev" title="Linear Programming" href="../../m/linearprogramming/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -278,14 +278,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../m/coding/exercises.html">Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Summations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../m/linearprogramming/index.html">Linear Programming</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Summations and sigma notation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../c/index.html">Computery Things</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/algorithms/index.html">Algorithms &amp; Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
-</ul>
-</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vim/index.html">Vim</a></li>
@@ -293,7 +291,6 @@
 </ul>
 </details></li>
 <li class="toctree-l3"><a class="reference internal" href="../../c/programming/assembly/index.html">Assembly</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../c/programming/clang/index.html">C</a></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../c/shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../c/shell/utilities.html">Utilities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../c/shell/zsh/index.html">Zsh</a></li>
@@ -638,7 +635,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Summations</h1>
+    <h1>Summations and sigma notation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -658,6 +655,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-series">Geometric Series</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonic-series">Harmonic Series</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#telescoping-series">Telescoping Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#re-indexing-summations">Re-indexing summations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#products">Products</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-summations-and-products">Converting between summations and products</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summations-and-asymptotic-analysis">Summations and asymptotic analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
 </ul>
             </nav>
         </div>
@@ -669,15 +671,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="summations">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Summations</a><a class="headerlink" href="#summations" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="summations-and-sigma-notation">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Summations and sigma notation</a><a class="headerlink" href="#summations-and-sigma-notation" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="table-of-contents">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#summations" id="id1">Summations</a></p>
+<li><p><a class="reference internal" href="#summations-and-sigma-notation" id="id1">Summations and sigma notation</a></p>
 <ul>
 <li><p><a class="reference internal" href="#table-of-contents" id="id2">Table of Contents</a></p></li>
 <li><p><a class="reference internal" href="#finite-sum" id="id3">Finite Sum</a></p></li>
@@ -689,6 +691,11 @@ document.write(`
 <li><p><a class="reference internal" href="#geometric-series" id="id9">Geometric Series</a></p></li>
 <li><p><a class="reference internal" href="#harmonic-series" id="id10">Harmonic Series</a></p></li>
 <li><p><a class="reference internal" href="#telescoping-series" id="id11">Telescoping Series</a></p></li>
+<li><p><a class="reference internal" href="#re-indexing-summations" id="id12">Re-indexing summations</a></p></li>
+<li><p><a class="reference internal" href="#products" id="id13">Products</a></p></li>
+<li><p><a class="reference internal" href="#converting-between-summations-and-products" id="id14">Converting between summations and products</a></p></li>
+<li><p><a class="reference internal" href="#summations-and-asymptotic-analysis" id="id15">Summations and asymptotic analysis</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgments" id="id16">Acknowledgments</a></p></li>
 </ul>
 </li>
 </ul>
@@ -721,16 +728,69 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^n k = 1 + 2 + \dotsb + n \end{aligned}\)</span></p>
 <p>is an arithmetic series and has the value</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^n k = \frac{n(n + 1)}{2} = \Theta(n^2) \end{aligned}\)</span></p>
+<p>Gauss’ Proof</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+ S &amp;= 1 &amp;&amp; + &amp;&amp; 2 &amp;&amp; + &amp;&amp; \dotsb &amp;&amp; + &amp;&amp; n - 1 &amp;&amp; + &amp;&amp; n \\
+ S &amp;= n &amp;&amp; + &amp;&amp; n - 1 &amp;&amp; + &amp;&amp; \dotsb &amp;&amp; + &amp;&amp; 2 &amp;&amp; + &amp;&amp; 1 \\
+2S &amp;= (n + 1) &amp;&amp; + &amp;&amp; (n + 1) &amp;&amp; + &amp;&amp; \dotsb &amp;&amp; + &amp;&amp; (n + 1) &amp;&amp; + &amp;&amp; (n + 1) \\
+   &amp;= n(n + 1) \\
+ S &amp;= \frac{n(n + 1)}{2}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>Proof by Mathematical Induction</p>
+<p><span class="math notranslate nohighlight">\(n = 1 \implies \sum_{k = 1}^1 k = 1 = \frac{1 \times (1 + 1)}{2}\)</span></p>
+<p>Assume that <span class="math notranslate nohighlight">\(\sum_{k = 1}^n k = \frac{n(n + 1)}{2}\)</span> up to <span class="math notranslate nohighlight">\(n\)</span> and show that it also holds for <span class="math notranslate nohighlight">\(n + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k = 1}^{n + 1} k
+= \left( \sum_{k = 1}^n k \right) + n + 1
+= \frac{n(n + 1)}{2} + n + 1
+= \frac{n(n + 1) + 2(n + 1)}{2}
+= \frac{(n + 1)((n + 1) + 1)}{2}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <p>A general arithmetic series includes an additive constant <span class="math notranslate nohighlight">\(a \ge 0\)</span> and a constant coefficient <span class="math notranslate nohighlight">\(b \gt 0\)</span> in each term, but has the same total asymptotically.</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^n (a + bk) = \Theta(n^2) \end{aligned}\)</span></p>
 </section>
 <section id="sum-of-squares">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">Sum of Squares</a><a class="headerlink" href="#sum-of-squares" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 0}^n k^2 = \frac{n(n + 1)(2n + 1)}{6} \end{aligned}\)</span></p>
+<p>On the one hand, the telescoping series</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k = 1}^n (k + 1)^3 - k^3
+= (n + 1)^3 - 1
+= n^3 + 3n^2 + 3n
+\end  {aligned}
+\)</span></p>
+<p>On the other hand,</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k = 1}^n (k + 1)^3 - k^3
+&amp;= \sum_{k = 1}^n (k + 1)(k^2 + 2k + 1) - k^3
+= \sum_{k = 1}^n 3k^2 + 3k + 1 \\
+&amp;= 3 \sum_{k = 1}^n k^2 + 3 \sum_{k = 1}^n k + \sum_{k = 1}^n 1 \\
+&amp;= 3 \sum_{k = 1}^n k^2 + 3 \times \frac{n(n + 1)}{2} + n \\
+&amp;= 3S + \frac{3}{2} n^2 + \frac{3}{2} n + n \\
+&amp;= 3S + \frac{3}{2} n^2 + \frac{5}{2} n \\
+\end  {aligned}
+\)</span></p>
+<p>And so</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+3S + \frac{3}{2} n^2 + \frac{5}{2} n &amp;= n^3 + 3n^2 + 3n \\
+3S &amp;= n^3 + \frac{3}{2} n^2 + \frac{1}{2} n \\
+3S &amp;= \frac{2n^3 + 3n^2 + n}{2} \\
+ S &amp;= \frac{n(n + 1)(2n + 1)}{6} \\
+\end  {aligned}
+\)</span></p>
 </section>
 <section id="sum-of-cubes">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">Sum of Cubes</a><a class="headerlink" href="#sum-of-cubes" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 0}^n k^3 = \frac{n^2 (n + 1)^2}{4} \end{aligned}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 0}^n k^3 = \left( \frac{n(n + 1)}{2} \right)^2 = \frac{n^2 (n + 1)^2}{4} \end{aligned}\)</span></p>
 </section>
 <section id="geometric-series">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">Geometric Series</a><a class="headerlink" href="#geometric-series" title="Link to this heading">#</a></h2>
@@ -772,6 +832,96 @@ x \cdot \frac{d}{dx} \left( \sum_{k = 0}^\infty x^k \right) &amp;= x \cdot \frac
 \sum_{k = 1}^{n - 1} \frac{1}{k(k + 1)} = \sum_{k = 1}^{n - 1} \left( \frac{1}{k} - \frac{1}{k + 1} \right) = 1 - \frac{1}{n}
 \end  {aligned}
 \)</span></p>
+</section>
+<section id="re-indexing-summations">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Re-indexing summations</a><a class="headerlink" href="#re-indexing-summations" title="Link to this heading">#</a></h2>
+<p>A series can sometimes be simplified by changing its index, often reversing the order of summation. Generally, if the summation index appears in the body of the sum with a minus sign, it’s worth thinking about re-indexing.</p>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k = 0}^n a_{n - k}
+= a_n + a_{n - 1} + \dotsb + a_1 + a_0
+= a_0 + a_1 + \dotsb + a_{n - 1} + a_n
+= \sum_{j = 0}^n a_j
+&amp;&amp; \text{where}\,\,\, j = n - k
+\end  {aligned}
+\)</span></p>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k = 1}^n \frac{1}{n - k + 1}
+= \frac{1}{n} + \frac{1}{n - 1} + \dotsb + \frac{1}{2} + 1
+= 1 + \frac{1}{2} + \dotsb + \frac{1}{n - 1} + \frac{1}{n}
+= \sum_{j = 1}^n \frac{1}{j}
+&amp;&amp; \text{where}\,\,\, j = n - k + 1
+\end  {aligned}
+\)</span></p>
+</section>
+<section id="products">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Products</a><a class="headerlink" href="#products" title="Link to this heading">#</a></h2>
+<p>The finite product <span class="math notranslate nohighlight">\(a_1 a_2 \dotsm a_n\)</span> can be expressed as</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned} \prod_{k = 1}^n a_k \end{aligned}\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(n = 0\)</span> then the product is defined to be <span class="math notranslate nohighlight">\(1\)</span>.</p>
+</section>
+<section id="converting-between-summations-and-products">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Converting between summations and products</a><a class="headerlink" href="#converting-between-summations-and-products" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\lg \left( \prod_{k = 1}^n a_k \right) = \sum_{k = 1}^n \lg a_k
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="summations-and-asymptotic-analysis">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Summations and asymptotic analysis</a><a class="headerlink" href="#summations-and-asymptotic-analysis" title="Link to this heading">#</a></h2>
+<p>Mathematical induction can be used to prove an upper or lower bound on a summation.</p>
+<p>EXAMPLE</p>
+<p>Prove the asymptotic upper bound <span class="math notranslate nohighlight">\(\sum_{k = 0}^n 3^k = O(3^n)\)</span>. In other words, prove <span class="math notranslate nohighlight">\(\sum_{k = 0}^n 3^k \le c3^n\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span> for all sufficiently large <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>Proof by Mathematical Induction</p>
+<p>Basis: show that the bound holds for <span class="math notranslate nohighlight">\(n = 0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(n = 0 \implies \sum_{k = 0}^0 3^k = 1 \le c \cdot 1\)</span> as long as <span class="math notranslate nohighlight">\(c \ge 1\)</span>.</p>
+<p>Assume that the bound holds for <span class="math notranslate nohighlight">\(n\)</span> and show that it also holds for <span class="math notranslate nohighlight">\(n + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k = 0}^{n + 1} 3^k
+= \left( \sum_{k = 0}^n 3^k \right) + 3^{n + 1}
+\le c3^n + 3^{n + 1}
+= \left( \frac{1}{3} + \frac{1}{c} \right) c3^{n + 1}
+\le c3^{n + 1}
+\end  {aligned}
+\)</span></p>
+<p>as long as <span class="math notranslate nohighlight">\(\frac{1}{3} + \frac{1}{c} \le 1 \iff \frac{1}{c} \le \frac{2}{3} \iff c \ge \frac{3}{2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>EXAMPLE</p>
+<p>Prove the asymptotic upper bound <span class="math notranslate nohighlight">\(\sum_{k = 1}^n k = O(n^2)\)</span>. In other words, prove <span class="math notranslate nohighlight">\(\sum_{k = 1}^n k \le cn^2\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span> for all sufficiently large <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>Basis: show that the bound holds for <span class="math notranslate nohighlight">\(n = 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(n = 1 \implies \sum_{k = 1}^1 k = 1 \le c \cdot 1^2\)</span> as long as <span class="math notranslate nohighlight">\(c \ge 1\)</span>.</p>
+<p>Inductive step: assume that the bound holds for <span class="math notranslate nohighlight">\(n\)</span> and show that it also holds for <span class="math notranslate nohighlight">\(n + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k = 1}^{n + 1} k
+= \left( \sum_{k = 1}^n k \right) + n + 1
+\le cn^2 + n + 1
+\le cn^2 + n + 1 + ((c - 1)n + c(n + 1) - 1)
+= c(n + 1)^2
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+cn^2 + n + 1 + ((c - 1)n + c(n + 1) - 1)
+&amp;= cn^2 + n + 1 + (cn - n + cn + c - 1) \\
+&amp;= cn^2 + n + 1 + 2cn - n + c - 1 \\
+&amp;= cn^2 + 2cn  + c \\
+&amp;= c(n^2 + 2n + 1) \\
+&amp;= c(n + 1)^2 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="acknowledgments">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Acknowledgments</a><a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">2022</span></code> Cormen, Leiserson, Rivest, &amp; Stein. <em>Introduction to Algorithms</em>. 4e. <a class="reference external" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/">MIT Press</a>.</p>
+<p>[ <a class="reference external" href="https://stewartcalculus.com/">h</a> ] <code class="docutils literal notranslate"><span class="pre">2020</span></code> Stewart, James. <em>Calculus</em>. 9e. Cengage.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -807,12 +957,12 @@ x \cdot \frac{d}{dx} \left( \sum_{k = 0}^\infty x^k \right) &amp;= x \cdot \frac
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../m/coding/exercises.html"
+       href="../../m/linearprogramming/index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Exercises</p>
+        <p class="prev-next-title">Linear Programming</p>
       </div>
     </a>
     <a class="right-next"
@@ -850,6 +1000,11 @@ x \cdot \frac{d}{dx} \left( \sum_{k = 0}^\infty x^k \right) &amp;= x \cdot \frac
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-series">Geometric Series</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonic-series">Harmonic Series</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#telescoping-series">Telescoping Series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#re-indexing-summations">Re-indexing summations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#products">Products</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-summations-and-products">Converting between summations and products</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summations-and-asymptotic-analysis">Summations and asymptotic analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
 </ul>
   </nav></div>
 
