@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Row Tableaux &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/linearprogramming/rowtableaux';</script>
+    <script src="../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Example" href="exercises/0.html" />
+    <link rel="prev" title="Cones &amp; Dual Cones" href="cones.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../math/linear_algebra/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../logic/introduction.html">Introduction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../math/calculus/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../math/calculus/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../math/calculus/01_calculus/intro.html">The Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../math/calculus/01_calculus/03_integration/intro.html">Integration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../math/calculus/02_vector_calculus/intro.html">Vector Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../math/calculus/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../math/calculus/02_vector_calculus/coord/intro.html">Coordinate Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../math/calculus/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/calculus/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/calculus/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../math/calculus/variational_calculus/intro.html">Variational Calculus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numbers/index.html">Number Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../coding/index.html">Mathematical Coding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Linear Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="definitions.html">Some Definitions &amp; Graphing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convex.html">Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cones.html">Cones &amp; Dual Cones</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Row Tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/0.html">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/132.html">[13.2] Production Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/midterm2.html">Midterm II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/summation/index.html">Summations and sigma notation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/index.html">Computery Things</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/utilities.html">Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/zsh/index.html">Zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/awk/index.html">Awk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/perl/index.html">Perl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/shell/ps/index.html">PS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/programming/rlang/index.html">R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/index.html">Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/book_apue/index.html"><em>Advanced Programming in the UNIX Environment</em>, 3e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/hardware/index.html">CompEng</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/systems/distributed/index.html">Distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/file/index.html">File Systems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/index.html">Security</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/ctf/index.html">CTF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/gitops/index.html">GitOps</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/sec/network/index.html">Networking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/data/index.html">Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/data/relational/index.html">Relational</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/files.html">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/info/index.html">Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/learning/index.html">Artificial Intelligence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../l/index.html">Languages &amp; Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/ling/index.html">Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../l/ling/phonetics/index.html">Phonetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lang/index.html">Languages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lit/index.html">Literature</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../p/index.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/ancient/index.html">Ancient Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/modern/index.html">Early Modern Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/galileo/index.html">Galileo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/descartes/index.html">Descartes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/music.html">Music</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../s/index.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/astro/index.html">Astronomy &amp; Astrophysics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diy/index.html">Home Lab &amp; DIY</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/network/index.html">Network</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Row Tableaux</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-row-tableaux">Extended Row Tableaux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concise-row-tableaux">Concise Row Tableaux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot">Pivot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-pivot-algorithm">General Pivot Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-formulae-derivation">Pivot Formulae Derivation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-formulae">Pivot Formulae</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-geometry-mapping-tableaux-to-points-in-euclidean-space">Pivot geometry: mapping tableaux to points in Euclidean space</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="row-tableaux">
+<h1>Row Tableaux<a class="headerlink" href="#row-tableaux" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="extended-row-tableaux">
+<h2>Extended Row Tableaux<a class="headerlink" href="#extended-row-tableaux" title="Link to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{Ax+s=b}\)</span> be a system of linear equality constraints with vector of control variables <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and vector of slack variables <span class="math notranslate nohighlight">\(\mathbf{s}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{A}_{[\text{m}\times\text{n}]}\mathbf{x}_{[\text{n}\times1]}+\mathbf{I}_{[\text{m}\times\text{m}]}\mathbf{s}_{[\text{m}\times1]}=\mathbf{b}_{[\text{m}\times1]}\)</span></p>
+<p>The extended row tableau representation of this system is</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\begin{matrix}
+\kern+1ex 1\left\{\right.\\
+m\left\{\begin{matrix}\\\\\\\end{matrix}\right.\\
+\end{matrix}
+\begin{bmatrix}
+\begin{matrix}
+\begin{array}{ccc}
+&amp; \mathbf{x} &amp; \\
+\end{array}
+\begin{array}{ccc}
+&amp; \mathbf{s} &amp; \\
+\end{array}\\
+\hline
+\smash{\underbrace{
+\begin{array}{ccc}
+&amp; &amp; \\
+&amp; \mathbf{A} &amp; \\
+&amp; &amp; \\
+\end{array}}_{n}}
+\vphantom{\begin{matrix}\\\\\\\end{matrix}}
+\smash{\underbrace{
+\begin{array}{ccc|}
+&amp; &amp; \\
+&amp; \mathbf{I} &amp; \\
+&amp; &amp; \\
+\end{array}}_{m}}
+\vphantom{\begin{matrix}\\\\\\\end{matrix}}
+\begin{array}{c}\end{array}
+\end{matrix}
+\smash{\underbrace{
+\begin{array}{c}
+\\\\\mathbf{b}\\\\
+\end{array}}_{1}}
+\vphantom{\begin{matrix}\\\\\\\end{matrix}}
+\end{bmatrix}
+\end{aligned}
+\implies
+\left\lbrack
+\begin{array}{cccccc|ccccccc|c}
+x_1 &amp; x_2 &amp; \dots &amp; x_i &amp; \dots &amp; x_n &amp; s_1 &amp; s_2 &amp; s_3 &amp; \dots &amp; s_i &amp; \dots &amp; s_m &amp; \\
+\hline
+A_{11} &amp; A_{12} &amp; \dots &amp; A_{1i} &amp; \dots &amp; A_{1n} &amp; 1 &amp; 0 &amp; 0 &amp; \dots &amp; s_i &amp; \dots &amp; 0 &amp; b_1 \\
+A_{21} &amp; A_{22} &amp; \dots &amp; A_{2i} &amp; \dots &amp; A_{2n} &amp; 0 &amp; 1 &amp; 0 &amp; \dots &amp; 0 &amp; \dots &amp; 0 &amp; b_2 \\
+A_{31} &amp; A_{32} &amp; \dots &amp; A_{3i} &amp; \dots &amp; A_{3n} &amp; 0 &amp; 0 &amp; 1 &amp; \dots &amp; 0 &amp; \dots &amp; 0 &amp; b_3 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+A_{j1} &amp; A_{j2} &amp; \dots &amp; A_{ji} &amp; \dots &amp; A_{jn} &amp; 0 &amp; 0 &amp; 0 &amp; \dots &amp; 1 &amp; \dots &amp; 0 &amp; b_j \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+A_{m1} &amp; A_{m2} &amp; \dots &amp; A_{mi} &amp; \dots &amp; A_{mn} &amp; 0 &amp; 0 &amp; 0 &amp; \dots &amp; 0 &amp; \dots &amp; 1 &amp; b_m \\
+\end{array}
+\right\rbrack
+\)</span></p>
+<p>The number of linear equality constraints <span class="math notranslate nohighlight">\(m\)</span> is the rank of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
+<ul class="simple">
+<li><p>The number of linear equality constraints <span class="math notranslate nohighlight">\(m\)</span> is just the number <span class="math notranslate nohighlight">\(m\)</span> of rows in the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, which is an upper bound on the rank of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p></li>
+<li><p>The number of linear equality constraints <span class="math notranslate nohighlight">\(m\)</span> is just the number <span class="math notranslate nohighlight">\(m\)</span> of independent basis vectors under the slack variables, which is a lower bound on the rank of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p></li>
+</ul>
+<p>The system of linear equality constraints always has a solution.</p>
+<ul class="simple">
+<li><p>The basis vectors span <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span>. For any constraint vector <span class="math notranslate nohighlight">\(\mathbf{b}\in\mathbb{R}^m\)</span>, values of the corresponding basic variables can be found that will satisfy the row equations.</p></li>
+<li><p>The remaining non basic variables represent the degrees of freedom in the solution space. Fixing values for the non basic variables results in <span class="math notranslate nohighlight">\(m\)</span> equations in the <span class="math notranslate nohighlight">\(m\)</span> basic variables.</p></li>
+</ul>
+<p>Any sequence of elementary row operations on the matrix results in an equivalent matrix (a matrix with the same solution set).</p>
+<ul class="simple">
+<li><p>The variable corresponding to the new column of the basis vector is now a basic variable and the old basic variable is now a non basic variable.</p></li>
+<li><p>The control variables <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> begin as non basic variables and the slack variables <span class="math notranslate nohighlight">\(\mathbf{s}\)</span> begin as basic variables.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+A_{11} &amp; A_{12} &amp; 1 &amp; 0 &amp; 0 &amp; b_1 \\
+A_{21} &amp; A_{22} &amp; 0 &amp; 1 &amp; 0 &amp; b_2 \\
+A_{31} &amp; A_{32} &amp; 0 &amp; 0 &amp; 1 &amp; b_3 \\
+\end{matrix}
+\implies
+\underset{\text{elementary row operations}}{\dots}
+\implies
+\begin{matrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+A_{11} &amp; 0 &amp; 1 &amp; A_{12} &amp; 0 &amp; b_1 \\
+A_{21} &amp; 1 &amp; 0 &amp; A_{22} &amp; 0 &amp; b_2 \\
+A_{31} &amp; 0 &amp; 0 &amp; A_{32} &amp; 1 &amp; b_3 \\
+\end{matrix}
+\)</span></p>
+<p>Pivot Operation</p>
+<ul class="simple">
+<li><p>To move a non basic variable into the solution basis as a basic variable, replacing a variable which moves out of the solution basis as a non basic variable.</p></li>
+<li><p>A pivot operation in an extended row tableau is understood in terms of linear algebra, not elementary algebra.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>Pivot <span class="math notranslate nohighlight">\(x_1\)</span> into the solution basis.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+-1 &amp; -1 &amp; 1 &amp; 0 &amp; 0 &amp; -2 \\
+-3 &amp; 4 &amp; 0 &amp; 1 &amp; 0 &amp; -12 \\
+3 &amp; -2 &amp; 0 &amp; 0 &amp; 1 &amp; 12 \\
+\end{bmatrix}\\
+\underset{r_2\leftarrow r_2-3r_1}{\implies}\\
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+-1 &amp; -1 &amp; 1 &amp; 0 &amp; 0 &amp; -2 \\
+0 &amp; 7 &amp; -3 &amp; 1 &amp; 0 &amp; -6 \\
+3 &amp; -2 &amp; 0 &amp; 0 &amp; 1 &amp; 12 \\
+\end{bmatrix}\\
+\underset{r_3\leftarrow r_3+3r_1}{\implies}\\
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+-1 &amp; -1 &amp; 1 &amp; 0 &amp; 0 &amp; -2 \\
+0 &amp; 7 &amp; -3 &amp; 1 &amp; 0 &amp; -6 \\
+0 &amp; -5 &amp; 3 &amp; 0 &amp; 1 &amp; 6 \\
+\end{bmatrix}\\
+\underset{r_1\leftarrow-r_1}{\implies}\\
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+1 &amp; -1 &amp; -1 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 7 &amp; -3 &amp; 1 &amp; 0 &amp; -6 \\
+0 &amp; -5 &amp; 3 &amp; 0 &amp; 1 &amp; 6 \\
+\end{bmatrix}
+\)</span></p>
+<hr class="docutils" />
+</section>
+<section id="concise-row-tableaux">
+<h2>Concise Row Tableaux<a class="headerlink" href="#concise-row-tableaux" title="Link to this heading">#</a></h2>
+<p>Each basic variable has a non zero coefficient in just one row constraint.</p>
+<p>To transform an extended row tableau to its concise form, solve each row equation for the basic variable (with non zero coefficient) in that row.</p>
+<ul class="simple">
+<li><p>There is a single column of constants with a constant multiplier <span class="math notranslate nohighlight">\(1\)</span> at the top of the column.</p></li>
+<li><p>The basic variables run down along the right hand side <span class="math notranslate nohighlight">\(\text{rhs}\)</span>.</p></li>
+</ul>
+<p>The basic variables are those variables down the right side of the tableau and the non basic variabels are those variables along the top of the tableau.</p>
+<p>Pivot Operation</p>
+<ul class="simple">
+<li><p>A pivot moves a non basic variable from the top of the tableau to a slot down the right side of the tableau, replacing a basic variable. That variable moves into the position along the top of the tableau as a non basic variable.</p></li>
+<li><p>A pivot operation in a concise row tableau is understood in terms of elementary algebra, not linear algebra.</p></li>
+</ul>
+<p>Transforming an extended row tableau into its concise form by solving each row equation for its basic variable.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+A_{11} &amp; A_{12} &amp; 1 &amp; 0 &amp; 0 &amp; b_1 \\
+A_{21} &amp; A_{22} &amp; 0 &amp; 1 &amp; 0 &amp; b_2 \\
+A_{31} &amp; A_{32} &amp; 0 &amp; 0 &amp; 1 &amp; b_3 \\
+\end{matrix}
+\implies
+\begin{aligned}
+A_{11}x_1+A_{12}x_2+s_1&amp;=b_1\\
+A_{21}x_1+A_{22}x_2+s_2&amp;=b_2\\
+A_{31}x_1+A_{32}x_2+s_3&amp;=b_3\\
+\end{aligned}
+\implies
+\begin{aligned}
+-A_{11}x_1-A_{12}x_2+b_1&amp;=s_1\\
+-A_{21}x_1-A_{22}x_2+b_2&amp;=s_2\\
+-A_{31}x_1-A_{32}x_2+b_3&amp;=s_3\\
+\end{aligned}
+\implies
+\begin{matrix}
+x_1 &amp; x_2 &amp; 1 &amp; \\
+-A_{11} &amp; -A_{12} &amp; b_1 &amp; s_1 \\
+-A_{21} &amp; -A_{22} &amp; b_2 &amp; s_2 \\
+-A_{31} &amp; -A_{32} &amp; b_3 &amp; s_3 \\
+\end{matrix}
+\implies
+\begin{matrix}
+x_1 &amp; x_2 &amp; 1 &amp; \\
+a_{11} &amp; a_{12} &amp; b_1 &amp; s_1 \\
+a_{21} &amp; a_{22} &amp; b_2 &amp; s_2 \\
+a_{31} &amp; a_{32} &amp; b_3 &amp; s_3 \\
+\end{matrix}
+\)</span></p>
+<p>Concise Row Tableau</p>
+<p><span class="math notranslate nohighlight">\(
+\left\lbrack
+\begin{array}{ccccccc|c}
+x_1 &amp; x_2 &amp; \dots &amp; x_j &amp; \dots &amp; x_n &amp; 1 &amp; \\
+\hline
+a_{11} &amp; a_{12} &amp; \dots &amp; a_{1j} &amp; \dots &amp; a_{1n} &amp; b_1 &amp; s_1 \\
+a_{21} &amp; a_{22} &amp; \dots &amp; a_{2j} &amp; \dots &amp; a_{2n} &amp; b_2 &amp; s_2 \\
+a_{31} &amp; a_{32} &amp; \dots &amp; a_{3j} &amp; \dots &amp; a_{3n} &amp; b_3 &amp; s_3 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{i1} &amp; a_{i2} &amp; \dots &amp; a_{ij} &amp; \dots &amp; a_{in} &amp; b_i &amp; s_i \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mj} &amp; \dots &amp; a_{mn} &amp; b_m &amp; s_m \\
+\end{array}
+\right\rbrack
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="pivot">
+<h2>Pivot<a class="headerlink" href="#pivot" title="Link to this heading">#</a></h2>
+<section id="general-pivot-algorithm">
+<h3>General Pivot Algorithm<a class="headerlink" href="#general-pivot-algorithm" title="Link to this heading">#</a></h3>
+<p>To pivot on the pivot entry <span class="math notranslate nohighlight">\(a_{ij}^*\)</span> in a concise row tableau</p>
+<ol class="arabic simple">
+<li><p>Solve the <span class="math notranslate nohighlight">\(i\text{th}\)</span> row equation for the non basic variable at the top of the <span class="math notranslate nohighlight">\(j\text{th}\)</span> column in terms of the other <span class="math notranslate nohighlight">\(n-1\)</span> non basic variables.</p></li>
+<li><p>Substitute the formula for the <span class="math notranslate nohighlight">\(j\text{th}\)</span> non basic variable obtained in the previous step (i.e., the new <span class="math notranslate nohighlight">\(i\text{th}\)</span> row equation) into the other row equations so that all the other basic variables are now also expressed in terms of the same set of non basic variables.</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(
+\left\lbrack
+\begin{array}{ccccccc|c}
+x_1 &amp; x_2 &amp; \dots &amp; x_j &amp; \dots &amp; x_n &amp; 1 &amp; \\
+\hline
+a_{11} &amp; a_{12} &amp; \dots &amp; a_{1j} &amp; \dots &amp; a_{1n} &amp; b_1 &amp; s_1 \\
+a_{21} &amp; a_{22} &amp; \dots &amp; a_{2j} &amp; \dots &amp; a_{2n} &amp; b_2 &amp; s_2 \\
+a_{31} &amp; a_{32} &amp; \dots &amp; a_{3j} &amp; \dots &amp; a_{3n} &amp; b_3 &amp; s_3 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{i1} &amp; a_{i2} &amp; \dots &amp; a_{ij}^* &amp; \dots &amp; a_{in} &amp; b_i &amp; s_i \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mj} &amp; \dots &amp; a_{mn} &amp; b_m &amp; s_m \\
+\end{array}
+\right\rbrack
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="pivot-formulae-derivation">
+<h3>Pivot Formulae Derivation<a class="headerlink" href="#pivot-formulae-derivation" title="Link to this heading">#</a></h3>
+<p>[STEP 1]</p>
+<p>Given a “starting” tableau whose non basic variables are the LP control variables and whose basic variables are the LP slack variables, solve for <span class="math notranslate nohighlight">\(x_j\)</span> in terms of <span class="math notranslate nohighlight">\(x_1,...,x_{j-1},s_i,x_{j+1},...,x_n,b_i\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a_{i1}x_1+...+a_{i,j-1}x_{j-1}+a_{ij}x_j+a_{i,j+1}x_{j+1}+...+a_{in}x_n+b_i&amp;=s_i\\
+\implies\\
+a_{i1}x_1+...+a_{i,j-1}x_{j-1}-s_i+a_{i,j+1}x_{j+1}+...+a_{in}x_n+b_i&amp;=-a_{ij}x_j\\
+\implies\\
+-\frac{1}{a_{ij}}(a_{i1}x_1+...+a_{i,j-1}x_{j-1}-s_i+a_{i,j+1}x_{j+1}+...+a_{in}x_n+b_i)&amp;=x_j\\
+\implies\\
+\left(-\frac{a_{i1}}{a_{ij}}\right)x_1+...+\left(-\frac{a_{i,j-1}}{a_{ij}}\right)x_{j-1}+\left(\frac{1}{a_{ij}}\right)s_i+\left(-\frac{a_{i,j+1}}{a_{ij}}\right)x_{j+1}+...+\left(-\frac{a_{in}}{a_{ij}}\right)x_n+\left(-\frac{b_i}{a_{ij}}\right)&amp;=x_j\\
+\end{aligned}
+\)</span></p>
+<p>[STEP 2]</p>
+<p>Substitute the final expression for <span class="math notranslate nohighlight">\(x_j\)</span> into the other row equations <span class="math notranslate nohighlight">\(1\le k\ne i\le m\)</span> and then group all coefficients of each variable together in the column of the variable.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a_{k1}x_1+...+a_{k,j-1}x_{j-1}+a_{kj}x_j+a_{k,j+1}x_{j+1}+...+a_{kn}x_n+b_k&amp;=s_k\,\,\,\text{where}\,\,\,1\le k\ne i\le m\\
+\implies\\
+a_{k1}x_1+...+a_{k,j-1}x_{j-1}\\
++a_{kj}\left[\left(-\frac{a_{i1}}{a_{ij}}\right)x_1+...+\left(-\frac{a_{i,j-1}}{a_{ij}}\right)x_{j-1}+\left(\frac{1}{a_{ij}}\right)s_i+\left(-\frac{a_{i,j+1}}{a_{ij}}\right)x_{j+1}+...+\left(-\frac{a_{in}}{a_{ij}}\right)x_n+\left(-\frac{1}{a_{ij}}\right)b_i\right]\\
++a_{k,j+1}x_{j+1}+...+a_{kn}x_n+b_k&amp;=s_k\\
+\implies\\
+a_{k1}x_1+...+a_{k,j-1}x_{j-1}\\
++\left(-\frac{a_{kj}a_{i1}}{a_{ij}}\right)x_1+...+\left(-\frac{a_{kj}a_{i,j-1}}{a_{ij}}\right)x_{j-1}+\left(\frac{a_{kj}}{a_{ij}}\right)s_i+\left(-\frac{a_{kj}a_{i,j+1}}{a_{ij}}\right)x_{j+1}+...+\left(-\frac{a_{kj}a_{in}}{a_{ij}}\right)x_n+\left(-\frac{a_{kj}}{a_{ij}}\right)b_i\\
++a_{k,j+1}x_{j+1}+...+a_{kn}x_n+b_k&amp;=s_k\\
+\implies\\
+\left(a_{k1}-\frac{a_{kj}a_{i1}}{a_{ij}}\right)x_1+...+\left(a_{k,j-1}-\frac{a_{kj}a_{i,j-1}}{a_{ij}}\right)x_{j-1}+\left(\frac{a_{kj}}{a_{ij}}\right)s_i+\left(a_{k,j+1}-\frac{a_{kj}a_{i,j+1}}{a_{ij}}\right)x_{j+1}+...+\left(a_{kn}-\frac{a_{kj}a_{in}}{a_{ij}}\right)x_n+\left(b_k-\frac{a_{kj}b_i}{a_{ij}}\right)&amp;=s_k\\
+\end{aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="pivot-formulae">
+<h3>Pivot Formulae<a class="headerlink" href="#pivot-formulae" title="Link to this heading">#</a></h3>
+<p>The pivot formulae indicate the entries in the new tableau based on their position relative to the pivot entry <span class="math notranslate nohighlight">\(a_{ij}^*\)</span>.</p>
+<p>[STEP 1]</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\underbrace{a_{i1}x_1+...+a_{i,j-1}x_{j-1}}_{q}+\underbrace{a_{ij}x_j}_{p}+\underbrace{a_{i,j+1}x_{j+1}+...+a_{in}x_n+b_i}_{q}&amp;=s_i\\
+\implies\\
+a_{i1}x_1+...+a_{i,j-1}x_{j-1}-s_i+a_{i,j+1}x_{j+1}+...+a_{in}x_n+b_i&amp;=-a_{ij}x_j\\
+\implies\\
+-\frac{1}{a_{ij}}(a_{i1}x_1+...+a_{i,j-1}x_{j-1}-s_i+a_{i,j+1}x_{j+1}+...+a_{in}x_n+b_i)&amp;=x_j\\
+\implies\\
+\underbrace{\left(-\frac{a_{i1}}{a_{ij}}\right)x_1+...+\left(-\frac{a_{i,j-1}}{a_{ij}}\right)x_{j-1}}_{-\frac{q}{p}}+\underbrace{\left(\frac{1}{a_{ij}}\right)s_i}_{\frac{1}{p}}+\underbrace{\left(-\frac{a_{i,j+1}}{a_{ij}}\right)x_{j+1}+...+\left(-\frac{a_{in}}{a_{ij}}\right)x_n+\left(-\frac{b_i}{a_{ij}}\right)}_{-\frac{q}{p}}&amp;=x_j\\
+\end{aligned}
+\)</span></p>
+<p>[STEP 2]</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\underbrace{a_{k1}x_1+...+a_{k,j-1}x_{j-1}}_{s}+\underbrace{a_{kj}x_j}_{r}+\underbrace{a_{k,j+1}x_{j+1}+...+a_{kn}x_n+b_k}_{s}&amp;=s_k\,\,\,\text{where}\,\,\,1\le k\ne i\le m\\
+\implies\\
+a_{k1}x_1+...+a_{k,j-1}x_{j-1}\\
++a_{kj}\left[\left(-\frac{a_{i1}}{a_{ij}}\right)x_1+...+\left(-\frac{a_{i,j-1}}{a_{ij}}\right)x_{j-1}+\left(\frac{1}{a_{ij}}\right)s_i+\left(-\frac{a_{i,j+1}}{a_{ij}}\right)x_{j+1}+...+\left(-\frac{a_{in}}{a_{ij}}\right)x_n+\left(-\frac{1}{a_{ij}}\right)b_i\right]\\
++a_{k,j+1}x_{j+1}+...+a_{kn}x_n+b_k&amp;=s_k\\
+\implies\\
+a_{k1}x_1+...+a_{k,j-1}x_{j-1}\\
++\left(-\frac{a_{kj}a_{i1}}{a_{ij}}\right)x_1+...+\left(-\frac{a_{kj}a_{i,j-1}}{a_{ij}}\right)x_{j-1}+\left(\frac{a_{kj}}{a_{ij}}\right)s_i+\left(-\frac{a_{kj}a_{i,j+1}}{a_{ij}}\right)x_{j+1}+...+\left(-\frac{a_{kj}a_{in}}{a_{ij}}\right)x_n+\left(-\frac{a_{kj}}{a_{ij}}\right)b_i\\
++a_{k,j+1}x_{j+1}+...+a_{kn}x_n+b_k&amp;=s_k\\
+\implies\\
+\underbrace{\left(a_{k1}-\frac{a_{kj}a_{i1}}{a_{ij}}\right)x_1+...+\left(a_{k,j-1}-\frac{a_{kj}a_{i,j-1}}{a_{ij}}\right)x_{j-1}}_{s-\frac{qr}{p}}+\underbrace{\left(\frac{a_{kj}}{a_{ij}}\right)s_i}_{\frac{r}{p}}+\underbrace{\left(a_{k,j+1}-\frac{a_{kj}a_{i,j+1}}{a_{ij}}\right)x_{j+1}+...+\left(a_{kn}-\frac{a_{kj}a_{in}}{a_{ij}}\right)x_n+\left(b_k-\frac{a_{kj}b_i}{a_{ij}}\right)}_{s-\frac{qr}{p}}&amp;=s_k\\
+\end{aligned}
+\)</span></p>
+<hr class="docutils" />
+<p>1</p>
+<p>Pivot entry</p>
+<p><span class="math notranslate nohighlight">\(a_{ij}\rightarrow\frac{1}{a_{ij}}\)</span></p>
+<p>if <span class="math notranslate nohighlight">\(p:=a_{ij}\)</span> then <span class="math notranslate nohighlight">\(p\rightarrow\frac{1}{p}\)</span></p>
+<p>2</p>
+<p>Each entry in the <span class="math notranslate nohighlight">\(i\text{th}\)</span> row other than the pivot entry</p>
+<p><span class="math notranslate nohighlight">\(a_{ik,k\ne j}\rightarrow-\frac{a_{ik}}{a_{ij}}\)</span>,<span class="math notranslate nohighlight">\(b_i\rightarrow-\frac{b_i}{a_{ij}}\)</span></p>
+<p>if <span class="math notranslate nohighlight">\(a_{ik,k\ne j},b_i:=q\)</span> then <span class="math notranslate nohighlight">\(q\rightarrow-\frac{q}{p}\)</span></p>
+<p>3</p>
+<p>Each entry in the <span class="math notranslate nohighlight">\(j\text{th}\)</span> column other than the pivot entry</p>
+<p><span class="math notranslate nohighlight">\(a_{kj,k\ne i}\rightarrow\frac{a_{kj}}{a_{ij}}\)</span>,<span class="math notranslate nohighlight">\(c_j\rightarrow\frac{c_j}{a_{ij}}\)</span></p>
+<p>if <span class="math notranslate nohighlight">\(a_{kj,k\ne i},c_j:=r\)</span> then <span class="math notranslate nohighlight">\(r\rightarrow\frac{r}{p}\)</span></p>
+<p>4</p>
+<p>All other entries (Each entry not in the <span class="math notranslate nohighlight">\(i\text{th}\)</span> row nor in the <span class="math notranslate nohighlight">\(j\text{th}\)</span> column)</p>
+<p><span class="math notranslate nohighlight">\(a_{kl,k\ne i,l\ne j}\rightarrow a_{kl}-\frac{a_{kj}a_{il}}{a_{ij}}\)</span>,<span class="math notranslate nohighlight">\(d\rightarrow d-\frac{c_jb_i}{a_{ij}}\)</span></p>
+<p>if <span class="math notranslate nohighlight">\(a_{kl,k\ne i,l\ne j},d:=s\)</span> then <span class="math notranslate nohighlight">\(s\rightarrow s-\frac{rq}{p}\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Pivot <span class="math notranslate nohighlight">\(x_1\)</span> into the solution basis.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+-1 &amp; -1 &amp; 1 &amp; 0 &amp; 0 &amp; -2 \\
+-3 &amp; 4 &amp; 0 &amp; 1 &amp; 0 &amp; -12 \\
+3 &amp; -2 &amp; 0 &amp; 0 &amp; 1 &amp; 12 \\
+\end{bmatrix}\\
+\underset{\text{extended to concise}}{\implies}\\
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; 1 &amp; \\
+1^* &amp; 1 &amp; -2 &amp; s_1 \\
+3 &amp; -4 &amp; -12 &amp; s_2 \\
+-3 &amp; 2 &amp; 12 &amp; s_3 \\
+\end{bmatrix}\\
+\left(
+\implies\\
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; 1 &amp; \\
+p^* &amp; q &amp; q &amp; s_1 \\
+r &amp; s &amp; s &amp; s_2 \\
+r &amp; s &amp; s &amp; s_3 \\
+\end{bmatrix}\\
+\implies\\
+\begin{bmatrix}
+s_1 &amp; x_2 &amp; 1 &amp; \\
+\frac{1}{p} &amp; -\frac{q}{p} &amp; -\frac{q}{p} &amp; x_1 \\
+\frac{r}{p} &amp; s-\frac{qr}{p} &amp; s-\frac{qr}{p} &amp; s_2 \\
+\frac{r}{p} &amp; s-\frac{qr}{p} &amp; s-\frac{qr}{p} &amp; s_3 \\
+\end{bmatrix}
+\right)\\
+\implies\\
+\begin{bmatrix}
+s_1 &amp; x_2 &amp; 1 &amp; \\
+\frac{1}{1} &amp; -\frac{1}{1} &amp; -\frac{-2}{1} &amp; x_1 \\
+\frac{3}{1} &amp; -4-\frac{(1)(3)}{1} &amp; -12-\frac{(-2)(3)}{1} &amp; s_2 \\
+\frac{-3}{1} &amp; 2-\frac{(1)(-3)}{1} &amp; 12-\frac{(-2)(-3)}{1} &amp; s_3 \\
+\end{bmatrix}\\
+\implies\\
+\begin{bmatrix}
+s_1 &amp; x_2 &amp; 1 &amp; \\
+1 &amp; -1 &amp; 2 &amp; x_1 \\
+3 &amp; -7 &amp; -6 &amp; s_2 \\
+-3 &amp; 5 &amp; 6 &amp; s_3 \\
+\end{bmatrix}\\
+\underset{\text{concise to extended}}{\implies}\\
+\begin{bmatrix}
+s_1 &amp; x_2 &amp; x_1 &amp; s_2 &amp; s_3 &amp; \\
+-1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
+-3 &amp; 7 &amp; 0 &amp; 1 &amp; 0 &amp; -6 \\
+3 &amp; -5 &amp; 0 &amp; 0 &amp; 1 &amp; 6 \\
+\end{bmatrix}
+\)</span></p>
+<p>Compare this to the extended row tableau pivot example above.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+-1 &amp; -1 &amp; 1 &amp; 0 &amp; 0 &amp; -2 \\
+-3 &amp; 4 &amp; 0 &amp; 1 &amp; 0 &amp; -12 \\
+3 &amp; -2 &amp; 0 &amp; 0 &amp; 1 &amp; 12 \\
+\end{bmatrix}
+\underset{\text{elementary row operations}}{\implies}
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; s_1 &amp; s_2 &amp; s_3 &amp; \\
+1 &amp; -1 &amp; -1 &amp; 0 &amp; 0 &amp; 2 \\
+0 &amp; 7 &amp; -3 &amp; 1 &amp; 0 &amp; -6 \\
+0 &amp; -5 &amp; 3 &amp; 0 &amp; 1 &amp; 6 \\
+\end{bmatrix}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="pivot-geometry-mapping-tableaux-to-points-in-euclidean-space">
+<h3>Pivot geometry: mapping tableaux to points in Euclidean space<a class="headerlink" href="#pivot-geometry-mapping-tableaux-to-points-in-euclidean-space" title="Link to this heading">#</a></h3>
+<p>Set all non basic variables equal to zero.</p>
+<p><span class="math notranslate nohighlight">\(
+\left\lbrack
+\begin{array}{ccccccc|c}
+x_1=0 &amp; x_2=0 &amp; \dots &amp; x_j=0 &amp; \dots &amp; x_n=0 &amp; 1 &amp; \\
+\hline
+a_{11} &amp; a_{12} &amp; \dots &amp; a_{1j} &amp; \dots &amp; a_{1n} &amp; b_1 &amp; s_1 \\
+a_{21} &amp; a_{22} &amp; \dots &amp; a_{2j} &amp; \dots &amp; a_{2n} &amp; b_2 &amp; s_2 \\
+a_{31} &amp; a_{32} &amp; \dots &amp; a_{3j} &amp; \dots &amp; a_{3n} &amp; b_3 &amp; s_3 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{i1} &amp; a_{i2} &amp; \dots &amp; a_{ij}^* &amp; \dots &amp; a_{in} &amp; b_i &amp; s_i \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mj} &amp; \dots &amp; a_{mn} &amp; b_m &amp; s_m \\
+\end{array}
+\right\rbrack
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a_{i1}x_1+...+a_{in}x_n+b_i&amp;=s_i\\
+\implies\\
+a_{i1}(0)+...+a_{in}(0)+b_i&amp;=s_i\\
+\implies\\
+b_i&amp;=s_i\\
+\end{aligned}
+\)</span></p>
+<p>To satisfy the row constraints, the basic variables must equal the corresponding constants.</p>
+<p>This is called the basic solution to the row constraints since it only assigns non zero values to basic variables.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/linearprogramming"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cones.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cones &amp; Dual Cones</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercises/0.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-row-tableaux">Extended Row Tableaux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concise-row-tableaux">Concise Row Tableaux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot">Pivot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-pivot-algorithm">General Pivot Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-formulae-derivation">Pivot Formulae Derivation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-formulae">Pivot Formulae</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-geometry-mapping-tableaux-to-points-in-euclidean-space">Pivot geometry: mapping tableaux to points in Euclidean space</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
