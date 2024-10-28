@@ -1,0 +1,1870 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Network Programming &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'c/systems/c_lang/network_programming';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Operating Systems" href="../os/index.html" />
+    <link rel="prev" title="Systems and C" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/linear_algebra/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/linear_algebra/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/counting.html">Counting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/logic/introduction.html">Introduction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../m/languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../math/calculus/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../math/calculus/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../math/calculus/01_calculus/intro.html">The Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../math/calculus/01_calculus/03_integration/intro.html">Integration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/intro.html">Vector Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/coord/intro.html">Coordinate Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../math/calculus/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/calculus/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/calculus/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../math/calculus/variational_calculus/intro.html">Variational Calculus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/numbers/index.html">Number Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/coding/index.html">Mathematical Coding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/coding/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../math/summation/index.html">Summations and sigma notation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Science &amp; Engineering</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Systems</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html">C</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Network Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../os/macos/index.html">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../os/windows/index.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../distributed/index.html">Distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware/index.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../embedded/index.html">Embedded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../file/index.html">Filesystem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../ds%26a/index.html">DS&amp;A</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ds%26a/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ds%26a/data_structures/index.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/data_structures/linked_list/index.html">Linked List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/data_structures/stack/index.html">Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/data_structures/queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/data_structures/priority_queue/index.html">Priority Queue</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ds%26a/arithmetic/index.html">Arithmetic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/arithmetic/array_sum/index.html">Array Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/arithmetic/integer_multiplication/index.html">Integer Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ds%26a/deduplication/index.html">Deduplication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ds%26a/merge/index.html">Merge</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/merge/sorted_array_merge/index.html">Sorted Array Merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/merge/k_way_merge/index.html"><span class="math notranslate nohighlight">\(k\)</span>-Way Merge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ds%26a/selection/index.html">Select</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/selection/k-th_smallest_element/index.html">Naive Selection: <span class="math notranslate nohighlight">\(k\)</span>-th smallest element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/selection/quickselect/index.html">Quickselect</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ds%26a/sort/index.html">Sort</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/sort/insertion_sort/index.html">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/sort/bubble_sort/index.html">Bubble Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/sort/merge_sort/index.html">Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/sort/selection_sort/index.html">Selection Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/sort/quick_sort/index.html">Quick Sort</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ds%26a/search/index.html">Search</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/search/linear_search/index.html">Linear Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/search/binary_search/index.html">Binary Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ds%26a/trees_and_graphs/index.html">Trees &amp; Graphs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/trees_and_graphs/trees/index.html">Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/trees_and_graphs/graphs/index.html">Graphs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ds%26a/optimization/index.html">Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference external" href="https://heracliteanflux.github.io/laptoplab/m/linearprogramming/index.html">Linear Programming</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../ds%26a/dynamic_programming/index.html">Dynamic Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../ds%26a/dynamic_programming/lucas_numbers/index.html">Lucas Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ds%26a/dynamic_programming/bellman-ford/index.html">Bellman-Ford</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../ds%26a/dynamic_programming/0-1_knapsack/index.html">0-1 Knapsack</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ds%26a/course/index.html">PSU CMPSC 465</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/01.html">Assignment 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/02.html">Assignment 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/03.html">Assignment 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/04.html">Assignment 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/05.html">Assignment 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/m.html">Midterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/06.html">Assignment 6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/07.html">Assignment 7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/08.html">Assignment 8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ds%26a/course/hw/f.html">Final</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/heracliteanflux/systems/tree/main/clang">https://github.com/heracliteanflux/systems/tree/main/clang</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../programming/python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/python/package.html">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../programming/rlang/index.html">R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/golang/index.html">Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/dlang/index.html">D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/web/index.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/vr/index.html">VR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/software/index.html">Software Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../sec/index.html">Security</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sec/ctf/index.html">CTF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/dns/index.html">DNS</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sec/gitops/index.html">GitOps</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/gitops/git.html">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/gitops/github.html">GitHub</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/iot/index.html">IoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/malware/index.html">Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sec/network/index.html">Networking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/password/index.html">Passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sec/websec/index.html">WebSec</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../data/index.html">Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../data/relational/index.html">Relational</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/relational/derby/index.html">Derby</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/nosql.html">NoSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/bigdata.html">Big Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/files.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/datetime.html">Date Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data/graph.html">Graph Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../info/index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computation/index.html">Computation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../learning/index.html">Artificial Intelligence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../learning/robotics.html">Robotics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../graphics/index.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../retro/index.html">Retro Gaming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Network Programming</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sockets">Sockets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struct-in-addr"><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">in_addr</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struct-sockaddr-in"><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">sockaddr_in</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hton"><code class="docutils literal notranslate"><span class="pre">hton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inet-aton"><code class="docutils literal notranslate"><span class="pre">inet_aton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inet-pton"><code class="docutils literal notranslate"><span class="pre">inet_pton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inet-ntop"><code class="docutils literal notranslate"><span class="pre">inet_ntop</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#socket"><code class="docutils literal notranslate"><span class="pre">socket</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setsockopt"><code class="docutils literal notranslate"><span class="pre">setsockopt</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect"><code class="docutils literal notranslate"><span class="pre">connect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind"><code class="docutils literal notranslate"><span class="pre">bind</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen"><code class="docutils literal notranslate"><span class="pre">listen</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accept"><code class="docutils literal notranslate"><span class="pre">accept</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read"><code class="docutils literal notranslate"><span class="pre">read</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write"><code class="docutils literal notranslate"><span class="pre">write</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send"><code class="docutils literal notranslate"><span class="pre">send</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recv"><code class="docutils literal notranslate"><span class="pre">recv</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#close"><code class="docutils literal notranslate"><span class="pre">close</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dns">DNS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-name-resolution">Domain name resolution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#old-way">old way</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#new-way">new way</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client">Client</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="network-programming">
+<h1>Network Programming<a class="headerlink" href="#network-programming" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="sockets">
+<h2>Sockets<a class="headerlink" href="#sockets" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\overbrace{\underbrace{(\underbrace{\overset{2^{16}}{255.255.255.255}}_{\text{IP}}, \underbrace{\overset{2^8}{255.255}}_{\text{port}})}_{\text{socket}}}^{\text{client}},
+            \overbrace{\underbrace{(\underbrace{\overset{2^{16}}{255.255.255.255}}_{\text{IP}}, \underbrace{\overset{2^8}{255.255}}_{\text{port}})}_{\text{socket}}}^{\text{server}}}_{\text{connection}}\)</span></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>BSD</p></th>
+<th class="head"><p>POSIX</p></th>
+<th class="head"><p>action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">inet_aton</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">inet_pton</span></code></p></td>
+<td><p>convert from text address to packed address</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inet_ntoa</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">inet_ntop</span></code></p></td>
+<td><p>convert from packed address to text address</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gethostbyname</span></code>, <code class="docutils literal notranslate"><span class="pre">gethostbyaddr</span></code>, <code class="docutils literal notranslate"><span class="pre">getservbyname</span></code>, <code class="docutils literal notranslate"><span class="pre">getservbyport</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">getaddrinfo</span></code></p></td>
+<td><p>forward lookup for host name/service</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">gethostbyaddr</span></code>, <code class="docutils literal notranslate"><span class="pre">getservbyport</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">getnameinfo</span></code></p></td>
+<td><p>reverse lookup for host name/service</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Unix domain socket</strong></p>
+<ul class="simple">
+<li><p>Unix domain sockets are similar to network sockets but instead of using an underlying network protocol all communication occurs entirely within the OS kernel</p></li>
+<li><p>Unix domain sockets may use the file system as their address name space</p></li>
+<li><p>Processes reference Unix domain sockets as file system inodes (so two processes can communicate by opening the same socket)</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">AF_UNIX</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SOCK_STREAM</span></code></p>
+<ul>
+<li><p>Transmission Control Protocol (TCP)</p></li>
+<li><p>stream-oriented socket</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SOCK_DGRAM</span></code></p>
+<ul>
+<li><p>User Datagram Protocol (UDP)</p></li>
+<li><p>datagram-oriented socket that preserves message boundaries</p></li>
+<li><p>datagram sockets are always reliable and don’t reorder datagrams</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SOCK_SEQPACKET</span></code></p>
+<ul>
+<li><p>Stream Contral Transmission Protocol (SCTP)</p></li>
+<li><p>sequenced-packet socket that is connection-oriented, preserves message boundaries, delivers messages in the order that they were sent</p></li>
+</ul>
+</li>
+</ul>
+<p>Socket</p>
+<ul class="simple">
+<li><p>can be used to send or receive data over a network, at the session layer</p></li>
+<li><p>determines the structure of the transport layer</p></li>
+<li><p>sockets can communicate using a variety of protocol families, each with their own way of defining endpoint addresses</p></li>
+</ul>
+<p>types of socket</p>
+<ul class="simple">
+<li><p>Stream</p></li>
+<li><p>Datagram</p></li>
+</ul>
+<p>address</p>
+<ul class="simple">
+<li><p>since an address can contain variable information depending on the address family, there are other address structures that contain common elements from the sockaddr structure, as well as info specific to the address family; these structures are the same size so that they can be typecast to and from each other</p></li>
+<li><p>function <code class="docutils literal notranslate"><span class="pre">socket</span></code> simply accepts a pointer to an address structure, which can point to an address structure for the various address/protocol families</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">socket</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setsockopt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connect</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bind</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">listen</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">accept</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">send</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">close</span></code></p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">sockets</span><span class="p">.</span><span class="n">h</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">bits</span><span class="o">/</span><span class="n">socket</span><span class="p">.</span><span class="n">h</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span><span class="c1">     // AF_INET, SOCK_STREAM, inet_ntoa, socket</span>
+<span class="w">                           </span><span class="c1">// functions for manipulating numeric IP addresses</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="c1">         // errno</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netdb.h&gt;</span><span class="c1">         // gethostbyname, struct hostent</span>
+<span class="w">                           </span><span class="c1">// functions for translating protocol names and host names into numeric addresses (searches local data as well as name services)</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netinet/in.h&gt;</span><span class="c1">    // struct in_addr, struct sockaddr_in ---- &lt;netinet/in.h&gt; is included in &lt;arpa/inet.h&gt;</span>
+<span class="w">                           </span><span class="c1">// address families AF_INET, AF_INET6; protocol families PF_INET, PF_INET6; which include standard IP addresses and TCP and UDP port numbers</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="c1">         // perror, printf</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">        // uint32_t</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;strings.h&gt;</span><span class="c1">       // strerror</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span><span class="c1">    // accept, AF_INET, bind, connect, listen, SOCK_STREAM, socket (the core socket interface)</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span><span class="c1">     // ssize_t</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/un.h&gt;</span><span class="c1">        // address families PF_UNIX, PF_LOCAL</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="c1">        // close, read, write</span>
+</pre></div>
+</div>
+<p>Berkeley Socket API</p>
+<ul class="simple">
+<li><p>BSD 4.2 1983</p></li>
+<li><p>standard API for network programming</p></li>
+<li><p>available on most OS</p></li>
+</ul>
+<p>POSIX Socket API</p>
+<ul class="simple">
+<li><p>an update to the Berkeley Socket API: a few functions were deprecated and replaced</p></li>
+<li><p>better support for multi-threading</p></li>
+</ul>
+<p>Internet Client (or Server) Host</p>
+<ul class="simple">
+<li><p>Client (or Server) - user code</p></li>
+<li><p>Sockets Interface - system calls</p></li>
+<li><p>TCP/IP - kernel code</p></li>
+<li><p>Hardware Interface - interrupts</p></li>
+<li><p>Network Adapter - hardware and firmware</p></li>
+</ul>
+<p>IPv4 - 4 B
+IPv6 - 16 B</p>
+<p>Hosts are mapped to the set of 32-bit IP addresses which are mapped to the set of domain names.</p>
+<p>UNIX makes all I/O look like file I/O. <code class="docutils literal notranslate"><span class="pre">read</span></code> and <code class="docutils literal notranslate"><span class="pre">write</span></code> are used to interact with remote computers over a network. A program can have multiple network channels open at once; <code class="docutils literal notranslate"><span class="pre">read</span></code> and <code class="docutils literal notranslate"><span class="pre">write</span></code> need to be passed a file descriptor so that the OS knows which network channel you want to read or write. This file descriptor is called a socket.</p>
+<p>Sockets</p>
+<ul class="simple">
+<li><p>Stream/TCP Socket</p>
+<ul>
+<li><p>for connection-oriented, point-to-point, reliable byte streams (TCP, SCTP, or other stream transports)</p></li>
+<li><p>typically used for client-server communications (as well as other architectures such as peer-to-peer)</p></li>
+</ul>
+</li>
+<li><p>Datagram Socket (connection-less communication)</p>
+<ul>
+<li><p>for connection-less, one-to-many, unreliable packets (UDP or other packet transports)</p></li>
+<li><p>used less frequently than stream sockets</p></li>
+<li><p>provide no flow control, ordering, or reliability</p></li>
+<li><p>often used as a building block in streaming media applications or DNS lookup</p></li>
+</ul>
+</li>
+<li><p>Raw Socket - for layer 3 communication (raw IP packet manipulation)</p></li>
+</ul>
+<p>A process on one Internet host can communicate with a process on another Internet host over a <em><strong>connection</strong></em>. Clients and servers communicate by sending streams of bytes over connections. A connection is</p>
+<ul class="simple">
+<li><p>point-to-point: a connection connects a pair of processes</p></li>
+<li><p>full-duplex: data can flow in both directions at the same time</p></li>
+<li><p>reliable: data send-receive order is preserved</p></li>
+</ul>
+<p>A connection is uniquely identified by a socket pair.</p>
+<p>A <em><strong>socket</strong></em> is an endpoint of a connection. A socket address is a two-tuple consisting of an IP address and a port.</p>
+<p>A <em><strong>port</strong></em> is a <span class="math notranslate nohighlight">\(16\text{-b}\)</span> integer up to the number <span class="math notranslate nohighlight">\(\overset{2^{16} - 1}{65,535}\)</span> that identifies a process. <em><strong>Well-known (or reserved) ports</strong></em> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\overset{2^{10} - 1}{1023}\)</span> are associated with services provided by the server (e.g., port 80 is HTTP) and require root privileges to receive on them.</p>
+<p>An <em><strong>ephemeral port</strong></em> is assigned automatically by the client kernel when the client makes a connection.</p>
+<p>The sockets API lets you convert between IP addresses and DNS names.</p>
+<ul class="simple">
+<li><p>a DNS name can have many IP addresses</p></li>
+<li><p>many DNS names can map to the same IP address</p></li>
+<li><p>an IP address maps to either one or zero DNS names</p></li>
+<li><p>a DNS lookup may require interacting with many DNS servers</p></li>
+</ul>
+<p>POSIX DNS name resolution <code class="docutils literal notranslate"><span class="pre">getaddrinfo</span></code></p>
+<ul class="simple">
+<li><p>set up a hints structure with constraints</p></li>
+<li><p>indicate which host (a string representation of an IP address or DNS name) and port you want resolved</p></li>
+<li><p>returns a list of results in an <code class="docutils literal notranslate"><span class="pre">addrinfo</span></code> struct</p></li>
+<li><p>free the <code class="docutils literal notranslate"><span class="pre">addrinfo</span></code> struct via <code class="docutils literal notranslate"><span class="pre">freeaddrinfo</span></code></p></li>
+</ul>
+<p>166.84.7.99 (IP address)
+-&gt; 1010 0110  0101 0100  0000 0111  0110 0011 (little-endian binary representation)
+-&gt; 2790524771 (little-endian binary representation decimal value)
+-&gt; 0110 0011  0000 0111  0101 0100  1010 0110 (big-endian binary representation)
+-&gt; 1661424806 (big-endian binary representation decimal value)</p>
+<hr class="docutils" />
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// host to network</span>
+<span class="kt">uint64_t</span><span class="w"> </span><span class="n">htonll64</span><span class="w"> </span><span class="p">(</span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">hostlong64</span><span class="p">)</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">htonl</span><span class="w">    </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">hostlong</span><span class="p">)</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">htons</span><span class="w">    </span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">hostshort</span><span class="p">)</span>
+
+<span class="c1">// network to host</span>
+<span class="kt">uint64_t</span><span class="w"> </span><span class="n">ntohll64</span><span class="w"> </span><span class="p">(</span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">netlong64</span><span class="p">)</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">ntohl</span><span class="w">    </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">netlong</span><span class="p">)</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">ntohs</span><span class="w">    </span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">netshort</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Network Byte Order (big-endian)</p>
+<p>Byte3 Byte2 Byte1 Byte0</p>
+<p>Programming a client</p>
+<ol class="arabic simple">
+<li><p>Get the remote address/port to connect to</p></li>
+<li><p>Create a socket</p></li>
+<li><p>Connect the socket to the server</p></li>
+<li><p>Read/write data</p></li>
+<li><p>Close the socket</p></li>
+</ol>
+<p>Programming a server</p>
+<ol class="arabic simple">
+<li><p>Determine the port to bind to</p></li>
+<li><p>Create a socket</p></li>
+<li><p>Bind to the service</p></li>
+<li><p>Begin listening for connections</p></li>
+<li><p>Accept/receive a connection</p></li>
+<li><p>Read/write data</p></li>
+<li><p>Close the socket</p></li>
+</ol>
+<hr class="docutils" />
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* /usr/include/bits/socket.h</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+
+<span class="cm">/* get the definition of the macro to define the common sockaddr members */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/sockaddr.h&gt;</span>
+
+<span class="cm">/* structure describing a generic socket address */</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">__SOCKADDR_COMMON</span><span class="w"> </span><span class="p">(</span><span class="n">sa_</span><span class="p">);</span><span class="w"> </span><span class="c1">// common data: address family and length</span>
+<span class="w">                           </span><span class="c1">// basically, translates to an unsigned short</span>
+<span class="w">                           </span><span class="c1">// defines the address family of the address</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">sa_data</span><span class="p">[</span><span class="mi">14</span><span class="p">];</span><span class="w">        </span><span class="c1">// address data</span>
+<span class="p">}</span>
+
+<span class="cm">/* Protocol families */</span>
+<span class="cp">#define PF_UNSPEC     0        </span><span class="c1">// Unspecified.</span>
+<span class="cp">#define PF_LOCAL      1        </span><span class="c1">// Local to host (pipes and file-domain).</span>
+<span class="cp">#define PF_UNIX       PF_LOCAL </span><span class="c1">// Old BSD name for PF_LOCAL.</span>
+<span class="cp">#define PF_FILE       PF_LOCAL </span><span class="c1">// Another nonstandard name for PF_LOCAL.</span>
+<span class="cp">#define PF_INET       2        </span><span class="c1">// IP protocol family.</span>
+<span class="cp">#define PF_AX25       3        </span><span class="c1">// Amateur Radio AX.25.</span>
+<span class="cp">#define PF_IPX        4        </span><span class="c1">// Novell Internet Protocol.</span>
+<span class="cp">#define PF_APPLETALK  5        </span><span class="c1">// Appletalk DDP.</span>
+<span class="cp">#define PF_NETROM     6        </span><span class="c1">// Amateur radio NetROM.</span>
+<span class="cp">#define PF_BRIDGE     7        </span><span class="c1">// Multiprotocol bridge.</span>
+<span class="cp">#define PF_ATMPVC     8        </span><span class="c1">// ATM PVCs.</span>
+<span class="cp">#define PF_X25        9        </span><span class="c1">// Reserved for X.25 project.</span>
+<span class="cp">#define PF_INET6     10        </span><span class="c1">// IP version 6.</span>
+
+<span class="c1">// Types of sockets.</span>
+<span class="k">enum</span><span class="w"> </span><span class="n">__socket_type</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">SOCK_STREAM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">#</span><span class="n">define</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="w"> </span><span class="c1">// Sequenced, reliable, connection-based byte streams.</span>
+<span class="w">  </span><span class="n">SOCK_DGRAM</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="err">#</span><span class="n">define</span><span class="w"> </span><span class="n">SOCK_DGRAM</span><span class="w">  </span><span class="n">SOCK_DGRAM</span><span class="w">  </span><span class="c1">// Connectionless, unreliable datagrams of fixed maximum length.</span>
+<span class="p">}</span>
+
+<span class="cm">/* address families */</span>
+<span class="cp">#define AF_UNSPEC    PF_UNSPEC</span>
+<span class="cp">#define AF_LOCAL     PF_LOCAL</span>
+<span class="cp">#define AF_UNIX      PF_UNIX</span>
+<span class="cp">#define AF_FILE      PF_FILE</span>
+<span class="cp">#define AF_INET      PF_INET</span>
+<span class="cp">#define AF_AX25      PF_AX25</span>
+<span class="cp">#define AF_IPX       PF_IPX</span>
+<span class="cp">#define AF_APPLETALK PF_APPLETALK</span>
+<span class="cp">#define AF_NETROM    PF_NETROM</span>
+<span class="cp">#define AF_BRIDGE    PF_BRIDGE</span>
+<span class="cp">#define AF_ATMPVC    PF_ATMPVC</span>
+<span class="cp">#define AF_X25       PF_X25</span>
+<span class="cp">#define AF_INET6     PF_INET6</span>
+</pre></div>
+</div>
+<section id="struct-in-addr">
+<h3><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">in_addr</span></code><a class="headerlink" href="#struct-in-addr" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">s_addr</span><span class="p">;</span><span class="w"> </span><span class="c1">// IPv4 address (32-bit, stored in network byte order, or big-endian)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><span class="math notranslate nohighlight">\(\text{in\_addr} \quad \underbrace{\boxed{\vphantom{G\_}\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad|\quad}}_{32 \text{ b}}\)</span></p>
+</section>
+<section id="struct-sockaddr-in">
+<h3><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">sockaddr_in</span></code><a class="headerlink" href="#struct-sockaddr-in" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* /usr/include/netinet/in.h</span>
+<span class="cm"> *</span>
+<span class="cm"> * defines the socket address structure for IPv4</span>
+<span class="cm"> *</span>
+<span class="cm"> * in the following, the prefix &#39;sin&#39; stands for &quot;Socket Internet&quot;</span>
+<span class="cm"> * </span>
+<span class="cm"> * </span>
+<span class="cm"> * struct in_addr {</span>
+<span class="cm"> *   uint32_t s_addr;            // 32-bit IP address stored in network byte order</span>
+<span class="cm"> * }</span>
+<span class="cm"> *</span>
+<span class="cm"> * struct sockaddr_in {</span>
+<span class="cm"> *   sa_family_t    sin_family;  // address family (AF_INET or AF_INET6)</span>
+<span class="cm"> *   in_port_t      sin_port;    // 16-bit port number -- stores the port number in network byte order (use `htons` to convert from host byte order)</span>
+<span class="cm"> *   struct in_addr sin_addr;    // 32-bit IP address                                                  (use `inet_pton` or `inet_aton` to convert from a string)</span>
+<span class="cm"> *   char           sin_zero[8]; // padding, to make sure that the `sockaddr_in` structure is the same size as `sockaddr`</span>
+<span class="cm"> * }</span>
+<span class="cm"> */</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">__SOCKADDR_COMMON</span><span class="w"> </span><span class="p">(</span><span class="n">sin_</span><span class="p">);</span><span class="w"> </span><span class="cm">/* the unsigned short used to define the address family                */</span>
+<span class="w">  </span><span class="n">in_port_t</span><span class="w"> </span><span class="n">sin_port</span><span class="p">;</span><span class="w">       </span><span class="cm">/* port number  (16-bit, stored in network byte order, or big-endian)  */</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="n">sin_addr</span><span class="p">;</span><span class="w">  </span><span class="cm">/* IPv4 address (32-bit, stored in network byte order, or big-endian)  */</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">sin_zero</span><span class="p">[</span><span class="w">   </span><span class="cm">/* 8-B pad, to the size of &#39;struct sockaddr&#39;                           */</span>
+<span class="w">    </span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="p">)</span><span class="w"> </span><span class="o">-</span>
+<span class="w">    </span><span class="n">__SOCKADDR_COMMON_SIZE</span><span class="w">  </span><span class="o">-</span>
+<span class="w">    </span><span class="k">sizeof</span><span class="p">(</span><span class="n">in_port_t</span><span class="p">)</span><span class="w">       </span><span class="o">-</span>
+<span class="w">    </span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="p">)</span>
+<span class="w">  </span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr_in</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">short</span><span class="w">          </span><span class="n">sin_family</span><span class="p">;</span><span class="w">  </span><span class="cm">/* the unsigned short used to define the address family                */</span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sin_port</span><span class="p">;</span><span class="w">    </span><span class="cm">/* port number  (16-bit, stored in network byte order, or big-endian)  */</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="n">sin_addr</span><span class="p">;</span><span class="w">    </span><span class="cm">/* IPv4 address (32-bit, stored in network byte order, or big-endian)  */</span>
+<span class="w">  </span><span class="kt">char</span><span class="w">           </span><span class="n">sin_zero</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span><span class="w"> </span><span class="cm">/* 8-B pad, to the size of &#39;struct sockaddr&#39;                           */</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{sockaddr (generic)} &amp;&amp;
+\underbrace{\boxed{\vphantom{G\_}\quad\quad}}_{2 \text{ B}}
+\underbrace{\boxed{\vphantom{G\_}\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\,}}_{14 \text{ B}}
+\\
+\text{sockaddr\_in (IPv4)} &amp;&amp;
+\underbrace{\boxed{\vphantom{G\_}\quad\quad}}_{2 \text{ B}}
+\underbrace{\boxed{\vphantom{G\_}\quad\quad}}_{2 \text{ B}}
+\underbrace{\boxed{\vphantom{G\_}\quad\quad\quad\quad}}_{4 \text{ B}}
+\underbrace{\boxed{\vphantom{G\_}\quad\quad\quad\quad\quad\quad\quad\quad}}_{8 \text{ B}}
+\end  {aligned}
+\)</span></p>
+</section>
+<section id="hton">
+<h3><code class="docutils literal notranslate"><span class="pre">hton</span></code><a class="headerlink" href="#hton" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* convert from x86 host byte order (little-endian) to network byte order (big-endian), or</span>
+<span class="cm"> * convert from network byte order (big-endian) to x86 host byte order (little-endian)</span>
+<span class="cm"> *</span>
+<span class="cm"> * defined in netinet/in.h and arpa/inet.h</span>
+<span class="cm"> */</span>
+<span class="kt">uint64_t</span><span class="w"> </span><span class="n">htonll64</span><span class="w"> </span><span class="p">(</span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">hostlong64</span><span class="p">)</span><span class="w"> </span><span class="cm">/* host-to-network long long - convert a 64-bit integer from the host&#39;s byte order to the network byte order */</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">htonl</span><span class="w">    </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">hostlong</span><span class="p">)</span><span class="w">   </span><span class="cm">/* host-to-network long      - convert a 32-bit integer from the host&#39;s byte order to the network byte order */</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">htons</span><span class="w">    </span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">hostshort</span><span class="p">)</span><span class="w">  </span><span class="cm">/* host-to-network short     - convert a 16-bit integer from the host&#39;s byte order to the network byte order */</span>
+<span class="kt">uint64_t</span><span class="w"> </span><span class="n">ntohll64</span><span class="w"> </span><span class="p">(</span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">netlong64</span><span class="p">)</span><span class="w">  </span><span class="cm">/* network-to-host long long - convert a 64-bit integer from the network byte order to the host&#39;s byte order */</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">ntohl</span><span class="w">    </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">netlong</span><span class="p">)</span><span class="w">    </span><span class="cm">/* network-to-host long      - convert a 32-bit integer from the network byte order to the host&#39;s byte order */</span>
+<span class="kt">uint16_t</span><span class="w"> </span><span class="n">ntohs</span><span class="w">    </span><span class="p">(</span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">netshort</span><span class="p">)</span><span class="w">   </span><span class="cm">/* network-to-host short     - convert a 16-bit integer from the network byte order to the host&#39;s byte order */</span>
+</pre></div>
+</div>
+</section>
+<section id="inet-aton">
+<h3><code class="docutils literal notranslate"><span class="pre">inet_aton</span></code><a class="headerlink" href="#inet-aton" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* ASCII to network, network to ASCII</span>
+<span class="cm"> *</span>
+<span class="cm"> * header - arpa/inet.h</span>
+<span class="cm"> */</span>
+
+
+
+<span class="kt">int</span><span class="w"> </span><span class="n">inet_aton</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="o">*</span><span class="w"> </span><span class="n">inp</span><span class="p">)</span>
+<span class="cm">/*             ^^^^^^^^^^^^^^^^                       a string containing an IPv4 address in dotted-decimal notation</span>
+<span class="cm"> *                               ^^^^^^^^^^^^^^^^^^^  a pointer to a &#39;struct in_addr&#39;, which will contain a 32-bit integer representation of the IPv4 address in network byte order</span>
+<span class="cm"> *</span>
+<span class="cm"> * inet_aton - &quot;ASCII to network&quot;</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     non 0  success</span>
+<span class="cm"> *         0  failure</span>
+<span class="cm"> * </span>
+<span class="cm"> * </span>
+<span class="cm"> * </span>
+<span class="cm"> * int inet_pton (int af, const char *addr, struct in_addr *inp)</span>
+<span class="cm"> *                ^^^^^^                                         address family: either `AF_INET` for IPv4 or `AF_INET6` for IPv6</span>
+<span class="cm"> * int inet_aton (        const char *addr, struct in_addr *inp)</span>
+<span class="cm"> *                        ^^^^^^^^^^^^^^^^                       a string that contains a dotted-decimal IPv4 address</span>
+<span class="cm"> *                                          ^^^^^^^^^^^^^^^^^^^  a pointer to a 32-bit (binary form) UNIX network address structure `struct in_addr`</span>
+<span class="cm"> *</span>
+<span class="cm"> *    convert a string into an IPv4 address</span>
+<span class="cm"> *    returns</span>
+<span class="cm"> *         on failure, 0</span>
+<span class="cm"> *         on success, a non-zero value (usually 1)</span>
+<span class="cm"> */</span>
+
+
+
+<span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">inet_ntoa</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="o">*</span><span class="w"> </span><span class="n">in</span><span class="p">)</span>
+<span class="cm">/*               ^^^^^^^^^^^^^^^^^^  a `struct in_addr` representing an IPv4 address in network byte order</span>
+<span class="cm"> *</span>
+<span class="cm"> * inet_ntoa - &quot;Network to ASCII&quot;</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     a pointer to a statically-allocated string containing the dotted-decimal string representation of the IPv4 address</span>
+<span class="cm"> *</span>
+<span class="cm"> * notes</span>
+<span class="cm"> * =====</span>
+<span class="cm"> *     since the string is stored in a static buffer its contents may be overwritten by subsequent calls to `inet_ntoa`</span>
+<span class="cm"> *     the returned string should not be freed or modified, since it points to memory managed by the function itself</span>
+<span class="cm"> *     the function is not thread-safe because the internal static buffer can be overwritten by concurrent calls</span>
+<span class="cm"> * </span>
+<span class="cm"> * </span>
+<span class="cm"> * </span>
+<span class="cm"> *       char *inet_ntoa (struct in_addr in)</span>
+<span class="cm"> *           convert an IPv4 address in its binary form (i.e., a UNIX `struct in_addr`) into an ASCII string in dotted-decimal notation</span>
+<span class="cm"> *           returns a valid pointer to a string</span>
+<span class="cm"> *               on failure, undefined behavior</span>
+<span class="cm"> *               on success, a pointer to a statically-allocated ASCII string representing the IPv4 address in dotted-decimal notation</span>
+<span class="cm"> */</span>
+
+
+
+<span class="n">in_addr_t</span><span class="w"> </span><span class="n">inet_addr</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">cp</span><span class="p">)</span>
+<span class="cm">/*                   ^^^^^^^^^^^^^^  dotted-decimal IPv4 string</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     in_addr_t, an alias for uint32_t</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span><span class="c1"> // in_addr_t, INADDR_NONE, struct in_addr</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="c1">     // printf, scanf</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="c1">    // exit</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="cm">/******************************</span>
+<span class="cm">   *</span>
+<span class="cm">   *    inet_aton</span>
+<span class="cm">   *</span>
+<span class="cm">   ******************************/</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span><span class="w"> </span><span class="c1">// 32-bit IPv4 address in network-byte order</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter an IPv4 address in dotted-decimal notation: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inet_aton</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">addr</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error - inet_aton could not convert [%s].</span><span class="se">\n</span><span class="s">Exiting...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Network byte order : 0x%08x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">addr</span><span class="p">.</span><span class="n">s_addr</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;ASCII              : %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">inet_ntoa</span><span class="p">(</span><span class="n">addr</span><span class="p">));</span>
+
+<span class="w">  </span><span class="cm">/******************************</span>
+<span class="cm">   *</span>
+<span class="cm">   *    inet_addr</span>
+<span class="cm">   *</span>
+<span class="cm">   ******************************/</span>
+
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">s2</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter an IPv4 address in dotted-decimal notation: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">ret_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inet_addr</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;inet_addr(%s) = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="n">ret_val</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret_val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">INADDR_NONE</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error - inet_addr could not convert [%s].</span><span class="se">\n</span><span class="s">Exiting...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;inet_addr          : 0x%08x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">inet_addr</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="inet-pton">
+<h3><code class="docutils literal notranslate"><span class="pre">inet_pton</span></code><a class="headerlink" href="#inet-pton" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">inet_pton</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">af</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">dst</span><span class="p">)</span>
+<span class="cm">/*             ^^^^^^                              address family (either AF_INET or AF_INET6)</span>
+<span class="cm"> *                     ^^^^^^^^^^^^^^^             a pointer to the null-terminated string containing the IP address</span>
+<span class="cm"> *                                      ^^^^^^^^^  a pointer to the memory where the binary form of the IP address will be stored (a `struct in_addr`)</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> *     1  success</span>
+<span class="cm"> *     0  the input address string is not valid for the specified address family</span>
+<span class="cm"> *    -1  an error occurred (e.g., invalid address family), and errno is set to indicate the error</span>
+<span class="cm"> *</span>
+<span class="cm"> * header: arpa/inet.h</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</section>
+<section id="inet-ntop">
+<h3><code class="docutils literal notranslate"><span class="pre">inet_ntop</span></code><a class="headerlink" href="#inet-ntop" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">inet_ntop</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">af</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
+<span class="cm">/*                     ^^^^^^                                              address family: either `AF_INET` for IPv4 or `AF_INET6` for IPv6</span>
+<span class="cm"> *                             ^^^^^^^^^^^^^^^                             a pointer to the buffer containing the network address in binary form</span>
+<span class="cm"> *                                              ^^^^^^^^^                  a pointer to the buffer where the function will store the resulting null-terminated string</span>
+<span class="cm"> *                                                         ^^^^^^^^^^^^^^  the size of the buffer pointed to by `dst` including the null terminator: either INET_ADDRSTRLEN for IPv4 or INET6_ADDRSTRLEN for IPv6</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     on failure, the NULL terminator (and the global variable `errno` is set to indicate the specific error that occurred)</span>
+<span class="cm"> *     on success, a pointer to buffer `dst` which stores the null-terminated string representation of the IP address</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</section>
+<section id="socket">
+<h3><code class="docutils literal notranslate"><span class="pre">socket</span></code><a class="headerlink" href="#socket" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">socket</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">domain</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">protocol</span><span class="p">)</span>
+<span class="cm">/*          ^^^^^^^^^^                          the communication domain, either AF_INET or AF_INET6 (the socket&#39;s protocol family)</span>
+<span class="cm"> *                      ^^^^^^^^                the communication semantics, either SOCK_STREAM (a stream using TCP) or SOCK_DGRAM (a datagram using UDP)</span>
+<span class="cm"> *                                ^^^^^^^^^^^^  the particular protocol (almost always 0)</span>
+<span class="cm"> *</span>
+<span class="cm"> * socket</span>
+<span class="cm"> * ======</span>
+<span class="cm"> *     create a new socket (doesn&#39;t actually connect to anything)</span>
+<span class="cm"> *</span>
+<span class="cm"> * args</span>
+<span class="cm"> * ====</span>
+<span class="cm"> *     protocol family</span>
+<span class="cm"> *     type of socket</span>
+<span class="cm"> *     protocol</span>
+<span class="cm"> *         the spec allows for multiple protocols within a protocol family: this arg is used to select a protocol from a protocol family</span>
+<span class="cm"> *         in practice, most protocol families only have one protocol and so this should usually be set to 0 (the first and only protocol in the enumeration of the family)</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     fd, on success</span>
+<span class="cm"> *     -1, on failure</span>
+<span class="cm"> */</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">sockfd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="w"> </span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;error on socket creation [%s]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="setsockopt">
+<h3><code class="docutils literal notranslate"><span class="pre">setsockopt</span></code><a class="headerlink" href="#setsockopt" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">setsockopt</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">option_name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">option_value</span><span class="p">,</span><span class="w"> </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">option_len</span><span class="p">)</span>
+<span class="cm">/*              ^^^^^^^^^^                                                                              the socket to modify</span>
+<span class="cm"> *                          ^^^^^^^^^                                                                   the protocol level at which the option resides</span>
+<span class="cm"> *                                     ^^^^^^^^^^^^^^^                                                  the option</span>
+<span class="cm"> *                                                      ^^^^^^^^^^^^^^^^^^^^^^^^                        a pointer to the data that the option should be set to</span>
+<span class="cm"> *                                                                                ^^^^^^^^^^^^^^^^^^^^  the length of this data</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *      0    success</span>
+<span class="cm"> *     -1    failure</span>
+<span class="cm"> *</span>
+<span class="cm"> * levels</span>
+<span class="cm"> * ======</span>
+<span class="cm"> *     SOL_SOCKET     socket-layer (timeouts, address reuse)</span>
+<span class="cm"> *     IPPROTO_TCP    TCP options</span>
+<span class="cm"> *     IPPROTO_IP     IP options</span>
+<span class="cm"> *</span>
+<span class="cm"> * options</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     SO_RCVTIMEO</span>
+<span class="cm"> *     SO_REUSEADDR    32-bit integer (to set this option to true, the final two args must be a pointer to the integer value 1 and the size of an integer, 4 B)</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</section>
+<section id="connect">
+<h3><code class="docutils literal notranslate"><span class="pre">connect</span></code><a class="headerlink" href="#connect" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="o">*</span><span class="w"> </span><span class="n">serv_addr</span><span class="p">,</span><span class="w"> </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">addrlen</span><span class="p">)</span>
+<span class="cm">/*           ^^^^^^^^^^                                                 the socket file descriptor</span>
+<span class="cm"> *                       ^^^^^^^^^^^^^^^^^^^^^^^^^^                     a pointer to the             address struct, which represents the remote host</span>
+<span class="cm"> *                                                   ^^^^^^^^^^^^^^^^^               the size of the address struct</span>
+<span class="cm"> *</span>
+<span class="cm"> * connect</span>
+<span class="cm"> *     connects a socket `sockfd` to remote host `serv_addr`</span>
+<span class="cm"> *     system call</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *      0  successful</span>
+<span class="cm"> *     -1  failure, and `errno` is set to indicate the error</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">connect</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">saddr</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">saddr</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="bind">
+<h3><code class="docutils literal notranslate"><span class="pre">bind</span></code><a class="headerlink" href="#bind" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">bind</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="o">*</span><span class="w"> </span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">addrlen</span><span class="p">)</span>
+<span class="cm">/*        ^^^^^^^^^^                                            socket file descriptor</span>
+<span class="cm"> *                    ^^^^^^^^^^^^^^^^^^^^^                     a pointer to the address struct (represents the local host, or client)</span>
+<span class="cm"> *                                           ^^^^^^^^^^^^^^^^^  the size of the address struct</span>
+<span class="cm"> *</span>
+<span class="cm"> * bind (sys call) - binds a socket to a local address (so that it can listen for incoming connections)</span>
+<span class="cm"> * returns</span>
+<span class="cm"> *      0  success</span>
+<span class="cm"> *     -1  failure</span>
+<span class="cm"> */</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bind</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="n">saddr</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">saddr</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="listen">
+<h3><code class="docutils literal notranslate"><span class="pre">listen</span></code><a class="headerlink" href="#listen" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">listen</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">backlog</span><span class="p">)</span>
+<span class="cm">/*          ^^^^^^^^^^               the file descriptor of the socket that will be used to listen for incoming conections</span>
+<span class="cm"> *                      ^^^^^^^^^^^  the maximum number of connections that can be queued for acceptance; when the queue is full, the server may refuse additional incoming connections</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> *      0  success</span>
+<span class="cm"> *     -1  failure, and `errno` is set to indicate the error</span>
+<span class="cm"> * notes</span>
+<span class="cm"> *     listen - tells the OS to receive connections for the process</span>
+<span class="cm"> *     system call</span>
+<span class="cm"> *     marks a socket as passive (puts it into a listening state): it will be used to accept incoming connection requests</span>
+<span class="cm"> *     the passive socket will listen for incoming connection requests and queue them so that they can be accepted later via `accept`</span>
+<span class="cm"> *     a program may process connections as fast as it wants, and the OS will hold the client in a waiting state until you are ready</span>
+<span class="cm"> *     but beware of waiting too long - timeout</span>
+<span class="cm"> */</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">listen</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="accept">
+<h3><code class="docutils literal notranslate"><span class="pre">accept</span></code><a class="headerlink" href="#accept" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">accept</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="o">*</span><span class="w"> </span><span class="n">server_addr</span><span class="p">,</span><span class="w"> </span><span class="kt">socklen_t</span><span class="o">*</span><span class="w"> </span><span class="n">addrlen</span><span class="p">)</span>
+<span class="cm">/*          ^^^^^^^^^^                                                    a new socket file descriptor which represents the new connection</span>
+<span class="cm"> *                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^                      remote host address information</span>
+<span class="cm"> *                                                    ^^^^^^^^^^^^^^^^^^  and its size</span>
+<span class="cm"> *</span>
+<span class="cm"> * accept</span>
+<span class="cm"> *     accepts an incoming connection on a bound socket</span>
+<span class="cm"> *     the remote host&#39;s address information is written to `server_addr`</span>
+<span class="cm"> * returns</span>
+<span class="cm"> *     new_sockfd  success</span>
+<span class="cm"> *             -1  failure</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</section>
+<section id="read">
+<h3><code class="docutils literal notranslate"><span class="pre">read</span></code><a class="headerlink" href="#read" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">ssize_t</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="p">)</span>
+<span class="cm">/*            ^^^^^^                                 socket file descriptor to receive data from</span>
+<span class="cm"> *                    ^^^^^^^^^                      a buffer to hold the received data</span>
+<span class="cm"> *                               ^^^^^^^^^^^^        the maximum number of bytes to receive</span>
+<span class="cm"> *</span>
+<span class="cm"> * read - receive data from a socket and store it in a buffer</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     &gt;0         success, the number of bytes received from the socket (make sure to check this value)</span>
+<span class="cm"> *      0 (EOF)   failure, the other side of the connection closed the socket</span>
+<span class="cm"> *     -1         failure, error</span>
+<span class="cm"> *</span>
+<span class="cm"> * notes</span>
+<span class="cm"> * =====</span>
+<span class="cm"> *     make sure to supply a buffer that is large enough for the received data</span>
+<span class="cm"> *     make sure to look out for memory corruption when the buffer is too small</span>
+<span class="cm"> *     make sure to check the return value, and compare it against the expected size</span>
+<span class="cm"> * </span>
+<span class="cm"> *         blocking - by default, `read` blocks (i.e., pauses execution) until at least one byte of data is available to read, or the connection is closed</span>
+<span class="cm"> *                  - this is useful when you want to wait for data</span>
+<span class="cm"> *     non-blocking - if the socket is set to non-blocking mode, `read` will return immediately even if no data is available</span>
+<span class="cm"> *                  - this is useful if you want the program to stay responsive</span>
+<span class="cm"> *                  - if no data is read, `read` returns -1 and sets `errno` to `EAGAIN` or `EWOULDBLOCK`</span>
+<span class="cm"> * </span>
+<span class="cm"> *     partial read - `read` may read fewer bytes than requested if fewer bytes are available at the time of the call; thus, repeated calls to `read` might be necessary to read all the data, esp. for larger messages or files</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* example_read.c</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="c1">     // perror, printf</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span><span class="c1"> // ssize_t</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="c1">    // close, read</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">ssize_t</span><span class="w"> </span><span class="n">bytes_read</span><span class="p">;</span>
+
+<span class="w">  </span><span class="cm">/* CREATE and CONNECT SOCKET */</span>
+
+<span class="w">  </span><span class="n">bytes_read</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//                             ^^^^^^^^^^^^^^^ leave a byte for the null terminator</span>
+<span class="w">  </span><span class="c1">//                                             `read` attempts to read up 1023 B from the socket</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bytes_read</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">// if successful, print the received data</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">buf</span><span class="p">[</span><span class="n">bytes_read</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// null-terminate the buffer</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Received: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bytes_read</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Connection closed by peer.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;read&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="cm">/* CLOSE SOCKET */</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="write">
+<h3><code class="docutils literal notranslate"><span class="pre">write</span></code><a class="headerlink" href="#write" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">ssize_t</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count</span><span class="p">)</span>
+<span class="cm">/*             ^^^^^^                                 socket file descriptor to send data to</span>
+<span class="cm"> *                     ^^^^^^^^^^^^^^^                a buffer which holds the data to send</span>
+<span class="cm"> *                                      ^^^^^^^^^^^^  the maximum number of bytes to send</span>
+<span class="cm"> *</span>
+<span class="cm"> * write - send data to a socket</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     the number of bytes sent to the socket (make sure to check this value)</span>
+<span class="cm"> *</span>
+<span class="cm"> * notes</span>
+<span class="cm"> * =====</span>
+<span class="cm"> *     make sure to check the return value, and compare it against the expected size</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</section>
+<section id="send">
+<h3><code class="docutils literal notranslate"><span class="pre">send</span></code><a class="headerlink" href="#send" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">)</span>
+<span class="cm">/*        ^^^^^^^^^^                                  the socket to send the data to</span>
+<span class="cm"> *                    ^^^^^^^^^                       a pointer to the start of the data to send</span>
+<span class="cm"> *                               ^^^^^^^^             the number of bytes to send</span>
+<span class="cm"> *                                         ^^^^^^^^^</span>
+<span class="cm"> *</span>
+<span class="cm"> * send</span>
+<span class="cm"> * ====</span>
+<span class="cm"> *     sends n bytes from `buf` to the socket `sockfd`</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     n bytes, on success</span>
+<span class="cm"> *          -1, on failure</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</section>
+<section id="recv">
+<h3><code class="docutils literal notranslate"><span class="pre">recv</span></code><a class="headerlink" href="#recv" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">recv</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">)</span>
+<span class="cm">/*        ^^^^^^^^^^                                  the socket to write the data to</span>
+<span class="cm"> *                    ^^^^^^^^^                       a pointer to the start of the data to write</span>
+<span class="cm"> *                               ^^^^^^^^             the number of bytes to receive</span>
+<span class="cm"> *                                         ^^^^^^^^^</span>
+<span class="cm"> *</span>
+<span class="cm"> * recv</span>
+<span class="cm"> * ====</span>
+<span class="cm"> *     receives n bytes from the socket `sockfd` and writes them to `buf`</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     n bytes, on success</span>
+<span class="cm"> *          -1, on failure</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</section>
+<section id="close">
+<h3><code class="docutils literal notranslate"><span class="pre">close</span></code><a class="headerlink" href="#close" title="Link to this heading">#</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span>
+<span class="cm">/*         ^^^^^^  socket file descriptor to close</span>
+<span class="cm"> *</span>
+<span class="cm"> * close - closes the connection, and deletes the associated entry in the OS&#39;s internal structures</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *      0  success</span>
+<span class="cm"> *     -1  failure, and `errno` is set to indicate the error</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">close</span><span class="p">(</span><span class="n">sockfd</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;close&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">sockfd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="dns">
+<h3>DNS<a class="headerlink" href="#dns" title="Link to this heading">#</a></h3>
+</section>
+<section id="domain-name-resolution">
+<h3>Domain name resolution<a class="headerlink" href="#domain-name-resolution" title="Link to this heading">#</a></h3>
+<section id="old-way">
+<h4>old way<a class="headerlink" href="#old-way" title="Link to this heading">#</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netdb.h&gt;</span><span class="c1"> /* gethostbyname, struct hostent */</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">hostent</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">h_name</span><span class="p">;</span><span class="w">         </span><span class="c1">// Official name of the host</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">h_aliases</span><span class="p">;</span><span class="w">     </span><span class="c1">// Null-terminated array of alternate names</span>
+<span class="w">    </span><span class="kt">int</span><span class="w">  </span><span class="n">h_addrtype</span><span class="p">;</span><span class="w">      </span><span class="c1">// Address type (AF_INET for IPv4, AF_INET6 for IPv6)</span>
+<span class="w">    </span><span class="kt">int</span><span class="w">  </span><span class="n">h_length</span><span class="p">;</span><span class="w">        </span><span class="c1">// Length of the address (in bytes)</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">h_addr_list</span><span class="p">;</span><span class="w">   </span><span class="c1">// Null-terminated array of addresses</span>
+<span class="p">};</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">hostent</span><span class="o">*</span><span class="w"> </span><span class="n">gethostbyname</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<span class="cm">/*                             ^^^^^^^^^^^^^^^^  a string containing the name to resolve</span>
+<span class="cm"> *</span>
+<span class="cm"> * gethostbyname - runs a DNS lookup on a name and return the associated host information</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> * =======</span>
+<span class="cm"> *     (struct hostent *)  success, a pointer to a `hostent` structure which stores information about the host with the given hostname or IPv4 address in standard dot notation</span>
+<span class="cm"> *     NULL                failure, and sets `h_errno` (e.g., HOST_NOT_FOUND, NO_DATA, etc.) to indicate the error</span>
+<span class="cm"> *</span>
+<span class="cm"> * notes</span>
+<span class="cm"> * =====</span>
+<span class="cm"> *     function `gethostbyname` is an older function used to resolve a host name into an IP address</span>
+<span class="cm"> *     it retrieves the host information from the domain name system or local hosts file</span>
+<span class="cm"> *     it lacks support for IPv6 and is not thread-safe</span>
+<span class="cm"> *</span>
+<span class="cm"> *     hostent structure</span>
+<span class="cm"> *         hostent-&gt;h_name         a string which stores a fully-qualified domain name</span>
+<span class="cm"> *         hostent-&gt;h_addr_list    an array of pointers to IP addresses</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* network_dns_example_old.c */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span><span class="c1"> /* inet_ntoa, struct in_addr */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netdb.h&gt;</span><span class="c1">     /* gethostbyname, struct hostent */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="c1">     /* perror, printf */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="c1">    /* memcpy */</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;www.example.com&quot;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">hostent</span><span class="o">*</span><span class="w"> </span><span class="n">he</span><span class="p">;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="n">addr</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">he</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gethostbyname</span><span class="p">(</span><span class="n">hostname</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;gethostbyname&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Official hostname: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">he</span><span class="o">-&gt;</span><span class="n">h_name</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">addr_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">he</span><span class="o">-&gt;</span><span class="n">h_addr_list</span><span class="p">;</span><span class="w"> </span><span class="o">*</span><span class="n">addr_list</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">addr_list</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">addr</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">addr_list</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;IP address: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">inet_ntoa</span><span class="p">(</span><span class="n">addr</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* network_dns_old_example_2.c */</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span><span class="c1"> /* inet_ntoa */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netdb.h&gt;</span><span class="c1">     /* gethostbyname, struct hostent */</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="c1">     /* printf */</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cse.psu.edu&quot;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">hostent</span><span class="o">*</span><span class="w"> </span><span class="n">host_info</span><span class="p">;</span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="o">**</span><span class="w"> </span><span class="n">addr_list</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">host_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gethostbyname</span><span class="p">(</span><span class="n">hostname</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">addr_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">in_addr</span><span class="w"> </span><span class="o">**</span><span class="p">)</span><span class="w"> </span><span class="n">host_info</span><span class="o">-&gt;</span><span class="n">h_addr_list</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;DNS lookup [%s] address [%s]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">host_info</span><span class="o">-&gt;</span><span class="n">h_name</span><span class="p">,</span><span class="w"> </span><span class="n">inet_ntoa</span><span class="p">(</span><span class="o">*</span><span class="n">addr_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="new-way">
+<h4>new way<a class="headerlink" href="#new-way" title="Link to this heading">#</a></h4>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/******************************</span>
+<span class="cm"> *</span>
+<span class="cm"> *     DNS</span>
+<span class="cm"> *</span>
+<span class="cm"> ******************************/</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netdb.h&gt;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">addrinfo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w">              </span><span class="n">ai_flags</span><span class="p">;</span><span class="w">     </span><span class="c1">// Input flags</span>
+<span class="w">    </span><span class="kt">int</span><span class="w">              </span><span class="n">ai_family</span><span class="p">;</span><span class="w">    </span><span class="c1">// Address family (AF_INET, AF_INET6)</span>
+<span class="w">    </span><span class="kt">int</span><span class="w">              </span><span class="n">ai_socktype</span><span class="p">;</span><span class="w">  </span><span class="c1">// Socket type (SOCK_STREAM, SOCK_DGRAM)</span>
+<span class="w">    </span><span class="kt">int</span><span class="w">              </span><span class="n">ai_protocol</span><span class="p">;</span><span class="w">  </span><span class="c1">// Protocol (0 for any protocol)</span>
+<span class="w">    </span><span class="kt">socklen_t</span><span class="w">        </span><span class="n">ai_addrlen</span><span class="p">;</span><span class="w">   </span><span class="c1">// Length of ai_addr</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">sockaddr</span><span class="w"> </span><span class="o">*</span><span class="n">ai_addr</span><span class="p">;</span><span class="w">      </span><span class="c1">// Pointer to sockaddr structure</span>
+<span class="w">    </span><span class="kt">char</span><span class="w">            </span><span class="o">*</span><span class="n">ai_canonname</span><span class="p">;</span><span class="w"> </span><span class="c1">// Canonical name</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">addrinfo</span><span class="w"> </span><span class="o">*</span><span class="n">ai_next</span><span class="p">;</span><span class="w">      </span><span class="c1">// Pointer to next addrinfo structure</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">getaddrinfo</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">addrinfo</span><span class="o">*</span><span class="w"> </span><span class="n">hints</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">addrinfo</span><span class="o">**</span><span class="w"> </span><span class="n">res</span><span class="p">)</span>
+<span class="cm">/*               ^^^^^^^^^^^^^^^^                                                                            node: A string containing a hostname (e.g., &quot;www.example.com&quot;) or an IP address (e.g., &quot;192.168.1.1&quot; for IPv4 or &quot;2001:db8::1&quot; for IPv6). If set to NULL, the function will return wildcard addresses suitable for binding.</span>
+<span class="cm"> *                                 ^^^^^^^^^^^^^^^^^^^                                                       service: A string containing a service name (e.g., &quot;http&quot;, &quot;ftp&quot;, or &quot;80&quot;) or a port number (as a string). If set to NULL, only the address is resolved, but no port information is returned.</span>
+<span class="cm"> *                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^                         hints: A pointer to a struct addrinfo used to provide hints about the types of addresses you want. This structure allows you to specify options such as preferred address family (IPv4 or IPv6) and socket type (TCP or UDP). You can pass NULL to get default behavior.</span>
+<span class="cm"> *                                                                                    ^^^^^^^^^^^^^^^^^^^^^  res: A pointer to a linked list of struct addrinfo structures. The results of the address resolution are stored here. You must free this list later using freeaddrinfo().</span>
+<span class="cm"> *</span>
+<span class="cm"> * returns</span>
+<span class="cm"> *         0  success</span>
+<span class="cm"> *     non 0  failure (can be interpreted via function `gai_strerror`)</span>
+<span class="cm"> * notes</span>
+<span class="cm"> *     the POSIX way to resolve domain names into a list of address structures</span>
+<span class="cm"> *     it is a complicated system call</span>
+<span class="cm"> */</span>
+
+<span class="n">freeaddrinfo</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="client">
+<h2>Client<a class="headerlink" href="#client" title="Link to this heading">#</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* client</span>
+<span class="cm"> *     1. determine server socket</span>
+<span class="cm"> *     2. create client socket</span>
+<span class="cm"> *     3. connect client socket to server</span>
+<span class="cm"> *     4. read/write data via socket</span>
+<span class="cm"> *     5. close the socket</span>
+<span class="cm"> */</span>
+
+
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* server</span>
+<span class="cm"> *     1. determine port to bind to</span>
+<span class="cm"> *     2. create server socket</span>
+<span class="cm"> *     3. bind the service</span>
+<span class="cm"> *     4. listen for connections</span>
+<span class="cm"> *     5. receive a connection</span>
+<span class="cm"> *     6. read/write data</span>
+<span class="cm"> *     7. close the socket</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/76940582/why-struct-in-addr-is-needed">https://stackoverflow.com/questions/76940582/why-struct-in-addr-is-needed</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./c/systems/c_lang"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Systems and C</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../os/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Operating Systems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sockets">Sockets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struct-in-addr"><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">in_addr</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struct-sockaddr-in"><code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">sockaddr_in</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hton"><code class="docutils literal notranslate"><span class="pre">hton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inet-aton"><code class="docutils literal notranslate"><span class="pre">inet_aton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inet-pton"><code class="docutils literal notranslate"><span class="pre">inet_pton</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inet-ntop"><code class="docutils literal notranslate"><span class="pre">inet_ntop</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#socket"><code class="docutils literal notranslate"><span class="pre">socket</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setsockopt"><code class="docutils literal notranslate"><span class="pre">setsockopt</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect"><code class="docutils literal notranslate"><span class="pre">connect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bind"><code class="docutils literal notranslate"><span class="pre">bind</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen"><code class="docutils literal notranslate"><span class="pre">listen</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accept"><code class="docutils literal notranslate"><span class="pre">accept</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read"><code class="docutils literal notranslate"><span class="pre">read</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write"><code class="docutils literal notranslate"><span class="pre">write</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send"><code class="docutils literal notranslate"><span class="pre">send</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recv"><code class="docutils literal notranslate"><span class="pre">recv</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#close"><code class="docutils literal notranslate"><span class="pre">close</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dns">DNS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-name-resolution">Domain name resolution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#old-way">old way</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#new-way">new way</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client">Client</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
