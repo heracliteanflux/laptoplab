@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Systems and C &#8212; Laptop Lab</title>
+    <title>C &#8212; Laptop Lab</title>
   
   
   
@@ -77,7 +77,7 @@
     <script src="../../../_static/script.js?v=9c6c3268"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Network Programming" href="network_programming.html" />
+    <link rel="next" title="The Shell" href="../shell/index.html" />
     <link rel="prev" title="Computer Systems" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -284,6 +284,10 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Systems</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">C</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../shell/bash.html">Bash</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2"><a class="reference internal" href="network_programming.html">Network Programming</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../os/macos/index.html">macOS</a></li>
@@ -696,7 +700,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Systems and C</h1>
+    <h1>C</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -706,6 +710,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-prefixes">Binary Prefixes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types">Types</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-their-size">Determining their size</a></li>
@@ -725,14 +730,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-of-strings">Arrays of strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-pass-by-value-and-pass-by-reference">Pointers and pass by value and pass by reference</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-pointers">Back to pointers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-as-return-values">Pointers as return values</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic">Pointer Arithmetic</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -819,39 +824,146 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="systems-and-c">
-<h1>Systems and C<a class="headerlink" href="#systems-and-c" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="c">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">C</a><a class="headerlink" href="#c" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
+<section id="contents">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<nav class="contents" id="id1">
+<p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#Binary-Prefixes"><span class="xref myst">Binary Prefixes</span></a></p></li>
-<li><p><a class="reference internal" href="#Types"><span class="xref myst">Types</span></a></p></li>
-<li><p><a class="reference internal" href="#Arrays"><span class="xref myst">Arrays</span></a></p></li>
-<li><p><a class="reference internal" href="#Pointers"><span class="xref myst">Pointers</span></a></p></li>
-<li><p><a class="reference internal" href="#Strings"><span class="xref myst">Strings</span></a></p></li>
-<li><p><a class="reference internal" href="#Bit-Operations"><span class="xref myst">Bit Operations</span></a></p></li>
-<li><p><a class="reference internal" href="#Storage-Classes"><span class="xref myst">Storage Classes</span></a></p></li>
-<li><p><a class="reference internal" href="#Signals"><span class="xref myst">Signals</span></a></p></li>
-<li><p><a class="reference internal" href="#I/O"><span class="xref myst">I/O</span></a></p></li>
-<li><p><a class="reference internal" href="#Cache"><span class="xref myst">Cache</span></a></p></li>
-<li><p><a class="reference internal" href="#Memory"><span class="xref myst">Memory</span></a></p></li>
-<li><p><a class="reference internal" href="#x86-Assembly"><span class="xref myst">x86 Assembly</span></a></p></li>
-<li><p><a class="reference internal" href="#GDB"><span class="xref myst">GDB</span></a></p></li>
-<li><p><a class="reference internal" href="#Building"><span class="xref myst">Building</span></a></p></li>
-<li><p><a class="reference internal" href="#Concurrency"><span class="xref myst">Concurrency</span></a></p></li>
-<li><p><a class="reference internal" href="#Profiling"><span class="xref myst">Profiling</span></a></p>
+<li><p><a class="reference internal" href="#c" id="id5">C</a></p>
 <ul>
-<li><p><a class="reference internal" href="#gprof"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">gprof</span></code></span></a></p></li>
+<li><p><a class="reference internal" href="#contents" id="id6">Contents</a></p></li>
+<li><p><a class="reference internal" href="#binary-prefixes" id="id7">Binary Prefixes</a></p></li>
+<li><p><a class="reference internal" href="#types" id="id8">Types</a></p>
+<ul>
+<li><p><a class="reference internal" href="#determining-their-size" id="id9">Determining their size</a></p></li>
+<li><p><a class="reference internal" href="#typedef" id="id10"><code class="docutils literal notranslate"><span class="pre">typedef</span></code></a></p></li>
+<li><p><a class="reference internal" href="#structs" id="id11"><code class="docutils literal notranslate"><span class="pre">struct</span></code>s</a></p></li>
+<li><p><a class="reference internal" href="#enums" id="id12"><code class="docutils literal notranslate"><span class="pre">enum</span></code>s</a></p></li>
+<li><p><a class="reference internal" href="#unions" id="id13"><code class="docutils literal notranslate"><span class="pre">union</span></code>s</a></p></li>
+<li><p><a class="reference internal" href="#bit-fields" id="id14">bit fields</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#Resources"><span class="xref myst">Resources</span></a></p></li>
-<li><p><a class="reference internal" href="#Figures"><span class="xref myst">Figures</span></a></p></li>
-<li><p><a class="reference internal" href="#Terms"><span class="xref myst">Terms</span></a></p></li>
+<li><p><a class="reference internal" href="#arrays" id="id15">Arrays</a></p>
+<ul>
+<li><p><a class="reference internal" href="#arrays-are-passed-by-reference-by-default" id="id16">Arrays are passed by reference by default</a></p></li>
 </ul>
+</li>
+<li><p><a class="reference internal" href="#pointers" id="id17">Pointers</a></p></li>
+<li><p><a class="reference internal" href="#multidimensional-arrays" id="id18">Multidimensional arrays</a></p>
+<ul>
+<li><p><a class="reference internal" href="#arrays-of-strings" id="id19">Arrays of strings</a></p></li>
+<li><p><a class="reference internal" href="#pointers-and-pass-by-value-and-pass-by-reference" id="id20">Pointers and pass by value and pass by reference</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example" id="id21">Example</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id22">Example</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#back-to-pointers" id="id23">Back to pointers</a></p></li>
+<li><p><a class="reference internal" href="#pointers-as-return-values" id="id24">Pointers as return values</a></p></li>
+<li><p><a class="reference internal" href="#pointer-arithmetic" id="id25">Pointer Arithmetic</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id26">Example</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id27">Example</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#strings" id="id28">Strings</a></p>
+<ul>
+<li><p><a class="reference internal" href="#string-copy" id="id29">String copy</a></p></li>
+<li><p><a class="reference internal" href="#string-concatenation" id="id30">String concatenation</a></p></li>
+<li><p><a class="reference internal" href="#string-comparison" id="id31">String comparison</a></p></li>
+<li><p><a class="reference internal" href="#string-search" id="id32">String search</a></p></li>
+<li><p><a class="reference internal" href="#string-parse" id="id33">String parse</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#bit-operations" id="id34">Bit Operations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#number-systems" id="id35">Number Systems</a></p></li>
+<li><p><a class="reference internal" href="#endianness" id="id36">Endianness</a></p></li>
+<li><p><a class="reference internal" href="#bitwise-operations" id="id37">Bitwise Operations</a></p></li>
+<li><p><a class="reference internal" href="#bit-shift" id="id38">Bit shift</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#representing-mathematical-sets" id="id39">Representing mathematical sets</a></p></li>
+<li><p><a class="reference internal" href="#storage-classes" id="id40">Storage Classes</a></p></li>
+<li><p><a class="reference internal" href="#i-o" id="id41">I/O</a></p>
+<ul>
+<li><p><a class="reference internal" href="#console" id="id42">Console</a></p></li>
+<li><p><a class="reference internal" href="#file" id="id43">File</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#signals" id="id44">Signals</a></p></li>
+<li><p><a class="reference internal" href="#cache" id="id45">Cache</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cache-hierarchy" id="id46">Cache Hierarchy</a></p></li>
+<li><p><a class="reference internal" href="#cache-placement-policy" id="id47">Cache Placement Policy</a></p></li>
+<li><p><a class="reference internal" href="#cache-eviction-replacement" id="id48">Cache Eviction/Replacement</a></p></li>
+<li><p><a class="reference internal" href="#cache-performance" id="id49">Cache Performance</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#memory-ops" id="id50">Memory Ops</a></p>
+<ul>
+<li><p><a class="reference internal" href="#memory-management" id="id51">Memory Management</a></p></li>
+<li><p><a class="reference internal" href="#heap" id="id52">Heap</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#memory" id="id53">Memory</a></p>
+<ul>
+<li><p><a class="reference internal" href="#signed-representation" id="id54">Signed representation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#x86-assembly" id="id55">x86 Assembly</a></p></li>
+<li><p><a class="reference internal" href="#gdb" id="id56">GDB</a></p>
+<ul>
+<li><p><a class="reference internal" href="#objdump" id="id57"><code class="docutils literal notranslate"><span class="pre">objdump</span></code></a></p></li>
+<li><p><a class="reference internal" href="#readelf" id="id58"><code class="docutils literal notranslate"><span class="pre">readelf</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#building" id="id59">Building</a></p>
+<ul>
+<li><p><a class="reference internal" href="#c-preprocessor" id="id60">C Preprocessor</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#makefile" id="id61">Makefile</a></p></li>
+<li><p><a class="reference internal" href="#profiling" id="id62">Profiling</a></p>
+<ul>
+<li><p><a class="reference internal" href="#gprof" id="id63"><code class="docutils literal notranslate"><span class="pre">gprof</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#concurrency" id="id64">Concurrency</a></p>
+<ul>
+<li><p><a class="reference internal" href="#multi-processing" id="id65">Multi Processing</a></p></li>
+<li><p><a class="reference internal" href="#multi-threading" id="id66">Multi Threading</a></p></li>
+<li><p><a class="reference internal" href="#race-conditions-and-mutual-exclusion" id="id67">Race Conditions and Mutual Exclusion</a></p>
+<ul>
+<li><p><a class="reference internal" href="#atomics" id="id68">atomics</a></p></li>
+<li><p><a class="reference internal" href="#locks" id="id69">Locks</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#resources" id="id70">Resources</a></p>
+<ul>
+<li><p><a class="reference internal" href="#youtube" id="id71">YouTube</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#texts" id="id72">Texts</a></p></li>
+<li><p><a class="reference internal" href="#figures" id="id73">Figures</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id74">Terms</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
 <hr class="docutils" />
 <hr class="docutils" />
+</section>
 <hr class="docutils" />
 <section id="binary-prefixes">
-<h2>Binary Prefixes<a class="headerlink" href="#binary-prefixes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Binary Prefixes</a><a class="headerlink" href="#binary-prefixes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_prefix">w</a> ] Binary Prefix</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Names_of_large_numbers">w</a> ] names of large numbers</p></li>
@@ -888,7 +1000,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="types">
-<h2>Types<a class="headerlink" href="#types" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Types</a><a class="headerlink" href="#types" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Type</p></th>
@@ -1029,7 +1141,7 @@ document.write(`
 <p>8-bit unsigned int that stores a value in the range 0-255</p>
 <p>useful for dealing with data that can be represented by 8 bits, such as data buffers</p>
 <section id="determining-their-size">
-<h3>Determining their size<a class="headerlink" href="#determining-their-size" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Determining their size</a><a class="headerlink" href="#determining-their-size" title="Link to this heading">#</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">print_type_sizes</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;               char : %02zu bits</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="w">               </span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
 <span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;unsigned       char : %02zu bits</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">unsigned</span><span class="w">       </span><span class="kt">char</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
@@ -1210,7 +1322,7 @@ ptr<span class="w">       </span><span class="m">1875863146</span><span class="w
 </section>
 <hr class="docutils" />
 <section id="typedef">
-<h3><code class="docutils literal notranslate"><span class="pre">typedef</span></code><a class="headerlink" href="#typedef" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">typedef</span></code></a><a class="headerlink" href="#typedef" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">old_type</span> <span class="pre">new_type</span></code></p>
 <p>The compiler treats the new type just like the old type: the new type is like an alias of the old type.</p>
 <p>EXAMPLE</p>
@@ -1229,7 +1341,7 @@ ptr<span class="w">       </span><span class="m">1875863146</span><span class="w
 </section>
 <hr class="docutils" />
 <section id="structs">
-<h3><code class="docutils literal notranslate"><span class="pre">struct</span></code>s<a class="headerlink" href="#structs" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">struct</span></code>s</a><a class="headerlink" href="#structs" title="Link to this heading">#</a></h3>
 <p>C has no objects. The closest thing is a struct, or set of fields.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Struct_Name</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">list</span>
@@ -1256,7 +1368,7 @@ ptr<span class="w">       </span><span class="m">1875863146</span><span class="w
 </section>
 <hr class="docutils" />
 <section id="enums">
-<h3><code class="docutils literal notranslate"><span class="pre">enum</span></code>s<a class="headerlink" href="#enums" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">enum</span></code>s</a><a class="headerlink" href="#enums" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">enum</span></code> values are always ints. They are optional and assigned by the compiler if not explicitly assigned.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">Enum_Name</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">id1</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="p">],</span>
@@ -1290,7 +1402,7 @@ ptr<span class="w">       </span><span class="m">1875863146</span><span class="w
 </section>
 <hr class="docutils" />
 <section id="unions">
-<h3><code class="docutils literal notranslate"><span class="pre">union</span></code>s<a class="headerlink" href="#unions" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">union</span></code>s</a><a class="headerlink" href="#unions" title="Link to this heading">#</a></h3>
 <hr class="docutils" />
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
@@ -1386,7 +1498,7 @@ ptr<span class="w">       </span><span class="m">1875863146</span><span class="w
 </section>
 <hr class="docutils" />
 <section id="bit-fields">
-<h3>bit fields<a class="headerlink" href="#bit-fields" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">bit fields</a><a class="headerlink" href="#bit-fields" title="Link to this heading">#</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">;</span><span class="w">  </span><span class="c1">// 4 B</span>
 <span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w"> </span><span class="c1">// 4 B</span>
@@ -1399,7 +1511,7 @@ ptr<span class="w">       </span><span class="m">1875863146</span><span class="w
 </section>
 <hr class="docutils" />
 <section id="arrays">
-<h2>Arrays<a class="headerlink" href="#arrays" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Arrays</a><a class="headerlink" href="#arrays" title="Link to this heading">#</a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span><span class="w"> </span><span class="c1">// declaration - the compiler allocates 100 ints worth of storage in the stack initialized with garbage data</span>
 
 <span class="c1">// an array does not know its own size, so the following is better</span>
@@ -1461,7 +1573,7 @@ ptr<span class="w">       </span><span class="m">1875863146</span><span class="w
 </pre></div>
 </div>
 <section id="arrays-are-passed-by-reference-by-default">
-<h3>Arrays are passed by reference by default<a class="headerlink" href="#arrays-are-passed-by-reference-by-default" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Arrays are passed by reference by default</a><a class="headerlink" href="#arrays-are-passed-by-reference-by-default" title="Link to this heading">#</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">min_max</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// find the index of the largest value and assign it to max_i</span>
 <span class="w">  </span><span class="c1">// find the index of the smallest value and assign it to min_i</span>
@@ -1482,7 +1594,7 @@ ptr<span class="w">       </span><span class="m">1875863146</span><span class="w
 </section>
 <hr class="docutils" />
 <section id="pointers">
-<h2>Pointers<a class="headerlink" href="#pointers" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Pointers</a><a class="headerlink" href="#pointers" title="Link to this heading">#</a></h2>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1707,7 +1819,7 @@ char_ptr:<span class="w"> </span>0x7ff0810153<span class="p">;</span><span class
 </section>
 <hr class="docutils" />
 <section id="multidimensional-arrays">
-<h2>Multidimensional arrays<a class="headerlink" href="#multidimensional-arrays" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Multidimensional arrays</a><a class="headerlink" href="#multidimensional-arrays" title="Link to this heading">#</a></h2>
 <p>C arrays are stored in row-major order.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">[][</span><span class="mi">4</span><span class="p">]</span><span class="w">  </span><span class="o">=</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span>
@@ -1734,7 +1846,7 @@ char_ptr:<span class="w"> </span>0x7ff0810153<span class="p">;</span><span class
 </pre></div>
 </div>
 <section id="arrays-of-strings">
-<h3>Arrays of strings<a class="headerlink" href="#arrays-of-strings" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Arrays of strings</a><a class="headerlink" href="#arrays-of-strings" title="Link to this heading">#</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">planets</span><span class="p">[][</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="s">&quot;Mercury&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// M e r c  u  r  y \0</span>
 <span class="w">  </span><span class="s">&quot;Venus&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1">// V e n u  s \0 \0 \0</span>
@@ -1791,9 +1903,9 @@ char_ptr:<span class="w"> </span>0x7ff0810153<span class="p">;</span><span class
 </div>
 </section>
 <section id="pointers-and-pass-by-value-and-pass-by-reference">
-<h3>Pointers and pass by value and pass by reference<a class="headerlink" href="#pointers-and-pass-by-value-and-pass-by-reference" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Pointers and pass by value and pass by reference</a><a class="headerlink" href="#pointers-and-pass-by-value-and-pass-by-reference" title="Link to this heading">#</a></h3>
 <section id="example">
-<h4>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id21" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Link to this heading">#</a></h4>
 <p>C passes by value: values passed into a function are copied and local modifications to those copies are not reflected in the original values.</p>
 <p>However, pointers let you pass by reference.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">add_pbv</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1818,8 +1930,8 @@ char_ptr:<span class="w"> </span>0x7ff0810153<span class="p">;</span><span class
 </pre></div>
 </div>
 </section>
-<section id="id1">
-<h4>Example<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<section id="id2">
+<h4><a class="toc-backref" href="#id22" role="doc-backlink">Example</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <p>PASS BY VALUE</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
@@ -1865,7 +1977,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </section>
 </section>
 <section id="back-to-pointers">
-<h3>Back to pointers<a class="headerlink" href="#back-to-pointers" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Back to pointers</a><a class="headerlink" href="#back-to-pointers" title="Link to this heading">#</a></h3>
 <p>We use notation <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">*name;</span></code> to declare (or <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">*name</span> <span class="pre">=</span> <span class="pre">&amp;address;</span></code> to declare and initialize) a pointer variable.</p>
 <p>We subsequently use dereference notation <code class="docutils literal notranslate"><span class="pre">*name</span></code> to refer to the value of the variable pointed to by the pointer variable.</p>
 <p>We can use notation <code class="docutils literal notranslate"><span class="pre">name</span></code> to refer to the memory address stored in the pointer variable.</p>
@@ -1882,7 +1994,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </div>
 </section>
 <section id="pointers-as-return-values">
-<h3>Pointers as return values<a class="headerlink" href="#pointers-as-return-values" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Pointers as return values</a><a class="headerlink" href="#pointers-as-return-values" title="Link to this heading">#</a></h3>
 <p>We can return a pointer that was passed (or dynamically allocated memory???).</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">max</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
@@ -1928,14 +2040,14 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </div>
 </section>
 <section id="pointer-arithmetic">
-<h3>Pointer Arithmetic<a class="headerlink" href="#pointer-arithmetic" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Pointer Arithmetic</a><a class="headerlink" href="#pointer-arithmetic" title="Link to this heading">#</a></h3>
 <p>The pointer is incremented based on the size of a single array element.</p>
 <ul class="simple">
 <li><p>Pointer arithmetic is only applicable to pointers that point to arrays. Otherwise, it is undefined.</p></li>
 <li><p>Pointers can only be subtracted if they point to the same array. Otherwise, it is undefined.</p></li>
 </ul>
-<section id="id2">
-<h4>Example<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<section id="id3">
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">Example</a><a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#</span><span class="w"> </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1961,8 +2073,8 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h4>Example<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<section id="id4">
+<h4><a class="toc-backref" href="#id27" role="doc-backlink">Example</a><a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1997,7 +2109,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </section>
 <hr class="docutils" />
 <section id="strings">
-<h2>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">Strings</a><a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
 <p>There are no strings proper, only character arrays which are terminated by the null character <code class="docutils literal notranslate"><span class="pre">\0</span></code>.</p>
 <p>C “strings” are not objects and have no methods, but <code class="docutils literal notranslate"><span class="pre">string.h</span></code> has helpful utilities.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// x --&gt; h e l l o \n \0</span>
@@ -2053,7 +2165,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </pre></div>
 </div>
 <section id="string-copy">
-<h3>String copy<a class="headerlink" href="#string-copy" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">String copy</a><a class="headerlink" href="#string-copy" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">strcpy(dst,</span> <span class="pre">src);</span></code> copies src to dst up to and including the null terminator</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abcde&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 6 characters, including the null terminator</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">str2</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
@@ -2091,7 +2203,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </div>
 </section>
 <section id="string-concatenation">
-<h3>String concatenation<a class="headerlink" href="#string-concatenation" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">String concatenation</a><a class="headerlink" href="#string-concatenation" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">strcat(dst,</span> <span class="pre">src)</span></code> appends src to dst, <code class="docutils literal notranslate"><span class="pre">strncat(dst,</span> <span class="pre">src,</span> <span class="pre">n)</span></code> appends at most n bytes of src to dst</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abcde&quot;</span><span class="p">;</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str2</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;efghi&quot;</span><span class="p">;</span>
@@ -2121,7 +2233,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </div>
 </section>
 <section id="string-comparison">
-<h3>String comparison<a class="headerlink" href="#string-comparison" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">String comparison</a><a class="headerlink" href="#string-comparison" title="Link to this heading">#</a></h3>
 <p>Strings are compared to see whether they match, or whether one is lexicographically larger or smaller than the other</p>
 <p><code class="docutils literal notranslate"><span class="pre">strcmp(s1,</span> <span class="pre">s2)</span></code> compares the strings, <code class="docutils literal notranslate"><span class="pre">strncmp(s1,</span> <span class="pre">s2,</span> <span class="pre">n)</span></code> compares the first n bytes of the strings</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="n">neg_int</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">s2</span>
@@ -2131,7 +2243,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </div>
 </section>
 <section id="string-search">
-<h3>String search<a class="headerlink" href="#string-search" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">String search</a><a class="headerlink" href="#string-search" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">strchr(str,</span> <span class="pre">char_to_find)</span></code> scans the string from the front to the back for a character</p>
 <p><code class="docutils literal notranslate"><span class="pre">strrchr(str,</span> <span class="pre">char_to_find)</span></code> scans the string from the back to the front for a character</p>
 <p><code class="docutils literal notranslate"><span class="pre">strstr(str,</span> <span class="pre">str_to_find)</span></code> scans the string from the fromnt to the back for a string (case sensitive)</p>
@@ -2147,7 +2259,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </div>
 </section>
 <section id="string-parse">
-<h3>String parse<a class="headerlink" href="#string-parse" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">String parse</a><a class="headerlink" href="#string-parse" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">sscanf(str,</span> <span class="pre">&quot;format&quot;,</span> <span class="pre">&amp;args)</span></code> (arguments must be passed by reference using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>)</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1 3.14 a bob&quot;</span><span class="p">;</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
@@ -2273,7 +2385,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </section>
 <hr class="docutils" />
 <section id="bit-operations">
-<h2>Bit Operations<a class="headerlink" href="#bit-operations" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">Bit Operations</a><a class="headerlink" href="#bit-operations" title="Link to this heading">#</a></h2>
 <p>A logic left shift or logic right shift shifts bits and fills vacant positions with zeros.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mh">0xFFFF1234</span>
 <span class="mh">0xFFF12340</span><span class="w">    </span><span class="mi">4</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">logic</span><span class="w"> </span><span class="n">left</span><span class="w">  </span><span class="n">shift</span>
@@ -2338,7 +2450,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 <p>Word = 4 bytes = 32 bits</p>
 <hr class="docutils" />
 <section id="number-systems">
-<h3>Number Systems<a class="headerlink" href="#number-systems" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Number Systems</a><a class="headerlink" href="#number-systems" title="Link to this heading">#</a></h3>
 <p><strong>Base b</strong> (base b to decimal)</p>
 <p><span class="math notranslate nohighlight">\(\texttt{decimal\_value} = \sum_{i = 0}^{k} b^i \times p_i \quad \text{st} \quad p_i \in \{ 0, \dotsc, b - 1 \}\)</span></p>
 <p><span class="math notranslate nohighlight">\(
@@ -2448,7 +2560,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </section>
 <hr class="docutils" />
 <section id="endianness">
-<h3>Endianness<a class="headerlink" href="#endianness" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">Endianness</a><a class="headerlink" href="#endianness" title="Link to this heading">#</a></h3>
 <p>How are bytes within a multi-byte word ordered in memory?</p>
 <p><em><strong>Big endianness</strong></em> means the least-significant byte has the highest memory address.</p>
 <p><em><strong>Little endianness</strong></em> means that the least significant byte has the lowest memory address.</p>
@@ -2491,7 +2603,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </div>
 </section>
 <section id="bitwise-operations">
-<h3>Bitwise Operations<a class="headerlink" href="#bitwise-operations" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id37" role="doc-backlink">Bitwise Operations</a><a class="headerlink" href="#bitwise-operations" title="Link to this heading">#</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="w">   </span><span class="c1">// and</span>
 <span class="o">|</span><span class="w">   </span><span class="c1">// or</span>
 <span class="o">~</span><span class="w">   </span><span class="c1">// not</span>
@@ -2538,7 +2650,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 \)</span></p>
 </section>
 <section id="bit-shift">
-<h3>Bit shift<a class="headerlink" href="#bit-shift" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">Bit shift</a><a class="headerlink" href="#bit-shift" title="Link to this heading">#</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">172</span><span class="w">    </span><span class="c1">// 10101100</span>
 <span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w">         </span><span class="c1">//    01100 000</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// 96</span>
@@ -2548,7 +2660,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </section>
 <hr class="docutils" />
 <section id="representing-mathematical-sets">
-<h2>Representing mathematical sets<a class="headerlink" href="#representing-mathematical-sets" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id39" role="doc-backlink">Representing mathematical sets</a><a class="headerlink" href="#representing-mathematical-sets" title="Link to this heading">#</a></h2>
 <p>A width-<span class="math notranslate nohighlight">\(w\)</span> bitstring represents subsets of the set <span class="math notranslate nohighlight">\(A = \{ 0, \dotsc, w - 1 \}\)</span>; namely, <span class="math notranslate nohighlight">\(a_j = 1 \implies j \in A\)</span>.</p>
 <p>For example, the bitstring</p>
 <p><span class="math notranslate nohighlight">\(
@@ -2755,7 +2867,7 @@ a:<span class="w"> </span>-7,<span class="w"> </span>b:<span class="w"> </span><
 </section>
 <hr class="docutils" />
 <section id="storage-classes">
-<h2>Storage Classes<a class="headerlink" href="#storage-classes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id40" role="doc-backlink">Storage Classes</a><a class="headerlink" href="#storage-classes" title="Link to this heading">#</a></h2>
 <p>Global</p>
 <ul class="simple">
 <li><p>accessible from anywhere within the same file</p></li>
@@ -2869,9 +2981,9 @@ COMPILATION<span class="w"> </span>FAILS
 </section>
 <hr class="docutils" />
 <section id="i-o">
-<h2>I/O<a class="headerlink" href="#i-o" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id41" role="doc-backlink">I/O</a><a class="headerlink" href="#i-o" title="Link to this heading">#</a></h2>
 <section id="console">
-<h3>Console<a class="headerlink" href="#console" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">Console</a><a class="headerlink" href="#console" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">scanf()</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">printf()</span></code></p></li>
@@ -2885,7 +2997,7 @@ COMPILATION<span class="w"> </span>FAILS
 </div>
 </section>
 <section id="file">
-<h3>File<a class="headerlink" href="#file" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">File</a><a class="headerlink" href="#file" title="Link to this heading">#</a></h3>
 <p>C library has portable routines for reading/writing</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">fopen()</span></code></p></li>
@@ -2912,7 +3024,7 @@ COMPILATION<span class="w"> </span>FAILS
 </section>
 <hr class="docutils" />
 <section id="signals">
-<h2>Signals<a class="headerlink" href="#signals" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id44" role="doc-backlink">Signals</a><a class="headerlink" href="#signals" title="Link to this heading">#</a></h2>
 <p>C has no try-catch mechanism to handle exceptions.</p>
 <p>Errors are returned from functions as integer error codes.</p>
 <p>“If you do something bad you’ll end up spraying bytes around memory. Hopefully, this causes a segmentation fault and crash.”</p>
@@ -3062,10 +3174,10 @@ killall<span class="w"> </span>-&lt;signal&gt;<span class="w"> </span>&lt;progra
 </section>
 <hr class="docutils" />
 <section id="cache">
-<h2>Cache<a class="headerlink" href="#cache" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id45" role="doc-backlink">Cache</a><a class="headerlink" href="#cache" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://www.baeldung.com/cs/cache-write-policy">https://www.baeldung.com/cs/cache-write-policy</a></p>
 <section id="cache-hierarchy">
-<h3>Cache Hierarchy<a class="headerlink" href="#cache-hierarchy" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">Cache Hierarchy</a><a class="headerlink" href="#cache-hierarchy" title="Link to this heading">#</a></h3>
 <p>The idea of a <em><strong>memory hierarchy</strong></em> is that the faster, smaller device at level <span class="math notranslate nohighlight">\(k\)</span> serves as a cache for the larger, slower device at level <span class="math notranslate nohighlight">\(k + 1\)</span>, for each <span class="math notranslate nohighlight">\(k\)</span>. Programs tend to access the data at level <span class="math notranslate nohighlight">\(k\)</span> more often then they access the data at level <span class="math notranslate nohighlight">\(k + 1\)</span> due to locality, and so the storage at level <span class="math notranslate nohighlight">\(k + 1\)</span> can be slower, larger, and cheaper per bit. The memory hierarchy creates a large pool of storage that costs as much as the cheap storage near the bottom but that serves data to programs at the rate of the fast storage near the top. Instruction caches are different from data caches.</p>
 <p><strong>The memory hierarchy</strong></p>
 <p>L0 - CPU registers</p>
@@ -3121,7 +3233,7 @@ killall<span class="w"> </span>-&lt;signal&gt;<span class="w"> </span>&lt;progra
 </ul>
 </section>
 <section id="cache-placement-policy">
-<h3>Cache Placement Policy<a class="headerlink" href="#cache-placement-policy" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">Cache Placement Policy</a><a class="headerlink" href="#cache-placement-policy" title="Link to this heading">#</a></h3>
 <p>The placement policy determines where in the cache a copy of an entry in main memory will go. If the placement policy is free to choose any entry in the cache to hold the copy then the cache is called fully associative. On the other hand, if each entry in main memory can go in just one place in the cache then the cache is direct-mapped. Choosing the right value of associativity involves a tradeoff between the efficiency of searching the cache and the hit rate.</p>
 <p>In a cache with <span class="math notranslate nohighlight">\(n\)</span> cache sets the incoming memory address <span class="math notranslate nohighlight">\(y\)</span> is mapped to cache set <span class="math notranslate nohighlight">\(x = y \mod n\)</span>.</p>
 <p>Let <span class="math notranslate nohighlight">\(\ell\)</span> be the minimum number of bits required to uniquely represent a memory address.</p>
@@ -3199,7 +3311,7 @@ killall<span class="w"> </span>-&lt;signal&gt;<span class="w"> </span>&lt;progra
 </section>
 <hr class="docutils" />
 <section id="cache-eviction-replacement">
-<h3>Cache Eviction/Replacement<a class="headerlink" href="#cache-eviction-replacement" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id48" role="doc-backlink">Cache Eviction/Replacement</a><a class="headerlink" href="#cache-eviction-replacement" title="Link to this heading">#</a></h3>
 <p>When the cache is full a previously stored block must be evicted/replaced. The performance of the cache is determined by the cache eviction/replacement policy.</p>
 <p><strong>Least Recently Used (LRU)</strong></p>
 <p>In the LRU replacement policy the block that has been in the cache the longest without being used is evicted.</p>
@@ -3210,7 +3322,7 @@ killall<span class="w"> </span>-&lt;signal&gt;<span class="w"> </span>&lt;progra
 </section>
 <hr class="docutils" />
 <section id="cache-performance">
-<h3>Cache Performance<a class="headerlink" href="#cache-performance" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id49" role="doc-backlink">Cache Performance</a><a class="headerlink" href="#cache-performance" title="Link to this heading">#</a></h3>
 <p>A <em><strong>cache hit</strong></em> occurs when the block that is requested is found in and served from the cache.</p>
 <p>A <em><strong>cache miss</strong></em> occurs when the block that is requested is not found in and served from the cache.</p>
 <p><strong>Types of cache misses</strong></p>
@@ -3301,7 +3413,7 @@ killall<span class="w"> </span>-&lt;signal&gt;<span class="w"> </span>&lt;progra
 </section>
 <hr class="docutils" />
 <section id="memory-ops">
-<h2>Memory Ops<a class="headerlink" href="#memory-ops" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id50" role="doc-backlink">Memory Ops</a><a class="headerlink" href="#memory-ops" title="Link to this heading">#</a></h2>
 <p>Pointers are typed, and pointer arithemtic obeys types: when you add 1 to a pointer you add <code class="docutils literal notranslate"><span class="pre">sizeof(type)</span></code>.</p>
 <p>Buffer</p>
 <p>A buffer is just a memory region that has some use which is typically referenced/maintained by a pointer. A buffer is a temporary holding place.</p>
@@ -3312,7 +3424,7 @@ killall<span class="w"> </span>-&lt;signal&gt;<span class="w"> </span>&lt;progra
 </div>
 <p>A void buffer is a general-purpose pointer, a pointer to a raw address.</p>
 <section id="memory-management">
-<h3>Memory Management<a class="headerlink" href="#memory-management" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id51" role="doc-backlink">Memory Management</a><a class="headerlink" href="#memory-management" title="Link to this heading">#</a></h3>
 <p>C has no garbage collector.</p>
 <p>Any memory that is allocated must subsequently be un-allocated (freed). MEMORY LEAKS</p>
 <p>local variables are allocated off the stack</p>
@@ -3438,7 +3550,7 @@ killall<span class="w"> </span>-&lt;signal&gt;<span class="w"> </span>&lt;progra
 </section>
 <hr class="docutils" />
 <section id="heap">
-<h3>Heap<a class="headerlink" href="#heap" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id52" role="doc-backlink">Heap</a><a class="headerlink" href="#heap" title="Link to this heading">#</a></h3>
 <p>The heap is a pool of unused memory that is used for dynamically-allocated data: <code class="docutils literal notranslate"><span class="pre">malloc</span></code> allocates chunks of heap and <code class="docutils literal notranslate"><span class="pre">free</span></code> deallocates them, and <code class="docutils literal notranslate"><span class="pre">malloc</span></code> maintains bookkeeping data in the heap to keep track of allocated chunks.</p>
 <hr class="docutils" />
 <hr class="docutils" />
@@ -3446,7 +3558,7 @@ killall<span class="w"> </span>-&lt;signal&gt;<span class="w"> </span>&lt;progra
 </section>
 <hr class="docutils" />
 <section id="memory">
-<h2>Memory<a class="headerlink" href="#memory" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id53" role="doc-backlink">Memory</a><a class="headerlink" href="#memory" title="Link to this heading">#</a></h2>
 <p>Units</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -3553,7 +3665,7 @@ The instruction pointer is set to point to the first instruction of the text seg
 </pre></div>
 </div>
 <section id="signed-representation">
-<h3>Signed representation<a class="headerlink" href="#signed-representation" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id54" role="doc-backlink">Signed representation</a><a class="headerlink" href="#signed-representation" title="Link to this heading">#</a></h3>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// in sign-and-magnitude, -1 is encoded as 100...001</span>
 <span class="k">if</span><span class="w">      </span><span class="p">(</span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;The encoding is sign-and-magnitude&quot;</span><span class="p">);</span>
@@ -3656,7 +3768,7 @@ The instruction pointer is set to point to the first instruction of the text seg
 </section>
 <hr class="docutils" />
 <section id="x86-assembly">
-<h2>x86 Assembly<a class="headerlink" href="#x86-assembly" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id55" role="doc-backlink">x86 Assembly</a><a class="headerlink" href="#x86-assembly" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p><a class="reference external" href="https://www.quora.com/What-hardware-do-you-need-to-start-learning-x86-assembly">https://www.quora.com/What-hardware-do-you-need-to-start-learning-x86-assembly</a></p>
 <hr class="docutils" />
@@ -3786,7 +3898,7 @@ sub
 </section>
 <hr class="docutils" />
 <section id="gdb">
-<h2>GDB<a class="headerlink" href="#gdb" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id56" role="doc-backlink">GDB</a><a class="headerlink" href="#gdb" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">~/.gdbinit</span></code></p>
 <div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>set dis intel
 set disassemble-next-line on
@@ -3838,11 +3950,11 @@ objdump<span class="w"> </span>-M<span class="w"> </span>intel<span class="w"> <
 <hr class="docutils" />
 <hr class="docutils" />
 <section id="objdump">
-<h3><code class="docutils literal notranslate"><span class="pre">objdump</span></code><a class="headerlink" href="#objdump" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id57" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">objdump</span></code></a><a class="headerlink" href="#objdump" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Objdump">https://en.wikipedia.org/wiki/Objdump</a></p>
 </section>
 <section id="readelf">
-<h3><code class="docutils literal notranslate"><span class="pre">readelf</span></code><a class="headerlink" href="#readelf" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id58" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">readelf</span></code></a><a class="headerlink" href="#readelf" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Readelf">https://en.wikipedia.org/wiki/Readelf</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>file<span class="w"> </span>a.out<span class="w"> </span><span class="c1"># check whether it is an ELF file</span>
 
@@ -3860,7 +3972,7 @@ readelf<span class="w"> </span>-d<span class="w"> </span>a.out<span class="w"> <
 </section>
 <hr class="docutils" />
 <section id="building">
-<h2>Building<a class="headerlink" href="#building" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id59" role="doc-backlink">Building</a><a class="headerlink" href="#building" title="Link to this heading">#</a></h2>
 <p>Build</p>
 <ul class="simple">
 <li><p>edit -&gt; <code class="docutils literal notranslate"><span class="pre">foo.h</span></code>, <code class="docutils literal notranslate"><span class="pre">foo.c</span></code> (source file)</p></li>
@@ -4104,7 +4216,7 @@ gcc<span class="w"> </span>-shared<span class="w"> </span>-o<span class="w"> </s
 </pre></div>
 </div>
 <section id="c-preprocessor">
-<h3>C Preprocessor<a class="headerlink" href="#c-preprocessor" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id60" role="doc-backlink">C Preprocessor</a><a class="headerlink" href="#c-preprocessor" title="Link to this heading">#</a></h3>
 <p>The <strong>C preprocessor</strong> processes source code files for <code class="docutils literal notranslate"><span class="pre">#</span></code> directives that setup the compile environment.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="c1"> /* include data from data file `stdio.h` either in the default directories or on the command line */</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;foo.h&quot;</span><span class="c1">   /* include data from data file `foo.h`   in the local directory                                   */</span>
@@ -4131,7 +4243,7 @@ gcc<span class="w"> </span>-shared<span class="w"> </span>-o<span class="w"> </s
 </section>
 <hr class="docutils" />
 <section id="makefile">
-<h2>Makefile<a class="headerlink" href="#makefile" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id61" role="doc-backlink">Makefile</a><a class="headerlink" href="#makefile" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>the target is the thing to build</p></li>
 <li><p>the prerequisites are the things that the target depends on</p></li>
@@ -4222,10 +4334,10 @@ gcc<span class="w"> </span>-g<span class="w"> </span>-Wall<span class="w"> </spa
 </section>
 <hr class="docutils" />
 <section id="profiling">
-<h2>Profiling<a class="headerlink" href="#profiling" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id62" role="doc-backlink">Profiling</a><a class="headerlink" href="#profiling" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="gprof">
-<h3><code class="docutils literal notranslate"><span class="pre">gprof</span></code><a class="headerlink" href="#gprof" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id63" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">gprof</span></code></a><a class="headerlink" href="#gprof" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">gprof</span></code> measures a program’s performance and behavior</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-pg<span class="w"> </span>-o<span class="w"> </span>profiling<span class="w"> </span>profiling.c<span class="w">    </span><span class="c1"># 1. compile with flag `-pg`</span>
 ./profiling<span class="w">                         </span><span class="c1"># 2. execute (generates file `gmon.out`)</span>
@@ -4364,7 +4476,7 @@ T_D &amp;= \frac{1}{(1 - k_A - k_B - k_C - k_D) + \frac{k_A}{s_A} + \frac{k_B}{s
 </section>
 <hr class="docutils" />
 <section id="concurrency">
-<h2>Concurrency<a class="headerlink" href="#concurrency" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id64" role="doc-backlink">Concurrency</a><a class="headerlink" href="#concurrency" title="Link to this heading">#</a></h2>
 <p><em><strong>Sequential processing</strong></em>: processing a network connection as it arrives and fulfilling the exchange completely; connections are processed in sequence of their arrival.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">listen_fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Listen</span><span class="p">(</span><span class="n">port</span><span class="p">);</span>
 
@@ -4543,10 +4655,10 @@ mov  %eax,0x2e47(%rip)  # 4014 &lt;counter&gt;
 </pre></div>
 </div>
 <section id="multi-processing">
-<h3>Multi Processing<a class="headerlink" href="#multi-processing" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id65" role="doc-backlink">Multi Processing</a><a class="headerlink" href="#multi-processing" title="Link to this heading">#</a></h3>
 </section>
 <section id="multi-threading">
-<h3>Multi Threading<a class="headerlink" href="#multi-threading" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id66" role="doc-backlink">Multi Threading</a><a class="headerlink" href="#multi-threading" title="Link to this heading">#</a></h3>
 <p>Multithreading: a single process handles all connections</p>
 <ul class="simple">
 <li><p>a parent thread dispatches/forks a new, child thread to handle each connection</p></li>
@@ -4790,7 +4902,7 @@ Segmentation<span class="w"> </span>fault
 </section>
 <hr class="docutils" />
 <section id="race-conditions-and-mutual-exclusion">
-<h3>Race Conditions and Mutual Exclusion<a class="headerlink" href="#race-conditions-and-mutual-exclusion" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id67" role="doc-backlink">Race Conditions and Mutual Exclusion</a><a class="headerlink" href="#race-conditions-and-mutual-exclusion" title="Link to this heading">#</a></h3>
 <p>A <strong>race condition</strong> occurs when the result of a program depends on the interleaving of the execution of multiple threads that are accessing a critical section.</p>
 <p>A <strong>critical section</strong> is a piece of code that accesses a shared piece of data, and which must not be executed by more than one thread concurrently.</p>
 <p>To avoid race conditions, it must be ensured that only a single thread can execute a critical section at a given time. <strong>Mutual exclusion</strong> primitives would guaranteee that only one thread is executing the critical section while others are prevented from doing so.</p>
@@ -4853,7 +4965,7 @@ restore T1                   108                51     51
 </pre></div>
 </div>
 <section id="atomics">
-<h4>atomics<a class="headerlink" href="#atomics" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id68" role="doc-backlink">atomics</a><a class="headerlink" href="#atomics" title="Link to this heading">#</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* threads_mutex_via_atomics.c */</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pthread.h&gt;</span><span class="c1">   /* pthread_create, pthread_join, pthread_self, pthread_t */</span>
@@ -4887,7 +4999,7 @@ restore T1                   108                51     51
 </div>
 </section>
 <section id="locks">
-<h4>Locks<a class="headerlink" href="#locks" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id69" role="doc-backlink">Locks</a><a class="headerlink" href="#locks" title="Link to this heading">#</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* threads_mutex_via_locks.c */</span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pthread.h&gt;</span><span class="c1">   /* pthread_create, pthread_join, PTHREAD_MUTEX_INITIALIZER, pthread_mutex_lock, pthread_mutex_t, pthread_mutex_unlock, pthread_self, pthread_t */</span>
@@ -4928,7 +5040,7 @@ restore T1                   108                51     51
 </section>
 <hr class="docutils" />
 <section id="resources">
-<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id70" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
 <p>Tools and Technologies</p>
 <ul class="simple">
 <li><p>[ <a class="reference external" href="https://clang.llvm.org/">h</a> ][ <a class="reference external" href="https://en.wikipedia.org/wiki/Clang">w</a> ] Clang</p></li>
@@ -4939,6 +5051,13 @@ restore T1                   108                51     51
 </ul>
 <p>Courses</p>
 <ul class="simple">
+<li><p>Brown’s Fundamentals of Computer Systems</p>
+<ul>
+<li><p><a class="reference external" href="https://cs.brown.edu/courses/csci0300/2024/schedule.html">https://cs.brown.edu/courses/csci0300/2024/schedule.html</a></p></li>
+<li><p><a class="reference external" href="https://cs.brown.edu/courses/csci0300/2022/notes/l08.html">https://cs.brown.edu/courses/csci0300/2022/notes/l08.html</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/csci0300/cs300-lectures/tree/main/asm">csci0300/cs300-lectures</a></p></li>
+</ul>
+</li>
 <li><p>[ <a class="reference external" href="https://www.cc4e.com/">h</a> ] C Programming for Everybody</p></li>
 </ul>
 <p>Online</p>
@@ -4955,7 +5074,7 @@ restore T1                   108                51     51
 </li>
 </ul>
 <section id="youtube">
-<h3>YouTube<a class="headerlink" href="#youtube" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id71" role="doc-backlink">YouTube</a><a class="headerlink" href="#youtube" title="Link to this heading">#</a></h3>
 <p>Chris Kanich</p>
 <ul class="simple">
 <li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=85T_ZaT8EUI">y</a> ] <code class="docutils literal notranslate"><span class="pre">12-02-2020</span></code> “what’s the difference between processes, threads, and io multiplexing?”</p></li>
@@ -4997,6 +5116,7 @@ restore T1                   108                51     51
 <ul class="simple">
 <li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=xf2W1wZozbk">y</a> ] <code class="docutils literal notranslate"><span class="pre">05-29-2024</span></code> Cococry. “Make a GUI Task Management App in pure C (no bloat required)”.</p></li>
 <li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=d0gS5TXarXc">y</a> ] <code class="docutils literal notranslate"><span class="pre">04-11-2024</span></code> kimylamp. “Signals. I spent 2 years to understand this part.”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=H4SDPLiUnv4">y</a> ] <code class="docutils literal notranslate"><span class="pre">10-17-2024</span></code> Core Dumped. “How a Single Bit Inside Your Processor Shields Your Operating System’s Integrity”.</p></li>
 </ul>
 <p>[ h ][ <a class="reference external" href="https://en.wikipedia.org/wiki/Berkeley_Packet_Filter">w</a> ] Berkeley Packet Filter (BPF)</p>
 <ul class="simple">
@@ -5017,11 +5137,12 @@ restore T1                   108                51     51
 <p><a class="reference external" href="https://stackoverflow.com/questions/12102332/when-should-i-use-perror-and-fprintfstderr">https://stackoverflow.com/questions/12102332/when-should-i-use-perror-and-fprintfstderr</a></p>
 <p><a class="reference external" href="https://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)Pointers.html">https://www.cs.yale.edu/homes/aspnes/pinewiki/C(2f)Pointers.html</a></p>
 <p><a class="reference external" href="https://stackoverflow.com/questions/7672560/reading-in-a-variable-length-string-user-input-in-c">https://stackoverflow.com/questions/7672560/reading-in-a-variable-length-string-user-input-in-c</a></p>
+<p><a class="reference external" href="https://www.quora.com/Why-does-char-0-successfully-convert-a-char-to-int-in-C">https://www.quora.com/Why-does-char-0-successfully-convert-a-char-to-int-in-C</a></p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="texts">
-<h2>Texts<a class="headerlink" href="#texts" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id72" role="doc-backlink">Texts</a><a class="headerlink" href="#texts" title="Link to this heading">#</a></h2>
 <p>C</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">2019</span></code> Amini, Kamran. <em>Extreme C: Taking you to the limit in Concurrency, OOP, and the most advanced capabilities of C</em>. Packt.</p></li>
@@ -5083,13 +5204,16 @@ restore T1                   108                51     51
 <li><p>Schroder, Carla. (2021). <em>Linux Cookbook: Essential Skills for Linux Users and System &amp; Network Administrators</em>. 2e. O’Reilly.</p></li>
 <li><p>Shotts, William E. (2019). <em>The Linux Command Line: A Complete Introduction</em>. 2e. <a class="reference external" href="https://nostarch.com/tlcl2">No Starch Press</a>.</p></li>
 <li><p>[ <a class="reference external" href="http://www.apuebook.com/">h</a> ][ <a class="reference external" href="https://en.wikipedia.org/wiki/Advanced_Programming_in_the_Unix_Environment">w</a> ] Stevens, W. Richard &amp; Stephen A. Rago. (2013). <em>Advanced Programming in the UNIX Environment</em>. 3e. Addison-Wesley Professional.</p></li>
-<li><p>Stevens, W. Richard; Bill Fenner; &amp; Andrew M. Rudoff. (2003). <em>The Sockets Networking API: UNIX Network Programming Vol. I</em>. 3e. Addison-Wesley Professional.</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Modern_Operating_Systems">w</a> ] Tanenbaum, Andrew S. <em>Modern Operating Systems</em>. 5e.</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Operating_Systems:_Design_and_Implementation">w</a> ] Tanenbaum, Andrew S. <em>Operating Systems: Design and Implementation</em>. Pearson.</p></li>
 <li><p>[ <a class="reference external" href="https://www.commandlinewizardry.com/cyberops">h</a> ][ <a class="reference external" href="https://github.com/cybersecurityops/cyber-ops-with-bash">g</a> ] Troncone, Paul &amp; Carl Albing. (2019). <em>Cybersecurity Ops with bash: Attack, Defend, and Analyze from the Command Line</em>. O’Reilly.</p></li>
 <li><p>Ward, Brian. (2021). <em>How Linux Works: What Every Superuser Should Know</em>. 3e. <a class="reference external" href="https://nostarch.com/howlinuxworks3">No Starch Press</a>.</p></li>
 <li><p>Weiss, Steward. (2025). <em>Introduction to System Programming in Linux</em>. <a class="reference external" href="https://nostarch.com/introduction-system-programming-linux">No Starch Press</a>.</p></li>
 </ul>
+<p><code class="docutils literal notranslate"><span class="pre">2003</span></code> [ <a class="reference external" href="https://github.com/unpbook/unpv13e/tree/master">g</a> ] Stevens, W. Richard; Bill Fenner; &amp; Andrew M. Rudoff. <em>The Sockets Networking API: UNIX Network Programming Vol. I</em>. 3e. Addison-Wesley Professional.</p>
+<p><code class="docutils literal notranslate"><span class="pre">2011</span></code> Fall, Kevin R. &amp; W. Richard Stevens. <em>TCP/IP Illustrated, Volume 1: The Protocols</em>. 2e. Addison-Wesley Professional.</p>
+<p><code class="docutils literal notranslate"><span class="pre">1995</span></code> Wright, Gary R. &amp; W. Richard Stevens. <em>TCP/IP Illustrated, Volume 2: The Implementation</em>. Addison-Wesley Professional.</p>
+<p><code class="docutils literal notranslate"><span class="pre">2014</span></code> Comer, Douglas. <em>Internetworking with TCP/IP, Volume 1: Principles, Protocol, and Architecture</em>. 6e. Pearson.</p>
 <p>Networking</p>
 <ul class="simple">
 <li><p>Chou, Eric. (2020). <em>Mastering Python Networking</em>. 3rd Ed. Packt.</p></li>
@@ -5109,17 +5233,20 @@ restore T1                   108                51     51
 <li><p>Tanenbaum, Andrew S.; Nick Feamster; &amp; David Wehterall. (2021). <em>Computer Networks</em>. 6th Ed. <a class="reference external" href="https://www.pearson.com/en-us/subject-catalog/p/computer-networks/P200000003188/9780137523214">Pearson</a>.</p></li>
 <li><p>White, Russ &amp; Ethan Banks. (2017). <em>Computer Networking Problems and Solutions: An Innovative Approach to Building Resilient, Modern Networks</em>. Pearson.</p></li>
 </ul>
+<p>Profiling and Performance</p>
+<p><code class="docutils literal notranslate"><span class="pre">2020</span></code> Gregg, Brendan. <em>Systems Performance: Enterprise and the Cloud</em>. Addison-Wesley Professional.</p>
+<p>[ <a class="reference external" href="https://www.jjj.de/fxt/">h</a> ][ <a class="reference external" href="https://www.jjj.de/fxt/fxtbook.pdf">pdf</a> ] Arndt, Jörg. <em>Matters Computational: Ideas, Algorithms, and Source Code</em>.</p>
 </section>
 <hr class="docutils" />
 <section id="figures">
-<h2>Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id73" role="doc-backlink">Figures</a><a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Danny_Cohen_(computer_scientist)">w</a> ] <code class="docutils literal notranslate"><span class="pre">1937-2019</span></code> Cohen, Danny</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="terms">
-<h2>Terms<a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id74" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Address_space">w</a> ] Address Space</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/ANSI_C">w</a> ] ANSI C</p></li>
@@ -5320,11 +5447,11 @@ restore T1                   108                51     51
       </div>
     </a>
     <a class="right-next"
-       href="network_programming.html"
+       href="../shell/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Network Programming</p>
+        <p class="prev-next-title">The Shell</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -5344,6 +5471,7 @@ restore T1                   108                51     51
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-prefixes">Binary Prefixes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types">Types</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#determining-their-size">Determining their size</a></li>
@@ -5363,14 +5491,14 @@ restore T1                   108                51     51
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-of-strings">Arrays of strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-and-pass-by-value-and-pass-by-reference">Pointers and pass by value and pass by reference</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-pointers">Back to pointers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointers-as-return-values">Pointers as return values</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pointer-arithmetic">Pointer Arithmetic</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Example</a></li>
 </ul>
 </li>
 </ul>
