@@ -1,0 +1,1552 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dual LP &amp; Sensitivity Analysis &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/linprog/sensitivity';</script>
+    <script src="../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Example" href="exercises/0.html" />
+    <link rel="prev" title="Row Tableaux" href="rowtableaux.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../figures.html">Figures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calc/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/01_calculus/intro.html">The Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/01_calculus/03_integration/intro.html">Integration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/02_vector_calculus/intro.html">Vector Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../func/index.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../func/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/floor_ceil.html">Floor and Ceiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/ramp.html">Ramp Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linalg/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../numbers/index.html">Number Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/00_introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/05_primality.html">Primality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/06_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numbers/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../numbers/numbers_groups_codes/index.html">Exercises from <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../numbers/numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../algebra.html">Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../combinatorics/index.html">Combinatorics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../combinatorics/counting.html">Counting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../logic/introduction.html">Introduction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../languages.html">Languages and Machines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../coding/index.html">Mathematical Coding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Linear Programming</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="definitions.html">Some Definitions &amp; Graphing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convex.html">Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cones.html">Cones &amp; Dual Cones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rowtableaux.html">Row Tableaux</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Dual LP &amp; Sensitivity Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/0.html">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/132.html">[13.2] Production Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/midterm2.html">Midterm II</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Science &amp; Engineering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/systems/index.html">Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/c_lang/index.html">C</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/shell/bash.html">Bash</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/c_lang/network_programming.html">Network Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/distributed/index.html">Distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/hardware/index.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/file/index.html">Filesystem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/ds%26a/index.html">DS&amp;A</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/ds%26a/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/data_structures/index.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/linked_list/index.html">Linked List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/stack/index.html">Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/priority_queue/index.html">Priority Queue</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/arithmetic/index.html">Arithmetic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/arithmetic/array_sum/index.html">Array Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/arithmetic/integer_multiplication/index.html">Integer Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/ds%26a/deduplication/index.html">Deduplication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/merge/index.html">Merge</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/merge/sorted_array_merge/index.html">Sorted Array Merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/merge/k_way_merge/index.html"><span class="math notranslate nohighlight">\(k\)</span>-Way Merge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/selection/index.html">Select</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/selection/k-th_smallest_element/index.html">Naive Selection: <span class="math notranslate nohighlight">\(k\)</span>-th smallest element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/selection/quickselect/index.html">Quickselect</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/sort/index.html">Sort</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/insertion_sort/index.html">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/bubble_sort/index.html">Bubble Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/merge_sort/index.html">Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/selection_sort/index.html">Selection Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/quick_sort/index.html">Quick Sort</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/search/index.html">Search</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/search/linear_search/index.html">Linear Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/search/binary_search/index.html">Binary Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/trees_and_graphs/index.html">Trees &amp; Graphs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/trees_and_graphs/trees/index.html">Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/trees_and_graphs/graphs/index.html">Graphs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/optimization/index.html">Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference external" href="https://heracliteanflux.github.io/laptoplab/m/linearprogramming/index.html">Linear Programming</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/index.html">Dynamic Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/lucas_numbers/index.html">Lucas Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/bellman-ford/index.html">Bellman-Ford</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/0-1_knapsack/index.html">0-1 Knapsack</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/course/index.html">PSU CMPSC 465</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/01.html">Assignment 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/02.html">Assignment 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/03.html">Assignment 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/04.html">Assignment 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/05.html">Assignment 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/m.html">Midterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/06.html">Assignment 6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/07.html">Assignment 7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/08.html">Assignment 8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/f.html">Final</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/heracliteanflux/systems/tree/main/clang">https://github.com/heracliteanflux/systems/tree/main/clang</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/rlang/index.html">R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/numerical/index.html">Numerical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/sec/index.html">Security</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/ctf/index.html">CTF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/gitops/index.html">GitOps</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/network/index.html">Networking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/data/index.html">Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/data/relational/index.html">Relational</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/files.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/info/index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/learning/index.html">Artificial Intelligence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../l/index.html">Languages &amp; Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/ling/index.html">Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../l/ling/phonetics/index.html">Phonetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lang/index.html">Languages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lit/index.html">Literature</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../p/index.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/ancient/index.html">Ancient Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/modern/index.html">Early Modern Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/galileo/index.html">Galileo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/descartes/index.html">Descartes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/music.html">Music</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../s/index.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/astro/index.html">Astronomy &amp; Astrophysics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diy/index.html">Home Lab &amp; DIY</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/network/index.html">Network</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dual LP & Sensitivity Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-dual-lp"><span class="math notranslate nohighlight">\(\text{Dual LP}\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-standard-form-min-and-ge">First Standard Form: <span class="math notranslate nohighlight">\(\min\)</span> and <span class="math notranslate nohighlight">\(\ge\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-and-le"><span class="math notranslate nohighlight">\(\min\)</span> and <span class="math notranslate nohighlight">\(\le\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-standard-form-max-and-le">Second Standard Form: <span class="math notranslate nohighlight">\(\max\)</span> and <span class="math notranslate nohighlight">\(\le\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max-and-ge"><span class="math notranslate nohighlight">\(\max\)</span> and <span class="math notranslate nohighlight">\(\ge\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dual-lp-sensitivity-analysis">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Dual LP &amp; Sensitivity Analysis</a><a class="headerlink" href="#dual-lp-sensitivity-analysis" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<div class="admonition-revised admonition">
+<p class="admonition-title">Revised</p>
+<p>18 Apr 2023</p>
+</div>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#dual-lp-sensitivity-analysis" id="id2">Dual LP &amp; Sensitivity Analysis</a></p>
+<ul>
+<li><p><a class="reference internal" href="#text-dual-lp" id="id3"><span class="math notranslate nohighlight">\(\text{Dual LP}\)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#first-standard-form-min-and-ge" id="id4">First Standard Form: <span class="math notranslate nohighlight">\(\min\)</span> and <span class="math notranslate nohighlight">\(\ge\)</span></a></p></li>
+<li><p><a class="reference internal" href="#min-and-le" id="id5"><span class="math notranslate nohighlight">\(\min\)</span> and <span class="math notranslate nohighlight">\(\le\)</span></a></p></li>
+<li><p><a class="reference internal" href="#second-standard-form-max-and-le" id="id6">Second Standard Form: <span class="math notranslate nohighlight">\(\max\)</span> and <span class="math notranslate nohighlight">\(\le\)</span></a></p></li>
+<li><p><a class="reference internal" href="#max-and-ge" id="id7"><span class="math notranslate nohighlight">\(\max\)</span> and <span class="math notranslate nohighlight">\(\ge\)</span></a></p></li>
+<li><p><a class="reference internal" href="#example" id="id8">Example</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id9">Example</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\exists\mathbf{y}\ge\mathbf{0}\ni\nabla z
+=\sum_i y_i\nabla g_i
+\,\,\,\text{and}\,\,\,
+\mathbf{y\cdot s}=0
+\end{aligned}
+\)</span></p>
+<p>Method 1, Brute Force: check each extreme point until a solution is found</p>
+<p>Method 2, Dual LP: drive the objective of the dual LP to the desired solution</p>
+<section id="text-dual-lp">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="math notranslate nohighlight">\(\text{Dual LP}\)</span></a><a class="headerlink" href="#text-dual-lp" title="Link to this heading">#</a></h2>
+<section id="first-standard-form-min-and-ge">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">First Standard Form: <span class="math notranslate nohighlight">\(\min\)</span> and <span class="math notranslate nohighlight">\(\ge\)</span></a><a class="headerlink" href="#first-standard-form-min-and-ge" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\text{LP}=
+\begin{aligned}
+\min z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\ge\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+\max w&amp;=\mathbf{yb}+d
+\\
+\mathbf{yA}&amp;\le\mathbf{c}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+=\text{LP}^*
+}
+\)</span></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(
+\text{LP}=
+\begin{aligned}
+\max w&amp;=\mathbf{yb}+d
+\\
+\mathbf{yA}&amp;\le\mathbf{c}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+-\min -w&amp;=\mathbf{y(-b)}+(-d)
+\\
+\mathbf{y(-A)}&amp;\ge\mathbf{(-c)}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+-\max -z&amp;=\mathbf{(-c)x}+(-d)
+\\
+\mathbf{(-A)x}&amp;\le\mathbf{(-b)}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+\min z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\ge\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+=\text{LP}^*
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\min z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\ge\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\)</span></p>
+<p>has a solution at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> if <span class="math notranslate nohighlight">\(\exists\mathbf{y}\ge\mathbf{0}\ni\sum y_i\nabla g_i=\nabla z\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y\cdot s}=0\)</span></p>
+</section>
+<section id="min-and-le">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="math notranslate nohighlight">\(\min\)</span> and <span class="math notranslate nohighlight">\(\le\)</span></a><a class="headerlink" href="#min-and-le" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\text{LP}=
+\begin{aligned}
+\min z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\le\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+\max w&amp;=\mathbf{y(-b)}+d
+\\
+\mathbf{y(-A)}&amp;\le\mathbf{c}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+=\text{LP}^*
+}
+\)</span></p>
+<p>Note that this is just the first standard form where <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> are negated.</p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(
+\text{LP}=
+\begin{aligned}
+\min z&amp;=\mathbf{cx}+d
+\\
+\mathbf{(-A)x}&amp;\ge\mathbf{(-b)}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+\min z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\le\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+-\max -z&amp;=\mathbf{(-c)x}+(-d)
+\\
+\mathbf{Ax}&amp;\le\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+-\min -w&amp;=\mathbf{yb}+(-d)
+\\
+\mathbf{yA}&amp;\ge\mathbf{(-c)}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+\max w&amp;=\mathbf{y(-b)}+d
+\\
+\mathbf{yA}&amp;\ge\mathbf{(-c)}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+\max w&amp;=\mathbf{y(-b)}+d
+\\
+\mathbf{y(-A)}&amp;\le\mathbf{c}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+=\text{LP}^*
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\min z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\le\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\)</span></p>
+<p>has a solution at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> if <span class="math notranslate nohighlight">\(\exists\mathbf{y}\ge\mathbf{0}\ni\sum y_i(-\nabla g_i)=-\mathbf{yA}=\nabla z=\mathbf{c}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y\cdot s}=0\)</span></p>
+<p>The sign change in the objective gradient as a linear combination of the constraint gradients is just the sign change that arises in the dual LP when the primal is not given in one of the two standard forms.</p>
+</section>
+<section id="second-standard-form-max-and-le">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Second Standard Form: <span class="math notranslate nohighlight">\(\max\)</span> and <span class="math notranslate nohighlight">\(\le\)</span></a><a class="headerlink" href="#second-standard-form-max-and-le" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\text{LP}=
+\begin{aligned}
+\max z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\le\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+\min w&amp;=\mathbf{yb}+d
+\\
+\mathbf{yA}&amp;\ge\mathbf{c}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+=\text{LP}^*
+}
+\)</span></p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(
+\text{LP}=
+\begin{aligned}
+\min w&amp;=\mathbf{yb}+d
+\\
+\mathbf{yA}&amp;\ge\mathbf{c}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+-\max -w&amp;=\mathbf{y(-b)}+(-d)
+\\
+\mathbf{y(-A)}&amp;\le\mathbf{(-c)}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+-\min -z&amp;=\mathbf{(-c)x}+(-d)
+\\
+\mathbf{(-A)x}&amp;\ge\mathbf{(-b)}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+\max z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\le\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+=\text{LP}^*
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\max z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\le\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\)</span></p>
+<p>has a solution at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> if</p>
+</section>
+<section id="max-and-ge">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="math notranslate nohighlight">\(\max\)</span> and <span class="math notranslate nohighlight">\(\ge\)</span></a><a class="headerlink" href="#max-and-ge" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\text{LP}=
+\begin{aligned}
+\max z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\ge\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+\min w&amp;=\mathbf{y(-b)}+d
+\\
+\mathbf{y(-A)}&amp;\ge\mathbf{c}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+=\text{LP}^*
+}
+\)</span></p>
+<p>Note that this is just the second standard form where <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> are negated.</p>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(
+\text{LP}=
+\begin{aligned}
+\max z&amp;=\mathbf{cx}+d
+\\
+\mathbf{(-A)x}&amp;\le\mathbf{(-b)}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+\max z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\ge\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+-\min -z&amp;=\mathbf{(-c)x}+(-d)
+\\
+\mathbf{Ax}&amp;\ge\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+-\max -w&amp;=\mathbf{yb}+(-d)
+\\
+\mathbf{yA}&amp;\le\mathbf{(-c)}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+\min w&amp;=\mathbf{y(-b)}+d
+\\
+\mathbf{yA}&amp;\le\mathbf{(-c)}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+\iff
+\begin{aligned}
+\min w&amp;=\mathbf{y(-b)}+d
+\\
+\mathbf{y(-A)}&amp;\ge\mathbf{c}
+\\
+\mathbf{y}&amp;\ge\mathbf{0}
+\end{aligned}
+=\text{LP}^*
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\max z&amp;=\mathbf{cx}+d
+\\
+\mathbf{Ax}&amp;\ge\mathbf{b}
+\\
+\mathbf{x}&amp;\ge\mathbf{0}
+\end{aligned}
+\)</span></p>
+<p>has a solution at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> if <span class="math notranslate nohighlight">\(\exists\mathbf{y}\ge\mathbf{0}\ni\sum y_i\nabla g_i=\mathbf{yA}=-\nabla z=-\mathbf{c}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y\cdot s}=0\)</span></p>
+<p>The sign change in the objective gradient as a linear combination of the constraint gradients is just the sign change that arises in the dual LP when the primal is not given in one of the two standard forms.</p>
+<hr class="docutils" />
+<p>[PROPOSITION]</p>
+<p>The dual of the dual of the primal is just the primal.</p>
+<hr class="docutils" />
+<p>[PROPOSITION]</p>
+<p>If the primal and the dual are both feasible, then they both have optimal solutions and</p>
+<p><span class="math notranslate nohighlight">\(z^*=\min z=\max w=w^*\)</span></p>
+<p>PROOF</p>
+<p>Suppose <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is feasible for the primal and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is feasible for the dual.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{feasible}\,\,\,\mathbf{y}
+\implies
+\mathbf{c}\ge\mathbf{yA}
+\,\,\,\text{and}\,\,\,
+\mathbf{y}\ge\mathbf{0}
+\\
+\text{feasible}\,\,\,\mathbf{x}
+\implies
+\mathbf{Ax}\ge\mathbf{b}
+\,\,\,\text{and}\,\,\,
+\mathbf{x}\ge\mathbf{0}
+\\
+\mathbf{cx}\ge\mathbf{(yA)x}=\mathbf{y(Ax)}\ge\mathbf{yb}
+\\
+\mathbf{cx}+d\ge\mathbf{(yA)x}+d=\mathbf{y(Ax)}+d\ge\mathbf{yb}+d
+\end{aligned}
+\)</span></p>
+<p>Every primal feasible <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> creates an upper bound on the objective function <span class="math notranslate nohighlight">\(w=\mathbf{yb}+d\)</span> maximized by the dual LP.</p>
+<p>Every  dual feasible <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> creates a lower bound on the objective function <span class="math notranslate nohighlight">\(z=\mathbf{cx}+d\)</span> minimized by the primal LP.</p>
+<p>Each LP is feasible and bounded and therefore has an optimal solution.</p>
+<p>Since the primal has an optimal solution, then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\exists\mathbf{y}\ge\mathbf{0}\ni
+\mathbf{c}
+=\nabla z
+=\sum_i y_i\nabla g_i
+=\mathbf{yA}
+\,\,\,\text{and}\,\,\,
+\mathbf{y\cdot s}=0
+\end{aligned}
+\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(g_i(x)\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th row of <span class="math notranslate nohighlight">\(\mathbf{Ax}\)</span> (the <span class="math notranslate nohighlight">\(i\)</span>-th row of <span class="math notranslate nohighlight">\(\mathbf{A}=\nabla g_i\)</span>)</p>
+<p>Since the dual has an optimal solution, then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\exists\mathbf{x}\ge\mathbf{0}\ni
+\mathbf{b}
+=\nabla z
+=\sum_j x_j\nabla h_j
+=\mathbf{Ax}
+\,\,\,\text{and}\,\,\,
+\mathbf{x\cdot v}=0
+\end{aligned}
+\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(h_j(y)\)</span> is the <span class="math notranslate nohighlight">\(j\)</span>-th column of <span class="math notranslate nohighlight">\(\mathbf{yA}\)</span> (the <span class="math notranslate nohighlight">\(j\)</span>-th column of <span class="math notranslate nohighlight">\(\mathbf{A}=\nabla h_j\)</span>)</p>
+<p>These <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> yield equality and are therefore optimal solutions to the primal and dual</p>
+<p><span class="math notranslate nohighlight">\(
+z^*=\min\mathbf{cx}+d=\mathbf{(yA)x}+d=\mathbf{y(Ax)}+d=\max\mathbf{yb}+d=w^*
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>[COROLLARY]</p>
+<p>If an LP has a solution, then so does its dual.</p>
+<p>[THEOREM]</p>
+<p>For every primal-dual pair, exactly one of the following holds:</p>
+<ol class="arabic simple">
+<li><p>Both the primal and dual have optimal solutions and their optimal values are equal.</p></li>
+<li><p>The dual is infeasible and the primal is unbounded.</p></li>
+<li><p>The primal is infeasible and the dual is unbounded.</p></li>
+<li><p>Both the primal and dual are infeasible.</p></li>
+</ol>
+<p>PROOF</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p>If the size of the feasible set increases, then the optimum either improves (increases for a maximization problem, decreases for a minimization problem) or, in the worst case scenario, remains the same.</p>
+<p>If the size of the feasible set decreases, then the optimum either degrades (decreases for a maximization problem, increases for a minimization problem) or, in the best case scenario, remains the same.</p>
+<p>To relax a constraint is to change the constraint to increase the size of the feasible set, the set of points satisfying the constraint.</p>
+<p>To tighten a constraint is to change the constraint to decrease the size of the feasible set, the set of points satisfying the constraint.</p>
+<p>Given a constraint <span class="math notranslate nohighlight">\(g_i(\mathbf{x})\le b\)</span>, increasing <span class="math notranslate nohighlight">\(b_i\)</span> relaxes the constraint and decreasing <span class="math notranslate nohighlight">\(b_i\)</span> tightens the constraint.</p>
+<p>Given a constraint <span class="math notranslate nohighlight">\(g_i(\mathbf{x})\ge b\)</span>, increasing <span class="math notranslate nohighlight">\(b_i\)</span> tightens the constraint and decreasing <span class="math notranslate nohighlight">\(b_i\)</span> relaxes the constraint.</p>
+<p>[DEFINITION]</p>
+<p>A regular point of an LP is a feasible point at which the gradients of the active constraints are linearly independent.</p>
+<p>A feasible point is not regular if there is at least one redundant active constraint at that point.</p>
+<hr class="docutils" />
+<p>For each constraint <span class="math notranslate nohighlight">\(i\)</span> in an LP, how much does the optimum change if <span class="math notranslate nohighlight">\(b_i\)</span> is increased?</p>
+<p>If <span class="math notranslate nohighlight">\(z^*\)</span> denotes the optimal value of the LP, can <span class="math notranslate nohighlight">\(\begin{aligned}\frac{\partial z^*}{\partial b_i}\end{aligned}\)</span> be computed? YES!</p>
+<hr class="docutils" />
+<p>[PROPOSITION]</p>
+<p>If the primal LP is <span class="math notranslate nohighlight">\(\max z=\mathbf{cx}\)</span> such that <span class="math notranslate nohighlight">\(g_1(\mathbf{x})\le b_1,...,g_k(\mathbf{x})\le b_k\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x^*}\)</span> is a regular optimal point for the primal and <span class="math notranslate nohighlight">\(\mathbf{y^*}\)</span> is a [regular optimal point???] for the dual, then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+y_i^*=\frac{\partial z^*}{b_i}
+\end{aligned}
+\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(z^*\)</span> is the optimal value of the primal LP.</p>
+<p>PROOF</p>
+<p>Starting at a regular optimal point <span class="math notranslate nohighlight">\(\mathbf{x^*}\)</span>, let <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> be a new optimal point if the bound on a single active constraint <span class="math notranslate nohighlight">\(b_i\)</span> is increased by <span class="math notranslate nohighlight">\(\Delta b_i=1\)</span>.</p>
+<p>Assume that the same constraints are active at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> as at <span class="math notranslate nohighlight">\(\mathbf{x^*}\)</span> and set <span class="math notranslate nohighlight">\(\Delta\mathbf{x=x-x^*}\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{\partial z^*}{\partial b_i}
+=z(\mathbf{x})-z(\mathbf{x^*})
+=\nabla z\cdot\frac{\Delta\mathbf{x}}{\|\Delta\mathbf{x}\|}\|\Delta\mathbf{x}\|
+=\nabla z\cdot\Delta\mathbf{x}
+=\left(\sum_{s_j=0}y_j\nabla g_j\right)\cdot\Delta\mathbf{x}
+=\sum_{s_j=0}\left(y_j\nabla g_j\cdot\Delta\mathbf{x}\right)
+=\sum_{s_j=0}y_j\left(\nabla g_j\cdot\Delta\mathbf{x}\right)
+\end{aligned}
+\)</span></p>
+<p>The assumption that all the same constraints are active at <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and that only constraint <span class="math notranslate nohighlight">\(i\)</span> changed from</p>
+<p><span class="math notranslate nohighlight">\(g_i(\mathbf{x})\le b_i\)</span></p>
+<p>to</p>
+<p><span class="math notranslate nohighlight">\(g_i(\mathbf{x})\le b_i+\Delta b_i\)</span></p>
+<p>implies that</p>
+<p><span class="math notranslate nohighlight">\(\forall j\ne i,g_j(\mathbf{x})=b_j\)</span></p>
+<p>the original bound on <span class="math notranslate nohighlight">\(g_j\)</span>, so</p>
+<p><span class="math notranslate nohighlight">\(
+\Delta g_j=0
+\implies
+\nabla g_j\cdot\Delta\mathbf{x}=0
+\implies
+\sum_{s_j=0}y_j(\nabla g_j\cdot\Delta\mathbf{x})
+=y_i(\nabla g_i\cdot\Delta\mathbf{x})
+=y_i\Delta g_i
+=y_i\Delta b_i
+=y_i
+\)</span></p>
+<p>Complimentary slackness stipulates that if the <span class="math notranslate nohighlight">\(i\)</span>-th constraint of the primal LP is not active, then neither relaxing it nor tightening it will change the optimal value of the primal objective</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{\partial z^*}{b_i}
+=y_i^*
+=0
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="example">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\text{LP}
+=\begin{aligned}
+\min z&amp;=2x
+\\
+5x&amp;\ge3
+\\
+x&amp;\ge0
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+\max w&amp;=3y
+\\
+5y&amp;\le2
+\\
+y&amp;\ge0
+\end{aligned}
+=\text{LP}^*
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^*
+&amp;=\frac{3}{5}
+\\
+z^*
+&amp;=2\left(\frac{3}{5}\right)
+=\frac{6}{5}
+\\
+y^*
+&amp;=\frac{2}{5}
+\\
+w^*
+&amp;=3\left(\frac{2}{5}\right)
+=\frac{6}{5}
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+z^*
+&amp;=z\left(\frac{b_1}{5}\right)
+=2\left(\frac{b_1}{5}\right)
+=\frac{2}{5}b_1
+\\
+\frac{\partial}{\partial b_1}z^*
+&amp;=\frac{2}{5}
+=y^*
+\\
+w^*
+&amp;=w\left(\frac{c_1}{5}\right)
+=3\left(\frac{c_1}{5}\right)
+=\frac{3}{5}c_1
+\\
+\frac{\partial}{\partial c_1}w^*
+&amp;=\frac{3}{5}
+=x^*
+\end{aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Example</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\text{LP}
+=\begin{aligned}
+\min z&amp;=5x_1+5x_2
+\\
+g_1&amp;=x_1+3x_2\ge6
+\\
+g_2&amp;=2x_1+x_2\ge4
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+\max w&amp;=6y_1+4y_2
+\\
+h_1&amp;=y_1+2y_2\le5
+\\
+h_2&amp;=3y_1+y_2\le5
+\end{aligned}
+=\text{LP}^*
+\)</span></p>
+<hr class="docutils" />
+<p>[EXAMPLE]</p>
+<p>You have some amount of raw materials in the form of wood and metal: Maximize your income by either producing and selling tables and chairs or selling the raw materials themselves.</p>
+<ul class="simple">
+<li><p>You have <span class="math notranslate nohighlight">\(60\,\text{ft}\)</span> of wood and <span class="math notranslate nohighlight">\(36\,\text{ft}\)</span> of metal.</p></li>
+<li><p>A table requires <span class="math notranslate nohighlight">\(10\,\text{ft}\)</span> of wood and <span class="math notranslate nohighlight">\(2\,\text{ft}\)</span> of metal. A chair requires <span class="math notranslate nohighlight">\(3\,\text{ft}\)</span> of wood and <span class="math notranslate nohighlight">\(6\,\text{ft}\)</span> of metal.</p></li>
+<li><p>You sell a table for <span class="math notranslate nohighlight">\(\$20.00\)</span> and a chair for <span class="math notranslate nohighlight">\(\$10.00\)</span>.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\$20.00=c_1 &amp; \,\,\,\text{sale price of a table}
+\\
+\$10.00=c_2 &amp; \,\,\,\text{sale price of a chair}
+\\
+60\,\text{ft}=b_1 &amp; \,\,\,\text{quantity of wood}
+\\
+36\,\text{ft}=b_2 &amp; \,\,\,\text{quantity of metal}
+\\
+-\$30.00=d &amp; \,\,\,\text{one-time expense}
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x_1 &amp; \,\,\,\text{number of tables}
+\\
+x_2 &amp; \,\,\,\text{number of chairs}
+\\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\text{LP}=
+\begin{aligned}
+\max z=20x_1+10x_2-30
+\\
+10x_1+3x_2\le60
+&amp;\,\,\,\text{wood constraint}
+\\
+2x_1+6x_2\le36
+&amp;\,\,\,\text{metal constraint}
+\\
+x\ge0
+&amp;\,\,\,\text{no negative construction}
+\\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\text{LP}=
+\begin{aligned}
+\max z=20x_1+10x_2-30\\
+10x_1+3x_2\le60\\
+2x_1+6x_2\le36\\
+x\ge0\\
+\end{aligned}
+\underset{\text{dual to}}{\iff}
+\begin{aligned}
+\min w=60y_1+36y_2-30\\
+10y_1+2y_2\ge20\\
+3y_1+6y_2\ge10\\
+y\ge0\\
+\end{aligned}
+=\text{LP}^*
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+y_1 &amp; \,\,\,\text{sale price on a unit of wood}
+\\
+y_2 &amp; \,\,\,\text{sale price on a unit of metal}
+\\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\text{LP}^*=
+\begin{aligned}
+\min w=60y_1+36y_2-30
+\\
+10y_1+2y_2\ge20
+&amp;\,\,\,\text{table constraint}
+\\
+3y_1+6y_2\ge10
+&amp;\,\,\,\text{chair constraint}
+\\
+y\ge0
+&amp;\,\,\,\text{you do not pay people to take the raw materials off your hands}
+\\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(y_1(10,3)+y_2(2,6)=(20,10)=\nabla z\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+10y_1+2y_2=20\\
+3y_1+6y_2=10\\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(y_1=\frac{50}{27},y_2=\frac{20}{27}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{540}{27}=20,\frac{270}{27}=10\)</span></p>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/linprog"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rowtableaux.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Row Tableaux</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercises/0.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-dual-lp"><span class="math notranslate nohighlight">\(\text{Dual LP}\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-standard-form-min-and-ge">First Standard Form: <span class="math notranslate nohighlight">\(\min\)</span> and <span class="math notranslate nohighlight">\(\ge\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-and-le"><span class="math notranslate nohighlight">\(\min\)</span> and <span class="math notranslate nohighlight">\(\le\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-standard-form-max-and-le">Second Standard Form: <span class="math notranslate nohighlight">\(\max\)</span> and <span class="math notranslate nohighlight">\(\le\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max-and-ge"><span class="math notranslate nohighlight">\(\max\)</span> and <span class="math notranslate nohighlight">\(\ge\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
