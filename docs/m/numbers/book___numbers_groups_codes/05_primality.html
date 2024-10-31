@@ -1,0 +1,1824 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Primality &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/numbers/book___numbers_groups_codes/05_primality';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../figures.html">Figures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../calc/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/01_calculus/intro.html">The Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../calc/01_calculus/03_integration/intro.html">Integration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/02_vector_calculus/intro.html">Vector Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../func/index.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../func/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/floor_ceil.html">Floor and Ceiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/ramp.html">Ramp Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../algebra/index.html">Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../algebra/book___a_transition_to_advanced_mathematics.html">Book: <em>A Transition to Advanced Mathematics</em></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Number Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../logic/introduction.html">Introduction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../combinatorics/index.html">Combinatorics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../combinatorics/counting.html">Counting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../discrete/index.html">Discrete Mathematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../discrete/languages.html">Languages and Machines</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../coding/index.html">Mathematical Coding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linprog/index.html">Linear Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/definitions.html">Some Definitions &amp; Graphing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/convex.html">Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/cones.html">Cones &amp; Dual Cones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/rowtableaux.html">Row Tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/sensitivity.html">Dual LP &amp; Sensitivity Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/0.html">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/132.html">[13.2] Production Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/midterm2.html">Midterm II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../numerical/index.html">Numerical Methods &amp; Scientific Computing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../more/index.html">More Math</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../more/cas.html">Computer Algebra Systems</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Science &amp; Engineering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/systems/index.html">Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/c_lang/index.html">C</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/shell/bash.html">Bash</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/c_lang/network_programming.html">Network Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/distributed/index.html">Distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/hardware/index.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/file/index.html">Filesystem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/ds%26a/index.html">DS&amp;A</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/ds%26a/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/data_structures/index.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/linked_list/index.html">Linked List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/stack/index.html">Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/priority_queue/index.html">Priority Queue</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/arithmetic/index.html">Arithmetic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/arithmetic/array_sum/index.html">Array Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/arithmetic/integer_multiplication/index.html">Integer Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/ds%26a/deduplication/index.html">Deduplication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/merge/index.html">Merge</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/merge/sorted_array_merge/index.html">Sorted Array Merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/merge/k_way_merge/index.html"><span class="math notranslate nohighlight">\(k\)</span>-Way Merge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/selection/index.html">Select</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/selection/k-th_smallest_element/index.html">Naive Selection: <span class="math notranslate nohighlight">\(k\)</span>-th smallest element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/selection/quickselect/index.html">Quickselect</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/sort/index.html">Sort</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/insertion_sort/index.html">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/bubble_sort/index.html">Bubble Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/merge_sort/index.html">Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/selection_sort/index.html">Selection Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/quick_sort/index.html">Quick Sort</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/search/index.html">Search</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/search/linear_search/index.html">Linear Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/search/binary_search/index.html">Binary Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/index.html">Trees &amp; Graphs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/trees/index.html">Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/graphs/index.html">Graphs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/optimization/index.html">Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference external" href="https://heracliteanflux.github.io/laptoplab/m/linearprogramming/index.html">Linear Programming</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/index.html">Dynamic Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/lucas_numbers/index.html">Lucas Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/bellman-ford/index.html">Bellman-Ford</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/0-1_knapsack/index.html">0-1 Knapsack</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/course/index.html">PSU CMPSC 465</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/01.html">Assignment 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/02.html">Assignment 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/03.html">Assignment 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/04.html">Assignment 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/05.html">Assignment 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/m.html">Midterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/06.html">Assignment 6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/07.html">Assignment 7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/08.html">Assignment 8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/f.html">Final</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/heracliteanflux/systems/tree/main/clang">https://github.com/heracliteanflux/systems/tree/main/clang</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/rlang/index.html">R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/sec/index.html">Security</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/ctf/index.html">CTF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/gitops/index.html">GitOps</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/network/index.html">Networking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/data/index.html">Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/data/relational/index.html">Relational</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/files.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/info/index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/learning/index.html">Artificial Intelligence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Primality</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primes-and-composites">Primes and Composites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-prime">Definition of prime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite">Composite</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sieve-of-eratosthenes">Sieve of Eratosthenes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-lemma">Euclid’s Lemma</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prime-factorization">Prime Factorization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-primality">Relative Primality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythagorean-triples">Pythagorean Triples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-formula">Euclid’s Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-theorem-of-arithmetic">The Fundamental Theorem of Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinitely-many-primes">Infinitely many primes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd-and-lcm-as-prime-factorizations">GCD and LCM as prime factorizations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-primes">Fermat Primes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goldbach-s-conjecture">Goldbach’s Conjecture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#twin-primes-conjecture">Twin Primes Conjecture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bounded-gap-theorem">Bounded Gap Theorem</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="primality">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Primality</a><a class="headerlink" href="#primality" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="table-of-contents">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#primality" id="id1">Primality</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents" id="id2">Table of Contents</a></p></li>
+<li><p><a class="reference internal" href="#programming-environment" id="id3">Programming Environment</a></p></li>
+<li><p><a class="reference internal" href="#primes-and-composites" id="id4">Primes and Composites</a></p>
+<ul>
+<li><p><a class="reference internal" href="#definition-of-prime" id="id5">Definition of prime</a></p></li>
+<li><p><a class="reference internal" href="#composite" id="id6">Composite</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sieve-of-eratosthenes" id="id7">Sieve of Eratosthenes</a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-lemma" id="id8">Euclid’s Lemma</a></p></li>
+<li><p><a class="reference internal" href="#prime-factorization" id="id9">Prime Factorization</a></p></li>
+<li><p><a class="reference internal" href="#relative-primality" id="id10">Relative Primality</a></p></li>
+<li><p><a class="reference internal" href="#pythagorean-triples" id="id11">Pythagorean Triples</a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-formula" id="id12">Euclid’s Formula</a></p></li>
+<li><p><a class="reference internal" href="#the-fundamental-theorem-of-arithmetic" id="id13">The Fundamental Theorem of Arithmetic</a></p></li>
+<li><p><a class="reference internal" href="#infinitely-many-primes" id="id14">Infinitely many primes</a></p></li>
+<li><p><a class="reference internal" href="#gcd-and-lcm-as-prime-factorizations" id="id15">GCD and LCM as prime factorizations</a></p></li>
+<li><p><a class="reference internal" href="#fermat-primes" id="id16">Fermat Primes</a></p></li>
+<li><p><a class="reference internal" href="#mersenne-primes" id="id17">Mersenne Primes</a></p></li>
+<li><p><a class="reference internal" href="#goldbach-s-conjecture" id="id18">Goldbach’s Conjecture</a></p></li>
+<li><p><a class="reference internal" href="#twin-primes-conjecture" id="id19">Twin Primes Conjecture</a></p></li>
+<li><p><a class="reference internal" href="#bounded-gap-theorem" id="id20">Bounded Gap Theorem</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<hr class="docutils" />
+<section id="programming-environment">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Programming Environment</a><a class="headerlink" href="#programming-environment" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span>   <span class="nn">numba</span>  <span class="kn">import</span> <span class="n">jit</span><span class="p">,</span> <span class="n">njit</span><span class="p">,</span> <span class="n">prange</span>
+<span class="kn">import</span> <span class="nn">numpy</span>  <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span>   <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span>   <span class="nn">numba</span>  <span class="kn">import</span> <span class="n">jit</span><span class="p">,</span> <span class="n">njit</span><span class="p">,</span> <span class="n">prange</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span>  <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span>   <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numba&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="primes-and-composites">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Primes and Composites</a><a class="headerlink" href="#primes-and-composites" title="Link to this heading">#</a></h2>
+<section id="definition-of-prime">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Definition of prime</a><a class="headerlink" href="#definition-of-prime" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Definition\)</span> [Humphreys &amp; Prest pp. 25]</p>
+<blockquote>
+<div><p>A positive integer <span class="math notranslate nohighlight">\(p\)</span> is prime if <span class="math notranslate nohighlight">\(p\)</span> has exactly two positive divisors, namely <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall p \in \mathbb{P} \,\,
+\textcolor{red}{[}\,\,
+Prime(p) \iff
+\textcolor{orange}{[}\,\,
+(1 \mid p) \land (p \mid p) \,\,
+\underbrace{
+\land \,\,
+\forall n \in \mathbb{P} \,\,
+\textcolor{yellow}{[}\,\,
+((1 \ne n) \land (p \ne n)) \implies (n \nmid p)
+\,\,\textcolor{yellow}{]}
+}_{uniqueness}
+\,\,\textcolor{orange}{]}
+\,\,\textcolor{red}{]}
+\]</div>
+<blockquote>
+<div><p>Note that <span class="math notranslate nohighlight">\(1\)</span> is not prime according to this definition since <span class="math notranslate nohighlight">\(1\)</span> has exactly one positive divisor, namely <span class="math notranslate nohighlight">\(1\)</span>.<br />
+Note that therefore the smallest prime is <span class="math notranslate nohighlight">\(2\)</span> and that this is the only even prime since any other even prime <span class="math notranslate nohighlight">\(n\)</span> has at least three distinct divisors, namely <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+1 &amp;&amp; &amp; \textcolor{red}  {1 \mid 1} \\
+2 &amp;&amp; &amp; \textcolor{green}{1 \mid 2} &amp;&amp; \textcolor{green}{2 \mid 2} \\
+3 &amp;&amp; &amp; \textcolor{green}{1 \mid 3} &amp;&amp; 2 \nmid 3 &amp;&amp; \textcolor{green}{3 \mid 3} \\
+4 &amp;&amp; &amp; \textcolor{red}  {1 \mid 4} &amp;&amp; \textcolor{red}{2 \mid 4} &amp;&amp; 3 \nmid 4 &amp;&amp; \textcolor{red}{4 \mid 4} \\
+5 &amp;&amp; &amp; \textcolor{green}{1 \mid 5} &amp;&amp; 2 \nmid 5 &amp;&amp; 3 \nmid 5 &amp;&amp; 4 \nmid 5 &amp;&amp; \textcolor{green}{5 \mid 5} \\
+6 &amp;&amp; &amp; \textcolor{red}  {1 \mid 6} &amp;&amp; \textcolor{red}{2 \mid 6} &amp;&amp; \textcolor{red}{3 \mid 6} &amp;&amp; 4 \nmid 6 &amp;&amp; 5 \nmid 6 &amp;&amp; \textcolor{red}{6 \mid 6} \\
+7 &amp;&amp; &amp; \textcolor{green}{1 \mid 7} &amp;&amp; 2 \nmid 7 &amp;&amp;  3 \nmid 7 &amp;&amp;  4 \nmid 7 &amp;&amp;  5 \nmid 7 &amp;&amp;  6 \nmid 7 &amp;&amp;  \textcolor{green}{7 \mid 7} \\
+8 &amp;&amp; &amp; \textcolor{red}  {1 \mid 8} &amp;&amp; \textcolor{red}{2 \mid 8} &amp;&amp; 3 \nmid 8 &amp;&amp; \textcolor{red}{4 \mid 8} &amp;&amp; 5 \nmid 8 &amp;&amp; 6 \nmid 8 &amp;&amp; 7 \nmid 8 &amp;&amp; \textcolor{red}{8 \mid 8} \\
+9 &amp;&amp; &amp; \textcolor{red}  {1 \mid 9} &amp;&amp; 2 \nmid 9 &amp;&amp; \textcolor{red}{3 \mid 9} &amp;&amp; 4 \nmid 9 &amp;&amp; 5 \nmid 9 &amp;&amp; 6 \nmid 9 &amp;&amp; 7 \nmid 9 &amp;&amp; 8 \nmid 9 &amp;&amp; \textcolor{red}{9 \mid 9} \\
+10 &amp;&amp; &amp; \textcolor{red}{1 \mid 10} &amp;&amp; \textcolor{red}{2 \mid 10} &amp;&amp; 3 \nmid 10 &amp;&amp; 4 \nmid 10 &amp;&amp; \textcolor{red}{5 \mid 10} &amp;&amp; 6 \nmid 10 &amp;&amp; 7 \nmid 10 &amp;&amp; 8 \nmid 10 &amp;&amp; 9 \nmid 10 &amp;&amp; \textcolor{red}{10 \mid 10} \\
+11 &amp;&amp; &amp; \textcolor{green}{1 \mid 11} &amp;&amp; 2 \nmid 11 &amp;&amp; 3 \nmid 11 &amp;&amp; 4 \nmid 11 &amp;&amp; 5 \nmid 11 &amp;&amp; 6 \nmid 11 &amp;&amp; 7 \nmid 11 &amp;&amp; 8 \nmid 11 &amp;&amp; 9 \nmid 11 &amp;&amp; 10 \nmid 11 &amp;&amp; \textcolor{green}{11 \mid 11} \\
+\vdots \\
+\end{align*}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(Definition\)</span> [Bressoud]</p>
+<p>An integer greater than <span class="math notranslate nohighlight">\(1\)</span> that cannot be written as the product of two integers greater than <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\forall p \in \mathbb{P} \,\,
+[\,\,
+Prime(p) \iff
+[\,\,
+(p \ne 1) \land
+(\forall a, b \in \mathbb{P} \,\,
+((p = ab) \implies ((a = 1) \lor (b = 1))))
+\,\,]
+\,\,]
+\]</div>
+</section>
+<section id="composite">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Composite</a><a class="headerlink" href="#composite" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(Definition\)</span></p>
+<p>An integer greater than <span class="math notranslate nohighlight">\(1\)</span> which can be written as the product of two integers greater than <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\forall c \in \mathbb{P} \,\,
+[\,\,
+Composite(c) \iff
+[\,\,
+(c \ne 1) \land \lnot Prime(c)
+\,\,]
+\,\,]
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sieve-of-eratosthenes">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Sieve of Eratosthenes</a><a class="headerlink" href="#sieve-of-eratosthenes" title="Link to this heading">#</a></h2>
+<p>[Humphreys &amp; Prest pp. 26]</p>
+<p>To find the primes less than some number <span class="math notranslate nohighlight">\(n\)</span>, prepare an array of the integers from <span class="math notranslate nohighlight">\(2\)</span> to <span class="math notranslate nohighlight">\(n\)</span>. Save <span class="math notranslate nohighlight">\(2\)</span> and then delete all multiples of <span class="math notranslate nohighlight">\(2\)</span>. Now look for the next undeleted integer (which will be <span class="math notranslate nohighlight">\(3\)</span>), save it and delete all its multiples. The smallest undeleted number will be the next prime, <span class="math notranslate nohighlight">\(5\)</span>. Continue in this way to find all the primes up to <span class="math notranslate nohighlight">\(n\)</span>. In fact, it will turn out that you can stop this process once you have reached the greatest integer which is less than or equal to the square root of <span class="math notranslate nohighlight">\(n\)</span>, in the sense that any integers left undeleted at this stage will be prime.</p>
+<hr class="docutils" />
+<p>Questions</p>
+<ol class="arabic simple">
+<li><p>Given a composite integer, how do we find a decomposition into a product of integers larger than 1?</p></li>
+<li><p>How do we recognize a prime integer?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="euclid-s-lemma">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Euclid’s Lemma</a><a class="headerlink" href="#euclid-s-lemma" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Bressoud 1.1 pp. 1-2]</p>
+<blockquote>
+<div><p>If a prime divides the product of two integers then it must divide at least one of those integers.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall p \in \mathbb{P} \,\,
+[\,\,
+Prime(p) \implies
+\forall a, b \in \mathbb{Z} \,\,
+[\,\,
+(p \mid ab) \implies
+((p \mid a) \lor (p \mid b))
+\,\,]
+\,\,]
+\]</div>
+<p>Note that the following cases hold as a consequence.</p>
+<blockquote>
+<div><p>If a prime <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(a^2\)</span>, then it must divide <span class="math notranslate nohighlight">\(a\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall p \in \mathbb{P} \,\,
+[\,\,
+Prime(p) \implies
+\forall a \in \mathbb{Z} \,\,
+[\,\,
+(p \mid a^2) \implies
+(p \mid a)
+\,\,]
+\,\,]
+\]</div>
+<blockquote>
+<div><p>Therefore, if <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(a^2\)</span>, then <span class="math notranslate nohighlight">\(p^2\)</span> divides <span class="math notranslate nohighlight">\(a^2\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall p \in \mathbb{P} \,\,
+[\,\,
+Prime(p) \implies
+\forall a \in \mathbb{Z} \,\,
+[\,\,
+(p \mid a^2) \implies
+(p^2 \mid a^2)
+\,\,]
+\,\,]
+\]</div>
+<p>The following theorem is a property which is characteristic of primes and is sometimes used to define them.</p>
+<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest 1.3.1 pp. 26]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(p\)</span> be a prime and let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers s.t. <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(ab\)</span>.<br />
+<span class="math notranslate nohighlight">\(p\)</span> divides either <span class="math notranslate nohighlight">\(a\)</span> or <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall p \in \mathbb{P} \,\,
+[\,\,
+Prime(p) \implies
+\forall a, b \in \mathbb{Z} \,\,
+[\,\,
+(p \mid ab) \implies
+((p \mid a) \lor (p \mid b))
+\,\,]
+\,\,]
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof\)</span> [Humphreys &amp; Prest pp. 26]</p>
+<blockquote>
+<div><p>The only positive divisors of <span class="math notranslate nohighlight">\(p\)</span> are <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(p\)</span> since <span class="math notranslate nohighlight">\(p\)</span> is prime.<br />
+Then either <span class="math notranslate nohighlight">\(gcd(p, a) = p\)</span> or <span class="math notranslate nohighlight">\(gcd(p, a) = 1\)</span>.</p>
+<blockquote>
+<div><p>If <span class="math notranslate nohighlight">\(gcd(p, a) = p\)</span> then <span class="math notranslate nohighlight">\(p \mid a\)</span>.</p>
+</div></blockquote>
+<p>[Humphreys &amp; Prest 1.1.6]</p>
+<blockquote>
+<div><p>If <span class="math notranslate nohighlight">\(gcd(p, a) = 1\)</span> then <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(a\)</span> are relatively prime.<br />
+Then there are integers <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(s\)</span> s.t. <span class="math notranslate nohighlight">\(1 = pr + as \iff b = pbr + abs = p(br) + ab(s)\)</span>.<br />
+Since <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(p(br)\)</span> and <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(ab(s)\)</span>, <span class="math notranslate nohighlight">\(p\)</span> divides their sum <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\therefore\)</span> if a prime divides a product then it divides one or the other factor.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>The following lemma is an extension of the previous theorem.</p>
+<p><span class="math notranslate nohighlight">\(Lemma\)</span> [Humphreys &amp; Prest pp. 27]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(p\)</span> be prime and let <span class="math notranslate nohighlight">\(p\)</span> divide the product <span class="math notranslate nohighlight">\(a_1 a_2 \dots a_r\)</span>.<br />
+Then <span class="math notranslate nohighlight">\(p\)</span> divides at least one of <span class="math notranslate nohighlight">\(a_1, a_2, \dots, a_r\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, induction \,\, on \,\, the \,\, number \,\, r \,\, of \,\, factors \,\, a_i\)</span> [Humphreys &amp; Prest pp. 27]</p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p>If <span class="math notranslate nohighlight">\(p \mid a_1\)</span> then <span class="math notranslate nohighlight">\(p \mid a_1\)</span>.</p>
+</div></blockquote>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Induction Hypothesis: Let <span class="math notranslate nohighlight">\(p \mid b_1 b_2 \dots b_{r - 1}\)</span> so that <span class="math notranslate nohighlight">\(p\)</span> divides at least one of <span class="math notranslate nohighlight">\(b_1, b_2, \dots, b_{r - 1}\)</span>.<br />
+Let <span class="math notranslate nohighlight">\(p\)</span> divide the product <span class="math notranslate nohighlight">\(a_1 \dots a_r\)</span> which we want to write as a product <span class="math notranslate nohighlight">\(b_1 \dots b_{r - 1}\)</span> of <span class="math notranslate nohighlight">\(r - 1\)</span> integers.<br />
+Define <span class="math notranslate nohighlight">\(b_i = a_i\)</span> for <span class="math notranslate nohighlight">\(i \le r - 2\)</span> and let <span class="math notranslate nohighlight">\(b_{r - 1}\)</span> be the product <span class="math notranslate nohighlight">\(a_{r - 1} a_r\)</span>.<br />
+Then <span class="math notranslate nohighlight">\(a_1 a_2 \dots a_{r - 2} (a_{r - 1} a_r)\)</span> is a product of <span class="math notranslate nohighlight">\(r - 1\)</span> integers.<br />
+Either <span class="math notranslate nohighlight">\(p\)</span> divides one of <span class="math notranslate nohighlight">\(a_1, a_2, \dots, a_{r - 2}\)</span> or <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(a_{r - 1} a_r\)</span>.<br />
+If the latter, then either <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(a_{r - 1}\)</span> or <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(a_r\)</span>.</p>
+</div></blockquote>
+<p>Therefore <span class="math notranslate nohighlight">\(p\)</span> divides one of <span class="math notranslate nohighlight">\(a_1, a_2, \dots, a_r\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="prime-factorization">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Prime Factorization</a><a class="headerlink" href="#prime-factorization" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Definition\)</span> [Bressoud]</p>
+<p>The decomposition of a positive integer into primes is called its factorization, which is expressed by</p>
+<div class="math notranslate nohighlight">
+\[
+n = p_1^{a_1} \times p_2^{a_2} \times \dots \times p_r^{a_r}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_r\)</span> are distinct primes.</p>
+</section>
+<hr class="docutils" />
+<section id="relative-primality">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Relative Primality</a><a class="headerlink" href="#relative-primality" title="Link to this heading">#</a></h2>
+<p>or coprimality</p>
+<p><span class="math notranslate nohighlight">\(Definition\)</span> [Bressoud pp. 3]</p>
+<blockquote>
+<div><p>If integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> have no common primes in their respective factorizations then <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are said to be relatively prime.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Bressoud pp. 3]</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(45 = 3 \times 3 \times 5\)</span> and <span class="math notranslate nohighlight">\(98 = 2 \times 7 \times 7\)</span> are relatively prime.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Definition\)</span> [Humphreys &amp; Prest pp. 12]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be positive integers.<br />
+If <span class="math notranslate nohighlight">\(gcd(a, b) = 1\)</span> then <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are said to be relatively prime.</p>
+</div></blockquote>
+<div style="color: red;">Does this hold for all integers?</div><p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest 1.1.6 pp. 13]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> be positive integers with <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> relatively prime.<br />
+Then</p>
+<ol class="arabic simple">
+<li><p>if <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(bc\)</span> then <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(c\)</span></p></li>
+</ol>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\color{red}
+\forall a, b, c \in \mathbb{P} \,\,
+[ \,\,
+(RelativePrimes(a, b) \land (a \mid bc))
+\implies
+(a \mid c)
+\,\, ]
+\]</div>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p>if <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(c\)</span> and <span class="math notranslate nohighlight">\(b\)</span> divides <span class="math notranslate nohighlight">\(c\)</span> then <span class="math notranslate nohighlight">\(ab\)</span> divides <span class="math notranslate nohighlight">\(c\)</span></p></li>
+</ol>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\color{red}
+\forall a, b, c \in \mathbb{P} \,\,
+[ \,\,
+(RelativePrimes(a, b) \land (a \mid c) \land (b \mid c))
+\implies
+(ab \mid c)
+\,\, ]
+\]</div>
+<div style="color: red;">A generalization of Euclid's lemma?</div><p><span class="math notranslate nohighlight">\(Proof\)</span> [Humphreys &amp; Prest 1.1.6 pp. 13]</p>
+<blockquote>
+<div><p>Since <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are relatively prime there are integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> st <span class="math notranslate nohighlight">\(1 = as + bt\)</span> by Bézout’s identity.<br />
+<span class="math notranslate nohighlight">\(1 = as + bt \iff c = cas + cbt = a(cs) + bc(t)\)</span>.</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a \mid bc\)</span>.<br />
+Since <span class="math notranslate nohighlight">\(a \mid a\)</span> and <span class="math notranslate nohighlight">\(a \mid bc\)</span> it is the case that <span class="math notranslate nohighlight">\(a \mid a(cs) + bc(t) = c\)</span>.<br />
+<span class="math notranslate nohighlight">\(\therefore a \mid c\)</span>.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a \mid c\)</span><br />
+Then there is an integer <span class="math notranslate nohighlight">\(m\)</span> such that <span class="math notranslate nohighlight">\(am = c\)</span>.<br />
+Let <span class="math notranslate nohighlight">\(b \mid c\)</span><br />
+Then there is an integer <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(bn = c\)</span>.<br />
+<span class="math notranslate nohighlight">\(c = cas + cbt = (bn)as + (am)bt = ab(ns) + ab(mt) = ab(ns + mt) \implies ab \mid c\)</span>.<br />
+<span class="math notranslate nohighlight">\(\therefore ab \mid c\)</span>.</p>
+</div></blockquote>
+<p>Alternatively</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a \mid c\)</span>.<br />
+<span class="math notranslate nohighlight">\(a \mid c \implies ab \mid cb \implies ab \mid cbt\)</span>.<br />
+Let <span class="math notranslate nohighlight">\(b \mid c\)</span>.<br />
+<span class="math notranslate nohighlight">\(b \mid c \implies ab \mid ac \implies ab \mid cas\)</span>.<br />
+<span class="math notranslate nohighlight">\(\therefore ab \mid cas + cbt = c\)</span>.</p>
+</div></blockquote>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div style="background-color: red;">
+<p><span class="math notranslate nohighlight">\(Claim\)</span></p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are relatively prime iff <span class="math notranslate nohighlight">\(m^2\)</span> and <span class="math notranslate nohighlight">\(n^2\)</span> are relatively prime.<br />
+Let</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+m &amp;= p_1^{a_1} \times p_2^{a_2} \times \dots \times p_r^{a_r} \\
+n &amp;= p_1^{b_1} \times p_2^{b_2} \times \dots \times p_r^{b_r} \\
+\end{aligned}
+\)</span></p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(gcd(m, n) = 1\)</span> implies that <span class="math notranslate nohighlight">\(b_i = 0\)</span> whenever <span class="math notranslate nohighlight">\(a_i \gt 0\)</span> and vice versa.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+m^2 &amp;= p_1^{2a_1} \times p_2^{2a_2} \times \dots \times p_r^{2a_r} \\
+n^2 &amp;= p_1^{2b_1} \times p_2^{2b_2} \times \dots \times p_r^{2b_r} \\
+\end{aligned}
+\)</span></p>
+</div></section>
+<hr class="docutils" />
+<section id="pythagorean-triples">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Pythagorean Triples</a><a class="headerlink" href="#pythagorean-triples" title="Link to this heading">#</a></h2>
+<p>[DEFINITION - (fundamental) Pythagorean triples]</p>
+<p>Three integers <span class="math notranslate nohighlight">\((x, y, z)\)</span> which satisfy <span class="math notranslate nohighlight">\(x^2 + y^2 = z^2\)</span> are called a Pythagorean triple. If they are all positive and have no common factors, then they are called a fundamental triple.</p>
+<p><span class="math notranslate nohighlight">\(
+\color{red}\boxed{
+\begin{aligned}
+&amp; \forall x, y, z \in \mathbb{P} \,\,
+(PythagoreanTriple(x, y, z) \iff
+(x^2 + y^2 = z^2)) \\
+&amp; \forall x, y, z \in \mathbb{P} \,\,
+(FundamentalTriple(x, y, z) \iff
+(PythagoreanTriple(x, y, z) \land RelativePrimes(x, y, z) \land (x, y, z \gt 0))) \\
+&amp; RelativePrimes(x, y, z) \iff (RelativePrimes(x, y) \land RelativePrimes(y, z) \land RelativePrimes(x, z)) \\
+&amp; (x, y, z \gt 0) \iff ((x \gt 0) \land (y \gt 0) \land (z \gt 0)) \\
+\end{aligned}
+}
+\)</span></p>
+<p>Because of the symmetry in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\((x, y, z)\)</span> and <span class="math notranslate nohighlight">\((y, x, z)\)</span> are considered to be the same triple.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; (3,  4,  5) &amp;&amp; \text{fundamental} \\
+&amp; (5, 12, 13) &amp;&amp; \text{fundamental} \\
+&amp; (6,  8, 10) = 2 \times (3,  4,  5) &amp;&amp; \text{Pythagorean} \\
+\end{aligned}
+\)</span></p>
+<hr class="docutils" />
+<p>[PROBLEM]</p>
+<p>If we want to find all Pythagorean triples, it is sufficient to first find all fundamental triples and then take multiples of the fundamental triples.</p>
+</section>
+<section id="euclid-s-formula">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Euclid’s Formula</a><a class="headerlink" href="#euclid-s-formula" title="Link to this heading">#</a></h2>
+<p>[THEOREM 1.3 - Euclid’s Formula]</p>
+<p>Given any pair of relatively prime integers <span class="math notranslate nohighlight">\((a, b)\)</span> such that one of them is odd and the other even and <span class="math notranslate nohighlight">\(a \gt b \gt 0\)</span>, then</p>
+<p><span class="math notranslate nohighlight">\((a^2 - b^2, 2ab, a^2 + b^2)\)</span></p>
+<p>is a fundamental triple.</p>
+<p><span class="math notranslate nohighlight">\(
+\color{red}\boxed{
+\forall a, b \in \mathbb{P} \,\,
+((RelativePrimes(a, b) \land EvenOdd(a, b) \land (a \gt b \gt 0)) \implies FundamentalTriple(a^2 + b^2, 2ab, a^2 - b^2))
+}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\begin{aligned}
+&amp; EvenOdd(a, b) \iff ((Even(a) \land Odd(b)) \oplus (Odd(a) \land Even(b))) \\
+&amp; (a \gt b \gt 0) \iff ((a \gt b) \land (b \gt 0)) \\
+\end{aligned}
+}
+\)</span></p>
+<p>Furthermore, every fundamental triple is of this form.</p>
+<p><span class="math notranslate nohighlight">\(
+\color{red}\boxed{
+\forall x, y, z \in \mathbb{P} \,\,
+(FundamentalTriple(x, y, z) \implies
+\exists a, b \in \mathbb{P} \,\,
+(RelativePrimes(a, b) \land EvenOdd(a, b) \land (a \gt b \gt 0) \land (x = a^2 + b^2) \land (y = 2ab) \land (z = a^2 - b^2)))
+}
+\)</span></p>
+<p>Note that the first and third terms are odd and the second term is even.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+(Even(a) \land Odd(b) ) &amp; \implies (Even(a^2) \land Odd(b^2)  \land Even(2ab) \land Odd(a^2 - b^2) \land Odd(a^2 + b^2)) \\
+(Odd(a)  \land Even(b)) &amp; \implies (Odd(a^2)  \land Even(b^2) \land Even(2ab) \land Odd(a^2 - b^2) \land Odd(a^2 + b^2)) \\
+\end{align*}
+\end{split}\]</div>
+<p>First few fundamental triples</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; a = 2, b = 1 &amp;&amp; (3,  4,  5) &amp;&amp; (2^2 - 1^2, 2(2)(1), 2^2 + 1^2) = (4 - 1, 2 \times 2, 4 + 1) \\
+&amp; a = 3, b = 2 &amp;&amp; (5, 12, 13) &amp;&amp; (3^2 - 2^2, 2(3)(2), 3^2 + 2^2) = (9 - 4, 2 \times 6, 9 + 4) \\
+&amp; a = 4, b = 1 &amp;&amp; (15, 8, 17) &amp;&amp; (4^2 - 1^2, 2(4)(1), 4^2 + 1^2) = (16 - 1, 2 \times 4, 16 + 1) \\
+&amp; a = 4, b = 3 &amp;&amp; (7, 24, 25) &amp;&amp; (4^2 - 3^2, 2(4)(3), 4^2 + 3^2) = (16 - 9, 2 \times 12, 16 + 9) \\
+&amp; a = 5, b = 2 &amp;&amp; (21, 20, 29) &amp;&amp; (5^2 - 2^2, 2(5)(2), 5^2 + 2^2) = (25 - 4, 2 \times 10, 25 + 4) \\
+&amp; a = 5, b = 4 &amp;&amp; (9, 40, 41) &amp;&amp; (5^2 - 4^2, 2(5)(4), 5^2 + 4^2) = (25 - 16, 2 \times 20, 25 + 16) \\
+&amp; a = 6, b = 1 &amp;&amp; (35, 12, 37) &amp;&amp; (6^2 - 1^2, 2(6)(1), 6^2 + 1^2) = (36 - 1, 2 \times 6, 36 + 1) \\
+&amp; a = 6, b = 5 &amp;&amp; (11, 60, 61) &amp;&amp; (6^2 - 5^2, 2(6)(5), 6^2 + 5^2) = (36 - 25, 2 \times 30, 36 + 25) \\
+&amp; a = 7, b = 2 &amp;&amp; (45, 28, 53) &amp;&amp; (7^2 - 2^2, 2(7)(2), 7^2 + 2^2) = (49 - 4, 2 \times 14, 49 + 4) \\
+&amp; a = 7, b = 4 &amp;&amp; (33, 56, 65) &amp;&amp; (7^2 - 4^2, 2(7)(4), 7^2 + 4^2) = (49 - 16, 2 \times 28, 49 + 16) \\
+&amp; a = 7, b = 6 &amp;&amp; (13, 84, 85) &amp;&amp; (7^2 - 6^2, 2(7)(6), 7^2 + 6^2) = (49 - 36, 2 \times 42, 49 + 36) \\
+&amp; a = 8, b = 1 &amp;&amp; (63, 16, 65) &amp;&amp; (8^2 - 1^2, 2(8)(1), 8^2 + 1^2) = (64 - 1, 2 \times 8, 64 + 1) \\
+&amp; a = 8, b = 3 &amp;&amp; (55, 48, 73) &amp;&amp; (8^2 - 3^2, 2(8)(3), 8^2 + 3^2) = (64 - 9, 2 \times 24, 64 + 9) \\
+&amp; a = 8, b = 5 &amp;&amp; (39, 80, 89) &amp;&amp; (8^2 - 5^2, 2(8)(5), 8^2 + 5^2) = (64 - 25, 2 \times 40, 64 + 25) \\
+&amp; a = 8, b = 7 &amp;&amp; (15, 112, 113) &amp;&amp; (8^2 - 7^2, 2(8)(7), 8^2 + 7^2) = (64 - 49, 2 \times 56, 64 + 49) \\
+&amp; a = 9, b = 2 &amp;&amp; (77, 36, 85) &amp;&amp; (9^2 - 2^2, 2(9)(2), 9^2 + 2^2) = (81 - 4, 2 \times 18, 81 + 4) \\
+&amp; a = 9, b = 4 &amp;&amp; (65, 72, 97) &amp;&amp; (9^2 - 4^2, 2(9)(4), 9^2 + 4^2) = (81 - 16, 2 \times 36, 81 + 16) \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(Proof\)</span></p>
+<p>1</p>
+<p>That <span class="math notranslate nohighlight">\((a^2 - b^2, 2ab, a^2 + b^2)\)</span> is a fundamental triple for any pair of relatively prime integers <span class="math notranslate nohighlight">\((a, b)\)</span> such that one of them is odd and the other even and <span class="math notranslate nohighlight">\(a \gt b \gt 0\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(a \gt b\)</span> be two positive integers.</p>
+<p>Then <span class="math notranslate nohighlight">\(a^2 - b^2\)</span>, <span class="math notranslate nohighlight">\(2ab\)</span>, and <span class="math notranslate nohighlight">\(a^2 + b^2\)</span> are positive integers and</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(a^2 - b^2)^2 + (2ab)^2 &amp;= (a^2 + b^2)^2 \\
+a^4 - 2a^2b^2 + b^4 + 4a^2b^2 &amp;= a^4 + 2a^2b^2 + b^4 \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, contradiction\)</span></p>
+<p>2</p>
+<p>That a triple is fundamental iff it has the form <span class="math notranslate nohighlight">\((a^2 - b^2, 2ab, a^2 + b^2)\)</span> for a pair of relatively prime integers <span class="math notranslate nohighlight">\((a, b)\)</span> such that one of them is odd and the other even and <span class="math notranslate nohighlight">\(a \gt b \gt 0\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\((x, y, z)\)</span> be a fundamental triple. Then it follows from the definition of a fundamental triple that since <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> are not all even, at most one of them is even.</p>
+<p>Assume <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are both odd. Then <span class="math notranslate nohighlight">\(x^2\)</span> and <span class="math notranslate nohighlight">\(y^2\)</span> are each one more than a multiple of <span class="math notranslate nohighlight">\(4\)</span> and so <span class="math notranslate nohighlight">\(z^2\)</span> must be two more than a multiple of <span class="math notranslate nohighlight">\(4\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x   &amp;=  2k + 1    \\
+x^2 &amp;= (2k + 1)^2 \\
+    &amp;= 4(k^2 + k) + 1 \\
+    &amp;= 4\ell + 1 &amp;&amp; \text{for integer} \, \ell = k^2 + k \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+z^2
+&amp;= x^2 + y^2 \\
+&amp;= (4\ell + 1) + (4\mathcal{m} + 1) \\
+&amp;= 4\mathcal{n} + 2 &amp;&amp; \text{for integer} \, \mathcal{n} = \ell + \mathcal{m} \\
+&amp;= 2(2\mathcal{n} + 1) \\
+2 &amp;\mid z^2 \\
+2 \mid z^2 &amp;\rightarrow 4 \mid z^2 &amp;&amp; \text{Euclid's lemma} \\
+4 &amp;\mid z^2 &amp;&amp; \text{modus ponens} \\
+z^2 &amp;\ne 4n &amp;&amp; \text{contradiction} \\
+\end{aligned}
+\)</span></p>
+<p>Therefore, either <span class="math notranslate nohighlight">\(x\)</span> or <span class="math notranslate nohighlight">\(y\)</span> is even. By symmetry in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> we can assume it is <span class="math notranslate nohighlight">\(y = 2m\)</span> that is even.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+y^2 &amp;= z^2 - x^2 \\
+&amp;= (z - x) \times (z + x) \\
+m^2 &amp;= \frac{z - x}{2} \times \frac{z + x}{2}
+\end{aligned}
+\)</span></p>
+<p>Since <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span> are each odd, both <span class="math notranslate nohighlight">\(\frac{x - z}{2}\)</span> and <span class="math notranslate nohighlight">\(\frac{x + z}{2}\)</span> are integers and they are relatively prime because any common divisor would have to divide both their sum and their difference, but <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span> have no common divisors from the definition of a fundamental triple.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{z - x}{2} + \frac{z + x}{2} &amp;= z \\
+\frac{z - x}{2} - \frac{z + x}{2} &amp;= x \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+p \mid \frac{z - x}{2} &amp;\rightarrow p \mid m^2 \\
+p \mid m^2 &amp;\rightarrow p^2 \mid m^2 &amp;&amp; \text{Euclid's lemma} \\
+\end{aligned}
+\)</span></p>
+<p>Since <span class="math notranslate nohighlight">\(p \nmid \frac{z + x}{2}\)</span> it must be the case that <span class="math notranslate nohighlight">\(p^2 \mid \frac{z - x}{2}\)</span>.</p>
+<p>Thus the factorization will only have even exponents which is another way of saying that <span class="math notranslate nohighlight">\(\frac{z - x}{2}\)</span> is a perfect square. Similarly, <span class="math notranslate nohighlight">\(\frac{z + x}{2}\)</span> is a perfect square.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{z + x}{2} &amp;= a^2 \\
+\frac{z - x}{2} &amp;= b^2 \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are relatively prime.</p>
+<p>Since <span class="math notranslate nohighlight">\(a^2 + b^2 = z\)</span> is odd, one of <span class="math notranslate nohighlight">\(a\)</span> or <span class="math notranslate nohighlight">\(b\)</span> is odd and the other is even.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x &amp;= a^2 - b^2 \\
+y &amp;= \sqrt{z^2 - x^2} \\
+  &amp;= \sqrt{(a^4 + 2a^2b^2 + b^4) - (a^4 - 2a^2b^2 + b^4)} \\
+  &amp;= 2ab \\
+z &amp;= a^2 + b^2 \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="the-fundamental-theorem-of-arithmetic">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">The Fundamental Theorem of Arithmetic</a><a class="headerlink" href="#the-fundamental-theorem-of-arithmetic" title="Link to this heading">#</a></h2>
+<p>or the Unique Factorization Theorem for Integers</p>
+<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Bressoud 1.4 pp. 5]</p>
+<blockquote>
+<div><p>Factorization into primes is unique up to order.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Example\)</span> [Bressoud]</p>
+<p>There may be several ways of ordering the primes that go into a factorization, but we cannot change the primes that go into the factorization.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+30
+&amp;= 2 \times 3 \times 5 \\
+&amp;= 3 \times 5 \times 2 \\
+&amp;= 5 \times 2 \times 3 \\
+\end{aligned}
+\)</span></p>
+<p>This does not hold for the extended integers (of the form <span class="math notranslate nohighlight">\(m + n \sqrt{10}\)</span>).</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+6
+&amp;= 2 \times 3 \\
+&amp;= (4 + \sqrt{10}) \times (4 - \sqrt{10}) \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(Proof\)</span> [Bressoud]</p>
+<p>Sketch of the proof. It will be proved that every integer with non-unique factorization has a proper divisor with non-unique factorization. If there were integers with non-unique factorization, then there would eventually be a prime with non-unique factorization. This contradicts the definition of a prime, that a prime has no divisors other than itself and unity.</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(n\)</span> be an integer with non-unique (but distinct) factorization <span class="math notranslate nohighlight">\(n = p_1 \times p_2 \times \dots \times p_r = q_1 \times q_2 \times \dots \times q_r\)</span> where the primes are not necessarily distinct, but where the second factorization is not simply a reordering of the first.<br />
+The prime <span class="math notranslate nohighlight">\(q_1\)</span> divides <span class="math notranslate nohighlight">\(n\)</span> and so it divides the product of the <span class="math notranslate nohighlight">\(p_i\)</span> s.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+q_1 &amp;\mid n \\
+q_1 &amp;\mid (p_1 \times p_2 \times \dots \times p_r) \\
+q_1 &amp;\mid p_i &amp;&amp; p_i \in \{ p_1, p_2, \dots, p_r \} \, \text{by repeated application of Euclid's lemma} \\
+q_1 &amp;\mid p_1 &amp;&amp; \text{by reordering of the} \, p_i \, \text{s} \\
+q_1 &amp;= p_1 &amp;&amp; \text{since} \, Prime(p_1) \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{n}{q_1}
+&amp;= p_2 \times p_3 \times \dots \times p_r \\
+&amp;= q_2 \times q_3 \times \dots \times q_s \\
+\end{aligned}
+\)</span></p>
+<p>Since the factorizations of <span class="math notranslate nohighlight">\(n\)</span> are distinct, the factorizations of <span class="math notranslate nohighlight">\(\frac{n}{q_1}\)</span> are distinct.</p>
+<p>Therefore <span class="math notranslate nohighlight">\(\frac{n}{q_1}\)</span> is a proper divisor of <span class="math notranslate nohighlight">\(n\)</span> with non-unique factorization.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>The following theorem says that, in some sense, the primes are the multiplicative building blocks from which every (positive) integer may be produced in a unique way. Therefore positive integers, other than <span class="math notranslate nohighlight">\(1\)</span>, which are not prime are referred to as composite.</p>
+<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest pp. 28] Euclid’s Elements Book VII Proposition 31.</p>
+<blockquote>
+<div><p>Every positive integer <span class="math notranslate nohighlight">\(n\)</span> greater than or equal to <span class="math notranslate nohighlight">\(2\)</span> may be written in the form <span class="math notranslate nohighlight">\(n = p_1 p_2 \dots p_r\)</span> where the integers <span class="math notranslate nohighlight">\(n = p_1, p_2, \dots, p_r\)</span> are prime numbers (which need not be distinct) and <span class="math notranslate nohighlight">\(r \ge 1\)</span>. This factorization is unique in the sense that if also <span class="math notranslate nohighlight">\(n = q_1 q_2 \dots q_s\)</span> where <span class="math notranslate nohighlight">\(q_1, q_2, \dots, q_s\)</span> are primes, then <span class="math notranslate nohighlight">\(r = s\)</span> and we can renumber the <span class="math notranslate nohighlight">\(q_i\)</span> so that <span class="math notranslate nohighlight">\(q_i = p_i\)</span> for <span class="math notranslate nohighlight">\(i = 1, 2, \dots, r\)</span>. In other words, up to rearrangement, there is just one way of writing a positive integer as a product of primes.</p>
+</div></blockquote>
+<p>The idea of the following proof is as follows. If <span class="math notranslate nohighlight">\(n\)</span> is not prime then factor it as <span class="math notranslate nohighlight">\(ab\)</span>. If <span class="math notranslate nohighlight">\(a\)</span> is not prime then factor it and if <span class="math notranslate nohighlight">\(b\)</span> is not prime then factor it. Continue splitting any factors which are not prime. This cannot go on forever because the integers we produce are decreasing and each factorization gives strictly smaller numbers: the process eventually stops with a product of primes.</p>
+<p><span class="math notranslate nohighlight">\(Proof \,\, of \,\, the \,\, existence \,\, of \,\, the \,\, decomposition\)</span> [Humphreys &amp; Prest pp. 28-29]</p>
+<p>Show by strong induction that every positive integer greater than or equal to <span class="math notranslate nohighlight">\(2\)</span> has a factorization as a product of primes.</p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(n = 2\)</span> is prime.</p>
+</div></blockquote>
+<p>For <span class="math notranslate nohighlight">\(n \gt 2\)</span> either <span class="math notranslate nohighlight">\(n\)</span> is prime in which case <span class="math notranslate nohighlight">\(n\)</span> has a factorization (with just one factor) of the required form or <span class="math notranslate nohighlight">\(n\)</span> can be written as a product <span class="math notranslate nohighlight">\(ab\)</span> where <span class="math notranslate nohighlight">\(1 \lt a \lt n\)</span> and <span class="math notranslate nohighlight">\(1 \lt b \lt n\)</span>.</p>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Induction Hypothesis: Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> both have factorizations into primes.<br />
+We obtain a factorization of <span class="math notranslate nohighlight">\(n\)</span> as a product of primes by juxtaposing the factorizations of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</div></blockquote>
+<p>Therefore every positive integer greater than or equal to <span class="math notranslate nohighlight">\(2\)</span> has a factorization as a product of primes.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div><p><span class="math notranslate nohighlight">\(Examples\)</span> [Humphreys &amp; Prest pp. 29-30]</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+  4 &amp;= 2^2 \\
+  6 &amp;= 2^1 \times 3^1 \\
+  8 &amp;= 2^3 \\
+    &amp;= (2) \times (2 \times 2) = 2 \times 4 \\
+  9 &amp;= 2^0 \times 3^2 \\
+ 10 &amp;= 2^1 \times 3^0 \times 5^1 \\
+ 12 &amp;= 2^2 \times 3^1 \\
+    &amp;= (2) \times (2 \times 3) = 2 \times 6 \\
+    &amp;= (2 \times 2) \times (3) = 4 \times 3 \\
+ 14 &amp;= 2^1 \times 3^0 \times 5^0 \times 7^1 \\
+ 15 &amp;= 2^0 \times 3^1 \times 5^1 \\
+ 16 &amp;= 2^4 \\
+    &amp;= (2) \times (2 \times 2 \times 2) = 2 \times 8 \\
+    &amp;= (2 \times 2) \times (2 \times 2) = 4 \times 4 \\
+ 18 &amp;= 2^1 \times 3^2 \\
+    &amp;= (2) \times (3 \times 3) = 2 \times 9 \\
+    &amp;= (2 \times 3) \times (3) = 6 \times 3 \\
+ 20 &amp;= 2^2 \times 3^0 \times 5^1 \\
+    &amp;= (2) \times (2 \times 5) = 2 \times 10 \\
+    &amp;= (2 \times 2) \times (5) = 4 \times  5 \\
+ 21 &amp;= 2^0 \times 3^1 \times 5^0 \times 7^1 \\
+ 22 &amp;= 2^1 \times 3^0 \times 5^0 \times 7^0 \times 11^1 \\
+ 24 &amp;= 2^3 \times 3^1 \\
+    &amp;= (2) \times (2 \times 2 \times 3) = 2 \times 12 \\
+    &amp;= (2 \times 2) \times (2 \times 3) = 4 \times  6 \\
+    &amp;= (2 \times 2 \times 2) \times (3) = 8 \times  3 \\
+ 25 &amp;= 2^0 \times 3^0 \times 5^2 \\
+ 26 &amp;= 2^1 \times 3^0 \times 5^0 \times 7^0 \times 11^0 \times 13^1 \\
+ 28 &amp;= 2^2 \times 3^0 \times 5^0 \times 7^1 \\
+    &amp;= (2) \times (2 \times 7) = 2 \times 14 \\
+    &amp;= (2 \times 2) \times (7) = 4 \times 7 \\
+ 30 &amp;= 2^1 \times 3^1 \times 5^1 \\
+    &amp;= (2) \times (3 \times 5) = 2 \times 15 \\
+    &amp;= (2 \times 3) \times (5) = 6 \times  5 \\
+\vdots \\
+ 72 &amp;= 2^3 \times 3^2 \\
+    &amp;= (2) \times (2 \times 2 \times 3 \times 3) =  2 \times 36 \\
+    &amp;= (2 \times 2) \times (2 \times 3 \times 3) =  4 \times 18 \\
+    &amp;= (2 \times 2 \times 2) \times (3 \times 3) =  8 \times  9 \\
+    &amp;= (2 \times 2 \times 2 \times 3) \times (3) = 24 \times  3 \\
+\vdots \\
+588 &amp;= 2^2 \times 3^1 \times 5^0 \times 7^2 \\
+    &amp;= (2) \times (2 \times 3 \times 7 \times 7) =  2 \times 294 \\
+    &amp;= (3) \times (2 \times 2 \times 7 \times 7) =  3 \times 196 \\
+    &amp;= (7) \times (2 \times 2 \times 3 \times 7) =  7 \times  84 \\
+    &amp;= (2 \times 2) \times (3 \times 7 \times 7) =  4 \times 147 \\
+    &amp;= (2 \times 3) \times (2 \times 7 \times 7) =  6 \times  98 \\
+    &amp;= (2 \times 7) \times (2 \times 3 \times 7) = 14 \times  42 \\
+    &amp;= (2 \times 2 \times 3) \times (7 \times 7) = 12 \times  49 \\
+    &amp;= (2 \times 2 \times 7) \times (3 \times 7) = 28 \times  21 \\
+\end{align*}
+\end{split}\]</div>
+<p>This proof is based on the observation that if a prime divides one side of the equation then it divides the other, so we can cancel it from each side. This process eventually stops with the equation <span class="math notranslate nohighlight">\(1 = 1\)</span>. Therefore there must have been the same number of primes, and indeed the same primes, on each side of the original equation.</p>
+<p><span class="math notranslate nohighlight">\(Proof \,\, of \,\, uniqueness\)</span> [Humphreys &amp; Prest pp. 28-29]</p>
+<p>Use the standard form of mathematical induction on the number <span class="math notranslate nohighlight">\(r\)</span> of prime factors to show that any positive integer which has a factorization into a product of <span class="math notranslate nohighlight">\(r\)</span> primes has a unique factorization up to rearrangement.</p>
+<blockquote>
+<div><p>Base Case</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(n = q_1 q_2 \dots q_s\)</span> be a prime.<br />
+If we had <span class="math notranslate nohighlight">\(s \ge 2\)</span> then <span class="math notranslate nohighlight">\(n\)</span> would have distinct divisors <span class="math notranslate nohighlight">\(1, q_1, q_1q_2\)</span> contradicting that it is prime.<br />
+Therefore <span class="math notranslate nohighlight">\(s = 1\)</span>.</p>
+</div></blockquote>
+<p>Induction Step</p>
+<blockquote>
+<div><p>Induction Hypothesis: Any positive integer greater than <span class="math notranslate nohighlight">\(2\)</span> which has a factorization into <span class="math notranslate nohighlight">\(r - 1\)</span> primes has a unique factorization.<br />
+Let <span class="math notranslate nohighlight">\(n = p_1 p_2 \dots p_r = q_1 q_2 \dots q_s\)</span> be two prime factorizations of <span class="math notranslate nohighlight">\(n\)</span>.<br />
+<span class="math notranslate nohighlight">\(p_1\)</span> divides <span class="math notranslate nohighlight">\(n\)</span> implies that <span class="math notranslate nohighlight">\(p_1\)</span> divides one of <span class="math notranslate nohighlight">\(q_1, q_2, \dots, q_s\)</span>.<br />
+We can renumber the <span class="math notranslate nohighlight">\(q_i\)</span> so that it is <span class="math notranslate nohighlight">\(q_1\)</span> that <span class="math notranslate nohighlight">\(p_1\)</span> divides.<br />
+It must be the case that <span class="math notranslate nohighlight">\(p_1 = q_1\)</span> since both <span class="math notranslate nohighlight">\(p_1\)</span> and <span class="math notranslate nohighlight">\(q_1\)</span> are prime.<br />
+Therefore <span class="math notranslate nohighlight">\(p_2 p_3 \dots p_r = q_2 q_3 \dots q_s\)</span>.<br />
+The integer <span class="math notranslate nohighlight">\(p_2 p_3 \dots p_r\)</span> is a product of <span class="math notranslate nohighlight">\(r - 1\)</span> primes.<br />
+Therefore <span class="math notranslate nohighlight">\(r - 1 = s - 1 \iff r = s\)</span> and after renumbering <span class="math notranslate nohighlight">\(p_i = q_i\)</span> for <span class="math notranslate nohighlight">\(i = 2, \dots, r\)</span>.<br />
+Since we already have <span class="math notranslate nohighlight">\(p_1 = q_1\)</span> we have <span class="math notranslate nohighlight">\(p_i = q_i\)</span> for <span class="math notranslate nohighlight">\(i = 1, 2, \dots, r\)</span>.</p>
+</div></blockquote>
+<p>Therefore any positive integer has a unique factorization up to rearrangement.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="infinitely-many-primes">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Infinitely many primes</a><a class="headerlink" href="#infinitely-many-primes" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Corollary\)</span> [Humphreys &amp; Prest 1.3.4 pp. 29] Euclid’s Elements Book IX Proposition 20</p>
+<blockquote>
+<div><p>There are infinitely many prime integers.<br />
+In other words, there is no largest prime.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall p \in \mathbb{P} \,\,
+[\,\,
+Prime(p) \implies
+\exists q \in \mathbb{P} \,\,
+[\,\,
+Prime(q) \land (q \gt p)
+\,\,]
+\,\,]
+\]</div>
+<p><span class="math notranslate nohighlight">\(Proof\)</span> [Humphreys &amp; Prest pp. 29-30]</p>
+<blockquote>
+<div><p>Choose any positive integer <span class="math notranslate nohighlight">\(n\)</span> and let <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span> be the first <span class="math notranslate nohighlight">\(n\)</span> prime numbers.<br />
+We will show that there is a prime number different from each of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>. Since <span class="math notranslate nohighlight">\(n\)</span> may be chosen as large as we like, this will show that there are not just finitely many primes.<br />
+Define the number <span class="math notranslate nohighlight">\(N = (p_1 p_2 \dots p_n) + 1\)</span> which need not itself be prime.<br />
+<span class="math notranslate nohighlight">\(N\)</span> has remainder <span class="math notranslate nohighlight">\(1\)</span> when divided by each of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>; in particular, none of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span> divides <span class="math notranslate nohighlight">\(N\)</span> exactly.<br />
+<span class="math notranslate nohighlight">\(N\)</span> has a prime divisor <span class="math notranslate nohighlight">\(p\)</span> by the fundamental theorem of arithmetic.<br />
+Since <span class="math notranslate nohighlight">\(p \mid N\)</span> it cannot be the case that <span class="math notranslate nohighlight">\(p\)</span> is equal to any of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>.<br />
+Therefore we have shown that there exists a prime which is not in our original list.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>The idea of this proof is to show how, given any finite set of primes, we can construct a number greater than or equal to <span class="math notranslate nohighlight">\(2\)</span> which is not divisible by any of them and which, therefore, must have a prime factor not in our original set.</p>
+<p>The integer <span class="math notranslate nohighlight">\(N\)</span> defined in the proof need not itself be prime: we simply showed that it has a prime divisor not equal to any of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>. In principle, one may find a <span class="math notranslate nohighlight">\(p\)</span> as in the proof by factorizing <span class="math notranslate nohighlight">\(N\)</span>. So the proof is, in principle, a recipe which, given any finite list of primes, will produce a new prime not already in the list.</p>
+</section>
+<hr class="docutils" />
+<section id="gcd-and-lcm-as-prime-factorizations">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">GCD and LCM as prime factorizations</a><a class="headerlink" href="#gcd-and-lcm-as-prime-factorizations" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Corollary\)</span> [Humphreys &amp; Prest 1.3.5 pp. 30-31]</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be positive integers.<br />
+Let <span class="math notranslate nohighlight">\(a = p_1^{n_1} p_2^{n_2} \dots p_r^{n_r}\)</span> and <span class="math notranslate nohighlight">\(b = p_1^{m_1} p_2^{m_2} \dots p_r^{m_r}\)</span> be the prime factorizations of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> where <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_r\)</span> are distinct primes and <span class="math notranslate nohighlight">\(n_1, n_2, \dots, n_r, m_1, m_2, \dots, m_r\)</span> are non-negative integers (some perhaps zero in order to allow a common list of primes to be used).<br />
+Then the greatest common divisor <span class="math notranslate nohighlight">\(d\)</span> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is given by <span class="math notranslate nohighlight">\(d = p_1^{k_1} p_2^{k_2} \dots p_r^{k_r}\)</span> where for each <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(k_i\)</span> is the smaller of <span class="math notranslate nohighlight">\(n_i\)</span> and <span class="math notranslate nohighlight">\(m_i\)</span>, and the least common multiple <span class="math notranslate nohighlight">\(f\)</span> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is given by <span class="math notranslate nohighlight">\(f = p_1^{t_1} p_2^{t_2} \dots p_r^{t_r}\)</span> where for each <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(t_i\)</span> is the larger of <span class="math notranslate nohighlight">\(n_i\)</span> and <span class="math notranslate nohighlight">\(m_i\)</span>.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(Proof\)</span> [Humphreys &amp; Prest pp. 31]</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(Examples\)</span> [Humphreys &amp; Prest pp. 31-32]</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(3\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+a &amp;= 2 &amp;&amp;= 2^1 \times 3^0 \\
+b &amp;= 3 &amp;&amp;= 2^0 \times 3^1 \\
+\hline
+gcd(a, b) &amp;= 1 &amp;&amp;= 2^0 \times 3^0 \\
+lcm(a, b) &amp;= 6 &amp;&amp;= 2^1 \times 3^1 \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(4\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+a &amp;= 2 &amp;&amp;= 2^1 \\
+b &amp;= 4 &amp;&amp;= 2^2 \\
+\hline
+gcd(a, b) &amp;= 2 &amp;&amp;= 2^1 \\
+lcm(a, b) &amp;= 4 &amp;&amp;= 2^2 \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(56\)</span> and <span class="math notranslate nohighlight">\(84\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+a &amp;= 56 &amp;&amp;= 2^3 \times 3^0 \times 7^1 \\
+b &amp;= 84 &amp;&amp;= 2^2 \times 3^1 \times 7^1 \\
+\hline
+gcd(a, b) &amp;=  28 &amp;&amp;= 2^2 \times 3^0 \times 7^1 \\
+lcm(a, b) &amp;= 168 &amp;&amp;= 2^3 \times 3^1 \times 7^1 \\
+\end{align*}
+\end{split}\]</div>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(135\)</span> and <span class="math notranslate nohighlight">\(639\)</span></p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+a &amp;= 135 &amp;&amp;= 3^3 \times 5^1 \times 71^0 \\
+b &amp;= 639 &amp;&amp;= 3^2 \times 5^0 \times 71^1 \\
+\hline
+gcd(a, b) &amp;=    9 &amp;&amp;= 3^2 \times 5^0 \times 71^0 \\
+lcm(a, b) &amp;= 9585 &amp;&amp;= 3^3 \times 5^1 \times 71^1 \\
+\end{align*}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="fermat-primes">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Fermat Primes</a><a class="headerlink" href="#fermat-primes" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Claim\)</span></p>
+<blockquote>
+<div><p>If <span class="math notranslate nohighlight">\(2^n + 1\)</span> is prime where <span class="math notranslate nohighlight">\(n \ge 1\)</span> then <span class="math notranslate nohighlight">\(n\)</span> must be of the form <span class="math notranslate nohighlight">\(2^k\)</span> for some positive integer <span class="math notranslate nohighlight">\(k\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+F(k) &amp;= 2^{2^k} + 1 \\
+F(0) &amp;= 2^{2^0} + 1 = 3 &amp;&amp; \text{prime} \\
+F(1) &amp;= 2^{2^1} + 1 = 5 &amp;&amp; \text{prime} \\
+F(2) &amp;= 2^{2^2} + 1 = 17 &amp;&amp; \text{prime} \\
+F(3) &amp;= 2^{2^3} + 1 = 257 &amp;&amp; \text{prime} \\
+F(4) &amp;= 2^{2^4} + 1 = 65,537 &amp;&amp; \text{prime} \\
+F(5) &amp;= 2^{2^5} + 1 = 4,294,967,297 &amp;&amp; \text{composite} \\
+F(6) &amp;= 2^{2^6} + 1 = 18,446,744,073,709,551,617 &amp;&amp; \text{composite} \\
+\vdots
+\end{align*}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="mersenne-primes">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h2>
+<div style="full-width">
+<p><span class="math notranslate nohighlight">\(Claim\)</span></p>
+<blockquote>
+<div><p>If <span class="math notranslate nohighlight">\(2^n - 1\)</span> is prime then <span class="math notranslate nohighlight">\(n\)</span> is prime.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+M(n) &amp;= 2^n - 1 \\
+M(2) &amp;= 2^2 - 1 = 3 &amp;&amp; \text{prime} \\
+M(3) &amp;= 2^3 - 1 = 7 &amp;&amp; \text{prime} \\
+M(5) &amp;= 2^5 - 1 = 31 &amp;&amp; \text{prime} \\
+M(7) &amp;= 2^7 - 1 = 127 &amp;&amp; \text{prime} \\
+M(11) &amp;= 2^{11} - 1 = 2,047 = 23 \times 89 &amp;&amp; \text{composite} \\
+M(13) &amp;= 2^{13} - 1 = 8,191 &amp;&amp; \text{prime} \\
+M(17) &amp;= 2^{17} - 1 = 131,071 &amp;&amp; \text{prime} \\
+M(19) &amp;= 2^{19} - 1 = 524,287 &amp;&amp; \text{prime} \\
+M(23) &amp;= 2^{23} - 1 = 8,388,607 = 47 × 178,481 &amp;&amp; \text{composite} \\
+M(29) &amp;= 2^{29} - 1 = 536,870,911 = 233 × 1,103 × 2,089 &amp;&amp; \text{composite} \\
+M(31) &amp;= 2^{31} - 1 = 2,147,483,647 &amp;&amp; \text{prime} \\
+M(37) &amp;= 2^{37} - 1 = 137,438,953,471 = ? \times ? &amp;&amp; \text{composite} \\
+M(41) &amp;= \\
+M(43) &amp;= \\
+M(47) &amp;= \\
+M(53) &amp;= \\
+M(59) &amp;= \\
+M(61) &amp;= \\
+M(71) &amp;= \\
+M(73) &amp;= \\
+M(79) &amp;= \\
+M(83) &amp;= \\
+M(89) &amp;= \\
+M(97) &amp;= \\
+\vdots \\
+M(13,466,917) &amp;= 2^{13,466,917} - 1 = \text{4,000,000-digit integer (2001)} \\
+\vdots \\
+M(82,589,933) &amp;= 2^{82,589,933} - 1 = \text{24,862,048-digit integer (2018)} \\
+\end{align*}
+\end{split}\]</div>
+</div></section>
+<hr class="docutils" />
+<section id="goldbach-s-conjecture">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Goldbach’s Conjecture</a><a class="headerlink" href="#goldbach-s-conjecture" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(Conjecture\)</span></p>
+<blockquote>
+<div><p>Every even number greater than two can be expressed as the sum of two primes.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+\forall n \in \mathbb{P} \,\,
+[\,\,
+(Even(n) \land (n \gt 2)) \implies
+\exists p, q \in \mathbb{P} \,\,
+[\,\,
+Prime(p) \land Prime(q) \land (n = p + q)
+\,\,]
+\,\,]
+\]</div>
+<div style="full-width">
+<p><span class="math notranslate nohighlight">\(Examples\)</span></p>
+<p><span class="math notranslate nohighlight">\(4 = 2 + 2\)</span> is the only even integer greater than <span class="math notranslate nohighlight">\(2\)</span> which is the sum of the prime <span class="math notranslate nohighlight">\(2\)</span> and another prime (in this case, <span class="math notranslate nohighlight">\(2\)</span> too).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{c|c|c|c|c|c|c|c|c|c|c}
+ 6 =&amp; 3 \\ \hline
+ 8 =&amp; 3 &amp; 5 \\ \hline
+10 =&amp; &amp; 5 \\ \hline
+12 =&amp; &amp; 5 &amp; 7 \\ \hline
+14 =&amp; &amp; &amp; 7 \\ \hline
+16 =&amp; 3 &amp; &amp; &amp; &amp; 13 \\ \hline
+    &amp; &amp; 5 &amp; &amp; 11 \\ \hline
+18 =&amp; &amp; 5 &amp; &amp; &amp; 13 \\ \hline
+    &amp; &amp; &amp; 7 &amp; 11 \\ \hline
+20 =&amp; 3 &amp; &amp; &amp; &amp; &amp; 17 \\ \hline
+    &amp; &amp; &amp; 7 &amp; &amp; 13 \\ \hline
+22 =&amp; 3 &amp; &amp; &amp; &amp; &amp; &amp; 19 \\ \hline
+    &amp; &amp; 5 &amp; &amp; &amp; &amp; 17 \\ \hline
+    &amp; &amp; &amp; &amp; 11 \\ \hline
+24 =&amp; &amp; 5 &amp; &amp; &amp; &amp; &amp; 19 \\ \hline
+    &amp; &amp; &amp; 7 &amp; &amp; &amp; 17 \\ \hline
+    &amp; &amp; &amp; &amp; 11 &amp; 13 \\ \hline
+26 =&amp; 3 &amp; &amp; &amp; &amp; &amp; &amp; &amp; 23 \\ \hline
+    &amp; &amp; &amp; 7 &amp; &amp; &amp; &amp; 19 \\ \hline
+    &amp; &amp; &amp; &amp; &amp; 13 \\ \hline
+28 =&amp; &amp; 5 &amp; &amp; &amp; &amp; &amp; &amp; 23 \\ \hline
+    &amp; &amp; &amp; &amp; 11 &amp; &amp; 17 \\ \hline
+30 =&amp; &amp; &amp; 7 &amp; &amp; &amp; &amp; &amp; 23 \\ \hline
+    &amp; &amp; &amp; &amp; 11 &amp; &amp; &amp; 19 \\ \hline
+    &amp; &amp; &amp; &amp; &amp; 13 &amp; 17 \\ \hline
+\end{array}
+\end{split}\]</div>
+</div></section>
+<hr class="docutils" />
+<section id="twin-primes-conjecture">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Twin Primes Conjecture</a><a class="headerlink" href="#twin-primes-conjecture" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>There are infinitely many pairs <span class="math notranslate nohighlight">\((x, y)\)</span> s.t. <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are both prime and <span class="math notranslate nohighlight">\(y = x + 2\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\color{red}
+\begin{aligned}
+&amp; \forall x, y \in \mathbb{P} \,\,
+(TwinPrimes(x, y) \iff (Prime(x) \land Prime(y) \land (y = x + 2))) \\
+&amp; \forall x, y \in \mathbb{P} \,\,
+(TwinPrimes(x, y) \implies \exists a, b \in \mathbb{P} \,\,
+((a \gt x) \land TwinPrimes(a, b)))
+\end{aligned}
+\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="bounded-gap-theorem">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Bounded Gap Theorem</a><a class="headerlink" href="#bounded-gap-theorem" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>There are infinitely many pairs of primes that differ by at most <span class="math notranslate nohighlight">\(70,000,000\)</span>.</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\color{red}
+\begin{aligned}
+&amp; \forall x, y \in \mathbb{P} \,\,
+(BoundedGapPrimes(x, y) \iff (Prime(x) \land Prime(y) \land (abs(y - x) \le 70,000,000))) \\
+&amp; \forall x, y \in \mathbb{P} \,\,
+(BoundedGapPrimes(x, y) \implies \exists a, b \in \mathbb{P} \,\,
+((a \gt x) \land BoundedGapPrimes(a, b)))
+\end{aligned}
+\end{split}\]</div>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/numbers/book___numbers_groups_codes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primes-and-composites">Primes and Composites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-prime">Definition of prime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite">Composite</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sieve-of-eratosthenes">Sieve of Eratosthenes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-lemma">Euclid’s Lemma</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prime-factorization">Prime Factorization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-primality">Relative Primality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythagorean-triples">Pythagorean Triples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-formula">Euclid’s Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-theorem-of-arithmetic">The Fundamental Theorem of Arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinitely-many-primes">Infinitely many primes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd-and-lcm-as-prime-factorizations">GCD and LCM as prime factorizations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-primes">Fermat Primes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goldbach-s-conjecture">Goldbach’s Conjecture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#twin-primes-conjecture">Twin Primes Conjecture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bounded-gap-theorem">Bounded Gap Theorem</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
