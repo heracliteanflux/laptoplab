@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy        as np
+import numpy.random as npr
+rng = npr.default_rng()
+
+from sympy.ntheory import factorint
+
+import numba
+
+import collections
+from   functools import lru_cache as cache
+import itertools
+import multiprocessing as mp
+import random
+import warnings
+warnings.filterwarnings(action = 'ignore')
+
+%load_ext Cython
+
+import datetime
+from   importlib.metadata import version
+import os
+import platform as p
+import sys
+
+pad = 20
+print(  f"\n{'Executed' : <{pad}} : {datetime.datetime.now().astimezone().strftime('%Y-%m-%d %H:%M:%S %z %Z')}"
+        f"\n{'Platform' : <{pad}} : {p.platform(aliased = False, terse = False)}"
+        f"\n{'Conda'    : <{pad}} : {os.environ['CONDA_DEFAULT_ENV'] or sys.executable.split('/')[-3]}"
+        f"\n{'Python'   : <{pad}} : {p.python_implementation()} {p.python_version()} {sys.executable}")
+print(*[f'{name : <{pad}} : {version(name)}'
+        for name in ['Cython', 'Numba', 'NumPy', 'SymPy']], sep = '\n')
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 7[0m
+[1;32m      3[0m rng [38;5;241m=[39m npr[38;5;241m.[39mdefault_rng()
+[1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01msympy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mntheory[39;00m [38;5;28;01mimport[39;00m factorint
+[0;32m----> 7[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumba[39;00m
+[1;32m      9[0m [38;5;28;01mimport[39;00m [38;5;21;01mcollections[39;00m
+[1;32m     10[0m [38;5;28;01mfrom[39;00m   [38;5;21;01mfunctools[39;00m [38;5;28;01mimport[39;00m lru_cache [38;5;28;01mas[39;00m cache
+
+[0;31mModuleNotFoundError[0m: No module named 'numba'
+

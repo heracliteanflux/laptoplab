@@ -1,0 +1,1150 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Arithmetic &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/numbers/arithmetic/index';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Modular Arithmetic" href="../arithmetic_mod/index.html" />
+    <link rel="prev" title="Number Theory" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../figures.html">Figures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../calc/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/01_calculus/intro.html">The Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../calc/01_calculus/03_integration/intro.html">Integration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/02_vector_calculus/intro.html">Vector Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../func/index.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../func/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/floor_ceil.html">Floor and Ceiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/ramp.html">Ramp Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../algebra/index.html">Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../algebra/book___a_transition_to_advanced_mathematics.html">Book: <em>A Transition to Advanced Mathematics</em></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../arithmetic_mod/index.html">Modular Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../congruence/index.html">Congruence and Residue</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../logic/introduction.html">Introduction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../combinatorics/index.html">Combinatorics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../combinatorics/counting.html">Counting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../discrete/index.html">Discrete Mathematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../discrete/languages.html">Languages and Machines</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../coding/index.html">Mathematical Coding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linprog/index.html">Linear Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/definitions.html">Some Definitions &amp; Graphing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/convex.html">Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/cones.html">Cones &amp; Dual Cones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/rowtableaux.html">Row Tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/sensitivity.html">Dual LP &amp; Sensitivity Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/0.html">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/132.html">[13.2] Production Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/midterm2.html">Midterm II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../numerical/index.html">Numerical Methods &amp; Scientific Computing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../more/index.html">More Math</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../more/cas.html">Computer Algebra Systems</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Science &amp; Engineering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/systems/index.html">Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/c_lang/index.html">C</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/shell/bash.html">Bash</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/c_lang/network_programming.html">Network Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/distributed/index.html">Distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/hardware/index.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/file/index.html">Filesystem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/ds%26a/index.html">DS&amp;A</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/ds%26a/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/data_structures/index.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/linked_list/index.html">Linked List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/stack/index.html">Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/priority_queue/index.html">Priority Queue</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/arithmetic/index.html">Arithmetic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/arithmetic/array_sum/index.html">Array Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/arithmetic/integer_multiplication/index.html">Integer Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/ds%26a/deduplication/index.html">Deduplication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/merge/index.html">Merge</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/merge/sorted_array_merge/index.html">Sorted Array Merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/merge/k_way_merge/index.html"><span class="math notranslate nohighlight">\(k\)</span>-Way Merge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/selection/index.html">Select</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/selection/k-th_smallest_element/index.html">Naive Selection: <span class="math notranslate nohighlight">\(k\)</span>-th smallest element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/selection/quickselect/index.html">Quickselect</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/sort/index.html">Sort</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/insertion_sort/index.html">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/bubble_sort/index.html">Bubble Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/merge_sort/index.html">Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/selection_sort/index.html">Selection Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/quick_sort/index.html">Quick Sort</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/search/index.html">Search</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/search/linear_search/index.html">Linear Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/search/binary_search/index.html">Binary Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/index.html">Trees &amp; Graphs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/trees/index.html">Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/graphs/index.html">Graphs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/optimization/index.html">Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference external" href="https://heracliteanflux.github.io/laptoplab/m/linearprogramming/index.html">Linear Programming</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/index.html">Dynamic Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/lucas_numbers/index.html">Lucas Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/bellman-ford/index.html">Bellman-Ford</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/0-1_knapsack/index.html">0-1 Knapsack</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/course/index.html">PSU CMPSC 465</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/01.html">Assignment 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/02.html">Assignment 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/03.html">Assignment 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/04.html">Assignment 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/05.html">Assignment 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/m.html">Midterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/06.html">Assignment 6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/07.html">Assignment 7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/08.html">Assignment 8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/f.html">Final</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/heracliteanflux/systems/tree/main/clang">https://github.com/heracliteanflux/systems/tree/main/clang</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/rlang/index.html">R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/sec/index.html">Security</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/ctf/index.html">CTF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/gitops/index.html">GitOps</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/network/index.html">Networking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/data/index.html">Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/data/relational/index.html">Relational</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/files.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/info/index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/learning/index.html">Artificial Intelligence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Arithmetic</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bit-complexity-of-numbers">The bit complexity of numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addition">Addition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication">Multiplication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-school-binary-multiplication-algorithm">Grade-School Binary Multiplication Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-a-la-francais">Multiplication à la Français</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="arithmetic">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Arithmetic</a><a class="headerlink" href="#arithmetic" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="contents">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<nav class="contents" id="id1">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#arithmetic" id="id2">Arithmetic</a></p>
+<ul>
+<li><p><a class="reference internal" href="#contents" id="id3">Contents</a></p></li>
+<li><p><a class="reference internal" href="#the-bit-complexity-of-numbers" id="id4">The bit complexity of numbers</a></p></li>
+<li><p><a class="reference internal" href="#addition" id="id5">Addition</a></p></li>
+<li><p><a class="reference internal" href="#multiplication" id="id6">Multiplication</a></p>
+<ul>
+<li><p><a class="reference internal" href="#grade-school-binary-multiplication-algorithm" id="id7">Grade-School Binary Multiplication Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier" id="id8">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a></p></li>
+<li><p><a class="reference internal" href="#multiplication-a-la-francais" id="id9">Multiplication à la Français</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#division" id="id10">Division</a></p></li>
+<li><p><a class="reference internal" href="#resources" id="id11">Resources</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id12">Terms</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id13">Acknowledgements</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<hr class="docutils" />
+<section id="the-bit-complexity-of-numbers">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">The bit complexity of numbers</a><a class="headerlink" href="#the-bit-complexity-of-numbers" title="Link to this heading">#</a></h2>
+<p>We focus on bit complexity (of algorithms), the number of elementary operations on individual bits, because it reflects the amount of hardware, transistors and wires, necessary for implementing an algorithm.</p>
+<p>It is a basic property of numbers that <strong>for any base <span class="math notranslate nohighlight">\(b \ge 2\)</span> the sum of any three single-digit numbers is at most two digits long</strong>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+b &amp;=  2 &amp;&amp; &amp; 1 + 1 + 1 &amp;= 11                                             &amp;&amp;= 1 \times  2^1 +  1 \times  2^0 \\
+b &amp;=  3 &amp;&amp; &amp; 2 + 2 + 2 &amp;= 20                                             &amp;&amp;= 2 \times  3^1 +  0 \times  3^0 \\
+b &amp;= 10 &amp;&amp; &amp; 9 + 9 + 9 &amp;= 27                                             &amp;&amp;= 2 \times 10^1 +  7 \times 10^0 \\
+b &amp;= 16 &amp;&amp; &amp; F + F + F &amp;= 2D                                             &amp;&amp;= 2 \times 16^1 + 13 \times 16^0 \\
+b &amp;= 60 &amp;&amp; &amp; \lambda_{59} + \lambda_{59} + \lambda_{59} &amp;= 2\lambda_{57} &amp;&amp;= 2 \times 60^1 + 57 \times 60^0 \\
+\end  {aligned}
+\)</span></p>
+<p><strong>How many digits are needed to represent the number <span class="math notranslate nohighlight">\(N \ge 0\)</span> in base <span class="math notranslate nohighlight">\(b\)</span>?</strong> <span class="math notranslate nohighlight">\(\lceil \log_b (N + 1) \rceil\)</span> digits are needed to represent <span class="math notranslate nohighlight">\(N\)</span> in base <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>With <span class="math notranslate nohighlight">\(k \ge 1\)</span> digits in base <span class="math notranslate nohighlight">\(b\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(b^k - 1\)</span>.</p>
+<p>base <span class="math notranslate nohighlight">\(2\)</span></p>
+<ul class="simple">
+<li><p>with <span class="math notranslate nohighlight">\(1\)</span> digits in base <span class="math notranslate nohighlight">\(2\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(2^1 - 1 = 1\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(2\)</span> digits in base <span class="math notranslate nohighlight">\(2\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(2^2 - 1 = 3\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(3\)</span> digits in base <span class="math notranslate nohighlight">\(2\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(2^3 - 1 = 7\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(4\)</span> digits in base <span class="math notranslate nohighlight">\(2\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(2^4 - 1 = 15\)</span></p></li>
+</ul>
+<p>base <span class="math notranslate nohighlight">\(10\)</span></p>
+<ul class="simple">
+<li><p>with <span class="math notranslate nohighlight">\(1\)</span> digits in base <span class="math notranslate nohighlight">\(10\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(10^1 - 1 = 9\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(2\)</span> digits in base <span class="math notranslate nohighlight">\(10\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(10^2 - 1 = 99\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(3\)</span> digits in base <span class="math notranslate nohighlight">\(10\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(10^3 - 1 = 999\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(4\)</span> digits in base <span class="math notranslate nohighlight">\(10\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(10^4 - 1 = 9999\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+b^k - 1 &amp;= N \\
+b^k     &amp;= N + 1 \\
+\log_b b^k &amp;= \lceil \log_b (N + 1) \rceil \\
+k          &amp;= \lceil \log_b (N + 1) \rceil \\
+\end  {aligned}
+\)</span></p>
+<p>Base <span class="math notranslate nohighlight">\(2\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\lceil \log_2 (\textcolor{green}{ 0} + 1) \rceil &amp;= 1 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 1} + 1) \rceil &amp;= 1 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 2} + 1) \rceil &amp;= 2 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 3} + 1) \rceil &amp;= 2 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 4} + 1) \rceil &amp;= 3 \text{ b} \\ &amp;\vdots \\
+\lceil \log_2 (\textcolor{green}{ 7} + 1) \rceil &amp;= 3 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 8} + 1) \rceil &amp;= 4 \text{ b} \\ &amp;\vdots \\
+\lceil \log_2 (\textcolor{green}{15} + 1) \rceil &amp;= 4 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{16} + 1) \rceil &amp;= 5 \text{ b} \\ &amp;\vdots \\
+\lceil \log_2 (\textcolor{green}{31} + 1) \rceil &amp;= 5 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{32} + 1) \rceil &amp;= 6 \text{ b} \\ &amp;\vdots \\
+\lceil \log_2 (\textcolor{green}{63} + 1) \rceil &amp;= 6 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{64} + 1) \rceil &amp;= 7 \text{ b} \\
+\end  {aligned}
+\)</span></p>
+<p><strong>How much does the size of a number change when its base changes?</strong></p>
+<p>The rule for converting logarithms from base <span class="math notranslate nohighlight">\(a\)</span> to base <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\log_b N = \frac{1}{\log_a b} \log_a N \iff \log_a N = \log_b N \times \log_a b\)</span></p>
+<p>The size of integer <span class="math notranslate nohighlight">\(N\)</span> in base <span class="math notranslate nohighlight">\(a\)</span> is the same as its size in base <span class="math notranslate nohighlight">\(b\)</span> times a constant factor <span class="math notranslate nohighlight">\(\log_a b\)</span>. Therefore, in big-<span class="math notranslate nohighlight">\(O\)</span> notation the base is irrelevant and the size is written simply as <span class="math notranslate nohighlight">\(O(\log N)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\log N\)</span> is the power to which <span class="math notranslate nohighlight">\(2\)</span> must be raised to obtain <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\lceil \log N \rceil\)</span> is the number of times <span class="math notranslate nohighlight">\(N\)</span> must be halved to obtain unity. This will be useful when a number is halved at each iteration of an algorithm.</p>
+<p><span class="math notranslate nohighlight">\(\lceil \log (N + 1) \rceil\)</span> is the number of bits in the binary representation of <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\lfloor \log N \rfloor\)</span> is the depth of a complete binary tree with <span class="math notranslate nohighlight">\(N\)</span> nodes.</p>
+<p><span class="math notranslate nohighlight">\(\log N = 1 + 1/2 + 1/3 + \dotsb + 1/N\)</span> to within a constant factor.</p>
+</section>
+<hr class="docutils" />
+<section id="addition">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Addition</a><a class="headerlink" href="#addition" title="Link to this heading">#</a></h2>
+<p>The rule that the sum of any three single-digit numbers is at most two digits allows us to add two numbers in any base in the following way: align their right-hand ends and then perform a single right-to-left pass in which the sum is computed digit by digit, maintaining the overflow as a carry. Since we know the individual sum is a two-digit number, the carry is always a single digit, and so at any given step, three single-digit numbers are added.</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>Carry  1     1 1 1
+         1 1 0 1 0 1 (53)
+         1 0 0 0 1 1 (35)
+       -------------
+       1 0 1 1 0 0 0 (88)
+</pre></div>
+</div>
+<p><strong>Complexity</strong></p>
+<p>Suppose both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are <span class="math notranslate nohighlight">\(n\)</span> bits long. Then <span class="math notranslate nohighlight">\(x + y\)</span> is at most <span class="math notranslate nohighlight">\(n + 1\)</span> bits long and each bit of this sum is computed in a fixed amount of time.</p>
+<p><span class="math notranslate nohighlight">\(T(n) = c_1n + c_0 = O(n)\)</span></p>
+<p>Is there a faster algorithm? In order to add two <span class="math notranslate nohighlight">\(n\)</span>-bit numbers they must at least be read and their sum written, <span style="color: red;">which require n operations</span>. Therefore, the addition algorithm is optimal <span style="color: red;">up to multiplicative constants</span>.</p>
+<p>It is true that in a single processor instruction integers can be added whose size in bits is within the word length of today’s computers–<span class="math notranslate nohighlight">\(32\)</span> perhaps. But it is often useful and necessary to handle numbers much larger than this, perhaps several thousand bits long. Adding and multiplying such large numbers on real computers is very much like performing the operations bit by bit.</p>
+<p><strong>Implementation</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">b1</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">b2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// remainder</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter the first  binary number: &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%ld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter the second binary number: &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%ld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">b1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b1</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">r</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b1</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">b1</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">b2</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<span class="w">  </span><span class="o">--</span><span class="n">i</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sum: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="o">--</span><span class="p">]);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="multiplication">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Multiplication</a><a class="headerlink" href="#multiplication" title="Link to this heading">#</a></h2>
+<section id="grade-school-binary-multiplication-algorithm">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Grade-School Binary Multiplication Algorithm</a><a class="headerlink" href="#grade-school-binary-multiplication-algorithm" title="Link to this heading">#</a></h3>
+<p>Multiply two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. Create an array of intermediate sums each representing the product of <span class="math notranslate nohighlight">\(x\)</span> by a single digit of <span class="math notranslate nohighlight">\(y\)</span>. These values are appropriately left-shifted and then added up.</p>
+<p><span class="math notranslate nohighlight">\(13 \times 11\)</span> or <span class="math notranslate nohighlight">\(x = 1101\)</span> and <span class="math notranslate nohighlight">\(y = 1011\)</span></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>        1 1 0 1 (13, multiplicand)
+      x 1 0 1 1 (11, multiplier)
+      ---------
+        1 1 0 1 (1101 times 1)                  13 x 2^0 =  13
+      1 1 0 1   (1101 times 1, shifted once)    13 x 2^1 =  26
+    0 0 0 0     (1101 times 0, shifted twice)    0 x 2^2 =   0
++ 1 1 0 1       (1101 times 1, shifted thrice)  13 x 2^3 = 104
+---------------
+1 0 0 0 1 1 1 1 (binary 143)
+</pre></div>
+</div>
+<p>In binary each intermediate row is either zero or <span class="math notranslate nohighlight">\(x\)</span> itself, left-shifted an appropriate amount of times. Left-shifting multiplies by the base and right-shifting divides by the base, rounding down if necessary.</p>
+<p><strong>Correctness</strong></p>
+<p><strong>Complexity</strong></p>
+<p>If <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are both <span class="math notranslate nohighlight">\(n\)</span> bits then there are <span class="math notranslate nohighlight">\(n\)</span> intermediate rows with lengths of up to <span class="math notranslate nohighlight">\(2n\)</span> bits, accounting for the shifts. The total time taken to add up these rows, two numbers at a time, is</p>
+<p><span class="math notranslate nohighlight">\(\underbrace{O(n) + O(n) + \dotsb + O(n)}_{n - 1 \text{ times}} = O(n^2)\)</span></p>
+</section>
+<section id="al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a><a class="headerlink" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier" title="Link to this heading">#</a></h3>
+<p>Multiply two decimal numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. Write them next to each other and then repeat the following: divide the first number by <span class="math notranslate nohighlight">\(2\)</span>, rounding down the result, and double the second number; continue until the first number reaches unity and then strike out all the rows in which the first number is even and add up whatever remains in the second column.</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>                      parity of multiplier 11
+11    13              11 = 5 x 2 +  1
+ 5    26               5 = 2 x 2 +  1
+ 2    52 (strike out)  2 = 1 x 2 +  0
+ 1   104               1 = 0 x 2 +  1
+--------
+     143
+</pre></div>
+</div>
+</section>
+<section id="multiplication-a-la-francais">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Multiplication à la Français</a><a class="headerlink" href="#multiplication-a-la-francais" title="Link to this heading">#</a></h3>
+<p>This algorithm implements the following recursive rule.</p>
+<p><span class="math notranslate nohighlight">\(
+x \cdot y =
+\begin{cases}
+    2(x \cdot \lfloor y/2 \rfloor) &amp; \text{if \textit{y} is even} \\
+x + 2(x \cdot \lfloor y/2 \rfloor) &amp; \text{if \textit{y} is odd} \\
+\end  {cases}
+\)</span></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">INPUT</span><span class="w">    </span><span class="n">two</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">integers</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">OUTPUT</span><span class="w">    </span><span class="n">their</span><span class="w"> </span><span class="n">product</span>
+
+<span class="n">MULT</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="mi">1</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="mi">2</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="mi">3</span>
+<span class="mi">4</span><span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MULT</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">floor</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="mi">5</span>
+<span class="mi">6</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">even</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="mi">7</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="n">z</span>
+<span class="mi">8</span><span class="w">    </span><span class="k">else</span>
+<span class="mi">9</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="n">z</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span>
+</pre></div>
+</div>
+<p>EXAMPLE</p>
+<p>algorithm decomposition</p>
+<p><span class="math notranslate nohighlight">\(x \cdot 25 = x \cdot 16 + x \cdot 8 + x \cdot 1\)</span></p>
+<p>For multiplication the terms <span class="math notranslate nohighlight">\(x \cdot 2^i\)</span> come from repeated doubling</p>
+<p><strong>Correctness</strong></p>
+<p>The recursive rule is <span style="color: red;">transparently</span> correct. Checking that the algorithm is correct is a matter of verifying that it mimics the rule and that it handles the base case <span class="math notranslate nohighlight">\(y = 0\)</span> properly.</p>
+<p><strong>Complexity</strong></p>
+<p>The algorithm terminates after <span class="math notranslate nohighlight">\(n\)</span> recursive calls because at each call <span class="math notranslate nohighlight">\(y\)</span> is halved (i.e., its number of bits is decreased by one). Each recursive call requires the following operations:</p>
+<ul class="simple">
+<li><p>a division by <span class="math notranslate nohighlight">\(2\)</span> (a right shift)</p></li>
+<li><p>a test for odd/even (looking up the last bit)</p></li>
+<li><p>a multiplication by <span class="math notranslate nohighlight">\(2\)</span> (a left shift)</p></li>
+<li><p>possibly, one addition</p></li>
+</ul>
+<p>a total of <span class="math notranslate nohighlight">\(O(n)\)</span> bit operations. The total running time is</p>
+<p><span class="math notranslate nohighlight">\(T(n) = O(n^2)\)</span></p>
+<p>Can we do better? Intuitively, it seems that multiplication requires adding about <span class="math notranslate nohighlight">\(n\)</span> multiples of one of the inputs, and we know that each addition is linear, so it would appear that <span class="math notranslate nohighlight">\(n^2\)</span> bit operations are inevitable. But we will see that we can de better.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="division">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Division</a><a class="headerlink" href="#division" title="Link to this heading">#</a></h2>
+<p>To divide an integer <span class="math notranslate nohighlight">\(x\)</span> by an integer <span class="math notranslate nohighlight">\(y \ne 0\)</span> means to find a quotient <span class="math notranslate nohighlight">\(q\)</span> and a remainder <span class="math notranslate nohighlight">\(r\)</span>, where <span class="math notranslate nohighlight">\(x = yq + r\)</span> and <span class="math notranslate nohighlight">\(r \lt y\)</span>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">INPUT</span><span class="w">    </span><span class="n">two</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">integers</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">OUTPUT</span><span class="w">    </span><span class="n">the</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">divided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">y</span>
+
+<span class="n">DIVIDE</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w"> </span><span class="mi">1</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w"> </span><span class="mi">2</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w"> </span><span class="mi">3</span>
+<span class="w"> </span><span class="mi">4</span><span class="w">    </span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DIVIDE</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w"> </span><span class="mi">5</span><span class="w">    </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">q</span>
+<span class="w"> </span><span class="mi">6</span><span class="w">    </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">r</span>
+<span class="w"> </span><span class="mi">7</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">odd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w"> </span><span class="mi">8</span><span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w"> </span><span class="mi">9</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">y</span>
+<span class="mi">10</span><span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span>
+<span class="mi">11</span><span class="w">        </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="mi">12</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Complexity</strong> Like multiplication, division takes quadratic time.</p>
+<p><span class="math notranslate nohighlight">\(T(n) = O(n^2)\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.geeksforgeeks.org/c-program-to-add-2-binary-strings/">https://www.geeksforgeeks.org/c-program-to-add-2-binary-strings/</a></p>
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplication_algorithm">w</a> ] Multiplication Algorithm</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="acknowledgements">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill Education.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/numbers/arithmetic"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Number Theory</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../arithmetic_mod/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modular Arithmetic</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bit-complexity-of-numbers">The bit complexity of numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addition">Addition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication">Multiplication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-school-binary-multiplication-algorithm">Grade-School Binary Multiplication Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-a-la-francais">Multiplication à la Français</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
