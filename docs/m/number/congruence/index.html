@@ -1,0 +1,1294 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Congruence and Residue &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/number/congruence/index';</script>
+    <script src="../../../_static/script.js?v=9c6c3268"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../figures.html">Figures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../calc/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/01_calculus/intro.html">The Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/00_polynomial.html">Polynomials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../calc/01_calculus/03_integration/intro.html">Integration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/02_vector_calculus/intro.html">Vector Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../func/index.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../func/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/floor_ceil.html">Floor and Ceiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/ramp.html">Ramp Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../algebra/index.html">Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../algebra/book___a_transition_to_advanced_mathematics.html">Book: <em>A Transition to Advanced Mathematics</em></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../logic/introduction.html">Introduction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../combinatorics/index.html">Combinatorics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../combinatorics/counting.html">Counting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../discrete/index.html">Discrete Mathematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../discrete/languages.html">Languages and Machines</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../coding/index.html">Mathematical Coding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../coding/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linprog/index.html">Linear Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/definitions.html">Some Definitions &amp; Graphing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/convex.html">Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/cones.html">Cones &amp; Dual Cones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/rowtableaux.html">Row Tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/sensitivity.html">Dual LP &amp; Sensitivity Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/0.html">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/132.html">[13.2] Production Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/midterm2.html">Midterm II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../numerical/index.html">Numerical Methods &amp; Scientific Computing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../more/index.html">More Math</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../more/cas.html">Computer Algebra Systems</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Science &amp; Engineering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/systems/index.html">Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/c_lang/index.html">C</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/shell/bash.html">Bash</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/c_lang/network_programming.html">Network Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/distributed/index.html">Distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/hardware/index.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/file/index.html">Filesystem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/ds%26a/index.html">DS&amp;A</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/ds%26a/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/data_structures/index.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/linked_list/index.html">Linked List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/stack/index.html">Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/priority_queue/index.html">Priority Queue</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/arithmetic/index.html">Arithmetic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/arithmetic/array_sum/index.html">Array Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/arithmetic/integer_multiplication/index.html">Integer Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/ds%26a/deduplication/index.html">Deduplication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/merge/index.html">Merge</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/merge/sorted_array_merge/index.html">Sorted Array Merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/merge/k_way_merge/index.html"><span class="math notranslate nohighlight">\(k\)</span>-Way Merge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/selection/index.html">Select</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/selection/k-th_smallest_element/index.html">Naive Selection: <span class="math notranslate nohighlight">\(k\)</span>-th smallest element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/selection/quickselect/index.html">Quickselect</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/sort/index.html">Sort</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/insertion_sort/index.html">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/bubble_sort/index.html">Bubble Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/merge_sort/index.html">Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/selection_sort/index.html">Selection Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/quick_sort/index.html">Quick Sort</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/search/index.html">Search</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/search/linear_search/index.html">Linear Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/search/binary_search/index.html">Binary Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/index.html">Trees &amp; Graphs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/trees/index.html">Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/graphs/index.html">Graphs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/optimization/index.html">Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference external" href="https://heracliteanflux.github.io/laptoplab/m/linearprogramming/index.html">Linear Programming</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/index.html">Dynamic Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/lucas_numbers/index.html">Lucas Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/bellman-ford/index.html">Bellman-Ford</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/0-1_knapsack/index.html">0-1 Knapsack</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/course/index.html">PSU CMPSC 465</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/01.html">Assignment 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/02.html">Assignment 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/03.html">Assignment 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/04.html">Assignment 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/05.html">Assignment 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/m.html">Midterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/06.html">Assignment 6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/07.html">Assignment 7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/08.html">Assignment 8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/f.html">Final</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/heracliteanflux/systems/tree/main/clang">https://github.com/heracliteanflux/systems/tree/main/clang</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/rlang/index.html">R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/sec/index.html">Security</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/ctf/index.html">CTF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/gitops/index.html">GitOps</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/network/index.html">Networking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/data/index.html">Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/data/relational/index.html">Relational</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/files.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/info/index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/learning/index.html">Artificial Intelligence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Congruence and Residue</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-residue-class">Definition: residue class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residue-class-arithmetic">Residue class arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-congruence-relation">Definition: congruence relation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-congruence-relation">Properties of the congruence relation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexivity">Reflexivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry">Symmetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transitivity">Transitivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additions-preserve-congruence">Additions preserve congruence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplications-preserve-congruences">Multiplications preserve congruences</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem">Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-reduced-residues">Definition: reduced residues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Proof</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corollary">Corollary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-multiplicative-function">Definition: multiplicative function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Corollary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-euler">Theorem (Euler)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Proof</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corollary-fermat">Corollary (Fermat)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudoprimes">Pseudoprimes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="congruence-and-residue">
+<h1><a class="toc-backref" href="#id9" role="doc-backlink">Congruence and Residue</a><a class="headerlink" href="#congruence-and-residue" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="contents">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<nav class="contents" id="id1">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#congruence-and-residue" id="id9">Congruence and Residue</a></p>
+<ul>
+<li><p><a class="reference internal" href="#contents" id="id10">Contents</a></p></li>
+<li><p><a class="reference internal" href="#definition-residue-class" id="id11">Definition: residue class</a></p></li>
+<li><p><a class="reference internal" href="#residue-class-arithmetic" id="id12">Residue class arithmetic</a></p></li>
+<li><p><a class="reference internal" href="#definition-congruence-relation" id="id13">Definition: congruence relation</a></p></li>
+<li><p><a class="reference internal" href="#properties-of-the-congruence-relation" id="id14">Properties of the congruence relation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#reflexivity" id="id15">Reflexivity</a></p></li>
+<li><p><a class="reference internal" href="#symmetry" id="id16">Symmetry</a></p></li>
+<li><p><a class="reference internal" href="#transitivity" id="id17">Transitivity</a></p></li>
+<li><p><a class="reference internal" href="#additions-preserve-congruence" id="id18">Additions preserve congruence</a></p></li>
+<li><p><a class="reference internal" href="#multiplications-preserve-congruences" id="id19">Multiplications preserve congruences</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#theorem" id="id20">Theorem</a></p>
+<ul>
+<li><p><a class="reference internal" href="#proof" id="id21">Proof</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#definition-reduced-residues" id="id22">Definition: reduced residues</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id23">Theorem</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id24">Theorem</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id25">Proof</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id5" id="id26">Theorem</a></p>
+<ul>
+<li><p><a class="reference internal" href="#corollary" id="id27">Corollary</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#definition-multiplicative-function" id="id28">Definition: multiplicative function</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id6" id="id29">Corollary</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id7" id="id30">Theorem</a></p></li>
+<li><p><a class="reference internal" href="#theorem-euler" id="id31">Theorem (Euler)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id8" id="id32">Proof</a></p></li>
+<li><p><a class="reference internal" href="#corollary-fermat" id="id33">Corollary (Fermat)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#pseudoprimes" id="id34">Pseudoprimes</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<hr class="docutils" />
+<section id="definition-residue-class">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Definition: residue class</a><a class="headerlink" href="#definition-residue-class" title="Link to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> and define the residue class <span class="math notranslate nohighlight">\(\bar{r} \text{ modulo } m\)</span> by</p>
+<p><span class="math notranslate nohighlight">\(\bar{r} = \{ x \in \mathbb{Z} : m \mid (x - r) \}\)</span></p>
+<p>By the division algorithm every integer is in one of</p>
+<p><span class="math notranslate nohighlight">\(\overline{0}, \overline{1}, \dotsc, \overline{m - 1}\)</span></p>
+<p>This is called a complete system of residues modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</section>
+<section id="residue-class-arithmetic">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Residue class arithmetic</a><a class="headerlink" href="#residue-class-arithmetic" title="Link to this heading">#</a></h2>
+<p>Arithmetic can be performed on residue classes just as if they were numbers.</p>
+<p>The residue class <span class="math notranslate nohighlight">\(\bar{0}\)</span> behaves like the number <span class="math notranslate nohighlight">\(0\)</span>, since <span class="math notranslate nohighlight">\(\bar{0}\)</span> is the set of multiples of <span class="math notranslate nohighlight">\(m\)</span>, and adding any one of them to an element of <span class="math notranslate nohighlight">\(\bar{r}\)</span> does not change the remainder.</p>
+<p>Thus for any <span class="math notranslate nohighlight">\(r\)</span></p>
+<p><span class="math notranslate nohighlight">\(\bar{0} + \bar{r} = \bar{r} = \bar{r} + \bar{0}\)</span></p>
+<p>Suppose we are given any two residue classes <span class="math notranslate nohighlight">\(\bar{r}\)</span> and <span class="math notranslate nohighlight">\(\bar{s}\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{r} &amp;= \{ x \in \mathbb{Z} : m \mid (x - r) \} \\
+\bar{s} &amp;= \{ y \in \mathbb{Z} : m \mid (y - r) \} \\
+\end  {aligned}
+\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(t\)</span> be the remainder of <span class="math notranslate nohighlight">\(r + s\)</span> on division by <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(r + s = mz + t\)</span></p>
+<p>Then the elements of <span class="math notranslate nohighlight">\(\bar{r}\)</span> and <span class="math notranslate nohighlight">\(\bar{s}\)</span> are of the form <span class="math notranslate nohighlight">\(r + mx\)</span> and <span class="math notranslate nohighlight">\(s + my\)</span> and it is known that <span class="math notranslate nohighlight">\(r + s = t + mz\)</span> for some <span class="math notranslate nohighlight">\(z\)</span>. Thus</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+r + mx + s + my = t + m(x + y + z) \in \bar{t}
+\end  {aligned}
+\)</span></p>
+<p>Thus it makes sense to write <span class="math notranslate nohighlight">\(\bar{r} + \bar{s} = \bar{t}\)</span> and then we have <span class="math notranslate nohighlight">\(\bar{r} + \bar{s} = \bar{s} + \bar{r}\)</span>.</p>
+<p>It is also the case that <span class="math notranslate nohighlight">\(\overline{r} + \overline{-r} = \overline{0}\)</span></p>
+</section>
+<section id="definition-congruence-relation">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Definition: congruence relation</a><a class="headerlink" href="#definition-congruence-relation" title="Link to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>. If two integers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> satisfy <span class="math notranslate nohighlight">\(m \mid x - y\)</span> then we write</p>
+<p><span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span></p>
+<p>and we say that <span class="math notranslate nohighlight">\(x\)</span> is congruent to <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</section>
+<section id="properties-of-the-congruence-relation">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Properties of the congruence relation</a><a class="headerlink" href="#properties-of-the-congruence-relation" title="Link to this heading">#</a></h2>
+<section id="reflexivity">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Reflexivity</a><a class="headerlink" href="#reflexivity" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(x \equiv x \mod m\)</span></p>
+</section>
+<section id="symmetry">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Symmetry</a><a class="headerlink" href="#symmetry" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(x \equiv y \mod m \iff y \equiv x \mod m\)</span></p>
+</section>
+<section id="transitivity">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Transitivity</a><a class="headerlink" href="#transitivity" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(y \equiv z \mod m\)</span> then <span class="math notranslate nohighlight">\(x \equiv z \mod m\)</span>.</p>
+<span style="color: red;">
+<p>Congruences modulo <span class="math notranslate nohighlight">\(m\)</span> partition the integers into equivalence classes.</span></p>
+</section>
+<section id="additions-preserve-congruence">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Additions preserve congruence</a><a class="headerlink" href="#additions-preserve-congruence" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(z \equiv t \mod m\)</span> then <span class="math notranslate nohighlight">\(x + z \equiv y + t \mod m\)</span>.</p>
+</section>
+<section id="multiplications-preserve-congruences">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Multiplications preserve congruences</a><a class="headerlink" href="#multiplications-preserve-congruences" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(z \equiv t \mod m\)</span> then <span class="math notranslate nohighlight">\(xz \equiv yt \mod m\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> then for any <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> it is the case that <span class="math notranslate nohighlight">\(x^n \equiv y^n \mod m\)</span> (using induction on <span class="math notranslate nohighlight">\(n\)</span>).</p>
+<p>If <span class="math notranslate nohighlight">\(f\)</span> is a polynomial with integer coefficients and <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> then <span class="math notranslate nohighlight">\(f(x) \equiv f(y) \mod m\)</span>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="theorem">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Theorem</a><a class="headerlink" href="#theorem" title="Link to this heading">#</a></h2>
+<p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span>, <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span>, and</p>
+<p><span class="math notranslate nohighlight">\(\overline{a_1}, \overline{a_2}, \dotsc, \overline{a_m}\)</span></p>
+<p>forms a complete system of residues modulo <span class="math notranslate nohighlight">\(m\)</span>. Then so does</p>
+<p><span class="math notranslate nohighlight">\(\overline{ka_1}, \overline{ka_2}, \dotsc, \overline{ka_m}\)</span></p>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(\bar{0}, \bar{1}, \bar{2}\)</span> is a complete system of residues modulo <span class="math notranslate nohighlight">\(m\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 0) \} = \{ 3x \} \\
+\bar{1} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 1) \} = \{ 3x + 1 \} \\
+\bar{2} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2) \} = \{ 3x + 2 \} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(2, 3) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 0) \} = \{ 3x \} \\
+\bar{2} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2) \} = \{ 3x + 2 \} \\
+\bar{4} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 4) \} = \{ 3x + 4 \} = \{ 3(x + 1) + 1 \} = \{ 3x + 1 \} \\
+\end  {aligned}
+\)</span></p>
+<section id="proof">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Proof</a><a class="headerlink" href="#proof" title="Link to this heading">#</a></h3>
+<div style="color: red;">
+<p>Since there are <span class="math notranslate nohighlight">\(m\)</span> residue classes it need only be checked that they are disjoint.</p>
+</div>
+<p>Consider any two residue classes <span class="math notranslate nohighlight">\(\overline{ka_i}\)</span> and <span class="math notranslate nohighlight">\(\overline{ka_j}\)</span> and let <span class="math notranslate nohighlight">\(ka_i + mx\)</span> and <span class="math notranslate nohighlight">\(ka_j + my\)</span> be typical members of each, respectively.</p>
+<p>If they were the same integer then <span class="math notranslate nohighlight">\(ka_i + mx = ka_j + my \iff ka_i - ka_j = my - mx \iff k(a_i - a_j) = m(y - x)\)</span>.</p>
+<p>But then <span class="math notranslate nohighlight">\(m \mid k(a_i - a_j)\)</span> and since <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span> it would be the case that <span class="math notranslate nohighlight">\(m \mid a_i - a_j\)</span>; that <span class="math notranslate nohighlight">\(\overline{a_i}\)</span> and <span class="math notranslate nohighlight">\(\overline{a_j}\)</span> be the same residue class; and that <span class="math notranslate nohighlight">\(i = j\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="definition-reduced-residues">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Definition: reduced residues</a><a class="headerlink" href="#definition-reduced-residues" title="Link to this heading">#</a></h2>
+<p>A set of <span class="math notranslate nohighlight">\(\phi(m)\)</span> distinct residue classes <span class="math notranslate nohighlight">\(\bar{r}\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> with <span class="math notranslate nohighlight">\(\gcd(r, m) = 1\)</span> is called a set of reduced residues modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p>One way of thinking about reduced residues is to start from a complete set of fractions with denominator <span class="math notranslate nohighlight">\(m\)</span> in the interval <span class="math notranslate nohighlight">\((0, 1]\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{1}{m}, \frac{2}{m}, \dotsc, \frac{m}{m}
+\end  {aligned}
+\)</span></p>
+<p>Now remove just the ones whose numerator has a common factor <span class="math notranslate nohighlight">\(d \gt 1\)</span> with <span class="math notranslate nohighlight">\(m\)</span>. What is left are the <span class="math notranslate nohighlight">\(\phi(m)\)</span> reduced fractions with denominator <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p>Suppose instead of removing the non reduced ones we just write them in their lowest form. Then for each divisor <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(m\)</span> we obtain all the reduced fractions with denominator <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{1}{30} &amp;&amp; \frac{2}{30} &amp;&amp; \frac{3}{30} &amp;&amp; \frac{4}{30} &amp;&amp; \frac{5}{30} &amp;&amp; \frac{6}{30} &amp;&amp; \frac{7}{30} &amp;&amp; \frac{ 8}{30} &amp;&amp; \frac{9}{30} &amp;&amp; \frac{10}{30} &amp;&amp; \frac{11}{30} &amp;&amp; \frac{12}{30} &amp;&amp; \frac{13}{30} &amp;&amp; \frac{14}{30} &amp;&amp; \frac{15}{30} &amp;&amp; \frac{16}{30} &amp;&amp; \frac{17}{30} &amp;&amp; \frac{18}{30} &amp;&amp; \frac{19}{30} &amp;&amp; \frac{20}{30} &amp;&amp; \frac{21}{30} &amp;&amp; \frac{22}{30} &amp;&amp; \frac{23}{30} &amp;&amp; \frac{24}{30} &amp;&amp; \frac{25}{30} &amp;&amp; \frac{26}{30} &amp;&amp; \frac{27}{30} &amp;&amp; \frac{28}{30} &amp;&amp; \frac{29}{30} &amp;&amp; \frac{30}{30} \\
+\frac{1}{30} &amp;&amp; \frac{1}{15} &amp;&amp; \frac{1}{10} &amp;&amp; \frac{2}{15} &amp;&amp; \frac{1}{ 6} &amp;&amp; \frac{1}{ 5} &amp;&amp; \frac{7}{30} &amp;&amp; \frac{ 4}{15} &amp;&amp; \frac{ 3}{10} &amp;&amp; \frac{1}{3} &amp;&amp; \frac{11}{30} &amp;&amp; \frac{2}{5} &amp;&amp; \frac{13}{30} &amp;&amp; \frac{7}{15} &amp;&amp; \frac{1}{2} &amp;&amp; \frac{8}{15} &amp;&amp; \frac{17}{30} &amp;&amp; \frac{3}{5} &amp;&amp; \frac{19}{30} &amp;&amp; \frac{2}{3} &amp;&amp; \frac{7}{10} &amp;&amp; \frac{11}{15} &amp;&amp; \frac{23}{30} &amp;&amp; \frac{4}{5} &amp;&amp; \frac{5}{6} &amp;&amp; \frac{13}{15} &amp;&amp; \frac{9}{10} &amp;&amp; \frac{14}{15} &amp;&amp; \frac{29}{30} &amp;&amp; 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+k &amp;=  1 &amp;&amp; 1                                                                                                                    &amp;&amp; \phi( 1) = 1 \\
+k &amp;=  2 &amp;&amp; \frac{1}{ 2}                                                                                                         &amp;&amp; \phi( 2) = 1 \\
+k &amp;=  3 &amp;&amp; \frac{1}{ 3}, \frac{2}{ 3}                                                                                           &amp;&amp; \phi( 3) = 2 \\
+k &amp;=  5 &amp;&amp; \frac{1}{ 5}, \frac{2}{ 5}, \frac{ 3}{ 5}, \frac{ 4}{ 5}                                                             &amp;&amp; \phi( 5) = 4 \\
+k &amp;=  6 &amp;&amp; \frac{1}{ 6}, \frac{5}{ 6}                                                                                           &amp;&amp; \phi( 6) = 2 \\
+k &amp;= 10 &amp;&amp; \frac{1}{10}, \frac{3}{10}, \frac{ 7}{10}, \frac{ 9}{10}                                                             &amp;&amp; \phi(10) = 4 \\
+k &amp;= 15 &amp;&amp; \frac{1}{15}, \frac{2}{15}, \frac{ 4}{15}, \frac{ 7}{15}, \frac{ 8}{15}, \frac{11}{15}, \frac{13}{15}, \frac{14}{15} &amp;&amp; \phi(15) = 8 \\
+k &amp;= 30 &amp;&amp; \frac{1}{30}, \frac{7}{30}, \frac{11}{30}, \frac{13}{30}, \frac{17}{30}, \frac{19}{30}, \frac{23}{30}, \frac{29}{30} &amp;&amp; \phi(30) = 8 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Theorem</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>For each <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> we have</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k \mid m} \phi(k) = m = \phi(1) + \phi(2) + \dotsb + \phi(m)
+\end  {aligned}
+\)</span></p>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k \mid 30} \phi(k) = 30 = \phi(1) + \phi(2) + \phi(3) + \phi(5) + \phi(6) + \phi(10) + \phi(15) + \phi(30)
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Theorem</a><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>Suppose that <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span> and that</p>
+<p><span class="math notranslate nohighlight">\(a_1, a_2, \dotsc, a_{\phi(m)}\)</span></p>
+<p>forms a set of reduced residue classes modulo <span class="math notranslate nohighlight">\(m\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(ka_1, ka_2, \dotsc, ka_{\phi(m)}\)</span></p>
+<p>also forms a set of reduced residue classes modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<section id="id4">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Proof</a><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<span style="color: red;">
+<p>In view of the earlier theorem the residue classes <span class="math notranslate nohighlight">\(ka_j\)</span> are distinct, and since <span class="math notranslate nohighlight">\(\gcd(a_j, m) = 1\)</span> it is the case that <span class="math notranslate nohighlight">\((ka_j, m) = 1\)</span>, so they give <span class="math notranslate nohighlight">\(\phi(m)\)</span> distinct reduced residue classes. So they are all of them in some order.</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Theorem</a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>[Vaughan, Theorem 10]</p>
+<p>Suppose <span class="math notranslate nohighlight">\(m, n \in \mathbb{N}\)</span> and <span class="math notranslate nohighlight">\(\gcd(m, n) = 1\)</span>, and consider the <span class="math notranslate nohighlight">\(xn + ym\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le m\)</span> and <span class="math notranslate nohighlight">\(1 \le y \le n\)</span>. Then they form a complete set of residues modulo <span class="math notranslate nohighlight">\(mn\)</span>. If in addition <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> satisfy <span class="math notranslate nohighlight">\(\gcd(x, m) = 1\)</span> and <span class="math notranslate nohighlight">\(\gcd(y, n) = 1\)</span> then they form a reduced set.</p>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(6x + 5y \mod 30\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{cc|cccc|}
+  &amp; x &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+y &amp; \\ \hline
+1 &amp; &amp; 11 &amp; 17 &amp; 23 &amp; 29 &amp;  5 \\ \hline
+2 &amp; &amp; 16 &amp; 22 &amp; 28 &amp;  4 &amp; 10 \\
+3 &amp; &amp; 21 &amp; 27 &amp;  3 &amp;  9 &amp; 15 \\
+4 &amp; &amp; 26 &amp;  2 &amp;  8 &amp; 14 &amp; 20 \\ \hline
+5 &amp; &amp;  1 &amp;  7 &amp; 13 &amp; 19 &amp; 25 \\ \hline
+6 &amp; &amp;  6 &amp; 12 &amp; 18 &amp; 24 &amp; 30 \\
+\end  {array}
+\)</span></p>
+<p>The <span class="math notranslate nohighlight">\(30\)</span> numbers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(30\)</span> each appear exactly once. The <span class="math notranslate nohighlight">\(8\)</span> reduced residue classes occur precisely in the intersection of rows <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(5\)</span> and columns <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(4\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\gcd(x = 1, 2, 3, 4, m = 5) = \gcd(y = 1, 5, n = 6)\)</span></p>
+<section id="corollary">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Corollary</a><a class="headerlink" href="#corollary" title="Link to this heading">#</a></h3>
+<p>[Vaughan, Corollary 12]</p>
+<p>If <span class="math notranslate nohighlight">\(\gcd(m, n) = 1\)</span> then <span class="math notranslate nohighlight">\(\phi(mn) = \phi(m) \phi(n)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\gcd( 1, n) = 1 &amp;&amp; \phi(  n) &amp;= \phi( 1) \phi( n) &amp;&amp;=  \phi(n) \\
+\gcd( 2, n) = 1 &amp;&amp; \phi( 2n) &amp;= \phi( 2) \phi( n) &amp;&amp;=  \phi(n) \\
+\gcd( 3, n) = 1 &amp;&amp; \phi( 3n) &amp;= \phi( 3) \phi( n) &amp;&amp;= 2\phi(n) \\
+\gcd( 4, n) = 1 &amp;&amp; \phi( 4n) &amp;= \phi( 4) \phi( n) &amp;&amp;= 2\phi(n) \\
+\gcd( 5, n) = 1 &amp;&amp; \phi( 5n) &amp;= \phi( 5) \phi( n) &amp;&amp;= 4\phi(n) \\
+\gcd( 6, n) = 1 &amp;&amp; \phi( 6n) &amp;= \phi( 6) \phi( n) &amp;&amp;= 2\phi(n) \\
+\gcd( 7, n) = 1 &amp;&amp; \phi( 7n) &amp;= \phi( 7) \phi( n) &amp;&amp;= 6\phi(n) \\
+\gcd( 8, n) = 1 &amp;&amp; \phi( 8n) &amp;= \phi( 8) \phi( n) &amp;&amp;= 4\phi(n) \\
+\gcd( 9, n) = 1 &amp;&amp; \phi( 9n) &amp;= \phi( 9) \phi( n) &amp;&amp;= 6\phi(n) \\
+\gcd(10, n) = 1 &amp;&amp; \phi(10n) &amp;= \phi(10) \phi( n) &amp;&amp;= 4\phi(n) \\
+\end  {aligned}
+\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="definition-multiplicative-function">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">Definition: multiplicative function</a><a class="headerlink" href="#definition-multiplicative-function" title="Link to this heading">#</a></h2>
+<p>[Vaughan, Definition 13]</p>
+<p>If an arithmetical function <span class="math notranslate nohighlight">\(f\)</span> which is not identically <span class="math notranslate nohighlight">\(0\)</span> satisfies</p>
+<p><span class="math notranslate nohighlight">\(f(mn) = f(m) f(n)\)</span></p>
+<p>whenever <span class="math notranslate nohighlight">\(\gcd(m, n) = 1\)</span> then <span class="math notranslate nohighlight">\(f\)</span> is called multiplicative.</p>
+<section id="id6">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Corollary</a><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>[Vaughan, Corollary 14]</p>
+<p>Euler’s function is multiplicative.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id7">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">Theorem</a><a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>[Vaughan, Theorem 15]</p>
+<p>If <span class="math notranslate nohighlight">\(n = p^k\)</span> then the number of reduced residue classes modulo <span class="math notranslate nohighlight">\(p^k\)</span> is the number of <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le p^k\)</span> and <span class="math notranslate nohighlight">\(p \nmid x\)</span>.</p>
+<p>This is <span class="math notranslate nohighlight">\(p^k - N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le p^k\)</span> and <span class="math notranslate nohighlight">\(p \mid x\)</span>, and <span class="math notranslate nohighlight">\(N = p^{k - 1}\)</span>. Thus</p>
+<p><span class="math notranslate nohighlight">\(\phi(p^k) = p^k - p^{k - 1} = p^k (1 - 1/p)\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(n \in N\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi(n) = n \prod_{p \mid n} (1 - 1/p)
+\end  {aligned}
+\)</span></p>
+<p>where when <span class="math notranslate nohighlight">\(n = 1\)</span> we interpret the product as an empty product <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\phi(n^2) \ne \phi(n)^2\)</span>.</p>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+n = 2^2 &amp;=     4 &amp;&amp;&amp;     2 = 2   \times 1 &amp;= 2^2 - 2   &amp;&amp;= | \{ 1, 3 \} | \\
+n = 2^3 &amp;=     8 &amp;&amp;&amp;     4 = 2^2 \times 1 &amp;= 2^3 - 2^2 &amp;&amp;= | \{ 1, 3, 5, 7 \} | \\
+n = 2^4 &amp;=    16 &amp;&amp;&amp;     8 = 2^3 \times 1 &amp;= 2^4 - 2^3 &amp;&amp;= | \{ 1, 3, 5, 7, 9, 11, 13, 15 \} | \\
+n = 2^5 &amp;=    32 &amp;&amp;&amp;    16 = 2^4 \times 1 &amp;= 2^5 - 2^4 &amp;&amp;= \dots \\
+n = 2^6 &amp;=    64 &amp;&amp;&amp;    32 = 2^5 \times 1 &amp;= 2^6 - 2^5 &amp;&amp;= \dots \\
+\\
+n = 3^2 &amp;=     9 &amp;&amp;&amp;     6 = 3   \times 2 &amp;= 3^2 - 3   &amp;&amp;= | \{ 1, 2, 4, 5, 7, 8 \} | \\
+n = 3^3 &amp;=    27 &amp;&amp;&amp;    18 = 3^2 \times 2 &amp;= 3^3 - 3^2 &amp;&amp;= | \{ 1, 2, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17, 19, 20, 22, 23, 25, 26 \} | \\
+n = 3^4 &amp;=    81 &amp;&amp;&amp;    54 = 3^3 \times 2 &amp;= 3^4 - 3^3 &amp;&amp;= \dots \\
+n = 3^5 &amp;=   243 &amp;&amp;&amp;   162 = 3^4 \times 2 &amp;= 3^5 - 3^4 &amp;&amp;= \dots \\
+n = 3^6 &amp;=   729 &amp;&amp;&amp;   486 = 3^5 \times 2 &amp;= 3^6 - 3^5 &amp;&amp;= \dots \\
+\\
+n = 5^2 &amp;=    25 &amp;&amp;&amp;    20 = 5   \times 4 &amp;= 5^2 - 5   &amp;&amp;= | \{ 1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19, 21, 22, 23, 24 \} | \\
+n = 5^3 &amp;=   125 &amp;&amp;&amp;   100 = 5^2 \times 4 &amp;= 5^3 - 5^2 &amp;&amp;= \dots \\
+n = 5^4 &amp;=   625 &amp;&amp;&amp;   500 = 5^3 \times 4 &amp;= 5^4 - 5^3 &amp;&amp;= \dots \\
+n = 5^5 &amp;=  3125 &amp;&amp;&amp;  2500 = 5^4 \times 4 &amp;= 5^5 - 5^4 &amp;&amp;= \dots \\
+n = 5^6 &amp;= 15625 &amp;&amp;&amp; 12500 = 5^5 \times 4 &amp;= 5^6 - 5^5 &amp;&amp;= \dots \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi( 1) &amp;=  1 \prod_{p \mid  1} (1 - 1/p)                                          &amp;&amp; :=  1 \\
+\phi( 2) &amp;=  2 \prod_{p \mid  2} (1 - 1/p) =  2 \times (1 - 1/ 2)                   &amp;&amp;  =  1 \\
+\phi( 3) &amp;=  3 \prod_{p \mid  3} (1 - 1/p) =  3 \times (1 - 1/ 3)                   &amp;&amp;  =  2 \\
+\phi( 4) &amp;=  4 \prod_{p \mid  4} (1 - 1/p) =  4 \times (1 - 1/ 2)                   &amp;&amp;  =  2 \\
+\phi( 5) &amp;=  5 \prod_{p \mid  5} (1 - 1/p) =  5 \times (1 - 1/ 5)                   &amp;&amp;  =  4 \\
+\phi( 6) &amp;=  6 \prod_{p \mid  6} (1 - 1/p) =  6 \times (1 - 1/ 2)(1 - 1/3)          &amp;&amp;  =  2 \\
+\phi( 7) &amp;=  7 \prod_{p \mid  7} (1 - 1/p) =  7 \times (1 - 1/ 7)                   &amp;&amp;  =  6 \\
+\phi( 8) &amp;=  8 \prod_{p \mid  8} (1 - 1/p) =  8 \times (1 - 1/ 2)                   &amp;&amp;  =  4 \\
+\phi( 9) &amp;=  9 \prod_{p \mid  9} (1 - 1/p) =  9 \times (1 - 1/ 3)                   &amp;&amp;  =  6 \\
+\phi(10) &amp;= 10 \prod_{p \mid 10} (1 - 1/p) = 10 \times (1 - 1/ 2)(1 - 1/5)          &amp;&amp;  =  4 \\
+\phi(11) &amp;= 11 \prod_{p \mid 11} (1 - 1/p) = 11 \times (1 - 1/11)                   &amp;&amp;  = 10 \\
+\phi(12) &amp;= 12 \prod_{p \mid 12} (1 - 1/p) = 12 \times (1 - 1/ 2)(1 - 1/3)          &amp;&amp;  =  4 \\
+\phi(13) &amp;= 13 \prod_{p \mid 13} (1 - 1/p) = 13 \times (1 - 1/13)                   &amp;&amp;  = 12 \\
+\phi(14) &amp;= 14 \prod_{p \mid 14} (1 - 1/p) = 14 \times (1 - 1/ 2)(1 - 1/7)          &amp;&amp;  =  6 \\
+\phi(15) &amp;= 15 \prod_{p \mid 15} (1 - 1/p) = 15 \times (1 - 1/ 3)(1 - 1/5)          &amp;&amp;  =  8 \\
+\phi(16) &amp;= 16 \prod_{p \mid 16} (1 - 1/p) = 16 \times (1 - 1/ 2)                   &amp;&amp;  =  8 \\
+\phi(17) &amp;= 17 \prod_{p \mid 17} (1 - 1/p) = 17 \times (1 - 1/17)                   &amp;&amp;  = 16 \\
+\phi(18) &amp;= 18 \prod_{p \mid 18} (1 - 1/p) = 18 \times (1 - 1/ 2)(1 - 1/3)          &amp;&amp;  =  6 \\
+\phi(19) &amp;= 19 \prod_{p \mid 19} (1 - 1/p) = 19 \times (1 - 1/19)                   &amp;&amp;  = 18 \\
+\phi(20) &amp;= 20 \prod_{p \mid 20} (1 - 1/p) = 20 \times (1 - 1/ 2)(1 - 1/5)          &amp;&amp;  =  8 \\
+\phi(21) &amp;= 21 \prod_{p \mid 21} (1 - 1/p) = 21 \times (1 - 1/ 3)(1 - 1/7)          &amp;&amp;  = 12 \\
+\phi(22) &amp;= 22 \prod_{p \mid 22} (1 - 1/p) = 22 \times (1 - 1/ 2)(1 - 1/11)         &amp;&amp;  = 10 \\
+\phi(23) &amp;= 23 \prod_{p \mid 23} (1 - 1/p) = 23 \times (1 - 1/23)                   &amp;&amp;  = 22 \\
+\phi(24) &amp;= 24 \prod_{p \mid 24} (1 - 1/p) = 24 \times (1 - 1/ 2)(1 - 1/3)          &amp;&amp;  =  8 \\
+\phi(25) &amp;= 25 \prod_{p \mid 25} (1 - 1/p) = 25 \times (1 - 1/ 5)                   &amp;&amp;  = 20 \\
+\phi(26) &amp;= 26 \prod_{p \mid 26} (1 - 1/p) = 26 \times (1 - 1/ 2)(1 - 1/13)         &amp;&amp;  = 12 \\
+\phi(27) &amp;= 27 \prod_{p \mid 27} (1 - 1/p) = 27 \times (1 - 1/ 3)                   &amp;&amp;  = 18 \\
+\phi(28) &amp;= 28 \prod_{p \mid 28} (1 - 1/p) = 28 \times (1 - 1/ 2)(1 - 1/7)          &amp;&amp;  = 12 \\
+\phi(29) &amp;= 29 \prod_{p \mid 29} (1 - 1/p) = 29 \times (1 - 1/29)                   &amp;&amp;  = 28 \\
+\phi(30) &amp;= 30 \prod_{p \mid 30} (1 - 1/p) = 30 \times (1 - 1/ 2)(1 - 1/3)(1 - 1/5) &amp;&amp;  =  8 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="theorem-euler">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Theorem (Euler)</a><a class="headerlink" href="#theorem-euler" title="Link to this heading">#</a></h2>
+<p>[Vaughan, Theorem 17]</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> and <span class="math notranslate nohighlight">\(a \in \mathbb{Z}\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, m) = 1\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(a^{\phi(m)} \equiv 1 \mod m\)</span></p>
+<section id="id8">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">Proof</a><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(a_1, a_2, \dotsc, a_{\phi(m)}\)</span> be a reduced set modulo <span class="math notranslate nohighlight">\(m\)</span>. Then <span class="math notranslate nohighlight">\(aa_1, aa_2, \dotsc, aa_{\phi(m)}\)</span> is another. Hence</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a_1 a_2 \dots a_{\phi(m)} &amp;\equiv aa_1 aa_2 \dots aa_{\phi(m)}             &amp; \mod m \\
+                          &amp;\equiv  a_1  a_2 \dots  a_{\phi(m)} a^{\phi(m)} &amp; \mod m \\
+                        1 &amp;\equiv                  a^{\phi(m)}             &amp; \mod m &amp;&amp; \text{since } \gcd(a_1 a_2 \dots a_{\phi(m)}, m) = 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<section id="corollary-fermat">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Corollary (Fermat)</a><a class="headerlink" href="#corollary-fermat" title="Link to this heading">#</a></h3>
+<p>[Vaughan, Corollary 18]</p>
+<p>Let <span class="math notranslate nohighlight">\(p\)</span> be a prime and <span class="math notranslate nohighlight">\(a \in \mathbb{Z}\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(a^p \equiv a \mod p\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(p \nmid a\)</span> then</p>
+<p><span class="math notranslate nohighlight">\(a^{p - 1} \equiv 1 \mod p\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pseudoprimes">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">Pseudoprimes</a><a class="headerlink" href="#pseudoprimes" title="Link to this heading">#</a></h2>
+<p>Pseudoprimes are composite integers masquerading as primes.</p>
+<p>Could Fermat’s theorem give us a primality test? Unfortunately, it is possible that</p>
+<p><span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span></p>
+<p>when <span class="math notranslate nohighlight">\(n\)</span> is <em><strong>not prime</strong></em>, although this is rare. For example, when <span class="math notranslate nohighlight">\(n = 341,561,645\)</span> then</p>
+<p><span class="math notranslate nohighlight">\(2^{n - 1} \equiv 1 \mod n\)</span></p>
+<p>Such <span class="math notranslate nohighlight">\(n\)</span> are called pseudoprimes.</p>
+<p>There are <span class="math notranslate nohighlight">\(245\)</span> pseudoprimes less than <span class="math notranslate nohighlight">\(10^6\)</span> (compared to <span class="math notranslate nohighlight">\(78498\)</span> primes less than <span class="math notranslate nohighlight">\(10^6\)</span>).</p>
+<p><span class="math notranslate nohighlight">\(3^{341 - 1} \equiv 56 \ne 1 \mod 341\)</span> suggests a possible primality test.</p>
+<p>Given <span class="math notranslate nohighlight">\(n\)</span>, try trial division a few times (say for <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7\)</span>) and then check <span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span> successively for <span class="math notranslate nohighlight">\(a = 2, 3, 5, 7\)</span>.</p>
+<p>Unfortunately, one still encounters false positives.</p>
+<p><span class="math notranslate nohighlight">\(561 = 3 \times 11 \times 57\)</span> satisfies <span class="math notranslate nohighlight">\(a^{560} \equiv 1 \mod 561\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, 561) = 1\)</span>.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/number/congruence"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-residue-class">Definition: residue class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residue-class-arithmetic">Residue class arithmetic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-congruence-relation">Definition: congruence relation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-congruence-relation">Properties of the congruence relation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexivity">Reflexivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry">Symmetry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transitivity">Transitivity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additions-preserve-congruence">Additions preserve congruence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplications-preserve-congruences">Multiplications preserve congruences</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem">Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-reduced-residues">Definition: reduced residues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Proof</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Theorem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corollary">Corollary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-multiplicative-function">Definition: multiplicative function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Corollary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theorem-euler">Theorem (Euler)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Proof</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corollary-fermat">Corollary (Fermat)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudoprimes">Pseudoprimes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
