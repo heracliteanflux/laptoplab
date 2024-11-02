@@ -77,7 +77,7 @@
     <script src="../../_static/script.js?v=9c6c3268"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Arithmetic" href="arithmetic/index.html" />
+    <link rel="next" title="Book: Numbers, Groups, and Codes" href="book___numbers_groups_codes/index.html" />
     <link rel="prev" title="Number Theory" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -258,9 +258,6 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Number Theory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arithmetic/index.html">Arithmetic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arithmetic_mod/index.html">Modular Arithmetic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="congruence/index.html">Congruence and Residue</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/00_introduction.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/01_even_and_odd.html">Even and Odd</a></li>
@@ -281,7 +278,10 @@
 <li class="toctree-l2"><a class="reference internal" href="sieve_of_eratosthenes.html">Sieve of Eratosthenes</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../sets.html">Elementary Set Theory</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set/index.html">Set Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../set/elemset.html">Elementary Set Theory</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../logic/introduction.html">Introduction</a></li>
 </ul>
@@ -747,9 +747,47 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence">Congruence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bit-complexity-of-numbers">The bit complexity of numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition">Addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication">Multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-school-binary-multiplication-algorithm">Grade-School Binary Multiplication Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-a-la-francais">Multiplication à la Français</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-division">Trial Division</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prime-counting-function">Prime-Counting Function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Division</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm-theorem">Division algorithm theorem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence-and-residues">Congruence and Residues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence-and-modular-arithmetic">Congruence, and modular arithmetic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence">Congruence</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-congruence-relation">Properties of the congruence relation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-arithmetic">Modular Arithmetic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition">Modular Addition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication">Modular Multiplication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-division">Modular Division</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation">Modular Exponentiation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-function">Euler’s function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
             </nav>
         </div>
@@ -762,35 +800,691 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="number-theory">
-<h1><a class="toc-backref" href="#id2" role="doc-backlink">Number Theory</a><a class="headerlink" href="#number-theory" title="Link to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Number Theory</a><a class="headerlink" href="#number-theory" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="contents">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
 <nav class="contents" id="id1">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#number-theory" id="id2">Number Theory</a></p>
+<li><p><a class="reference internal" href="#number-theory" id="id3">Number Theory</a></p>
 <ul>
-<li><p><a class="reference internal" href="#contents" id="id3">Contents</a></p></li>
-<li><p><a class="reference internal" href="#division" id="id4">Division</a></p></li>
-<li><p><a class="reference internal" href="#congruence" id="id5">Congruence</a></p></li>
-<li><p><a class="reference internal" href="#residues" id="id6">Residues</a></p></li>
+<li><p><a class="reference internal" href="#contents" id="id4">Contents</a></p></li>
+<li><p><a class="reference internal" href="#arithmetic" id="id5">Arithmetic</a></p>
+<ul>
+<li><p><a class="reference internal" href="#the-bit-complexity-of-numbers" id="id6">The bit complexity of numbers</a></p></li>
+<li><p><a class="reference internal" href="#addition" id="id7">Addition</a></p></li>
+<li><p><a class="reference internal" href="#multiplication" id="id8">Multiplication</a></p></li>
+<li><p><a class="reference internal" href="#grade-school-binary-multiplication-algorithm" id="id9">Grade-School Binary Multiplication Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier" id="id10">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a></p></li>
+<li><p><a class="reference internal" href="#multiplication-a-la-francais" id="id11">Multiplication à la Français</a></p></li>
+<li><p><a class="reference internal" href="#division" id="id12">Division</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#trial-division" id="id13">Trial Division</a></p>
+<ul>
+<li><p><a class="reference internal" href="#prime-counting-function" id="id14">Prime-Counting Function</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id2" id="id15">Division</a></p>
+<ul>
+<li><p><a class="reference internal" href="#division-algorithm-theorem" id="id16">Division algorithm theorem</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#congruence-and-residues" id="id17">Congruence and Residues</a></p>
+<ul>
+<li><p><a class="reference internal" href="#residues" id="id18">Residues</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#congruence-and-modular-arithmetic" id="id19">Congruence, and modular arithmetic</a></p>
+<ul>
+<li><p><a class="reference internal" href="#congruence" id="id20">Congruence</a></p>
+<ul>
+<li><p><a class="reference internal" href="#properties-of-the-congruence-relation" id="id21">Properties of the congruence relation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modular-arithmetic" id="id22">Modular Arithmetic</a></p>
+<ul>
+<li><p><a class="reference internal" href="#modular-addition" id="id23">Modular Addition</a></p></li>
+<li><p><a class="reference internal" href="#modular-multiplication" id="id24">Modular Multiplication</a></p></li>
+<li><p><a class="reference internal" href="#modular-division" id="id25">Modular Division</a></p></li>
+<li><p><a class="reference internal" href="#modular-exponentiation" id="id26">Modular Exponentiation</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reduced-residues" id="id27">Reduced Residues</a></p>
+<ul>
+<li><p><a class="reference internal" href="#euler-s-function" id="id28">Euler’s function</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id29">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="arithmetic">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Arithmetic</a><a class="headerlink" href="#arithmetic" title="Link to this heading">#</a></h2>
+<section id="the-bit-complexity-of-numbers">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">The bit complexity of numbers</a><a class="headerlink" href="#the-bit-complexity-of-numbers" title="Link to this heading">#</a></h3>
+<p>We focus on bit complexity (of algorithms), the number of elementary operations on individual bits, because it reflects the amount of hardware, transistors and wires, necessary for implementing an algorithm.</p>
+<p>It is a basic property of numbers that <strong>for any base <span class="math notranslate nohighlight">\(b \ge 2\)</span> the sum of any three single-digit numbers is at most two digits long</strong>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+b &amp;=  2 &amp;&amp; &amp; 1 + 1 + 1 &amp;= 11                                             &amp;&amp;= 1 \times  2^1 +  1 \times  2^0 \\
+b &amp;=  3 &amp;&amp; &amp; 2 + 2 + 2 &amp;= 20                                             &amp;&amp;= 2 \times  3^1 +  0 \times  3^0 \\
+b &amp;= 10 &amp;&amp; &amp; 9 + 9 + 9 &amp;= 27                                             &amp;&amp;= 2 \times 10^1 +  7 \times 10^0 \\
+b &amp;= 16 &amp;&amp; &amp; F + F + F &amp;= 2D                                             &amp;&amp;= 2 \times 16^1 + 13 \times 16^0 \\
+b &amp;= 60 &amp;&amp; &amp; \lambda_{59} + \lambda_{59} + \lambda_{59} &amp;= 2\lambda_{57} &amp;&amp;= 2 \times 60^1 + 57 \times 60^0 \\
+\end  {aligned}
+\)</span></p>
+<p><strong>How many digits are needed to represent the number <span class="math notranslate nohighlight">\(N \ge 0\)</span> in base <span class="math notranslate nohighlight">\(b\)</span>?</strong> <span class="math notranslate nohighlight">\(\lceil \log_b (N + 1) \rceil\)</span> digits are needed to represent <span class="math notranslate nohighlight">\(N\)</span> in base <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>With <span class="math notranslate nohighlight">\(k \ge 1\)</span> digits in base <span class="math notranslate nohighlight">\(b\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(b^k - 1\)</span>.</p>
+<p>base <span class="math notranslate nohighlight">\(2\)</span></p>
+<ul class="simple">
+<li><p>with <span class="math notranslate nohighlight">\(1\)</span> digits in base <span class="math notranslate nohighlight">\(2\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(2^1 - 1 = 1\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(2\)</span> digits in base <span class="math notranslate nohighlight">\(2\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(2^2 - 1 = 3\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(3\)</span> digits in base <span class="math notranslate nohighlight">\(2\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(2^3 - 1 = 7\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(4\)</span> digits in base <span class="math notranslate nohighlight">\(2\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(2^4 - 1 = 15\)</span></p></li>
+</ul>
+<p>base <span class="math notranslate nohighlight">\(10\)</span></p>
+<ul class="simple">
+<li><p>with <span class="math notranslate nohighlight">\(1\)</span> digits in base <span class="math notranslate nohighlight">\(10\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(10^1 - 1 = 9\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(2\)</span> digits in base <span class="math notranslate nohighlight">\(10\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(10^2 - 1 = 99\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(3\)</span> digits in base <span class="math notranslate nohighlight">\(10\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(10^3 - 1 = 999\)</span></p></li>
+<li><p>with <span class="math notranslate nohighlight">\(4\)</span> digits in base <span class="math notranslate nohighlight">\(10\)</span> we can express numbers up to <span class="math notranslate nohighlight">\(10^4 - 1 = 9999\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+b^k - 1 &amp;= N \\
+b^k     &amp;= N + 1 \\
+\log_b b^k &amp;= \lceil \log_b (N + 1) \rceil \\
+k          &amp;= \lceil \log_b (N + 1) \rceil \\
+\end  {aligned}
+\)</span></p>
+<p>Base <span class="math notranslate nohighlight">\(2\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\lceil \log_2 (\textcolor{green}{ 0} + 1) \rceil &amp;= 1 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 1} + 1) \rceil &amp;= 1 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 2} + 1) \rceil &amp;= 2 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 3} + 1) \rceil &amp;= 2 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 4} + 1) \rceil &amp;= 3 \text{ b} \\ &amp;\vdots \\
+\lceil \log_2 (\textcolor{green}{ 7} + 1) \rceil &amp;= 3 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{ 8} + 1) \rceil &amp;= 4 \text{ b} \\ &amp;\vdots \\
+\lceil \log_2 (\textcolor{green}{15} + 1) \rceil &amp;= 4 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{16} + 1) \rceil &amp;= 5 \text{ b} \\ &amp;\vdots \\
+\lceil \log_2 (\textcolor{green}{31} + 1) \rceil &amp;= 5 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{32} + 1) \rceil &amp;= 6 \text{ b} \\ &amp;\vdots \\
+\lceil \log_2 (\textcolor{green}{63} + 1) \rceil &amp;= 6 \text{ b} \\
+\lceil \log_2 (\textcolor{green}{64} + 1) \rceil &amp;= 7 \text{ b} \\
+\end  {aligned}
+\)</span></p>
+<p><strong>How much does the size of a number change when its base changes?</strong></p>
+<p>The rule for converting logarithms from base <span class="math notranslate nohighlight">\(a\)</span> to base <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\log_b N = \frac{1}{\log_a b} \log_a N \iff \log_a N = \log_b N \times \log_a b\)</span></p>
+<p>The size of integer <span class="math notranslate nohighlight">\(N\)</span> in base <span class="math notranslate nohighlight">\(a\)</span> is the same as its size in base <span class="math notranslate nohighlight">\(b\)</span> times a constant factor <span class="math notranslate nohighlight">\(\log_a b\)</span>. Therefore, in big-<span class="math notranslate nohighlight">\(O\)</span> notation the base is irrelevant and the size is written simply as <span class="math notranslate nohighlight">\(O(\log N)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\log N\)</span> is the power to which <span class="math notranslate nohighlight">\(2\)</span> must be raised to obtain <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\lceil \log N \rceil\)</span> is the number of times <span class="math notranslate nohighlight">\(N\)</span> must be halved to obtain unity. This will be useful when a number is halved at each iteration of an algorithm.</p>
+<p><span class="math notranslate nohighlight">\(\lceil \log (N + 1) \rceil\)</span> is the number of bits in the binary representation of <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\lfloor \log N \rfloor\)</span> is the depth of a complete binary tree with <span class="math notranslate nohighlight">\(N\)</span> nodes.</p>
+<p><span class="math notranslate nohighlight">\(\log N = 1 + 1/2 + 1/3 + \dotsb + 1/N\)</span> to within a constant factor.</p>
+</section>
+<hr class="docutils" />
+<section id="addition">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Addition</a><a class="headerlink" href="#addition" title="Link to this heading">#</a></h3>
+<p>The rule that the sum of any three single-digit numbers is at most two digits allows us to add two numbers in any base in the following way: align their right-hand ends and then perform a single right-to-left pass in which the sum is computed digit by digit, maintaining the overflow as a carry. Since we know the individual sum is a two-digit number, the carry is always a single digit, and so at any given step, three single-digit numbers are added.</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>Carry  1     1 1 1
+         1 1 0 1 0 1 (53)
+         1 0 0 0 1 1 (35)
+       -------------
+       1 0 1 1 0 0 0 (88)
+</pre></div>
+</div>
+<p><strong>Complexity</strong></p>
+<p>Suppose both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are <span class="math notranslate nohighlight">\(n\)</span> bits long. Then <span class="math notranslate nohighlight">\(x + y\)</span> is at most <span class="math notranslate nohighlight">\(n + 1\)</span> bits long and each bit of this sum is computed in a fixed amount of time.</p>
+<p><span class="math notranslate nohighlight">\(T(n) = c_1n + c_0 = O(n)\)</span></p>
+<p>Is there a faster algorithm? In order to add two <span class="math notranslate nohighlight">\(n\)</span>-bit numbers they must at least be read and their sum written, <span style="color: red;">which require n operations</span>. Therefore, the addition algorithm is optimal <span style="color: red;">up to multiplicative constants</span>.</p>
+<p>It is true that in a single processor instruction integers can be added whose size in bits is within the word length of today’s computers–<span class="math notranslate nohighlight">\(32\)</span> perhaps. But it is often useful and necessary to handle numbers much larger than this, perhaps several thousand bits long. Adding and multiplying such large numbers on real computers is very much like performing the operations bit by bit.</p>
+<p><strong>Implementation</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">b1</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">b2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// remainder</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter the first  binary number: &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%ld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter the second binary number: &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%ld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">b1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b1</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">r</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">b1</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">b1</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="n">b2</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<span class="w">  </span><span class="o">--</span><span class="n">i</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sum: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="o">--</span><span class="p">]);</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="multiplication">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Multiplication</a><a class="headerlink" href="#multiplication" title="Link to this heading">#</a></h3>
+</section>
+<section id="grade-school-binary-multiplication-algorithm">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Grade-School Binary Multiplication Algorithm</a><a class="headerlink" href="#grade-school-binary-multiplication-algorithm" title="Link to this heading">#</a></h3>
+<p>Multiply two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. Create an array of intermediate sums each representing the product of <span class="math notranslate nohighlight">\(x\)</span> by a single digit of <span class="math notranslate nohighlight">\(y\)</span>. These values are appropriately left-shifted and then added up.</p>
+<p><span class="math notranslate nohighlight">\(13 \times 11\)</span> or <span class="math notranslate nohighlight">\(x = 1101\)</span> and <span class="math notranslate nohighlight">\(y = 1011\)</span></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>        1 1 0 1 (13, multiplicand)
+      x 1 0 1 1 (11, multiplier)
+      ---------
+        1 1 0 1 (1101 times 1)                  13 x 2^0 =  13
+      1 1 0 1   (1101 times 1, shifted once)    13 x 2^1 =  26
+    0 0 0 0     (1101 times 0, shifted twice)    0 x 2^2 =   0
++ 1 1 0 1       (1101 times 1, shifted thrice)  13 x 2^3 = 104
+---------------
+1 0 0 0 1 1 1 1 (binary 143)
+</pre></div>
+</div>
+<p>In binary each intermediate row is either zero or <span class="math notranslate nohighlight">\(x\)</span> itself, left-shifted an appropriate amount of times. Left-shifting multiplies by the base and right-shifting divides by the base, rounding down if necessary.</p>
+<p><strong>Correctness</strong></p>
+<p><strong>Complexity</strong></p>
+<p>If <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are both <span class="math notranslate nohighlight">\(n\)</span> bits then there are <span class="math notranslate nohighlight">\(n\)</span> intermediate rows with lengths of up to <span class="math notranslate nohighlight">\(2n\)</span> bits, accounting for the shifts. The total time taken to add up these rows, two numbers at a time, is</p>
+<p><span class="math notranslate nohighlight">\(\underbrace{O(n) + O(n) + \dotsb + O(n)}_{n - 1 \text{ times}} = O(n^2)\)</span></p>
+</section>
+<section id="al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a><a class="headerlink" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier" title="Link to this heading">#</a></h3>
+<p>Multiply two decimal numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. Write them next to each other and then repeat the following: divide the first number by <span class="math notranslate nohighlight">\(2\)</span>, rounding down the result, and double the second number; continue until the first number reaches unity and then strike out all the rows in which the first number is even and add up whatever remains in the second column.</p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>                      parity of multiplier 11
+11    13              11 = 5 x 2 +  1
+ 5    26               5 = 2 x 2 +  1
+ 2    52 (strike out)  2 = 1 x 2 +  0
+ 1   104               1 = 0 x 2 +  1
+--------
+     143
+</pre></div>
+</div>
+</section>
+<section id="multiplication-a-la-francais">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Multiplication à la Français</a><a class="headerlink" href="#multiplication-a-la-francais" title="Link to this heading">#</a></h3>
+<p>This algorithm implements the following recursive rule.</p>
+<p><span class="math notranslate nohighlight">\(
+x \cdot y =
+\begin{cases}
+    2(x \cdot \lfloor y/2 \rfloor) &amp; \text{if \textit{y} is even} \\
+x + 2(x \cdot \lfloor y/2 \rfloor) &amp; \text{if \textit{y} is odd} \\
+\end  {cases}
+\)</span></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">INPUT</span><span class="w">    </span><span class="n">two</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">integers</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">OUTPUT</span><span class="w">    </span><span class="n">their</span><span class="w"> </span><span class="n">product</span>
+
+<span class="n">MULT</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="mi">1</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="mi">2</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="mi">3</span>
+<span class="mi">4</span><span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MULT</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">floor</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="mi">5</span>
+<span class="mi">6</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">even</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="mi">7</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="n">z</span>
+<span class="mi">8</span><span class="w">    </span><span class="k">else</span>
+<span class="mi">9</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="n">z</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span>
+</pre></div>
+</div>
+<p>EXAMPLE</p>
+<p>algorithm decomposition</p>
+<p><span class="math notranslate nohighlight">\(x \cdot 25 = x \cdot 16 + x \cdot 8 + x \cdot 1\)</span></p>
+<p>For multiplication the terms <span class="math notranslate nohighlight">\(x \cdot 2^i\)</span> come from repeated doubling</p>
+<p><strong>Correctness</strong></p>
+<p>The recursive rule is <span style="color: red;">transparently</span> correct. Checking that the algorithm is correct is a matter of verifying that it mimics the rule and that it handles the base case <span class="math notranslate nohighlight">\(y = 0\)</span> properly.</p>
+<p><strong>Complexity</strong></p>
+<p>The algorithm terminates after <span class="math notranslate nohighlight">\(n\)</span> recursive calls because at each call <span class="math notranslate nohighlight">\(y\)</span> is halved (i.e., its number of bits is decreased by one). Each recursive call requires the following operations:</p>
+<ul class="simple">
+<li><p>a division by <span class="math notranslate nohighlight">\(2\)</span> (a right shift)</p></li>
+<li><p>a test for odd/even (looking up the last bit)</p></li>
+<li><p>a multiplication by <span class="math notranslate nohighlight">\(2\)</span> (a left shift)</p></li>
+<li><p>possibly, one addition</p></li>
+</ul>
+<p>a total of <span class="math notranslate nohighlight">\(O(n)\)</span> bit operations. The total running time is</p>
+<p><span class="math notranslate nohighlight">\(T(n) = O(n^2)\)</span></p>
+<p>Can we do better? Intuitively, it seems that multiplication requires adding about <span class="math notranslate nohighlight">\(n\)</span> multiples of one of the inputs, and we know that each addition is linear, so it would appear that <span class="math notranslate nohighlight">\(n^2\)</span> bit operations are inevitable. But we will see that we can de better.</p>
 </section>
 <hr class="docutils" />
 <section id="division">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Division</a><a class="headerlink" href="#division" title="Link to this heading">#</a></h2>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Division</a><a class="headerlink" href="#division" title="Link to this heading">#</a></h3>
+<p>To divide an integer <span class="math notranslate nohighlight">\(x\)</span> by an integer <span class="math notranslate nohighlight">\(y \ne 0\)</span> means to find a quotient <span class="math notranslate nohighlight">\(q\)</span> and a remainder <span class="math notranslate nohighlight">\(r\)</span>, where <span class="math notranslate nohighlight">\(x = yq + r\)</span> and <span class="math notranslate nohighlight">\(r \lt y\)</span>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">INPUT</span><span class="w">    </span><span class="n">two</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">integers</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">OUTPUT</span><span class="w">    </span><span class="n">the</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">divided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">y</span>
+
+<span class="n">DIVIDE</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w"> </span><span class="mi">1</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w"> </span><span class="mi">2</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w"> </span><span class="mi">3</span>
+<span class="w"> </span><span class="mi">4</span><span class="w">    </span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DIVIDE</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<span class="w"> </span><span class="mi">5</span><span class="w">    </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">q</span>
+<span class="w"> </span><span class="mi">6</span><span class="w">    </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="n">r</span>
+<span class="w"> </span><span class="mi">7</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">odd</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w"> </span><span class="mi">8</span><span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w"> </span><span class="mi">9</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">y</span>
+<span class="mi">10</span><span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span>
+<span class="mi">11</span><span class="w">        </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="mi">12</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Complexity</strong> Like multiplication, division takes quadratic time.</p>
+<p><span class="math notranslate nohighlight">\(T(n) = O(n^2)\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
 </section>
 <hr class="docutils" />
-<section id="congruence">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Congruence</a><a class="headerlink" href="#congruence" title="Link to this heading">#</a></h2>
+<section id="trial-division">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Trial Division</a><a class="headerlink" href="#trial-division" title="Link to this heading">#</a></h2>
+<p>The simplest way to try to factorize a number <span class="math notranslate nohighlight">\(n\)</span> is by <em><strong>trial division</strong></em>.</p>
+<p>If <span class="math notranslate nohighlight">\(n\)</span> has a proper divisor <span class="math notranslate nohighlight">\(m_1\)</span> so that <span class="math notranslate nohighlight">\(n = m_1 m_2\)</span> with <span class="math notranslate nohighlight">\(1 \lt m_1 \lt n\)</span> whence <span class="math notranslate nohighlight">\(1 \lt m_2 \lt n\)</span> then it can be supposed that <span class="math notranslate nohighlight">\(m_1 \le m_2 \iff m_1 m_1 \le m_1 m_2 = n \iff m_1 \le \sqrt{n}\)</span>. Thus, each <span class="math notranslate nohighlight">\(m_1 \le \sqrt{n}\)</span> can be tried in turn. If no such factor is found then <span class="math notranslate nohighlight">\(n\)</span> is prime. <span style="color: red;">
+Since the smallest proper divisor of <span class="math notranslate nohighlight">\(n\)</span> has to be the smallest prime factor of <span class="math notranslate nohighlight">\(n\)</span></span> we need only check the primes <span class="math notranslate nohighlight">\(p\)</span> with <span class="math notranslate nohighlight">\(2 \le p \le \sqrt{n}\)</span>.</p>
+<p>Even so, for large <span class="math notranslate nohighlight">\(n\)</span> this is hugely expensive in time. <span style="color: red;">How to verify this?</span></p>
+<section id="prime-counting-function">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Prime-Counting Function</a><a class="headerlink" href="#prime-counting-function" title="Link to this heading">#</a></h3>
+<p>The number <span class="math notranslate nohighlight">\(\pi(x)\)</span> of primes <span class="math notranslate nohighlight">\(p \le x\)</span> is approximately</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\pi(x) \sim \int_2^x \frac{d \alpha}{\ln \alpha} \sim \frac{x}{\ln x}
+\end  {aligned}
+\)</span></p>
+<p>Thus if <span class="math notranslate nohighlight">\(n\)</span> is about <span class="math notranslate nohighlight">\(k\)</span> bits in size and turns out to be prime or the product of two primes of about the same size, then the number of operations will be</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\approx \frac{(2^{k/2})}{\ln (2^{k/2})}
+      = \frac{2^{k/2}}{k/2 \ln 2}
+\end  {aligned}
+\)</span></p>
+<p>which is still exponential in the bit size.</p>
+<p>Trial division is feasible for <span class="math notranslate nohighlight">\(n\)</span> out to about <span class="math notranslate nohighlight">\(40\)</span> bits on a modern computer; much beyond that it becomes hopeless. One area where trial division, or sophisticated variants thereor, are useful is in the production of tables of primes, or counts of primes such as the value of <span class="math notranslate nohighlight">\(\pi(x)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\pi( 2)     &amp;=&amp;    1 \\
+\pi( 3)     &amp;=&amp;    2 \\
+\pi( 5)     &amp;=&amp;    3 \\
+\pi( 7)     &amp;=&amp;    4 \\
+\pi(10)     &amp;=&amp;    4 \\
+\pi(11)     &amp;=&amp;    5 \\
+\pi(13)     &amp;=&amp;    6 \\
+\pi(17)     &amp;=&amp;    7 \\
+\pi(19)     &amp;=&amp;    8 \\
+\pi(23)     &amp;=&amp;    9 \\
+\pi(29)     &amp;=&amp;   10 \\
+\pi(31)     &amp;=&amp;   11 \\
+\pi(37)     &amp;=&amp;   12 \\
+\pi(41)     &amp;=&amp;   13 \\
+\pi(43)     &amp;=&amp;   14 \\
+\pi(47)     &amp;=&amp;   15 \\
+\pi(53)     &amp;=&amp;   16 \\
+\pi(59)     &amp;=&amp;   17 \\
+\pi(61)     &amp;=&amp;   18 \\
+\pi(67)     &amp;=&amp;   19 \\
+\pi(71)     &amp;=&amp;   20 \\
+\pi(10^2)   &amp;=&amp;      \\
+\pi(2^{16}) &amp;=&amp; 6542 \\
+\end  {aligned}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^ 2     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^ 2) =    2&quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^ 3     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="mi">3</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^ 3) =    4&quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 10       x/ln(x) = </span><span class="si">{</span><span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(10) =    4&quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^ 4     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="mi">4</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^ 4) =    7&quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^ 5     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">5</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="mi">5</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^ 5) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^ 6     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">6</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="mi">6</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^ 6) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^ 7     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">7</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="mi">7</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^ 7) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^ 8     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">8</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="mi">8</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^ 8) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^ 9     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">9</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w">  </span><span class="mi">9</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^ 9) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^10     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^10) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^11     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="mi">11</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^11) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^12     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="mi">12</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^12) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^13     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="mi">13</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^13) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^14     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="mi">14</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^14) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^15     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="mi">15</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^15) =     &quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x = 2^16     x/ln(x) = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="mi">16</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="si">:</span><span class="s1">&gt;10.2f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="s2">&quot;π(2^16) = 6542&quot;</span><span class="si">:</span><span class="s1">&gt;20</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 2^ 2     x/ln(x) =       2.89       π(2^ 2) =    2
+x = 2^ 3     x/ln(x) =       3.85       π(2^ 3) =    4
+x = 10       x/ln(x) =       4.34         π(10) =    4
+x = 2^ 4     x/ln(x) =       5.77       π(2^ 4) =    7
+x = 2^ 5     x/ln(x) =       9.23       π(2^ 5) =     
+x = 2^ 6     x/ln(x) =      15.39       π(2^ 6) =     
+x = 2^ 7     x/ln(x) =      26.38       π(2^ 7) =     
+x = 2^ 8     x/ln(x) =      46.17       π(2^ 8) =     
+x = 2^ 9     x/ln(x) =      82.07       π(2^ 9) =     
+x = 2^10     x/ln(x) =     147.73       π(2^10) =     
+x = 2^11     x/ln(x) =     268.60       π(2^11) =     
+x = 2^12     x/ln(x) =     492.44       π(2^12) =     
+x = 2^13     x/ln(x) =     909.12       π(2^13) =     
+x = 2^14     x/ln(x) =    1688.37       π(2^14) =     
+x = 2^15     x/ln(x) =    3151.62       π(2^15) =     
+x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2^{32} - 1 &amp;= 4294967295           &amp;&amp;= 3 \times 5 \times 17 \times 257 \times 65537 \\
+2^{53} - 1 &amp;= 9007199254740991     &amp;&amp;= 6361 \times 69431 \times 20394401 \\
+2^{64} - 1 &amp;= 18446744073709551615 &amp;&amp;= 3 \times 5 \times 17 \times 257 \times 641 \times 65537 \times 6700417 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p>What’s the largest value that <span class="math notranslate nohighlight">\(n\)</span> bits can hold?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;                 largest value&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 16-bit numbers </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s1">55</span><span class="si">}</span><span class="s1"> = 2^ 16 - 1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 20-bit numbers </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s1">55</span><span class="si">}</span><span class="s1"> = 2^ 20 - 1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 32-bit numbers </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s1">55</span><span class="si">}</span><span class="s1"> = 2^ 32 - 1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 40-bit numbers </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s1">55</span><span class="si">}</span><span class="s1"> = 2^ 40 - 1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 52-bit numbers </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">52</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s1">55</span><span class="si">}</span><span class="s1"> = 2^ 52 - 1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 53-bit numbers </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">53</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s1">55</span><span class="si">}</span><span class="s1"> = 2^ 53 - 1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; 64-bit numbers </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">64</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s1">55</span><span class="si">}</span><span class="s1"> = 2^ 64 - 1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;128-bit numbers </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="mi">128</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s1">55</span><span class="si">}</span><span class="s1"> = 2^128 - 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 largest value
+ 16-bit numbers                                                   65535 = 2^ 16 - 1
+ 20-bit numbers                                                 1048575 = 2^ 20 - 1
+ 32-bit numbers                                              4294967295 = 2^ 32 - 1
+ 40-bit numbers                                           1099511627775 = 2^ 40 - 1
+ 52-bit numbers                                        4503599627370495 = 2^ 52 - 1
+ 53-bit numbers                                        9007199254740991 = 2^ 53 - 1
+ 64-bit numbers                                    18446744073709551615 = 2^ 64 - 1
+128-bit numbers                 340282366920938463463374607431768211455 = 2^128 - 1
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><a class="reference external" href="https://stackoverflow.com/questions/9620181/a-way-to-find-the-nearest-prime-number-to-an-unsigned-long-integer-32-bits-wid">https://stackoverflow.com/questions/9620181/a-way-to-find-the-nearest-prime-number-to-an-unsigned-long-integer-32-bits-wid</a></p>
+<hr class="docutils" />
+<hr class="docutils" />
 </section>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Division</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p><span style="color: #0096FF;"><b>DIVISION</b></span></p>
+<p>If <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are integers with <span class="math notranslate nohighlight">\(a \ne 0\)</span>, we say that <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(b\)</span> if there is an integer <span class="math notranslate nohighlight">\(c\)</span> s.t. <span class="math notranslate nohighlight">\(b = ac\)</span> (or equivalently if <span class="math notranslate nohighlight">\(b/a\)</span> is an integer). When <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(b\)</span> we say that <span class="math notranslate nohighlight">\(a\)</span> is a factor or divisor of <span class="math notranslate nohighlight">\(b\)</span>, and that <span class="math notranslate nohighlight">\(b\)</span> is a multiple of <span class="math notranslate nohighlight">\(a\)</span>. The notation <span class="math notranslate nohighlight">\(a \mid b\)</span> denotes that <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(a \nmid b\)</span> denotes that <span class="math notranslate nohighlight">\(a\)</span> does not divide <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(a \mid b\)</span> can be expressed as <span class="math notranslate nohighlight">\(\exists c (ac = b)\)</span> where the universe of discourse is the set of integers.</p>
+<p><span style="color: #0096FF;"><b>Properties of division</b></span></p>
+<p>Let <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> be integers with <span class="math notranslate nohighlight">\(a \ne 0\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\((i)\)</span> If <span class="math notranslate nohighlight">\(a \mid b\)</span> and <span class="math notranslate nohighlight">\(a \mid c\)</span> then <span class="math notranslate nohighlight">\(a \mid (b + c)\)</span></p>
+<p><span class="math notranslate nohighlight">\((ii)\)</span> If <span class="math notranslate nohighlight">\(a \mid b\)</span> then <span class="math notranslate nohighlight">\(a \mid bc\)</span> for all integers <span class="math notranslate nohighlight">\(c\)</span></p>
+<p><span class="math notranslate nohighlight">\((iii)\)</span> If <span class="math notranslate nohighlight">\(a \mid b\)</span> and <span class="math notranslate nohighlight">\(b \mid c\)</span> then <span class="math notranslate nohighlight">\(a \mid c\)</span></p>
+<p>Division of an integer by a positive integer produces a quotient and a remainder. (Operating on remainders will form the basis of modular arithmetic.)</p>
+<section id="division-algorithm-theorem">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Division algorithm theorem</a><a class="headerlink" href="#division-algorithm-theorem" title="Link to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(a\)</span> be an integer and <span class="math notranslate nohighlight">\(d\)</span> a positive integer. Then there are <u>unique</u> integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt d\)</span> s.t.</p>
+<p><span class="math notranslate nohighlight">\(a = dq + r\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(d\)</span> is called the <strong>divisor</strong>; <span class="math notranslate nohighlight">\(a\)</span> is called the <strong>dividend</strong>; <span class="math notranslate nohighlight">\(q\)</span> is called the <strong>quotient</strong>; and <span class="math notranslate nohighlight">\(r\)</span> is called the <strong>remainder</strong>.</p>
+<p>We can use the following notation to express the quotient and the remainder:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+q &amp;= a \textbf{ div } d \\
+r &amp;= a \textbf{ mod } d \\
+\end  {aligned}
+\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(d\)</span> is fixed then <span class="math notranslate nohighlight">\(\textbf{div}\)</span> and <span class="math notranslate nohighlight">\(\textbf{mod}\)</span> are functions on the set of integers:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\textbf{div}_d &amp;: \mathbb{Z} \to \mathbb{Z}                &amp; \textbf{div}_d(a) \mapsto q \\
+\textbf{mod}_d &amp;: \mathbb{Z} \to \mathbb{Z}^+ \cup \{ 0 \} &amp; \textbf{mod}_d(a) \mapsto r \\
+\end  {aligned}
+\)</span></p>
+<p>When <span class="math notranslate nohighlight">\(a\)</span> is an integer and <span class="math notranslate nohighlight">\(d\)</span> is a positive integer:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+q &amp;= a \textbf{ div } d &amp;&amp;= \lfloor a/d \rfloor \\
+r &amp;= a \textbf{ mod } d &amp;&amp;= a - d \\
+\end  {aligned}
+\)</span></p>
+<p>The integer <span class="math notranslate nohighlight">\(a\)</span> is only divisible by the integer <span class="math notranslate nohighlight">\(d\)</span> iff the remainder is <span class="math notranslate nohighlight">\(0\)</span> when <span class="math notranslate nohighlight">\(a\)</span> is divided by <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(d \mid a \iff a = dq + 0\)</span></p>
+<p>In programming languages, the modulo operator for <span class="math notranslate nohighlight">\(a \lt 0\)</span> may return <span class="math notranslate nohighlight">\(a - d \lceil a/d \rceil\)</span> instead of <span class="math notranslate nohighlight">\(a \textbf{ mod } d = a - d \lfloor a/d \rfloor\)</span>. Also unlike <span class="math notranslate nohighlight">\(a \textbf{ mod } d\)</span> the modulo operator may be defined when <span class="math notranslate nohighlight">\(d \lt 0\)</span>, and even when <span class="math notranslate nohighlight">\(d = 0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(a \textbf{ mod } d\)</span> is defined to be the remainder when <span class="math notranslate nohighlight">\(a\)</span> is divided by <span class="math notranslate nohighlight">\(d\)</span></p>
+<p><span class="math notranslate nohighlight">\(a \textbf{ mod } d := r\)</span> when <span class="math notranslate nohighlight">\(a = qd + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt d\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="congruence-and-residues">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Congruence and Residues</a><a class="headerlink" href="#congruence-and-residues" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="residues">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Residues</a><a class="headerlink" href="#residues" title="Link to this heading">#</a></h2>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Residues</a><a class="headerlink" href="#residues" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>RESIDUE CLASS MODULO M</b></span></p>
+<div style="color: #0096FF;">
+<p>Let <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> and define the residue class <span class="math notranslate nohighlight">\(\bar{r} \text{ modulo } m\)</span> by</p>
+<p><span class="math notranslate nohighlight">\(\bar{r} = \{ x \in \mathbb{Z} : m \mid (x - r) \}\)</span></p>
+</div><p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{0} &amp;= \{ x \in \mathbb{Z} : m \mid x \}       &amp;&amp; \text{residue class } \bar{0} \mod m \\
+\bar{1} &amp;= \{ x \in \mathbb{Z} : m \mid (x - 1) \} &amp;&amp; \text{residue class } \bar{1} \mod m \\
+\bar{2} &amp;= \{ x \in \mathbb{Z} : m \mid (x - 2) \} &amp;&amp; \text{residue class } \bar{2} \mod m \\
+\vdots \\
+\overline{m - 1} &amp;= \{ x \in \mathbb{Z} : m \mid (x - m + 1) \} &amp;&amp; \text{residue class } \overline{m - 1} \mod m \\
+\end  {aligned}
+\)</span></p>
+<p><span style="color: #0096FF;"><b>COMPLETE SYSTEM OF RESIDUES MODULO M</b></span></p>
+<div style="color: #0096FF;">
+<p>By the division algorithm every integer is in one of</p>
+<p><span class="math notranslate nohighlight">\(\overline{0}, \overline{1}, \dotsc, \overline{m - 1}\)</span></p>
+<p>This is called a <em>complete system of residues modulo</em> <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</div><p>Arithmetic can be performed on residue classes just as if they were numbers.</p>
+<p>The residue class <span class="math notranslate nohighlight">\(\bar{0}\)</span> behaves like the number <span class="math notranslate nohighlight">\(0\)</span>, since <span class="math notranslate nohighlight">\(\bar{0}\)</span> is the set of multiples of <span class="math notranslate nohighlight">\(m\)</span>, and adding any one of them to an element of <span class="math notranslate nohighlight">\(\bar{r}\)</span> does not change the remainder.</p>
+<p>Thus for any <span class="math notranslate nohighlight">\(r\)</span></p>
+<p><span class="math notranslate nohighlight">\(\bar{0} + \bar{r} = \bar{r} = \bar{r} + \bar{0}\)</span></p>
+<p>Suppose we are given any two residue classes <span class="math notranslate nohighlight">\(\bar{r}\)</span> and <span class="math notranslate nohighlight">\(\bar{s}\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{r} &amp;= \{ x \in \mathbb{Z} : m \mid (x - r) \} \\
+\bar{s} &amp;= \{ y \in \mathbb{Z} : m \mid (y - r) \} \\
+\end  {aligned}
+\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(t\)</span> be the remainder of <span class="math notranslate nohighlight">\(r + s\)</span> on division by <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(r + s = mz + t\)</span></p>
+<p>Then the elements of <span class="math notranslate nohighlight">\(\bar{r}\)</span> and <span class="math notranslate nohighlight">\(\bar{s}\)</span> are of the form <span class="math notranslate nohighlight">\(r + mx\)</span> and <span class="math notranslate nohighlight">\(s + my\)</span> and it is known that <span class="math notranslate nohighlight">\(r + s = t + mz\)</span> for some <span class="math notranslate nohighlight">\(z\)</span>. Thus</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+r + mx + s + my = t + m(x + y + z) \in \bar{t}
+\end  {aligned}
+\)</span></p>
+<p>Thus it makes sense to write <span class="math notranslate nohighlight">\(\bar{r} + \bar{s} = \bar{t}\)</span> and then we have <span class="math notranslate nohighlight">\(\bar{r} + \bar{s} = \bar{s} + \bar{r}\)</span>.</p>
+<p>It is also the case that <span class="math notranslate nohighlight">\(\overline{r} + \overline{-r} = \overline{0}\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="congruence-and-modular-arithmetic">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Congruence, and modular arithmetic</a><a class="headerlink" href="#congruence-and-modular-arithmetic" title="Link to this heading">#</a></h2>
+<section id="congruence">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Congruence</a><a class="headerlink" href="#congruence" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>CONGRUENCE RELATION</b></span></p>
+<div style="color: #0096FF;">
+<p>If <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are integers and <span class="math notranslate nohighlight">\(m\)</span> is a positive integer then <span class="math notranslate nohighlight">\(a\)</span> <em>is congruent to</em> <span class="math notranslate nohighlight">\(b\)</span> <em>modulo</em> <span class="math notranslate nohighlight">\(m\)</span> if <span class="math notranslate nohighlight">\(m\)</span> divides <span class="math notranslate nohighlight">\(a - b\)</span>. (Another way to state this is as follows: Let <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>. If two integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> satisfy <span class="math notranslate nohighlight">\(m \mid a - b\)</span> then…)</p>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a \equiv b \mod m &amp;\iff m | (a - b) &amp;&amp;\iff a = b + km \\
+a \equiv 0 \mod m &amp;\iff m | a       &amp;&amp;\iff a = km \\
+a \equiv 1 \mod m &amp;\iff m | (a - 1) &amp;&amp;\iff a = 1 + km \\
+\end  {aligned}
+\)</span></p>
+<p>We say that <span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span> is a <em>congruence</em> and that <span class="math notranslate nohighlight">\(m\)</span> is its <em>modulus</em>.</p>
+<div style="color: #AAFF00;"><b>Example</b></div>
+<p><span class="math notranslate nohighlight">\(253 \equiv 13 \,(\text{mod } 60)\)</span> because <span class="math notranslate nohighlight">\(253 - 13\)</span> is a multiple of <span class="math notranslate nohighlight">\(60\)</span>. (<span class="math notranslate nohighlight">\(253\)</span> minutes is <span class="math notranslate nohighlight">\(4\)</span> hours and <span class="math notranslate nohighlight">\(13\)</span> minutes.)</p>
+<p><span class="math notranslate nohighlight">\(59 \equiv -1 \,(\text{mod } 60)\)</span> because <span class="math notranslate nohighlight">\(59 - (-1)\)</span> is a multiple of <span class="math notranslate nohighlight">\(60\)</span>. (When it’s <span class="math notranslate nohighlight">\(59\)</span> minutes past the hour it’s also one minute short of the next hour.)</p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Rosen]</p>
+<p><span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span> represents a relation on the set of integers.</p>
+<p><span class="math notranslate nohighlight">\(a \textbf{ mod } m = b\)</span> represents a function.</p>
+<div style="color: #0096FF;">
+<p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers and <span class="math notranslate nohighlight">\(m\)</span> be a positive integer. Then <span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span> iff <span class="math notranslate nohighlight">\(a \textbf{ mod } m = b \textbf{ mod } m\)</span>. (“a and b are congruent modulo m iff a and b have the same remainder when divided by m”)</p>
+</div><section id="properties-of-the-congruence-relation">
+<h4><a class="toc-backref" href="#id21" role="doc-backlink">Properties of the congruence relation</a><a class="headerlink" href="#properties-of-the-congruence-relation" title="Link to this heading">#</a></h4>
+<p>Reflexivity</p>
+<p><span class="math notranslate nohighlight">\(x \equiv x \mod m\)</span></p>
+<p>Symmetry</p>
+<p><span class="math notranslate nohighlight">\(x \equiv y \mod m \iff y \equiv x \mod m\)</span></p>
+<p>Transitivity</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(y \equiv z \mod m\)</span> then <span class="math notranslate nohighlight">\(x \equiv z \mod m\)</span>.</p>
+<p>Congruences modulo <span class="math notranslate nohighlight">\(m\)</span> partition the integers into equivalence classes.</p>
+<p>Additions preserve congruence</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(z \equiv t \mod m\)</span> then <span class="math notranslate nohighlight">\(x + z \equiv y + t \mod m\)</span>.</p>
+<p>Multiplications preserve congruences</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(z \equiv t \mod m\)</span> then <span class="math notranslate nohighlight">\(xz \equiv yt \mod m\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> then for any <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> it is the case that <span class="math notranslate nohighlight">\(x^n \equiv y^n \mod m\)</span> (using induction on <span class="math notranslate nohighlight">\(n\)</span>).</p>
+<p>If <span class="math notranslate nohighlight">\(f\)</span> is a polynomial with integer coefficients and <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> then <span class="math notranslate nohighlight">\(f(x) \equiv f(y) \mod m\)</span>.</p>
+<p><strong>Associativity</strong></p>
+<p><span class="math notranslate nohighlight">\(x + (y + z) \equiv (x + y) + z \quad(\text{mod } N)\)</span></p>
+<p><strong>Commutativity</strong></p>
+<p><span class="math notranslate nohighlight">\(xy \equiv yz \quad(\text{mod } N)\)</span></p>
+<p><strong>Distributivity</strong></p>
+<p><span class="math notranslate nohighlight">\(x(y + z) \equiv xy + xz \quad(\text{mod } N)\)</span></p>
+<p>The four rules imply that while performing a sequence of arithmetic operations it is legal to reduce intermediate results to their remainders modulo <span class="math notranslate nohighlight">\(N\)</span> at any stage:</p>
+<p><span class="math notranslate nohighlight">\(2^{345} \equiv (2^5)^{69} \equiv 32^{69} \equiv 1^{69} \equiv 1 \quad(\text{mod } 31)\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="modular-arithmetic">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Modular Arithmetic</a><a class="headerlink" href="#modular-arithmetic" title="Link to this heading">#</a></h3>
+<p>Modular arithmetic operates with the remainders of integers when they are divided by a fixed positive integer called the modulus.
+For the applications such as primality testing and cryptography it is necessary to deal with numbers which are much larger than 32 bits but whose range is nonetheless limited. Modular arithmetic is a system for dealing with restricted ranges of integers.</p>
+<p>Ways to think about modular arithmetic</p>
+<ul class="simple">
+<li><p>modular arithmetic limits numbers to a predefined range <span class="math notranslate nohighlight">\(\{ 0, 1, \dotsc, N - 1 \}\)</span> and wraps around whenever you try to leave this range.</p></li>
+<li><p>modular arithmetic deals with all the integers, but divides them into <span class="math notranslate nohighlight">\(N\)</span> equivalence classes each of the form <span class="math notranslate nohighlight">\(\{ i + kN : k \in \mathbb{Z} \}\)</span> for some <span class="math notranslate nohighlight">\(i\)</span> between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(N - 1\)</span></p></li>
+</ul>
+<section id="modular-addition">
+<h4><a class="toc-backref" href="#id23" role="doc-backlink">Modular Addition</a><a class="headerlink" href="#modular-addition" title="Link to this heading">#</a></h4>
+<p>To add two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span> we start with regular addition. <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are each in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span> so their sum is in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(2(N - 1)\)</span>. When the sum exceeds <span class="math notranslate nohighlight">\(N - 1\)</span> we subtract <span class="math notranslate nohighlight">\(N\)</span> so that it falls back into the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span>. The overall computations consists of an addition and a possible subtraction of numbers which never exceed <span class="math notranslate nohighlight">\(2N\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(T(n) = O(n)\)</span> where <span class="math notranslate nohighlight">\(n = \lceil \log N \rceil\)</span></p>
+</section>
+<section id="modular-multiplication">
+<h4><a class="toc-backref" href="#id24" role="doc-backlink">Modular Multiplication</a><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h4>
+<p>To multiply two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span>, we start with regular multiplication and then reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span>. The product can be as large as <span class="math notranslate nohighlight">\((N - 1)^2\)</span> but this is still at most <span class="math notranslate nohighlight">\(2n\)</span> bits long since <span class="math notranslate nohighlight">\(\log (N - 1)^2 = 2 \log (N - 1) \le 2n\)</span>. To reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span> we compute the remainder upon dividing it by <span class="math notranslate nohighlight">\(N\)</span> using the quadratic-time division algorithm. Multiplication thus remains a quadratic operation.</p>
+<p><strong>Complexity</strong></p>
+<p><span class="math notranslate nohighlight">\(T(n) = \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{multiplication}} + \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{reduction modulo \textit{N} via division}} = O(n^2)\)</span></p>
+</section>
+<section id="modular-division">
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">Modular Division</a><a class="headerlink" href="#modular-division" title="Link to this heading">#</a></h4>
+<p>In ordinary arithmetic there is just one tricky case–division by zero. In modular arithmetic there are other tricky cases.</p>
+<p>When division is legal, its running time is</p>
+<p><span class="math notranslate nohighlight">\(T(n) = O(n^3)\)</span></p>
+</section>
+<section id="modular-exponentiation">
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">Modular Exponentiation</a><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h4>
+<p>Can <span class="math notranslate nohighlight">\(x^y \mod N\)</span> be computed quickly for values of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> that are several hundred bits long? The result is some number modulo <span class="math notranslate nohighlight">\(N\)</span> and is therefore itself a few hundred bits long. The raw value <span class="math notranslate nohighlight">\(x^y\)</span> could be much longer. When <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are just <span class="math notranslate nohighlight">\(20\text{-b}\)</span> numbers <span class="math notranslate nohighlight">\(x^y\)</span> is at least <span class="math notranslate nohighlight">\((2^{19})^{2^{19}} = 2^{(19)(524,288)}\)</span> which is about ten million bits long. Imagine what would happen if <span class="math notranslate nohighlight">\(y\)</span> is a <span class="math notranslate nohighlight">\(500\text{-b}\)</span> number. To make sure the numbers we are dealing with never grow too large, we need to perform all intermediate computations modulo <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>Calculate <span class="math notranslate nohighlight">\(x^y \mod N\)</span> by repeatedly multiplying by <span class="math notranslate nohighlight">\(x \mod N\)</span>. The resulting sequence of intermediate products <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to \dotsb \to x^y \mod N\)</span> consists of numbers smaller than <span class="math notranslate nohighlight">\(N\)</span>, so the individual multiplications do not take too long. But if <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(500\)</span> bits long we need to perform <span class="math notranslate nohighlight">\(y - 1 \approx 2^{500}\)</span> multiplications which is exponential in the size of <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>It will be better to start with <span class="math notranslate nohighlight">\(x\)</span> and repeatedly square modulo <span class="math notranslate nohighlight">\(N\)</span>: <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to x^4 \mod N \to x^8 \mod N \to \dotsb \to x^{2^{\lfloor \log y \rfloor}} \mod N\)</span>.</p>
+<p>Each squaring takes <span class="math notranslate nohighlight">\(O(\log^2 N)\)</span> and there are <span class="math notranslate nohighlight">\(\log y\)</span> multiplications</p>
+<p>To determine <span class="math notranslate nohighlight">\(x^y \mod N\)</span> multiply together the subset of these powers corresponding to <span class="math notranslate nohighlight">\(1\)</span> s in the binary representation of <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>EXAMPLE</p>
+<p>algorithm decomposition</p>
+<p><span class="math notranslate nohighlight">\(x^{25} = x^{11001_2} = x^{10000_2} \cdot x^{1000_2} \cdot x^{1_2} = x^{16} \cdot x^8 \cdot x^1\)</span></p>
+<p>For multiplication the terms <span class="math notranslate nohighlight">\(x \cdot 2^i\)</span> come from repeated doubling. For exponentiation the terms <span class="math notranslate nohighlight">\(x^{2^i}\)</span> come from repeated squaring</p>
+<p>This algorithm implements the following recursive rule.</p>
+<p><span class="math notranslate nohighlight">\(
+x^y =
+\begin{cases}
+        (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is even} \\
+x \cdot (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is odd}  \\
+\end  {cases}
+\)</span></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">INPUT</span><span class="w">    </span><span class="n">two</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">integers</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="n">exponent</span><span class="w"> </span><span class="n">y</span>
+<span class="n">OUTPUT</span><span class="w">    </span><span class="n">x</span><span class="o">^</span><span class="n">y</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">N</span>
+
+<span class="n">MODEXP</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="mi">1</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="mi">2</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="mi">3</span>
+<span class="mi">4</span><span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MODEXP</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">floor</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="mi">5</span>
+<span class="mi">6</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">even</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="mi">7</span><span class="w">        </span><span class="k">return</span><span class="w">  </span><span class="n">z</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">N</span>
+<span class="mi">8</span><span class="w">    </span><span class="k">else</span>
+<span class="mi">9</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">xz</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">N</span>
+</pre></div>
+</div>
+<p><strong>Correctness</strong></p>
+<p>The recursive rule is <span style="color: red;">transparently</span> correct. Checking that the algorithm is correct is a matter of verifying that it mimics the rule and that it handles the base case <span class="math notranslate nohighlight">\(y = 1\)</span> properly.</p>
+<p><strong>Complexity</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(n\)</span> be the size in bits of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> (whichever is the largest of the three). As with multiplication, the algorithm will halt after at most <span class="math notranslate nohighlight">\(n\)</span> recursive calls and during each call it multiplies <span class="math notranslate nohighlight">\(n\)</span>-bit numbers (doing computation modulo <span class="math notranslate nohighlight">\(N\)</span> saves us here) for a total running time of</p>
+<p><span class="math notranslate nohighlight">\(T(n) = \underbrace{\quad\quad O(n) \quad\quad}_{\text{recursive calls}} \times \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{multiplication}} = O(n^3)\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="reduced-residues">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">Reduced Residues</a><a class="headerlink" href="#reduced-residues" title="Link to this heading">#</a></h2>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span>, <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span>, and</p>
+<p><span class="math notranslate nohighlight">\(\overline{a_1}, \overline{a_2}, \dotsc, \overline{a_m}\)</span></p>
+<p>forms a complete system of residues modulo <span class="math notranslate nohighlight">\(m\)</span>. Then so does</p>
+<p><span class="math notranslate nohighlight">\(\overline{ka_1}, \overline{ka_2}, \dotsc, \overline{ka_m}\)</span></p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<div style="color: red;">
+<p>Since there are <span class="math notranslate nohighlight">\(m\)</span> residue classes it need only be checked that they are disjoint.</p>
+</div>
+<p>Consider any two residue classes <span class="math notranslate nohighlight">\(\overline{ka_i}\)</span> and <span class="math notranslate nohighlight">\(\overline{ka_j}\)</span> and let <span class="math notranslate nohighlight">\(ka_i + mx\)</span> and <span class="math notranslate nohighlight">\(ka_j + my\)</span> be typical members of each, respectively.</p>
+<p>If they were the same integer then <span class="math notranslate nohighlight">\(ka_i + mx = ka_j + my \iff ka_i - ka_j = my - mx \iff k(a_i - a_j) = m(y - x)\)</span>.</p>
+<p>But then <span class="math notranslate nohighlight">\(m \mid k(a_i - a_j)\)</span> and since <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span> it would be the case that <span class="math notranslate nohighlight">\(m \mid a_i - a_j\)</span>; that <span class="math notranslate nohighlight">\(\overline{a_i}\)</span> and <span class="math notranslate nohighlight">\(\overline{a_j}\)</span> be the same residue class; and that <span class="math notranslate nohighlight">\(i = j\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #AAFF00;"><b><span class="math notranslate nohighlight">\(\bar{0}, \bar{1}, \bar{2}\)</span> is a complete system of residues modulo <span class="math notranslate nohighlight">\(m\)</span></b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 0) \} = \{ 3x \} \\
+\bar{1} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 1) \} = \{ 3x + 1 \} \\
+\bar{2} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2) \} = \{ 3x + 2 \} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(2, 3) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 0) \} = \{ 3x \} \\
+\bar{2} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2) \} = \{ 3x + 2 \} \\
+\bar{4} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 4) \} = \{ 3x + 4 \} = \{ 3(x + 1) + 1 \} = \{ 3x + 1 \} \\
+\end  {aligned}
+\)</span></p>
+<section id="euler-s-function">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Euler’s function</a><a class="headerlink" href="#euler-s-function" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>ARITHMETIC FUNCTION</b></span></p>
 <div style="color: #0096FF;">
 <p>A function defined on <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> is called arithmetic.</p>
@@ -871,12 +1565,55 @@ k &amp;= 30 &amp;&amp; \frac{1}{30}, \frac{7}{30}, \frac{11}{30}, \frac{13}{30},
 \sum_{k \mid 30} \phi(k) = 30 = \phi(1) + \phi(2) + \phi(3) + \phi(5) + \phi(6) + \phi(10) + \phi(15) + \phi(30)
 \end  {aligned}
 \)</span></p>
-</div><p>For each <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> we have</p>
+</div><p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.7]</p>
+<div style="color: #0096FF;">
+<p>For each <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> we have</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \sum_{k \mid m} \phi(k) = m = \phi(1) + \phi(2) + \dotsb + \phi(m)
 \end  {aligned}
 \)</span></p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>See the above.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.9]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span> and that</p>
+<p><span class="math notranslate nohighlight">\(a_1, a_2, \dotsc, a_{\phi(m)}\)</span></p>
+<p>forms a set of reduced residue classes modulo <span class="math notranslate nohighlight">\(m\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(ka_1, ka_2, \dotsc, ka_{\phi(m)}\)</span></p>
+<p>also forms a set of reduced residue classes modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<div style="color: red;">
+<p>In view of the earlier theorem the residue classes <span class="math notranslate nohighlight">\(ka_j\)</span> are distinct, and since <span class="math notranslate nohighlight">\(\gcd(a_j, m) = 1\)</span> it is the case that <span class="math notranslate nohighlight">\((ka_j, m) = 1\)</span>, so they give <span class="math notranslate nohighlight">\(\phi(m)\)</span> distinct reduced residue classes. So they are all of them in some order.</div></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.10]</p>
+<div style="color: #0096FF;">
+<p>Suppose <span class="math notranslate nohighlight">\(m, n \in \mathbb{N}\)</span> and <span class="math notranslate nohighlight">\(\gcd(m, n) = 1\)</span>, and consider the <span class="math notranslate nohighlight">\(xn + ym\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le m\)</span> and <span class="math notranslate nohighlight">\(1 \le y \le n\)</span>. Then they form a complete set of residues modulo <span class="math notranslate nohighlight">\(mn\)</span>. If in addition <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> satisfy <span class="math notranslate nohighlight">\(\gcd(x, m) = 1\)</span> and <span class="math notranslate nohighlight">\(\gcd(y, n) = 1\)</span> then they form a reduced set.</p>
+</div><p><span style="color: #AAFF00;"><b><span class="math notranslate nohighlight">\(6x + 5y \mod 30\)</span></b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{cc|cccc|}
+  &amp; x &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+y &amp; \\ \hline
+1 &amp; &amp; 11 &amp; 17 &amp; 23 &amp; 29 &amp;  5 \\ \hline
+2 &amp; &amp; 16 &amp; 22 &amp; 28 &amp;  4 &amp; 10 \\
+3 &amp; &amp; 21 &amp; 27 &amp;  3 &amp;  9 &amp; 15 \\
+4 &amp; &amp; 26 &amp;  2 &amp;  8 &amp; 14 &amp; 20 \\ \hline
+5 &amp; &amp;  1 &amp;  7 &amp; 13 &amp; 19 &amp; 25 \\ \hline
+6 &amp; &amp;  6 &amp; 12 &amp; 18 &amp; 24 &amp; 30 \\
+\end  {array}
+\)</span></p>
+<p>The <span class="math notranslate nohighlight">\(30\)</span> numbers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(30\)</span> each appear exactly once. The <span class="math notranslate nohighlight">\(8\)</span> reduced residue classes occur precisely in the intersection of rows <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(5\)</span> and columns <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(4\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\gcd(x = 1, 2, 3, 4, m = 5) = \gcd(y = 1, 5, n = 6)\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="acknowledgements">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
+<p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -921,11 +1658,11 @@ k &amp;= 30 &amp;&amp; \frac{1}{30}, \frac{7}{30}, \frac{11}{30}, \frac{13}{30},
       </div>
     </a>
     <a class="right-next"
-       href="arithmetic/index.html"
+       href="book___numbers_groups_codes/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Arithmetic</p>
+        <p class="prev-next-title">Book: <em>Numbers, Groups, and Codes</em></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -946,9 +1683,47 @@ k &amp;= 30 &amp;&amp; \frac{1}{30}, \frac{7}{30}, \frac{11}{30}, \frac{13}{30},
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence">Congruence</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic">Arithmetic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bit-complexity-of-numbers">The bit complexity of numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition">Addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication">Multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grade-school-binary-multiplication-algorithm">Grade-School Binary Multiplication Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-a-la-francais">Multiplication à la Français</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trial-division">Trial Division</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prime-counting-function">Prime-Counting Function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Division</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm-theorem">Division algorithm theorem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence-and-residues">Congruence and Residues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence-and-modular-arithmetic">Congruence, and modular arithmetic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence">Congruence</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-congruence-relation">Properties of the congruence relation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-arithmetic">Modular Arithmetic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition">Modular Addition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication">Modular Multiplication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-division">Modular Division</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation">Modular Exponentiation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-function">Euler’s function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
   </nav></div>
 
