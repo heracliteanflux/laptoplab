@@ -77,6 +77,8 @@
     <script src="../../_static/script.js?v=9c6c3268"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Arithmetic" href="arithmetic/index.html" />
+    <link rel="prev" title="Number Theory" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -139,8 +141,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,7 +181,7 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../figures.html">Figures</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../calc/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../calc/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -254,6 +254,31 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../algebra/index.html">Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../algebra/book___a_transition_to_advanced_mathematics.html">Book: <em>A Transition to Advanced Mathematics</em></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Number Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic/index.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arithmetic_mod/index.html">Modular Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="congruence/index.html">Congruence and Residue</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/00_introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/01_even_and_odd.html">Even and Odd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/02_divisibility.html">Divisibility</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/04_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/05_primality.html">Primality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/06_congruence.html">Congruence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation.html">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sieve_of_eratosthenes.html">Sieve of Eratosthenes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../sets.html">Elementary Set Theory</a></li>
@@ -722,6 +747,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence">Congruence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
 </ul>
             </nav>
         </div>
@@ -744,11 +772,25 @@ document.write(`
 <li><p><a class="reference internal" href="#number-theory" id="id2">Number Theory</a></p>
 <ul>
 <li><p><a class="reference internal" href="#contents" id="id3">Contents</a></p></li>
+<li><p><a class="reference internal" href="#division" id="id4">Division</a></p></li>
+<li><p><a class="reference internal" href="#congruence" id="id5">Congruence</a></p></li>
+<li><p><a class="reference internal" href="#residues" id="id6">Residues</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
+</section>
 <hr class="docutils" />
+<section id="division">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Division</a><a class="headerlink" href="#division" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="congruence">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Congruence</a><a class="headerlink" href="#congruence" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="residues">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Residues</a><a class="headerlink" href="#residues" title="Link to this heading">#</a></h2>
 <p><span style="color: lightblue;"><b>ARITHMETIC FUNCTION</b></span></p>
 <div style="color: lightblue;">
 <p>A function defined on <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> is called arithmetic.</p>
@@ -760,36 +802,36 @@ document.write(`
 <p><span style="color: lightgreen;"><b><span class="math notranslate nohighlight">\(\phi(n)\)</span> up to <span class="math notranslate nohighlight">\(30\)</span></b></span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\phi( 1) &amp;=  1 &amp;&amp; \gcd(1, 1) = 1 \\
-\phi( 2) &amp;=  1 \\
-\phi( 3) &amp;=  2 \\
-\phi( 4) &amp;=  2 &amp;&amp; \gcd(1, 4) = \gcd(3, 4) \\
-\phi( 5) &amp;=  4 \\
-\phi( 6) &amp;=  2 &amp;&amp; \gcd(1, 6) = \gcd(5, 6) \\
-\phi( 7) &amp;=  6 \\
-\phi( 8) &amp;=  4 &amp;&amp; \gcd(1, 8) = \gcd(3, 8) = \gcd(5, 8) = \gcd(7, 8) \\
-\phi( 9) &amp;=  6 &amp;&amp; \gcd(1, 9) = \gcd(2, 9) = \gcd(4, 9) = \gcd(5, 9) = \gcd(7, 9) = \gcd(8, 9) \\
-\phi(10) &amp;=  4 &amp;&amp; \gcd(1, 10) = \gcd(3, 10) = \gcd(7, 10) = \gcd(9, 10) \\
-\phi(11) &amp;= 10 \\
-\phi(12) &amp;=  4 &amp;&amp; \gcd(1, 12) = \gcd(5, 12) = \gcd(7, 12) = \gcd(11, 12) \\
-\phi(13) &amp;= 12 \\
-\phi(14) &amp;=  6 &amp;&amp; \gcd(1, 14) = \gcd(3, 14) = \gcd(5, 14) = \gcd(9, 14) = \gcd(11, 14) = \gcd(13, 14) \\
-\phi(15) &amp;=  8 &amp;&amp; \gcd(1, 15) = \gcd(2, 15) = \gcd(4, 15) = \gcd(7, 15) = \gcd(8, 15) = \gcd(11, 15) = \gcd(13, 15) = \gcd(14, 15) \\
-\phi(16) &amp;=  8 &amp;&amp; \gcd(1, 16) = \gcd(3, 16) = \gcd(5, 16) = \gcd(7, 16) = \gcd(9, 16) = \gcd(11, 16) = \gcd(13, 16) = \gcd(15, 16) \\
-\phi(17) &amp;= 16 \\
-\phi(18) &amp;=  6 &amp;&amp; \gcd(1, 18) = \gcd(5, 18) = \gcd(7, 18) = \gcd(11, 18) = \gcd(13, 18) = \gcd(17, 18) \\
-\phi(19) &amp;= 18 \\
-\phi(20) &amp;=  8 &amp;&amp; \gcd(1, 20) = \gcd(3, 20) = \gcd(7, 20) = \gcd(9, 20) = \gcd(11, 20) = \gcd(13, 20) = \gcd(17, 20) = \gcd(19, 20) \\
-\phi(21) &amp;= 12 &amp;&amp; \gcd(1, 21) = \gcd(2, 21) = \gcd(4, 21) = \gcd(5, 21) = \gcd(8, 21) = \gcd(10, 21) = \gcd(11, 21) = \gcd(13, 21) = \gcd(16, 21) = \gcd(17, 21) = \gcd(19, 21) = \gcd(20, 21) \\
-\phi(22) &amp;= 10 &amp;&amp; \gcd(1, 22) = \gcd(3, 22) = \gcd(5, 22) = \gcd(7, 22) = \gcd(9, 22) = \gcd(13, 22) = \gcd(15, 22) = \gcd(17, 22) = \gcd(19, 22) = \gcd(21, 22) \\
-\phi(23) &amp;= 22 \\
-\phi(24) &amp;=  8 &amp;&amp; \gcd(1, 24) = \gcd(5, 24) = \gcd(7, 24) = \gcd(11, 24) = \gcd(13, 24) = \gcd(17, 24) = \gcd(19, 24) = \gcd(23, 24) \\
-\phi(25) &amp;= 20 &amp;&amp; \gcd(1, 25) = \gcd(2, 25) = \gcd(3, 25) = \gcd(4, 25) = \gcd(6, 25) = \gcd(7, 25) = \gcd(8, 25) = \gcd(9, 25) = \gcd(11, 25) = \gcd(12, 25) = \gcd(13, 25) = \gcd(14, 25) = \gcd(16, 25) = \gcd(17, 25) = \gcd(18, 25) = \gcd(19, 25) = \gcd(21, 25) = \gcd(22, 25) = \gcd(23, 25) = \gcd(24, 25) \\
-\phi(26) &amp;= \\
-\phi(27) &amp;= \\
-\phi(28) &amp;= \\
-\phi(29) &amp;= 28 \\
-\phi(30) &amp;=  8 &amp;&amp; \gcd(1, 30) = \gcd(7, 30) = \gcd(11, 30) = \gcd(13, 30) = \gcd(17, 30) = \gcd(19, 30) = \gcd(23, 30) = \gcd(29, 30) \\
+\phi( 1) &amp;=&amp;  1 &amp;&amp; \gcd(1, 1) = 1 \\
+\phi( 2) &amp;=&amp;  1 \\
+\phi( 3) &amp;=&amp;  2 \\
+\phi( 4) &amp;=&amp;  2 &amp;&amp; \{ 1, 3 \} \\
+\phi( 5) &amp;=&amp;  4 \\
+\phi( 6) &amp;=&amp;  2 &amp;&amp; \{ 1, 5 \} \\
+\phi( 7) &amp;=&amp;  6 \\
+\phi( 8) &amp;=&amp;  4 &amp;&amp; \{ 1, 3, 5, 7 \} \\
+\phi( 9) &amp;=&amp;  6 &amp;&amp; \{ 1, 2, 4, 5, 7, 8 \} \\
+\phi(10) &amp;=&amp;  4 &amp;&amp; \{ 1, 3, 7, 9 \} \\
+\phi(11) &amp;=&amp; 10 \\
+\phi(12) &amp;=&amp;  4 &amp;&amp; \{ 1, 5, 7, 11 \} \\
+\phi(13) &amp;=&amp; 12 \\
+\phi(14) &amp;=&amp;  6 &amp;&amp; \{ 1, 3, 5, 9, 11, 13 \} \\
+\phi(15) &amp;=&amp;  8 &amp;&amp; \{ 1, 2, 4, 7, 8, 11, 13, 14 \} \\
+\phi(16) &amp;=&amp;  8 &amp;&amp; \gcd(1, 16) = \gcd(3, 16) = \gcd(5, 16) = \gcd(7, 16) = \gcd(9, 16) = \gcd(11, 16) = \gcd(13, 16) = \gcd(15, 16) \\
+\phi(17) &amp;=&amp; 16 \\
+\phi(18) &amp;=&amp;  6 &amp;&amp; \gcd(1, 18) = \gcd(5, 18) = \gcd(7, 18) = \gcd(11, 18) = \gcd(13, 18) = \gcd(17, 18) \\
+\phi(19) &amp;=&amp; 18 \\
+\phi(20) &amp;=&amp;  8 &amp;&amp; \gcd(1, 20) = \gcd(3, 20) = \gcd(7, 20) = \gcd(9, 20) = \gcd(11, 20) = \gcd(13, 20) = \gcd(17, 20) = \gcd(19, 20) \\
+\phi(21) &amp;=&amp; 12 &amp;&amp; \gcd(1, 21) = \gcd(2, 21) = \gcd(4, 21) = \gcd(5, 21) = \gcd(8, 21) = \gcd(10, 21) = \gcd(11, 21) = \gcd(13, 21) = \gcd(16, 21) = \gcd(17, 21) = \gcd(19, 21) = \gcd(20, 21) \\
+\phi(22) &amp;=&amp; 10 &amp;&amp; \gcd(1, 22) = \gcd(3, 22) = \gcd(5, 22) = \gcd(7, 22) = \gcd(9, 22) = \gcd(13, 22) = \gcd(15, 22) = \gcd(17, 22) = \gcd(19, 22) = \gcd(21, 22) \\
+\phi(23) &amp;=&amp; 22 \\
+\phi(24) &amp;=&amp;  8 &amp;&amp; \gcd(1, 24) = \gcd(5, 24) = \gcd(7, 24) = \gcd(11, 24) = \gcd(13, 24) = \gcd(17, 24) = \gcd(19, 24) = \gcd(23, 24) \\
+\phi(25) &amp;=&amp; 20 &amp;&amp; \{ 1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19, 21, 22, 23, 24 \} \\
+\phi(26) &amp;=&amp; \\
+\phi(27) &amp;=&amp; \\
+\phi(28) &amp;=&amp; \\
+\phi(29) &amp;=&amp; 28 \\
+\phi(30) &amp;=&amp;  8 &amp;&amp; \gcd(1, 30) = \gcd(7, 30) = \gcd(11, 30) = \gcd(13, 30) = \gcd(17, 30) = \gcd(19, 30) = \gcd(23, 30) = \gcd(29, 30) \\
 \end  {aligned}
 \)</span></p>
 <p><span style="color: lightblue;"><b>SET OF REDUCED RESIDUES MODULO M</b></span></p>
@@ -828,6 +870,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Number Theory</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="arithmetic/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Arithmetic</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -845,6 +905,9 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division">Division</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence">Congruence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
 </ul>
   </nav></div>
 
