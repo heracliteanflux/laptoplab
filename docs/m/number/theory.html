@@ -779,9 +779,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudoprimes">Pseudoprimes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-pseudoprimes">Fermat pseudoprimes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carmichael-numbers">Carmichael Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
             </nav>
@@ -843,10 +846,13 @@ document.write(`
 </ul>
 </li>
 <li><p><a class="reference internal" href="#reduced-residues" id="id26">Reduced Residues</a></p></li>
-<li><p><a class="reference internal" href="#pseudoprimes" id="id27">Pseudoprimes</a></p></li>
+<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id27">Fermat pseudoprimes</a></p></li>
+<li><p><a class="reference internal" href="#carmichael-numbers" id="id28">Carmichael Numbers</a></p></li>
+<li><p><a class="reference internal" href="#mersenne-primes" id="id29">Mersenne Primes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id28">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#linear-congruence" id="id30">Linear Congruence</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id31">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -1711,7 +1717,8 @@ a_1 a_2 \dots a_{\phi(m)} &amp;\equiv aa_1 aa_2 \dots aa_{\phi(m)}             &
 <p><span style="color: #50C878;"><b>Example</b></span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-m &amp;= 17, a = 3 &amp;&amp; 3^{16} \equiv 1 \mod 17 \\
+m &amp;= 17        &amp; a &amp;= 3 &amp; 3^{16}    &amp;\equiv 1 \mod 17 \\
+m &amp;= 341561645 &amp; a &amp;= 2 &amp; 2^{m - 1} &amp;\equiv 1 \mod m  \\
 \end  {aligned}
 \)</span></p>
 <p><span style="color: #0096FF;"><b>FERMAT’S LITTLE THEOREM</b></span> [Vaughan Corollary 3.18]</p>
@@ -1720,28 +1727,77 @@ m &amp;= 17, a = 3 &amp;&amp; 3^{16} \equiv 1 \mod 17 \\
 <p><span class="math notranslate nohighlight">\(a^p \equiv a \mod p\)</span></p>
 <p>If <span class="math notranslate nohighlight">\(p \nmid a\)</span> then</p>
 <p><span class="math notranslate nohighlight">\(a^{p - 1} \equiv 1 \mod p\)</span></p>
-</div></section>
+</div><p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+p &amp;= 17, a = 3 &amp;&amp; 3^{17} \equiv 3 \mod 17 \\
+\end  {aligned}
+\)</span></p>
+</section>
 <hr class="docutils" />
-<section id="pseudoprimes">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">Pseudoprimes</a><a class="headerlink" href="#pseudoprimes" title="Link to this heading">#</a></h3>
+<section id="fermat-pseudoprimes">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
 <p>Pseudoprimes are composite integers masquerading as primes.</p>
 <p>Could Fermat’s theorem give us a primality test? Unfortunately, it is possible that</p>
 <p><span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span></p>
 <p>when <span class="math notranslate nohighlight">\(n\)</span> is <em><strong>not prime</strong></em>, although this is rare. For example, when <span class="math notranslate nohighlight">\(n = 341,561,645\)</span> then</p>
 <p><span class="math notranslate nohighlight">\(2^{n - 1} \equiv 1 \mod n\)</span></p>
-<p>Such <span class="math notranslate nohighlight">\(n\)</span> are called pseudoprimes.</p>
+<p>Such <span class="math notranslate nohighlight">\(n\)</span> are called (Fermat) pseudoprimes.</p>
+<div style="color: red;">
 <p>There are <span class="math notranslate nohighlight">\(245\)</span> pseudoprimes less than <span class="math notranslate nohighlight">\(10^6\)</span> (compared to <span class="math notranslate nohighlight">\(78498\)</span> primes less than <span class="math notranslate nohighlight">\(10^6\)</span>).</p>
+</div><p><span style="color: #50C878;"><b>Base-2 Fermat Pseudoprimes</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+n &amp;= 341       &amp;&amp;= 11 \times 31                       &amp; 2^{341 - 1} &amp;\equiv 1 \mod 341 \\
+n &amp;= 341561645 &amp;&amp;= 5 \times 67 \times 773 \times 1319 &amp; 2^{n - 1}   &amp;\equiv 1 \mod n \\
+\end  {aligned}
+\)</span></p>
 <p><span class="math notranslate nohighlight">\(3^{341 - 1} \equiv 56 \ne 1 \mod 341\)</span> suggests a possible primality test.</p>
 <p>Given <span class="math notranslate nohighlight">\(n\)</span>, try trial division a few times (say for <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7\)</span>) and then check <span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span> successively for <span class="math notranslate nohighlight">\(a = 2, 3, 5, 7\)</span>.</p>
 <p>Unfortunately, one still encounters false positives.</p>
-<p><span class="math notranslate nohighlight">\(561 = 3 \times 11 \times 57\)</span> satisfies <span class="math notranslate nohighlight">\(a^{560} \equiv 1 \mod 561\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, 561) = 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(561 = 3 \times 11 \times 17\)</span> satisfies <span class="math notranslate nohighlight">\(a^{560} \equiv 1 \mod 561\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, 561) = 1\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="carmichael-numbers">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>CARMICHAEL NUMBER</b></span> [Vaughan Definition 3.19]</p>
+<div style="color: #0096FF;">
+<p>A composite <span class="math notranslate nohighlight">\(n\)</span> which satisfies <span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, n) = 1\)</span> is called a Carmichael number.</p>
+</div>
+<p>There are infinitely many Carmichael numbers. The smallest is <span class="math notranslate nohighlight">\(561\)</span> and there are <span class="math notranslate nohighlight">\(2163\)</span> of them below <span class="math notranslate nohighlight">\(25 \times 10^9\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="mersenne-primes">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>MERSENNE PRIME</b></span> [Vaughan Definition 3.20]</p>
+<div style="color: #0096FF;">
+<p>Define <span class="math notranslate nohighlight">\(M(n) = 2^n - 1\)</span>. If it is prime then it is a Mersenne prime.</p>
+</div>
+<p>If <span class="math notranslate nohighlight">\(n = ab\)</span> then <span class="math notranslate nohighlight">\(M(ab) = (2^a - 1)(2^{a(b - 1)} + \dotsb + 2^a + 1)\)</span>.</p>
+<p>Thus for <span class="math notranslate nohighlight">\(M(n)\)</span> to be prime it is necessary that <span class="math notranslate nohighlight">\(n\)</span> be prime. However, that is not sufficient.</p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+M( 2) &amp;=&amp; 2^2    - 1 &amp;=&amp;    3 &amp;                                &amp;&amp; \text{} \\
+M( 3) &amp;=&amp; 2^3    - 1 &amp;=&amp;    7 &amp;                                &amp;&amp; \text{} \\
+M( 5) &amp;=&amp; 2^5    - 1 &amp;=&amp;   31 &amp;                                &amp;&amp; \text{} \\
+M( 7) &amp;=&amp; 2^7    - 1 &amp;=&amp;  127 &amp;                                &amp;&amp; \text{} \\
+M(11) &amp;=&amp; 2^{11} - 1 &amp;=&amp; 2047 &amp;= \textcolor{red}{23 \times 89} &amp;&amp; \text{not a Mersenne prime} \\
+\end  {aligned}
+\)</span></p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
+</section>
+<hr class="docutils" />
+<section id="linear-congruence">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
@@ -1846,9 +1902,12 @@ m &amp;= 17, a = 3 &amp;&amp; 3^{16} \equiv 1 \mod 17 \\
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudoprimes">Pseudoprimes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-pseudoprimes">Fermat pseudoprimes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carmichael-numbers">Carmichael Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
   </nav></div>
