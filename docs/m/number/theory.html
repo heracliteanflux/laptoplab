@@ -762,9 +762,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Division</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm-theorem">Division algorithm theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sieve-of-eratosthenes">Sieve of Eratosthenes</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence-and-residues">Congruence and Residues</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence">Congruence</a><ul class="nav section-nav flex-column">
@@ -784,7 +785,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chinese-remainder-theorem">Chinese Remainder Theorem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-roots">Primitive Roots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-logarithms">Discrete Logarithms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
             </nav>
@@ -798,61 +804,68 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="number-theory">
-<h1><a class="toc-backref" href="#id3" role="doc-backlink">Number Theory</a><a class="headerlink" href="#number-theory" title="Link to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">Number Theory</a><a class="headerlink" href="#number-theory" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="contents">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
 <nav class="contents" id="id1">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#number-theory" id="id3">Number Theory</a></p>
+<li><p><a class="reference internal" href="#number-theory" id="id4">Number Theory</a></p>
 <ul>
-<li><p><a class="reference internal" href="#contents" id="id4">Contents</a></p></li>
-<li><p><a class="reference internal" href="#arithmetic" id="id5">Arithmetic</a></p>
+<li><p><a class="reference internal" href="#contents" id="id5">Contents</a></p></li>
+<li><p><a class="reference internal" href="#arithmetic" id="id6">Arithmetic</a></p>
 <ul>
-<li><p><a class="reference internal" href="#the-bit-complexity-of-numbers" id="id6">The bit complexity of numbers</a></p></li>
-<li><p><a class="reference internal" href="#addition" id="id7">Addition</a></p></li>
-<li><p><a class="reference internal" href="#multiplication" id="id8">Multiplication</a></p></li>
-<li><p><a class="reference internal" href="#grade-school-binary-multiplication-algorithm" id="id9">Grade-School Binary Multiplication Algorithm</a></p></li>
-<li><p><a class="reference internal" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier" id="id10">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a></p></li>
-<li><p><a class="reference internal" href="#multiplication-a-la-francais" id="id11">Multiplication à la Français</a></p></li>
-<li><p><a class="reference internal" href="#division" id="id12">Division</a></p></li>
+<li><p><a class="reference internal" href="#the-bit-complexity-of-numbers" id="id7">The bit complexity of numbers</a></p></li>
+<li><p><a class="reference internal" href="#addition" id="id8">Addition</a></p></li>
+<li><p><a class="reference internal" href="#multiplication" id="id9">Multiplication</a></p></li>
+<li><p><a class="reference internal" href="#grade-school-binary-multiplication-algorithm" id="id10">Grade-School Binary Multiplication Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier" id="id11">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a></p></li>
+<li><p><a class="reference internal" href="#multiplication-a-la-francais" id="id12">Multiplication à la Français</a></p></li>
+<li><p><a class="reference internal" href="#division" id="id13">Division</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#trial-division" id="id13">Trial Division</a></p>
+<li><p><a class="reference internal" href="#trial-division" id="id14">Trial Division</a></p>
 <ul>
-<li><p><a class="reference internal" href="#prime-counting-function" id="id14">Prime-Counting Function</a></p></li>
+<li><p><a class="reference internal" href="#prime-counting-function" id="id15">Prime-Counting Function</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id2" id="id15">Division</a></p>
+<li><p><a class="reference internal" href="#id2" id="id16">Division</a></p>
 <ul>
-<li><p><a class="reference internal" href="#division-algorithm-theorem" id="id16">Division algorithm theorem</a></p></li>
+<li><p><a class="reference internal" href="#sieve-of-eratosthenes" id="id17">Sieve of Eratosthenes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#congruence-and-residues" id="id17">Congruence and Residues</a></p>
+<li><p><a class="reference internal" href="#id3" id="id18">2</a></p></li>
+<li><p><a class="reference internal" href="#congruence-and-residues" id="id19">Congruence and Residues</a></p>
 <ul>
-<li><p><a class="reference internal" href="#residues" id="id18">Residues</a></p></li>
-<li><p><a class="reference internal" href="#congruence" id="id19">Congruence</a></p>
+<li><p><a class="reference internal" href="#residues" id="id20">Residues</a></p></li>
+<li><p><a class="reference internal" href="#congruence" id="id21">Congruence</a></p>
 <ul>
-<li><p><a class="reference internal" href="#properties-of-the-congruence-relation" id="id20">Properties of the congruence relation</a></p></li>
+<li><p><a class="reference internal" href="#properties-of-the-congruence-relation" id="id22">Properties of the congruence relation</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#modular-arithmetic" id="id21">Modular Arithmetic</a></p>
+<li><p><a class="reference internal" href="#modular-arithmetic" id="id23">Modular Arithmetic</a></p>
 <ul>
-<li><p><a class="reference internal" href="#modular-addition" id="id22">Modular Addition</a></p></li>
-<li><p><a class="reference internal" href="#modular-multiplication" id="id23">Modular Multiplication</a></p></li>
-<li><p><a class="reference internal" href="#modular-division" id="id24">Modular Division</a></p></li>
-<li><p><a class="reference internal" href="#modular-exponentiation" id="id25">Modular Exponentiation</a></p></li>
+<li><p><a class="reference internal" href="#modular-addition" id="id24">Modular Addition</a></p></li>
+<li><p><a class="reference internal" href="#modular-multiplication" id="id25">Modular Multiplication</a></p></li>
+<li><p><a class="reference internal" href="#modular-division" id="id26">Modular Division</a></p></li>
+<li><p><a class="reference internal" href="#modular-exponentiation" id="id27">Modular Exponentiation</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#reduced-residues" id="id26">Reduced Residues</a></p></li>
-<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id27">Fermat pseudoprimes</a></p></li>
-<li><p><a class="reference internal" href="#carmichael-numbers" id="id28">Carmichael Numbers</a></p></li>
-<li><p><a class="reference internal" href="#mersenne-primes" id="id29">Mersenne Primes</a></p></li>
+<li><p><a class="reference internal" href="#reduced-residues" id="id28">Reduced Residues</a></p></li>
+<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id29">Fermat pseudoprimes</a></p></li>
+<li><p><a class="reference internal" href="#carmichael-numbers" id="id30">Carmichael Numbers</a></p></li>
+<li><p><a class="reference internal" href="#mersenne-primes" id="id31">Mersenne Primes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#linear-congruence" id="id30">Linear Congruence</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id31">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#linear-congruence" id="id32">Linear Congruence</a></p>
+<ul>
+<li><p><a class="reference internal" href="#chinese-remainder-theorem" id="id33">Chinese Remainder Theorem</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#primitive-roots" id="id34">Primitive Roots</a></p></li>
+<li><p><a class="reference internal" href="#discrete-logarithms" id="id35">Discrete Logarithms</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id36">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -862,9 +875,9 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="arithmetic">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Arithmetic</a><a class="headerlink" href="#arithmetic" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Arithmetic</a><a class="headerlink" href="#arithmetic" title="Link to this heading">#</a></h2>
 <section id="the-bit-complexity-of-numbers">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">The bit complexity of numbers</a><a class="headerlink" href="#the-bit-complexity-of-numbers" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">The bit complexity of numbers</a><a class="headerlink" href="#the-bit-complexity-of-numbers" title="Link to this heading">#</a></h3>
 <p>We focus on bit complexity (of algorithms), the number of elementary operations on individual bits, because it reflects the amount of hardware, transistors and wires, necessary for implementing an algorithm.</p>
 <p>It is a basic property of numbers that <strong>for any base <span class="math notranslate nohighlight">\(b \ge 2\)</span> the sum of any three single-digit numbers is at most two digits long</strong>.</p>
 <p><span class="math notranslate nohighlight">\(
@@ -930,7 +943,7 @@ k          &amp;= \lceil \log_b (N + 1) \rceil \\
 </section>
 <hr class="docutils" />
 <section id="addition">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Addition</a><a class="headerlink" href="#addition" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Addition</a><a class="headerlink" href="#addition" title="Link to this heading">#</a></h3>
 <p>The rule that the sum of any three single-digit numbers is at most two digits allows us to add two numbers in any base in the following way: align their right-hand ends and then perform a single right-to-left pass in which the sum is computed digit by digit, maintaining the overflow as a carry. Since we know the individual sum is a two-digit number, the carry is always a single digit, and so at any given step, three single-digit numbers are added.</p>
 <div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>Carry  1     1 1 1
          1 1 0 1 0 1 (53)
@@ -981,10 +994,10 @@ k          &amp;= \lceil \log_b (N + 1) \rceil \\
 </section>
 <hr class="docutils" />
 <section id="multiplication">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Multiplication</a><a class="headerlink" href="#multiplication" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Multiplication</a><a class="headerlink" href="#multiplication" title="Link to this heading">#</a></h3>
 </section>
 <section id="grade-school-binary-multiplication-algorithm">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Grade-School Binary Multiplication Algorithm</a><a class="headerlink" href="#grade-school-binary-multiplication-algorithm" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Grade-School Binary Multiplication Algorithm</a><a class="headerlink" href="#grade-school-binary-multiplication-algorithm" title="Link to this heading">#</a></h3>
 <p>Multiply two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. Create an array of intermediate sums each representing the product of <span class="math notranslate nohighlight">\(x\)</span> by a single digit of <span class="math notranslate nohighlight">\(y\)</span>. These values are appropriately left-shifted and then added up.</p>
 <p><span class="math notranslate nohighlight">\(13 \times 11\)</span> or <span class="math notranslate nohighlight">\(x = 1101\)</span> and <span class="math notranslate nohighlight">\(y = 1011\)</span></p>
 <div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>        1 1 0 1 (13, multiplicand)
@@ -1005,7 +1018,7 @@ k          &amp;= \lceil \log_b (N + 1) \rceil \\
 <p><span class="math notranslate nohighlight">\(\underbrace{O(n) + O(n) + \dotsb + O(n)}_{n - 1 \text{ times}} = O(n^2)\)</span></p>
 </section>
 <section id="al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a><a class="headerlink" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Al Khwarizmi’s multiplication by repeated halvings of the multiplier</a><a class="headerlink" href="#al-khwarizmi-s-multiplication-by-repeated-halvings-of-the-multiplier" title="Link to this heading">#</a></h3>
 <p>Multiply two decimal numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. Write them next to each other and then repeat the following: divide the first number by <span class="math notranslate nohighlight">\(2\)</span>, rounding down the result, and double the second number; continue until the first number reaches unity and then strike out all the rows in which the first number is even and add up whatever remains in the second column.</p>
 <div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>                      parity of multiplier 11
 11    13              11 = 5 x 2 +  1
@@ -1018,7 +1031,7 @@ k          &amp;= \lceil \log_b (N + 1) \rceil \\
 </div>
 </section>
 <section id="multiplication-a-la-francais">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Multiplication à la Français</a><a class="headerlink" href="#multiplication-a-la-francais" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Multiplication à la Français</a><a class="headerlink" href="#multiplication-a-la-francais" title="Link to this heading">#</a></h3>
 <p>This algorithm implements the following recursive rule.</p>
 <p><span class="math notranslate nohighlight">\(
 x \cdot y =
@@ -1062,7 +1075,7 @@ x + 2(x \cdot \lfloor y/2 \rfloor) &amp; \text{if \textit{y} is odd} \\
 </section>
 <hr class="docutils" />
 <section id="division">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">Division</a><a class="headerlink" href="#division" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Division</a><a class="headerlink" href="#division" title="Link to this heading">#</a></h3>
 <p>To divide an integer <span class="math notranslate nohighlight">\(x\)</span> by an integer <span class="math notranslate nohighlight">\(y \ne 0\)</span> means to find a quotient <span class="math notranslate nohighlight">\(q\)</span> and a remainder <span class="math notranslate nohighlight">\(r\)</span>, where <span class="math notranslate nohighlight">\(x = yq + r\)</span> and <span class="math notranslate nohighlight">\(r \lt y\)</span>.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">INPUT</span><span class="w">    </span><span class="n">two</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">integers</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span>
 <span class="n">OUTPUT</span><span class="w">    </span><span class="n">the</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">divided</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">y</span>
@@ -1090,13 +1103,13 @@ x + 2(x \cdot \lfloor y/2 \rfloor) &amp; \text{if \textit{y} is odd} \\
 </section>
 <hr class="docutils" />
 <section id="trial-division">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Trial Division</a><a class="headerlink" href="#trial-division" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Trial Division</a><a class="headerlink" href="#trial-division" title="Link to this heading">#</a></h2>
 <p>The simplest way to try to factorize a number <span class="math notranslate nohighlight">\(n\)</span> is by <em><strong>trial division</strong></em>.</p>
 <p>If <span class="math notranslate nohighlight">\(n\)</span> has a proper divisor <span class="math notranslate nohighlight">\(m_1\)</span> so that <span class="math notranslate nohighlight">\(n = m_1 m_2\)</span> with <span class="math notranslate nohighlight">\(1 \lt m_1 \lt n\)</span> whence <span class="math notranslate nohighlight">\(1 \lt m_2 \lt n\)</span> then it can be supposed that <span class="math notranslate nohighlight">\(m_1 \le m_2 \iff m_1 m_1 \le m_1 m_2 = n \iff m_1 \le \sqrt{n}\)</span>. Thus, each <span class="math notranslate nohighlight">\(m_1 \le \sqrt{n}\)</span> can be tried in turn. If no such factor is found then <span class="math notranslate nohighlight">\(n\)</span> is prime. <span style="color: red;">
 Since the smallest proper divisor of <span class="math notranslate nohighlight">\(n\)</span> has to be the smallest prime factor of <span class="math notranslate nohighlight">\(n\)</span></span> we need only check the primes <span class="math notranslate nohighlight">\(p\)</span> with <span class="math notranslate nohighlight">\(2 \le p \le \sqrt{n}\)</span>.</p>
 <p>Even so, for large <span class="math notranslate nohighlight">\(n\)</span> this is hugely expensive in time. <span style="color: red;">How to verify this?</span></p>
 <section id="prime-counting-function">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Prime-Counting Function</a><a class="headerlink" href="#prime-counting-function" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Prime-Counting Function</a><a class="headerlink" href="#prime-counting-function" title="Link to this heading">#</a></h3>
 <p>The number <span class="math notranslate nohighlight">\(\pi(x)\)</span> of primes <span class="math notranslate nohighlight">\(p \le x\)</span> is approximately</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -1222,16 +1235,17 @@ x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
 </div>
 </div>
 <hr class="docutils" />
-<p><a class="reference external" href="https://stackoverflow.com/questions/9620181/a-way-to-find-the-nearest-prime-number-to-an-unsigned-long-integer-32-bits-wid">https://stackoverflow.com/questions/9620181/a-way-to-find-the-nearest-prime-number-to-an-unsigned-long-integer-32-bits-wid</a></p>
-<hr class="docutils" />
 <hr class="docutils" />
 </section>
 </section>
 <hr class="docutils" />
 <section id="id2">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">Division</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Division</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
 <p><span style="color: #0096FF;"><b>DIVISION</b></span></p>
+<div style="color: #0096FF;">
 <p>If <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are integers with <span class="math notranslate nohighlight">\(a \ne 0\)</span>, we say that <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(b\)</span> if there is an integer <span class="math notranslate nohighlight">\(c\)</span> s.t. <span class="math notranslate nohighlight">\(b = ac\)</span> (or equivalently if <span class="math notranslate nohighlight">\(b/a\)</span> is an integer). When <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(b\)</span> we say that <span class="math notranslate nohighlight">\(a\)</span> is a factor or divisor of <span class="math notranslate nohighlight">\(b\)</span>, and that <span class="math notranslate nohighlight">\(b\)</span> is a multiple of <span class="math notranslate nohighlight">\(a\)</span>. The notation <span class="math notranslate nohighlight">\(a \mid b\)</span> denotes that <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(a \nmid b\)</span> denotes that <span class="math notranslate nohighlight">\(a\)</span> does not divide <span class="math notranslate nohighlight">\(b\)</span>.</p>
+</div>
 <p><span class="math notranslate nohighlight">\(a \mid b\)</span> can be expressed as <span class="math notranslate nohighlight">\(\exists c (ac = b)\)</span> where the universe of discourse is the set of integers.</p>
 <p><span style="color: #0096FF;"><b>Properties of division</b></span></p>
 <p>Let <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> be integers with <span class="math notranslate nohighlight">\(a \ne 0\)</span>. Then</p>
@@ -1239,16 +1253,25 @@ x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
 <p><span class="math notranslate nohighlight">\((ii)\)</span> If <span class="math notranslate nohighlight">\(a \mid b\)</span> then <span class="math notranslate nohighlight">\(a \mid bc\)</span> for all integers <span class="math notranslate nohighlight">\(c\)</span></p>
 <p><span class="math notranslate nohighlight">\((iii)\)</span> If <span class="math notranslate nohighlight">\(a \mid b\)</span> and <span class="math notranslate nohighlight">\(b \mid c\)</span> then <span class="math notranslate nohighlight">\(a \mid c\)</span></p>
 <p>Division of an integer by a positive integer produces a quotient and a remainder. (Operating on remainders will form the basis of modular arithmetic.)</p>
-<section id="division-algorithm-theorem">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">Division algorithm theorem</a><a class="headerlink" href="#division-algorithm-theorem" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>THEOREM: DIVISION ALGORITHM</b></span></p>
+<div style="color: #0096FF;">
 <p>Let <span class="math notranslate nohighlight">\(a\)</span> be an integer and <span class="math notranslate nohighlight">\(d\)</span> a positive integer. Then there are <u>unique</u> integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt d\)</span> s.t.</p>
 <p><span class="math notranslate nohighlight">\(a = dq + r\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(d\)</span> is called the <strong>divisor</strong>; <span class="math notranslate nohighlight">\(a\)</span> is called the <strong>dividend</strong>; <span class="math notranslate nohighlight">\(q\)</span> is called the <strong>quotient</strong>; and <span class="math notranslate nohighlight">\(r\)</span> is called the <strong>remainder</strong>.</p>
+</div><p>The integer <span class="math notranslate nohighlight">\(a\)</span> is only divisible by the integer <span class="math notranslate nohighlight">\(d\)</span> iff the remainder is <span class="math notranslate nohighlight">\(0\)</span> when <span class="math notranslate nohighlight">\(a\)</span> is divided by <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(d \mid a \iff a = dq + 0\)</span></p>
 <p>We can use the following notation to express the quotient and the remainder:</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 q &amp;= a \textbf{ div } d \\
 r &amp;= a \textbf{ mod } d \\
+\end  {aligned}
+\)</span></p>
+<p>When <span class="math notranslate nohighlight">\(a\)</span> is an integer and <span class="math notranslate nohighlight">\(d\)</span> is a positive integer:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+q &amp;= a \textbf{ div } d &amp;&amp;= \lfloor a/d \rfloor \\
+r &amp;= a \textbf{ mod } d &amp;&amp;= a - d \lfloor a/d \rfloor \\
 \end  {aligned}
 \)</span></p>
 <p>If <span class="math notranslate nohighlight">\(d\)</span> is fixed then <span class="math notranslate nohighlight">\(\textbf{div}\)</span> and <span class="math notranslate nohighlight">\(\textbf{mod}\)</span> are functions on the set of integers:</p>
@@ -1258,28 +1281,596 @@ r &amp;= a \textbf{ mod } d \\
 \textbf{mod}_d &amp;: \mathbb{Z} \to \mathbb{Z}^+ \cup \{ 0 \} &amp; \textbf{mod}_d(a) \mapsto r \\
 \end  {aligned}
 \)</span></p>
-<p>When <span class="math notranslate nohighlight">\(a\)</span> is an integer and <span class="math notranslate nohighlight">\(d\)</span> is a positive integer:</p>
+<p>In programming languages, the modulo operator for <span class="math notranslate nohighlight">\(a \lt 0\)</span> may return <span class="math notranslate nohighlight">\(a - d \lceil a/d \rceil\)</span> instead of <span class="math notranslate nohighlight">\(a \textbf{ mod } d = a - d \lfloor a/d \rfloor\)</span>. Also unlike <span class="math notranslate nohighlight">\(a \textbf{ mod } d\)</span> the modulo operator may be defined when <span class="math notranslate nohighlight">\(d \lt 0\)</span>, and even when <span class="math notranslate nohighlight">\(d = 0\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-q &amp;= a \textbf{ div } d &amp;&amp;= \lfloor a/d \rfloor \\
-r &amp;= a \textbf{ mod } d &amp;&amp;= a - d \\
+ 17 &amp; \textbf{ mod } 3 = &amp;  17 - 3 &amp; \times \lfloor \underset{ 5.\bar{6}}{\phantom{-}17/3} \rfloor = 2 &amp;&amp; &amp;  17 &amp;= 3 \times    5 + 2 \\
+-17 &amp; \textbf{ mod } 3 = &amp; -17 - 3 &amp; \times \lfloor \underset{-5.\bar{6}}{          -17/3} \rfloor = 1 &amp;&amp; &amp; -17 &amp;= 3 \times (-6) + 1 \\
 \end  {aligned}
 \)</span></p>
-<p>The integer <span class="math notranslate nohighlight">\(a\)</span> is only divisible by the integer <span class="math notranslate nohighlight">\(d\)</span> iff the remainder is <span class="math notranslate nohighlight">\(0\)</span> when <span class="math notranslate nohighlight">\(a\)</span> is divided by <span class="math notranslate nohighlight">\(b\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(d \mid a \iff a = dq + 0\)</span></p>
-<p>In programming languages, the modulo operator for <span class="math notranslate nohighlight">\(a \lt 0\)</span> may return <span class="math notranslate nohighlight">\(a - d \lceil a/d \rceil\)</span> instead of <span class="math notranslate nohighlight">\(a \textbf{ mod } d = a - d \lfloor a/d \rfloor\)</span>. Also unlike <span class="math notranslate nohighlight">\(a \textbf{ mod } d\)</span> the modulo operator may be defined when <span class="math notranslate nohighlight">\(d \lt 0\)</span>, and even when <span class="math notranslate nohighlight">\(d = 0\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(a \textbf{ mod } d\)</span> is defined to be the remainder when <span class="math notranslate nohighlight">\(a\)</span> is divided by <span class="math notranslate nohighlight">\(d\)</span></p>
-<p><span class="math notranslate nohighlight">\(a \textbf{ mod } d := r\)</span> when <span class="math notranslate nohighlight">\(a = qd + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt d\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="mi">17</span> <span class="o">%</span>  <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">17</span> <span class="o">%</span>  <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">17</span> <span class="o">%</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">17</span> <span class="o">%</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+1
+-2
+-1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Demonstrate the factorization of <span class="math notranslate nohighlight">\(105\)</span></p>
+<p><span class="math notranslate nohighlight">\(105 = 3 \times 5 \times 7\)</span></p>
+<p>Demonstrate the primality of <span class="math notranslate nohighlight">\(101\)</span></p>
+<p><span class="math notranslate nohighlight">\(101 = d \times q + r\)</span></p>
+<p>Theorem</p>
+<p>If <span class="math notranslate nohighlight">\(p\)</span> is prime then <span class="math notranslate nohighlight">\(2^{p - 1}\)</span> leaves the remainder <span class="math notranslate nohighlight">\(1\)</span> on division by <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>Example</p>
+<p><span class="math notranslate nohighlight">\(2^{1000}\)</span> leaves the remainder <span class="math notranslate nohighlight">\(562\)</span> on division by <span class="math notranslate nohighlight">\(1001\)</span> so <span class="math notranslate nohighlight">\(1001\)</span> is composite.</p>
+<p><span class="math notranslate nohighlight">\(1001 = 7 \times 11 \times 13\)</span></p>
+<p><span class="math notranslate nohighlight">\(2^{k^k}\)</span> can be computed by successive squaring</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+   1000  &amp;= 2^3 + 2^5 + 2^6 + 2^7 + 2^8 + 2^9 \\
+2^{1000} &amp;= 2^{2^3} \times 2^{2^5} \times 2^{2^6} \times 2^{2^7} \times 2^{2^8} \times 2^{2^9} \\
+2^{2^3}  &amp;= 256 \\
+2^{2^4}  &amp;= 256^2 = 65536 \equiv 471 \mod 1001 \\
+2^{2^5}  &amp;= 471^2 = 221841 \equiv 620 \mod 1001 \\
+2^{2^3} \times 2^{2^5} &amp;\equiv 256 \times 620 = 158720 \equiv 562 \mod 1001 \\
+2^{2^6} &amp;\equiv 620^2 = 384400 \equiv 16 \mod 1001 \\
+2^{2^3} \times 2^{2^5} \times 2^{2^6} &amp;\equiv 562 \times 16 = 8992 \equiv 984 \mod 1001 \\
+2^{2^7} &amp;\equiv 16^2 \equiv 256 \mod 1001 \\
+2^{2^3} \times 2^{2^5} \times 2^{2^6} \times 2^{2^7} &amp;\equiv 984 \times 256 = 251904 \equiv 653 \mod 1001 \\
+2^{2^8} &amp;\equiv 471 \mod 1001 \\
+2^{2^3} \times 2^{2^5} \times 2^{2^6} \times 2^{2^7} \times 2^{2^8} &amp;\equiv 653 \times 471 = 307563 \equiv 256 \\
+2^{2^9} &amp;\equiv 620 \\
+2^{1000} &amp;= 2^{2^3} \times 2^{2^5} \times 2^{2^6} \times 2^{2^7} \times 2^{2^8} \times 2^{2^9} \equiv 620 \times 256 = 167168 \equiv 562 \\
+\end  {aligned}
+\)</span></p>
+<p>Any programming language which can do double precision can compute <span class="math notranslate nohighlight">\(2^{p - 1} \mod p\)</span> in linear time.</p>
+<p><strong>Divisibility</strong></p>
+<p>Given two integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> we say that <span class="math notranslate nohighlight">\(a\)</span> divides <span class="math notranslate nohighlight">\(b\)</span> when there is a third integer <span class="math notranslate nohighlight">\(c\)</span> s.t. <span class="math notranslate nohighlight">\(ac = b\)</span> and we write <span class="math notranslate nohighlight">\(a \mid b\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(a \mid b\)</span> and <span class="math notranslate nohighlight">\(b \mid c\)</span> then <span class="math notranslate nohighlight">\(a \mid c\)</span>.</p>
+<p><em>Proof</em></p>
+<p>Since <span class="math notranslate nohighlight">\(a \mid b\)</span> there is an integer <span class="math notranslate nohighlight">\(d\)</span> s.t. <span class="math notranslate nohighlight">\(ad = b\)</span> and since <span class="math notranslate nohighlight">\(b \mid c\)</span> there is an integer <span class="math notranslate nohighlight">\(e\)</span> s.t. <span class="math notranslate nohighlight">\(be = c\)</span>, and so <span class="math notranslate nohighlight">\(be = (ad)e = a(de) = c\)</span> for integer <span class="math notranslate nohighlight">\(de\)</span>.</p>
+<p><em>Facts</em></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\forall a \quad 0a = 0\)</span></p>
+<ul class="simple">
+<li><p>“every integer divides 0”</p></li>
+<li><p>“0 divides itself”</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(ab = 1 \implies (a = \pm 1 \land b = \pm 1)\)</span> with the same sign in each case</p>
+<ul class="simple">
+<li><p>“the only integers which divide 1 are 1 and -1”</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\((a \ne 0 \land ac = ad) \implies c = d\)</span></p></li>
+</ol>
+<p><strong>Prime Number</strong></p>
+<p>A member of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> greater than <span class="math notranslate nohighlight">\(1\)</span> which is only divisible by <span class="math notranslate nohighlight">\(1\)</span> and itself is called a prime number <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><em>Example</em></p>
+<p><span class="math notranslate nohighlight">\(101\)</span> is a prime number</p>
+<p><em>Proof</em></p>
+<p>It must be shown that there are no divisors <span class="math notranslate nohighlight">\(1 \lt d \lt 101\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(d\)</span> is a divisor then there is an integer <span class="math notranslate nohighlight">\(e\)</span> s.t. <span class="math notranslate nohighlight">\(de = 101\)</span>.</p>
+<p>Further, one of <span class="math notranslate nohighlight">\(d, e \le \sqrt{101}\)</span></p>
+<ul class="simple">
+<li><p>If both <span class="math notranslate nohighlight">\(d \gt \sqrt{101}\)</span> and <span class="math notranslate nohighlight">\(e \gt \sqrt{101}\)</span> then <span class="math notranslate nohighlight">\(de \gt 101\)</span></p></li>
+<li><p>If we can’t find any factors <span class="math notranslate nohighlight">\(\le \sqrt{101}\)</span> then <span class="math notranslate nohighlight">\(101\)</span> is prime</p></li>
+</ul>
+<p>So, we only need to check <span class="math notranslate nohighlight">\(1 \lt d \lt \sqrt{101}\)</span> (up to <span class="math notranslate nohighlight">\(10\)</span>)</p>
+<ul class="simple">
+<li><p>So, we only need to check primes <span class="math notranslate nohighlight">\(2, 3, 5, 7\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(5\)</span> are not divisors</p></li>
+</ul>
+<p><strong>Induction</strong></p>
+<p>Inductive definition of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>: <span class="math notranslate nohighlight">\(1 \in \mathbb{N}\)</span> is the least member of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>. Given any <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> the next member is <span class="math notranslate nohighlight">\(n + 1\)</span>.</p>
+<p><strong>Fundamental Theorem</strong></p>
+<p>Every member of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> is a product of primes.</p>
+<p><em>Proof by Induction</em></p>
+<p>Basis: <span class="math notranslate nohighlight">\(n = 1\)</span> is an empty product of primes.</p>
+<p>Inductive Hypothesis: Let all <span class="math notranslate nohighlight">\(m \le n\)</span> be products of primes.</p>
+<ul class="simple">
+<li><p>Case: <span class="math notranslate nohighlight">\(n + 1\)</span> is a prime. A prime is a product of primes and so we are done.</p></li>
+<li><p>Case: <span class="math notranslate nohighlight">\(n + 1\)</span> is not a prime. Then there is an integer <span class="math notranslate nohighlight">\(a\)</span> s.t. <span class="math notranslate nohighlight">\(a \mid (n + 1)\)</span> and <span class="math notranslate nohighlight">\(1 \lt a \lt n + 1\)</span> and <span class="math notranslate nohighlight">\(1 \lt \frac{n + 1}{a} \lt n + 1\)</span>. By the inductive hypothesis, both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(\frac{n + 1}{a}\)</span> are products of primes.</p></li>
+</ul>
+<p><strong>Fundamental Theorem (alternative)</strong></p>
+<p>Every integer greater than <span class="math notranslate nohighlight">\(1\)</span> has a prime factor.</p>
+<p>Inductive Hypothesis: Let <span class="math notranslate nohighlight">\(1 \lt m \lt n\)</span> have a prime factor.</p>
+<ul class="simple">
+<li><p>Case: <span class="math notranslate nohighlight">\(n\)</span> is prime.</p></li>
+<li><p>Case: <span class="math notranslate nohighlight">\(n\)</span> is not prime. Then it has a factorization <span class="math notranslate nohighlight">\(n = ab\)</span> where <span class="math notranslate nohighlight">\(1 \lt a, b \lt n\)</span>. By the inductive hypothesis, <span class="math notranslate nohighlight">\(a\)</span> has a prime factor <span class="math notranslate nohighlight">\(p\)</span>. Since <span class="math notranslate nohighlight">\(p \mid a\)</span> and <span class="math notranslate nohighlight">\(a \mid n\)</span> it is the case that <span class="math notranslate nohighlight">\(p \mid n\)</span>.</p></li>
+</ul>
+<p><strong>Euclid’s Theorem</strong></p>
+<p>There are infinitely many primes.</p>
+<p>To show that there are infinitely many primes, it must be shown that every finite list of primes is missing a prime and so the list of all primes cannot be finite.</p>
+<p><em>Proof by Contradiction</em></p>
+<p>Suppose that there are only a finite number of primes <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span>.</p>
+<p>Consider the number <span class="math notranslate nohighlight">\(m = p_1p_2 \dots p_n + 1\)</span>. <span class="math notranslate nohighlight">\(m\)</span> is greater than <span class="math notranslate nohighlight">\(1\)</span> and so is a product of primes.</p>
+<p>There is a prime <span class="math notranslate nohighlight">\(p\)</span> which divides <span class="math notranslate nohighlight">\(m\)</span>, namely one of <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span>.</p>
+<p>Therefore <span class="math notranslate nohighlight">\(p \mid (m - p_1p_2 \dots p_n) = 1\)</span>. But <span class="math notranslate nohighlight">\(1\)</span> is not divisible by any prime. Contradiction.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><em>Proof (alternative)</em></p>
+<p>Since <span class="math notranslate nohighlight">\(m\)</span> is greater than <span class="math notranslate nohighlight">\(1\)</span> it has a prime factor <span class="math notranslate nohighlight">\(p\)</span> which can’t be any of <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span> since <span class="math notranslate nohighlight">\(m\)</span> has remainder <span class="math notranslate nohighlight">\(1\)</span> when divided by each <span class="math notranslate nohighlight">\(p_i\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>Euclid’s proof tells us that we can always find a prime outside of a finite list of primes <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span> by using a prime factor of <span class="math notranslate nohighlight">\(p_1p_2 \dots p_n + 1\)</span>, not by using <span class="math notranslate nohighlight">\(p_1p_2 \dots p_n + 1\)</span> itself.</p>
+<p><strong>Euler’s Proof</strong></p>
+<p><span class="math notranslate nohighlight">\(S(x) = \sum_{n \le x} \frac{1}{n}\)</span></p>
+<p><span class="math notranslate nohighlight">\(S(x) \ge \sum_{n \le x} \int_n^{n + 1} \frac{dt}{t} \ge \int_1^x \frac{dt}{t} = \log x\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(x) = \prod_{p \le x} (1 - 1/p)^{-1}\)</span> where the product is over the primes not exceeding <span class="math notranslate nohighlight">\(x\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
+     &amp;= \prod_{p \le x} \left(1 + \frac{1}{p} + \frac{1}{p^2} + \dotsb \right) \ge \sum_{n \le x} \frac{1}{n} = S(x) \ge \log x
+\end  {aligned}
+\)</span></p>
+<p>Since <span class="math notranslate nohighlight">\(\log x \to \infty\)</span> as <span class="math notranslate nohighlight">\(x \to \infty\)</span> there must be infinitely many primes.</p>
+<p>We can be more precise. Take the <span class="math notranslate nohighlight">\(\log\)</span> of both sides of <span class="math notranslate nohighlight">\(P(x) \ge \log x\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\log P(x) &amp;\ge \log \log x \\
+\log \left( \prod_{p \le x} (1 - 1/p)^{-1} \right) &amp;\ge \log \log x \\
+-\sum_{p \le x} \log (1 - 1/p) &amp;\ge \log \log x \\
+\sum_{p \le x} \sum_{k = 1}^\infty \frac{1}{kp^k}
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p><strong>Division Algorithm</strong></p>
+<p>Suppose that <span class="math notranslate nohighlight">\(a \in \mathbb{Z}\)</span> and <span class="math notranslate nohighlight">\(d \in \mathbb{N}\)</span>. Then there are unique <span class="math notranslate nohighlight">\(q, r \in \mathbb{Z}\)</span> s.t. <span class="math notranslate nohighlight">\(a = dq + r\)</span> where <span class="math notranslate nohighlight">\(0 \le r \lt d\)</span>. <span class="math notranslate nohighlight">\(q\)</span> is called the quotient and <span class="math notranslate nohighlight">\(r\)</span> is called the remainder.</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof}\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(D = \{ a - dx \mid x \in \mathbb{Z} \} = \{ a, a \pm d, a \pm 2d, a \pm 3d, \dotsc \}\)</span>.</p>
+<p>No matter what <span class="math notranslate nohighlight">\(a\)</span> is, <span class="math notranslate nohighlight">\(D\)</span> has at least one non-negative element and so has a least non-negative element <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(a \ge 0\)</span> then <span class="math notranslate nohighlight">\(a \in D\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(a \lt 0\)</span> then <span class="math notranslate nohighlight">\(a - d(a - 1) \gt 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+-1 - d(-1 - 1) = -1 + 2d \\
+-2 - d(-2 - 1) = -2 + 3d \\
+-3 - d(-3 - 1) = -3 + 4d \\
+\end  {aligned}
+\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(q = x\)</span>. Then <span class="math notranslate nohighlight">\(a = dq + r\)</span> where <span class="math notranslate nohighlight">\(0 \le r\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(r \ge d\)</span>. Then <span class="math notranslate nohighlight">\(a = dq + r = dq + (d + r - d) = d(q + 1) + (r - d)\)</span> with <span class="math notranslate nohighlight">\(0 \le r - d \lt r\)</span>. Contradiction! <span class="math notranslate nohighlight">\(r\)</span> is the least non-negative element of <span class="math notranslate nohighlight">\(D\)</span>, not <span class="math notranslate nohighlight">\(r - d\)</span>. Therefore, it must be the case that <span class="math notranslate nohighlight">\(r \lt d\)</span>.</p>
+<p><em>Uniqueness</em></p>
+<p>Suppose there is a second solution <span class="math notranslate nohighlight">\(a = dq' + r'\)</span> with <span class="math notranslate nohighlight">\(0 \le r' \lt d\)</span>.</p>
+<p>Then <span class="math notranslate nohighlight">\(0 = a - a = (dq' + r') - (dq + r) = d(q' - q) + (r' - r) \iff d|q' - q| = |r' - r|\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(d \le d|q' - q|\)</span> and <span class="math notranslate nohighlight">\(|r' - r| \lt d\)</span></p>
+<p>Contradiction!</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><strong>Theorem</strong></p>
+<p>Given two integers <span class="math notranslate nohighlight">\(a, b\)</span> not both <span class="math notranslate nohighlight">\(0\)</span>, define <span class="math notranslate nohighlight">\(D(a, b) = \{ ax + by \mid x, y \in \mathbb{Z} \}\)</span>. Then <span class="math notranslate nohighlight">\(D(a, b)\)</span> has positive elements. Let <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> denote the least positive element. Then <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> has the following properties.</p>
+<p>(i) <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a\)</span></p>
+<p>(ii) <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span></p>
+<p>(iii) if the integer <span class="math notranslate nohighlight">\(c\)</span> satisfies <span class="math notranslate nohighlight">\(c \mid a\)</span> and <span class="math notranslate nohighlight">\(c \mid b\)</span> then <span class="math notranslate nohighlight">\(c \mid \gcd(a, b)\)</span></p>
+<p>Note that <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> divides every member of <span class="math notranslate nohighlight">\(D(a, b)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof of existence}\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a &amp; \gt 0 &amp;&amp; \implies a \cdot \phantom{(-}1\phantom{)}  &amp;&amp; + b \cdot \phantom{(-}0\phantom{)}  = \phantom{-}a &amp;&amp; \gt 0 \\
+b &amp; \gt 0 &amp;&amp; \implies a \cdot \phantom{(-}0\phantom{)}  &amp;&amp; + b \cdot \phantom{(-}1\phantom{)}  = \phantom{-}b &amp;&amp; \gt 0 \\
+a &amp; \lt 0 &amp;&amp; \implies a \cdot                      (-1) &amp;&amp; + b \cdot \phantom{(-}0\phantom{)}  =           -a &amp;&amp; \gt 0 \\
+b &amp; \lt 0 &amp;&amp; \implies a \cdot \phantom{(-}0\phantom{)}  &amp;&amp; + b \cdot                      (-1) =           -b &amp;&amp; \gt 0 \\
+\end  {aligned}
+\)</span></p>
+<p>The case <span class="math notranslate nohighlight">\(a = b = 0\)</span> is excluded. Thus, the set <span class="math notranslate nohighlight">\(D(a, b)\)</span> has at least one positive element, and so there is a least positive element.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(\gcd(a, b) \nmid a\)</span>.</p>
+<p>From the division algorithm we have <span class="math notranslate nohighlight">\(a = \gcd(a, b)q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt \gcd(a, b)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) \nmid a \implies 0 \lt r\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(r = a - \gcd(a, b)q = a - (ax + by)q = a(1 - xq) + b(-yq)\)</span> for some integers <span class="math notranslate nohighlight">\(x, y\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(0 \lt \underbrace{a(1 - xq) + b(-yq)}_{r} \lt \underbrace{ax + by}_{\gcd(a, b)}\)</span></p>
+<p>Contradiction! <span class="math notranslate nohighlight">\(r\)</span> can’t be less than <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> since <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> is the least element. Thus, <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a\)</span> and by symmetry <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span>.</p>
+<p>Suppose there is an integer <span class="math notranslate nohighlight">\(c\)</span> such that <span class="math notranslate nohighlight">\(c \mid a\)</span> and <span class="math notranslate nohighlight">\(c \mid b\)</span>. Then <span class="math notranslate nohighlight">\(a = cu\)</span> and <span class="math notranslate nohighlight">\(b = cv\)</span> for some integers <span class="math notranslate nohighlight">\(u, v\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) = ax + by = (cu)x + (cv)y = c(ux + vy) \iff c \mid \gcd(a, b)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><strong>Property of gcd</strong></p>
+<p><span class="math notranslate nohighlight">\(\gcd \left( \frac{a}{\gcd(a, b)}, \frac{b}{\gcd(a, b)} \right) = 1\)</span></p>
+<p>If this quantity is denoted <span class="math notranslate nohighlight">\(d\)</span> then the following hold</p>
+<p><span class="math notranslate nohighlight">\(d \mid \frac{a}{\gcd(a, b)} \iff d \cdot \gcd(a, b) \mid a\)</span></p>
+<p><span class="math notranslate nohighlight">\(d \mid \frac{b}{\gcd(a, b)} \iff d \cdot \gcd(a, b) \mid b\)</span></p>
+<p>Whatever integer divides both of two integers divides their <span class="math notranslate nohighlight">\(\gcd\)</span> and so <span class="math notranslate nohighlight">\(d \cdot \gcd(a, b) \mid \gcd(a, b) \iff d \mid 1 \iff d = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><strong>Property of gcd</strong></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are not both <span class="math notranslate nohighlight">\(0\)</span>. Then for any integer <span class="math notranslate nohighlight">\(y\)</span> we have <span class="math notranslate nohighlight">\(\gcd(a + by, b) = \gcd(a, b)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof}\)</span></p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span> we know that <span class="math notranslate nohighlight">\(\gcd(a, b) \mid ax + by\)</span> for any integers <span class="math notranslate nohighlight">\(x, y\)</span>. Thus <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a + by\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a + by\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span> we know that <span class="math notranslate nohighlight">\(\gcd(a, b) \mid \gcd(a + by, b)\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid a + by\)</span> and <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid b\)</span> we know that <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid (a + by)s + bt\)</span> for any integers <span class="math notranslate nohighlight">\(s, t\)</span>. Thus <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid a + by - by = a\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid a\)</span> and <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid b\)</span> we know that <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid \gcd(a, b)\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a, b) \mid \gcd(a + by, b)\)</span> and <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid \gcd(a, b)\)</span> it is the case that <span class="math notranslate nohighlight">\(\gcd(a, b) = \gcd(a + by, b)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(21, 49) = \gcd(21 + 49(3), 49)\)</span></p>
+<p><strong>Property of gcd</strong></p>
+<p>Suppose that <span class="math notranslate nohighlight">\(\gcd(a, b) = 1\)</span> and that <span class="math notranslate nohighlight">\(ax = by\)</span>. Then there is a <span class="math notranslate nohighlight">\(z\)</span> such that <span class="math notranslate nohighlight">\(x = bz\)</span> and <span class="math notranslate nohighlight">\(y = az\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof}\)</span></p>
+<p>There are integers <span class="math notranslate nohighlight">\(u, v\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) = 1 = ua + vb \iff x = uax + vbx \iff x = u(by) + vbx = b\underbrace{(uy + vx)}_{z} \iff b \mid x\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) = 1 = ua + vb \iff y = uay + vby \iff y = uay + v(ax) = a\underbrace{(uy + vx)}_{z} \iff a \mid y\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><strong>Corollary</strong></p>
+<p>Suppose that <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are integers not both <span class="math notranslate nohighlight">\(0\)</span>. Then there are integers <span class="math notranslate nohighlight">\(x, y\)</span> such that <span class="math notranslate nohighlight">\(\gcd(a, b) = ax + by\)</span>.</p>
+<p><strong>example</strong></p>
+<p>Consider the set of integers <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> which is closed under multiplication:</p>
+<p><span class="math notranslate nohighlight">\((4k_1 + 1)(4k_2 + 1) = 4^2k_1k_2 + 4k_1 + 4k_2 + 1 = 4 (\underbrace{4k_1k_2 + k_1 + k_2}_{k_3}) + 1\)</span></p>
+<p>A prime in this system is defined as a number which is only divisible by <span class="math notranslate nohighlight">\(1\)</span> and itself:</p>
+<p><span class="math notranslate nohighlight">\(5, 9, 13, 17, 21, 29, 33, 37, 41, 49, \dotsc\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+4(1) + 1 &amp;= \phantom{1}  5 \\
+4(2) + 1 &amp;= \phantom{1}  9 \\
+4(3) + 1 &amp;=             13 \\
+4(4) + 1 &amp;=             17 \\
+4(5) + 1 &amp;=             21 \\
+\color{red}{4(6) + 1} &amp;\phantom{.} \color{red}{= 25} \\
+4(7) + 1 &amp;=             29 \\
+4(8) + 1 &amp;=             33 \\
+4(9) + 1 &amp;=             37 \\
+4(10) + 1 &amp;=            41 \\
+\color{red}{4(11) + 1} &amp;\phantom{.} \color{red}{= 45} \\
+4(12) + 1 &amp;=            49 \\
+\end  {aligned}
+\)</span></p>
+<p>The prime factorization of <span class="math notranslate nohighlight">\(25\)</span> in this system is <span class="math notranslate nohighlight">\(5 \times 5\)</span> and the prime factorization of <span class="math notranslate nohighlight">\(45\)</span> in this system is <span class="math notranslate nohighlight">\(5 \times 9\)</span>.</p>
+<p>In this system, factorization is not unique: <span class="math notranslate nohighlight">\(441 = 9 \times 49 = 21^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(21 \mid 9 \times 49\)</span> but <span class="math notranslate nohighlight">\(21 \nmid 9\)</span> and <span class="math notranslate nohighlight">\(21 \nmid 49\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is not closed under addition, but <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span> is.</p>
+<p><strong>Euclid’s Lemma</strong></p>
+<p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and that there are integers <span class="math notranslate nohighlight">\(a, b\)</span> s.t. <span class="math notranslate nohighlight">\(p \mid ab\)</span>. Then either <span class="math notranslate nohighlight">\(p \mid a\)</span> or <span class="math notranslate nohighlight">\(p \mid b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof}\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(a = 0\)</span> or <span class="math notranslate nohighlight">\(b = 0\)</span> then the result that <span class="math notranslate nohighlight">\(p \mid 0\)</span> is trivial. Thus we may suppose that <span class="math notranslate nohighlight">\(ab \ne 0\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(p \nmid a\)</span>.</p>
+<p>We know that there are integers <span class="math notranslate nohighlight">\(x, y\)</span> s.t. <span class="math notranslate nohighlight">\(\gcd(a, p) = ax + py\)</span> and that <span class="math notranslate nohighlight">\(\gcd(a, p) \mid a\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, p) \mid p\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(p\)</span> is prime it is the case that either <span class="math notranslate nohighlight">\(\gcd(a, p) = 1\)</span> or <span class="math notranslate nohighlight">\(p\)</span>. But <span class="math notranslate nohighlight">\(p \nmid a\)</span>.</p>
+<p>So <span class="math notranslate nohighlight">\(\gcd(a, p) = 1 = ax + py \iff b = abx + pby\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(p \mid ab \iff ab = pc\)</span> for some integer <span class="math notranslate nohighlight">\(c\)</span>. Then <span class="math notranslate nohighlight">\(b = (pc)x + pby \iff b = p(cx + by) \iff p \mid b\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><strong>Theorem</strong></p>
+<p>Suppose that <span class="math notranslate nohighlight">\(p, p_1, p_2, \dotsc, p_r\)</span> are primes and that <span class="math notranslate nohighlight">\(p \mid p_1 p_2 \dots p_r\)</span>. Then <span class="math notranslate nohighlight">\(p = p_j\)</span> for some <span class="math notranslate nohighlight">\(j\)</span> with <span class="math notranslate nohighlight">\(1 \le j \le r\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof by induction on } r\)</span></p>
+<p>Base Case: <span class="math notranslate nohighlight">\(r = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(p \mid p_1 \implies p = p_1\)</span></p>
+<p>Inductive Hypothesis: Suppose the <span class="math notranslate nohighlight">\(r\)</span>-th case is established and that <span class="math notranslate nohighlight">\(p \mid p_1 p_2 \dots p_r p_{r + 1}\)</span>.</p>
+<p>Then either <span class="math notranslate nohighlight">\(p \mid p_{r + 1}\)</span> or <span class="math notranslate nohighlight">\(p \mid p_1 p_2 \dots p_r\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(p \mid p_{r + 1}\)</span> then <span class="math notranslate nohighlight">\(p = p_{r + 1}\)</span>. Otherwise it has been established that if <span class="math notranslate nohighlight">\(p \mid p_1 p_2 \dots p_r\)</span> then <span class="math notranslate nohighlight">\(p = p_j\)</span> for some <span class="math notranslate nohighlight">\(j\)</span> with <span class="math notranslate nohighlight">\(1 \le j \le r\)</span>.</p>
+<p><strong>Fundamental Theorem of Arithmetic</strong></p>
+<p>Factorization into primes is unique up to ordering of the factors. More precisely, if <span class="math notranslate nohighlight">\(a \ne -1, 0, 1\)</span> then <span class="math notranslate nohighlight">\(a = \pm p_1 p_2 \dots p_r\)</span> for some <span class="math notranslate nohighlight">\(r \ge 1\)</span> and for some primes <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_r\)</span>. The choice of <span class="math notranslate nohighlight">\(r\)</span>, the sign, and the factors <span class="math notranslate nohighlight">\(p_j\)</span> are unique.</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof by induction on } r\)</span></p>
+<p><span style="color: red;">It is clear that</span> we may suppose that <span class="math notranslate nohighlight">\(a \gt 0\)</span>; thus that <span class="math notranslate nohighlight">\(a \ge 2\)</span>.</p>
+<p>We know that <span class="math notranslate nohighlight">\(a\)</span>, and any natural number, is a product of primes: <span class="math notranslate nohighlight">\(a = p_1 p_2 \dots p_r\)</span> for some <span class="math notranslate nohighlight">\(r \ge 1\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(r = 1\)</span> so that <span class="math notranslate nohighlight">\(a = p_1 = p_1' p_2' \dots p_s'\)</span> for some <span class="math notranslate nohighlight">\(s \ge 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(p_1' \mid p_1 \implies p_1' = p_1 \iff p_1 = p_1 p_2' \dots p_s' \iff 1 = p_2' \dots p_s' \implies s = 1\)</span></p>
+<p>Suppose that <span class="math notranslate nohighlight">\(a = p_1 p_2 \dots p_{r + 1} = p_1' p_2' \dots p_s'\)</span> for some <span class="math notranslate nohighlight">\(r \ge 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(p_2' \dots p_s' = p_1 p_2 \dots p_{r + 1} / p_j\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><strong>Property of gcd</strong></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a, b\)</span> are positive integers. Then <span class="math notranslate nohighlight">\(a = p_1^{r_1} \dots p_k^{r_k}\)</span> and <span class="math notranslate nohighlight">\(b = p_1^{s_1} \dots p_k^{s_k}\)</span> where <span class="math notranslate nohighlight">\(p_1, \dotsc, p_k\)</span> are the different primes in the factorization of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> and we allow the possibility that the exponenets <span class="math notranslate nohighlight">\(r_j, s_j\)</span> may be zero.</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) = p_1^{\min(r_1, s_1)} \dots p_k^{\min(r_k, s_k)}\)</span></p>
+<p><strong>Definition of Least Common Multiple</strong></p>
+<p><span class="math notranslate nohighlight">\(\text{lcm}[a, b] = \frac{ab}{\gcd(a, b)} = p_1^{\max(r_1, s_1)} \dots p_k^{\max(r_k, s_k)}\)</span></p>
+<hr class="docutils" />
+<section id="sieve-of-eratosthenes">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Sieve of Eratosthenes</a><a class="headerlink" href="#sieve-of-eratosthenes" title="Link to this heading">#</a></h3>
+<p>Construct a <span class="math notranslate nohighlight">\(\lfloor \sqrt{N} \rfloor \times \lfloor \sqrt{N} \rfloor\)</span> array. Here <span class="math notranslate nohighlight">\(N = 100\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix*}[r]
+ 0 &amp;  1 &amp;  2 &amp;  3 &amp;  4 &amp;  5 &amp;  6 &amp;  7 &amp;  8 &amp;  9 \\
+10 &amp; 11 &amp; 12 &amp; 13 &amp; 14 &amp; 15 &amp; 16 &amp; 17 &amp; 18 &amp; 19 \\
+20 &amp; 21 &amp; 22 &amp; 23 &amp; 24 &amp; 25 &amp; 26 &amp; 27 &amp; 28 &amp; 29 \\
+30 &amp; 31 &amp; 32 &amp; 33 &amp; 34 &amp; 35 &amp; 36 &amp; 37 &amp; 38 &amp; 39 \\
+40 &amp; 41 &amp; 42 &amp; 43 &amp; 44 &amp; 45 &amp; 46 &amp; 47 &amp; 48 &amp; 49 \\
+50 &amp; 51 &amp; 52 &amp; 53 &amp; 54 &amp; 55 &amp; 56 &amp; 57 &amp; 58 &amp; 59 \\
+60 &amp; 61 &amp; 62 &amp; 63 &amp; 64 &amp; 65 &amp; 66 &amp; 67 &amp; 68 &amp; 69 \\
+70 &amp; 71 &amp; 72 &amp; 73 &amp; 74 &amp; 75 &amp; 76 &amp; 77 &amp; 78 &amp; 79 \\
+80 &amp; 81 &amp; 82 &amp; 83 &amp; 84 &amp; 85 &amp; 86 &amp; 87 &amp; 88 &amp; 89 \\
+90 &amp; 91 &amp; 92 &amp; 93 &amp; 94 &amp; 95 &amp; 96 &amp; 97 &amp; 98 &amp; 99 \\
+\end  {matrix*}
+\)</span></p>
+<p>Forget about <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> and then for each successive element remaining remove the proper multiples.</p>
+<p>For <span class="math notranslate nohighlight">\(2\)</span> we remove <span class="math notranslate nohighlight">\(4, 6, \dotsc, 98\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix*}[r]
+\phantom{00} &amp;    &amp;            2 &amp;  3 &amp; \phantom{00} &amp;  5 &amp; \phantom{00} &amp;  7 &amp; \phantom{00} &amp;  9 \\
+             &amp; 11 &amp; \phantom{00} &amp; 13 &amp;              &amp; 15 &amp;              &amp; 17 &amp;              &amp; 19 \\
+             &amp; 21 &amp;              &amp; 23 &amp;              &amp; 25 &amp;              &amp; 27 &amp;              &amp; 29 \\
+             &amp; 31 &amp;              &amp; 33 &amp;              &amp; 35 &amp;              &amp; 37 &amp;              &amp; 39 \\
+             &amp; 41 &amp;              &amp; 43 &amp;              &amp; 45 &amp;              &amp; 47 &amp;              &amp; 49 \\
+             &amp; 51 &amp;              &amp; 53 &amp;              &amp; 55 &amp;              &amp; 57 &amp;              &amp; 59 \\
+             &amp; 61 &amp;              &amp; 63 &amp;              &amp; 65 &amp;              &amp; 67 &amp;              &amp; 69 \\
+             &amp; 71 &amp;              &amp; 73 &amp;              &amp; 75 &amp;              &amp; 77 &amp;              &amp; 79 \\
+             &amp; 81 &amp;              &amp; 83 &amp;              &amp; 85 &amp;              &amp; 87 &amp;              &amp; 89 \\
+             &amp; 91 &amp;              &amp; 93 &amp;              &amp; 95 &amp;              &amp; 97 &amp;              &amp; 99 \\
+\end  {matrix*}
+\)</span></p>
+<p>For the next remaining element <span class="math notranslate nohighlight">\(3\)</span> remove <span class="math notranslate nohighlight">\(6, 9, \dotsc, 99\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix*}[r]
+\phantom{00} &amp;    &amp;            2 &amp;  3 &amp; \phantom{00} &amp;  5 &amp; \phantom{00} &amp;  7 &amp; \phantom{00} &amp;    \\
+             &amp; 11 &amp; \phantom{00} &amp; 13 &amp;              &amp;    &amp;              &amp; 17 &amp;              &amp; 19 \\
+             &amp;    &amp;              &amp; 23 &amp;              &amp; 25 &amp;              &amp;    &amp;              &amp; 29 \\
+             &amp; 31 &amp;              &amp;    &amp;              &amp; 35 &amp;              &amp; 37 &amp;              &amp;    \\
+             &amp; 41 &amp;              &amp; 43 &amp;              &amp;    &amp;              &amp; 47 &amp;              &amp; 49 \\
+             &amp;    &amp;              &amp; 53 &amp;              &amp; 55 &amp;              &amp;    &amp;              &amp; 59 \\
+             &amp; 61 &amp;              &amp;    &amp;              &amp; 65 &amp;              &amp; 67 &amp;              &amp;    \\
+             &amp; 71 &amp;              &amp; 73 &amp;              &amp;    &amp;              &amp; 77 &amp;              &amp; 79 \\
+             &amp;    &amp;              &amp; 83 &amp;              &amp; 85 &amp;              &amp;    &amp;              &amp; 89 \\
+             &amp; 91 &amp;              &amp;    &amp;              &amp; 95 &amp;              &amp; 97 &amp;              &amp;    \\
+\end  {matrix*}
+\)</span></p>
+<p>For the next remaining element <span class="math notranslate nohighlight">\(5\)</span> remove <span class="math notranslate nohighlight">\(10, 15, \dotsc, 95\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix*}[r]
+\phantom{00} &amp;    &amp;            2 &amp;  3 &amp; \phantom{00} &amp;  5           &amp; \phantom{00} &amp;  7 &amp; \phantom{00} &amp;    \\
+             &amp; 11 &amp; \phantom{00} &amp; 13 &amp;              &amp; \phantom{00} &amp;              &amp; 17 &amp;              &amp; 19 \\
+             &amp;    &amp;              &amp; 23 &amp;              &amp;              &amp;              &amp;    &amp;              &amp; 29 \\
+             &amp; 31 &amp;              &amp;    &amp;              &amp;              &amp;              &amp; 37 &amp;              &amp;    \\
+             &amp; 41 &amp;              &amp; 43 &amp;              &amp;              &amp;              &amp; 47 &amp;              &amp; 49 \\
+             &amp;    &amp;              &amp; 53 &amp;              &amp;              &amp;              &amp;    &amp;              &amp; 59 \\
+             &amp; 61 &amp;              &amp;    &amp;              &amp;              &amp;              &amp; 67 &amp;              &amp;    \\
+             &amp; 71 &amp;              &amp; 73 &amp;              &amp;              &amp;              &amp; 77 &amp;              &amp; 79 \\
+             &amp;    &amp;              &amp; 83 &amp;              &amp;              &amp;              &amp;    &amp;              &amp; 89 \\
+             &amp; 91 &amp;              &amp;    &amp;              &amp;              &amp;              &amp; 97 &amp;              &amp;    \\
+\end  {matrix*}
+\)</span></p>
+<p>For the next remaining element <span class="math notranslate nohighlight">\(7\)</span> remove <span class="math notranslate nohighlight">\(14, 21, \dotsc, 98\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{matrix*}[r]
+\phantom{00} &amp;    &amp;            2 &amp;  3 &amp; \phantom{00} &amp;  5           &amp; \phantom{00} &amp;  7 &amp; \phantom{00} &amp;    \\
+             &amp; 11 &amp; \phantom{00} &amp; 13 &amp;              &amp; \phantom{00} &amp;              &amp; 17 &amp;              &amp; 19 \\
+             &amp;    &amp;              &amp; 23 &amp;              &amp;              &amp;              &amp;    &amp;              &amp; 29 \\
+             &amp; 31 &amp;              &amp;    &amp;              &amp;              &amp;              &amp; 37 &amp;              &amp;    \\
+             &amp; 41 &amp;              &amp; 43 &amp;              &amp;              &amp;              &amp; 47 &amp;              &amp;    \\
+             &amp;    &amp;              &amp; 53 &amp;              &amp;              &amp;              &amp;    &amp;              &amp; 59 \\
+             &amp; 61 &amp;              &amp;    &amp;              &amp;              &amp;              &amp; 67 &amp;              &amp;    \\
+             &amp; 71 &amp;              &amp; 73 &amp;              &amp;              &amp;              &amp;    &amp;              &amp; 79 \\
+             &amp;    &amp;              &amp; 83 &amp;              &amp;              &amp;              &amp;    &amp;              &amp; 89 \\
+             &amp;    &amp;              &amp;    &amp;              &amp;              &amp;              &amp; 97 &amp;              &amp;    \\
+\end  {matrix*}
+\)</span></p>
+<p>After that the next remaining element is <span class="math notranslate nohighlight">\(11\)</span> and for that and its successors all the proper multiples have already been removed. Thus we now have a table of all the primes <span class="math notranslate nohighlight">\(p \le 100\)</span>.</p>
+<p><d style="color: red;">This is relatively efficient.</d></p>
+<p>By counting the entries that remain one finds that <span class="math notranslate nohighlight">\(\pi(100) = 25\)</span>.</p>
+<p>The sieve of Eratosthenes produces approximately</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{n}{\log n}
+\end  {aligned}
+\)</span></p>
+<p>numbers in about</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{p \le \sqrt{n}} \frac{n}{p} \sim n \log \log n
+\end  {aligned}
+\)</span></p>
+<p>operations.</p>
+<p><d style="color: red;">Another big constraint is storage.</d></p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">2</a><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>We know that given integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> not both zero there are integers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> s.t. <span class="math notranslate nohighlight">\(\gcd(a, b) = ax + by\)</span>. How do we find <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>?</p>
+<ul class="simple">
+<li><p>Euclid’s Algorithm - gives a very efficient algorithm, and is still the basis for many numerical methods in arithmetical applications</p></li>
+</ul>
+<p><strong>Euclid’s Algorithm</strong></p>
+<p><span class="math notranslate nohighlight">\(a, b \gt 0\)</span>, since multiplying either by <span class="math notranslate nohighlight">\(-1\)</span> does not change <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span>. We can replace <span class="math notranslate nohighlight">\(x\)</span> by <span class="math notranslate nohighlight">\(-x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> by <span class="math notranslate nohighlight">\(-y\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(b \le a\)</span>. Let <span class="math notranslate nohighlight">\(r_0 = b, r_{-1} = a\)</span></p>
+<p>Apply the division algorithm iteratively as follows.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+r_{-1}  &amp;= r_0 q_1 + r_1 &amp;&amp; 0 \lt r_1 \le r_0 \\
+r_0     &amp;= r_1 q_2 + r_2 &amp;&amp; 0 \lt r_2 \lt r_1 \\
+r_1     &amp;= r_2 q_3 + r_3 &amp;&amp; 0 \lt r_3 \lt r_2 \\
+\vdots \\
+r_{s-3} &amp;= r_{s-2} q_{s-1} + r_{s-1} &amp;&amp; 0 \lt r_{s-1} \lt r_{s-2} \\
+r_{s-2} &amp;= r_{s-1} q_s \\
+\end  {aligned}
+\)</span></p>
+<p>We stop the moment there is a remainder equal to <span class="math notranslate nohighlight">\(0\)</span>. This could be <span class="math notranslate nohighlight">\(r_1\)</span> if <span class="math notranslate nohighlight">\(b \mid a\)</span>, for example.</p>
+<p>Since <span class="math notranslate nohighlight">\(r_j \lt r_{j-1}\)</span> we must eventually have a zero remainder.</p>
+<p>Euclid proved that <span class="math notranslate nohighlight">\(\gcd(a, b) = r_{s-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\text{Proof}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) \mid a\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span> and so <span class="math notranslate nohighlight">\(\gcd(a, b) \mid r_1 = a - bq_1\)</span>. Repeating, <span class="math notranslate nohighlight">\(\gcd(a, b) \mid r_j\)</span> for <span class="math notranslate nohighlight">\(j = 2, 3, \dotsc, s - 1\)</span></p>
+<p>Starting from the bottom, <span class="math notranslate nohighlight">\(r_{s-1} \mid r_{s-2}\)</span>, <span class="math notranslate nohighlight">\(r_{s-1} \mid r_{s-3}\)</span>, and so on until we have <span class="math notranslate nohighlight">\(r_{s-1} \mid b\)</span> and <span class="math notranslate nohighlight">\(r_{s-1} \mid a\)</span>, and so <span class="math notranslate nohighlight">\(r_{s-1} \mid \gcd(a, b)\)</span></p>
+<p>Since <span class="math notranslate nohighlight">\(r_{s-1} \mid \gcd(a, b)\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, b) \mid r_{s-1}\)</span> it is the case that <span class="math notranslate nohighlight">\(r_{s-1} = \gcd(a, b)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a &amp;= &amp; 10,678 \\
+b &amp;= &amp;     42 \\
+10,678 &amp;= &amp; 42 &amp;\times &amp; 254 &amp;+ &amp; 10 \\
+    42 &amp;= &amp; 10 &amp;\times &amp;   4 &amp;+ &amp;  2 \\
+    10 &amp;= &amp;  2 &amp;\times &amp;   5 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(10678, 42) = 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> can be found via back substitution, which is inefficient since it requires that all computations be stored.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2 &amp;= 42 - 10 \times 4 \\
+  &amp;= 42 - (10,678 - 42 \times 254) \times 4 \\
+  &amp;= 42 - 10,678 \times 4 + 42 \times 254 \times 4 \\
+  &amp;= 42 + 42 \times 254 \times 4 - 10,678 \times 4 \\
+  &amp;= 42 \times (1 + 254 \times 4) - 10,678 \times 4 \\
+  &amp;= 42 \times 1017 - 10,678 \times 4 \\
+\end  {aligned}
+\)</span></p>
+<p><strong>Extended Euclidean Algorithm</strong></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x_{-1} &amp;:= 1 \\
+y_{-1} &amp;:= 0 \\
+x_0    &amp;:= 0 \\
+y_0    &amp;:= 1 \\
+r_{-1} &amp;= r_0 q_1 + r_1 &amp;&amp; x_1 = x_{-1} - q_1 x_0 &amp;&amp; y_1 = y_{-1} - q_1 y_0 \\
+r_0    &amp;= r_1 q_2 + r_2 &amp;&amp; x_2 = x_0    - q_2 x_1 &amp;&amp; y_2 = y_0    - q_2 y_1 \\
+r_1    &amp;= r_2 q_3 + r_3 &amp;&amp; x_3 = x_1    - q_3 x_2 &amp;&amp; y_3 = y_1    - q_3 y_2 \\
+\vdots \\
+r_{s-3} &amp;= r_{s-2} q_{s-1} + r_{s-1} &amp;&amp; x_{s-1} = x_{s-3} - q_{s-1} x_{s-2} &amp;&amp; y_{s-1} = y_{s-3} - q_{s-1} y_{s-2} \\
+r_{s-2} &amp;= r_{s-1} q_s \\
+\end  {aligned}
+\)</span></p>
+<p>The claim is that <span class="math notranslate nohighlight">\(x = x_{s-1}, y = y_{s-1}\)</span>. More generally, the claim is that <span class="math notranslate nohighlight">\(r_j = ax_j + by_j\)</span> and this can be proved by induction.</p>
+<p><span class="math notranslate nohighlight">\(\text{Proof by induction}\)</span></p>
+<p>By construction it is the case that <span class="math notranslate nohighlight">\(r_{-1} = ax_{-1} + by_{-1}\)</span> and <span class="math notranslate nohighlight">\(r_0 = ax_0 + by_0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+r_{-1} &amp;= a \times 1 + b \times 0 = a \\
+r_0    &amp;= a \times 0 + b \times 1 = b \\
+\end  {aligned}
+\)</span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(r_k = ax_k + by_k\)</span> is established for all <span class="math notranslate nohighlight">\(j \le k\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+r_{k+1}
+&amp;= r_{k-1} - q_{k+1} r_k \\
+&amp;= (ax_{k-1} + by_{k-1}) - q_{k+1} (ax_k + by_k) \\
+&amp;= ax_{k-1} + by_{k-1} - q_{k+1} ax_k - q_{k+1} by_k \\
+&amp;= ax_{k-1} - q_{k+1} ax_k + by_{k-1} - q_{k+1} by_k \\
+&amp;= a(x_{k-1} - q_{k+1} x_k) + b(y_{k-1} - q_{k+1} y_k) \\
+&amp;= ax_{k+1} + by_{k+1} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\gcd(a, b) = r_{s-1} = ax_{s-1} + by_{s-1}}\)</span></p>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+r_{-1} &amp;= &amp; 10,678 \\
+r_0    &amp;= &amp;     42 \\
+x_{-1} &amp;= &amp;      1 \\
+x_0    &amp;= &amp;      0 \\
+y_{-1} &amp;= &amp;      0 \\
+y_0    &amp;= &amp;      1 \\
+10,678 &amp;= &amp; 42 &amp;\times &amp; 254 &amp;+ &amp; 10 &amp;&amp; \underset{x_1}{ 1} &amp;= &amp; 1 &amp;- &amp; 254 &amp;\times &amp; 0 &amp;&amp; \underset{y_1}{-254} &amp;= &amp; 0 &amp;- &amp; 1 &amp;\times &amp;   254  \\
+    42 &amp;= &amp; 10 &amp;\times &amp;   4 &amp;+ &amp;  2 &amp;&amp; \underset{x_2}{-4} &amp;= &amp; 0 &amp;- &amp;   4 &amp;\times &amp; 1 &amp;&amp; \underset{y_2}{1017} &amp;= &amp; 1 &amp;- &amp; 4 &amp;\times &amp; (-254) \\
+    10 &amp;= &amp;  2 &amp;\times &amp;   5 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(10678, 42) = 2 = 10678 \times (-4) + 42 \times 1017\)</span></p>
+<p><strong>Linear Diophantine Equation</strong></p>
+<p>Euclid’s algorithm can be used to find the <span style="color: red;">complete solution in integers</span> to linear diophantine equations of the kind</p>
+<p><span class="math notranslate nohighlight">\(ax + by = c\)</span> where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> are integers, and <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are all integers which satisfy this</p>
+<p><span class="math notranslate nohighlight">\(\text{Case 1}\)</span> Both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are zero. —– If <span class="math notranslate nohighlight">\(a = b = 0\)</span> then the linear diophantine equation is not soluble unless <span class="math notranslate nohighlight">\(c = 0\)</span>; and then it is soluble by any <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, which is not very interesting.</p>
+<p><span class="math notranslate nohighlight">\(\text{Case 2}\)</span> One of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is non-zero.</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) \mid (ax + by) \implies \gcd(a, b) \mid c\)</span></p>
+<p>Choose <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> s.t. <span class="math notranslate nohighlight">\(ax + by = \gcd(a, b)\)</span>. Then there is a solution</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+ax + by &amp;= \gcd(a, b) \\
+\frac{ax + by}{\gcd(a, b)} &amp;= 1 \\
+c \frac{ax + by}{\gcd(a, b)} &amp;= c \\
+a \left( \frac{xc}{\gcd(a, b)} \right) + b \left( \frac{yc}{\gcd(a, b)} \right)
+\end  {aligned}
+\)</span></p>
+<p>Let’s call this solution <span class="math notranslate nohighlight">\(x_0, y_0\)</span>. Consider any other solution <span class="math notranslate nohighlight">\(x, y\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+ax + by &amp;= c \\
+ax + by - ax_0 - by_0 &amp;= c - c = 0 \\
+ax - ax_0 &amp;= by_0 - by \\
+a(x - x_0) &amp;= b(y_0 - y) \\
+\frac{a}{\gcd(a, b)}(x - x_0) &amp;= \frac{b}{\gcd(a, b)}(y_0 - y) \\
+\end  {aligned}
+\)</span></p>
+<p>Recall that <span class="math notranslate nohighlight">\(\gcd \left( \frac{a}{\gcd(a, b)}, \frac{b}{\gcd(a, b)} \right) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(y_0 - y = z \frac{a}{\gcd(a, b)}\)</span> for some <span class="math notranslate nohighlight">\(z\)</span></p>
+<p><span class="math notranslate nohighlight">\(x - x_0 = z \frac{b}{\gcd(a, b)}\)</span> for some <span class="math notranslate nohighlight">\(z\)</span></p>
+<p>Any <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> of this form give a solution, so we have found a complete solution set.</p>
+<p>THEOREM</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are not both zero, that <span class="math notranslate nohighlight">\(\gcd(a, b) \mid c\)</span>, and that <span class="math notranslate nohighlight">\(ax_0 + by_0 = c\)</span>. Then every solution of</p>
+<p><span class="math notranslate nohighlight">\(ax + by = c\)</span></p>
+<p>is given by</p>
+<p><span class="math notranslate nohighlight">\(x = x_0 + z \frac{b}{\gcd(a, b)}, y = y_0 + z \frac{a}{\gcd(a, b)}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(z\)</span> is any integer.</p>
+<p>The solutions <span class="math notranslate nohighlight">\(x\)</span> all leave the same remainder on division by <span class="math notranslate nohighlight">\(\frac{b}{\gcd(a, b)}\)</span> and likewise for <span class="math notranslate nohighlight">\(y\)</span> on division by <span class="math notranslate nohighlight">\(\frac{a}{\gcd(a, b)}\)</span>.</p>
+<p><strong>Lehman’s Method</strong> based on differences of squares, and a small improvement over trial division</p>
+<ol class="arabic simple">
+<li><p>Apply trial division with <span class="math notranslate nohighlight">\(d = 2, 3, \dotsc, d \le n^{\frac{1}{3}}\)</span></p></li>
+<li><p>For <span class="math notranslate nohighlight">\(1 \le t \le n^{\frac{1}{3}} + 1\)</span> consider the numbers <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(\sqrt{4tn} \le x \le \sqrt{4tn + n^{\frac{2}{3}}}\)</span> Check each <span class="math notranslate nohighlight">\(x^2 - 4tn\)</span> to see if it is a perfect square <span class="math notranslate nohighlight">\(y^2\)</span> (compute <span class="math notranslate nohighlight">\(4tn - \lfloor \sqrt{4tn} \rfloor^2\)</span>)</p></li>
+<li><p>If there are <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> s.t. <span class="math notranslate nohighlight">\(x^2 - 4tn = y^2\)</span> then compute <span class="math notranslate nohighlight">\(\gcd(x + y, n)\)</span>.</p></li>
+<li><p>If there is no <span class="math notranslate nohighlight">\(t \le n^{\frac{1}{3}} + 1\)</span> for which there are <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, then <span class="math notranslate nohighlight">\(n\)</span> is prime.</p></li>
+</ol>
+<p>EXAMPLE</p>
+<p><span class="math notranslate nohighlight">\(n = 10001\)</span> and so <span class="math notranslate nohighlight">\(\lfloor (10001)^{\frac{1}{3}} \rfloor = 21\)</span></p>
+<p>Trial division with <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7, 11, 13, 17, 19\)</span> finds no factors.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  t &amp;= 1 \\
+4tn &amp;= 40004 \\
+\lfloor \sqrt{4tn} \rfloor &amp;= \lfloor \sqrt{40004} \rfloor = 200 \\
+\left\lfloor \sqrt{4tn + n^{\frac{2}{3}}} \right\rfloor
+&amp;= \left\lfloor \sqrt{40004 + 21^2} \right\rfloor
+= \left\lfloor \sqrt{40004 + 441} \right\rfloor
+= \left\lfloor \sqrt{40445} \right\rfloor
+= 201 \\
+4tn - \lfloor \sqrt{4tn} \rfloor^2 &amp;= 40004 - 200^2 = 40004 - 40000 = 4 = 2^2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  x^2 &amp;-&amp; 4tn   &amp;=&amp; y^2 \\
+(200^2 = 40000) &amp;-&amp; 40004 &amp;=&amp;  -4 \\
+(201^2 = 40401) &amp;-&amp; 40004 &amp;=&amp; 397 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  t &amp;= 2 \\
+4tn &amp;= 80008 \\
+\lfloor \sqrt{4tn} \rfloor &amp;= \lfloor \sqrt{80008} \rfloor = 282 \\
+\left\lfloor \sqrt{4tn + n^{\frac{2}{3}}} \right\rfloor
+&amp;= \left\lfloor \sqrt{80008 + 21^2} \right\rfloor
+= \left\lfloor \sqrt{80008 + 441} \right\rfloor
+= \left\lfloor \sqrt{80449} \right\rfloor
+= 283 \\
+4tn - \lfloor \sqrt{4tn} \rfloor^2 &amp;= 80008 - 282^2 = 80008 - 79524 = 484 = 22^2 \\
+4tn - \left\lfloor \sqrt{4tn + n^{\frac{2}{3}}} \right\rfloor &amp;= 80008 - 283^2 = 80008 - 80089 = -81 = -9^2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  x^2 &amp;-&amp; 4tn   &amp;=&amp; y^2 \\
+(282^2 = 79524) &amp;-&amp; 80008 &amp;=&amp; -484 \\
+(283^2 = 80089) &amp;-&amp; 80008 &amp;=&amp;   81 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(x + y, n) = \gcd(283 + 9, 10001) = 73\)</span></p>
+<p><strong>Proof of Lehman’s Method</strong></p>
+<ul class="simple">
+<li><p>depends on a subject called Diophantine approximation, via continued fractions, which in turn has some connections with Euclid’s algorithm</p></li>
+<li><p>we can take a shortcut via Dirichlet</p></li>
+</ul>
+<p><strong>Dirichlet Theorem</strong></p>
+<p>For any real number <span class="math notranslate nohighlight">\(\alpha\)</span> and any integer <span class="math notranslate nohighlight">\(Q \ge 1\)</span> there exits integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(q\)</span> with <span class="math notranslate nohighlight">\(1 \le q \le Q\)</span> s.t.</p>
+<p><span class="math notranslate nohighlight">\(\left| \alpha - \frac{a}{q} \right| \le \frac{1}{q(Q + 1)}\)</span></p>
+<p>As a consequence of casting out all common factors of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(q\)</span> in <span class="math notranslate nohighlight">\(a/q\)</span> we have</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, q) = 1\)</span></p>
+<p><strong>Proof of Lehman’s Algorithm</strong></p>
+<p>When there is a <span class="math notranslate nohighlight">\(d \mid n\)</span> with <span class="math notranslate nohighlight">\(n^{\frac{1}{3}} \lt d \le n^{\frac{1}{2}}\)</span> then there is a <span class="math notranslate nohighlight">\(t\)</span> with <span class="math notranslate nohighlight">\(1 \le t \le n^{\frac{1}{3}} + 1\)</span> and <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> s.t.</p>
+<p><span class="math notranslate nohighlight">\(4tn \le x^2 \le 4tn + n^{\frac{2}{3}}, x^2 - y^2 = 4tn\)</span></p>
+<p>The runtime is bounded by <span class="math notranslate nohighlight">\(n^{\frac{1}{3}}\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="congruence-and-residues">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Congruence and Residues</a><a class="headerlink" href="#congruence-and-residues" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Congruence and Residues</a><a class="headerlink" href="#congruence-and-residues" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="residues">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">Residues</a><a class="headerlink" href="#residues" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Residues</a><a class="headerlink" href="#residues" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>RESIDUE CLASS MODULO M</b></span></p>
 <div style="color: #0096FF;">
 <p>Let <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> and define the residue class <span class="math notranslate nohighlight">\(\bar{r} \text{ modulo } m\)</span> by</p>
@@ -1322,7 +1913,7 @@ r + mx + s + my = t + m(x + y + z) \in \bar{t}
 </section>
 <hr class="docutils" />
 <section id="congruence">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">Congruence</a><a class="headerlink" href="#congruence" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Congruence</a><a class="headerlink" href="#congruence" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CONGRUENCE RELATION</b></span></p>
 <div style="color: #0096FF;">
 <p>If <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are integers and <span class="math notranslate nohighlight">\(m\)</span> is a positive integer then <span class="math notranslate nohighlight">\(a\)</span> <em>is congruent to</em> <span class="math notranslate nohighlight">\(b\)</span> <em>modulo</em> <span class="math notranslate nohighlight">\(m\)</span> if <span class="math notranslate nohighlight">\(m\)</span> divides <span class="math notranslate nohighlight">\(a - b\)</span>. (Another way to state this is as follows: Let <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>. If two integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> satisfy <span class="math notranslate nohighlight">\(m \mid a - b\)</span> then…)</p>
@@ -1344,7 +1935,7 @@ a \equiv 1 \mod m &amp;\iff m | (a - 1) &amp;&amp;\iff a = 1 + km \\
 <div style="color: #0096FF;">
 <p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers and <span class="math notranslate nohighlight">\(m\)</span> be a positive integer. Then <span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span> iff <span class="math notranslate nohighlight">\(a \textbf{ mod } m = b \textbf{ mod } m\)</span>. (“a and b are congruent modulo m iff a and b have the same remainder when divided by m”)</p>
 </div><section id="properties-of-the-congruence-relation">
-<h4><a class="toc-backref" href="#id20" role="doc-backlink">Properties of the congruence relation</a><a class="headerlink" href="#properties-of-the-congruence-relation" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id22" role="doc-backlink">Properties of the congruence relation</a><a class="headerlink" href="#properties-of-the-congruence-relation" title="Link to this heading">#</a></h4>
 <p>Reflexivity</p>
 <p><span class="math notranslate nohighlight">\(x \equiv x \mod m\)</span></p>
 <p>Symmetry</p>
@@ -1370,7 +1961,7 @@ a \equiv 1 \mod m &amp;\iff m | (a - 1) &amp;&amp;\iff a = 1 + km \\
 </section>
 <hr class="docutils" />
 <section id="modular-arithmetic">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">Modular Arithmetic</a><a class="headerlink" href="#modular-arithmetic" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Modular Arithmetic</a><a class="headerlink" href="#modular-arithmetic" title="Link to this heading">#</a></h3>
 <p>Modular arithmetic operates with the remainders of integers when they are divided by a fixed positive integer called the modulus.
 For the applications such as primality testing and cryptography it is necessary to deal with numbers which are much larger than 32 bits but whose range is nonetheless limited. Modular arithmetic is a system for dealing with restricted ranges of integers.</p>
 <p>Ways to think about modular arithmetic</p>
@@ -1379,24 +1970,24 @@ For the applications such as primality testing and cryptography it is necessary 
 <li><p>modular arithmetic deals with all the integers, but divides them into <span class="math notranslate nohighlight">\(N\)</span> equivalence classes each of the form <span class="math notranslate nohighlight">\(\{ i + kN : k \in \mathbb{Z} \}\)</span> for some <span class="math notranslate nohighlight">\(i\)</span> between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(N - 1\)</span></p></li>
 </ul>
 <section id="modular-addition">
-<h4><a class="toc-backref" href="#id22" role="doc-backlink">Modular Addition</a><a class="headerlink" href="#modular-addition" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id24" role="doc-backlink">Modular Addition</a><a class="headerlink" href="#modular-addition" title="Link to this heading">#</a></h4>
 <p>To add two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span> we start with regular addition. <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are each in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span> so their sum is in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(2(N - 1)\)</span>. When the sum exceeds <span class="math notranslate nohighlight">\(N - 1\)</span> we subtract <span class="math notranslate nohighlight">\(N\)</span> so that it falls back into the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span>. The overall computations consists of an addition and a possible subtraction of numbers which never exceed <span class="math notranslate nohighlight">\(2N\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(T(n) = O(n)\)</span> where <span class="math notranslate nohighlight">\(n = \lceil \log N \rceil\)</span></p>
 </section>
 <section id="modular-multiplication">
-<h4><a class="toc-backref" href="#id23" role="doc-backlink">Modular Multiplication</a><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">Modular Multiplication</a><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h4>
 <p>To multiply two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span>, we start with regular multiplication and then reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span>. The product can be as large as <span class="math notranslate nohighlight">\((N - 1)^2\)</span> but this is still at most <span class="math notranslate nohighlight">\(2n\)</span> bits long since <span class="math notranslate nohighlight">\(\log (N - 1)^2 = 2 \log (N - 1) \le 2n\)</span>. To reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span> we compute the remainder upon dividing it by <span class="math notranslate nohighlight">\(N\)</span> using the quadratic-time division algorithm. Multiplication thus remains a quadratic operation.</p>
 <p><strong>Complexity</strong></p>
 <p><span class="math notranslate nohighlight">\(T(n) = \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{multiplication}} + \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{reduction modulo \textit{N} via division}} = O(n^2)\)</span></p>
 </section>
 <section id="modular-division">
-<h4><a class="toc-backref" href="#id24" role="doc-backlink">Modular Division</a><a class="headerlink" href="#modular-division" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">Modular Division</a><a class="headerlink" href="#modular-division" title="Link to this heading">#</a></h4>
 <p>In ordinary arithmetic there is just one tricky case–division by zero. In modular arithmetic there are other tricky cases.</p>
 <p>When division is legal, its running time is</p>
 <p><span class="math notranslate nohighlight">\(T(n) = O(n^3)\)</span></p>
 </section>
 <section id="modular-exponentiation">
-<h4><a class="toc-backref" href="#id25" role="doc-backlink">Modular Exponentiation</a><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id27" role="doc-backlink">Modular Exponentiation</a><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h4>
 <p>Can <span class="math notranslate nohighlight">\(x^y \mod N\)</span> be computed quickly for values of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> that are several hundred bits long? The result is some number modulo <span class="math notranslate nohighlight">\(N\)</span> and is therefore itself a few hundred bits long. The raw value <span class="math notranslate nohighlight">\(x^y\)</span> could be much longer. When <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are just <span class="math notranslate nohighlight">\(20\text{-b}\)</span> numbers <span class="math notranslate nohighlight">\(x^y\)</span> is at least <span class="math notranslate nohighlight">\((2^{19})^{2^{19}} = 2^{(19)(524,288)}\)</span> which is about ten million bits long. Imagine what would happen if <span class="math notranslate nohighlight">\(y\)</span> is a <span class="math notranslate nohighlight">\(500\text{-b}\)</span> number. To make sure the numbers we are dealing with never grow too large, we need to perform all intermediate computations modulo <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>Calculate <span class="math notranslate nohighlight">\(x^y \mod N\)</span> by repeatedly multiplying by <span class="math notranslate nohighlight">\(x \mod N\)</span>. The resulting sequence of intermediate products <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to \dotsb \to x^y \mod N\)</span> consists of numbers smaller than <span class="math notranslate nohighlight">\(N\)</span>, so the individual multiplications do not take too long. But if <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(500\)</span> bits long we need to perform <span class="math notranslate nohighlight">\(y - 1 \approx 2^{500}\)</span> multiplications which is exponential in the size of <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p>It will be better to start with <span class="math notranslate nohighlight">\(x\)</span> and repeatedly square modulo <span class="math notranslate nohighlight">\(N\)</span>: <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to x^4 \mod N \to x^8 \mod N \to \dotsb \to x^{2^{\lfloor \log y \rfloor}} \mod N\)</span>.</p>
@@ -1438,7 +2029,7 @@ x \cdot (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is odd}  \\
 </section>
 <hr class="docutils" />
 <section id="reduced-residues">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink">Reduced Residues</a><a class="headerlink" href="#reduced-residues" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Reduced Residues</a><a class="headerlink" href="#reduced-residues" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.]</p>
 <div style="color: #0096FF;">
 <p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span>, <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span>, and</p>
@@ -1727,7 +2318,10 @@ m &amp;= 341561645 &amp; a &amp;= 2 &amp; 2^{m - 1} &amp;\equiv 1 \mod m  \\
 <p><span class="math notranslate nohighlight">\(a^p \equiv a \mod p\)</span></p>
 <p>If <span class="math notranslate nohighlight">\(p \nmid a\)</span> then</p>
 <p><span class="math notranslate nohighlight">\(a^{p - 1} \equiv 1 \mod p\)</span></p>
-</div><p><span style="color: #50C878;"><b>Example</b></span></p>
+</div>
+<p>“If <span class="math notranslate nohighlight">\(p\)</span> is prime and <span class="math notranslate nohighlight">\(p\)</span> does not divide <span class="math notranslate nohighlight">\(a\)</span> then <span class="math notranslate nohighlight">\(a^{p - 1} \equiv 1 \mod p\)</span>”</p>
+<p>The converse of this statement will lead us to the notion of Fermat pseudoprimes.</p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 p &amp;= 17, a = 3 &amp;&amp; 3^{17} \equiv 3 \mod 17 \\
@@ -1736,14 +2330,18 @@ p &amp;= 17, a = 3 &amp;&amp; 3^{17} \equiv 3 \mod 17 \\
 </section>
 <hr class="docutils" />
 <section id="fermat-pseudoprimes">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
 <p>Pseudoprimes are composite integers masquerading as primes.</p>
 <p>Could Fermat’s theorem give us a primality test? Unfortunately, it is possible that</p>
 <p><span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span></p>
 <p>when <span class="math notranslate nohighlight">\(n\)</span> is <em><strong>not prime</strong></em>, although this is rare. For example, when <span class="math notranslate nohighlight">\(n = 341,561,645\)</span> then</p>
 <p><span class="math notranslate nohighlight">\(2^{n - 1} \equiv 1 \mod n\)</span></p>
 <p>Such <span class="math notranslate nohighlight">\(n\)</span> are called (Fermat) pseudoprimes.</p>
-<div style="color: red;">
+<p><span style="color: #0096FF;"><b>FERMAT PSEUDOPRIME</b></span></p>
+<div style="color: #0096FF;">
+<p>A pseudoprime <span class="math notranslate nohighlight">\(m\)</span> to the base <span class="math notranslate nohighlight">\(a\)</span> is a composite integer <span class="math notranslate nohighlight">\(m\)</span> that masquerades as a prime by satisfying the congruence</p>
+<p><span class="math notranslate nohighlight">\(a^{m - 1} \equiv 1 \mod m\)</span></p>
+</div><div style="color: red;">
 <p>There are <span class="math notranslate nohighlight">\(245\)</span> pseudoprimes less than <span class="math notranslate nohighlight">\(10^6\)</span> (compared to <span class="math notranslate nohighlight">\(78498\)</span> primes less than <span class="math notranslate nohighlight">\(10^6\)</span>).</p>
 </div><p><span style="color: #50C878;"><b>Base-2 Fermat Pseudoprimes</b></span></p>
 <p><span class="math notranslate nohighlight">\(
@@ -1759,16 +2357,17 @@ n &amp;= 341561645 &amp;&amp;= 5 \times 67 \times 773 \times 1319 &amp; 2^{n - 1
 </section>
 <hr class="docutils" />
 <section id="carmichael-numbers">
-<h3><a class="toc-backref" href="#id28" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CARMICHAEL NUMBER</b></span> [Vaughan Definition 3.19]</p>
 <div style="color: #0096FF;">
 <p>A composite <span class="math notranslate nohighlight">\(n\)</span> which satisfies <span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, n) = 1\)</span> is called a Carmichael number.</p>
 </div>
+<p>“A Carmichael number is a composite integer that is a pseudoprime to all bases <span class="math notranslate nohighlight">\(a\)</span> coprime prime to it.”</p>
 <p>There are infinitely many Carmichael numbers. The smallest is <span class="math notranslate nohighlight">\(561\)</span> and there are <span class="math notranslate nohighlight">\(2163\)</span> of them below <span class="math notranslate nohighlight">\(25 \times 10^9\)</span>.</p>
 </section>
 <hr class="docutils" />
 <section id="mersenne-primes">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>MERSENNE PRIME</b></span> [Vaughan Definition 3.20]</p>
 <div style="color: #0096FF;">
 <p>Define <span class="math notranslate nohighlight">\(M(n) = 2^n - 1\)</span>. If it is prime then it is a Mersenne prime.</p>
@@ -1791,13 +2390,178 @@ M(11) &amp;=&amp; 2^{11} - 1 &amp;=&amp; 2047 &amp;= \textcolor{red}{23 \times 8
 </section>
 <hr class="docutils" />
 <section id="linear-congruence">
-<h2><a class="toc-backref" href="#id30" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
+<p>Linear congruences have the form</p>
+<p><span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span></p>
+<p>To solve linear congruences, inverses modulo <span class="math notranslate nohighlight">\(m\)</span> are employed. Work backward through the steps of the Euclidean algorithm to find inverses modulo <span class="math notranslate nohighlight">\(m\)</span>. Once an inverse of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> has been found, solve the linear congruence by multiplying both sides by the inverse.</p>
+<hr class="docutils" />
+<p>We have already solved <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> in principle since it is equivalent to <span class="math notranslate nohighlight">\(ax + my = b\)</span>. (Bézout!)</p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.22]</p>
+<div style="color: #0096FF;">
+<p>The congruence <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> is soluble iff <span class="math notranslate nohighlight">\(\gcd(a, m) \mid b\)</span>, and the general solution is given by the residue class <span class="math notranslate nohighlight">\(x_0\)</span> modulo <span class="math notranslate nohighlight">\(m/\gcd(a, m)\)</span>. <span class="math notranslate nohighlight">\(x_0\)</span> can be found by applying Euclid’s algorithm.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<div style="color: red;">
+<p>The congruence <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> is equivalent to the equation <span class="math notranslate nohighlight">\(ax + my = b\)</span>:</p>
+<p>\begin{align}
+ax \equiv b \mod m \iff m \mid (ax - b) \iff ax - b = mk \iff ax + my = b \text{ with } y = -k
+\end  {align}</p>
+<p>and there can be no solution if <span class="math notranslate nohighlight">\(\gcd(a, m) \nmid b\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\gcd(a, m) \mid b\)</span> then Euclid’s algorithm solves</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{a}{\gcd(a, m)} x + \frac{m}{\gcd(a, m)} y = \frac{b}{\gcd(a, m)}
+\end  {aligned}
+\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(x_0, y_0\)</span> be such a solution and let <span class="math notranslate nohighlight">\(x, y\)</span> be any solution. Then <span class="math notranslate nohighlight">\(a/\gcd(a, m)(x - x_0) \equiv 0 \mod m/\gcd(a, m)\)</span> and since</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\gcd \left( \frac{a}{\gcd(a, m)}, \frac{m}{\gcd(a, m)} \right) = 1
+\end  {aligned}
+\)</span></p>
+<p>it follows that <span class="math notranslate nohighlight">\(x\)</span> is in the residue class <span class="math notranslate nohighlight">\(x_0 \mod m/\gcd(a, m)\)</span></p>
+</div>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #0096FF;"><b>WILSON’S THEOREM</b></span> [Vaughan Theorem 3.23]</p>
+<div style="color: #0096FF;">
+<p>Let <span class="math notranslate nohighlight">\(p\)</span> be prime. Then <span class="math notranslate nohighlight">\((p - 1)! \equiv -1 \mod p\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+p &amp;= 2 &amp;&amp; (2 - 1)! \equiv -1 \mod 2 \\
+p &amp;= 3 &amp;&amp; (3 - 1)! \equiv -1 \mod 3 \\
+\end  {aligned}
+\)</span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(p \ge 5\)</span>. Observe now that <span class="math notranslate nohighlight">\(x^2 \equiv 1 \mod p\)</span> implies that <span class="math notranslate nohighlight">\(x \equiv \pm 1 \mod p\)</span>.</p>
+<p>Thus the numbers <span class="math notranslate nohighlight">\(2, 3, \dotsc, p - 2\)</span> can be paired off into <span class="math notranslate nohighlight">\(\frac{p - 3}{2}\)</span> mutually exclusive pairs <span class="math notranslate nohighlight">\(a, b\)</span> s.t. <span class="math notranslate nohighlight">\(ab \equiv 1 \mod p\)</span>.</p>
+<p>Thus <span class="math notranslate nohighlight">\((p - 1)! \equiv p - 1 \equiv -1 \mod p\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>This theorem actually gives a necessary and sufficient condition for <span class="math notranslate nohighlight">\(p\)</span> to be prime, since if <span class="math notranslate nohighlight">\(p\)</span> were to be composite then <span class="math notranslate nohighlight">\(\gcd((p - 1)!, p) \gt 1\)</span>. However, it is useless because <span class="math notranslate nohighlight">\((p - 1)!\)</span> grows very rapidly.</p>
+<hr class="docutils" />
+<section id="chinese-remainder-theorem">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Chinese Remainder Theorem</a><a class="headerlink" href="#chinese-remainder-theorem" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>SYSTEM OF LINEAR CONGRUENCES</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(
+\begin{cases}
+a_1 x &amp;\equiv b_1 \mod q_1 \\
+a_2 x &amp;\equiv b_2 \mod q_2 \\
+\dots \\
+a_r x &amp;\equiv b_r \mod q_r \\
+\end  {cases}
+\)</span></p>
+</div>
+<p>There can only be a solution when each individual equation is soluble, so we require <span class="math notranslate nohighlight">\(\gcd(a_j, q_j) \mid b_j\)</span> for every <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>Then we know that each individual equation is soluble by some residue class modulo <span class="math notranslate nohighlight">\(q_j / \gcd(a_j, q_j)\)</span>.</p>
+<p>Thus for some values of <span class="math notranslate nohighlight">\(c_j\)</span> and <span class="math notranslate nohighlight">\(m_j\)</span> this reduces to</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{cases}
+x &amp;\equiv c_1 \mod m_1 \\
+\dots \\
+x &amp;\equiv c_r \mod m_r \\
+\end  {cases}
+\)</span></p>
+<p>Suppose for some <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j \ne i\)</span> we have <span class="math notranslate nohighlight">\(\gcd(m_i, m_j) = d \gt 1\)</span>. Then <span class="math notranslate nohighlight">\(x\)</span> has to satisfy <span class="math notranslate nohighlight">\(c_i \equiv x \equiv c_j \mod d\)</span>. This imposes conditions on <span class="math notranslate nohighlight">\(c_j\)</span> which can get complicated. Thus it is convenient to assume that <span class="math notranslate nohighlight">\(\gcd(m_i, m_j) = 1\)</span> when <span class="math notranslate nohighlight">\(i \ne j\)</span>.</p>
+<p><span style="color: #0096FF;"><b>CHINESE REMAINDER THEOREM</b></span></p>
+<p>The Chinese Remainder Theorem is about solving systems of linear congruences modulo pairwise coprime moduli.</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(\gcd(m_i, m_j) = 1\)</span> for every <span class="math notranslate nohighlight">\(i \ne j\)</span>.</p>
+<p>Then the system</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{cases}
+x &amp;\equiv c_1 \mod m_1 \\
+\dots \\
+x &amp;\equiv c_r \mod m_r \\
+\end  {cases}
+\)</span></p>
+<p>has as its complete solution precisely the members of a unique residue class modulo <span class="math notranslate nohighlight">\(m_1 m_2 \dots m_r\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p><em>EXISTENCE</em></p>
+<p>Let <span class="math notranslate nohighlight">\(M = m_1 m_2 \dots m_r\)</span> and <span class="math notranslate nohighlight">\(M_j = M / m_j\)</span>, so that <span class="math notranslate nohighlight">\(\gcd(M_j, m_j) = 1\)</span>.</p>
+<p>We know that there is an <span class="math notranslate nohighlight">\(N_j\)</span> so that <span class="math notranslate nohighlight">\(M_j N_j \equiv c_j \mod m_j\)</span>. (Solve <span class="math notranslate nohighlight">\(yM_j \equiv c_j \mod m_j\)</span> in <span class="math notranslate nohighlight">\(y\)</span>.)</p>
+<p>Let <span class="math notranslate nohighlight">\(x\)</span> be any member of the residue class <span class="math notranslate nohighlight">\(N_1 M_1 + \dotsb + N_r M_r \mod M\)</span>.</p>
+<p>Then for every <span class="math notranslate nohighlight">\(j\)</span>, since <span class="math notranslate nohighlight">\(m_j \mid M_i\)</span> when <span class="math notranslate nohighlight">\(i \ne j\)</span> we have <span class="math notranslate nohighlight">\(x \equiv N_j M_j \equiv c_j \mod m_j\)</span>.</p>
+<p>So the residue class <span class="math notranslate nohighlight">\(x \mod M\)</span> gives a solution.</p>
+<p><em>UNIQUENESS</em></p>
+<p>Suppose <span class="math notranslate nohighlight">\(y\)</span> is also a solution of the system.</p>
+<p>Then for every <span class="math notranslate nohighlight">\(j\)</span> we have <span class="math notranslate nohighlight">\(y \equiv c_j \equiv x \mod m_j\)</span> and so <span class="math notranslate nohighlight">\(m_j \mid y - x\)</span>.</p>
+<p>Since the <span class="math notranslate nohighlight">\(m_j\)</span> are pairwise coprime we have <span class="math notranslate nohighlight">\(M \mid y - x\)</span>, so <span class="math notranslate nohighlight">\(y\)</span> is in the residue class <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x &amp;\equiv \underset{c_1}{3} \mod \underset{m_1}{\phantom{2}4} \\
+x &amp;\equiv \underset{c_2}{5} \mod \underset{m_2}{21} \\
+x &amp;\equiv \underset{c_3}{7} \mod \underset{m_3}{25} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+M   &amp;=          m_1          \times m_2          \times m_3  = &amp; 2100 \\
+M_1 &amp;= \phantom{m_1          \times}m_2          \times m_3  = &amp;  525 \\
+M_2 &amp;=          m_1 \phantom{\times m_2}         \times m_3  = &amp;  100 \\
+M_3 &amp;=          m_1          \times m_2 \phantom{\times m_3} = &amp;   84 \\
+\end  {aligned}
+\)</span></p>
+<p>Solve</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+525 N_1 &amp;\equiv 3 \mod \phantom{2}4 \\
+100 N_2 &amp;\equiv 5 \mod 21 \\
+ 84 N_3 &amp;\equiv 7 \mod 25 \\
+\end  {aligned}
+\)</span></p>
+<p>reduces to</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+     N_1 &amp;\equiv 3 \mod \phantom{2}4 \\
+(-5) N_2 &amp;\equiv 5 \mod 21 \\
+   9 N_3 &amp;\equiv 7 \equiv -18 \mod 25 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+N_1 &amp;= 3 \\
+N_2 &amp;= 20 \\
+N_3 &amp;= 23 \equiv -2 \mod 25 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x
+&amp;\equiv N_1 M_1 + N_2 M_2 + N_3 M_3 \mod M \\
+&amp;= 3 \times 525 + 20 \times 100 + 23 \times 84 \mod 2100 \\
+&amp;= 5507 \mod 2100 \\
+&amp;\equiv 1307 \mod 2100 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="primitive-roots">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">Primitive Roots</a><a class="headerlink" href="#primitive-roots" title="Link to this heading">#</a></h2>
+<p><span style="color: #0096FF;"><b>PRIMITIVE ROOT</b></span></p>
+<div style="color: #0096FF;">
+<p>A primitive root of a prime <span class="math notranslate nohighlight">\(p\)</span> is an integer <span class="math notranslate nohighlight">\(r\)</span> s.t. every integer not divisible by <span class="math notranslate nohighlight">\(p\)</span> is congruent to a power <span class="math notranslate nohighlight">\(r\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div><hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="discrete-logarithms">
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Discrete Logarithms</a><a class="headerlink" href="#discrete-logarithms" title="Link to this heading">#</a></h2>
+<p>A discrete logarithm is analogous to an ordinary logarithm.</p>
+<p>In general, finding discrete logarithms is a difficult problem and is the basis for the security of many cryptographic systems.</p>
+<p><span style="color: #0096FF;"><b>DISCRETE LOGARITHM</b></span></p>
+<div style="color: #0096FF;">
+<p>If <span class="math notranslate nohighlight">\(r\)</span> is a primitive root of <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(r^e \equiv a \mod p\)</span> then <span class="math notranslate nohighlight">\(e\)</span> is the discrete logarithm of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span> to the base <span class="math notranslate nohighlight">\(r\)</span>.</p>
+</div><hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id31" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
@@ -1885,9 +2649,10 @@ M(11) &amp;=&amp; 2^{11} - 1 &amp;=&amp; 2047 &amp;= \textcolor{red}{23 \times 8
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Division</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm-theorem">Division algorithm theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sieve-of-eratosthenes">Sieve of Eratosthenes</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence-and-residues">Congruence and Residues</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congruence">Congruence</a><ul class="nav section-nav flex-column">
@@ -1907,7 +2672,12 @@ M(11) &amp;=&amp; 2^{11} - 1 &amp;=&amp; 2047 &amp;= \textcolor{red}{23 \times 8
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chinese-remainder-theorem">Chinese Remainder Theorem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-roots">Primitive Roots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-logarithms">Discrete Logarithms</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
   </nav></div>
