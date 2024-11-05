@@ -18,44 +18,40 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-bind_rows(Japan, China) %>%
-  mutate(Country = ifelse(name %in% unique(Japan$name), 'Japan', 'China')) %>%
-  head()
+page      <- 'https://en.wikipedia.org/wiki/List_of_commerical_nuclear_reactors'
+tableList <-
+  page %>%
+    read_html() %>%
+    html_nodes(css = 'table') %>%
+    html_table(fill = TRUE)
+length(tableList)
+
+Japan <-
+  tableList[[21]] %>%
+    select(1:9)
+#names(Japan)[c(3, 6)] <- c('type', 'grossMW')
+head(Japan)
 ------------------
 
 
-[1m[33mError[39m in `bind_rows()`:[22m
-[33m![39m Can't combine `..1$reactor` <integer> and `..2$reactor` <character>.
+Error in open.connection(x, "rb"): Could not resolve host: en.wikipedia.org
 Traceback:
 
-1. bind_rows(Japan, China) %>% mutate(Country = ifelse(name %in% 
- .     unique(Japan$name), "Japan", "China")) %>% head()
-2. head(.)
-3. mutate(., Country = ifelse(name %in% unique(Japan$name), "Japan", 
- .     "China"))
-4. bind_rows(Japan, China)
-5. vec_rbind(!!!dots, .names_to = .id, .error_call = current_env())
-6. (function () 
- . vec_default_ptype2(x = x, y = y, x_arg = x_arg, y_arg = y_arg, 
- .     call = call, `vctrs:::from_dispatch` = `vctrs:::from_dispatch`, 
- .     `vctrs:::s3_fallback` = `vctrs:::s3_fallback`))()
-7. vec_default_ptype2(x = x, y = y, x_arg = x_arg, y_arg = y_arg, 
- .     call = call, `vctrs:::from_dispatch` = `vctrs:::from_dispatch`, 
- .     `vctrs:::s3_fallback` = `vctrs:::s3_fallback`)
-8. withRestarts(stop_incompatible_type(x, y, x_arg = x_arg, y_arg = y_arg, 
- .     `vctrs:::from_dispatch` = match_from_dispatch(...), call = call), 
- .     vctrs_restart_ptype2 = function(ptype) {
- .         ptype
- .     })
-9. withOneRestart(expr, restarts[[1L]])
-10. doWithOneRestart(return(expr), restart)
-11. stop_incompatible_type(x, y, x_arg = x_arg, y_arg = y_arg, `vctrs:::from_dispatch` = match_from_dispatch(...), 
-  .     call = call)
-12. stop_incompatible(x, y, x_arg = x_arg, y_arg = y_arg, details = details, 
-  .     ..., message = message, class = c(class, subclass, "vctrs_error_incompatible_type"), 
-  .     call = call)
-13. stop_vctrs(message, class = c(class, "vctrs_error_incompatible"), 
-  .     x = x, y = y, details = details, ..., call = call)
-14. abort(message, class = c(class, "vctrs_error"), ..., call = call)
-15. signal_abort(cnd, .file)
+1. page %>% read_html() %>% html_nodes(css = "table") %>% html_table(fill = TRUE)
+2. html_table(., fill = TRUE)
+3. html_nodes(., css = "table")
+4. html_elements(...)
+5. read_html(.)
+6. read_html.default(.)
+7. suppressWarnings(read_xml(x, encoding = encoding, ..., as_html = TRUE, 
+ .     options = options))
+8. withCallingHandlers(expr, warning = function(w) if (inherits(w, 
+ .     classes)) tryInvokeRestart("muffleWarning"))
+9. read_xml(x, encoding = encoding, ..., as_html = TRUE, options = options)
+10. read_xml.character(x, encoding = encoding, ..., as_html = TRUE, 
+  .     options = options)
+11. read_xml.connection(con, encoding = encoding, ..., as_html = as_html, 
+  .     base_url = x, options = options)
+12. open(x, "rb")
+13. open.connection(x, "rb")
 
