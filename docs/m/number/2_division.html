@@ -752,6 +752,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-theorem-of-arithmetic">Fundamental Theorem of Arithmetic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-theorem">Euclid’s Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm">Division Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-lemma">Euclid’s Lemma</a></li>
 </ul>
             </nav>
         </div>
@@ -779,6 +781,8 @@ document.write(`
 <li><p><a class="reference internal" href="#fundamental-theorem-of-arithmetic" id="id7">Fundamental Theorem of Arithmetic</a></p></li>
 <li><p><a class="reference internal" href="#euclid-s-theorem" id="id8">Euclid’s Theorem</a></p></li>
 <li><p><a class="reference internal" href="#division-algorithm" id="id9">Division Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#gcd" id="id10">GCD</a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-lemma" id="id11">Euclid’s Lemma</a></p></li>
 </ul>
 </li>
 </ul>
@@ -1281,6 +1285,149 @@ r &amp;= a \textbf{ mod } d &amp;&amp;= a - d \lfloor a/d \rfloor \\
 </div>
 </div>
 </div>
+</section>
+<hr class="docutils" />
+<section id="gcd">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">GCD</a><a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
+<p><strong>Summary</strong></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \gcd(a, b) \mid a \\
+&amp; \gcd(a, b) \mid b \\
+&amp; c \mid a \land c \mid b \implies c \mid \gcd(a, b) \\
+&amp; \gcd \left( \frac{a}{\gcd(a, b)}, \frac{b}{\gcd(a, b)} \right) = 1 \\
+&amp; \gcd(a + by, b) = \gcd(a, b) \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>THEOREM</b></span></p>
+<div style="color: #0096FF;">
+<p>Given two integers <span class="math notranslate nohighlight">\(a, b\)</span> not both <span class="math notranslate nohighlight">\(0\)</span>, define <span class="math notranslate nohighlight">\(D(a, b) = \{ ax + by \mid x, y \in \mathbb{Z} \}\)</span> Then <span class="math notranslate nohighlight">\(D(a, b)\)</span> has positive elements. Let <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> denote the least positive element. Then <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> has the following properties.</p>
+<p>(i) <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a\)</span></p>
+<p>(ii) <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span></p>
+<p>(iii) if the integer <span class="math notranslate nohighlight">\(c\)</span> satisfies <span class="math notranslate nohighlight">\(c \mid a\)</span> and <span class="math notranslate nohighlight">\(c \mid b\)</span> then <span class="math notranslate nohighlight">\(c \mid \gcd(a, b)\)</span></p>
+</div>
+<p>Note that <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> divides every member of <span class="math notranslate nohighlight">\(D(a, b)\)</span>.</p>
+<p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p><strong>Existence</strong></p>
+<p>The following demonstrates that no matter which values we choose for <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> there are always values of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> which make their linear combination positive. The case <span class="math notranslate nohighlight">\(a = b = 0\)</span> is excluded by the theorem.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a &amp; \gt 0 &amp;&amp; \implies a \times \phantom{(-}1\phantom{)}  &amp;&amp; + b \times \phantom{(-}0\phantom{)}  = \phantom{-}a &amp;&amp; \gt 0 \\
+b &amp; \gt 0 &amp;&amp; \implies a \times \phantom{(-}0\phantom{)}  &amp;&amp; + b \times \phantom{(-}1\phantom{)}  = \phantom{-}b &amp;&amp; \gt 0 \\
+a &amp; \lt 0 &amp;&amp; \implies a \times                      (-1) &amp;&amp; + b \times \phantom{(-}0\phantom{)}  =           -a &amp;&amp; \gt 0 \\
+b &amp; \lt 0 &amp;&amp; \implies a \times \phantom{(-}0\phantom{)}  &amp;&amp; + b \times                      (-1) =           -b &amp;&amp; \gt 0 \\
+\end  {aligned}
+\)</span></p>
+<p>Thus, the set <span class="math notranslate nohighlight">\(D(a, b)\)</span> has at least one positive element, and so there is a least positive element.</p>
+<p><strong>(i)</strong> and <strong>(ii)</strong></p>
+<p>Suppose <span class="math notranslate nohighlight">\(\gcd(a, b) \nmid a\)</span>. From the division algorithm we have <span class="math notranslate nohighlight">\(a = \gcd(a, b)q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt \gcd(a, b)\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, b) \nmid a\)</span> implies <span class="math notranslate nohighlight">\(0 \lt r\)</span>.</p>
+<div style="color: red;">
+<p>Why do we need to show the following two statements?</p>
+<p><span class="math notranslate nohighlight">\(r = a - \gcd(a, b)q = a - (ax + by)q = a(1 - xq) + b(-yq)\)</span> for some integers <span class="math notranslate nohighlight">\(x, y\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(0 \lt \underbrace{a(1 - xq) + b(-yq)}_{r} \lt \underbrace{ax + by}_{\gcd(a, b)}\)</span></p>
+</div>
+<p>Contradiction! <span class="math notranslate nohighlight">\(r\)</span> can’t be less than <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> since <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> is the least element. Thus, <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a\)</span> and by symmetry <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span>.</p>
+<p><strong>(iii)</strong></p>
+<p>Suppose there is an integer <span class="math notranslate nohighlight">\(c\)</span> such that <span class="math notranslate nohighlight">\(c \mid a\)</span> and <span class="math notranslate nohighlight">\(c \mid b\)</span>. Then <span class="math notranslate nohighlight">\(a = cu\)</span> and <span class="math notranslate nohighlight">\(b = cv\)</span> for some integers <span class="math notranslate nohighlight">\(u, v\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) = ax + by = (cu)x + (cv)y = c(ux + vy) \iff c \mid \gcd(a, b)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Property of GCD</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(\gcd \left( \frac{a}{\gcd(a, b)}, \frac{b}{\gcd(a, b)} \right) = 1\)</span></p>
+</div>
+<p>If this quantity is denoted <span class="math notranslate nohighlight">\(d\)</span> then the following hold</p>
+<p><span class="math notranslate nohighlight">\(d \mid \frac{a}{\gcd(a, b)} \iff d \cdot \gcd(a, b) \mid a\)</span></p>
+<p><span class="math notranslate nohighlight">\(d \mid \frac{b}{\gcd(a, b)} \iff d \cdot \gcd(a, b) \mid b\)</span></p>
+<p>Whatever integer divides both of two integers divides their <span class="math notranslate nohighlight">\(\gcd\)</span> and so <span class="math notranslate nohighlight">\(d \cdot \gcd(a, b) \mid \gcd(a, b) \iff d \mid 1 \iff d = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Property of GCD</b></span></p>
+<div style="color: #0096FF;">
+<p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are not both <span class="math notranslate nohighlight">\(0\)</span>. Then for any integer <span class="math notranslate nohighlight">\(y\)</span> we have <span class="math notranslate nohighlight">\(\gcd(a + by, b) = \gcd(a, b)\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span> we know that <span class="math notranslate nohighlight">\(\gcd(a, b) \mid ax + by\)</span> for any integers <span class="math notranslate nohighlight">\(x, y\)</span>. Thus <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a + by\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a + by\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span> we know that <span class="math notranslate nohighlight">\(\gcd(a, b) \mid \gcd(a + by, b)\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid a + by\)</span> and <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid b\)</span> we know that <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid (a + by)s + bt\)</span> for any integers <span class="math notranslate nohighlight">\(s, t\)</span>. Thus <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid a + by - by = a\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid a\)</span> and <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid b\)</span> we know that <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid \gcd(a, b)\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(\gcd(a, b) \mid \gcd(a + by, b)\)</span> and <span class="math notranslate nohighlight">\(\gcd(a + by, b) \mid \gcd(a, b)\)</span> it is the case that <span class="math notranslate nohighlight">\(\gcd(a, b) = \gcd(a + by, b)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(21, 49) = \gcd(21 + 49(3), 49)\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Property of GCD</b></span></p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(\gcd(a, b) = 1\)</span> and that <span class="math notranslate nohighlight">\(ax = by\)</span>. Then there is a <span class="math notranslate nohighlight">\(z\)</span> such that <span class="math notranslate nohighlight">\(x = bz\)</span> and <span class="math notranslate nohighlight">\(y = az\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>There are integers <span class="math notranslate nohighlight">\(u, v\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) = 1 = ua + vb \iff x = uax + vbx \iff x = u(by) + vbx = b\underbrace{(uy + vx)}_{z} \iff b \mid x\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) = 1 = ua + vb \iff y = uay + vby \iff y = uay + v(ax) = a\underbrace{(uy + vx)}_{z} \iff a \mid y\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\gcd(a, b) &amp;= 1 &amp;&amp;&amp; a \times  x &amp;= b \times y &amp;&amp;&amp;  x &amp;= b \times z &amp;&amp;&amp; y &amp;= a \times z \\
+\gcd(2, 3) &amp;= 1 &amp;&amp;&amp; 2 \times  3 &amp;= 3 \times 2 &amp;&amp;&amp;  3 &amp;= 3 \times 1 &amp;&amp;&amp; 2 &amp;= 2 \times 1 \\
+\gcd(3, 5) &amp;= 1 &amp;&amp;&amp; 3 \times 10 &amp;= 5 \times 6 &amp;&amp;&amp; 10 &amp;= 5 \times 2 &amp;&amp;&amp; 6 &amp;= 3 \times 2 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>COROLLARY</b></span> [Vaughan Corollary 1.14]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are integers not both <span class="math notranslate nohighlight">\(0\)</span>. Then there are integers <span class="math notranslate nohighlight">\(x, y\)</span> such that <span class="math notranslate nohighlight">\(\gcd(a, b) = ax + by\)</span>.</p>
+</div>
+<p>Later we will look at a way of finding suitable x and y in examples. As it stands the theorem gives no constructive way of finding them. It is a pure existence proof.</p>
+</section>
+<hr class="docutils" />
+<section id="euclid-s-lemma">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Euclid’s Lemma</a><a class="headerlink" href="#euclid-s-lemma" title="Link to this heading">#</a></h2>
+<p><span style="color: #0096FF;"><b>EUCLID’S LEMMA</b></span> [Vaughan Theorem 1.15]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and that there are integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> such that <span class="math notranslate nohighlight">\(p \mid ab\)</span>. Then either <span class="math notranslate nohighlight">\(p \mid a\)</span> or <span class="math notranslate nohighlight">\(p \mid b\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>If <span class="math notranslate nohighlight">\(a = 0\)</span> or <span class="math notranslate nohighlight">\(b = 0\)</span> then the result that <span class="math notranslate nohighlight">\(p \mid 0\)</span> is trivial. Thus we may suppose that <span class="math notranslate nohighlight">\(ab \ne 0\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(p \nmid a\)</span>.</p>
+<p>We know that there are integers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(\gcd(a, p) = ax + py\)</span> and that <span class="math notranslate nohighlight">\(\gcd(a, p) \mid a\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, p) \mid p\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(p\)</span> is prime it is the case that either <span class="math notranslate nohighlight">\(\gcd(a, p) = 1\)</span> or <span class="math notranslate nohighlight">\(\gcd(a, p) = p\)</span>.</p>
+<p>If it were the case that <span class="math notranslate nohighlight">\(\gcd(a, p) = p\)</span> then <span class="math notranslate nohighlight">\(p \mid a\)</span>. But we supposed that <span class="math notranslate nohighlight">\(p \nmid a\)</span>.</p>
+<p>So <span class="math notranslate nohighlight">\(\gcd(a, p) = 1 = ax + py \iff b = abx + pby\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(p \mid ab \iff ab = pc\)</span> for some integer <span class="math notranslate nohighlight">\(c\)</span>. Then <span class="math notranslate nohighlight">\(b = (pc)x + pby \iff b = p(cx + by) \iff p \mid b\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{c|c|c|c}
+p &amp; ab \\ \hline
+3 &amp; \phantom{1}6 = 3 \times 2 \\ \hline
+3 &amp; 15 = 3 \times 5 \\ \hline
+\end  {array}
+\)</span></p>
+<p><strong>Euclid’s Lemma is not obvious</strong></p>
+<p>Consider the set of integers <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> which is closed under multiplication:</p>
+<p><span class="math notranslate nohighlight">\((4k_1 + 1)(4k_2 + 1) = 4^2k_1k_2 + 4k_1 + 4k_2 + 1 = 4 (\underbrace{4k_1k_2 + k_1 + k_2}_{k_3}) + 1\)</span></p>
+<p>Here are the first few members of this set:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+4(1) + 1 &amp;= \phantom{1}  5 \\
+4(2) + 1 &amp;= \phantom{1}  9 \\
+4(3) + 1 &amp;=             13 \\
+4(4) + 1 &amp;=             17 \\
+4(5) + 1 &amp;=             21 \\
+\color{red}{4(6) + 1} &amp;\phantom{.} \color{red}{= 25} \\
+4(7) + 1 &amp;=             29 \\
+4(8) + 1 &amp;=             33 \\
+4(9) + 1 &amp;=             37 \\
+4(10) + 1 &amp;=            41 \\
+\color{red}{4(11) + 1} &amp;\phantom{.} \color{red}{= 45} \\
+4(12) + 1 &amp;=            49 \\
+\end  {aligned}
+\)</span></p>
+<p>A prime in this system is defined as a number which is only divisible by <span class="math notranslate nohighlight">\(1\)</span> and itself:</p>
+<p><span class="math notranslate nohighlight">\(5, 9, 13, 17, 21, 29, 33, 37, 41, 49, \dotsc\)</span></p>
+<p>The prime factorization of <span class="math notranslate nohighlight">\(25\)</span> in this system is <span class="math notranslate nohighlight">\(5 \times 5\)</span> and the prime factorization of <span class="math notranslate nohighlight">\(45\)</span> in this system is <span class="math notranslate nohighlight">\(5 \times 9\)</span>.</p>
+<p>In this system, prime factorization is not unique: <span class="math notranslate nohighlight">\(441 = 9 \times 49 = 21^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(21 \mid 9 \times 49\)</span> but <span class="math notranslate nohighlight">\(21 \nmid 9\)</span> and <span class="math notranslate nohighlight">\(21 \nmid 49\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is not closed under addition, but <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span> is.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -1355,6 +1502,8 @@ r &amp;= a \textbf{ mod } d &amp;&amp;= a - d \lfloor a/d \rfloor \\
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-theorem-of-arithmetic">Fundamental Theorem of Arithmetic</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-theorem">Euclid’s Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm">Division Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-lemma">Euclid’s Lemma</a></li>
 </ul>
   </nav></div>
 

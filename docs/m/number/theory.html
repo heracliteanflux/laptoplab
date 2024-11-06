@@ -1258,38 +1258,6 @@ x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
 <p><strong>Induction</strong></p>
 <p>Inductive definition of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>: <span class="math notranslate nohighlight">\(1 \in \mathbb{N}\)</span> is the least member of <span class="math notranslate nohighlight">\(\mathbb{N}\)</span>. Given any <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> the next member is <span class="math notranslate nohighlight">\(n + 1\)</span>.</p>
 <hr class="docutils" />
-<p><strong>Theorem</strong></p>
-<p>Given two integers <span class="math notranslate nohighlight">\(a, b\)</span> not both <span class="math notranslate nohighlight">\(0\)</span>, define <span class="math notranslate nohighlight">\(D(a, b) = \{ ax + by \mid x, y \in \mathbb{Z} \}\)</span>. Then <span class="math notranslate nohighlight">\(D(a, b)\)</span> has positive elements. Let <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> denote the least positive element. Then <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> has the following properties.</p>
-<p>(i) <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a\)</span></p>
-<p>(ii) <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span></p>
-<p>(iii) if the integer <span class="math notranslate nohighlight">\(c\)</span> satisfies <span class="math notranslate nohighlight">\(c \mid a\)</span> and <span class="math notranslate nohighlight">\(c \mid b\)</span> then <span class="math notranslate nohighlight">\(c \mid \gcd(a, b)\)</span></p>
-<p>Note that <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> divides every member of <span class="math notranslate nohighlight">\(D(a, b)\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\text{Proof of existence}\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-a &amp; \gt 0 &amp;&amp; \implies a \cdot \phantom{(-}1\phantom{)}  &amp;&amp; + b \cdot \phantom{(-}0\phantom{)}  = \phantom{-}a &amp;&amp; \gt 0 \\
-b &amp; \gt 0 &amp;&amp; \implies a \cdot \phantom{(-}0\phantom{)}  &amp;&amp; + b \cdot \phantom{(-}1\phantom{)}  = \phantom{-}b &amp;&amp; \gt 0 \\
-a &amp; \lt 0 &amp;&amp; \implies a \cdot                      (-1) &amp;&amp; + b \cdot \phantom{(-}0\phantom{)}  =           -a &amp;&amp; \gt 0 \\
-b &amp; \lt 0 &amp;&amp; \implies a \cdot \phantom{(-}0\phantom{)}  &amp;&amp; + b \cdot                      (-1) =           -b &amp;&amp; \gt 0 \\
-\end  {aligned}
-\)</span></p>
-<p>The case <span class="math notranslate nohighlight">\(a = b = 0\)</span> is excluded. Thus, the set <span class="math notranslate nohighlight">\(D(a, b)\)</span> has at least one positive element, and so there is a least positive element.</p>
-<p>Suppose <span class="math notranslate nohighlight">\(\gcd(a, b) \nmid a\)</span>.</p>
-<p>From the division algorithm we have <span class="math notranslate nohighlight">\(a = \gcd(a, b)q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt \gcd(a, b)\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\gcd(a, b) \nmid a \implies 0 \lt r\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(r = a - \gcd(a, b)q = a - (ax + by)q = a(1 - xq) + b(-yq)\)</span> for some integers <span class="math notranslate nohighlight">\(x, y\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(0 \lt \underbrace{a(1 - xq) + b(-yq)}_{r} \lt \underbrace{ax + by}_{\gcd(a, b)}\)</span></p>
-<p>Contradiction! <span class="math notranslate nohighlight">\(r\)</span> can’t be less than <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> since <span class="math notranslate nohighlight">\(\gcd(a, b)\)</span> is the least element. Thus, <span class="math notranslate nohighlight">\(\gcd(a, b) \mid a\)</span> and by symmetry <span class="math notranslate nohighlight">\(\gcd(a, b) \mid b\)</span>.</p>
-<p>Suppose there is an integer <span class="math notranslate nohighlight">\(c\)</span> such that <span class="math notranslate nohighlight">\(c \mid a\)</span> and <span class="math notranslate nohighlight">\(c \mid b\)</span>. Then <span class="math notranslate nohighlight">\(a = cu\)</span> and <span class="math notranslate nohighlight">\(b = cv\)</span> for some integers <span class="math notranslate nohighlight">\(u, v\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\gcd(a, b) = ax + by = (cu)x + (cv)y = c(ux + vy) \iff c \mid \gcd(a, b)\)</span></p>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<p><strong>Property of gcd</strong></p>
-<p><span class="math notranslate nohighlight">\(\gcd \left( \frac{a}{\gcd(a, b)}, \frac{b}{\gcd(a, b)} \right) = 1\)</span></p>
-<p>If this quantity is denoted <span class="math notranslate nohighlight">\(d\)</span> then the following hold</p>
-<p><span class="math notranslate nohighlight">\(d \mid \frac{a}{\gcd(a, b)} \iff d \cdot \gcd(a, b) \mid a\)</span></p>
-<p><span class="math notranslate nohighlight">\(d \mid \frac{b}{\gcd(a, b)} \iff d \cdot \gcd(a, b) \mid b\)</span></p>
-<p>Whatever integer divides both of two integers divides their <span class="math notranslate nohighlight">\(\gcd\)</span> and so <span class="math notranslate nohighlight">\(d \cdot \gcd(a, b) \mid \gcd(a, b) \iff d \mid 1 \iff d = 1\)</span></p>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <p><strong>Property of gcd</strong></p>
 <p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are not both <span class="math notranslate nohighlight">\(0\)</span>. Then for any integer <span class="math notranslate nohighlight">\(y\)</span> we have <span class="math notranslate nohighlight">\(\gcd(a + by, b) = \gcd(a, b)\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\text{Proof}\)</span></p>
