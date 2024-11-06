@@ -257,7 +257,6 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="0_even_and_odd.html">Even and Odd</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_induction.html">Mathematical Induction</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Division</a></li>
 <li class="toctree-l2"><a class="reference internal" href="theory.html">Number Theory</a></li>
@@ -749,6 +748,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-important-results">Summary of important results</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Division</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parity">Parity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prime">Prime</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-theorem">Euclid’s Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm">Division Algorithm</a></li>
@@ -787,18 +787,19 @@ document.write(`
 <li><p><a class="reference internal" href="#contents" id="id4">Contents</a></p></li>
 <li><p><a class="reference internal" href="#summary-of-important-results" id="id5">Summary of important results</a></p></li>
 <li><p><a class="reference internal" href="#id2" id="id6">Division</a></p></li>
-<li><p><a class="reference internal" href="#prime" id="id7">Prime</a></p></li>
-<li><p><a class="reference internal" href="#euclid-s-theorem" id="id8">Euclid’s Theorem</a></p></li>
-<li><p><a class="reference internal" href="#division-algorithm" id="id9">Division Algorithm</a></p></li>
-<li><p><a class="reference internal" href="#gcd" id="id10">GCD</a></p></li>
-<li><p><a class="reference internal" href="#euclid-s-lemma" id="id11">Euclid’s Lemma</a></p></li>
-<li><p><a class="reference internal" href="#fundamental-theorem-of-arithmetic" id="id12">Fundamental Theorem of Arithmetic</a></p></li>
-<li><p><a class="reference internal" href="#lcm" id="id13">LCM</a></p></li>
-<li><p><a class="reference internal" href="#trial-division" id="id14">Trial Division</a></p></li>
-<li><p><a class="reference internal" href="#prime-counting-function" id="id15">Prime-Counting Function</a></p></li>
-<li><p><a class="reference internal" href="#sieve-of-eratosthenes" id="id16">Sieve of Eratosthenes</a></p></li>
-<li><p><a class="reference internal" href="#fermat-factorization" id="id17">Fermat Factorization</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id18">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#parity" id="id7">Parity</a></p></li>
+<li><p><a class="reference internal" href="#prime" id="id8">Prime</a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-theorem" id="id9">Euclid’s Theorem</a></p></li>
+<li><p><a class="reference internal" href="#division-algorithm" id="id10">Division Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#gcd" id="id11">GCD</a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-lemma" id="id12">Euclid’s Lemma</a></p></li>
+<li><p><a class="reference internal" href="#fundamental-theorem-of-arithmetic" id="id13">Fundamental Theorem of Arithmetic</a></p></li>
+<li><p><a class="reference internal" href="#lcm" id="id14">LCM</a></p></li>
+<li><p><a class="reference internal" href="#trial-division" id="id15">Trial Division</a></p></li>
+<li><p><a class="reference internal" href="#prime-counting-function" id="id16">Prime-Counting Function</a></p></li>
+<li><p><a class="reference internal" href="#sieve-of-eratosthenes" id="id17">Sieve of Eratosthenes</a></p></li>
+<li><p><a class="reference internal" href="#fermat-factorization" id="id18">Fermat Factorization</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id19">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -809,6 +810,17 @@ document.write(`
 <hr class="docutils" />
 <section id="summary-of-important-results">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Summary of important results</a><a class="headerlink" href="#summary-of-important-results" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(a \mid b\)</span> means there is an integer <span class="math notranslate nohighlight">\(c\)</span> such that <span class="math notranslate nohighlight">\(ac = b\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{even} &amp;\pm    \text{even} &amp;&amp;= \text{even} \\
+\text{odd}  &amp;\pm    \text{odd}  &amp;&amp;= \text{even} \\
+\text{even} &amp;\pm    \text{odd}  &amp;&amp;= \text{odd}  \\
+\text{even} &amp;\times \text{even} &amp;&amp;= \text{even} \\
+\text{even} &amp;\times \text{odd}  &amp;&amp;= \text{even} \\
+\text{odd}  &amp;\times \text{odd}  &amp;&amp;= \text{odd}  \\
+\end  {aligned}
+\)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 &amp; \gcd(a, b) \mid a \\
@@ -1069,10 +1081,169 @@ F_{n + 1} &amp;= F_n + F_{n - 1} &amp;&amp; n \in \{ 2, 3, \dots \} \\
 <span class="math notranslate nohighlight">\((7, -15)\)</span><br />
 <span class="math notranslate nohighlight">\((-7, -15)\)</span></p>
 </div></blockquote>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="parity">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Parity</a><a class="headerlink" href="#parity" title="Link to this heading">#</a></h2>
+<p><span style="color: #0096FF;"><b>EVEN</b></span></p>
+<div style="color: #0096FF;">
+<p>An integer <span class="math notranslate nohighlight">\(x\)</span> is even if there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(x = 2k\)</span>. In other words <span class="math notranslate nohighlight">\(x\)</span> is even if <span class="math notranslate nohighlight">\(2 \mid x\)</span>.</p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\forall x \in \mathbb{Z} \,\,
+[ \,\,
+Even(x) \iff \exists k \in \mathbb{Z} \,\,
+(x = 2k)
+\,\, ]
+\]</div>
+<p><span style="color: #0096FF;"><b>ODD</b></span></p>
+<div style="color: #0096FF;">
+<p>An integer <span class="math notranslate nohighlight">\(x\)</span> is odd if it is not even. In other words <span class="math notranslate nohighlight">\(x = 2k + 1\)</span>.</p>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\forall x \in \mathbb{Z} \,\,
+[ \,\,
+Odd(x)
+&amp;\iff \exists k \in \mathbb{Z} \,\,
+(x = 2k + 1)
+\\
+&amp;\iff \lnot Even(x)
+\\
+&amp;\iff \lnot\exists k \in \mathbb{Z} \,\,
+(x = 2k)
+\\
+&amp;\iff \forall k \in \mathbb{Z} \,\,
+(x \ne 2k)
+\,\, ]
+\\
+\end{align*}
+\end{split}\]</div>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Property</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(\text{even} \pm \text{even} = \text{even}\)</span></p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are even integers. Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(a = 2m\)</span> and <span class="math notranslate nohighlight">\(b = 2n\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(a + b = 2m + 2n = 2(m + n)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Property</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(\text{odd} \pm \text{odd} = \text{even}\)</span></p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are odd integers. Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(a = 2m + 1\)</span> and <span class="math notranslate nohighlight">\(b = 2n + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(a + b = 2m + 1 + 2n + 1 = 2(m + n + 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Property</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(\text{even} \pm \text{odd} = \text{odd}\)</span></p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a\)</span> is even and <span class="math notranslate nohighlight">\(b\)</span> is odd. Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(a = 2m\)</span> and <span class="math notranslate nohighlight">\(b = 2n + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(a + b = 2m + 2n + 1 = 2(m + n) + 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Property</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(\text{even} \times \text{even} = \text{even}\)</span></p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\forall m, n \in \mathbb{Z} \,\,
+[ \,\,
+Even(m) \implies Even(mn)
+\,\, ]
+\]</div>
+<p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are even. Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(a = 2m\)</span> and <span class="math notranslate nohighlight">\(b = 2n\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(ab = 2m \times 2n = 2(2mn)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Property</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(\text{even} \times \text{odd} = \text{even}\)</span></p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\forall m, n \in \mathbb{Z} \,\,
+[ \,\,
+Even(m) \implies Even(mn)
+\,\, ]
+\]</div>
+<p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a\)</span> is even and <span class="math notranslate nohighlight">\(b\)</span> is odd. Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(a = 2m\)</span> and <span class="math notranslate nohighlight">\(b = 2n + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(ab = 2m(2n + 1) = 4mn + 2m = 2(2mn + m)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Property</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(\text{odd} \times \text{odd} = \text{odd}\)</span></p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\forall m, n \in \mathbb{Z} \,\,
+[ \,\,
+(Odd(m) \land Odd(n)) \implies Odd(mn)
+\,\, ]
+\]</div>
+<p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are odd. Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(a = 2m + 1\)</span> and <span class="math notranslate nohighlight">\(b = 2n + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(ab = (2m + 1)(2n + 1) = 4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
+<p>An integer is even (odd) iff its square is even (odd).</p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\forall x \in \mathbb{Z} \,\,
+[ \,\,
+Even(x) \iff Even(x^2)
+\,\, ]
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\forall x \in \mathbb{Z} \,\,
+[ \,\,
+Odd(x) \iff Odd(x^2)
+\,\, ]
+\]</div>
+<p><span style="color: #0096FF;"><b>Proof by contraposition</b></span></p>
+<p><b>If <span class="math notranslate nohighlight">\(x\)</span> is even then <span class="math notranslate nohighlight">\(x^2\)</span> is even</b></p>
+<p>Suppose <span class="math notranslate nohighlight">\(x\)</span> is even. Then <span class="math notranslate nohighlight">\(x = 2k \implies x^2 = 2(2k^2)\)</span></p>
+<p><b>If <span class="math notranslate nohighlight">\(x^2\)</span> is even then <span class="math notranslate nohighlight">\(x\)</span> is even (If <span class="math notranslate nohighlight">\(x\)</span> is odd then <span class="math notranslate nohighlight">\(x^2\)</span> is odd)</b></p>
+<p>Suppose <span class="math notranslate nohighlight">\(x\)</span> is odd. Then <span class="math notranslate nohighlight">\(x = 2k + 1 \implies x^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
+<p>An integer is even iff one more (or less) than it is odd.</p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\forall n \in \mathbb{Z} \,\,
+[ \,\,
+Even(n) \iff Odd(n + 1)
+\,\, ]
+\]</div>
+<p><span style="color: #0096FF;"><b>Proof by contraposition</b></span></p>
+<p><b>If <span class="math notranslate nohighlight">\(x\)</span> is even then <span class="math notranslate nohighlight">\(x + 1\)</span> is odd</b></p>
+<p>Suppose <span class="math notranslate nohighlight">\(x\)</span> is even. Then <span class="math notranslate nohighlight">\(x = 2k \implies x + 1 = 2k + 1\)</span></p>
+<p><b>If <span class="math notranslate nohighlight">\(x + 1\)</span> is odd then <span class="math notranslate nohighlight">\(x\)</span> is even (If <span class="math notranslate nohighlight">\(x\)</span> is odd then <span class="math notranslate nohighlight">\(x + 1\)</span> is even)</b></p>
+<p>Suppose <span class="math notranslate nohighlight">\(x\)</span> is odd. Then <span class="math notranslate nohighlight">\(x = 2k + 1 \implies x + 1 = 2k + 2 = 2(k + 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="prime">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Prime</a><a class="headerlink" href="#prime" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Prime</a><a class="headerlink" href="#prime" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>PRIME</b></span></p>
 <div style="color: #0096FF;">
 <p>Let <span class="math notranslate nohighlight">\(p\)</span> be a positive integer with <span class="math notranslate nohighlight">\(p \gt 1\)</span>. <span class="math notranslate nohighlight">\(p\)</span> is called prime if it has exactly two (positive) divisors, <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -1115,7 +1286,7 @@ F_{n + 1} &amp;= F_n + F_{n - 1} &amp;&amp; n \in \{ 2, 3, \dots \} \\
 </section>
 <hr class="docutils" />
 <section id="euclid-s-theorem">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Euclid’s Theorem</a><a class="headerlink" href="#euclid-s-theorem" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Euclid’s Theorem</a><a class="headerlink" href="#euclid-s-theorem" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>EUCLID’S THEOREM</b></span> [Vaughan Theorem 1.5]</p>
 <div style="color: #0096FF;">
 <p>There are infinitely many primes.</p>
@@ -1160,7 +1331,7 @@ P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
 </section>
 <hr class="docutils" />
 <section id="division-algorithm">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Division Algorithm</a><a class="headerlink" href="#division-algorithm" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Division Algorithm</a><a class="headerlink" href="#division-algorithm" title="Link to this heading">#</a></h2>
 <p>Division of an integer by a positive integer produces a quotient and a remainder. (Operating on remainders will form the basis of modular arithmetic.)</p>
 <p><span style="color: #0096FF;"><b>THEOREM: DIVISION ALGORITHM</b></span></p>
 <div style="color: #0096FF;">
@@ -1278,7 +1449,7 @@ r &amp;= a \textbf{ mod } d &amp;&amp;= a - d \lfloor a/d \rfloor \\
 </section>
 <hr class="docutils" />
 <section id="gcd">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">GCD</a><a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">GCD</a><a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p><span style="color: #0096FF;"><b>THEOREM</b></span></p>
 <div style="color: #0096FF;">
@@ -1361,7 +1532,7 @@ b &amp; \lt 0 &amp;&amp; \implies a \times \phantom{(-}0\phantom{)}  &amp;&amp; 
 </section>
 <hr class="docutils" />
 <section id="euclid-s-lemma">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">Euclid’s Lemma</a><a class="headerlink" href="#euclid-s-lemma" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Euclid’s Lemma</a><a class="headerlink" href="#euclid-s-lemma" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>EUCLID’S LEMMA</b></span> [Vaughan Theorem 1.15]</p>
 <div style="color: #0096FF;">
 <p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and that there are integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> such that <span class="math notranslate nohighlight">\(p \mid ab\)</span>. Then either <span class="math notranslate nohighlight">\(p \mid a\)</span> or <span class="math notranslate nohighlight">\(p \mid b\)</span>.</p>
@@ -1429,7 +1600,7 @@ p &amp; ab \\ \hline
 </section>
 <hr class="docutils" />
 <section id="fundamental-theorem-of-arithmetic">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Fundamental Theorem of Arithmetic</a><a class="headerlink" href="#fundamental-theorem-of-arithmetic" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Fundamental Theorem of Arithmetic</a><a class="headerlink" href="#fundamental-theorem-of-arithmetic" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>FUNDAMENTAL THEOREM OF ARITHMETIC</b></span> [Vaughan Theorem 1.18]</p>
 <div style="color: #0096FF;">
 <p>Factorization into primes is unique up to ordering of the factors (i.e., regardless of the ordering of the multiplicands).</p>
@@ -1517,7 +1688,7 @@ p &amp; ab \\ \hline
 </section>
 <hr class="docutils" />
 <section id="lcm">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">LCM</a><a class="headerlink" href="#lcm" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">LCM</a><a class="headerlink" href="#lcm" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>LEAST COMMON MULTIPLE</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(
@@ -1534,7 +1705,7 @@ p &amp; ab \\ \hline
 </section>
 <hr class="docutils" />
 <section id="trial-division">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">Trial Division</a><a class="headerlink" href="#trial-division" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Trial Division</a><a class="headerlink" href="#trial-division" title="Link to this heading">#</a></h2>
 <p>The simplest way to try to factorize a number <span class="math notranslate nohighlight">\(n\)</span> is by <em><strong>trial division</strong></em>.</p>
 <p><span style="color: #0096FF;"><b>TRIAL DIVISION</b></span></p>
 <div style="color: #0096FF;">
@@ -1547,7 +1718,7 @@ Since the smallest proper divisor of <span class="math notranslate nohighlight">
 </section>
 <hr class="docutils" />
 <section id="prime-counting-function">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">Prime-Counting Function</a><a class="headerlink" href="#prime-counting-function" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Prime-Counting Function</a><a class="headerlink" href="#prime-counting-function" title="Link to this heading">#</a></h2>
 <p>The number <span class="math notranslate nohighlight">\(\pi(x)\)</span> of primes <span class="math notranslate nohighlight">\(p \le x\)</span> is approximately</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -1640,7 +1811,7 @@ x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
 </section>
 <hr class="docutils" />
 <section id="sieve-of-eratosthenes">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Sieve of Eratosthenes</a><a class="headerlink" href="#sieve-of-eratosthenes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Sieve of Eratosthenes</a><a class="headerlink" href="#sieve-of-eratosthenes" title="Link to this heading">#</a></h2>
 <p>Trial division, or its sophisticated variants, is useful in the production of tables of primes or counts of primes (such as the value of the prime-counting function). The sieve of Eratosthenes is the simplest form of this.</p>
 <p>Construct a <span class="math notranslate nohighlight">\(\lfloor \sqrt{N} \rfloor \times \lfloor \sqrt{N} \rfloor\)</span> array. Here <span class="math notranslate nohighlight">\(N = 100\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
@@ -1740,7 +1911,7 @@ x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
 </section>
 <hr class="docutils" />
 <section id="fermat-factorization">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Fermat Factorization</a><a class="headerlink" href="#fermat-factorization" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Fermat Factorization</a><a class="headerlink" href="#fermat-factorization" title="Link to this heading">#</a></h2>
 <p>Here is an idea that goes back to Fermat.</p>
 <p>Given <span class="math notranslate nohighlight">\(n\)</span> suppose we can find <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> so that</p>
 <p><span class="math notranslate nohighlight">\(n = x^2 - y^2\)</span> with <span class="math notranslate nohighlight">\(0 \le y \lt x\)</span>.</p>
@@ -1791,7 +1962,7 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p>Bressoud, David M. (1989). <em>Factorization and Primality Testing</em>. Springer Undergraduate Texts in Mathematics.</p>
 <p>Crandall, Richard &amp; Carl Pomerance. (2005). <em>Prime Numbers: A Computational Perspective</em>. Springer.</p>
 <p>Davenport, Harold. (2008). <em>The Higher Arithmetic: An Introduction to the Theory of Numbers</em>. Cambridge University Press.</p>
@@ -1872,6 +2043,7 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-important-results">Summary of important results</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Division</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parity">Parity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prime">Prime</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-theorem">Euclid’s Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm">Division Algorithm</a></li>
