@@ -809,7 +809,13 @@ document.write(`
 <hr class="docutils" />
 <section id="summary-of-important-results">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Summary of important results</a><a class="headerlink" href="#summary-of-important-results" title="Link to this heading">#</a></h2>
+<p><strong>Division</strong></p>
 <p><span class="math notranslate nohighlight">\(a \mid b\)</span> means there is an integer <span class="math notranslate nohighlight">\(c\)</span> such that <span class="math notranslate nohighlight">\(ac = b\)</span></p>
+<p><span class="math notranslate nohighlight">\(\pm a \mid a \quad\quad \forall a \in \mathbb{Z} \land a \ne 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(a \mid 0 \quad\quad \forall a \in \mathbb{Z} \land a \ne 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\pm 1 \mid a \quad\quad \forall a \in \mathbb{Z}\)</span></p>
+<p><span class="math notranslate nohighlight">\(a \mid b \land b \mid a \implies a = \pm b\)</span></p>
+<p><strong>Parity</strong></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \text{even} &amp;\pm    \text{even} &amp;&amp;= \text{even} \\
@@ -915,7 +921,7 @@ document.write(`
 <p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be <span style="color: red;">nonzero</span> integers. If <span class="math notranslate nohighlight">\(a \mid b\)</span> and <span class="math notranslate nohighlight">\(b \mid a\)</span> then <span class="math notranslate nohighlight">\(a = \pm b\)</span>.</p>
 <p>“If two integers divide each other then they are equal up to parity.”</p>
 <p><span style="color: #0096FF;"><b>Proof</b></span></p>
-<p>Suppose <span class="math notranslate nohighlight">\(a \mid b\)</span> and <span class="math notranslate nohighlight">\(b \mid a\)</span>. Then there exist integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(am = b\)</span> and</p>
+<p>Suppose <span class="math notranslate nohighlight">\(a \mid b\)</span> and <span class="math notranslate nohighlight">\(b \mid a\)</span>. Then there exist integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(b = am\)</span> and</p>
 <p><span class="math notranslate nohighlight">\(a = bn = (am)n = a(mn) \implies 1 = mn \implies m = n = \pm 1\)</span></p>
 <p>Suppose <span class="math notranslate nohighlight">\(m = n = \phantom{-}1\)</span>. Then <span class="math notranslate nohighlight">\(a = \phantom{-}b\)</span>.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(m = n = -1\)</span>. Then <span class="math notranslate nohighlight">\(a = -b\)</span>.</p>
@@ -1030,26 +1036,94 @@ n^2 - 1 &amp;= 4k^2 + 4k = 4k(k + 1) = (n - 1)(n + 1)
 \)</span></p>
 <hr class="docutils" />
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
 <p>If <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> then so is <span class="math notranslate nohighlight">\(mn\)</span>.</p>
-<p><span style="color: #0096FF;"><b>Proof</b></span></p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
 <p>Suppose <span class="math notranslate nohighlight">\(m = 4s + 1\)</span> and <span class="math notranslate nohighlight">\(n = 4t + 1\)</span> for some integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(mn = (4s + 1)(4t + 1) = 16st + 4s + 4t + 1 = 4(4st + s + t) + 1\)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+m                   &amp;&amp; n &amp;                &amp;&amp; &amp; mn \\
+1 &amp;= 0 \times 4 + 1 &amp;&amp; &amp; 1 = 0 \times 4 + 1 &amp;&amp; &amp;  1 = &amp;&amp;  0 \times 4 + 1 \\
+1 &amp;= 0 \times 4 + 1 &amp;&amp; &amp; 5 = 1 \times 4 + 1 &amp;&amp; &amp;  5 = &amp;&amp;  1 \times 4 + 1 \\
+1 &amp;= 0 \times 4 + 1 &amp;&amp; &amp; 9 = 2 \times 4 + 1 &amp;&amp; &amp;  9 = &amp;&amp;  2 \times 4 + 1 \\ \vdots \\
+5 &amp;= 1 \times 4 + 1 &amp;&amp; &amp; 5 = 1 \times 4 + 1 &amp;&amp; &amp; 25 = &amp;&amp;  6 \times 4 + 1 \\
+5 &amp;= 1 \times 4 + 1 &amp;&amp; &amp; 9 = 2 \times 4 + 1 &amp;&amp; &amp; 45 = &amp;&amp; 11 \times 4 + 1 \\
+5 &amp;= 1 \times 4 + 1 &amp;&amp; &amp;13 = 3 \times 4 + 1 &amp;&amp; &amp; 65 = &amp;&amp; 16 \times 4 + 1 \\
+5 &amp;= 1 \times 4 + 1 &amp;&amp; &amp;17 = 4 \times 4 + 1 &amp;&amp; &amp; 85 = &amp;&amp; 21 \times 4 + 1 \\ \vdots \\
+9 &amp;= 2 \times 4 + 1 &amp;&amp; &amp; 9 = 2 \times 4 + 1 &amp;&amp; &amp; 81 = &amp;&amp; 20 \times 4 + 1 \\
+\end  {aligned}
+\)</span></p>
 <hr class="docutils" />
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
 <p>If <span class="math notranslate nohighlight">\(mn\)</span> is of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> then so is one of <span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p><span style="color: #0096FF;"><b>Proof</b></span></p>
-<p>Suppose <span class="math notranslate nohighlight">\(mn = 4k - 1\)</span> for some integer <span class="math notranslate nohighlight">\(k\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p><span class="math notranslate nohighlight">\(mn = 4k - 1\)</span> is odd and so <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are odd so that <span class="math notranslate nohighlight">\(m = 2s + 1\)</span> and <span class="math notranslate nohighlight">\(n = 2t + 1\)</span> for some integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+mn = 4k - 1 &amp;= (2s + 1)(2t + 1) \\
+&amp;= 4st + 2s + 2t + 1 \\
+&amp;= 2(2st + s + t) + 1 \\
+4k &amp;= 2(2st + s + t) + 2 \\
+2k &amp;= (2st + s + t) + 1 \\
+2k - 1 &amp;= 2st + s + t
+\end   {aligned}
+\)</span></p>
+<p>Thus <span class="math notranslate nohighlight">\(2st + s + t\)</span> is odd.</p>
+<p>Suppose either both <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> are even or both <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> are odd.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{even} &amp;= 2 \times \text{even} \times \text{even} + \text{even} + \text{even} \\
+\text{even} &amp;= 2 \times \text{odd}  \times \text{odd}  + \text{odd}  + \text{odd}  \\
+\end  {aligned}
+\)</span></p>
+<p>Then <span class="math notranslate nohighlight">\(2st + s + t\)</span> is even. But we supposed that <span class="math notranslate nohighlight">\(2st + s + t\)</span> is odd. Contradiction!</p>
+<p>Thus one of <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> must be even and the other odd, say <span class="math notranslate nohighlight">\(s\)</span>, so that <span class="math notranslate nohighlight">\(s = 2u + 1\)</span> for some integer <span class="math notranslate nohighlight">\(u\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(m = 2s + 1 = 2(2u + 1) + 1 = 4u + 2 + 1 = 4u + 3 = \boxed{4(u + 1) - 1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(n = 2t + 1 = 2(2v) + 1 = 4v + 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div style="color: red;">
+<p><span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> must be odd and so are of the form <span class="math notranslate nohighlight">\(4k \pm 1\)</span>. If both are of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> then their product cannot be of the form <span class="math notranslate nohighlight">\(4k - 1\)</span>.</p>
+</div>
 <p><span class="math notranslate nohighlight">\(mn = 4(4st + s - t) - 1 = 16st + 4s - 4t - 1 = (4s - 1)(4t + 1)\)</span></p>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<p><span style="color: #0096FF;"><b>Proof by contraposition</b></span></p>
-<p>Suppose both <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are even.</p>
-<p><span class="math notranslate nohighlight">\(mn = 2s \times 2t = 4k\)</span> with <span class="math notranslate nohighlight">\(k = st\)</span></p>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+4 \times  1 - 1 &amp;=  3 \\
+4 \times  2 - 1 &amp;=  7 \\
+4 \times  3 - 1 &amp;= 11 \\
+4 \times  4 - 1 &amp;= 15 = \boxed{3} \times 5 \\
+4 \times  5 - 1 &amp;= 19 \\
+4 \times  6 - 1 &amp;= 23 \\
+4 \times  7 - 1 &amp;= 27 \\
+4 \times  8 - 1 &amp;= 31 \\
+4 \times  9 - 1 &amp;= 35 = 5 \times \boxed{7} \\
+4 \times 10 - 1 &amp;= 39 = \boxed{3} \times 13 \\
+4 \times 11 - 1 &amp;= 43 \\
+4 \times 12 - 1 &amp;= 47 \\
+4 \times 13 - 1 &amp;= 51 \\
+4 \times 14 - 1 &amp;= 55 = 5 \times \boxed{11} \\
+4 \times 15 - 1 &amp;= 59 \\
+4 \times 16 - 1 &amp;= 63 = \boxed{3^2 \times 7} \\
+4 \times 17 - 1 &amp;= 67 \\
+4 \times 18 - 1 &amp;= 71 \\
+4 \times 19 - 1 &amp;= 75 = \boxed{3} \times 5^2 \\
+4 \times 20 - 1 &amp;= 79 \\
+4 \times 21 - 1 &amp;= 83 \\
+4 \times 22 - 1 &amp;= 87 = \boxed{3} \times 29 \\
+4 \times 23 - 1 &amp;= 91 = \boxed{7} \times 13 \\
+4 \times 24 - 1 &amp;= 95 = 5 \times \boxed{19} \\
+4 \times 25 - 1 &amp;= 99 = \boxed{3^2 \times 11} \\ \vdots
+\end  {aligned}
+\)</span></p>
 <hr class="docutils" />
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span> is irrational.</p>
-<p><span style="color: #0096FF;"><b>Proof by contradiction</b></span></p>
+</div><p><span style="color: #0096FF;"><b>Proof by contradiction</b></span></p>
 <p>Let <span class="math notranslate nohighlight">\(\sqrt{2} = \frac{m}{n}\)</span> where <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers and the fraction is reduced (i.e., <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> have no common divisors larger than <span class="math notranslate nohighlight">\(1\)</span>).</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -1070,52 +1144,12 @@ n^2 - 1 &amp;= 4k^2 + 4k = 4k(k + 1) = (n - 1)(n + 1)
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <hr class="docutils" />
-<p>Let <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> be integers. Find all integral solutions to the equation <span class="math notranslate nohighlight">\(x^2 - y^2 = 105\)</span>.</p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(x^2 - y^2 = (x - y)(x + y) = 3 \cdot 5 \cdot 7 = 105\)</span></p>
-<p><span class="math notranslate nohighlight">\(x - y = 1 \implies x + y = 3 \cdot 5 \cdot 7\)</span></p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(x = y + 1 \implies y = \frac{3 \cdot 5 \cdot 7 - 1}{2} = 52 \implies x = 53\)</span><br />
-<span class="math notranslate nohighlight">\((53 - 52)(53 + 52) = 1 \cdot 105\)</span></p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(x - y = 3 \implies x + y = 5 \cdot 7\)</span></p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(x = y + 3 \implies y = \frac{5 \cdot 7 - 3}{2} = 16 \implies x = 19\)</span><br />
-<span class="math notranslate nohighlight">\((19 - 16)(16 + 19) = 3 \cdot 35\)</span></p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(x - y = 5 \implies x + y = 3 \cdot 7\)</span></p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(x = y + 5 \implies y = \frac{3 \cdot 7 - 5}{2} = 8 \implies x = 13\)</span><br />
-<span class="math notranslate nohighlight">\((13 - 8)(13 + 8) \implies 5 \cdot 21\)</span></p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(x - y = 7 \implies x + y = 3 \cdot 5\)</span></p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(x = y + 7 \implies y = \frac{3 \cdot 5 - 7}{2} = 4 \implies x = 11\)</span><br />
-<span class="math notranslate nohighlight">\((11 - 4)(11 + 4) \implies 7 \cdot 15\)</span></p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\((1, 105)\)</span><br />
-<span class="math notranslate nohighlight">\((-1, 105)\)</span><br />
-<span class="math notranslate nohighlight">\((1, -105)\)</span><br />
-<span class="math notranslate nohighlight">\((-1, -105)\)</span><br />
-<span class="math notranslate nohighlight">\((3, 35)\)</span><br />
-<span class="math notranslate nohighlight">\((-3, 35)\)</span><br />
-<span class="math notranslate nohighlight">\((3, -35)\)</span><br />
-<span class="math notranslate nohighlight">\((-3, -35)\)</span><br />
-<span class="math notranslate nohighlight">\((5, 21)\)</span><br />
-<span class="math notranslate nohighlight">\((-5, 21)\)</span><br />
-<span class="math notranslate nohighlight">\((5, -21)\)</span><br />
-<span class="math notranslate nohighlight">\((-5, -21)\)</span><br />
-<span class="math notranslate nohighlight">\((7, 15)\)</span><br />
-<span class="math notranslate nohighlight">\((-7, 15)\)</span><br />
-<span class="math notranslate nohighlight">\((7, -15)\)</span><br />
-<span class="math notranslate nohighlight">\((-7, -15)\)</span></p>
-</div></blockquote>
-<hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="parity">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">Parity</a><a class="headerlink" href="#parity" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
 <p><span style="color: #0096FF;"><b>EVEN</b></span></p>
 <div style="color: #0096FF;">
 <p>An integer <span class="math notranslate nohighlight">\(x\)</span> is even if there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(x = 2k\)</span>. In other words <span class="math notranslate nohighlight">\(x\)</span> is even if <span class="math notranslate nohighlight">\(2 \mid x\)</span>.</p>
@@ -1152,6 +1186,28 @@ Odd(x)
 \\
 \end{align*}
 \end{split}\]</div>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(2k \pm (2k' \pm 1)\)</span> for any integers <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(k'\)</span> is odd. In other words, <span class="math notranslate nohighlight">\(2k\)</span> plus or minus any odd integer is an odd integer.</p>
+</div><p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2p + (2r + 1) &amp;= 2p + 2r + 1       &amp;                  = 2(p + r) + 1 \\
+2p - (2r + 1) &amp;= 2(q + 1) - 2r - 1 &amp;= 2q + 2 - 2r - 1 = 2(q - r) + 1 \\
+2p + (2r - 1) &amp;= 2(q + 1) + 2r - 1 &amp;= 2q + 2 + 2r - 1 = 2(q + r) + 1 \\
+2p - (2r - 1) &amp;= 2p - 2r + 1       &amp;                  = 2(p - r) + 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2k + 1 &amp; \\
+2k - 1 &amp;= 2(k' + 1) - 1 = 2k' + 2 - 1 = 2k' + 1 \\
+2k + 3 &amp;= 2(k' - 1) + 3 = 2k' - 2 + 3 = 2k' + 1 \\
+2k - 3 &amp;= 2(k' + 2) - 3 = 2k' + 4 - 3 = 2k' + 1 \\
+2k + 5 &amp;= 2(k' - 2) + 5 = 2k' - 4 + 5 = 2k' + 1 \\
+2k - 5 &amp;= 2(k' + 3) - 5 = 2k' + 6 - 5 = 2k' + 1 \\ \vdots
+\end  {aligned}
+\)</span></p>
 <hr class="docutils" />
 <p><span style="color: #0096FF;"><b>Property</b></span></p>
 <div style="color: #0096FF;">
@@ -1357,6 +1413,8 @@ P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
 <p>There are infinitely many primes of the form <span class="math notranslate nohighlight">\(4k - 1\)</span>.</p>
 <p><span style="color: #0096FF;"><b>Proof by contradiction</b></span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="division-algorithm">
