@@ -834,6 +834,7 @@ document.write(`
 <hr class="docutils" />
 <section id="residues">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Residues</a><a class="headerlink" href="#residues" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
 <p><span style="color: #0096FF;"><b>RESIDUE CLASS MODULO M</b></span></p>
 <div style="color: #0096FF;">
 <p>Let <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> and define the residue class <span class="math notranslate nohighlight">\(\bar{r} \text{ modulo } m\)</span> by</p>
@@ -847,12 +848,14 @@ document.write(`
 \overline{m - 1} &amp;= \{ x \in \mathbb{Z} : m \mid (x - m + 1) \} &amp;&amp; \text{residue class } \overline{m - 1} \mod m \\
 \end  {aligned}
 \)</span></p>
+<hr class="docutils" />
 <p><span style="color: #0096FF;"><b>COMPLETE SYSTEM OF RESIDUES MODULO M</b></span></p>
 <div style="color: #0096FF;">
 <p>By the division algorithm every integer is in one of</p>
 <p><span class="math notranslate nohighlight">\(\overline{0}, \overline{1}, \dotsc, \overline{m - 1}\)</span></p>
 <p>This is called a <em>complete system of residues modulo</em> <span class="math notranslate nohighlight">\(m\)</span>.</p>
-</div><p>Arithmetic can be performed on residue classes just as if they were numbers.</p>
+</div><hr class="docutils" />
+<p>Arithmetic can be performed on residue classes just as if they were numbers.</p>
 <p>The residue class <span class="math notranslate nohighlight">\(\bar{0}\)</span> behaves like the number <span class="math notranslate nohighlight">\(0\)</span>, since <span class="math notranslate nohighlight">\(\bar{0}\)</span> is the set of multiples of <span class="math notranslate nohighlight">\(m\)</span>, and adding any one of them to an element of <span class="math notranslate nohighlight">\(\bar{r}\)</span> does not change the remainder.</p>
 <p>Thus for any <span class="math notranslate nohighlight">\(r\)</span></p>
 <p><span class="math notranslate nohighlight">\(\bar{0} + \bar{r} = \bar{r} = \bar{r} + \bar{0}\)</span></p>
@@ -1527,9 +1530,23 @@ x
 <p><span class="math notranslate nohighlight">\(f(x) \equiv 0 \mod p\)</span></p>
 <p>is at most <span class="math notranslate nohighlight">\(k\)</span>.</p>
 </div><p><span style="color: #0096FF;"><b>Proof by induction on <span class="math notranslate nohighlight">\(k\)</span></b></span></p>
+<div style="color: red;">
 <p>Degree <span class="math notranslate nohighlight">\(0\)</span> is trivial so we can suppose <span class="math notranslate nohighlight">\(k \ge 1\)</span>.</p>
 <p>If a polynomial <span class="math notranslate nohighlight">\(f\)</span> has degree <span class="math notranslate nohighlight">\(1\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span> so that <span class="math notranslate nohighlight">\(f(x) = a_0 + a_1 x\)</span> with <span class="math notranslate nohighlight">\(p \nmid a_1\)</span> then the congruence becomes <span class="math notranslate nohighlight">\(a_1 x \equiv -a_0 \mod p\)</span> and since <span class="math notranslate nohighlight">\(a_1 \not\equiv 0 \mod p\)</span> (because <span class="math notranslate nohighlight">\(f\)</span> has degree <span class="math notranslate nohighlight">\(1\)</span>) we know that this is soluble by precisely the members of a unique residue class modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>Now suppose that the conclusion holds for all polynomials of a given degree <span class="math notranslate nohighlight">\(k\)</span> and suppose that</p>
+<p><span class="math notranslate nohighlight">\(f = a_0 + \dotsb + a_{k + 1} x^{k + 1}\)</span> has degree <span class="math notranslate nohighlight">\(k + 1\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(f(x) \equiv 0 \mod p\)</span> has no solutions then we are done.</p>
+<p>Hence we may assume at least one, say <span class="math notranslate nohighlight">\(x \equiv x_0 \mod p\)</span>.</p>
+<p>By the division algorithm for polynomials we have</p>
+<p><span class="math notranslate nohighlight">\(f(x) = (x - x_0) q(x) + f(x_0)\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(q(x)\)</span> is a polynomial of degree <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>Moreover the leading coefficient of <span class="math notranslate nohighlight">\(q(x)\)</span> is <span class="math notranslate nohighlight">\(a_{k + 1} \equiv 0 \mod p\)</span>.</p>
+<p>But <span class="math notranslate nohighlight">\(f(x_0) \equiv 0 \mod p\)</span> so that <span class="math notranslate nohighlight">\(f(x) \equiv (x - x_0) q(x) \mod p\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(f(x_1) \equiv 0 \mod p\)</span> with <span class="math notranslate nohighlight">\(x_1 \equiv x_0 \mod p\)</span> then <span class="math notranslate nohighlight">\(p \nmid x_1 - x_0\)</span> so that <span class="math notranslate nohighlight">\(p \mid q(x_1)\)</span>.</p>
+<p>By the inductive hypothesis there are at most <span class="math notranslate nohighlight">\(k\)</span> possibilities for <span class="math notranslate nohighlight">\(x_1\)</span> so at most <span class="math notranslate nohighlight">\(k + 1\)</span> in all.</p>
+</div>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>Nonlinear polynomials in one variable are complicated. The general modulus can be reduced to a prime power modulus, which can be reduced to the prime modulus. In general, the prime case leads to algebraic number theory.</p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
