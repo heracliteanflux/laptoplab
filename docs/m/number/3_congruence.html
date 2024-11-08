@@ -71,6 +71,8 @@
                 gtag('config', 'G-4697ZWLBEP');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'm/number/3_congruence';</script>
     <script src="../../_static/script.js?v=9c6c3268"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -746,7 +748,28 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Congruence</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-congruence-relation">Properties of the congruence relation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-arithmetic">Modular Arithmetic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition">Modular Addition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication">Modular Multiplication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-division">Modular Division</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation">Modular Exponentiation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-pseudoprimes">Fermat pseudoprimes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carmichael-numbers">Carmichael Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chinese-remainder-theorem">Chinese Remainder Theorem</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-congruence">Polynomial Congruence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
@@ -761,21 +784,46 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="congruence">
-<h1><a class="toc-backref" href="#id2" role="doc-backlink">Congruence</a><a class="headerlink" href="#congruence" title="Link to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Congruence</a><a class="headerlink" href="#congruence" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <hr class="docutils" />
 <hr class="docutils" />
 <section id="contents">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Contents</a><a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
 <nav class="contents" id="id1">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#congruence" id="id2">Congruence</a></p>
+<li><p><a class="reference internal" href="#congruence" id="id3">Congruence</a></p>
 <ul>
-<li><p><a class="reference internal" href="#contents" id="id3">Contents</a></p></li>
-<li><p><a class="reference internal" href="#linear-congruence" id="id4">Linear Congruence</a></p></li>
-<li><p><a class="reference internal" href="#polynomial-congruence" id="id5">Polynomial Congruence</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id6">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#contents" id="id4">Contents</a></p></li>
+<li><p><a class="reference internal" href="#residues" id="id5">Residues</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id6">Congruence</a></p>
+<ul>
+<li><p><a class="reference internal" href="#properties-of-the-congruence-relation" id="id7">Properties of the congruence relation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modular-arithmetic" id="id8">Modular Arithmetic</a></p>
+<ul>
+<li><p><a class="reference internal" href="#modular-addition" id="id9">Modular Addition</a></p></li>
+<li><p><a class="reference internal" href="#modular-multiplication" id="id10">Modular Multiplication</a></p></li>
+<li><p><a class="reference internal" href="#modular-division" id="id11">Modular Division</a></p></li>
+<li><p><a class="reference internal" href="#modular-exponentiation" id="id12">Modular Exponentiation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#reduced-residues" id="id13">Reduced Residues</a></p></li>
+<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id14">Fermat pseudoprimes</a></p></li>
+<li><p><a class="reference internal" href="#carmichael-numbers" id="id15">Carmichael Numbers</a></p></li>
+<li><p><a class="reference internal" href="#mersenne-primes" id="id16">Mersenne Primes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#linear-congruence" id="id17">Linear Congruence</a></p>
+<ul>
+<li><p><a class="reference internal" href="#chinese-remainder-theorem" id="id18">Chinese Remainder Theorem</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#polynomial-congruence" id="id19">Polynomial Congruence</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id20">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -784,21 +832,710 @@ document.write(`
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
-<section id="linear-congruence">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
+<section id="residues">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Residues</a><a class="headerlink" href="#residues" title="Link to this heading">#</a></h2>
+<p><span style="color: #0096FF;"><b>RESIDUE CLASS MODULO M</b></span></p>
+<div style="color: #0096FF;">
+<p>Let <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> and define the residue class <span class="math notranslate nohighlight">\(\bar{r} \text{ modulo } m\)</span> by</p>
+<p><span class="math notranslate nohighlight">\(\bar{r} = \{ x \in \mathbb{Z} : m \mid (x - r) \}\)</span></p>
+</div><p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{0} &amp;= \{ x \in \mathbb{Z} : m \mid x \}       &amp;&amp; \text{residue class } \bar{0} \mod m \\
+\bar{1} &amp;= \{ x \in \mathbb{Z} : m \mid (x - 1) \} &amp;&amp; \text{residue class } \bar{1} \mod m \\
+\bar{2} &amp;= \{ x \in \mathbb{Z} : m \mid (x - 2) \} &amp;&amp; \text{residue class } \bar{2} \mod m \\
+\vdots \\
+\overline{m - 1} &amp;= \{ x \in \mathbb{Z} : m \mid (x - m + 1) \} &amp;&amp; \text{residue class } \overline{m - 1} \mod m \\
+\end  {aligned}
+\)</span></p>
+<p><span style="color: #0096FF;"><b>COMPLETE SYSTEM OF RESIDUES MODULO M</b></span></p>
+<div style="color: #0096FF;">
+<p>By the division algorithm every integer is in one of</p>
+<p><span class="math notranslate nohighlight">\(\overline{0}, \overline{1}, \dotsc, \overline{m - 1}\)</span></p>
+<p>This is called a <em>complete system of residues modulo</em> <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</div><p>Arithmetic can be performed on residue classes just as if they were numbers.</p>
+<p>The residue class <span class="math notranslate nohighlight">\(\bar{0}\)</span> behaves like the number <span class="math notranslate nohighlight">\(0\)</span>, since <span class="math notranslate nohighlight">\(\bar{0}\)</span> is the set of multiples of <span class="math notranslate nohighlight">\(m\)</span>, and adding any one of them to an element of <span class="math notranslate nohighlight">\(\bar{r}\)</span> does not change the remainder.</p>
+<p>Thus for any <span class="math notranslate nohighlight">\(r\)</span></p>
+<p><span class="math notranslate nohighlight">\(\bar{0} + \bar{r} = \bar{r} = \bar{r} + \bar{0}\)</span></p>
+<p>Suppose we are given any two residue classes <span class="math notranslate nohighlight">\(\bar{r}\)</span> and <span class="math notranslate nohighlight">\(\bar{s}\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{r} &amp;= \{ x \in \mathbb{Z} : m \mid (x - r) \} \\
+\bar{s} &amp;= \{ y \in \mathbb{Z} : m \mid (y - r) \} \\
+\end  {aligned}
+\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(t\)</span> be the remainder of <span class="math notranslate nohighlight">\(r + s\)</span> on division by <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(r + s = mz + t\)</span></p>
+<p>Then the elements of <span class="math notranslate nohighlight">\(\bar{r}\)</span> and <span class="math notranslate nohighlight">\(\bar{s}\)</span> are of the form <span class="math notranslate nohighlight">\(r + mx\)</span> and <span class="math notranslate nohighlight">\(s + my\)</span> and it is known that <span class="math notranslate nohighlight">\(r + s = t + mz\)</span> for some <span class="math notranslate nohighlight">\(z\)</span>. Thus</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+r + mx + s + my = t + m(x + y + z) \in \bar{t}
+\end  {aligned}
+\)</span></p>
+<p>Thus it makes sense to write <span class="math notranslate nohighlight">\(\bar{r} + \bar{s} = \bar{t}\)</span> and then we have <span class="math notranslate nohighlight">\(\bar{r} + \bar{s} = \bar{s} + \bar{r}\)</span>.</p>
+<p>It is also the case that <span class="math notranslate nohighlight">\(\overline{r} + \overline{-r} = \overline{0}\)</span></p>
+<hr class="docutils" />
+<section id="id2">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Congruence</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>CONGRUENCE RELATION</b></span></p>
+<div style="color: #0096FF;">
+<p>If <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are integers and <span class="math notranslate nohighlight">\(m\)</span> is a positive integer then <span class="math notranslate nohighlight">\(a\)</span> <em>is congruent to</em> <span class="math notranslate nohighlight">\(b\)</span> <em>modulo</em> <span class="math notranslate nohighlight">\(m\)</span> if <span class="math notranslate nohighlight">\(m\)</span> divides <span class="math notranslate nohighlight">\(a - b\)</span>. (Another way to state this is as follows: Let <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>. If two integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> satisfy <span class="math notranslate nohighlight">\(m \mid a - b\)</span> then…)</p>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a \equiv b \mod m &amp;\iff m | (a - b) &amp;&amp;\iff a = b + km \\
+a \equiv 0 \mod m &amp;\iff m | a       &amp;&amp;\iff a = km \\
+a \equiv 1 \mod m &amp;\iff m | (a - 1) &amp;&amp;\iff a = 1 + km \\
+\end  {aligned}
+\)</span></p>
+<p>We say that <span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span> is a <em>congruence</em> and that <span class="math notranslate nohighlight">\(m\)</span> is its <em>modulus</em>.</p>
+<div style="color: #50C878;"><b>Example</b></div>
+<p><span class="math notranslate nohighlight">\(253 \equiv 13 \,(\text{mod } 60)\)</span> because <span class="math notranslate nohighlight">\(253 - 13\)</span> is a multiple of <span class="math notranslate nohighlight">\(60\)</span>. (<span class="math notranslate nohighlight">\(253\)</span> minutes is <span class="math notranslate nohighlight">\(4\)</span> hours and <span class="math notranslate nohighlight">\(13\)</span> minutes.)</p>
+<p><span class="math notranslate nohighlight">\(59 \equiv -1 \,(\text{mod } 60)\)</span> because <span class="math notranslate nohighlight">\(59 - (-1)\)</span> is a multiple of <span class="math notranslate nohighlight">\(60\)</span>. (When it’s <span class="math notranslate nohighlight">\(59\)</span> minutes past the hour it’s also one minute short of the next hour.)</p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Rosen]</p>
+<p><span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span> represents a relation on the set of integers.</p>
+<p><span class="math notranslate nohighlight">\(a \textbf{ mod } m = b\)</span> represents a function.</p>
+<div style="color: #0096FF;">
+<p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers and <span class="math notranslate nohighlight">\(m\)</span> be a positive integer. Then <span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span> iff <span class="math notranslate nohighlight">\(a \textbf{ mod } m = b \textbf{ mod } m\)</span>. (“a and b are congruent modulo m iff a and b have the same remainder when divided by m”)</p>
+</div><section id="properties-of-the-congruence-relation">
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">Properties of the congruence relation</a><a class="headerlink" href="#properties-of-the-congruence-relation" title="Link to this heading">#</a></h4>
+<p>Reflexivity</p>
+<p><span class="math notranslate nohighlight">\(x \equiv x \mod m\)</span></p>
+<p>Symmetry</p>
+<p><span class="math notranslate nohighlight">\(x \equiv y \mod m \iff y \equiv x \mod m\)</span></p>
+<p>Transitivity</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(y \equiv z \mod m\)</span> then <span class="math notranslate nohighlight">\(x \equiv z \mod m\)</span>.</p>
+<p>Congruences modulo <span class="math notranslate nohighlight">\(m\)</span> partition the integers into equivalence classes.</p>
+<p>Additions preserve congruence</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(z \equiv t \mod m\)</span> then <span class="math notranslate nohighlight">\(x + z \equiv y + t \mod m\)</span>.</p>
+<p>Multiplications preserve congruences</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(z \equiv t \mod m\)</span> then <span class="math notranslate nohighlight">\(xz \equiv yt \mod m\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> then for any <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> it is the case that <span class="math notranslate nohighlight">\(x^n \equiv y^n \mod m\)</span> (using induction on <span class="math notranslate nohighlight">\(n\)</span>).</p>
+<p>If <span class="math notranslate nohighlight">\(f\)</span> is a polynomial with integer coefficients and <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> then <span class="math notranslate nohighlight">\(f(x) \equiv f(y) \mod m\)</span>.</p>
+<p><strong>Associativity</strong></p>
+<p><span class="math notranslate nohighlight">\(x + (y + z) \equiv (x + y) + z \quad(\text{mod } N)\)</span></p>
+<p><strong>Commutativity</strong></p>
+<p><span class="math notranslate nohighlight">\(xy \equiv yz \quad(\text{mod } N)\)</span></p>
+<p><strong>Distributivity</strong></p>
+<p><span class="math notranslate nohighlight">\(x(y + z) \equiv xy + xz \quad(\text{mod } N)\)</span></p>
+<p>The four rules imply that while performing a sequence of arithmetic operations it is legal to reduce intermediate results to their remainders modulo <span class="math notranslate nohighlight">\(N\)</span> at any stage:</p>
+<p><span class="math notranslate nohighlight">\(2^{345} \equiv (2^5)^{69} \equiv 32^{69} \equiv 1^{69} \equiv 1 \quad(\text{mod } 31)\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="modular-arithmetic">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Modular Arithmetic</a><a class="headerlink" href="#modular-arithmetic" title="Link to this heading">#</a></h3>
+<p>Modular arithmetic operates with the remainders of integers when they are divided by a fixed positive integer called the modulus.
+For the applications such as primality testing and cryptography it is necessary to deal with numbers which are much larger than 32 bits but whose range is nonetheless limited. Modular arithmetic is a system for dealing with restricted ranges of integers.</p>
+<p>Ways to think about modular arithmetic</p>
+<ul class="simple">
+<li><p>modular arithmetic limits numbers to a predefined range <span class="math notranslate nohighlight">\(\{ 0, 1, \dotsc, N - 1 \}\)</span> and wraps around whenever you try to leave this range.</p></li>
+<li><p>modular arithmetic deals with all the integers, but divides them into <span class="math notranslate nohighlight">\(N\)</span> equivalence classes each of the form <span class="math notranslate nohighlight">\(\{ i + kN : k \in \mathbb{Z} \}\)</span> for some <span class="math notranslate nohighlight">\(i\)</span> between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(N - 1\)</span></p></li>
+</ul>
+<section id="modular-addition">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Modular Addition</a><a class="headerlink" href="#modular-addition" title="Link to this heading">#</a></h4>
+<p>To add two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span> we start with regular addition. <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are each in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span> so their sum is in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(2(N - 1)\)</span>. When the sum exceeds <span class="math notranslate nohighlight">\(N - 1\)</span> we subtract <span class="math notranslate nohighlight">\(N\)</span> so that it falls back into the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span>. The overall computations consists of an addition and a possible subtraction of numbers which never exceed <span class="math notranslate nohighlight">\(2N\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(T(n) = O(n)\)</span> where <span class="math notranslate nohighlight">\(n = \lceil \log N \rceil\)</span></p>
+</section>
+<section id="modular-multiplication">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Modular Multiplication</a><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h4>
+<p>To multiply two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span>, we start with regular multiplication and then reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span>. The product can be as large as <span class="math notranslate nohighlight">\((N - 1)^2\)</span> but this is still at most <span class="math notranslate nohighlight">\(2n\)</span> bits long since <span class="math notranslate nohighlight">\(\log (N - 1)^2 = 2 \log (N - 1) \le 2n\)</span>. To reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span> we compute the remainder upon dividing it by <span class="math notranslate nohighlight">\(N\)</span> using the quadratic-time division algorithm. Multiplication thus remains a quadratic operation.</p>
+<p><strong>Complexity</strong></p>
+<p><span class="math notranslate nohighlight">\(T(n) = \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{multiplication}} + \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{reduction modulo \textit{N} via division}} = O(n^2)\)</span></p>
+</section>
+<section id="modular-division">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Modular Division</a><a class="headerlink" href="#modular-division" title="Link to this heading">#</a></h4>
+<p>In ordinary arithmetic there is just one tricky case–division by zero. In modular arithmetic there are other tricky cases.</p>
+<p>When division is legal, its running time is</p>
+<p><span class="math notranslate nohighlight">\(T(n) = O(n^3)\)</span></p>
+</section>
+<section id="modular-exponentiation">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Modular Exponentiation</a><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h4>
+<p>Can <span class="math notranslate nohighlight">\(x^y \mod N\)</span> be computed quickly for values of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> that are several hundred bits long? The result is some number modulo <span class="math notranslate nohighlight">\(N\)</span> and is therefore itself a few hundred bits long. The raw value <span class="math notranslate nohighlight">\(x^y\)</span> could be much longer. When <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are just <span class="math notranslate nohighlight">\(20\text{-b}\)</span> numbers <span class="math notranslate nohighlight">\(x^y\)</span> is at least <span class="math notranslate nohighlight">\((2^{19})^{2^{19}} = 2^{(19)(524,288)}\)</span> which is about ten million bits long. Imagine what would happen if <span class="math notranslate nohighlight">\(y\)</span> is a <span class="math notranslate nohighlight">\(500\text{-b}\)</span> number. To make sure the numbers we are dealing with never grow too large, we need to perform all intermediate computations modulo <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>Calculate <span class="math notranslate nohighlight">\(x^y \mod N\)</span> by repeatedly multiplying by <span class="math notranslate nohighlight">\(x \mod N\)</span>. The resulting sequence of intermediate products <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to \dotsb \to x^y \mod N\)</span> consists of numbers smaller than <span class="math notranslate nohighlight">\(N\)</span>, so the individual multiplications do not take too long. But if <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(500\)</span> bits long we need to perform <span class="math notranslate nohighlight">\(y - 1 \approx 2^{500}\)</span> multiplications which is exponential in the size of <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>It will be better to start with <span class="math notranslate nohighlight">\(x\)</span> and repeatedly square modulo <span class="math notranslate nohighlight">\(N\)</span>: <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to x^4 \mod N \to x^8 \mod N \to \dotsb \to x^{2^{\lfloor \log y \rfloor}} \mod N\)</span>.</p>
+<p>Each squaring takes <span class="math notranslate nohighlight">\(O(\log^2 N)\)</span> and there are <span class="math notranslate nohighlight">\(\log y\)</span> multiplications</p>
+<p>To determine <span class="math notranslate nohighlight">\(x^y \mod N\)</span> multiply together the subset of these powers corresponding to <span class="math notranslate nohighlight">\(1\)</span> s in the binary representation of <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>EXAMPLE</p>
+<p>algorithm decomposition</p>
+<p><span class="math notranslate nohighlight">\(x^{25} = x^{11001_2} = x^{10000_2} \cdot x^{1000_2} \cdot x^{1_2} = x^{16} \cdot x^8 \cdot x^1\)</span></p>
+<p>For multiplication the terms <span class="math notranslate nohighlight">\(x \cdot 2^i\)</span> come from repeated doubling. For exponentiation the terms <span class="math notranslate nohighlight">\(x^{2^i}\)</span> come from repeated squaring</p>
+<p>This algorithm implements the following recursive rule.</p>
+<p><span class="math notranslate nohighlight">\(
+x^y =
+\begin{cases}
+        (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is even} \\
+x \cdot (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is odd}  \\
+\end  {cases}
+\)</span></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">INPUT</span><span class="w">    </span><span class="n">two</span><span class="w"> </span><span class="n">n</span><span class="o">-</span><span class="n">bit</span><span class="w"> </span><span class="n">integers</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="n">exponent</span><span class="w"> </span><span class="n">y</span>
+<span class="n">OUTPUT</span><span class="w">    </span><span class="n">x</span><span class="o">^</span><span class="n">y</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">N</span>
+
+<span class="n">MODEXP</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="mi">1</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="mi">2</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="mi">3</span>
+<span class="mi">4</span><span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MODEXP</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">floor</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="mi">5</span>
+<span class="mi">6</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">even</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="mi">7</span><span class="w">        </span><span class="k">return</span><span class="w">  </span><span class="n">z</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">N</span>
+<span class="mi">8</span><span class="w">    </span><span class="k">else</span>
+<span class="mi">9</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">xz</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="n">mod</span><span class="w"> </span><span class="n">N</span>
+</pre></div>
+</div>
+<p><strong>Correctness</strong></p>
+<p>The recursive rule is <span style="color: red;">transparently</span> correct. Checking that the algorithm is correct is a matter of verifying that it mimics the rule and that it handles the base case <span class="math notranslate nohighlight">\(y = 1\)</span> properly.</p>
+<p><strong>Complexity</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(n\)</span> be the size in bits of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> (whichever is the largest of the three). As with multiplication, the algorithm will halt after at most <span class="math notranslate nohighlight">\(n\)</span> recursive calls and during each call it multiplies <span class="math notranslate nohighlight">\(n\)</span>-bit numbers (doing computation modulo <span class="math notranslate nohighlight">\(N\)</span> saves us here) for a total running time of</p>
+<p><span class="math notranslate nohighlight">\(T(n) = \underbrace{\quad\quad O(n) \quad\quad}_{\text{recursive calls}} \times \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{multiplication}} = O(n^3)\)</span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="reduced-residues">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Reduced Residues</a><a class="headerlink" href="#reduced-residues" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span>, <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span>, and</p>
+<p><span class="math notranslate nohighlight">\(\overline{a_1}, \overline{a_2}, \dotsc, \overline{a_m}\)</span></p>
+<p>forms a complete system of residues modulo <span class="math notranslate nohighlight">\(m\)</span>. Then so does</p>
+<p><span class="math notranslate nohighlight">\(\overline{ka_1}, \overline{ka_2}, \dotsc, \overline{ka_m}\)</span></p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<div style="color: red;">
+<p>Since there are <span class="math notranslate nohighlight">\(m\)</span> residue classes it need only be checked that they are disjoint.</p>
+</div>
+<p>Consider any two residue classes <span class="math notranslate nohighlight">\(\overline{ka_i}\)</span> and <span class="math notranslate nohighlight">\(\overline{ka_j}\)</span> and let <span class="math notranslate nohighlight">\(ka_i + mx\)</span> and <span class="math notranslate nohighlight">\(ka_j + my\)</span> be typical members of each, respectively.</p>
+<p>If they were the same integer then <span class="math notranslate nohighlight">\(ka_i + mx = ka_j + my \iff ka_i - ka_j = my - mx \iff k(a_i - a_j) = m(y - x)\)</span>.</p>
+<p>But then <span class="math notranslate nohighlight">\(m \mid k(a_i - a_j)\)</span> and since <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span> it would be the case that <span class="math notranslate nohighlight">\(m \mid a_i - a_j\)</span>; that <span class="math notranslate nohighlight">\(\overline{a_i}\)</span> and <span class="math notranslate nohighlight">\(\overline{a_j}\)</span> be the same residue class; and that <span class="math notranslate nohighlight">\(i = j\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b><span class="math notranslate nohighlight">\(\bar{0}, \bar{1}, \bar{2}\)</span> is a complete system of residues modulo <span class="math notranslate nohighlight">\(m\)</span></b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 0) \} = \{ 3x \} \\
+\bar{1} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 1) \} = \{ 3x + 1 \} \\
+\bar{2} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2) \} = \{ 3x + 2 \} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(2, 3) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 0) \} = \{ 3x \} \\
+\bar{2} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2) \} = \{ 3x + 2 \} \\
+\bar{4} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 4) \} = \{ 3x + 4 \} = \{ 3(x + 1) + 1 \} = \{ 3x + 1 \} \\
+\end  {aligned}
+\)</span></p>
+<p><span style="color: #0096FF;"><b>ARITHMETIC FUNCTION</b></span></p>
+<div style="color: #0096FF;">
+<p>A function defined on <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> is called arithmetic.</p>
+</div><p><span style="color: #0096FF;"><b>TOTIENT FUNCTION</b></span></p>
+<div style="color: #0096FF;">
+<p>Euler’s totient function <span class="math notranslate nohighlight">\(\phi(n)\)</span> is the number of <span class="math notranslate nohighlight">\(x \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le n\)</span> and <span class="math notranslate nohighlight">\(\gcd(x, n) = 1\)</span>.</p>
+</div>
+<p>If <span class="math notranslate nohighlight">\(p\)</span> is prime then all the <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le p - 1\)</span> satisfy <span class="math notranslate nohighlight">\(\gcd(x, p) = 1\)</span>, but <span class="math notranslate nohighlight">\(\gcd(p, p) = p \ne 1\)</span>. Thus <span class="math notranslate nohighlight">\(\boxed{\phi(p) = p - 1}\)</span>.</p>
+<p><span style="color: #50C878;"><b><span class="math notranslate nohighlight">\(\phi(n)\)</span> up to <span class="math notranslate nohighlight">\(30\)</span></b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi( 1) &amp;=&amp;  1 &amp;&amp;&amp; \gcd(1, 1) = 1 \\
+\phi( 2) &amp;=&amp;  1 &amp;&amp;&amp; \\
+\phi( 3) &amp;=&amp;  2 &amp;&amp;&amp; \\
+\phi( 4) &amp;=&amp;  2 &amp;&amp;&amp; \{ 1, 3 \} \\
+\phi( 5) &amp;=&amp;  4 &amp;&amp;&amp; \\
+\phi( 6) &amp;=&amp;  2 &amp;&amp;&amp; \{ 1, 5 \} \\
+\phi( 7) &amp;=&amp;  6 &amp;&amp;&amp; \\
+\phi( 8) &amp;=&amp;  4 &amp;&amp;&amp; \{ 1, 3, 5, 7 \} \\
+\phi( 9) &amp;=&amp;  6 &amp;&amp;&amp; \{ 1, 2, 4, 5, 7, 8 \} \\
+\phi(10) &amp;=&amp;  4 &amp;&amp;&amp; \{ 1, 3, 7, 9 \} \\
+\phi(11) &amp;=&amp; 10 &amp;&amp;&amp; \\
+\phi(12) &amp;=&amp;  4 &amp;&amp;&amp; \{ 1, 5, 7, 11 \} \\
+\phi(13) &amp;=&amp; 12 &amp;&amp;&amp; \\
+\phi(14) &amp;=&amp;  6 &amp;&amp;&amp; \{ 1, 3, 5, 9, 11, 13 \} \\
+\phi(15) &amp;=&amp;  8 &amp;&amp;&amp; \{ 1, 2, 4, 7, 8, 11, 13, 14 \} \\
+\phi(16) &amp;=&amp;  8 &amp;&amp;&amp; \{ 1, 3, 5, 7, 9, 11, 13, 15 \} \\
+\phi(17) &amp;=&amp; 16 &amp;&amp;&amp; \\
+\phi(18) &amp;=&amp;  6 &amp;&amp;&amp; \{ 1, 5, 7, 11, 13, 17 \} \\
+\phi(19) &amp;=&amp; 18 &amp;&amp;&amp; \\
+\phi(20) &amp;=&amp;  8 &amp;&amp;&amp; \{ 1, 3, 7, 9, 11, 13, 17, 19 \} \\
+\phi(21) &amp;=&amp; 12 &amp;&amp;&amp; \{ 1, 2, 4, 5, 8, 10, 11, 13, 16, 17, 19, 20 \} \\
+\phi(22) &amp;=&amp; 10 &amp;&amp;&amp; \{ 1, 3, 5, 7, 9, 13, 15, 17, 19, 21 \} \\
+\phi(23) &amp;=&amp; 22 &amp;&amp;&amp; \\
+\phi(24) &amp;=&amp;  8 &amp;&amp;&amp; \{ 1, 5, 7, 11, 13, 17, 19, 23 \} \\
+\phi(25) &amp;=&amp; 20 &amp;&amp;&amp; \{ 1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19, 21, 22, 23, 24 \} \\
+\phi(26) &amp;=&amp;    &amp;&amp;&amp; \\
+\phi(27) &amp;=&amp;    &amp;&amp;&amp; \\
+\phi(28) &amp;=&amp;    &amp;&amp;&amp; \\
+\phi(29) &amp;=&amp; 28 &amp;&amp;&amp; \\
+\phi(30) &amp;=&amp;  8 &amp;&amp;&amp; \{ 1, 7, 11, 13, 17, 19, 23, 29 \} \\
+\end  {aligned}
+\)</span></p>
+<p><span style="color: #0096FF;"><b>SET OF REDUCED RESIDUES MODULO M</b></span></p>
+<div style="color: #0096FF;">
+<p>A set of <span class="math notranslate nohighlight">\(\phi(m)\)</span> distinct residue classes <span class="math notranslate nohighlight">\(\bar{r}\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> with <span class="math notranslate nohighlight">\(\gcd(r, m) = 1\)</span> is called a set of reduced residues modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</div><p>One way of thinking about reduced residues is to start from a complete set of fractions with denominator <span class="math notranslate nohighlight">\(m\)</span> in the interval <span class="math notranslate nohighlight">\((0, 1]\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{1}{m}, \frac{2}{m}, \dotsc, \frac{m}{m}
+\end  {aligned}
+\)</span></p>
+<p>and remove just the ones whose numerator has a common factor <span class="math notranslate nohighlight">\(d \gt 1\)</span> with <span class="math notranslate nohighlight">\(m\)</span>. What is left are the <span class="math notranslate nohighlight">\(\phi(m)\)</span> reduced fractions with denominator <span class="math notranslate nohighlight">\(m\)</span>. Alternatively instead of removing the non-reduced ones we just write them in their lowest form. Then for each divisor <span class="math notranslate nohighlight">\(k\)</span> of <span class="math notranslate nohighlight">\(m\)</span> we obtain all the reduced fractions with denominator <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<div class="full-width">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{1}{30} &amp;&amp; \frac{2}{30} &amp;&amp; \frac{3}{30} &amp;&amp; \frac{4}{30} &amp;&amp; \frac{5}{30} &amp;&amp; \frac{6}{30} &amp;&amp; \frac{7}{30} &amp;&amp; \frac{8}{30} &amp;&amp; \frac{9}{30} &amp;&amp; \frac{10}{30} &amp;&amp; \frac{11}{30} &amp;&amp; \frac{12}{30} &amp;&amp; \frac{13}{30} &amp;&amp; \frac{14}{30} &amp;&amp; \frac{15}{30} &amp;&amp; \frac{16}{30} &amp;&amp; \frac{17}{30} &amp;&amp; \frac{18}{30} &amp;&amp; \frac{19}{30} &amp;&amp; \frac{20}{30} &amp;&amp; \frac{21}{30} &amp;&amp; \frac{22}{30} &amp;&amp; \frac{23}{30} &amp;&amp; \frac{24}{30} &amp;&amp; \frac{25}{30} &amp;&amp; \frac{26}{30} &amp;&amp; \frac{27}{30} &amp;&amp; \frac{28}{30} &amp;&amp; \frac{29}{30} &amp;&amp; \frac{30}{30} \\
+\\
+\frac{1}{30} &amp;&amp; &amp;&amp; &amp;&amp; &amp;&amp; &amp;&amp; &amp;&amp; \frac{7}{30} &amp;&amp; &amp;&amp; &amp;&amp; &amp;&amp; \frac{11}{30} &amp;&amp; &amp;&amp; \frac{13}{30} &amp;&amp; &amp;&amp; &amp;&amp; &amp;&amp; \frac{17}{30} &amp;&amp; &amp;&amp; \frac{19}{30} &amp;&amp; &amp;&amp; &amp;&amp; &amp;&amp; \frac{23}{30} &amp;&amp; &amp;&amp; &amp;&amp; &amp;&amp; &amp;&amp; &amp;&amp; \frac{29}{30} &amp;&amp; \\
+\\
+\frac{1}{30} &amp;&amp; \frac{1}{15} &amp;&amp; \frac{1}{10} &amp;&amp; \frac{2}{15} &amp;&amp; \frac{1}{6} &amp;&amp; \frac{1}{5} &amp;&amp; \frac{7}{30} &amp;&amp; \frac{4}{15} &amp;&amp; \frac{3}{10} &amp;&amp; \frac{1}{3} &amp;&amp; \frac{11}{30} &amp;&amp; \frac{2}{5} &amp;&amp; \frac{13}{30} &amp;&amp; \frac{7}{15} &amp;&amp; \frac{1}{2} &amp;&amp; \frac{8}{15} &amp;&amp; \frac{17}{30} &amp;&amp; \frac{3}{5} &amp;&amp; \frac{19}{30} &amp;&amp; \frac{2}{3} &amp;&amp; \frac{7}{10} &amp;&amp; \frac{11}{15} &amp;&amp; \frac{23}{30} &amp;&amp; \frac{4}{5} &amp;&amp; \frac{5}{6} &amp;&amp; \frac{13}{15} &amp;&amp; \frac{9}{10} &amp;&amp; \frac{14}{15} &amp;&amp; \frac{29}{30} &amp;&amp; 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+k &amp;=  1 &amp;&amp; 1                                                                                                                    &amp; \phi( 1) = 1 \\
+k &amp;=  2 &amp;&amp; \frac{1}{ 2}                                                                                                         &amp; \phi( 2) = 1 \\
+k &amp;=  3 &amp;&amp; \frac{1}{ 3}, \frac{2}{ 3}                                                                                           &amp; \phi( 3) = 2 \\
+k &amp;=  5 &amp;&amp; \frac{1}{ 5}, \frac{2}{ 5}, \frac{ 3}{ 5}, \frac{ 4}{ 5}                                                             &amp; \phi( 5) = 4 \\
+k &amp;=  6 &amp;&amp; \frac{1}{ 6}, \frac{5}{ 6}                                                                                           &amp; \phi( 6) = 2 \\
+k &amp;= 10 &amp;&amp; \frac{1}{10}, \frac{3}{10}, \frac{ 7}{10}, \frac{ 9}{10}                                                             &amp; \phi(10) = 4 \\
+k &amp;= 15 &amp;&amp; \frac{1}{15}, \frac{2}{15}, \frac{ 4}{15}, \frac{ 7}{15}, \frac{ 8}{15}, \frac{11}{15}, \frac{13}{15}, \frac{14}{15} &amp; \phi(15) = 8 \\
+k &amp;= 30 &amp;&amp; \frac{1}{30}, \frac{7}{30}, \frac{11}{30}, \frac{13}{30}, \frac{17}{30}, \frac{19}{30}, \frac{23}{30}, \frac{29}{30} &amp; \phi(30) = 8 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k \mid 30} \phi(k) = 30 = \phi(1) + \phi(2) + \phi(3) + \phi(5) + \phi(6) + \phi(10) + \phi(15) + \phi(30)
+\end  {aligned}
+\)</span></p>
+</div><p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.7]</p>
+<div style="color: #0096FF;">
+<p>For each <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> we have</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{k \mid m} \phi(k) = m = \phi(1) + \phi(2) + \dotsb + \phi(m)
+\end  {aligned}
+\)</span></p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>See the above.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.9]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span> and that</p>
+<p><span class="math notranslate nohighlight">\(a_1, a_2, \dotsc, a_{\phi(m)}\)</span></p>
+<p>forms a set of reduced residue classes modulo <span class="math notranslate nohighlight">\(m\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(ka_1, ka_2, \dotsc, ka_{\phi(m)}\)</span></p>
+<p>also forms a set of reduced residue classes modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<div style="color: red;">
+<p>In view of the earlier theorem the residue classes <span class="math notranslate nohighlight">\(ka_j\)</span> are distinct, and since <span class="math notranslate nohighlight">\(\gcd(a_j, m) = 1\)</span> it is the case that <span class="math notranslate nohighlight">\((ka_j, m) = 1\)</span>, so they give <span class="math notranslate nohighlight">\(\phi(m)\)</span> distinct reduced residue classes. So they are all of them in some order.</div></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.10]</p>
+<div style="color: #0096FF;">
+<p>Suppose <span class="math notranslate nohighlight">\(m, n \in \mathbb{N}\)</span> and <span class="math notranslate nohighlight">\(\gcd(m, n) = 1\)</span>, and consider the <span class="math notranslate nohighlight">\(xn + ym\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le m\)</span> and <span class="math notranslate nohighlight">\(1 \le y \le n\)</span>. Then they form a complete set of residues modulo <span class="math notranslate nohighlight">\(mn\)</span>. If in addition <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> satisfy <span class="math notranslate nohighlight">\(\gcd(x, m) = 1\)</span> and <span class="math notranslate nohighlight">\(\gcd(y, n) = 1\)</span> then they form a reduced set.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<div style="color: red;">
+<p>If <span class="math notranslate nohighlight">\(xn + ym \equiv x'n + y'm \mod mn\)</span> then <span class="math notranslate nohighlight">\(xn \equiv x'n \mod m\)</span>, so <span class="math notranslate nohighlight">\(x \equiv x' \mod m\)</span>, <span class="math notranslate nohighlight">\(x = x'\)</span>. Likewise <span class="math notranslate nohighlight">\(y = y'\)</span>. Hence in either case the <span class="math notranslate nohighlight">\(xn + ym\)</span> are distinct modulo <span class="math notranslate nohighlight">\(mn\)</span>.</p>
+<p>In the unrestricted case we have <span class="math notranslate nohighlight">\(mn\)</span> objects, so they form a coomplete set.</p>
+<p>In the restricted case <span class="math notranslate nohighlight">\(\gcd(xn + ym, m) = \gcd(xn, m) = \gcd(x, m) = 1\)</span> and likewise <span class="math notranslate nohighlight">\(\gcd(xn + ym, n) = 1\)</span>, so <span class="math notranslate nohighlight">\(\gcd(xn + ym, mn) = 1\)</span> and the <span class="math notranslate nohighlight">\(xn + ym\)</span> all belong to reduced residue classes.</p>
+<p>Now let <span class="math notranslate nohighlight">\(\gcd(z, mn) = 1\)</span>. Choose <span class="math notranslate nohighlight">\(x', y', x, y\)</span> so that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x'n + y'm &amp;= 1 \\
+x &amp;\equiv x'z \mod m \\
+y &amp;\equiv y'z \mod n \\
+\end  {aligned}
+\)</span></p>
+<p>Then <span class="math notranslate nohighlight">\(xn + ym \equiv x'zn + y'zm = z \mod mn\)</span> and hence every reduced residue is included.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div><p><span style="color: #50C878;"><b><span class="math notranslate nohighlight">\(6x + 5y \mod 30\)</span></b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{cc|cccc|}
+  &amp; x &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+y &amp; \\ \hline
+1 &amp; &amp; 11 &amp; 17 &amp; 23 &amp; 29 &amp;  5 \\ \hline
+2 &amp; &amp; 16 &amp; 22 &amp; 28 &amp;  4 &amp; 10 \\
+3 &amp; &amp; 21 &amp; 27 &amp;  3 &amp;  9 &amp; 15 \\
+4 &amp; &amp; 26 &amp;  2 &amp;  8 &amp; 14 &amp; 20 \\ \hline
+5 &amp; &amp;  1 &amp;  7 &amp; 13 &amp; 19 &amp; 25 \\ \hline
+6 &amp; &amp;  6 &amp; 12 &amp; 18 &amp; 24 &amp; 30 \\
+\end  {array}
+\)</span></p>
+<p>The <span class="math notranslate nohighlight">\(30\)</span> numbers <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(30\)</span> each appear exactly once. The <span class="math notranslate nohighlight">\(8\)</span> reduced residue classes occur precisely in the intersection of rows <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(5\)</span> and columns <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(4\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\gcd(x = 1, 2, 3, 4, m = 5) = \gcd(y = 1, 5, n = 6)\)</span></p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Corollary 3.12]</p>
+<div style="color: #0096FF;">
+<p>If <span class="math notranslate nohighlight">\(\gcd(m, n) = 1\)</span> then <span class="math notranslate nohighlight">\(\phi(mn) = \phi(m) \phi(n)\)</span>.</p>
+</div><p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\gcd( 1, n) = 1 &amp;&amp; \phi(  n) &amp;= \phi( 1) \phi( n) &amp;&amp;=  \phi(n) \\
+\gcd( 2, n) = 1 &amp;&amp; \phi( 2n) &amp;= \phi( 2) \phi( n) &amp;&amp;=  \phi(n) \\
+\gcd( 3, n) = 1 &amp;&amp; \phi( 3n) &amp;= \phi( 3) \phi( n) &amp;&amp;= 2\phi(n) \\
+\gcd( 4, n) = 1 &amp;&amp; \phi( 4n) &amp;= \phi( 4) \phi( n) &amp;&amp;= 2\phi(n) \\
+\gcd( 5, n) = 1 &amp;&amp; \phi( 5n) &amp;= \phi( 5) \phi( n) &amp;&amp;= 4\phi(n) \\
+\gcd( 6, n) = 1 &amp;&amp; \phi( 6n) &amp;= \phi( 6) \phi( n) &amp;&amp;= 2\phi(n) \\
+\gcd( 7, n) = 1 &amp;&amp; \phi( 7n) &amp;= \phi( 7) \phi( n) &amp;&amp;= 6\phi(n) \\
+\gcd( 8, n) = 1 &amp;&amp; \phi( 8n) &amp;= \phi( 8) \phi( n) &amp;&amp;= 4\phi(n) \\
+\gcd( 9, n) = 1 &amp;&amp; \phi( 9n) &amp;= \phi( 9) \phi( n) &amp;&amp;= 6\phi(n) \\
+\gcd(10, n) = 1 &amp;&amp; \phi(10n) &amp;= \phi(10) \phi( n) &amp;&amp;= 4\phi(n) \\
+\end  {aligned}
+\)</span></p>
+<p><span style="color: #0096FF;"><b>MULTIPLICATIVE FUNCTION</b></span> [Vaughan Definition 3.13]</p>
+<div style="color: #0096FF;">
+<p>If an arithmetical function <span class="math notranslate nohighlight">\(f\)</span> which is not identically <span class="math notranslate nohighlight">\(0\)</span> satisfies</p>
+<p><span class="math notranslate nohighlight">\(f(mn) = f(m) f(n)\)</span></p>
+<p>whenever <span class="math notranslate nohighlight">\(\gcd(m, n) = 1\)</span> then <span class="math notranslate nohighlight">\(f\)</span> is called multiplicative.</p>
+</div><p><span style="color: #0096FF;"><b>COROLLARY</b></span> [Vaughan Corollary 3.14]</p>
+<div style="color: #0096FF;">
+<p>Euler’s function is multiplicative.</p>
+</div><p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.15]</p>
+<div style="color: #0096FF;">
+<p>If <span class="math notranslate nohighlight">\(n = p^k\)</span> then the number of reduced residue classes modulo <span class="math notranslate nohighlight">\(p^k\)</span> is the number of <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le p^k\)</span> and <span class="math notranslate nohighlight">\(p \nmid x\)</span>.</p>
+<p>This is <span class="math notranslate nohighlight">\(p^k - N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le p^k\)</span> and <span class="math notranslate nohighlight">\(p \mid x\)</span>, and <span class="math notranslate nohighlight">\(N = p^{k - 1}\)</span>. Thus</p>
+<p><span class="math notranslate nohighlight">\(\phi(p^k) = p^k - p^{k - 1} = p^k (1 - 1/p)\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(n \in N\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi(n) = n \prod_{p \mid n} (1 - 1/p)
+\end  {aligned}
+\)</span></p>
+<p>where when <span class="math notranslate nohighlight">\(n = 1\)</span> we interpret the product as an empty product <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>Note that <span class="math notranslate nohighlight">\(\phi(n^2) \ne \phi(n)^2\)</span>.</p>
+</div><p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+n = 2^2 &amp;=     4 &amp;&amp;&amp;     2 = 2   \times 1 &amp;= 2^2 - 2   &amp;&amp;= | \{ 1, 3 \} | \\
+n = 2^3 &amp;=     8 &amp;&amp;&amp;     4 = 2^2 \times 1 &amp;= 2^3 - 2^2 &amp;&amp;= | \{ 1, 3, 5, 7 \} | \\
+n = 2^4 &amp;=    16 &amp;&amp;&amp;     8 = 2^3 \times 1 &amp;= 2^4 - 2^3 &amp;&amp;= | \{ 1, 3, 5, 7, 9, 11, 13, 15 \} | \\
+n = 2^5 &amp;=    32 &amp;&amp;&amp;    16 = 2^4 \times 1 &amp;= 2^5 - 2^4 &amp;&amp;= \dots \\
+n = 2^6 &amp;=    64 &amp;&amp;&amp;    32 = 2^5 \times 1 &amp;= 2^6 - 2^5 &amp;&amp;= \dots \\
+\\
+n = 3^2 &amp;=     9 &amp;&amp;&amp;     6 = 3   \times 2 &amp;= 3^2 - 3   &amp;&amp;= | \{ 1, 2, 4, 5, 7, 8 \} | \\
+n = 3^3 &amp;=    27 &amp;&amp;&amp;    18 = 3^2 \times 2 &amp;= 3^3 - 3^2 &amp;&amp;= | \{ 1, 2, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17, 19, 20, 22, 23, 25, 26 \} | \\
+n = 3^4 &amp;=    81 &amp;&amp;&amp;    54 = 3^3 \times 2 &amp;= 3^4 - 3^3 &amp;&amp;= \dots \\
+n = 3^5 &amp;=   243 &amp;&amp;&amp;   162 = 3^4 \times 2 &amp;= 3^5 - 3^4 &amp;&amp;= \dots \\
+n = 3^6 &amp;=   729 &amp;&amp;&amp;   486 = 3^5 \times 2 &amp;= 3^6 - 3^5 &amp;&amp;= \dots \\
+\\
+n = 5^2 &amp;=    25 &amp;&amp;&amp;    20 = 5   \times 4 &amp;= 5^2 - 5   &amp;&amp;= | \{ 1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19, 21, 22, 23, 24 \} | \\
+n = 5^3 &amp;=   125 &amp;&amp;&amp;   100 = 5^2 \times 4 &amp;= 5^3 - 5^2 &amp;&amp;= \dots \\
+n = 5^4 &amp;=   625 &amp;&amp;&amp;   500 = 5^3 \times 4 &amp;= 5^4 - 5^3 &amp;&amp;= \dots \\
+n = 5^5 &amp;=  3125 &amp;&amp;&amp;  2500 = 5^4 \times 4 &amp;= 5^5 - 5^4 &amp;&amp;= \dots \\
+n = 5^6 &amp;= 15625 &amp;&amp;&amp; 12500 = 5^5 \times 4 &amp;= 5^6 - 5^5 &amp;&amp;= \dots \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi( 1) &amp;=  1 \prod_{p \mid  1} (1 - 1/p)                                          &amp;&amp; := &amp;  1 \\
+\phi( 2) &amp;=  2 \prod_{p \mid  2} (1 - 1/p) =  2 \times (1 - 1/ 2)                   &amp;&amp;  = &amp;  1 \\
+\phi( 3) &amp;=  3 \prod_{p \mid  3} (1 - 1/p) =  3 \times (1 - 1/ 3)                   &amp;&amp;  = &amp;  2 \\
+\phi( 4) &amp;=  4 \prod_{p \mid  4} (1 - 1/p) =  4 \times (1 - 1/ 2)                   &amp;&amp;  = &amp;  2 \\
+\phi( 5) &amp;=  5 \prod_{p \mid  5} (1 - 1/p) =  5 \times (1 - 1/ 5)                   &amp;&amp;  = &amp;  4 \\
+\phi( 6) &amp;=  6 \prod_{p \mid  6} (1 - 1/p) =  6 \times (1 - 1/ 2)(1 - 1/3)          &amp;&amp;  = &amp;  2 \\
+\phi( 7) &amp;=  7 \prod_{p \mid  7} (1 - 1/p) =  7 \times (1 - 1/ 7)                   &amp;&amp;  = &amp;  6 \\
+\phi( 8) &amp;=  8 \prod_{p \mid  8} (1 - 1/p) =  8 \times (1 - 1/ 2)                   &amp;&amp;  = &amp;  4 \\
+\phi( 9) &amp;=  9 \prod_{p \mid  9} (1 - 1/p) =  9 \times (1 - 1/ 3)                   &amp;&amp;  = &amp;  6 \\
+\phi(10) &amp;= 10 \prod_{p \mid 10} (1 - 1/p) = 10 \times (1 - 1/ 2)(1 - 1/5)          &amp;&amp;  = &amp;  4 \\
+\phi(11) &amp;= 11 \prod_{p \mid 11} (1 - 1/p) = 11 \times (1 - 1/11)                   &amp;&amp;  = &amp; 10 \\
+\phi(12) &amp;= 12 \prod_{p \mid 12} (1 - 1/p) = 12 \times (1 - 1/ 2)(1 - 1/3)          &amp;&amp;  = &amp;  4 \\
+\phi(13) &amp;= 13 \prod_{p \mid 13} (1 - 1/p) = 13 \times (1 - 1/13)                   &amp;&amp;  = &amp; 12 \\
+\phi(14) &amp;= 14 \prod_{p \mid 14} (1 - 1/p) = 14 \times (1 - 1/ 2)(1 - 1/7)          &amp;&amp;  = &amp;  6 \\
+\phi(15) &amp;= 15 \prod_{p \mid 15} (1 - 1/p) = 15 \times (1 - 1/ 3)(1 - 1/5)          &amp;&amp;  = &amp;  8 \\
+\phi(16) &amp;= 16 \prod_{p \mid 16} (1 - 1/p) = 16 \times (1 - 1/ 2)                   &amp;&amp;  = &amp;  8 \\
+\phi(17) &amp;= 17 \prod_{p \mid 17} (1 - 1/p) = 17 \times (1 - 1/17)                   &amp;&amp;  = &amp; 16 \\
+\phi(18) &amp;= 18 \prod_{p \mid 18} (1 - 1/p) = 18 \times (1 - 1/ 2)(1 - 1/3)          &amp;&amp;  = &amp;  6 \\
+\phi(19) &amp;= 19 \prod_{p \mid 19} (1 - 1/p) = 19 \times (1 - 1/19)                   &amp;&amp;  = &amp; 18 \\
+\phi(20) &amp;= 20 \prod_{p \mid 20} (1 - 1/p) = 20 \times (1 - 1/ 2)(1 - 1/5)          &amp;&amp;  = &amp;  8 \\
+\phi(21) &amp;= 21 \prod_{p \mid 21} (1 - 1/p) = 21 \times (1 - 1/ 3)(1 - 1/7)          &amp;&amp;  = &amp; 12 \\
+\phi(22) &amp;= 22 \prod_{p \mid 22} (1 - 1/p) = 22 \times (1 - 1/ 2)(1 - 1/11)         &amp;&amp;  = &amp; 10 \\
+\phi(23) &amp;= 23 \prod_{p \mid 23} (1 - 1/p) = 23 \times (1 - 1/23)                   &amp;&amp;  = &amp; 22 \\
+\phi(24) &amp;= 24 \prod_{p \mid 24} (1 - 1/p) = 24 \times (1 - 1/ 2)(1 - 1/3)          &amp;&amp;  = &amp;  8 \\
+\phi(25) &amp;= 25 \prod_{p \mid 25} (1 - 1/p) = 25 \times (1 - 1/ 5)                   &amp;&amp;  = &amp; 20 \\
+\phi(26) &amp;= 26 \prod_{p \mid 26} (1 - 1/p) = 26 \times (1 - 1/ 2)(1 - 1/13)         &amp;&amp;  = &amp; 12 \\
+\phi(27) &amp;= 27 \prod_{p \mid 27} (1 - 1/p) = 27 \times (1 - 1/ 3)                   &amp;&amp;  = &amp; 18 \\
+\phi(28) &amp;= 28 \prod_{p \mid 28} (1 - 1/p) = 28 \times (1 - 1/ 2)(1 - 1/7)          &amp;&amp;  = &amp; 12 \\
+\phi(29) &amp;= 29 \prod_{p \mid 29} (1 - 1/p) = 29 \times (1 - 1/29)                   &amp;&amp;  = &amp; 28 \\
+\phi(30) &amp;= 30 \prod_{p \mid 30} (1 - 1/p) = 30 \times (1 - 1/ 2)(1 - 1/3)(1 - 1/5) &amp;&amp;  = &amp;  8 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>EULER’S THEOREM</b></span> [Vaughan Theorem 3.17]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span> and <span class="math notranslate nohighlight">\(a \in \mathbb{Z}\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, m) = 1\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(a^{\phi(m)} \equiv 1 \mod m\)</span></p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Let <span class="math notranslate nohighlight">\(a_1, a_2, \dotsc, a_{\phi(m)}\)</span> be a reduced set modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p>Then <span class="math notranslate nohighlight">\(aa_1, aa_2, \dotsc, aa_{\phi(m)}\)</span> is another. Hence</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a_1 a_2 \dots a_{\phi(m)} &amp;\equiv aa_1 aa_2 \dots aa_{\phi(m)}             &amp; \mod m \\
+                          &amp;\equiv  a_1  a_2 \dots  a_{\phi(m)} a^{\phi(m)} &amp; \mod m \\
+                        1 &amp;\equiv                  a^{\phi(m)}             &amp; \mod m &amp;&amp; \text{since } \gcd(a_1 a_2 \dots a_{\phi(m)}, m) = 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+m &amp;= 17        &amp; a &amp;= 3 &amp; 3^{16}    &amp;\equiv 1 \mod 17 \\
+m &amp;= 341561645 &amp; a &amp;= 2 &amp; 2^{m - 1} &amp;\equiv 1 \mod m  \\
+\end  {aligned}
+\)</span></p>
+<p><span style="color: #0096FF;"><b>FERMAT’S LITTLE THEOREM</b></span> [Vaughan Corollary 3.18]</p>
+<div style="color: #0096FF;">
+<p>Let <span class="math notranslate nohighlight">\(p\)</span> be a prime and <span class="math notranslate nohighlight">\(a \in \mathbb{Z}\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(a^p \equiv a \mod p\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(p \nmid a\)</span> then</p>
+<p><span class="math notranslate nohighlight">\(a^{p - 1} \equiv 1 \mod p\)</span></p>
+</div>
+<p>“If <span class="math notranslate nohighlight">\(p\)</span> is prime and <span class="math notranslate nohighlight">\(p\)</span> does not divide <span class="math notranslate nohighlight">\(a\)</span> then <span class="math notranslate nohighlight">\(a^{p - 1} \equiv 1 \mod p\)</span>”</p>
+<p>The converse of this statement will lead us to the notion of Fermat pseudoprimes.</p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+p &amp;= 17, a = 3 &amp;&amp; 3^{17} \equiv 3 \mod 17 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="fermat-pseudoprimes">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
+<p>Pseudoprimes are composite integers masquerading as primes.</p>
+<p>Could Fermat’s theorem give us a primality test? Unfortunately, it is possible that</p>
+<p><span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span></p>
+<p>when <span class="math notranslate nohighlight">\(n\)</span> is <em><strong>not prime</strong></em>, although this is rare. For example, when <span class="math notranslate nohighlight">\(n = 341,561,645\)</span> then</p>
+<p><span class="math notranslate nohighlight">\(2^{n - 1} \equiv 1 \mod n\)</span></p>
+<p>Such <span class="math notranslate nohighlight">\(n\)</span> are called (Fermat) pseudoprimes.</p>
+<p><span style="color: #0096FF;"><b>FERMAT PSEUDOPRIME</b></span></p>
+<div style="color: #0096FF;">
+<p>A pseudoprime <span class="math notranslate nohighlight">\(m\)</span> to the base <span class="math notranslate nohighlight">\(a\)</span> is a composite integer <span class="math notranslate nohighlight">\(m\)</span> that masquerades as a prime by satisfying the congruence</p>
+<p><span class="math notranslate nohighlight">\(a^{m - 1} \equiv 1 \mod m\)</span></p>
+</div><div style="color: red;">
+<p>There are <span class="math notranslate nohighlight">\(245\)</span> pseudoprimes less than <span class="math notranslate nohighlight">\(10^6\)</span> (compared to <span class="math notranslate nohighlight">\(78498\)</span> primes less than <span class="math notranslate nohighlight">\(10^6\)</span>).</p>
+</div><p><span style="color: #50C878;"><b>Base-2 Fermat Pseudoprimes</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+n &amp;= 341       &amp;&amp;= 11 \times 31                       &amp; 2^{341 - 1} &amp;\equiv 1 \mod 341 \\
+n &amp;= 341561645 &amp;&amp;= 5 \times 67 \times 773 \times 1319 &amp; 2^{n - 1}   &amp;\equiv 1 \mod n \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(3^{341 - 1} \equiv 56 \ne 1 \mod 341\)</span> suggests a possible primality test.</p>
+<p>Given <span class="math notranslate nohighlight">\(n\)</span>, try trial division a few times (say for <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7\)</span>) and then check <span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span> successively for <span class="math notranslate nohighlight">\(a = 2, 3, 5, 7\)</span>.</p>
+<p>Unfortunately, one still encounters false positives.</p>
+<p><span class="math notranslate nohighlight">\(561 = 3 \times 11 \times 17\)</span> satisfies <span class="math notranslate nohighlight">\(a^{560} \equiv 1 \mod 561\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, 561) = 1\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="carmichael-numbers">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>CARMICHAEL NUMBER</b></span> [Vaughan Definition 3.19]</p>
+<div style="color: #0096FF;">
+<p>A composite <span class="math notranslate nohighlight">\(n\)</span> which satisfies <span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, n) = 1\)</span> is called a Carmichael number.</p>
+</div>
+<p>“A Carmichael number is a composite integer that is a pseudoprime to all bases <span class="math notranslate nohighlight">\(a\)</span> coprime prime to it.”</p>
+<p>There are infinitely many Carmichael numbers. The smallest is <span class="math notranslate nohighlight">\(561\)</span> and there are <span class="math notranslate nohighlight">\(2163\)</span> of them below <span class="math notranslate nohighlight">\(25 \times 10^9\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="mersenne-primes">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>MERSENNE PRIME</b></span> [Vaughan Definition 3.20]</p>
+<div style="color: #0096FF;">
+<p>Define <span class="math notranslate nohighlight">\(M(n) = 2^n - 1\)</span>. If it is prime then it is a Mersenne prime.</p>
+</div>
+<p>If <span class="math notranslate nohighlight">\(n = ab\)</span> then <span class="math notranslate nohighlight">\(M(ab) = (2^a - 1)(2^{a(b - 1)} + \dotsb + 2^a + 1)\)</span>.</p>
+<p>Thus for <span class="math notranslate nohighlight">\(M(n)\)</span> to be prime it is necessary that <span class="math notranslate nohighlight">\(n\)</span> be prime. However, that is not sufficient.</p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+M( 2) &amp;=&amp; 2^2    - 1 &amp;=&amp;    3 &amp;                                &amp;&amp; \text{} \\
+M( 3) &amp;=&amp; 2^3    - 1 &amp;=&amp;    7 &amp;                                &amp;&amp; \text{} \\
+M( 5) &amp;=&amp; 2^5    - 1 &amp;=&amp;   31 &amp;                                &amp;&amp; \text{} \\
+M( 7) &amp;=&amp; 2^7    - 1 &amp;=&amp;  127 &amp;                                &amp;&amp; \text{} \\
+M(11) &amp;=&amp; 2^{11} - 1 &amp;=&amp; 2047 &amp;= \textcolor{red}{23 \times 89} &amp;&amp; \text{not a Mersenne prime} \\
+\end  {aligned}
+\)</span></p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
+</section>
+<hr class="docutils" />
+<section id="linear-congruence">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Linear congruences have the form</p>
+<p><span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span></p>
+<p>To solve linear congruences, inverses modulo <span class="math notranslate nohighlight">\(m\)</span> are employed. Work backward through the steps of the Euclidean algorithm to find inverses modulo <span class="math notranslate nohighlight">\(m\)</span>. Once an inverse of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> has been found, solve the linear congruence by multiplying both sides by the inverse.</p>
+<hr class="docutils" />
+<p>We have already solved <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> in principle since it is equivalent to <span class="math notranslate nohighlight">\(ax + my = b\)</span>. (Bézout!)</p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.22]</p>
+<div style="color: #0096FF;">
+<p>The congruence <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> is soluble iff <span class="math notranslate nohighlight">\(\gcd(a, m) \mid b\)</span>, and the general solution is given by the residue class <span class="math notranslate nohighlight">\(x_0\)</span> modulo <span class="math notranslate nohighlight">\(m/\gcd(a, m)\)</span>. <span class="math notranslate nohighlight">\(x_0\)</span> can be found by applying Euclid’s algorithm.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<div style="color: red;">
+<p>The congruence <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> is equivalent to the equation <span class="math notranslate nohighlight">\(ax + my = b\)</span>:</p>
+<p>\begin{align}
+ax \equiv b \mod m \iff m \mid (ax - b) \iff ax - b = mk \iff ax + my = b \text{ with } y = -k
+\end  {align}</p>
+<p>and there can be no solution if <span class="math notranslate nohighlight">\(\gcd(a, m) \nmid b\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\gcd(a, m) \mid b\)</span> then Euclid’s algorithm solves</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{a}{\gcd(a, m)} x + \frac{m}{\gcd(a, m)} y = \frac{b}{\gcd(a, m)}
+\end  {aligned}
+\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(x_0, y_0\)</span> be such a solution and let <span class="math notranslate nohighlight">\(x, y\)</span> be any solution. Then <span class="math notranslate nohighlight">\(a/\gcd(a, m)(x - x_0) \equiv 0 \mod m/\gcd(a, m)\)</span> and since</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\gcd \left( \frac{a}{\gcd(a, m)}, \frac{m}{\gcd(a, m)} \right) = 1
+\end  {aligned}
+\)</span></p>
+<p>it follows that <span class="math notranslate nohighlight">\(x\)</span> is in the residue class <span class="math notranslate nohighlight">\(x_0 \mod m/\gcd(a, m)\)</span></p>
+</div>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #0096FF;"><b>WILSON’S THEOREM</b></span> [Vaughan Theorem 3.23]</p>
+<div style="color: #0096FF;">
+<p>Let <span class="math notranslate nohighlight">\(p\)</span> be prime. Then <span class="math notranslate nohighlight">\((p - 1)! \equiv -1 \mod p\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+p &amp;= 2 &amp;&amp; (2 - 1)! \equiv -1 \mod 2 \\
+p &amp;= 3 &amp;&amp; (3 - 1)! \equiv -1 \mod 3 \\
+\end  {aligned}
+\)</span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(p \ge 5\)</span>. Observe now that <span class="math notranslate nohighlight">\(x^2 \equiv 1 \mod p\)</span> implies that <span class="math notranslate nohighlight">\(x \equiv \pm 1 \mod p\)</span>.</p>
+<p>Thus the numbers <span class="math notranslate nohighlight">\(2, 3, \dotsc, p - 2\)</span> can be paired off into <span class="math notranslate nohighlight">\(\frac{p - 3}{2}\)</span> mutually exclusive pairs <span class="math notranslate nohighlight">\(a, b\)</span> s.t. <span class="math notranslate nohighlight">\(ab \equiv 1 \mod p\)</span>.</p>
+<p>Thus <span class="math notranslate nohighlight">\((p - 1)! \equiv p - 1 \equiv -1 \mod p\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>This theorem actually gives a necessary and sufficient condition for <span class="math notranslate nohighlight">\(p\)</span> to be prime, since if <span class="math notranslate nohighlight">\(p\)</span> were to be composite then <span class="math notranslate nohighlight">\(\gcd((p - 1)!, p) \gt 1\)</span>. However, it is useless because <span class="math notranslate nohighlight">\((p - 1)!\)</span> grows very rapidly.</p>
+<hr class="docutils" />
+<section id="chinese-remainder-theorem">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Chinese Remainder Theorem</a><a class="headerlink" href="#chinese-remainder-theorem" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>SYSTEM OF LINEAR CONGRUENCES</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(
+\begin{cases}
+a_1 x &amp;\equiv b_1 \mod q_1 \\
+a_2 x &amp;\equiv b_2 \mod q_2 \\
+\dots \\
+a_r x &amp;\equiv b_r \mod q_r \\
+\end  {cases}
+\)</span></p>
+</div>
+<p>There can only be a solution when each individual equation is soluble, so we require <span class="math notranslate nohighlight">\(\gcd(a_j, q_j) \mid b_j\)</span> for every <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>Then we know that each individual equation is soluble by some residue class modulo <span class="math notranslate nohighlight">\(q_j / \gcd(a_j, q_j)\)</span>.</p>
+<p>Thus for some values of <span class="math notranslate nohighlight">\(c_j\)</span> and <span class="math notranslate nohighlight">\(m_j\)</span> this reduces to</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{cases}
+x &amp;\equiv c_1 \mod m_1 \\
+\dots \\
+x &amp;\equiv c_r \mod m_r \\
+\end  {cases}
+\)</span></p>
+<p>Suppose for some <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j \ne i\)</span> we have <span class="math notranslate nohighlight">\(\gcd(m_i, m_j) = d \gt 1\)</span>. Then <span class="math notranslate nohighlight">\(x\)</span> has to satisfy <span class="math notranslate nohighlight">\(c_i \equiv x \equiv c_j \mod d\)</span>. This imposes conditions on <span class="math notranslate nohighlight">\(c_j\)</span> which can get complicated. Thus it is convenient to assume that <span class="math notranslate nohighlight">\(\gcd(m_i, m_j) = 1\)</span> when <span class="math notranslate nohighlight">\(i \ne j\)</span>.</p>
+<p><span style="color: #0096FF;"><b>CHINESE REMAINDER THEOREM</b></span></p>
+<p>The Chinese Remainder Theorem is about solving systems of linear congruences modulo pairwise coprime moduli.</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(\gcd(m_i, m_j) = 1\)</span> for every <span class="math notranslate nohighlight">\(i \ne j\)</span>.</p>
+<p>Then the system</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{cases}
+x &amp;\equiv c_1 \mod m_1 \\
+\dots \\
+x &amp;\equiv c_r \mod m_r \\
+\end  {cases}
+\)</span></p>
+<p>has as its complete solution precisely the members of a unique residue class modulo <span class="math notranslate nohighlight">\(m_1 m_2 \dots m_r\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p><em>EXISTENCE</em></p>
+<p>Let <span class="math notranslate nohighlight">\(M = m_1 m_2 \dots m_r\)</span> and <span class="math notranslate nohighlight">\(M_j = M / m_j\)</span>, so that <span class="math notranslate nohighlight">\(\gcd(M_j, m_j) = 1\)</span>.</p>
+<p>We know that there is an <span class="math notranslate nohighlight">\(N_j\)</span> so that <span class="math notranslate nohighlight">\(M_j N_j \equiv c_j \mod m_j\)</span>. (Solve <span class="math notranslate nohighlight">\(yM_j \equiv c_j \mod m_j\)</span> in <span class="math notranslate nohighlight">\(y\)</span>.)</p>
+<p>Let <span class="math notranslate nohighlight">\(x\)</span> be any member of the residue class <span class="math notranslate nohighlight">\(N_1 M_1 + \dotsb + N_r M_r \mod M\)</span>.</p>
+<p>Then for every <span class="math notranslate nohighlight">\(j\)</span>, since <span class="math notranslate nohighlight">\(m_j \mid M_i\)</span> when <span class="math notranslate nohighlight">\(i \ne j\)</span> we have <span class="math notranslate nohighlight">\(x \equiv N_j M_j \equiv c_j \mod m_j\)</span>.</p>
+<p>So the residue class <span class="math notranslate nohighlight">\(x \mod M\)</span> gives a solution.</p>
+<p><em>UNIQUENESS</em></p>
+<p>Suppose <span class="math notranslate nohighlight">\(y\)</span> is also a solution of the system.</p>
+<p>Then for every <span class="math notranslate nohighlight">\(j\)</span> we have <span class="math notranslate nohighlight">\(y \equiv c_j \equiv x \mod m_j\)</span> and so <span class="math notranslate nohighlight">\(m_j \mid y - x\)</span>.</p>
+<p>Since the <span class="math notranslate nohighlight">\(m_j\)</span> are pairwise coprime we have <span class="math notranslate nohighlight">\(M \mid y - x\)</span>, so <span class="math notranslate nohighlight">\(y\)</span> is in the residue class <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x &amp;\equiv \underset{c_1}{3} \mod \underset{m_1}{\phantom{2}4} \\
+x &amp;\equiv \underset{c_2}{5} \mod \underset{m_2}{21} \\
+x &amp;\equiv \underset{c_3}{7} \mod \underset{m_3}{25} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+M   &amp;=          m_1          \times m_2          \times m_3  = &amp; 2100 \\
+M_1 &amp;= \phantom{m_1          \times}m_2          \times m_3  = &amp;  525 \\
+M_2 &amp;=          m_1 \phantom{\times m_2}         \times m_3  = &amp;  100 \\
+M_3 &amp;=          m_1          \times m_2 \phantom{\times m_3} = &amp;   84 \\
+\end  {aligned}
+\)</span></p>
+<p>Solve</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+525 N_1 &amp;\equiv 3 \mod \phantom{2}4 \\
+100 N_2 &amp;\equiv 5 \mod 21 \\
+ 84 N_3 &amp;\equiv 7 \mod 25 \\
+\end  {aligned}
+\)</span></p>
+<p>reduces to</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+     N_1 &amp;\equiv 3 \mod \phantom{2}4 \\
+(-5) N_2 &amp;\equiv 5 \mod 21 \\
+   9 N_3 &amp;\equiv 7 \equiv -18 \mod 25 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+N_1 &amp;= 3 \\
+N_2 &amp;= 20 \\
+N_3 &amp;= 23 \equiv -2 \mod 25 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x
+&amp;\equiv N_1 M_1 + N_2 M_2 + N_3 M_3 \mod M \\
+&amp;= 3 \times 525 + 20 \times 100 + 23 \times 84 \mod 2100 \\
+&amp;= 5507 \mod 2100 \\
+&amp;\equiv 1307 \mod 2100 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
 <hr class="docutils" />
 <section id="polynomial-congruence">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Polynomial Congruence</a><a class="headerlink" href="#polynomial-congruence" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Polynomial Congruence</a><a class="headerlink" href="#polynomial-congruence" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
+<p>The solution of a general polynomial congruence can be quite tricky, even for a polynomial with a single variable.</p>
+<p><span style="color: #0096FF;"><b>POLYNOMIAL CONGRUENCE</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(f(x) := a_0 + a_1 x + \dotsb + a_j x^j + \dotsb + a_J x^J \equiv 0 \mod m\)</span></p>
+<p>where the <span class="math notranslate nohighlight">\(a_j\)</span> are integers.</p>
+</div>
+<p>The largest <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(a_k \not\equiv 0 \mod m\)</span> is the <strong>degree</strong> of <span class="math notranslate nohighlight">\(f\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>. If <span class="math notranslate nohighlight">\(a_j \equiv 0 \mod m\)</span> for every <span class="math notranslate nohighlight">\(j\)</span> then the degree of <span class="math notranslate nohighlight">\(f\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> is not defined.</p>
+<p>When we have a solution <span class="math notranslate nohighlight">\(x\)</span> to a polynomial congruence we may refer to such values as a <strong>root</strong> of the polynomial modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<hr class="docutils" />
+<p>We have already seen that</p>
+<p><span class="math notranslate nohighlight">\(x^2 \equiv 1 \mod 8\)</span></p>
+<p>is solved by any odd <span class="math notranslate nohighlight">\(x\)</span> so that it has four solutions modulo <span class="math notranslate nohighlight">\(8\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(x \equiv 1, 3, 5, 7 \mod 8\)</span></p>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>LAGRANGE’S THEOREM</b></span> [Vaughan Theorem 3.26]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and</p>
+<p><span class="math notranslate nohighlight">\(f(x) = a_0 + a_1 x + \dotsb + a_j x^j + \dotsb + a_J x^J \equiv 0 \mod m\)</span></p>
+<p>is a polynomial with integer coefficients <span class="math notranslate nohighlight">\(a_j\)</span> and it has degree <span class="math notranslate nohighlight">\(k\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>. Then the number of incongruent solutions of</p>
+<p><span class="math notranslate nohighlight">\(f(x) \equiv 0 \mod p\)</span></p>
+<p>is at most <span class="math notranslate nohighlight">\(k\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>Proof by induction on <span class="math notranslate nohighlight">\(k\)</span></b></span></p>
+<p>Degree <span class="math notranslate nohighlight">\(0\)</span> is trivial so we can suppose <span class="math notranslate nohighlight">\(k \ge 1\)</span>.</p>
+<p>If a polynomial <span class="math notranslate nohighlight">\(f\)</span> has degree <span class="math notranslate nohighlight">\(1\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span> so that <span class="math notranslate nohighlight">\(f(x) = a_0 + a_1 x\)</span> with <span class="math notranslate nohighlight">\(p \nmid a_1\)</span> then the congruence becomes <span class="math notranslate nohighlight">\(a_1 x \equiv -a_0 \mod p\)</span> and since <span class="math notranslate nohighlight">\(a_1 \not\equiv 0 \mod p\)</span> (because <span class="math notranslate nohighlight">\(f\)</span> has degree <span class="math notranslate nohighlight">\(1\)</span>) we know that this is soluble by precisely the members of a unique residue class modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
@@ -873,7 +1610,28 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Congruence</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-congruence-relation">Properties of the congruence relation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-arithmetic">Modular Arithmetic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition">Modular Addition</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication">Modular Multiplication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-division">Modular Division</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-exponentiation">Modular Exponentiation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-pseudoprimes">Fermat pseudoprimes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carmichael-numbers">Carmichael Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-congruence">Linear Congruence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chinese-remainder-theorem">Chinese Remainder Theorem</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-congruence">Polynomial Congruence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
