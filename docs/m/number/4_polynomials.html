@@ -1145,10 +1145,13 @@ g(x) &amp;= \sum_{j=0}^{m} b_j x^j = b_0 + b_1 x + \dotsb + b_m x^m \\
 = \sum_{i=0}^{n} \sum_{j=0}^{m} a_{k-j} b_j x^k
 \end  {aligned}
 \)</span></p>
-<p>Since <span class="math notranslate nohighlight">\(i\)</span> ranges from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(j\)</span> ranges from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(k\)</span> ranges from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(m + n\)</span>. Our sums are coupled since <span class="math notranslate nohighlight">\(j\)</span> depends on <span class="math notranslate nohighlight">\(k\)</span>. This dependence is exactly that <span class="math notranslate nohighlight">\(j\)</span> ranges from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(k\)</span>. <span style="color: red;">The easy way to see this is just by writing out a few cases</span>, but logically it follows because <span class="math notranslate nohighlight">\(a_0 x^0 b_k x^k\)</span> results in a power of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(k\)</span> ranges from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(m + n\)</span> but our sums are coupled since <span class="math notranslate nohighlight">\(j\)</span> depends on <span class="math notranslate nohighlight">\(k\)</span>. This dependence is exactly that <span class="math notranslate nohighlight">\(j\)</span> ranges from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(k\)</span>. <span style="color: red;">The easy way to see this is just by writing out a few cases</span>, but logically it follows because <span class="math notranslate nohighlight">\(a_0 x^0 b_k x^k\)</span> results in a power of <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-(fg)(x) = \sum_{k=0}^{n+m} \underbrace{\left( \sum_{j=0}^{k} a_{k-j} b_j \right)}_{c_i} x^k = c_0 + c_1 x + \dotsb + c_{n+m} x^{n+m} \\
+(fg)(x)
+&amp;= \sum_{k=0}^{n+m} \underbrace{\left( \sum_{j=0}^{k} a_{k-j} b_j \right)}_{c_k} x^k \\
+&amp;= \sum_{k=0}^{n+m} \underbrace{\left( \sum_{i=0}^{k} a_i b_{k-i} \right)}_{c_k} x^k
+= c_0 + c_1 x + \dotsb + c_{n+m} x^{n+m} \\
 \end  {aligned}
 \)</span></p>
 <p>The term inside the parentheses is the discrete convolution of the coefficients.</p>
@@ -1161,7 +1164,7 @@ c_2 &amp;= a_0 b_2 + a_1 b_1 + a_2 b_0 \\
 c_3 &amp;= a_0 b_3 + a_1 b_2 + a_2 b_1 + a_3 b_0 \\
 c_4 &amp;= a_0 b_4 + a_1 b_3 + a_2 b_2 + a_3 b_1 + a_4 b_0 \\
 c_5 &amp;= a_0 b_5 + a_1 b_4 + a_2 b_3 + a_3 b_2 + a_4 b_1 + a_5 b_0 \\ \vdots \\
-c_i &amp;= \sum_{j=0}^i a_j b_{i-j} = a_0 b_i + a_1 b_{i - 1} + a_2 b_{i - 2} + \dotsb + a_{i - 1} b_1 + a_i b_0 \\ \vdots \\
+c_k &amp;= \sum_{i=0}^k a_i b_{k-i} = a_0 b_k + a_1 b_{k - 1} + a_2 b_{k - 2} + \dotsb + a_{k - 1} b_1 + a_k b_0 \\ \vdots \\
 \end  {aligned}
 \)</span></p>
 </div>
@@ -1254,9 +1257,11 @@ f'(x) = \sum_{k = 0}^n k a_k x^{k - 1} \\
 <hr class="docutils" />
 <section id="resources">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://homepages.math.uic.edu/~jan/mcs320/polynomialsfactor.pdf">https://homepages.math.uic.edu/~jan/mcs320/polynomialsfactor.pdf</a></p></li>
-</ul>
+<p><a class="reference external" href="https://homepages.math.uic.edu/~jan/mcs320/polynomialsfactor.pdf">https://homepages.math.uic.edu/~jan/mcs320/polynomialsfactor.pdf</a></p>
+<p><a class="reference external" href="https://cseweb.ucsd.edu/~gill/CILASite/Resources/10Chap6.pdf">https://cseweb.ucsd.edu/~gill/CILASite/Resources/10Chap6.pdf</a></p>
+<p><a class="reference external" href="https://users.math.msu.edu/users/halljo/classes/codenotes/polyalg.pdf">https://users.math.msu.edu/users/halljo/classes/codenotes/polyalg.pdf</a></p>
+<p><a class="reference external" href="https://www.math.columbia.edu/~khovanov/MA2_2022/files/02_polynomials.pdf">https://www.math.columbia.edu/~khovanov/MA2_2022/files/02_polynomials.pdf</a></p>
+<p><a class="reference external" href="https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_(Judson)/17%3A_Polynomials/17.01%3A_Polynomial_Rings">https://math.libretexts.org/Bookshelves/Abstract_and_Geometric_Algebra/Abstract_Algebra%3A_Theory_and_Applications_(Judson)/17%3A_Polynomials/17.01%3A_Polynomial_Rings</a></p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
@@ -1296,6 +1301,7 @@ f'(x) = \sum_{k = 0}^n k a_k x^{k - 1} \\
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Homogeneous_polynomial">w</a> ] Homogeneous Polynomial</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Horner%27s_method">w</a> ] Horner’s Method</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Integer-valued_polynomial">w</a> ] Integer-Valued Polynomial</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Integral_domain">w</a> ] Integral Domain</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Irreducible_polynomial">w</a> ] Irreducible Polynomial</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Laurent_polynomial">w</a> ] Laurent Polynomial</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Like_terms">w</a> ] Like Terms</p></li>

@@ -749,6 +749,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#double-summation">Double Summation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-convolution">Discrete Convolution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-sum">Finite Sum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-sum">Infinite Sum</a></li>
@@ -790,23 +791,24 @@ document.write(`
 <li><p><a class="reference internal" href="#summations" id="id2">Summations</a></p>
 <ul>
 <li><p><a class="reference internal" href="#contents" id="id3">Contents</a></p></li>
-<li><p><a class="reference internal" href="#discrete-convolution" id="id4">Discrete Convolution</a></p></li>
-<li><p><a class="reference internal" href="#finite-sum" id="id5">Finite Sum</a></p></li>
-<li><p><a class="reference internal" href="#infinite-sum" id="id6">Infinite Sum</a></p></li>
-<li><p><a class="reference internal" href="#linearity" id="id7">Linearity</a></p></li>
-<li><p><a class="reference internal" href="#arithmetic-series" id="id8">Arithmetic Series</a></p></li>
-<li><p><a class="reference internal" href="#sum-of-squares" id="id9">Sum of Squares</a></p></li>
-<li><p><a class="reference internal" href="#sum-of-cubes" id="id10">Sum of Cubes</a></p></li>
-<li><p><a class="reference internal" href="#geometric-series" id="id11">Geometric Series</a></p></li>
-<li><p><a class="reference internal" href="#harmonic-series" id="id12">Harmonic Series</a></p></li>
-<li><p><a class="reference internal" href="#telescoping-series" id="id13">Telescoping Series</a></p></li>
-<li><p><a class="reference internal" href="#re-indexing-summations" id="id14">Re-indexing summations</a></p></li>
-<li><p><a class="reference internal" href="#products" id="id15">Products</a></p></li>
-<li><p><a class="reference internal" href="#converting-between-summations-and-products" id="id16">Converting between summations and products</a></p></li>
-<li><p><a class="reference internal" href="#summations-and-asymptotic-analysis" id="id17">Summations and asymptotic analysis</a></p></li>
-<li><p><a class="reference internal" href="#resources" id="id18">Resources</a></p></li>
-<li><p><a class="reference internal" href="#terms" id="id19">Terms</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgments" id="id20">Acknowledgments</a></p></li>
+<li><p><a class="reference internal" href="#double-summation" id="id4">Double Summation</a></p></li>
+<li><p><a class="reference internal" href="#discrete-convolution" id="id5">Discrete Convolution</a></p></li>
+<li><p><a class="reference internal" href="#finite-sum" id="id6">Finite Sum</a></p></li>
+<li><p><a class="reference internal" href="#infinite-sum" id="id7">Infinite Sum</a></p></li>
+<li><p><a class="reference internal" href="#linearity" id="id8">Linearity</a></p></li>
+<li><p><a class="reference internal" href="#arithmetic-series" id="id9">Arithmetic Series</a></p></li>
+<li><p><a class="reference internal" href="#sum-of-squares" id="id10">Sum of Squares</a></p></li>
+<li><p><a class="reference internal" href="#sum-of-cubes" id="id11">Sum of Cubes</a></p></li>
+<li><p><a class="reference internal" href="#geometric-series" id="id12">Geometric Series</a></p></li>
+<li><p><a class="reference internal" href="#harmonic-series" id="id13">Harmonic Series</a></p></li>
+<li><p><a class="reference internal" href="#telescoping-series" id="id14">Telescoping Series</a></p></li>
+<li><p><a class="reference internal" href="#re-indexing-summations" id="id15">Re-indexing summations</a></p></li>
+<li><p><a class="reference internal" href="#products" id="id16">Products</a></p></li>
+<li><p><a class="reference internal" href="#converting-between-summations-and-products" id="id17">Converting between summations and products</a></p></li>
+<li><p><a class="reference internal" href="#summations-and-asymptotic-analysis" id="id18">Summations and asymptotic analysis</a></p></li>
+<li><p><a class="reference internal" href="#resources" id="id19">Resources</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id20">Terms</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgments" id="id21">Acknowledgments</a></p></li>
 </ul>
 </li>
 </ul>
@@ -815,21 +817,101 @@ document.write(`
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
-<section id="discrete-convolution">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Discrete Convolution</a><a class="headerlink" href="#discrete-convolution" title="Link to this heading">#</a></h2>
+<section id="double-summation">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Double Summation</a><a class="headerlink" href="#double-summation" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\sum_{i=0}^n a_i \sum_{j=0}^n b_j = \sum_{k=0}^{2n} \sum_{i+j=k} a_i b_j = \sum_{k=0}^{2n} c_k \text{ where } c_k = \sum_{i+j=k} a_i b_j = \sum_{j=0}^{k} a_{k-j} b_j
+\sum_{i=m}^{n} \sum_{j=s}^{t} C
+= C \sum_{i=m}^{n} \sum_{j=s}^{t} 1
+= C \times (n - m + 1) \times (t - s + 1)
+\end  {aligned}
+\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(C\)</span> is a constant (any expression that doesn’t involve index variables) and <span class="math notranslate nohighlight">\(m \le n\)</span> and <span class="math notranslate nohighlight">\(s \le t\)</span>.</p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{i=1}^{m} \sum_{j=1}^{n} a_i + b_j
+&amp;= \sum_{i=1}^{m} (a_i + b_1 + a_i + b_2 + \dotsb + a_i + b_n) \\
+&amp;= \sum_{i=1}^{m} (na_i + b_1 + b_2 + \dotsb + b_n) \\
+&amp;= (na_1 + b_1 + b_2 + \dotsb + b_n) + (na_2 + b_1 + b_2 + \dotsb + b_n) + \dotsb + (na_m + b_1 + b_2 + \dotsb + b_n) \\
+&amp;= n(a_1 + a_2 + \dotsb + a_m) + m(b_1 + b_2 + \dotsb + b_n) \\
+&amp;= n \sum_{i=1}^{m} a_i + m \sum_{j=1}^{n} b_j \\
+\end  {aligned}
+\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a &amp;= \{ \underset{a_1}{1}, \underset{a_2}{2}, \underset{a_3}{3}, \underset{a_4}{4} \} \\
+b &amp;= \{ \underset{b_1}{1}, \underset{b_2}{2}, \underset{b_3}{3} \} \\
 \end  {aligned}
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\left( \sum_{i=0}^{m} a_i \right) \left( \sum_{i=0}^{n} b_i \right)
-&amp;= (a_0 + \dotsb + a_m) \left( \sum_{i=0}^{n} b_i \right) \\
-&amp;= a_0 \sum_{i=0}^n b_i + a_1 \sum_{i=0}^n b_i + \dotsb + a_m \sum_{i=0}^n b_i \\
+\sum_{i=1}^{4} \sum_{j=1}^{3} a_i + b_j
+&amp;= \sum_{i=1}^{4} (a_i + 1 + a_i + 2 + a_i + 3) \\
+&amp;= \sum_{i=1}^{m} (3a_i + 1 + 2 + 3) \\
+&amp;= (3.1 + 1 + 2 + 3) + (3.2 + 1 + 2 + 3) + (3.3 + 1 + 2 + 3) + (3.4 + 1 + 2 + 3) \\
+&amp;= 3(1 + 2 + 3 + 4) + 4(1 + 2 + 3) \\
+&amp;= 54 \\
+\end  {aligned}
+\)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{i=0}^{n} \sum_{j=0}^{i} (i + 1)(j + 1)
+&amp;= \sum_{i=0}^{n} \left( \sum_{j=0}^{i} (i + 1)(j + 1) \right) \\
+&amp;= \sum_{j=0}^{0} (0 + 1)(j + 1) + \sum_{j=0}^{1} (1 + 1)(j + 1) \\
+&amp;= (0 + 1)(0 + 1) + (1 + 1)(0 + 1) + (1 + 1)(1 + 1) \\
+&amp;= 1 + 2 + 4 = 7 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{i=m}^{n} a_i \sum_{j=s}^{t} b_j
+= \sum_{i=m}^{n} \sum_{j=s}^{t} a_i b_j
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\left( \sum_{i=1}^{n} a_i \right)^2
+= \sum_{i=1}^{n} a_i^2 + \underset{i \ne j}{\sum_{i=1}^{n} \sum_{j=1}^{n}} a_i a_j
+\end  {aligned}
+\)</span></p>
+<p>Property</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{i=0}^{m} a_i \sum_{j=0}^{n} b_j = \sum_{i=0}^{m} \sum_{j=0}^{n} a_i b_j = \sum_{j=0}^{n} \sum_{i=0}^{m} a_i b_j
+\end  {aligned}
+\)</span></p>
+<p>Proof</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{i=0}^{m} \sum_{j=0}^{n} a_i b_j
+&amp;= \sum_{i=0}^{m} (a_i b_0 + a_i b_1 + \dotsb + a_i b_n) \\
+&amp;= (a_0 b_0 + a_0 b_1 + \dotsb + a_0 b_n) + (a_1 b_0 + a_1 b_1 + \dotsb + a_1 b_n) + \dotsb + (a_m b_0 + a_m b_1 + \dotsb + a_m b_n) \\
+&amp;= a_0 (b_0 + b_1 + \dotsb + b_n) + a_1 (b_0 + b_1 + \dotsb + b_n) + \dotsb + a_m (b_0 + b_1 + \dotsb + b_n)
+&amp;&amp;= a_0 \sum_{j=0}^{n} b_j + a_1 \sum_{j=0}^{n} b_j + \dotsb + a_m \sum_{j=0}^{n} b_j \\
+&amp;= (a_0 + a_1 + \dotsb + a_m) (b_0 + b_1 + \dotsb + b_n)
+&amp;&amp;= (a_0 + a_1 + \dotsb + a_m) \sum_{j=0}^{n} b_j \\
+&amp;= \sum_{i=0}^{m} a_i \sum_{j=0}^{n} b_j
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="discrete-convolution">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Discrete Convolution</a><a class="headerlink" href="#discrete-convolution" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{i=0}^{m} a_i \sum_{j=0}^{n} b_j
+&amp;= (a_0 + \dotsb + a_m) \sum_{i=0}^{n} b_i \\
+&amp;= a_0 \sum_{j=0}^n b_j + a_1 \sum_{j=0}^n b_j+ \dotsb + a_m \sum_{j=0}^n b_j \\
 &amp;= a_0 (b_0 + \dotsb + b_n) + a_1 (b_0 + \dotsb + b_n) + \dotsb + a_m (b_0 + \dotsb + b_n) \\
 &amp;= \underbrace{(a_0 b_0 + \dotsb + a_0 b_n)}_{1} + \underbrace{(a_1 b_0 + \dots + a_1 b_n)}_{2} + \dotsb + \underbrace{(a_m b_0 + \dotsb + a_m b_n)}_{m} \\
-&amp;= \textcolor{red}{a_0 b_0} + (\textcolor{orange}{a_0 b_1 + a_1 b_0}) + (\textcolor{yellow}{a_0 b_2 + a_1 b_1 + a_2 b_0}) + \dotsb + (\textcolor{#00a8e0}{a_{m-1} b_n + a_m b_{n-1}}) + \textcolor{#00e0e0}{a_m b_n} \\
+&amp;= \textcolor{red}{a_0 b_0} + (\textcolor{orange}{a_0 b_1 + a_1 b_0}) + (\textcolor{yellow}{a_0 b_2 + a_1 b_1 + a_2 b_0}) + \dotsb + (\textcolor{#0070e0}{a_{m-2} b_n + a_{m-1} b_{n-1} + a_m b_{n-2}}) + (\textcolor{#00a8e0}{a_{m-1} b_n + a_m b_{n-1}}) + \textcolor{#00e0e0}{a_m b_n} \\
 &amp;= \sum_{i=0}^{0} a_i b_{0-i} + \sum_{i=0}^{1} a_i b_{1-i} + \sum_{i=0}^{2} a_i b_{2-i} + \dotsb + \sum_{i=0}^{n} a_i b_{n-i} \\
 &amp;= \sum_{j=0}^n \left( \sum_{i=0}^{j} a_i b_{j-i} \right) \\
 \end  {aligned}
@@ -848,24 +930,85 @@ a_0 b_{n-3} &amp; a_1 b_{n-3} &amp; a_2 b_{n-3} &amp; a_3 b_{n-3} &amp; \dots &a
 \textcolor{red}{a_0 b_0} &amp; \textcolor{orange}{a_1 b_0} &amp; \textcolor{yellow}{a_2 b_0} &amp; \textcolor{green}{a_3 b_0} &amp; \dots &amp; a_{m-3} b_0 &amp; a_{m-2} b_0 &amp; a_{m-1} b_0 &amp; a_m b_0 \\
 \end  {array}
 \)</span></p>
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a &amp;= \{ \underset{a_0}{0}, \underset{a_1}{1}, \underset{a_2}{2}, \underset{a_3}{3}, \underset{a_4}{4} \} \\
+b &amp;= \{ \underset{b_0}{0}, \underset{b_1}{1}, \underset{b_2}{2}, \underset{b_3}{3} \} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{i=0}^4 a_i &amp;= 0 + 1 + 2 + 3 + 4 &amp;&amp;= 10 \\
+\sum_{j=0}^3 b_j &amp;= 0 + 1 + 2 + 3     &amp;&amp;=  6 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{i=0}^4 a_i \sum_{j=0}^3 b_j
+&amp;= \sum_{i=0}^4 \sum_{j=0}^3 a_i b_j
+= \sum_{k=0}^7 \sum_{i+j=k} a_i b_j \\
+&amp;= \sum_{i+j=0} a_i b_j + \sum_{i+j=1} a_i b_j + \sum_{i+j=2} a_i b_j + \sum_{i+j=3} a_i b_j + \sum_{i+j=4} a_i b_j + \sum_{i+j=5} a_i b_j + \sum_{i+j=6} a_i b_j + \sum_{i+j=7} a_i b_j \\
+&amp;= (a_0 b_0) + (a_0 b_1 + a_1 b_0) + (a_0 b_2 + a_1 b_1 + a_2 b_0) + (a_0 b_3 + a_1 b_2 + a_2 b_1 + a_3 b_0) + \dotsb \\
+&amp;= \sum_{k=0}^7 \sum_{j=0}^{k} a_{k-j} b_j \\
+&amp;= \underbrace{\sum_{j=0}^{0} a_{0-j} b_j}_{1 \text{ term}} + \underbrace{\sum_{j=0}^{1} a_{1-j} b_j}_{2 \text{ terms}} + \underbrace{\sum_{j=0}^{2} a_{2-j} b_j}_{3 \text{ terms}} + \underbrace{\sum_{j=0}^{3} a_{3-j} b_j}_{4 \text{ terms}} + \underbrace{\sum_{j=0}^{4} a_{4-j} b_j}_{5 \text{ terms}} + \sum_{j=0}^{5} a_{5-j} b_j + \sum_{j=0}^{6} a_{6-j} b_j + \sum_{j=0}^{7} a_{7-j} b_j \\
+&amp;= a_0 b_0 + (a_1 b_0 + a_0 b_1) \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{c|c|c|c|c}
+a_0 b_3 &amp; a_1 b_3 &amp; a_2 b_3 &amp; a_3 b_3 &amp; a_4 b_3 \\
+a_0 b_2 &amp; a_1 b_2 &amp; a_2 b_2 &amp; a_3 b_2 &amp; a_4 b_2 \\
+a_0 b_1 &amp; a_1 b_1 &amp; a_2 b_1 &amp; a_3 b_1 &amp; a_4 b_1 \\
+a_0 b_0 &amp; a_1 b_0 &amp; a_2 b_0 &amp; a_3 b_0 &amp; a_4 b_0 \\
+\end  {array}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{c|c|c|c|c}
+0 \times 3 &amp; 1 \times 3 &amp; 2 \times 3 &amp; 3 \times 3 &amp; 4 \times 3 \\
+0 \times 2 &amp; 1 \times 2 &amp; 2 \times 2 &amp; 3 \times 2 &amp; 4 \times 2 \\
+\textcolor{orange}{0 \times 1} &amp; 1 \times 1 &amp; 2 \times 1 &amp; 3 \times 1 &amp; 4 \times 1 \\
+\textcolor{red}{0 \times 0} &amp; \textcolor{orange}{1 \times 0} &amp; 2 \times 0 &amp; 3 \times 0 &amp; 4 \times 0 \\
+\end  {array}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{c|cccccccc}
+k = 0 &amp; 4 &amp; 3 &amp; 2 &amp; 1 &amp; 0             \\
+      &amp;   &amp;   &amp;   &amp;   &amp; 0 &amp; 1 &amp; 2 &amp; 3 \\ \\
+k = 1 &amp; 4 &amp; 3 &amp; 2 &amp; 1 &amp; 0             \\
+      &amp;   &amp;   &amp;   &amp; 0 &amp; 1 &amp; 2 &amp; 3     \\ \\
+k = 2 &amp; 4 &amp; 3 &amp; 2 &amp; 1 &amp; 0             \\
+      &amp;   &amp;   &amp; 0 &amp; 1 &amp; 2 &amp; 3         \\ \\
+k = 3 &amp; 4 &amp; 3 &amp; 2 &amp; 1 &amp; 0             \\
+      &amp;   &amp; 0 &amp; 1 &amp; 2 &amp; 3             \\ \\
+k = 4 &amp; 4 &amp; 3 &amp; 2 &amp; 1 &amp; 0             \\
+      &amp; 0 &amp; 1 &amp; 2 &amp; 3                 \\ \\
+k = 5 &amp;   &amp; 4 &amp; 3 &amp; 2 &amp; 1 &amp; 0         \\
+      &amp; 0 &amp; 1 &amp; 2 &amp; 3                 \\ \\
+k = 6 &amp;   &amp;   &amp; 4 &amp; 3 &amp; 2 &amp; 1 &amp; 0     \\
+      &amp; 0 &amp; 1 &amp; 2 &amp; 3                 \\ \\
+k = 7 &amp;   &amp;   &amp;   &amp; 4 &amp; 3 &amp; 2 &amp; 1 &amp; 0 \\
+      &amp; 0 &amp; 1 &amp; 2 &amp; 3                 \\ \\
+\end  {array}
+\)</span></p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="finite-sum">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Finite Sum</a><a class="headerlink" href="#finite-sum" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Finite Sum</a><a class="headerlink" href="#finite-sum" title="Link to this heading">#</a></h2>
 <p>Given a sequence <span class="math notranslate nohighlight">\(a_1, a_2, \dotsc, a_n\)</span> of numbers where <span class="math notranslate nohighlight">\(n\)</span> is a nonnegative integer the finite sum <span class="math notranslate nohighlight">\(a_1 + a_2 + \dotsb + a_n\)</span> can be expressed as</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^n a_k \end{aligned}\)</span></p>
 <p>If <span class="math notranslate nohighlight">\(n = 0\)</span> then the summation is defined to be <span class="math notranslate nohighlight">\(0\)</span>. The value of a finite series is always well-defined and the order in which its terms are added does not matter.</p>
 </section>
 <section id="infinite-sum">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Infinite Sum</a><a class="headerlink" href="#infinite-sum" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Infinite Sum</a><a class="headerlink" href="#infinite-sum" title="Link to this heading">#</a></h2>
 <p>Given an infinite sequence <span class="math notranslate nohighlight">\(a_1, a_2, \dotsc\)</span> of numbers the infinite sum <span class="math notranslate nohighlight">\(a_1 + a_2 + \dotsb\)</span> can be expressed as</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^\infty a_k = \lim_{n \to \infty} \sum_{k = 1}^n a_k \end{aligned}\)</span></p>
 <p>If the limit does not exist then the series diverges; otherwise, it converges. The terms of a convergent series cannot always be added in any order. However, the terms of an absolutely convergent series can be rearranged. (An absolutely convergent series <span class="math notranslate nohighlight">\(\sum_{k = 1}^\infty a_k\)</span> is a series for which the series <span class="math notranslate nohighlight">\(\sum_{k = 1}^\infty |a_k|\)</span> also converges.)</p>
 </section>
 <section id="linearity">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Linearity</a><a class="headerlink" href="#linearity" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Linearity</a><a class="headerlink" href="#linearity" title="Link to this heading">#</a></h2>
 <p>For any real number <span class="math notranslate nohighlight">\(c\)</span> and any finite sequences <span class="math notranslate nohighlight">\(a_1, a_2, \dotsc, a_n\)</span> and <span class="math notranslate nohighlight">\(b_1, b_2, \dotsc, b_n\)</span></p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^n (c a_k + b_k) = c \sum_{k = 1}^n a_k + \sum_{k = 1}^n b_k \end{aligned}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^n \Theta(f(k)) = \Theta \left( \sum_{k = 1}^n f(k) \right) \end{aligned}\)</span></p>
@@ -873,7 +1016,7 @@ a_0 b_{n-3} &amp; a_1 b_{n-3} &amp; a_2 b_{n-3} &amp; a_3 b_{n-3} &amp; \dots &a
 <p>These linearity properties also holds for infinite convergent series.</p>
 </section>
 <section id="arithmetic-series">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Arithmetic Series</a><a class="headerlink" href="#arithmetic-series" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Arithmetic Series</a><a class="headerlink" href="#arithmetic-series" title="Link to this heading">#</a></h2>
 <p>The summation</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^n k = 1 + 2 + \dotsb + n \end{aligned}\)</span></p>
 <p>is an arithmetic series and has the value</p>
@@ -906,7 +1049,7 @@ a_0 b_{n-3} &amp; a_1 b_{n-3} &amp; a_2 b_{n-3} &amp; a_3 b_{n-3} &amp; \dots &a
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^n (a + bk) = \Theta(n^2) \end{aligned}\)</span></p>
 </section>
 <section id="sum-of-squares">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">Sum of Squares</a><a class="headerlink" href="#sum-of-squares" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Sum of Squares</a><a class="headerlink" href="#sum-of-squares" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 0}^n k^2 = \frac{n(n + 1)(2n + 1)}{6} \end{aligned}\)</span></p>
 <p>On the one hand, the telescoping series</p>
 <p><span class="math notranslate nohighlight">\(
@@ -939,11 +1082,11 @@ a_0 b_{n-3} &amp; a_1 b_{n-3} &amp; a_2 b_{n-3} &amp; a_3 b_{n-3} &amp; \dots &a
 \)</span></p>
 </section>
 <section id="sum-of-cubes">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">Sum of Cubes</a><a class="headerlink" href="#sum-of-cubes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Sum of Cubes</a><a class="headerlink" href="#sum-of-cubes" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 0}^n k^3 = \left( \frac{n(n + 1)}{2} \right)^2 = \frac{n^2 (n + 1)^2}{4} \end{aligned}\)</span></p>
 </section>
 <section id="geometric-series">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">Geometric Series</a><a class="headerlink" href="#geometric-series" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Geometric Series</a><a class="headerlink" href="#geometric-series" title="Link to this heading">#</a></h2>
 <p>For real <span class="math notranslate nohighlight">\(x \ne 1\)</span> the summation</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 0}^n x^k = 1 + x + x^2 + \dotsb + x^n \end{aligned}\)</span></p>
 <p>is a geometric series and has the value</p>
@@ -964,13 +1107,13 @@ x \cdot \frac{d}{dx} \left( \sum_{k = 0}^\infty x^k \right) &amp;= x \cdot \frac
 <p>for <span class="math notranslate nohighlight">\(|x| \lt 1\)</span>.</p>
 </section>
 <section id="harmonic-series">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Harmonic Series</a><a class="headerlink" href="#harmonic-series" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Harmonic Series</a><a class="headerlink" href="#harmonic-series" title="Link to this heading">#</a></h2>
 <p>For positive integers <span class="math notranslate nohighlight">\(n\)</span> the <span class="math notranslate nohighlight">\(n\)</span>-th harmonic number is</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} H_n = 1 + \frac{1}{2} + \frac{1}{3} + \dotsb + \frac{1}{n} = \sum_{k = 1}^n \frac{1}{k} = \ln n + O(1) \end{aligned}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\ln (n + 1) \le H_n \le \ln n + 1\)</span></p>
 </section>
 <section id="telescoping-series">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Telescoping Series</a><a class="headerlink" href="#telescoping-series" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Telescoping Series</a><a class="headerlink" href="#telescoping-series" title="Link to this heading">#</a></h2>
 <p>For any sequence <span class="math notranslate nohighlight">\(a_0, a_1, \dotsc, a_n\)</span></p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \sum_{k = 1}^n (a_k - a_{k - 1}) = a_n - a_0 \end{aligned}\)</span></p>
 <p>since each of the terms <span class="math notranslate nohighlight">\(a_1, a_2, \dotsc, a_{n - 1}\)</span> is added in exactly once and substracted out exactly once. We say that the sum telescopes.</p>
@@ -984,7 +1127,7 @@ x \cdot \frac{d}{dx} \left( \sum_{k = 0}^\infty x^k \right) &amp;= x \cdot \frac
 \)</span></p>
 </section>
 <section id="re-indexing-summations">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">Re-indexing summations</a><a class="headerlink" href="#re-indexing-summations" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Re-indexing summations</a><a class="headerlink" href="#re-indexing-summations" title="Link to this heading">#</a></h2>
 <p>A series can sometimes be simplified by changing its index, often reversing the order of summation. Generally, if the summation index appears in the body of the sum with a minus sign, it’s worth thinking about re-indexing.</p>
 <p>EXAMPLE</p>
 <p><span class="math notranslate nohighlight">\(
@@ -1008,13 +1151,13 @@ x \cdot \frac{d}{dx} \left( \sum_{k = 0}^\infty x^k \right) &amp;= x \cdot \frac
 \)</span></p>
 </section>
 <section id="products">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">Products</a><a class="headerlink" href="#products" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Products</a><a class="headerlink" href="#products" title="Link to this heading">#</a></h2>
 <p>The finite product <span class="math notranslate nohighlight">\(a_1 a_2 \dotsm a_n\)</span> can be expressed as</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned} \prod_{k = 1}^n a_k \end{aligned}\)</span></p>
 <p>If <span class="math notranslate nohighlight">\(n = 0\)</span> then the product is defined to be <span class="math notranslate nohighlight">\(1\)</span>.</p>
 </section>
 <section id="converting-between-summations-and-products">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">Converting between summations and products</a><a class="headerlink" href="#converting-between-summations-and-products" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Converting between summations and products</a><a class="headerlink" href="#converting-between-summations-and-products" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \lg \left( \prod_{k = 1}^n a_k \right) = \sum_{k = 1}^n \lg a_k
@@ -1023,7 +1166,7 @@ x \cdot \frac{d}{dx} \left( \sum_{k = 0}^\infty x^k \right) &amp;= x \cdot \frac
 </section>
 <hr class="docutils" />
 <section id="summations-and-asymptotic-analysis">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Summations and asymptotic analysis</a><a class="headerlink" href="#summations-and-asymptotic-analysis" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Summations and asymptotic analysis</a><a class="headerlink" href="#summations-and-asymptotic-analysis" title="Link to this heading">#</a></h2>
 <p>Mathematical induction can be used to prove an upper or lower bound on a summation.</p>
 <p>EXAMPLE</p>
 <p>Prove the asymptotic upper bound <span class="math notranslate nohighlight">\(\sum_{k = 0}^n 3^k = O(3^n)\)</span>. In other words, prove <span class="math notranslate nohighlight">\(\sum_{k = 0}^n 3^k \le c3^n\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span> for all sufficiently large <span class="math notranslate nohighlight">\(n\)</span>.</p>
@@ -1071,14 +1214,18 @@ cn^2 + n + 1 + ((c - 1)n + c(n + 1) - 1)
 </section>
 <hr class="docutils" />
 <section id="resources">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.cs.yale.edu/homes/aspnes/pinewiki/attachments/SummationNotation/summation-notation.pdf">https://www.cs.yale.edu/homes/aspnes/pinewiki/attachments/SummationNotation/summation-notation.pdf</a></p>
 <p><a class="reference external" href="https://math.stackexchange.com/questions/1937630/convolution-and-multiplication-of-polynomials-is-the-same">https://math.stackexchange.com/questions/1937630/convolution-and-multiplication-of-polynomials-is-the-same</a></p>
+<p><a class="reference external" href="https://www.quora.com/Is-it-possible-to-multiply-two-summations-with-the-same-limits-and-turn-them-into-only-one-summation">https://www.quora.com/Is-it-possible-to-multiply-two-summations-with-the-same-limits-and-turn-them-into-only-one-summation</a></p>
+<p><a class="reference external" href="https://www.statpower.net/Content/310/Summation%20Algebra.pdf">https://www.statpower.net/Content/310/Summation Algebra.pdf</a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=wxhBwKwceUc&amp;amp;list=PLoetsRqdeRZlO7rADZsSx2kfumIDdveK2&amp;amp;index=1">https://www.youtube.com/watch?v=wxhBwKwceUc&amp;list=PLoetsRqdeRZlO7rADZsSx2kfumIDdveK2&amp;index=1</a></p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="terms">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cauchy_product">w</a> ] Cauchy Product</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution">w</a> ] Convolution</p></li>
@@ -1086,6 +1233,7 @@ cn^2 + n + 1 + ((c - 1)n + c(n + 1) - 1)
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Empty_product">w</a> ] Empty Product</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Empty_sum">w</a> ] Empty Sum</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Formal_power_series">w</a> ] Formal Power Series</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Iverson_bracket">w</a> ] Iverson Bracket</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">w</a> ] Karatsuba Algorithm</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Summation">w</a> ] Summation</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Vandermonde%27s_identity">w</a> ] Vandermonde’s Identity</p></li>
@@ -1095,7 +1243,7 @@ cn^2 + n + 1 + ((c - 1)n + c(n + 1) - 1)
 </section>
 <hr class="docutils" />
 <section id="acknowledgments">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">Acknowledgments</a><a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Acknowledgments</a><a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2022</span></code> Cormen, Leiserson, Rivest, &amp; Stein. <em>Introduction to Algorithms</em>. 4e. <a class="reference external" href="https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/">MIT Press</a>.</p>
 <p>[ <a class="reference external" href="https://stewartcalculus.com/">h</a> ] <code class="docutils literal notranslate"><span class="pre">2020</span></code> Stewart, James. <em>Calculus</em>. 9e. Cengage.</p>
 <hr class="docutils" />
@@ -1169,6 +1317,7 @@ cn^2 + n + 1 + ((c - 1)n + c(n + 1) - 1)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#double-summation">Double Summation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-convolution">Discrete Convolution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-sum">Finite Sum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-sum">Infinite Sum</a></li>
