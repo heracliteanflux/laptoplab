@@ -750,6 +750,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order a modulo m</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-root">Primitive Root</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-theorem">Gauss’ Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
             </nav>
@@ -770,7 +772,9 @@ document.write(`
 <li><p><a class="reference internal" href="#primitive-roots" id="id1">Primitive Roots</a></p>
 <ul>
 <li><p><a class="reference internal" href="#order-a-modulo-m" id="id2">Order a modulo m</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id3">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#primitive-root" id="id3">Primitive Root</a></p></li>
+<li><p><a class="reference internal" href="#gauss-theorem" id="id4">Gauss’ Theorem</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id5">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -898,12 +902,83 @@ x^{10} &amp; \equiv 1 \mod 11 &amp; x &amp;= 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 \\ \h
 <p>and then</p>
 <p><span class="math notranslate nohighlight">\(a^{v-u} \equiv 1 \mod m\)</span> with <span class="math notranslate nohighlight">\(1 \le v-u \lt \phi(m)\)</span></p>
 <p>contradicting the assumption that <span class="math notranslate nohighlight">\(\text{ord}_m(a) = \phi(m)\)</span> is minimal.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
+1^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(1) = 1 \\
+2^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(2) = 3 \\
+3^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(3) = 6 \\
+4^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(4) = 3 \\
+5^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(5) = 6 \\
+6^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(6) = 2 \\
+\end  {aligned}
+\)</span></p>
+<p>There is one element of order <span class="math notranslate nohighlight">\(1\)</span>, one element of order <span class="math notranslate nohighlight">\(2\)</span>, two of order <span class="math notranslate nohighlight">\(3\)</span>, and two of order <span class="math notranslate nohighlight">\(6\)</span>.</p>
+<p>Is it a fluke that for each <span class="math notranslate nohighlight">\(d \mid 6 = \phi(7)\)</span> the number of elements of order <span class="math notranslate nohighlight">\(d\)</span> is <span class="math notranslate nohighlight">\(\phi(d)\)</span>?</p>
+</section>
+<hr class="docutils" />
+<section id="primitive-root">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Primitive Root</a><a class="headerlink" href="#primitive-root" title="Link to this heading">#</a></h2>
+<p><span style="color: #0096FF;"><b>PRIMITIVE ROOT</b></span> [Vaughan Definition 4.5]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}^+\)</span> and that <span class="math notranslate nohighlight">\(\gcd(a, m) = 1\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\text{ord}_m(a) = \phi(m)\)</span> then we say that <span class="math notranslate nohighlight">\(a\)</span> is a primitive root modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</div>
+<p>We know that we do not always have primitive roots. For example, any number <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, 8) = 1\)</span> is odd and so <span class="math notranslate nohighlight">\(a^2 \equiv 1 \mod 8\)</span> whereas <span class="math notranslate nohighlight">\(\phi(8) = 4\)</span>.</p>
+<p>There are primitive roots to some moduli. For example, modulo <span class="math notranslate nohighlight">\(7\)</span> the powers of <span class="math notranslate nohighlight">\(3\)</span> are successively <span class="math notranslate nohighlight">\(3, 2, 6, 4, 5, 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+3^1 \equiv 3 \mod 7 \\
+3^2 \equiv 2 \mod 7 \\
+3^3 \equiv 6 \mod 7 \\
+3^4 \equiv 4 \mod 7 \\
+3^5 \equiv 5 \mod 7 \\
+3^6 \equiv 1 \mod 7 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="gauss-theorem">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Gauss’ Theorem</a><a class="headerlink" href="#gauss-theorem" title="Link to this heading">#</a></h2>
+<p>Gauss determined precisely which moduli possess primitive roots. The first step is the case of prime modulus.</p>
+<p><span style="color: #0096FF;"><b>GAUSS’ THEOREM</b></span> [Vaughan Theorem 4.6]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and let <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span>.</p>
+<p>Then there are <span class="math notranslate nohighlight">\(\phi(d)\)</span> residue classes <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\text{ord}_p(a) = d\)</span>.</p>
+<p>In particular, there are <span class="math notranslate nohighlight">\(\phi(p - 1) = \phi(\phi(p))\)</span> primitive roots modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>PROOF</b></span></p>
+<p>We have seen that the order of every reduced residue class modulo <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(p-1\)</span>.</p>
+<p>For a given <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span> let <span class="math notranslate nohighlight">\(\psi(d)\)</span> denote the number of reduced residues of order <span class="math notranslate nohighlight">\(d\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>The congruence <span class="math notranslate nohighlight">\(x^d \equiv 1 \mod p\)</span> has exactly <span class="math notranslate nohighlight">\(d\)</span> solutions.</p>
+<p>Thus every solution has order dividing <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<p>Also each residue with order dividing <span class="math notranslate nohighlight">\(d\)</span> is a solution.</p>
+<p>Thus for each <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span> we have</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d} \psi(r) = d \\
+\end  {aligned}
+\)</span></p>
+<p>This is reminiscent of an earlier formula</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d} \phi(r) = d \\
+\end  {aligned}
+\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(1 = d_1 \lt d_2 \lt \dots \lt d_k = p - 1\)</span> be the divisors of <span class="math notranslate nohighlight">\(p-1\)</span> in order.</p>
+<p>We have a relationship</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d_j} \psi(r) = d_j \text{ for each } j = 1, 2, \dotsc
+\end  {aligned}
+\)</span></p>
+<p>and of course the sum is over a subset of the divisors of <span class="math notranslate nohighlight">\(p - 1\)</span>. It is claimed that this determines <span class="math notranslate nohighlight">\(\psi(d_j)\)</span> uniquely.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
 <hr class="docutils" />
 <hr class="docutils" />
@@ -976,6 +1051,8 @@ x^{10} &amp; \equiv 1 \mod 11 &amp; x &amp;= 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 \\ \h
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order a modulo m</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-root">Primitive Root</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-theorem">Gauss’ Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
   </nav></div>
