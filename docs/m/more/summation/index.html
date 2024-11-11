@@ -1083,12 +1083,20 @@ k - n &amp;\le i \le k \\
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 &amp; \left( \sum_{k=0}^{m-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=m}^{n-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=n}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) \\
-&amp;= \sum_{k=0}^{m-1} \sum_{i=0}^k a_i b_{k-i} + \sum_{k=m}^n \sum_{i=0}^m a_i b_{k-i} + \sum_{k=n+1}^{m+n} \sum_{i=k-n}^m a_i b_{k-i} \\
-&amp;= \sum_{k=0}^n \sum_{i=0}^{\min\{ m, k \}} a_i b_{k-i} + \sum_{k=n+1}^{m+n} \sum_{i=k-n}^m a_i b_{k-i} \\
+&amp;= \sum_{k=0}^{m-1} \sum_{i=0}^k a_i b_{k-i} + \sum_{k=m}^n \sum_{i=0}^m a_i b_{k-i} + \sum_{k=n+1}^{m+n} \sum_{i=k-n}^m a_i b_{k-i}
 \end  {aligned}
 \)</span></p>
-</div><hr class="docutils" />
-<div class="full-wdith">
+</div><p>Observe how one might go about re-compressing the expansion:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \sum_{k=0}^{m-1} \sum_{i=0}^k a_i b_{k-i} + \sum_{k=m}^n \sum_{i=0}^m a_i b_{k-i} + \sum_{k=n+1}^{m+n} \sum_{i=k-n}^m a_i b_{k-i} \\
+&amp;= \sum_{k=0}^n \sum_{i=0}^{\min\{ m, k \}} a_i b_{k-i} + \sum_{k=n+1}^{m+n} \sum_{i=k-n}^m a_i b_{k-i}
+= \sum_{k=0}^{m-1} \sum_{i=0}^k a_i b_{k-i} + \sum_{k=m}^{m+n} \sum_{i=\max\{ 0, k-n \}}^m a_i b_{k-i} \\
+&amp;= \sum_{k=0}^{m+n} \sum_{i=\max\{ 0, n-k \}}^{\min\{ m, k \}} a_i b_{k-i} \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<div class="full-width">
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \sum_{i=0}^{m} a_i \sum_{j=0}^{n} b_j
