@@ -260,6 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/2_division.html">Division</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/3_congruence.html">Congruence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/4_polynomials.html">Polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/number/5.html">Primitive Roots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/theory.html">Number Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/hw.html">Exercises</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/number/book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1015,7 +1016,7 @@ additional features.  The original behavior of these functions should not be aff
 <span class=" -Color -Color-Cyan">ℹ</span> Use the conflicted package (<span class=" -Color -Color-Blue">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
 </pre></div>
 </div>
-<div class="output text_html">'EXECUTED : 2024-11-11 02:23:39.600941'</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
+<div class="output text_html">'EXECUTED : 2024-11-11 14:26:45.248277'</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
 Platform: aarch64-apple-darwin20 (64-bit)
 Running under: macOS 15.1
 
@@ -1187,12 +1188,12 @@ loaded via a namespace (and not attached):
 	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>⋯</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td>female</td><td>37</td><td>yes</td><td>Other Hispanic    </td><td>alive</td><td>69</td><td>no</td><td>0</td><td>1.510</td><td>64.7</td><td>⋯</td><td>   NA</td><td>-0.71929</td><td>62</td><td>268</td><td>100</td><td>59</td><td>0.00</td><td>1755.758</td><td>1</td><td>24</td></tr>
-	<tr><th scope=row>2</th><td>male  </td><td>47</td><td>no </td><td>Mexican American  </td><td>alive</td><td>NA</td><td>no</td><td>0</td><td>   NA</td><td>  NA</td><td>⋯</td><td>   NA</td><td> 0.00000</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>1.42</td><td>   0.000</td><td>1</td><td>22</td></tr>
-	<tr><th scope=row>3</th><td>male  </td><td> 2</td><td>no </td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>0.973</td><td>14.7</td><td>⋯</td><td>   NA</td><td>      NA</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>0.01</td><td>5800.446</td><td>2</td><td> 1</td></tr>
-	<tr><th scope=row>4</th><td>male  </td><td> 3</td><td>no </td><td>Non-Hispanic Black</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>0.957</td><td>14.4</td><td>⋯</td><td>   NA</td><td>      NA</td><td>58</td><td>144</td><td> NA</td><td>NA</td><td>0.48</td><td>3227.103</td><td>2</td><td>33</td></tr>
-	<tr><th scope=row>5</th><td>male  </td><td>13</td><td>no </td><td>Non-Hispanic Black</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>1.689</td><td>69.6</td><td>⋯</td><td>1.251</td><td>      NA</td><td>56</td><td>116</td><td>104</td><td>60</td><td>2.59</td><td>2231.004</td><td>2</td><td>37</td></tr>
-	<tr><th scope=row>6</th><td>female</td><td> 8</td><td>no </td><td>Other/Multi       </td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>1.385</td><td>34.7</td><td>⋯</td><td>0.865</td><td>      NA</td><td>51</td><td>173</td><td>100</td><td>37</td><td>0.48</td><td>3782.504</td><td>2</td><td>33</td></tr>
+	<tr><th scope=row>1</th><td>male  </td><td>13</td><td>no</td><td>Mexican American  </td><td>NA   </td><td>NA</td><td>no</td><td> 0</td><td>1.568</td><td>50.4</td><td>⋯</td><td>0.9340</td><td>-1.14831</td><td>61</td><td>156</td><td> 91</td><td>67</td><td>4.14</td><td>1240.0575</td><td>1</td><td>15</td></tr>
+	<tr><th scope=row>2</th><td>male  </td><td>10</td><td>no</td><td>Mexican American  </td><td>NA   </td><td>NA</td><td>no</td><td> 0</td><td>1.515</td><td>55.8</td><td>⋯</td><td>0.8740</td><td>      NA</td><td>52</td><td>183</td><td>111</td><td>63</td><td>2.50</td><td>3054.8377</td><td>2</td><td>40</td></tr>
+	<tr><th scope=row>3</th><td>female</td><td> 3</td><td>no</td><td>Mexican American  </td><td>NA   </td><td>NA</td><td>no</td><td> 0</td><td>0.994</td><td>16.0</td><td>⋯</td><td>    NA</td><td>      NA</td><td>39</td><td>161</td><td> NA</td><td>NA</td><td>0.65</td><td>2899.2591</td><td>1</td><td>41</td></tr>
+	<tr><th scope=row>4</th><td>female</td><td> 0</td><td>no</td><td>Mexican American  </td><td>NA   </td><td>NA</td><td>NA</td><td>NA</td><td>   NA</td><td>10.7</td><td>⋯</td><td>    NA</td><td>      NA</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>1.86</td><td> 776.6282</td><td>2</td><td> 6</td></tr>
+	<tr><th scope=row>5</th><td>female</td><td>79</td><td>no</td><td>Mexican American  </td><td>alive</td><td>86</td><td>no</td><td> 0</td><td>1.526</td><td>59.3</td><td>⋯</td><td>1.0412</td><td> 0.84855</td><td>43</td><td>217</td><td>143</td><td>73</td><td>1.67</td><td> 752.9012</td><td>1</td><td>13</td></tr>
+	<tr><th scope=row>6</th><td>female</td><td>17</td><td>no</td><td>Non-Hispanic Black</td><td>NA   </td><td>NA</td><td>no</td><td> 0</td><td>1.543</td><td>50.4</td><td>⋯</td><td>    NA</td><td>      NA</td><td>49</td><td>118</td><td>102</td><td>56</td><td>0.00</td><td>2131.7632</td><td>2</td><td> 7</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1902,7 +1903,7 @@ loaded via a namespace (and not attached):
 “Removed 2575 rows containing missing values (`geom_point()`).”
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/eea339a81cfe868353660f370488d897084418eb8fa582ef22c2b8ea48c4a4a6.png"><img alt="../../../_images/eea339a81cfe868353660f370488d897084418eb8fa582ef22c2b8ea48c4a4a6.png" src="../../../_images/eea339a81cfe868353660f370488d897084418eb8fa582ef22c2b8ea48c4a4a6.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/66478c3eee6e691ad03c974229ca04e5a9f1676e92472f136e2c5bb4e3ded9e4.png"><img alt="../../../_images/66478c3eee6e691ad03c974229ca04e5a9f1676e92472f136e2c5bb4e3ded9e4.png" src="../../../_images/66478c3eee6e691ad03c974229ca04e5a9f1676e92472f136e2c5bb4e3ded9e4.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1956,7 +1957,7 @@ loaded via a namespace (and not attached):
 “Removed 2575 rows containing missing values (`geom_point()`).”
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/5b37227e4c9b5c1d02d9cdfafa0da7691b7f02b4a5082acf2f8098299d733527.png"><img alt="../../../_images/5b37227e4c9b5c1d02d9cdfafa0da7691b7f02b4a5082acf2f8098299d733527.png" src="../../../_images/5b37227e4c9b5c1d02d9cdfafa0da7691b7f02b4a5082acf2f8098299d733527.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/9b288f4ba02b76b8c4fc3b633fb7e17793ab799af38b7322d12e358832be7080.png"><img alt="../../../_images/9b288f4ba02b76b8c4fc3b633fb7e17793ab799af38b7322d12e358832be7080.png" src="../../../_images/9b288f4ba02b76b8c4fc3b633fb7e17793ab799af38b7322d12e358832be7080.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 <div class="cell docutils container">

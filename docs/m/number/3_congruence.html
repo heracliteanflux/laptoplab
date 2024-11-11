@@ -260,6 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="2_division.html">Division</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Congruence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_polynomials.html">Polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.html">Primitive Roots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="theory.html">Number Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw.html">Exercises</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -999,9 +1000,23 @@ x \cdot (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is odd}  \\
 <p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.]</p>
 <div style="color: #0096FF;">
 <p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span>, <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span>, and</p>
-<p><span class="math notranslate nohighlight">\(\overline{a_1}, \overline{a_2}, \dotsc, \overline{a_m}\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\overline{a_1} &amp;= \{ x \in \mathbb{Z} : m \mid (x - a_1) \} = \{ mx + a_1 :  x \in \mathbb{Z} \} \\
+\overline{a_2} &amp;= \{ x \in \mathbb{Z} : m \mid (x - a_2) \} = \{ mx + a_2 :  x \in \mathbb{Z} \} \\
+\vdots \\
+\overline{a_m} &amp;= \{ x \in \mathbb{Z} : m \mid (x - a_m) \} = \{ mx + a_m :  x \in \mathbb{Z} \}
+\end  {aligned}
+\)</span></p>
 <p>forms a complete system of residues modulo <span class="math notranslate nohighlight">\(m\)</span>. Then so does</p>
-<p><span class="math notranslate nohighlight">\(\overline{ka_1}, \overline{ka_2}, \dotsc, \overline{ka_m}\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\overline{ka_1} &amp;= \{ x \in \mathbb{Z} : m \mid (x - ka_1) \} = \{ mx + ka_1 :  x \in \mathbb{Z} \} \\
+\overline{ka_2} &amp;= \{ x \in \mathbb{Z} : m \mid (x - ka_2) \} = \{ mx + ka_2 :  x \in \mathbb{Z} \} \\
+\vdots \\
+\overline{ka_m} &amp;= \{ x \in \mathbb{Z} : m \mid (x - ka_m) \} = \{ mx + ka_m :  x \in \mathbb{Z} \}
+\end  {aligned}
+\)</span></p>
 </div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
 <div style="color: red;">
 <p>Since there are <span class="math notranslate nohighlight">\(m\)</span> residue classes it need only be checked that they are disjoint.</p>
@@ -1010,7 +1025,8 @@ x \cdot (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is odd}  \\
 <p>If they were the same integer then <span class="math notranslate nohighlight">\(ka_i + mx = ka_j + my \iff ka_i - ka_j = my - mx \iff k(a_i - a_j) = m(y - x)\)</span>.</p>
 <p>But then <span class="math notranslate nohighlight">\(m \mid k(a_i - a_j)\)</span> and since <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span> it would be the case that <span class="math notranslate nohighlight">\(m \mid a_i - a_j\)</span>; that <span class="math notranslate nohighlight">\(\overline{a_i}\)</span> and <span class="math notranslate nohighlight">\(\overline{a_j}\)</span> be the same residue class; and that <span class="math notranslate nohighlight">\(i = j\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<p><span style="color: #50C878;"><b><span class="math notranslate nohighlight">\(\bar{0}, \bar{1}, \bar{2}\)</span> is a complete system of residues modulo <span class="math notranslate nohighlight">\(m\)</span></b></span></p>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(\bar{0}, \bar{1}, \bar{2}\)</span> is a complete system of residues modulo <span class="math notranslate nohighlight">\(3\)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \bar{0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 0) \} = \{ 3x \} \\
@@ -1018,12 +1034,22 @@ x \cdot (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is odd}  \\
 \bar{2} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2) \} = \{ 3x + 2 \} \\
 \end  {aligned}
 \)</span></p>
-<p><span class="math notranslate nohighlight">\(\gcd(2, 3) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(3, 2) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\bar{0}, \bar{2}, \bar{4}\)</span> is a complete system of residues modulo <span class="math notranslate nohighlight">\(3\)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\bar{0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 0) \} = \{ 3x \} \\
-\bar{2} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2) \} = \{ 3x + 2 \} \\
-\bar{4} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 4) \} = \{ 3x + 4 \} = \{ 3(x + 1) + 1 \} = \{ 3x + 1 \} \\
+\bar{0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2.0) \} = \{ 3x     \}                      \\
+\bar{2} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2.1) \} = \{ 3x + 2 \}                      \\
+\bar{4} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 2.2) \} = \{ 3x + 4 \} = \{ 3(x + 1) + 1 \} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(3, 5) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\bar{0}, \bar{5}, \bar{10}\)</span> is a complete system of residues modulo <span class="math notranslate nohighlight">\(3\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bar{ 0} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 5.0) \} = \{ 3x      \}                      \\
+\bar{ 5} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 5.1) \} = \{ 3x +  5 \} = \{ 3(x + 1) + 2 \} \\
+\bar{10} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 5.2) \} = \{ 3x + 10 \} = \{ 3(x + 3) + 1 \} \\
 \end  {aligned}
 \)</span></p>
 <p><span style="color: #0096FF;"><b>ARITHMETIC FUNCTION</b></span></p>
