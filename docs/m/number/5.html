@@ -778,7 +778,7 @@ document.write(`
 <hr class="docutils" />
 <hr class="docutils" />
 <hr class="docutils" />
-<p>The residue class modulo <span class="math notranslate nohighlight">\(m\)</span> is called a ring denoted by <span class="math notranslate nohighlight">\(\mathbb{Z}_m\)</span> or <span class="math notranslate nohighlight">\(\mathbb{Z}/m\mathbb{Z}\)</span>.</p>
+<p>The residue class modulo <span class="math notranslate nohighlight">\(m\)</span> is called a ring and denoted by <span class="math notranslate nohighlight">\(\mathbb{Z}_m\)</span> or <span class="math notranslate nohighlight">\(\mathbb{Z}/m\mathbb{Z}\)</span>.</p>
 <p>We will examine its multiplicative structure; in particular, we will consider the reduced residue classes modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
 <hr class="docutils" />
 <section id="order-a-modulo-m">
@@ -842,8 +842,63 @@ a^n         &amp;\equiv a^r &amp; \mod m \\
 <p>Here is an application that will be made use of later.</p>
 <p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 4.3]</p>
 <div style="color: #0096FF;">
-<p>Suppose that <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span>.</p>
-</div><hr class="docutils" />
+<p>Suppose that <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span>. Then the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^d \equiv 1 \mod p\)</span></p>
+<p>has exactly <span class="math notranslate nohighlight">\(d\)</span> solutions.</p>
+</div><div class="full-width">
+<p><span style="color: #0096FF;"><b>PROOF</b></span></p>
+<p><span class="math notranslate nohighlight">\(d \mid (p - 1) \implies x^d \mid x^{p-1} \implies (x^d - 1) \mid (x^{p-1} - 1) \implies x^{p-1} - 1 = (x^d - 1)q(x)\)</span> where <span class="math notranslate nohighlight">\(q(x)\)</span> is a polynomial of degree <span class="math notranslate nohighlight">\(p - 1 - d\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(d \mid (p - 1) \implies p - 1 = kd \implies x^{p-1} - 1 = x^{kd} - 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^{kd} - 1 &amp;= (x^d - 1)(x^{(k-1)d} + x^{(k-2)d} + x^{(k-3)d} + x^{(k-4)d} + \dotsb + x^d + 1) \\
+&amp;= (x^{(k-1)d+d} + x^{(k-2)d+d} + x^{(k-3)d+d} + x^{(k-4)d+d} + \dotsb + x^{2d} + x^d) &amp;- (x^{(k-1)d} + x^{(k-2)d} + \dotsb + x^d + 1) \\
+&amp;= (x^{kd} + x^{kd-d} + x^{kd-2d} + x^{kd-3d} \dotsb + x^{2d} + x^d)                   &amp;- (x^{(k-1)d} + x^{(k-2)d} + \dotsb + x^d + 1) \\
+&amp;= (x^{kd} + x^{(k-1)d} + x^{(k-2)d} + x^{(k-3)d} \dotsb + x^{2d} + x^d)                   &amp;- (x^{(k-1)d} + x^{(k-2)d} + \dotsb + x^d + 1) \\
+\end  {aligned}
+\)</span></p>
+<p>Observe that the terms telescope (i.e., all terms but two cancel each other out). To see this with <span class="math notranslate nohighlight">\(p-1\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^{p-1} - 1
+&amp;= (x^d - 1)(x^{p-1-d} + x^{p-1-2d} + x^{p-1-3d} + x^{p-1-4d} + \dotsb + x^d + 1) \\
+&amp;= (x^{p-1+(d-d)} + x^{p-1+(d-2d)} + x^{p-1+(d-3d)} + x^{p-1+(d-4d)} + \dotsb + x^{2d} + x^d) - (x^{p-1-d} + x^{p-1-2d} + x^{p-1-3d} + x^{p-1-4d} + \dotsb + x^d + 1) \\
+\end  {aligned}
+\)</span></p>
+<p>We know from Euler’s theorem that there are exactly <span class="math notranslate nohighlight">\(p-1\)</span> incongruent roots to the lefthand side modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(x^{p-1} \equiv 1 \mod p\)</span></p>
+<p>On the other hand, by Lagrange’s theorem, the second factor has at most <span class="math notranslate nohighlight">\(p - 1 - d\)</span> such roots, so the first factor must account for at least <span class="math notranslate nohighlight">\(d\)</span> of them. On the other hand, again by Lagrange’s theorem, the second factor has at most <span class="math notranslate nohighlight">\(d\)</span> roots modulo <span class="math notranslate nohighlight">\(p\)</span>. Therefore</p>
+<p><span class="math notranslate nohighlight">\(x^d \equiv 1 \mod p\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div><p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^d    &amp; \equiv 1 \mod  p &amp;                                    \\ \hline
+x      &amp; \equiv 1 \mod  2 &amp; x &amp;= 1                             \\ \hline
+x      &amp; \equiv 1 \mod  3 &amp; x &amp;= 1                             \\
+x^2    &amp; \equiv 1 \mod  3 &amp; x &amp;= 1, 2                          \\ \hline
+x      &amp; \equiv 1 \mod  5 &amp; x &amp;= 1                             \\
+x^2    &amp; \equiv 1 \mod  5 &amp; x &amp;= 1, 4                          \\
+x^4    &amp; \equiv 1 \mod  5 &amp; x &amp;= 1, 2, 3, 4                    \\ \hline
+x      &amp; \equiv 1 \mod  7 &amp; x &amp;= 1                             \\
+x^2    &amp; \equiv 1 \mod  7 &amp; x &amp;= 1, 6                          \\
+x^3    &amp; \equiv 1 \mod  7 &amp; x &amp;= 1, 2, 4                       \\
+x^6    &amp; \equiv 1 \mod  7 &amp; x &amp;= 1, 2, 3, 4, 5, 6              \\ \hline
+x      &amp; \equiv 1 \mod 11 &amp; x &amp;= 1                             \\
+x^2    &amp; \equiv 1 \mod 11 &amp; x &amp;= 1, 10                         \\
+x^5    &amp; \equiv 1 \mod 11 &amp; x &amp;= 1, 3, 4, 5, 9                 \\
+x^{10} &amp; \equiv 1 \mod 11 &amp; x &amp;= 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 \\ \hline
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p>We have now seen that when <span class="math notranslate nohighlight">\(\gcd(a, m) = 1\)</span> it is the case that <span class="math notranslate nohighlight">\(a\)</span> has order modulo <span class="math notranslate nohighlight">\(m\)</span> which divides <span class="math notranslate nohighlight">\(\phi(m)\)</span>. One question that can be asked is given any <span class="math notranslate nohighlight">\(d \mid \phi(m)\)</span> are there elements of order <span class="math notranslate nohighlight">\(d\)</span>? In the special case <span class="math notranslate nohighlight">\(d = \phi(m)\)</span> this would mean that</p>
+<p><span class="math notranslate nohighlight">\(a, a^2, \dotsc, a^{\phi(m)}\)</span></p>
+<p>are distinct modulo <span class="math notranslate nohighlight">\(m\)</span> because otherwise we would have</p>
+<p><span class="math notranslate nohighlight">\(a^u \equiv a^v \mod m\)</span> with <span class="math notranslate nohighlight">\(1 \le u \lt v \le \phi(m)\)</span></p>
+<p>and then</p>
+<p><span class="math notranslate nohighlight">\(a^{v-u} \equiv 1 \mod m\)</span> with <span class="math notranslate nohighlight">\(1 \le v-u \lt \phi(m)\)</span></p>
+<p>contradicting the assumption that <span class="math notranslate nohighlight">\(\text{ord}_m(a) = \phi(m)\)</span> is minimal.</p>
+<hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
