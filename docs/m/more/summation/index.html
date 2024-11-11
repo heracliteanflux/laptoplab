@@ -1023,7 +1023,7 @@ k - n &amp;\le i \le k \\
 = \sum_{k=0}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i}
 \end  {aligned}
 \)</span></p>
-<p>One of <span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(n\)</span> is less than or equal to the other, say <span class="math notranslate nohighlight">\(0 \le m \le n\)</span>. Then we have</p>
+<p>One of <span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(n\)</span> is less than or equal to the other, say <span class="math notranslate nohighlight">\(0 \lt m \le n\)</span>. Then we have</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \sum_{k=0}^{m+n} = \sum_{k=0}^{m-1} + \sum_{k=m}^n + \sum_{k=n+1}^{m+n}
@@ -1034,7 +1034,7 @@ k - n &amp;\le i \le k \\
 \begin{aligned}
 \sum_{k=0}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i}
 &amp;= \left( \sum_{k=0}^{m-1} + \sum_{k=m}^n + \sum_{k=n+1}^{m+n} \right) \left( \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) \\
-&amp;= \left( \sum_{k=0}^{m-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=m}^{n-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=n}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) \\
+&amp;= \left( \sum_{k=0}^{m-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=m}^n \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=n+1}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) \\
 \end  {aligned}
 \)</span></p>
 </div><p>Looking at the first term</p>
@@ -1043,7 +1043,7 @@ k - n &amp;\le i \le k \\
 \sum_{k=0}^{m-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i}
 \end  {aligned}
 \)</span></p>
-<p>we can see that <span class="math notranslate nohighlight">\(0 \le k \le m-1\)</span> and we already know that <span class="math notranslate nohighlight">\(0 \le m \le n\)</span>.</p>
+<p>we can see that <span class="math notranslate nohighlight">\(0 \le k \le m-1\)</span> and we already know that <span class="math notranslate nohighlight">\(0 \lt m \le n\)</span>.</p>
 <p>Thus <span class="math notranslate nohighlight">\(k \le m-1 \lt n \implies k-n \le m-n-1 \lt 0\)</span> which means that <span class="math notranslate nohighlight">\(\max\{ 0, k-n \} = 0\)</span>. Also <span class="math notranslate nohighlight">\(k \le m-1 \implies k \lt m\)</span> and so <span class="math notranslate nohighlight">\(\min\{ m, k \} = k\)</span>. Therefore</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -1054,10 +1054,10 @@ k - n &amp;\le i \le k \\
 <p>Looking at the second term</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\sum_{k=m}^{n-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i}
+\sum_{k=m}^{n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i}
 \end  {aligned}
 \)</span></p>
-<p>we can see that <span class="math notranslate nohighlight">\(m \le k \le n-1 \implies m-n \le k-n \le -1\)</span> which means that <span class="math notranslate nohighlight">\(\max\{ 0, k-n \} = 0\)</span>. Also <span class="math notranslate nohighlight">\(m \le k \implies \min\{ m, k \} = m\)</span>. Therefore</p>
+<p>we can see that <span class="math notranslate nohighlight">\(m \le k \le n \implies m-n \le k-n \le 0\)</span> which means that <span class="math notranslate nohighlight">\(\max\{ 0, k-n \} = 0\)</span>. Also <span class="math notranslate nohighlight">\(m \le k \implies \min\{ m, k \} = m\)</span>. Therefore</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \sum_{k=m}^{n-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i}
@@ -1067,11 +1067,11 @@ k - n &amp;\le i \le k \\
 <p>Looking at the third term</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\sum_{k=n}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i}
+\sum_{k=n+1}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i}
 \end  {aligned}
 \)</span></p>
-<p>we can see that <span class="math notranslate nohighlight">\(n \le k \le m+n \implies 0 \le k-n \le m\)</span> which means that <span class="math notranslate nohighlight">\(\max\{ 0, k-n \} = k-n\)</span>.</p>
-<p>We already know that <span class="math notranslate nohighlight">\(0 \le m \le n\)</span> and so <span class="math notranslate nohighlight">\(m \le n \le k \implies \min\{ m, k \} = m\)</span>. Therefore</p>
+<p>we can see that <span class="math notranslate nohighlight">\(n+1 \le k \le m+n \implies 1 \le k-n \le m\)</span> which means that <span class="math notranslate nohighlight">\(\max\{ 0, k-n \} = k-n\)</span>.</p>
+<p>We already know that <span class="math notranslate nohighlight">\(0 \lt m \le n\)</span> and so <span class="math notranslate nohighlight">\(m \le n \lt k \implies \min\{ m, k \} = m\)</span>. Therefore</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \sum_{k=n}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i}
@@ -1079,20 +1079,15 @@ k - n &amp;\le i \le k \\
 \end  {aligned}
 \)</span></p>
 <div class="full-width">
-<p>So in sum we have</p>
+<p>Putting this together we have</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\left( \sum_{k=0}^{m-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=m}^{n-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=n}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right)
-= \sum_{k=0}^{m-1} \sum_{i=0}^k a_i b_{k-i} + \sum_{k=m}^{n-1} \sum_{i=0}^m a_i b_{k-i} + \sum_{k=n}^{m+n} \sum_{i=k-n}^m a_i b_{k-i} \\
+&amp; \left( \sum_{k=0}^{m-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=m}^{n-1} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) + \left( \sum_{k=n}^{m+n} \sum_{i=\max\{ 0, k-n \}}^{\min\{ m, k \}} a_i b_{k-i} \right) \\
+&amp;= \sum_{k=0}^{m-1} \sum_{i=0}^k a_i b_{k-i} + \sum_{k=m}^n \sum_{i=0}^m a_i b_{k-i} + \sum_{k=n+1}^{m+n} \sum_{i=k-n}^m a_i b_{k-i} \\
+&amp;= \sum_{k=0}^n \sum_{i=0}^{\min\{ m, k \}} a_i b_{k-i} + \sum_{k=n+1}^{m+n} \sum_{i=k-n}^m a_i b_{k-i} \\
 \end  {aligned}
 \)</span></p>
 </div><hr class="docutils" />
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-= \sum_{k=0}^{n} \sum_{i=0}^{\min\{ m, k \}} + \sum_{k=n+1}^{n+m}
-\end  {aligned}
-\)</span></p>
-<hr class="docutils" />
 <div class="full-wdith">
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
