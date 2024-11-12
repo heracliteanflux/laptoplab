@@ -946,7 +946,235 @@ a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
 <p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and let <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span>.</p>
 <p>Then there are <span class="math notranslate nohighlight">\(\phi(d)\)</span> residue classes <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\text{ord}_p(a) = d\)</span>.</p>
 <p>In particular, there are <span class="math notranslate nohighlight">\(\phi(p - 1) = \phi(\phi(p))\)</span> primitive roots modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
-</div><p><span style="color: #0096FF;"><b>PROOF</b></span></p>
+</div><p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(p = 3\)</span></p>
+<p><span class="math notranslate nohighlight">\(d = 1, 2 \mid (3 - 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi(1) = 1 \text{ residue classes } a \text{ modulo 5 with } \text{ord}_{5}(a) &amp; = &amp; 1 \\
+\phi(2) = 1 \text{ residue classes } a \text{ modulo 5 with } \text{ord}_{5}(a) &amp; = &amp; 2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^2 \mod 3\)</span></p>
+<p>Thus the <span class="math notranslate nohighlight">\(1\)</span> primitive root modulo <span class="math notranslate nohighlight">\(3\)</span> is <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;elem&#39;</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;order&#39;</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;-----+-------+&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+  <span class="n">elems</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">**</span><span class="n">i</span><span class="o">%</span><span class="k">p</span> for i in range(1, p)]
+  <span class="n">order</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">elems</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">order</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |   </span><span class="si">{</span><span class="s1">&#39;   &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">elem</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">elems</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>elem | order |
+-----+-------+----------
+   1 |     1 |    1    1
+   2 |     2 |    2    1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(p = 5\)</span></p>
+<p><span class="math notranslate nohighlight">\(d = 1, 2, 4 \mid (5 - 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi(1) = 1 \text{ residue classes } a \text{ modulo 5 with } \text{ord}_{5}(a) &amp; = &amp; 1 \\
+\phi(2) = 1 \text{ residue classes } a \text{ modulo 5 with } \text{ord}_{5}(a) &amp; = &amp; 2 \\
+\phi(4) = 2 \text{ residue classes } a \text{ modulo 5 with } \text{ord}_{5}(a) &amp; = &amp; 4 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^4 \equiv 3^4 \equiv 4^2 \mod 5\)</span></p>
+<p>Thus the <span class="math notranslate nohighlight">\(2\)</span> primitive roots modulo <span class="math notranslate nohighlight">\(5\)</span> are <span class="math notranslate nohighlight">\(2, 3\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;elem&#39;</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;order&#39;</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;-----+-------+&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+  <span class="n">elems</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">**</span><span class="n">i</span><span class="o">%</span><span class="k">p</span> for i in range(1, p)]
+  <span class="n">order</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">elems</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">order</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |   </span><span class="si">{</span><span class="s1">&#39;   &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">elem</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">elems</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>elem | order |
+-----+-------+--------------------
+   1 |     1 |    1    1    1    1
+   2 |     4 |    2    4    3    1
+   3 |     4 |    3    4    2    1
+   4 |     2 |    4    1    4    1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(p = 7\)</span></p>
+<p><span class="math notranslate nohighlight">\(d = 1, 2, 3, 6 \mid (7 - 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi(1) = 1 \text{ residue classes } a \text{ modulo 7 with } \text{ord}_{7}(a) &amp; = &amp; 1 \\
+\phi(2) = 1 \text{ residue classes } a \text{ modulo 7 with } \text{ord}_{7}(a) &amp; = &amp; 2 \\
+\phi(3) = 2 \text{ residue classes } a \text{ modulo 7 with } \text{ord}_{7}(a) &amp; = &amp; 3 \\
+\phi(6) = 2 \text{ residue classes } a \text{ modulo 7 with } \text{ord}_{7}(a) &amp; = &amp; 6 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^3 \equiv 3^6 \equiv 4^3 \equiv 5^6 \equiv 6^2 \mod 7\)</span></p>
+<p>Thus the <span class="math notranslate nohighlight">\(2\)</span> primitive roots modulo <span class="math notranslate nohighlight">\(7\)</span> are <span class="math notranslate nohighlight">\(3, 5\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;elem&#39;</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;order&#39;</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;-----+-------+&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+  <span class="n">elems</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">**</span><span class="n">i</span><span class="o">%</span><span class="k">p</span> for i in range(1, p)]
+  <span class="n">order</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">elems</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">order</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |   </span><span class="si">{</span><span class="s1">&#39;   &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">elem</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">elems</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>elem | order |
+-----+-------+------------------------------
+   1 |     1 |    1    1    1    1    1    1
+   2 |     3 |    2    4    1    2    4    1
+   3 |     6 |    3    2    6    4    5    1
+   4 |     3 |    4    2    1    4    2    1
+   5 |     6 |    5    4    6    2    3    1
+   6 |     2 |    6    1    6    1    6    1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(p = 11\)</span></p>
+<p><span class="math notranslate nohighlight">\(d = 1, 2, 5, 10 \mid (11 - 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi( 1) = 1 \text{ residue classes } a \text{ modulo 11 with } \text{ord}_{11}(a) &amp; = &amp;  1 \\
+\phi( 2) = 1 \text{ residue classes } a \text{ modulo 11 with } \text{ord}_{11}(a) &amp; = &amp;  2 \\
+\phi( 5) = 4 \text{ residue classes } a \text{ modulo 11 with } \text{ord}_{11}(a) &amp; = &amp;  5 \\
+\phi(10) = 4 \text{ residue classes } a \text{ modulo 11 with } \text{ord}_{11}(a) &amp; = &amp; 10 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^{10} \equiv 3^5 \equiv 4^5 \equiv 5^5 \equiv 6^{10} \equiv 7^{10} \equiv 8^{10} \equiv 9^5 \equiv 10^2 \mod 11\)</span></p>
+<p>Thus the <span class="math notranslate nohighlight">\(4\)</span> primitive roots modulo <span class="math notranslate nohighlight">\(11\)</span> are <span class="math notranslate nohighlight">\(2, 6, 7, 8\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;elem&#39;</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;order&#39;</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;-----+-------+&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+  <span class="n">elems</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">**</span><span class="n">i</span><span class="o">%</span><span class="k">p</span> for i in range(1, p)]
+  <span class="n">order</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">elems</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">order</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |   </span><span class="si">{</span><span class="s1">&#39;   &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">elem</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">elems</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>elem | order |
+-----+-------+--------------------------------------------------
+   1 |     1 |    1    1    1    1    1    1    1    1    1    1
+   2 |    10 |    2    4    8    5   10    9    7    3    6    1
+   3 |     5 |    3    9    5    4    1    3    9    5    4    1
+   4 |     5 |    4    5    9    3    1    4    5    9    3    1
+   5 |     5 |    5    3    4    9    1    5    3    4    9    1
+   6 |    10 |    6    3    7    9   10    5    8    4    2    1
+   7 |    10 |    7    5    2    3   10    4    6    9    8    1
+   8 |    10 |    8    9    6    4   10    3    2    5    7    1
+   9 |     5 |    9    4    3    5    1    9    4    3    5    1
+  10 |     2 |   10    1   10    1   10    1   10    1   10    1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(p = 13\)</span></p>
+<p><span class="math notranslate nohighlight">\(d = 1, 2, 3, 4, 6, 12 \mid (13 - 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\phi( 1) = 1 \text{ residue classes } a \text{ modulo 13 with } \text{ord}_{13}(a) &amp; = &amp;  1 \\
+\phi( 2) = 1 \text{ residue classes } a \text{ modulo 13 with } \text{ord}_{13}(a) &amp; = &amp;  2 \\
+\phi( 3) = 2 \text{ residue classes } a \text{ modulo 13 with } \text{ord}_{13}(a) &amp; = &amp;  3 \\
+\phi( 4) = 2 \text{ residue classes } a \text{ modulo 13 with } \text{ord}_{13}(a) &amp; = &amp;  4 \\
+\phi( 6) = 2 \text{ residue classes } a \text{ modulo 13 with } \text{ord}_{13}(a) &amp; = &amp;  6 \\
+\phi(12) = 4 \text{ residue classes } a \text{ modulo 13 with } \text{ord}_{13}(a) &amp; = &amp; 12 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^{12} \equiv 3^3 \equiv 4^6 \equiv 5^4 \equiv 6^{12} \equiv 7^{12} \equiv 8^4 \equiv 9^3 \equiv 10^6 \equiv 11^{12} \equiv 12^2 \mod 13\)</span></p>
+<p>Thus the <span class="math notranslate nohighlight">\(4\)</span> primitive roots modulo <span class="math notranslate nohighlight">\(13\)</span> are <span class="math notranslate nohighlight">\(2, 6, 7, 11\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;elem&#39;</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;order&#39;</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;-----+-------+&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+  <span class="n">elems</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">**</span><span class="n">i</span><span class="o">%</span><span class="k">p</span> for i in range(1, p)]
+  <span class="n">order</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">elems</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">order</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> |   </span><span class="si">{</span><span class="s1">&#39;   &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">elem</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">elems</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>elem | order |
+-----+-------+------------------------------------------------------------
+   1 |     1 |    1    1    1    1    1    1    1    1    1    1    1    1
+   2 |    12 |    2    4    8    3    6   12   11    9    5   10    7    1
+   3 |     3 |    3    9    1    3    9    1    3    9    1    3    9    1
+   4 |     6 |    4    3   12    9   10    1    4    3   12    9   10    1
+   5 |     4 |    5   12    8    1    5   12    8    1    5   12    8    1
+   6 |    12 |    6   10    8    9    2   12    7    3    5    4   11    1
+   7 |    12 |    7   10    5    9   11   12    6    3    8    4    2    1
+   8 |     4 |    8   12    5    1    8   12    5    1    8   12    5    1
+   9 |     3 |    9    3    1    9    3    1    9    3    1    9    3    1
+  10 |     6 |   10    9   12    3    4    1   10    9   12    3    4    1
+  11 |    12 |   11    4    5    3    7   12    2    9    8   10    6    1
+  12 |     2 |   12    1   12    1   12    1   12    1   12    1   12    1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color: #0096FF;"><b>PROOF</b></span></p>
 <p>We have seen that the order of every reduced residue class modulo <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(p-1\)</span>.</p>
 <p>For a given <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span> let <span class="math notranslate nohighlight">\(\psi(d)\)</span> denote the number of reduced residues of order <span class="math notranslate nohighlight">\(d\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <p>The congruence <span class="math notranslate nohighlight">\(x^d \equiv 1 \mod p\)</span> has exactly <span class="math notranslate nohighlight">\(d\)</span> solutions.</p>
@@ -971,7 +1199,36 @@ a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
 \sum_{r \mid d_j} \psi(r) = d_j \text{ for each } j = 1, 2, \dotsc
 \end  {aligned}
 \)</span></p>
-<p>and of course the sum is over a subset of the divisors of <span class="math notranslate nohighlight">\(p - 1\)</span>. It is claimed that this determines <span class="math notranslate nohighlight">\(\psi(d_j)\)</span> uniquely.</p>
+<p>and of course the sum is over a subset of the divisors of <span class="math notranslate nohighlight">\(p - 1\)</span>. It is claimed that this determines <span class="math notranslate nohighlight">\(\psi(d_j)\)</span> uniquely. We can prove this by observing that if <span class="math notranslate nohighlight">\(N\)</span> is the number of positive divisors of <span class="math notranslate nohighlight">\(p - 1\)</span> then we have <span class="math notranslate nohighlight">\(N\)</span> linear equations in the <span class="math notranslate nohighlight">\(N\)</span> unknowns <span class="math notranslate nohighlight">\(\psi(r)\)</span> and we can write this in matrix notation</p>
+<p><span class="math notranslate nohighlight">\(\psi \mathcal{U} = \mathbf{d}\)</span></p>
+<p>Moreover <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> is an upper triangular matrix with nonzero entries on the diagonal and so is invertible.</p>
+<p>Hence the <span class="math notranslate nohighlight">\(\psi(d_j)\)</span> are uniquely determined.</p>
+<p>But we already know a solution, namely <span class="math notranslate nohighlight">\(\psi = \phi\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>If we wish to avoid the linear algebra, starting from</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d_j} \psi(r) = d_j \text{ for each } j = 1, 2, \dotsc \\
+\end  {aligned}
+\)</span></p>
+<p>we can prove uniqueness by induction on <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>For the base case we have <span class="math notranslate nohighlight">\(\psi(1) = 1\)</span>.</p>
+<p>Then suppose <span class="math notranslate nohighlight">\(\psi(d_1), \dotsc, \psi(d_j)\)</span> are determined. Then we have</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d_{j+1}} \psi(r) = d_{j+1} \\
+\end  {aligned}
+\)</span></p>
+<p>Hence</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\psi(d_{j+1}) = d_{j+1} -
+\underset{r \lt d_{j+1}}{\sum_{r \mid d_{j+1}}} \psi(r) \\
+\end  {aligned}
+\)</span></p>
+<p>and every term on the righthand side is already determined.</p>
+<p>Thus we can conclude that there is only one solution to our system of equations.</p>
+<p>But we already know this solution, namely <span class="math notranslate nohighlight">\(\psi(r) = \phi(r)\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <hr class="docutils" />
 <hr class="docutils" />
