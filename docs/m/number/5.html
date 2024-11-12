@@ -752,6 +752,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order a modulo m</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-root">Primitive Root</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-theorem">Gauss’ Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-congruence">Binomial Congruence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
             </nav>
@@ -774,7 +775,8 @@ document.write(`
 <li><p><a class="reference internal" href="#order-a-modulo-m" id="id2">Order a modulo m</a></p></li>
 <li><p><a class="reference internal" href="#primitive-root" id="id3">Primitive Root</a></p></li>
 <li><p><a class="reference internal" href="#gauss-theorem" id="id4">Gauss’ Theorem</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id5">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#binomial-congruence" id="id5">Binomial Congruence</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id6">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -941,7 +943,7 @@ a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
 <section id="gauss-theorem">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">Gauss’ Theorem</a><a class="headerlink" href="#gauss-theorem" title="Link to this heading">#</a></h2>
 <p>Gauss determined precisely which moduli possess primitive roots. The first step is the case of prime modulus.</p>
-<p><span style="color: #0096FF;"><b>GAUSS’ THEOREM</b></span> [Vaughan Theorem 4.6]</p>
+<p><span style="color: #0096FF;"><b>THEOREM (GAUSS)</b></span> [Vaughan Theorem 4.6]</p>
 <div style="color: #0096FF;">
 <p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and let <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span>.</p>
 <p>Then there are <span class="math notranslate nohighlight">\(\phi(d)\)</span> residue classes <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\text{ord}_p(a) = d\)</span>.</p>
@@ -1230,6 +1232,8 @@ a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
 <p>Thus we can conclude that there is only one solution to our system of equations.</p>
 <p>But we already know this solution, namely <span class="math notranslate nohighlight">\(\psi(r) = \phi(r)\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(p = 13\)</span></p>
 <div class="full-width">
 <p><span class="math notranslate nohighlight">\(
 \begin{pmatrix}
@@ -1258,11 +1262,28 @@ a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
 \end  {pmatrix}^\top
 \)</span></p>
 </div><hr class="docutils" />
+<p>How about higher powers of odd primes?</p>
+<p><span style="color: #0096FF;"><b>THEOREM (GAUSS)</b></span> [Vaughan Theorem 4.8]</p>
+<div style="color: #0096FF;">
+<p>We have primitive roots modulo <span class="math notranslate nohighlight">\(m\)</span> when <span class="math notranslate nohighlight">\(m = 2\)</span>, <span class="math notranslate nohighlight">\(m = 4\)</span>, <span class="math notranslate nohighlight">\(m = p^k\)</span>, and <span class="math notranslate nohighlight">\(m = 2p^k\)</span> with <span class="math notranslate nohighlight">\(p\)</span> an odd prime, and in no other cases.</p>
+</div>
+<p>In applications one can usually reduce via the Chinese Remainder Theorem to powers of primes. Thus the lack of primitive roots for higher powers of <span class="math notranslate nohighlight">\(2\)</span> is a nuisance. Nevertheless, Gauss did prove something.</p>
+<p><span style="color: #0096FF;"><b>THEOREM (GAUSS)</b></span> [Vaughan Theorem 4.9]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(k \ge 3\)</span>. Then the numbers <span class="math notranslate nohighlight">\((-1)^u 5^v\)</span> with <span class="math notranslate nohighlight">\(u = 0, 1\)</span> and <span class="math notranslate nohighlight">\(0 \le v \lt 2^{k-2}\)</span> form a set of reduced residues modulo <span class="math notranslate nohighlight">\(2^k\)</span>.</p>
+</div><hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="binomial-congruence">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Binomial Congruence</a><a class="headerlink" href="#binomial-congruence" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
 <hr class="docutils" />
 <hr class="docutils" />
@@ -1337,6 +1358,7 @@ a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order a modulo m</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-root">Primitive Root</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-theorem">Gauss’ Theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-congruence">Binomial Congruence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
   </nav></div>
