@@ -749,7 +749,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order a modulo m</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order <em>a</em> modulo <em>m</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-root">Primitive Root</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-theorem">Gauss’ Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-congruence">Binomial Congruence</a></li>
@@ -772,7 +772,7 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference internal" href="#primitive-roots" id="id1">Primitive Roots</a></p>
 <ul>
-<li><p><a class="reference internal" href="#order-a-modulo-m" id="id2">Order a modulo m</a></p></li>
+<li><p><a class="reference internal" href="#order-a-modulo-m" id="id2">Order <em>a</em> modulo <em>m</em></a></p></li>
 <li><p><a class="reference internal" href="#primitive-root" id="id3">Primitive Root</a></p></li>
 <li><p><a class="reference internal" href="#gauss-theorem" id="id4">Gauss’ Theorem</a></p></li>
 <li><p><a class="reference internal" href="#binomial-congruence" id="id5">Binomial Congruence</a></p></li>
@@ -788,7 +788,7 @@ document.write(`
 <p>We will examine its multiplicative structure; in particular, we will consider the reduced residue classes modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
 <hr class="docutils" />
 <section id="order-a-modulo-m">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Order a modulo m</a><a class="headerlink" href="#order-a-modulo-m" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Order <em>a</em> modulo <em>m</em></a><a class="headerlink" href="#order-a-modulo-m" title="Link to this heading">#</a></h2>
 <p>What happens if we take powers of a fixed residue?</p>
 <p><span style="color: #0096FF;"><b>DEFINITION</b></span> [Vaughan Definition 4.1]</p>
 <div style="color: #0096FF;">
@@ -796,7 +796,99 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(a^t \equiv 1 \mod m\)</span></p>
 <p>We may express this by saying that <span class="math notranslate nohighlight">\(a\)</span> belongs to the exponent <span class="math notranslate nohighlight">\(t\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>, or that <span class="math notranslate nohighlight">\(t\)</span> is the order of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
 </div>
-<p>Note that by Euler’s theorem <span class="math notranslate nohighlight">\(a^{\phi(m)} \equiv 1 \mod m\)</span> so that <span class="math notranslate nohighlight">\(\text{ord}_m(a)\)</span> exists.</p>
+<p>Note that by Euler’s theorem <span class="math notranslate nohighlight">\(a^{\phi(m)} \equiv 1 \mod m\)</span> so that <span class="math notranslate nohighlight">\(\text{ord}_m(a)\)</span> exists. Its uniqueness follows from its minimality.</p>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p>The order of <span class="math notranslate nohighlight">\(1\)</span> to any modulus is equal to <span class="math notranslate nohighlight">\(1\)</span>. The order of any odd integer modulo <span class="math notranslate nohighlight">\(2\)</span> is equal to <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a^t      &amp;\equiv 1 \mod m \\ \hline
+1^t      &amp;\equiv 1 \mod m &amp; \text{ord}_m( 1)    &amp;= 1 \\ \hline
+(2k+1)^t &amp;\equiv 1 \mod 2 &amp; \text{ord}_2(2k+1)  &amp;= 1 \\ \hline \hline \hline
+&amp; (3k + 1)   &amp;\equiv 1 \mod 3 \\
+&amp; (3k + 2)^2 &amp;\equiv 1 \mod 3 \\ \hline
+ 1^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 1)    &amp;= 1 \\
+ 2^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 2)    &amp;= 2 \\
+ 4^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 4)    &amp;= 1 \\
+ 5^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 5)    &amp;= 2 \\
+ 7^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 7)    &amp;= 1 \\
+ 8^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 8)    &amp;= 2 \\
+10^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3(10)    &amp;= 1 \\
+11^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3(11)    &amp;= 2 \\ \vdots \\ \hline \hline \hline
+&amp; (4k+1)   &amp;\equiv 1 \mod 4 \\
+&amp; (4k+3)^2 &amp;\equiv 1 \mod 4 \\ \hline
+ 1^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 1)    &amp;= 1 \\
+ 3^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 3)    &amp;= 2 \\
+ 5^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 5)    &amp;= 1 \\
+ 7^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 7)    &amp;= 2 \\
+ 9^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 9)    &amp;= 1 \\
+11^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4(11)    &amp;= 2 \\
+13^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4(13)    &amp;= 1 \\
+15^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4(15)    &amp;= 2 \\ \vdots \\ \hline \hline \hline
+&amp; (5k + 1)   &amp;\equiv 1 \mod 5 \\
+&amp; (5k + 2)^4 &amp;\equiv 1 \mod 5 \\
+&amp; (5k + 3)^4 &amp;\equiv 1 \mod 5 \\
+&amp; (5k + 4)^2 &amp;\equiv 1 \mod 5 \\ \hline
+ 1^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 1)    &amp;= 1 \\
+ 2^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 2)    &amp;= 4 \\
+ 3^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 3)    &amp;= 4 \\
+ 4^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 4)    &amp;= 2 \\
+ 6^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 6)    &amp;= 1 \\
+ 7^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 7)    &amp;= 4 \\
+ 8^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 8)    &amp;= 4 \\
+ 9^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 9)    &amp;= 2 \\ \vdots \\ \hline \hline \hline
+&amp; (6k + 1)   &amp;\equiv 1 \mod 6 \\
+&amp; (6k + 5)^2 &amp;\equiv 1 \mod 6 \\ \hline
+ 1^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6( 1)    &amp;= 1 \\
+ 5^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6( 5)    &amp;= 2 \\
+ 7^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6( 7)    &amp;= 1 \\
+11^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(11)    &amp;= 2 \\
+13^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(13)    &amp;= 1 \\
+17^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(17)    &amp;= 2 \\
+19^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(19)    &amp;= 1 \\
+23^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(23)    &amp;= 2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(3k + 2)^2
+&amp;= 9k^2 + 12k + 4 = 9k^2 + 12k + 3 + 1 \\
+&amp;= \underbrace{3(3k^2 + 4k + 1) + 1}_{3k + 1} \\
+&amp;\equiv 1 \mod 3 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(4k + 3)^2
+&amp;= 16k^2 + 24k + 9 = 16k^2 + 24k + 8 + 1 \\
+&amp;= \underbrace{4(4k^2 + 6k + 2) + 1}_{4k + 1} \\
+&amp;\equiv 1 \mod 4 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(5k + 4)^2
+&amp;= 25k^2 + 40k + 16
+ = 25k^2 + 40k + 15 + 1 \\
+&amp;= \underbrace{5(5k^2 + 8k + 3) + 1}_{5k + 1} \\
+(5k + 3)^4
+&amp;= (25k^2 + 30k + 9)^2
+ = (25k^2 + 30k + 5 + 4)^2 \\
+&amp;= \underbrace{(5(5k^2 + 6k + 1) + 4)^2}_{(5k + 4)^2} \\
+(5k + 2)^4
+&amp;= (25k^2 + 20k + 4)^2 \\
+&amp;= \underbrace{(5(5k^2 + 4k) + 4)^2}_{(5k + 4)^2} \\
+&amp;\equiv 1 \mod 5 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(6k + 5)^2
+&amp;= 36k^2 + 60k + 25
+ = 36k^2 + 60k + 24 + 1 \\
+&amp;= \underbrace{6(6k^2 + 10k + 4) + 1}_{6k + 1} \\
+&amp;\equiv 1 \mod 6
+\end  {aligned}
+\)</span></p>
 <div class="full-width">
 <p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
 <p><span class="math notranslate nohighlight">\(
@@ -1278,6 +1370,17 @@ a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
 <section id="binomial-congruence">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Binomial Congruence</a><a class="headerlink" href="#binomial-congruence" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
+<p>As an application of primitive roots we can say something when <span class="math notranslate nohighlight">\(p\)</span> is odd about the solution of congruences of the form</p>
+<p><span class="math notranslate nohighlight">\(x^k \equiv a \mod p\)</span></p>
+<p>The case <span class="math notranslate nohighlight">\(a = 0\)</span> is easy. The only solution is</p>
+<p><span class="math notranslate nohighlight">\(x \equiv 0 \mod p\)</span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a \not\equiv 0 \mod p\)</span>. Then pick a primitive root <span class="math notranslate nohighlight">\(g\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>, and a <span class="math notranslate nohighlight">\(c\)</span> so that <span class="math notranslate nohighlight">\(g^c \equiv a \mod p\)</span>.</p>
+<p>Also, since any solution <span class="math notranslate nohighlight">\(x\)</span> will have <span class="math notranslate nohighlight">\(p \nmid x\)</span> we can define <span class="math notranslate nohighlight">\(y\)</span> so that <span class="math notranslate nohighlight">\(g^y \equiv x \mod p\)</span>.</p>
+<p>Thus our congruence becomes</p>
+<p><span class="math notranslate nohighlight">\(g^{ky} \equiv g^c \mod p\)</span>.</p>
+<p>Hence it follows that</p>
+<p><span class="math notranslate nohighlight">\(ky \equiv c \mod p - 1\)</span></p>
+<p>We have turned a polynomial congruence into a linear one.</p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
@@ -1355,7 +1458,7 @@ a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order a modulo m</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order <em>a</em> modulo <em>m</em></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-root">Primitive Root</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gauss-theorem">Gauss’ Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-congruence">Binomial Congruence</a></li>
