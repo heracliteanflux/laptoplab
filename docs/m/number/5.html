@@ -1760,16 +1760,18 @@ x^{10} &amp; \equiv 1 \mod 11 &amp;&amp; x = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 \\
 <div style="color: #50C878;">
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-x^k &amp; \equiv &amp; \underset{a}{0} &amp; \mod p &amp;&amp;                                  &amp;&amp; \implies p \mid x^k \\
-x   &amp; \equiv &amp; \underset{a}{0} &amp; \mod p &amp;&amp; \text{divide out all but one } x &amp;&amp; \implies p \mid x   \\
+x^k &amp; \equiv &amp; \underset{a}{0} &amp; \mod p &amp;&amp; \implies p \mid x^k \\
+x   &amp; \equiv &amp; \underset{a}{0} &amp; \mod p &amp;&amp; \implies p \mid x   \\
 \end  {aligned}
 \)</span></p>
 <p>(Remember that <span class="math notranslate nohighlight">\(p \mid x^k \implies p \mid x\)</span>)</p>
 </div>
 <p>Suppose <span class="math notranslate nohighlight">\(a \not\equiv 0 \mod p \quad\quad \implies p \nmid a\)</span>.</p>
 <div style="color: #50C878;">
-<p><span class="math notranslate nohighlight">\(p \nmid a \implies a \not\equiv 0 \mod p\)</span></p>
-<p>But we know that <span class="math notranslate nohighlight">\(a \equiv x^k \mod p\)</span>. Thus <span class="math notranslate nohighlight">\(x^k \not\equiv 0 \mod p \implies p \nmid x^k \implies p \nmid x\)</span>.</p>
+<p>Claim</p>
+<p>Suppose <span class="math notranslate nohighlight">\(x^k \equiv a \mod p\)</span> and <span class="math notranslate nohighlight">\(a \not\equiv 0 \mod p \iff p \nmid \pm a\)</span>. Then <span class="math notranslate nohighlight">\(p \nmid x\)</span>.</p>
+<p>Proof by contradiction</p>
+<p><span class="math notranslate nohighlight">\(p \mid x \iff x \equiv 0 \mod p\)</span> implies that <span class="math notranslate nohighlight">\((0)^k = 0 \equiv a \mod p\)</span>. Contradiction. Thus <span class="math notranslate nohighlight">\(p \nmid x \iff p \nmid x^k\)</span>.</p>
 </div>
 <p>Then pick a primitive root <span class="math notranslate nohighlight">\(g\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>, and a <span class="math notranslate nohighlight">\(c\)</span> so that</p>
 <p><span class="math notranslate nohighlight">\(g^c \equiv a \mod p\)</span></p>
@@ -1796,7 +1798,6 @@ g^y     &amp;\equiv x            &amp; \mod p &amp;&amp;&amp; \text{definition} 
 <p>The exponents <span class="math notranslate nohighlight">\(c\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are called the discrete logarithms modulo <span class="math notranslate nohighlight">\(p\)</span> to the base <span class="math notranslate nohighlight">\(g\)</span>. Computing them numerically is hard and there is a protocol called Diffie-Hellman which uses them to exchange secure keys and passwords.</p>
 <div style="color: red;">
 <p>Our new congruence is soluble iff</p>
-<p><span class="math notranslate nohighlight">\((p - 1) \mid (ky - c) \implies (p - 1)k' = ky - c\)</span></p>
 <p><span class="math notranslate nohighlight">\(\gcd(k, p - 1) \mid c\)</span></p>
 </div>
 <p>and when this holds the <span class="math notranslate nohighlight">\(y\)</span> which satisfy it lie in a residue class modulo <span class="math notranslate nohighlight">\(\frac{p - 1}{\gcd(k, p - 1)}\)</span>. In other words, <span class="math notranslate nohighlight">\(\gcd(k, p - 1)\)</span> residue classes modulo <span class="math notranslate nohighlight">\(p - 1\)</span>.</p>
@@ -1851,21 +1852,58 @@ y \equiv \text{dlog}_8(x) &amp; 10 &amp; 7 &amp; 6 &amp; 4 &amp; 8 &amp; 3 &amp;
 <p><span class="math notranslate nohighlight">\(x \equiv g^{\text{dlog}_g(x)} \mod p\)</span></p>
 <p>We can use this to solve congruences.</p>
 <p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
-<p>Solve the system of congruences.</p>
+<p>Solve the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^3 \equiv 6 \mod 11\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(k = 3\)</span> and <span class="math notranslate nohighlight">\(a \equiv 6 \mod 11\)</span>.</p>
+<p>Choose a primitive root <span class="math notranslate nohighlight">\(g = 2\)</span> modulo <span class="math notranslate nohighlight">\(11\)</span> as a base for discrete logarithms.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-x^3    &amp; \equiv &amp;  6 &amp; \mod 11 \\
-x^5    &amp; \equiv &amp;  9 &amp; \mod 11 \\
-x^{65} &amp; \equiv &amp; 10 &amp; \mod 11 \\
+x^3    &amp; \equiv &amp; 6   &amp; \mod 11 \\
+2^c    &amp; \equiv &amp; 6   &amp; \mod 11 &amp;&amp; 1 \\
+2^y    &amp; \equiv &amp; x   &amp; \mod 11 &amp;&amp; 3 \\
+2^{3y} &amp; \equiv &amp; 2^c &amp; \mod 11 \\
+3y     &amp; \equiv &amp; c   &amp; \mod 10 &amp;&amp; 2 \\
 \end  {aligned}
 \)</span></p>
+<p>Which power <span class="math notranslate nohighlight">\(c\)</span> of <span class="math notranslate nohighlight">\(2\)</span> is congruent to <span class="math notranslate nohighlight">\(6\)</span>. In the inverse table, <span class="math notranslate nohighlight">\(x = 6\)</span> and the corresponding entry <span class="math notranslate nohighlight">\(y = 9\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(2^9 \equiv 6 \mod 11\)</span></p>
+<p>Now we must solve <span class="math notranslate nohighlight">\(3y \equiv 9 \mod 10\)</span> which has the unique solution <span class="math notranslate nohighlight">\(y \equiv 3 \mod 10\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\underset{g}{2}\)</span> to the power <span class="math notranslate nohighlight">\(\underset{y}{3}\)</span> produces which <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(11\)</span>? In the table of discrete logarithms, <span class="math notranslate nohighlight">\(y = 3\)</span> and the corresponding entry <span class="math notranslate nohighlight">\(x = 8\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(2^3 \equiv x \equiv 8 \mod 11\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span><span class="o">**</span><span class="mi">3</span><span class="o">%</span><span class="k">11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p>Solve the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^5 \equiv 9 \mod 11\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(k = 5\)</span> and <span class="math notranslate nohighlight">\(a \equiv 9 \mod 11\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-x   &amp; \equiv &amp; 2^y    &amp; \mod 11 \\
-x^3 &amp; \equiv &amp; 2^{3y} &amp; \mod 11 \\
-6   &amp; \equiv &amp; 2^9    &amp; \mod 11 \\
+2^6 \equiv 9 \mod 11 \\
+5y  \equiv 6 \mod 10 \\
 \end  {aligned}
 \)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(\underset{k}{5}, \underset{p-1}{10}) = 5 \nmid 6\)</span> and so this congruence is insoluble.</p>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p>Solve the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^{65} \equiv 10 \mod 11\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(k = 65\)</span> and <span class="math notranslate nohighlight">\(a \equiv 10 \mod 11\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2^5 &amp; \equiv &amp; 10 &amp; \mod 11 \\
+65y &amp; \equiv &amp;  5 &amp; \mod 10 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(\underset{k}{5}, \underset{p-1}{10}) = 5 \nmid 6\)</span> and so this congruence is insoluble.</p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>

@@ -1453,6 +1453,16 @@ P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
 <p><span class="math notranslate nohighlight">\(p\)</span> must be one of <span class="math notranslate nohighlight">\(p_1, \dotsc, p_n\)</span>, and so <span class="math notranslate nohighlight">\(p\)</span> also divides <span class="math notranslate nohighlight">\(p_1 p_2 \dots p_n\)</span>. Thus</p>
 <p><span class="math notranslate nohighlight">\(p \mid (4p_1 p_2 \dots p_n - m) = 1\)</span>. But no prime divides <span class="math notranslate nohighlight">\(1\)</span>, so our assumption must have been false.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(p \mid x \iff p \mid x^k\)</span> for any <span class="math notranslate nohighlight">\(k \gt 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(p \nmid x \iff p \nmid x^k\)</span> for any <span class="math notranslate nohighlight">\(k \gt 0\)</span></p>
+</div><p>first direction</p>
+<p><span class="math notranslate nohighlight">\(p \nmid x \implies p \nmid x^k\)</span></p>
+<p><span class="math notranslate nohighlight">\(p \nmid x \iff x \not\equiv 0 \mod p \implies x^k \not\equiv 0 \mod p \iff p \nmid x^k\)</span></p>
+<p>second direction</p>
+<p><span class="math notranslate nohighlight">\(p \nmid x^k \implies p \nmid x\)</span></p>
+<p>suppose <span class="math notranslate nohighlight">\(p \mid x \iff x \equiv 0 \mod p\)</span> and then <span class="math notranslate nohighlight">\(x^k \equiv 0^k \equiv 0 \mod p \iff p \mid x^k\)</span>. Contradiction.</p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
@@ -1662,8 +1672,18 @@ b &amp; \lt 0 &amp;&amp; \implies a \times \phantom{(-}0\phantom{)}  &amp;&amp; 
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">Euclid’s Lemma</a><a class="headerlink" href="#euclid-s-lemma" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>EUCLID’S LEMMA</b></span> [Vaughan Theorem 1.15]</p>
 <div style="color: #0096FF;">
-<p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and that there are integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> such that <span class="math notranslate nohighlight">\(p \mid ab\)</span>. Then either <span class="math notranslate nohighlight">\(p \mid a\)</span> or <span class="math notranslate nohighlight">\(p \mid b\)</span>.</p>
-</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and that there are integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> such that <span class="math notranslate nohighlight">\(p \mid ab\)</span>.</p>
+<p>Then either <span class="math notranslate nohighlight">\(p \mid a\)</span> or <span class="math notranslate nohighlight">\(p \mid b\)</span> but not both.</p>
+</div><p>Contrapositive: If <span class="math notranslate nohighlight">\(p \nmid a\)</span> and <span class="math notranslate nohighlight">\(p \nmid b\)</span> then <span class="math notranslate nohighlight">\(p \nmid ab\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+p \mid ab \implies [(p \mid a \lor p \mid b) \land \lnot(p \mid a \land p \mid b)] \\
+[ \lnot[(p \mid a \lor p \mid b) \land \lnot(p \mid a \land p \mid b)] ] \implies p \nmid ab \\
+[ \lnot(p \mid a \lor p \mid b) \lor (p \mid a \land p \mid b) ] \implies p \nmid ab \\
+[ p \nmid a \land p \nmid b \lor (p \mid a \land p \mid b) ] \implies p \nmid ab \\
+\end  {aligned}
+\)</span></p>
+<p><span style="color: #0096FF;"><b>Proof</b></span></p>
 <p>If <span class="math notranslate nohighlight">\(a = 0\)</span> or <span class="math notranslate nohighlight">\(b = 0\)</span> then the result that <span class="math notranslate nohighlight">\(p \mid 0\)</span> is trivial. Thus we may suppose that <span class="math notranslate nohighlight">\(ab \ne 0\)</span>.</p>
 <p>Suppose <span class="math notranslate nohighlight">\(p \nmid a\)</span>.</p>
 <p>We know that there are integers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(\gcd(a, p) = ax + py\)</span> and that <span class="math notranslate nohighlight">\(\gcd(a, p) \mid a\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, p) \mid p\)</span>.</p>
