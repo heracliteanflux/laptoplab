@@ -1756,19 +1756,27 @@ x^{10} &amp; \equiv 1 \mod 11 &amp;&amp; x = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 \\
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">Discrete Logarithms</a><a class="headerlink" href="#discrete-logarithms" title="Link to this heading">#</a></h2>
 <p>As an application of primitive roots we can say something when <span class="math notranslate nohighlight">\(p\)</span> is odd about the solution of congruences of the form</p>
 <p><span class="math notranslate nohighlight">\(x^k \equiv a \mod p\)</span></p>
-<p>The case <span class="math notranslate nohighlight">\(a = 0\)</span> is easy. The only solution is</p>
-<p><span class="math notranslate nohighlight">\(x \equiv 0 \mod p\)</span></p>
+<p>The case <span class="math notranslate nohighlight">\(a = 0\)</span> is easy. The only solution is <span class="math notranslate nohighlight">\(x \equiv 0 \mod p\)</span>.</p>
+<div style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^k &amp; \equiv &amp; \underset{a}{0} &amp; \mod p &amp;&amp;                                  &amp;&amp; \implies p \mid x^k \\
+x   &amp; \equiv &amp; \underset{a}{0} &amp; \mod p &amp;&amp; \text{divide out all but one } x &amp;&amp; \implies p \mid x   \\
+\end  {aligned}
+\)</span></p>
 <p>(Remember that <span class="math notranslate nohighlight">\(p \mid x^k \implies p \mid x\)</span>)</p>
-<p>Suppose <span class="math notranslate nohighlight">\(a \not\equiv 0 \mod p\)</span>.</p>
-<p>(i.e. <span class="math notranslate nohighlight">\(p \nmid a\)</span>)</p>
-<p>Then pick a primitive root <span class="math notranslate nohighlight">\(g\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>, and a <span class="math notranslate nohighlight">\(c\)</span> so that <span class="math notranslate nohighlight">\(g^c \equiv a \mod p\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(p \mid (g^{p-1} - 1) \implies pk = g^{p-1} - 1\)</span></p>
-<p><span class="math notranslate nohighlight">\(p \mid (g^c - a) \implies pk' = g^c - a\)</span></p>
-<div style="color: red;">
-<p>Also, since any solution <span class="math notranslate nohighlight">\(x\)</span> will have <span class="math notranslate nohighlight">\(p \nmid x\)</span></p>
-<p><span class="math notranslate nohighlight">\(p \mid (x^k - a) \land p \nmid a \implies p \nmid x\)</span></p>
 </div>
-<p>we can define <span class="math notranslate nohighlight">\(y\)</span> so that <span class="math notranslate nohighlight">\(g^y \equiv x \mod p\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(a \not\equiv 0 \mod p \quad\quad \implies p \nmid a\)</span>.</p>
+<div style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(p \nmid a \implies a \not\equiv 0 \mod p\)</span></p>
+<p>But we know that <span class="math notranslate nohighlight">\(a \equiv x^k \mod p\)</span>. Thus <span class="math notranslate nohighlight">\(x^k \not\equiv 0 \mod p \implies p \nmid x^k \implies p \nmid x\)</span>.</p>
+</div>
+<p>Then pick a primitive root <span class="math notranslate nohighlight">\(g\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>, and a <span class="math notranslate nohighlight">\(c\)</span> so that</p>
+<p><span class="math notranslate nohighlight">\(g^c \equiv a \mod p\)</span></p>
+<p>Also, since any solution <span class="math notranslate nohighlight">\(x\)</span> will have <span class="math notranslate nohighlight">\(p \nmid x\)</span> we can define <span class="math notranslate nohighlight">\(y\)</span> so that</p>
+<p><span class="math notranslate nohighlight">\(g^y \equiv x \mod p\)</span></p>
+<p>(This works because no power <span class="math notranslate nohighlight">\(y\)</span> of a primitive root <span class="math notranslate nohighlight">\(g\)</span> will be congruent to <span class="math notranslate nohighlight">\(0\)</span> the modulus, while some <span class="math notranslate nohighlight">\(y\)</span> will produce a congruence to any <span class="math notranslate nohighlight">\(x \not\equiv 0\)</span>.)</p>
+<div style="color: #50C878;">
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 g^{p-1} &amp;\equiv 1            &amp; \mod p \\
@@ -1777,6 +1785,7 @@ g^y     &amp;\equiv x            &amp; \mod p &amp;&amp;&amp; \text{definition} 
 (g^y)^k &amp;\equiv x^k          &amp; \mod p &amp;&amp;&amp; \text{raise to the k-th power} \\
 \end  {aligned}
 \)</span></p>
+</div>
 <p>Thus our congruence becomes</p>
 <p><span class="math notranslate nohighlight">\(g^{ky} \equiv g^c \mod p\)</span>.</p>
 <div style="color: red;">
