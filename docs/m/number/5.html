@@ -1792,6 +1792,26 @@ g^y     &amp;\equiv x            &amp; \mod p &amp;&amp;&amp; \text{definition} 
 </div>
 <p>and when this holds the <span class="math notranslate nohighlight">\(y\)</span> which satisfy it lie in a residue class modulo <span class="math notranslate nohighlight">\(\frac{p - 1}{\gcd(k, p - 1)}\)</span>. In other words, <span class="math notranslate nohighlight">\(\gcd(k, p - 1)\)</span> residue classes modulo <span class="math notranslate nohighlight">\(p - 1\)</span>.</p>
 <p>Thus when <span class="math notranslate nohighlight">\(a \not\equiv 0 \mod p\)</span> the original congruence is either insoluble or has <span class="math notranslate nohighlight">\(\gcd(k, p - 1)\)</span> solutions.</p>
+<p>The following theorem was just proved above.</p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 4.10]</p>
+<div style="color: #0096FF;">
+<p>Suppose <span class="math notranslate nohighlight">\(p\)</span> is an odd prime. When <span class="math notranslate nohighlight">\(p \nmid a\)</span> the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^k \equiv a \mod p\)</span></p>
+<p>has <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(\gcd(k, p - 1)\)</span> solutions, and the number of reduced residues <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span> for which it is soluble is</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{p - 1}{\gcd(k, p - 1)}
+\end  {aligned}
+\)</span></p>
+</div><p>The previous theorem suggests the following.</p>
+<p><span style="color: #0096FF;"><b>DISCRETE LOGARITHM</b></span> [Vaughan Definition 4.11]</p>
+<div style="color: #0096FF;">
+<p>Given a primitive root <span class="math notranslate nohighlight">\(g\)</span> and a reduced residue class <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> we define the discrete logarithm</p>
+<p><span class="math notranslate nohighlight">\(\text{dlog}_g(a)\)</span></p>
+<p>or index <span class="math notranslate nohighlight">\(\text{ind}_g(a)\)</span> to be that unique residue class <span class="math notranslate nohighlight">\(\ell\)</span> modulo <span class="math notranslate nohighlight">\(\phi(m)\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(g^\ell \equiv a \mod m\)</span></p>
+</div>
+<p>The notation <span class="math notranslate nohighlight">\(\text{ind}_g(a)\)</span> is more commonly used, but <span class="math notranslate nohighlight">\(\text{dlog}_g(a)\)</span> seems more natural.</p>
 <p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
 <p>Find a primitive root modulo <span class="math notranslate nohighlight">\(11\)</span> and construct a table of discrete logarithms.</p>
 <p>Table of powers of <span class="math notranslate nohighlight">\(g\)</span> modulo <span class="math notranslate nohighlight">\(11\)</span>.</p>
@@ -1821,27 +1841,22 @@ y \equiv \text{dlog}_8(x) &amp; 10 &amp; 7 &amp; 6 &amp; 4 &amp; 8 &amp; 3 &amp;
 <p><span class="math notranslate nohighlight">\(y\)</span> is the order, or exponent, to which <span class="math notranslate nohighlight">\(g\)</span> has to be raised to give <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>. In other words</p>
 <p><span class="math notranslate nohighlight">\(x \equiv g^{\text{dlog}_g(x)} \mod p\)</span></p>
 <p>We can use this to solve congruences.</p>
-<hr class="docutils" />
-<p>The following theorem was just proved above.</p>
-<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 4.10]</p>
-<div style="color: #0096FF;">
-<p>Suppose <span class="math notranslate nohighlight">\(p\)</span> is an odd prime. When <span class="math notranslate nohighlight">\(p \nmid a\)</span> the congruence</p>
-<p><span class="math notranslate nohighlight">\(x^k \equiv a \mod p\)</span></p>
-<p>has <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(\gcd(k, p - 1)\)</span> solutions, and the number of reduced residues <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span> for which it is soluble is</p>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p>Solve the system of congruences.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\frac{p - 1}{\gcd(k, p - 1)}
+x^3    &amp; \equiv &amp;  6 &amp; \mod 11 \\
+x^5    &amp; \equiv &amp;  9 &amp; \mod 11 \\
+x^{65} &amp; \equiv &amp; 10 &amp; \mod 11 \\
 \end  {aligned}
 \)</span></p>
-</div><p>The previous theorem suggests the following.</p>
-<p><span style="color: #0096FF;"><b>DISCRETE LOGARITHM</b></span> [Vaughan Definition 4.11]</p>
-<div style="color: #0096FF;">
-<p>Given a primitive root <span class="math notranslate nohighlight">\(g\)</span> and a reduced residue class <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> we define the discrete logarithm</p>
-<p><span class="math notranslate nohighlight">\(\text{dlog}_g(a)\)</span></p>
-<p>or index <span class="math notranslate nohighlight">\(\text{ind}_g(a)\)</span> to be that unique residue class <span class="math notranslate nohighlight">\(\ell\)</span> modulo <span class="math notranslate nohighlight">\(\phi(m)\)</span> such that</p>
-<p><span class="math notranslate nohighlight">\(g^\ell \equiv a \mod m\)</span></p>
-</div>
-<p>The notation <span class="math notranslate nohighlight">\(\text{ind}_g(a)\)</span> is more commonly used, but <span class="math notranslate nohighlight">\(\text{dlog}_g(a)\)</span> seems more natural.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x   &amp; \equiv &amp; 2^y    &amp; \mod 11 \\
+x^3 &amp; \equiv &amp; 2^{3y} &amp; \mod 11 \\
+6   &amp; \equiv &amp; 2^9    &amp; \mod 11 \\
+\end  {aligned}
+\)</span></p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
