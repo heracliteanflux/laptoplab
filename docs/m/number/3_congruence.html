@@ -260,7 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="2_division.html">Division</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Congruence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_polynomials.html">Polynomials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5.html">Primitive Roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_primitiveroot.html">Primitive Roots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="theory.html">Number Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw.html">Exercises</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -755,6 +755,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-congruence-relation">Properties of the congruence relation</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factoring-a-scalar-out-of-a-congruence">Factoring a scalar out of a congruence</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-arithmetic">Modular Arithmetic</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition">Modular Addition</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication">Modular Multiplication</a></li>
@@ -805,27 +806,28 @@ document.write(`
 <li><p><a class="reference internal" href="#properties-of-the-congruence-relation" id="id7">Properties of the congruence relation</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#modular-arithmetic" id="id8">Modular Arithmetic</a></p>
+<li><p><a class="reference internal" href="#factoring-a-scalar-out-of-a-congruence" id="id8">Factoring a scalar out of a congruence</a></p></li>
+<li><p><a class="reference internal" href="#modular-arithmetic" id="id9">Modular Arithmetic</a></p>
 <ul>
-<li><p><a class="reference internal" href="#modular-addition" id="id9">Modular Addition</a></p></li>
-<li><p><a class="reference internal" href="#modular-multiplication" id="id10">Modular Multiplication</a></p></li>
-<li><p><a class="reference internal" href="#modular-division" id="id11">Modular Division</a></p></li>
-<li><p><a class="reference internal" href="#modular-exponentiation" id="id12">Modular Exponentiation</a></p></li>
+<li><p><a class="reference internal" href="#modular-addition" id="id10">Modular Addition</a></p></li>
+<li><p><a class="reference internal" href="#modular-multiplication" id="id11">Modular Multiplication</a></p></li>
+<li><p><a class="reference internal" href="#modular-division" id="id12">Modular Division</a></p></li>
+<li><p><a class="reference internal" href="#modular-exponentiation" id="id13">Modular Exponentiation</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#reduced-residues" id="id13">Reduced Residues</a></p></li>
-<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id14">Fermat pseudoprimes</a></p></li>
-<li><p><a class="reference internal" href="#carmichael-numbers" id="id15">Carmichael Numbers</a></p></li>
-<li><p><a class="reference internal" href="#mersenne-primes" id="id16">Mersenne Primes</a></p></li>
+<li><p><a class="reference internal" href="#reduced-residues" id="id14">Reduced Residues</a></p></li>
+<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id15">Fermat pseudoprimes</a></p></li>
+<li><p><a class="reference internal" href="#carmichael-numbers" id="id16">Carmichael Numbers</a></p></li>
+<li><p><a class="reference internal" href="#mersenne-primes" id="id17">Mersenne Primes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#linear-congruence" id="id17">Linear Congruence</a></p>
+<li><p><a class="reference internal" href="#linear-congruence" id="id18">Linear Congruence</a></p>
 <ul>
-<li><p><a class="reference internal" href="#chinese-remainder-theorem" id="id18">Chinese Remainder Theorem</a></p></li>
+<li><p><a class="reference internal" href="#chinese-remainder-theorem" id="id19">Chinese Remainder Theorem</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#polynomial-congruence" id="id19">Polynomial Congruence</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id20">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#polynomial-congruence" id="id20">Polynomial Congruence</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id21">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -927,8 +929,45 @@ a \equiv 1 \mod m &amp;\iff m | (a - 1) &amp;&amp;\iff a = 1 + km \\
 </section>
 </section>
 <hr class="docutils" />
+<section id="factoring-a-scalar-out-of-a-congruence">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Factoring a scalar out of a congruence</a><a class="headerlink" href="#factoring-a-scalar-out-of-a-congruence" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(kx \equiv ka \mod n \iff x \equiv a \mod n/d\)</span> where <span class="math notranslate nohighlight">\(d = \gcd(n, k)\)</span></p>
+</div>
+<p>The modulus changes when dividing a congruence if you are dividing both sides of the congruence by a number that is not relatively prime to the modulus. In other words, if the number you’re dividing by shares a common factor with the modulus, you must also divide the modulus by that same common factor to maintain the congruence relation.</p>
+<p><span style="color: #0096FF;"><b>PROOF</b></span></p>
+<p><span class="math notranslate nohighlight">\(kx \equiv ka \mod n \iff n \mid k(x - a) \iff n/d \mid (k/d)(x - a)\)</span> where <span class="math notranslate nohighlight">\(d = \gcd(n, k)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{n}{\gcd(n, k)} \Biggm\vert\left( \frac{k}{\gcd(n, k)}(x - a) \right)
+\end  {aligned}
+\)</span></p>
+<p>By Euclid’s Lemma we know that</p>
+<p><span class="math notranslate nohighlight">\(n/d \mid (k/d)(x - a) \implies\)</span> either <span class="math notranslate nohighlight">\(n/d \mid k/d\)</span> or <span class="math notranslate nohighlight">\(n/d \mid (x - a)\)</span></p>
+<p>And we know that</p>
+<p><span class="math notranslate nohighlight">\(
+\gcd(n/d, k/d) =
+\begin{aligned}
+\gcd\left( \frac{n}{\gcd(n, k)}, \frac{k}{\gcd(n, k)} \right) = 1
+\end  {aligned}
+\)</span></p>
+<p>Thus it must be the case that</p>
+<p><span class="math notranslate nohighlight">\(n/d \mid (x - a) \iff x \equiv a \mod n/d\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><a class="reference external" href="https://crypto.stanford.edu/pbc/notes/numbertheory/arith.html">https://crypto.stanford.edu/pbc/notes/numbertheory/arith.html</a></p>
+<div style="color: #50C878;"><b>EXAMPLE</b></div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+65y   &amp; \equiv &amp;  5   &amp; \mod 10 \\
+5.13y &amp; \equiv &amp;  5.1 &amp; \mod 10/\gcd(5, 10) \\
+  13y &amp; \equiv &amp;    1 &amp; \mod 2 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
 <section id="modular-arithmetic">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Modular Arithmetic</a><a class="headerlink" href="#modular-arithmetic" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Modular Arithmetic</a><a class="headerlink" href="#modular-arithmetic" title="Link to this heading">#</a></h3>
 <p>Modular arithmetic operates with the remainders of integers when they are divided by a fixed positive integer called the modulus.
 For the applications such as primality testing and cryptography it is necessary to deal with numbers which are much larger than 32 bits but whose range is nonetheless limited. Modular arithmetic is a system for dealing with restricted ranges of integers.</p>
 <p>Ways to think about modular arithmetic</p>
@@ -937,24 +976,24 @@ For the applications such as primality testing and cryptography it is necessary 
 <li><p>modular arithmetic deals with all the integers, but divides them into <span class="math notranslate nohighlight">\(N\)</span> equivalence classes each of the form <span class="math notranslate nohighlight">\(\{ i + kN : k \in \mathbb{Z} \}\)</span> for some <span class="math notranslate nohighlight">\(i\)</span> between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(N - 1\)</span></p></li>
 </ul>
 <section id="modular-addition">
-<h4><a class="toc-backref" href="#id9" role="doc-backlink">Modular Addition</a><a class="headerlink" href="#modular-addition" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Modular Addition</a><a class="headerlink" href="#modular-addition" title="Link to this heading">#</a></h4>
 <p>To add two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span> we start with regular addition. <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are each in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span> so their sum is in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(2(N - 1)\)</span>. When the sum exceeds <span class="math notranslate nohighlight">\(N - 1\)</span> we subtract <span class="math notranslate nohighlight">\(N\)</span> so that it falls back into the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span>. The overall computations consists of an addition and a possible subtraction of numbers which never exceed <span class="math notranslate nohighlight">\(2N\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(T(n) = O(n)\)</span> where <span class="math notranslate nohighlight">\(n = \lceil \log N \rceil\)</span></p>
 </section>
 <section id="modular-multiplication">
-<h4><a class="toc-backref" href="#id10" role="doc-backlink">Modular Multiplication</a><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Modular Multiplication</a><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h4>
 <p>To multiply two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span>, we start with regular multiplication and then reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span>. The product can be as large as <span class="math notranslate nohighlight">\((N - 1)^2\)</span> but this is still at most <span class="math notranslate nohighlight">\(2n\)</span> bits long since <span class="math notranslate nohighlight">\(\log (N - 1)^2 = 2 \log (N - 1) \le 2n\)</span>. To reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span> we compute the remainder upon dividing it by <span class="math notranslate nohighlight">\(N\)</span> using the quadratic-time division algorithm. Multiplication thus remains a quadratic operation.</p>
 <p><strong>Complexity</strong></p>
 <p><span class="math notranslate nohighlight">\(T(n) = \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{multiplication}} + \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{reduction modulo \textit{N} via division}} = O(n^2)\)</span></p>
 </section>
 <section id="modular-division">
-<h4><a class="toc-backref" href="#id11" role="doc-backlink">Modular Division</a><a class="headerlink" href="#modular-division" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Modular Division</a><a class="headerlink" href="#modular-division" title="Link to this heading">#</a></h4>
 <p>In ordinary arithmetic there is just one tricky case–division by zero. In modular arithmetic there are other tricky cases.</p>
 <p>When division is legal, its running time is</p>
 <p><span class="math notranslate nohighlight">\(T(n) = O(n^3)\)</span></p>
 </section>
 <section id="modular-exponentiation">
-<h4><a class="toc-backref" href="#id12" role="doc-backlink">Modular Exponentiation</a><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">Modular Exponentiation</a><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h4>
 <p>Can <span class="math notranslate nohighlight">\(x^y \mod N\)</span> be computed quickly for values of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> that are several hundred bits long? The result is some number modulo <span class="math notranslate nohighlight">\(N\)</span> and is therefore itself a few hundred bits long. The raw value <span class="math notranslate nohighlight">\(x^y\)</span> could be much longer. When <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are just <span class="math notranslate nohighlight">\(20\text{-b}\)</span> numbers <span class="math notranslate nohighlight">\(x^y\)</span> is at least <span class="math notranslate nohighlight">\((2^{19})^{2^{19}} = 2^{(19)(524,288)}\)</span> which is about ten million bits long. Imagine what would happen if <span class="math notranslate nohighlight">\(y\)</span> is a <span class="math notranslate nohighlight">\(500\text{-b}\)</span> number. To make sure the numbers we are dealing with never grow too large, we need to perform all intermediate computations modulo <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>Calculate <span class="math notranslate nohighlight">\(x^y \mod N\)</span> by repeatedly multiplying by <span class="math notranslate nohighlight">\(x \mod N\)</span>. The resulting sequence of intermediate products <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to \dotsb \to x^y \mod N\)</span> consists of numbers smaller than <span class="math notranslate nohighlight">\(N\)</span>, so the individual multiplications do not take too long. But if <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(500\)</span> bits long we need to perform <span class="math notranslate nohighlight">\(y - 1 \approx 2^{500}\)</span> multiplications which is exponential in the size of <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p>It will be better to start with <span class="math notranslate nohighlight">\(x\)</span> and repeatedly square modulo <span class="math notranslate nohighlight">\(N\)</span>: <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to x^4 \mod N \to x^8 \mod N \to \dotsb \to x^{2^{\lfloor \log y \rfloor}} \mod N\)</span>.</p>
@@ -996,7 +1035,7 @@ x \cdot (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is odd}  \\
 </section>
 <hr class="docutils" />
 <section id="reduced-residues">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">Reduced Residues</a><a class="headerlink" href="#reduced-residues" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Reduced Residues</a><a class="headerlink" href="#reduced-residues" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.]</p>
 <div style="color: #0096FF;">
 <p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span>, <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span>, and</p>
@@ -1425,7 +1464,7 @@ p &amp;= 17, a = 3 &amp;&amp; 3^{17} \equiv 3 \mod 17 \\
 </section>
 <hr class="docutils" />
 <section id="fermat-pseudoprimes">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
 <p>Pseudoprimes are composite integers masquerading as primes.</p>
 <p>Could Fermat’s theorem give us a primality test? Unfortunately, it is possible that</p>
 <p><span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span></p>
@@ -1452,7 +1491,7 @@ n &amp;= 341561645 &amp;&amp;= 5 \times 67 \times 773 \times 1319 &amp; 2^{n - 1
 </section>
 <hr class="docutils" />
 <section id="carmichael-numbers">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CARMICHAEL NUMBER</b></span> [Vaughan Definition 3.19]</p>
 <div style="color: #0096FF;">
 <p>A composite <span class="math notranslate nohighlight">\(n\)</span> which satisfies <span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, n) = 1\)</span> is called a Carmichael number.</p>
@@ -1462,7 +1501,7 @@ n &amp;= 341561645 &amp;&amp;= 5 \times 67 \times 773 \times 1319 &amp; 2^{n - 1
 </section>
 <hr class="docutils" />
 <section id="mersenne-primes">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>MERSENNE PRIME</b></span> [Vaughan Definition 3.20]</p>
 <div style="color: #0096FF;">
 <p>Define <span class="math notranslate nohighlight">\(M(n) = 2^n - 1\)</span>. If it is prime then it is a Mersenne prime.</p>
@@ -1485,38 +1524,100 @@ M(11) &amp;=&amp; 2^{11} - 1 &amp;=&amp; 2047 &amp;= \textcolor{red}{23 \times 8
 </section>
 <hr class="docutils" />
 <section id="linear-congruence">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Linear congruences have the form</p>
 <p><span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span></p>
 <p>To solve linear congruences, inverses modulo <span class="math notranslate nohighlight">\(m\)</span> are employed. Work backward through the steps of the Euclidean algorithm to find inverses modulo <span class="math notranslate nohighlight">\(m\)</span>. Once an inverse of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> has been found, solve the linear congruence by multiplying both sides by the inverse.</p>
 <hr class="docutils" />
-<p>We have already solved <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> in principle since it is equivalent to <span class="math notranslate nohighlight">\(ax + my = b\)</span>. (Bézout!)</p>
+<p>We have already solved <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> in principle since it is equivalent to the linear diophantine equation</p>
+<p><span class="math notranslate nohighlight">\(ax + my = b\)</span></p>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; display: inline-block; margin: 10px; padding: 15px 20px 0 20px;">
 <p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.22]</p>
 <div style="color: #0096FF;">
-<p>The congruence <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> is soluble iff <span class="math notranslate nohighlight">\(\gcd(a, m) \mid b\)</span>, and the general solution is given by the residue class <span class="math notranslate nohighlight">\(x_0\)</span> modulo <span class="math notranslate nohighlight">\(m/\gcd(a, m)\)</span>. <span class="math notranslate nohighlight">\(x_0\)</span> can be found by applying Euclid’s algorithm.</p>
-</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
-<div style="color: red;">
-<p>The congruence <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> is equivalent to the equation <span class="math notranslate nohighlight">\(ax + my = b\)</span>:</p>
-<p>\begin{align}
-ax \equiv b \mod m \iff m \mid (ax - b) \iff ax - b = mk \iff ax + my = b \text{ with } y = -k
-\end  {align}</p>
-<p>and there can be no solution if <span class="math notranslate nohighlight">\(\gcd(a, m) \nmid b\)</span>.</p>
-<p>If <span class="math notranslate nohighlight">\(\gcd(a, m) \mid b\)</span> then Euclid’s algorithm solves</p>
+<p>The congruence</p>
+<p><span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span></p>
+<p>is soluble iff</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, m) \mid b\)</span></p>
+<p>and then the general solution is given by the residue class</p>
+<p><span class="math notranslate nohighlight">\(x_0\)</span> modulo <span class="math notranslate nohighlight">\(m/\gcd(a, m)\)</span></p>
+<p>The residue class <span class="math notranslate nohighlight">\(x_0\)</span> can be found by applying Euclid’s algorithm to solve</p>
+<p><span class="math notranslate nohighlight">\(ax_0 + my_0 = b\)</span></p>
+</div><p><span style="color: #0096FF;"><b>PROOF</b></span></p>
+<p>The congruence <span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span> is equivalent to the equation <span class="math notranslate nohighlight">\(ax + my = b\)</span></p>
+<div style="color: #50C878;">
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
+ax \equiv b \mod m \iff m \mid (ax - b) \iff ax - b = m(-y) \iff ax + my = b \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\((a/d)x + (m/d)y = b/d \iff (a/d)x - b/d = (-y)(m/d) \iff (a/d)x \equiv (b/d) \mod (m/d)\)</span></p>
+</div>
+<p>and there can be no solution if <span class="math notranslate nohighlight">\(\gcd(a, m) \nmid b\)</span></p>
+<div style="color: #50C878;">
+<p>Let <span class="math notranslate nohighlight">\(d = \gcd(a, m)\)</span>. By definition <span class="math notranslate nohighlight">\(d \mid a\)</span> and <span class="math notranslate nohighlight">\(d \mid m\)</span> and so it must be the case that <span class="math notranslate nohighlight">\(d \mid (b = ax + my)\)</span>.</p>
+</div>
+<p>If <span class="math notranslate nohighlight">\(d \mid b\)</span> then Euclid’s algorithm solves</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+ax + my = b =
+(a/d)x + (m/d)y = b/d =
 \frac{a}{\gcd(a, m)} x + \frac{m}{\gcd(a, m)} y = \frac{b}{\gcd(a, m)}
 \end  {aligned}
 \)</span></p>
-<p>Let <span class="math notranslate nohighlight">\(x_0, y_0\)</span> be such a solution and let <span class="math notranslate nohighlight">\(x, y\)</span> be any solution. Then <span class="math notranslate nohighlight">\(a/\gcd(a, m)(x - x_0) \equiv 0 \mod m/\gcd(a, m)\)</span> and since</p>
+<div style="color: #50C878;">
+<p>Euclid’s algorithm computes <span class="math notranslate nohighlight">\(d = \gcd(a, m)\)</span> by repeated application of the division algorithm. The extension keeps track of integer combinations of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(m\)</span> that yeild <span class="math notranslate nohighlight">\(d\)</span> for some integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
+     d &amp;= sa + tm \\
+(b/d)d &amp;= (b/d)sa + (b/d)tm \\
+     b &amp;= a\underbrace{(b/d)s}_{x_0} + m\underbrace{(b/d)t}_{y_0} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(ax_0 - b = m(-y_0) \iff ax_0 \equiv b \mod m\)</span></p>
+</div>
+<p>Let <span class="math notranslate nohighlight">\(x_0, y_0\)</span> be such a solution. Obviously every member of the residue class</p>
+<p><span class="math notranslate nohighlight">\(x_0\)</span> modulo <span class="math notranslate nohighlight">\(m/d\)</span></p>
+<p>gives a solution. Let <span class="math notranslate nohighlight">\(x, y\)</span> be another solution. Then</p>
+<div style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; ax + my = b, ax_0 + my_0 = b \\
+&amp; ax + my - ax_0 - my_0 = 0 \iff ax - ax_0 + my - my_0 = 0 \iff a(x - x_0) + m(y - y_0) = 0 \\
+&amp; (a/d)(x - x_0) + (m/d)(y - y_0) = 0 \\
+&amp; (a/d)(x - x_0) = (m/d)(y_0 - y) \\
+&amp; (m/d) \mid (a/d)(x - x_0) \\
+&amp; (a/d)(x - x_0) \equiv 0 \mod (m/d) \\
+\end  {aligned}
+\)</span></p>
+</div>
+<p><span class="math notranslate nohighlight">\((a/d)(x - x_0) \equiv 0 \mod m/d \iff (m/d) \mid (a/d)(x - x_0)\)</span></p>
+<p>and since</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\gcd(a/d, m/d) =
 \gcd \left( \frac{a}{\gcd(a, m)}, \frac{m}{\gcd(a, m)} \right) = 1
 \end  {aligned}
 \)</span></p>
-<p>it follows that <span class="math notranslate nohighlight">\(x\)</span> is in the residue class <span class="math notranslate nohighlight">\(x_0 \mod m/\gcd(a, m)\)</span></p>
+<div style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(x = x_0 + k(m/d) \iff (m/d) \mid (x - x_0) \iff x \equiv x_0 \mod (m/d)\)</span></p>
+</div>
+<p>it follows that <span class="math notranslate nohighlight">\(x\)</span> is in the residue class</p>
+<p><span class="math notranslate nohighlight">\(x_0\)</span> modulo <span class="math notranslate nohighlight">\(m/d\)</span></p>
+<div style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; (a/d)(x - x_0) + (m/d)(y - y_0) = 0 \\
+&amp; (a/d)((-k)(m/d)) + (m/d)(y - y_0) = 0 \\
+&amp; (-k)(a/d) + y - y_0 = 0 \\
+&amp; y = y_0 + k(a/d) \\
+&amp; y - y_0 = k(a/d) \\
+&amp; y \equiv y_0 \mod (a/d)
+\end  {aligned}
+\)</span></p>
 </div>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
 <p><span style="color: #0096FF;"><b>WILSON’S THEOREM</b></span> [Vaughan Theorem 3.23]</p>
 <div style="color: #0096FF;">
 <p>Let <span class="math notranslate nohighlight">\(p\)</span> be prime. Then <span class="math notranslate nohighlight">\((p - 1)! \equiv -1 \mod p\)</span>.</p>
@@ -1534,7 +1635,7 @@ p &amp;= 3 &amp;&amp; (3 - 1)! \equiv -1 \mod 3 \\
 <p>This theorem actually gives a necessary and sufficient condition for <span class="math notranslate nohighlight">\(p\)</span> to be prime, since if <span class="math notranslate nohighlight">\(p\)</span> were to be composite then <span class="math notranslate nohighlight">\(\gcd((p - 1)!, p) \gt 1\)</span>. However, it is useless because <span class="math notranslate nohighlight">\((p - 1)!\)</span> grows very rapidly.</p>
 <hr class="docutils" />
 <section id="chinese-remainder-theorem">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">Chinese Remainder Theorem</a><a class="headerlink" href="#chinese-remainder-theorem" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Chinese Remainder Theorem</a><a class="headerlink" href="#chinese-remainder-theorem" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>SYSTEM OF LINEAR CONGRUENCES</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(
@@ -1636,7 +1737,7 @@ x
 </section>
 <hr class="docutils" />
 <section id="polynomial-congruence">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink">Polynomial Congruence</a><a class="headerlink" href="#polynomial-congruence" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Polynomial Congruence</a><a class="headerlink" href="#polynomial-congruence" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>The solution of a general polynomial congruence can be quite tricky, even for a polynomial with a single variable.</p>
 <p><span style="color: #0096FF;"><b>POLYNOMIAL CONGRUENCE</b></span></p>
@@ -1682,7 +1783,7 @@ x
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
@@ -1762,6 +1863,7 @@ x
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-congruence-relation">Properties of the congruence relation</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factoring-a-scalar-out-of-a-congruence">Factoring a scalar out of a congruence</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-arithmetic">Modular Arithmetic</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition">Modular Addition</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication">Modular Multiplication</a></li>

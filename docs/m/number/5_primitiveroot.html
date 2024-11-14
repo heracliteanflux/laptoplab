@@ -1,0 +1,2056 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Primitive Roots &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=0d97562f" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/number/5_primitiveroot';</script>
+    <script src="../../_static/script.js?v=dcd15d02"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Number Theory" href="theory.html" />
+    <link rel="prev" title="Polynomials" href="4_polynomials.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../figures.html">Figures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calc/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/01_calculus/intro.html">The Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/01_calculus/03_integration/intro.html">Integration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/02_vector_calculus/intro.html">Vector Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../func/index.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../func/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/floor_ceil.html">Floor and Ceiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/ramp.html">Ramp Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linalg/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algebra/index.html">Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algebra/book___a_transition_to_advanced_mathematics.html">Book: <em>A Transition to Advanced Mathematics</em></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_division.html">Division</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_polynomials.html">Polynomials</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Primitive Roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theory.html">Number Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hw.html">Exercises</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/00_introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/05_primality.html">Primality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/06_congruence.html">Congruence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="implementation.html">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sieve_of_eratosthenes.html">Sieve of Eratosthenes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set/index.html">Set Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../set/elemset.html">Elementary Set Theory</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../logic/introduction.html">Introduction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../combinatorics/index.html">Combinatorics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../combinatorics/counting.html">Counting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Mathematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../discrete/languages.html">Languages and Machines</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../coding/index.html">Mathematical Coding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linprog/index.html">Linear Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/definitions.html">Some Definitions &amp; Graphing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/convex.html">Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/cones.html">Cones &amp; Dual Cones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/rowtableaux.html">Row Tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/sensitivity.html">Dual LP &amp; Sensitivity Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/exercises/0.html">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/exercises/132.html">[13.2] Production Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/exercises/midterm2.html">Midterm II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../numerical/index.html">Numerical Methods &amp; Scientific Computing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../more/index.html">More Math</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../more/summation/index.html">Summations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../more/cas.html">Computer Algebra Systems</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Science &amp; Engineering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/systems/index.html">Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/c_lang/index.html">C</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/shell/bash.html">Bash</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/c_lang/network_programming.html">Network Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/distributed/index.html">Distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/hardware/index.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/file/index.html">Filesystem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/ds%26a/index.html">DS&amp;A</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/ds%26a/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/data_structures/index.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/linked_list/index.html">Linked List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/stack/index.html">Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/priority_queue/index.html">Priority Queue</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/arithmetic/index.html">Arithmetic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/arithmetic/array_sum/index.html">Array Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/arithmetic/integer_multiplication/index.html">Integer Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/ds%26a/deduplication/index.html">Deduplication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/merge/index.html">Merge</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/merge/sorted_array_merge/index.html">Sorted Array Merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/merge/k_way_merge/index.html"><span class="math notranslate nohighlight">\(k\)</span>-Way Merge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/selection/index.html">Select</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/selection/k-th_smallest_element/index.html">Naive Selection: <span class="math notranslate nohighlight">\(k\)</span>-th smallest element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/selection/quickselect/index.html">Quickselect</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/sort/index.html">Sort</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/insertion_sort/index.html">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/bubble_sort/index.html">Bubble Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/merge_sort/index.html">Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/selection_sort/index.html">Selection Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/quick_sort/index.html">Quick Sort</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/search/index.html">Search</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/search/linear_search/index.html">Linear Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/search/binary_search/index.html">Binary Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/trees_and_graphs/index.html">Trees &amp; Graphs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/trees_and_graphs/trees/index.html">Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/trees_and_graphs/graphs/index.html">Graphs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/optimization/index.html">Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference external" href="https://heracliteanflux.github.io/laptoplab/m/linearprogramming/index.html">Linear Programming</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/index.html">Dynamic Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/lucas_numbers/index.html">Lucas Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/bellman-ford/index.html">Bellman-Ford</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/0-1_knapsack/index.html">0-1 Knapsack</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/course/index.html">PSU CMPSC 465</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/01.html">Assignment 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/02.html">Assignment 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/03.html">Assignment 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/04.html">Assignment 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/05.html">Assignment 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/m.html">Midterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/06.html">Assignment 6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/07.html">Assignment 7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/08.html">Assignment 8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/f.html">Final</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/heracliteanflux/systems/tree/main/clang">https://github.com/heracliteanflux/systems/tree/main/clang</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/rlang/index.html">R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/sec/index.html">Security</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/ctf/index.html">CTF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/gitops/index.html">GitOps</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/network/index.html">Networking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/data/index.html">Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/data/relational/index.html">Relational</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/files.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/info/index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/learning/index.html">Artificial Intelligence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../l/index.html">Languages &amp; Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/ling/index.html">Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../l/ling/phonetics/index.html">Phonetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lang/index.html">Languages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lit/index.html">Literature</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../p/index.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/ancient/index.html">Ancient Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/modern/index.html">Early Modern Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/galileo/index.html">Galileo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/descartes/index.html">Descartes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/music.html">Music</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../s/index.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/astro/index.html">Astronomy &amp; Astrophysics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diy/index.html">Home Lab &amp; DIY</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/network/index.html">Network</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Primitive Roots</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order <em>a</em> modulo <em>m</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-root">Primitive Root</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-roots-modulo-a-prime">Primitive roots modulo a prime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-some-moduli">Examining some moduli</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-2"><span class="math notranslate nohighlight">\(m = 2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-3"><span class="math notranslate nohighlight">\(m = 3\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-4"><span class="math notranslate nohighlight">\(m = 4\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-5"><span class="math notranslate nohighlight">\(m = 5\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-6"><span class="math notranslate nohighlight">\(m = 6\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-7"><span class="math notranslate nohighlight">\(m = 7\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-8"><span class="math notranslate nohighlight">\(m = 8\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-11"><span class="math notranslate nohighlight">\(m = 11\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-13"><span class="math notranslate nohighlight">\(m = 13\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-logarithms">Discrete Logarithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="primitive-roots">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Primitive Roots</a><a class="headerlink" href="#primitive-roots" title="Link to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#primitive-roots" id="id1">Primitive Roots</a></p>
+<ul>
+<li><p><a class="reference internal" href="#order-a-modulo-m" id="id2">Order <em>a</em> modulo <em>m</em></a></p></li>
+<li><p><a class="reference internal" href="#primitive-root" id="id3">Primitive Root</a></p></li>
+<li><p><a class="reference internal" href="#primitive-roots-modulo-a-prime" id="id4">Primitive roots modulo a prime</a></p></li>
+<li><p><a class="reference internal" href="#examining-some-moduli" id="id5">Examining some moduli</a></p>
+<ul>
+<li><p><a class="reference internal" href="#m-2" id="id6"><span class="math notranslate nohighlight">\(m = 2\)</span></a></p></li>
+<li><p><a class="reference internal" href="#m-3" id="id7"><span class="math notranslate nohighlight">\(m = 3\)</span></a></p></li>
+<li><p><a class="reference internal" href="#m-4" id="id8"><span class="math notranslate nohighlight">\(m = 4\)</span></a></p></li>
+<li><p><a class="reference internal" href="#m-5" id="id9"><span class="math notranslate nohighlight">\(m = 5\)</span></a></p></li>
+<li><p><a class="reference internal" href="#m-6" id="id10"><span class="math notranslate nohighlight">\(m = 6\)</span></a></p></li>
+<li><p><a class="reference internal" href="#m-7" id="id11"><span class="math notranslate nohighlight">\(m = 7\)</span></a></p></li>
+<li><p><a class="reference internal" href="#m-8" id="id12"><span class="math notranslate nohighlight">\(m = 8\)</span></a></p></li>
+<li><p><a class="reference internal" href="#m-11" id="id13"><span class="math notranslate nohighlight">\(m = 11\)</span></a></p></li>
+<li><p><a class="reference internal" href="#m-13" id="id14"><span class="math notranslate nohighlight">\(m = 13\)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#discrete-logarithms" id="id15">Discrete Logarithms</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id16">Acknowledgements</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<p>The residue class modulo <span class="math notranslate nohighlight">\(m\)</span> is called a ring and denoted by <span class="math notranslate nohighlight">\(\mathbb{Z}_m\)</span> or <span class="math notranslate nohighlight">\(\mathbb{Z}/m\mathbb{Z}\)</span>.</p>
+<p>We will examine its multiplicative structure; in particular, we will consider the reduced residue classes modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<hr class="docutils" />
+<section id="order-a-modulo-m">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Order <em>a</em> modulo <em>m</em></a><a class="headerlink" href="#order-a-modulo-m" title="Link to this heading">#</a></h2>
+<p>What happens if we take powers of a fixed residue?</p>
+<p><span style="color: #0096FF;"><b>DEFINITION</b></span> [Vaughan Definition 4.1]</p>
+<div style="color: #0096FF;">
+<p>Given <span class="math notranslate nohighlight">\(m \in \mathbb{N}^+\)</span>, <span class="math notranslate nohighlight">\(a \in \mathbb{Z}\)</span>, and <span class="math notranslate nohighlight">\(\gcd(a, m) = 1\)</span> we define the order <span class="math notranslate nohighlight">\(\text{ord}_m(a)\)</span> of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> to be the smallest positive integer <span class="math notranslate nohighlight">\(t\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(a^t \equiv 1 \mod m\)</span></p>
+<p>We may express this by saying that <span class="math notranslate nohighlight">\(a\)</span> belongs to the exponent <span class="math notranslate nohighlight">\(t\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>, or that <span class="math notranslate nohighlight">\(t\)</span> is the order of <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</div>
+<p>Note that by Euler’s theorem <span class="math notranslate nohighlight">\(a^{\phi(m)} \equiv 1 \mod m\)</span> so that <span class="math notranslate nohighlight">\(\text{ord}_m(a)\)</span> exists. Its uniqueness follows from its minimality.</p>
+<div class="full-width">
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a^t    &amp; \equiv 1 \mod  m &amp;&amp; \implies &amp;  m &amp; \mid (a^t    - 1) &amp;&amp;        &amp;&amp;                                   &amp;&amp; \text{ord}_m(a)            \\ \hline
+2^2    &amp; \equiv 1 \mod  3 &amp;&amp; \implies &amp;  3 &amp; \mid (2^2    - 1) &amp;&amp; =    3 &amp;&amp; = 3                               &amp;&amp; \text{ord}_3(2)    &amp;&amp; =  2 \\
+2^4    &amp; \equiv 1 \mod  5 &amp;&amp; \implies &amp;  5 &amp; \mid (2^4    - 1) &amp;&amp; =   15 &amp;&amp; = 3   \times 5                    &amp;&amp; \text{ord}_5(2)    &amp;&amp; =  4 \\
+2^6    &amp; \equiv 1 \mod  7 &amp;&amp; \implies &amp;  7 &amp; \mid (2^6    - 1) &amp;&amp; =   63 &amp;&amp; = 3^2 \times 7                    &amp;&amp; \text{ord}_7(2)    &amp;&amp; =  6 \\
+2^6    &amp; \equiv 1 \mod  9 &amp;&amp; \implies &amp;  9 &amp; \mid (2^6    - 1) &amp;&amp; =   63 &amp;&amp; = 3^2 \times 7                    &amp;&amp; \text{ord}_9(2)    &amp;&amp; =  6 \\
+2^{10} &amp; \equiv 1 \mod 11 &amp;&amp; \implies &amp; 11 &amp; \mid (2^{10} - 1) &amp;&amp; = 1023 &amp;&amp; = 3   \times 11 \times 31         &amp;&amp; \text{ord}_{11}(2) &amp;&amp; = 10 \\
+2^{12} &amp; \equiv 1 \mod 13 &amp;&amp; \implies &amp; 13 &amp; \mid (2^{12} - 1) &amp;&amp; = 4095 &amp;&amp; = 3^2 \times 5 \times 7 \times 13 &amp;&amp; \text{ord}_{13}(2) &amp;&amp; = 12 \\
+2^4    &amp; \equiv 1 \mod 15 &amp;&amp; \implies &amp; 15 &amp; \mid (2^4    - 1) &amp;&amp; =   15 &amp;&amp; = 3   \times 5                    &amp;&amp; \text{ord}_{15}(2) &amp;&amp; =  4 \\ \vdots \\
+3^1    &amp; \equiv 1 \mod  2 &amp;&amp; \implies &amp;  2 &amp; \mid (3^1    - 1) &amp;&amp; =    2 &amp;&amp; = 2                               &amp;&amp; \text{ord}_2(3)    &amp;&amp; =  1 \\
+3^2    &amp; \equiv 1 \mod  4 &amp;&amp; \implies &amp;  4 &amp; \mid (3^2    - 1) &amp;&amp; =    8 &amp;&amp; = 2^3                             &amp;&amp; \text{ord}_4(3)    &amp;&amp; =  2 \\
+3^4    &amp; \equiv 1 \mod  5 &amp;&amp; \implies &amp;  5 &amp; \mid (3^4    - 1) &amp;&amp; =   80 &amp;&amp; = 2^4 \times 5                    &amp;&amp; \text{ord}_5(3)    &amp;&amp; =  4 \\
+3^6    &amp; \equiv 1 \mod  7 &amp;&amp; \implies &amp;  7 &amp; \mid (3^6    - 1) &amp;&amp; =  728 &amp;&amp; = 2^3 \times 7 \times 13          &amp;&amp; \text{ord}_7(3)    &amp;&amp; =  6 \\
+3^2    &amp; \equiv 1 \mod  8 &amp;&amp; \implies &amp;  8 &amp; \mid (3^2    - 1) &amp;&amp; =    8 &amp;&amp; = 2^3                             &amp;&amp; \text{ord}_8(3)    &amp;&amp; =  2 \\
+3^4    &amp; \equiv 1 \mod 10 &amp;&amp; \implies &amp; 10 &amp; \mid (3^4    - 1) &amp;&amp; =   80 &amp;&amp; = 2^4 \times 5                    &amp;&amp; \text{ord}_{10}(3) &amp;&amp; =  4 \\
+3^5    &amp; \equiv 1 \mod 11 &amp;&amp; \implies &amp; 11 &amp; \mid (3^5    - 1) &amp;&amp; =  242 &amp;&amp; = 2   \times 11^2                 &amp;&amp; \text{ord}_{11}(3) &amp;&amp; =  5 \\
+3^3    &amp; \equiv 1 \mod 13 &amp;&amp; \implies &amp; 13 &amp; \mid (3^3    - 1) &amp;&amp; =   26 &amp;&amp; = 2   \times 13                   &amp;&amp; \text{ord}_{13}(3) &amp;&amp; =  3 \\
+3^6    &amp; \equiv 1 \mod 14 &amp;&amp; \implies &amp; 14 &amp; \mid (3^6    - 1) &amp;&amp; =  728 &amp;&amp; = 2^3 \times 7 \times 13          &amp;&amp; \text{ord}_{14}(3) &amp;&amp; =  6 \\
+\end  {aligned}
+\)</span></p>
+</div><hr class="docutils" />
+<p>We can do better than that.</p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 4.2]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}^+\)</span>, <span class="math notranslate nohighlight">\(\gcd(a, m) = 1\)</span>, and <span class="math notranslate nohighlight">\(n \in \mathbb{N}^+\)</span> is such that <span class="math notranslate nohighlight">\(a^n \equiv 1 \mod m\)</span>.</p>
+<p>Then <span class="math notranslate nohighlight">\(\text{ord}_m(a) \mid n\)</span>. In particular <span class="math notranslate nohighlight">\(\text{ord}_m(a) \mid \phi(m)\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>PROOF</b></span></p>
+<p>For concision let <span class="math notranslate nohighlight">\(t = \text{ord}_m(a)\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(t\)</span> is minimal we have <span class="math notranslate nohighlight">\(t \le n\)</span>.</p>
+<p>Thus by the division algorithm there are <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt t\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(n = qt + r\)</span></p>
+<p>Hence <span class="math notranslate nohighlight">\(a^r \equiv (a^t)^q a^r = a^{qt + r} = a^n \equiv 1 \mod m\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a^t         &amp;\equiv 1   &amp; \mod m \\
+(a^t)^q     &amp;\equiv 1   &amp; \mod m \\
+(a^t)^q a^r &amp;\equiv a^r &amp; \mod m \\
+a^n         &amp;\equiv a^r &amp; \mod m \\
+\end  {aligned}
+\)</span></p>
+<p>Thus <span class="math notranslate nohighlight">\(a^r \equiv 1 \mod m\)</span></p>
+<p>But <span class="math notranslate nohighlight">\(0 \le r \lt t\)</span>. If <span class="math notranslate nohighlight">\(r \gt 0\)</span> then we would contradict the minimality of <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>Hence <span class="math notranslate nohighlight">\(r = 0\)</span> and so <span class="math notranslate nohighlight">\(n = qt + 0 \implies t \mid n\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p>Here is an application that will be made use of later.</p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 4.3]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span>. Then the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^d \equiv 1 \mod p\)</span></p>
+<p>has exactly <span class="math notranslate nohighlight">\(d\)</span> solutions.</p>
+</div><div class="full-width">
+<p><span style="color: #0096FF;"><b>PROOF</b></span></p>
+<p><span class="math notranslate nohighlight">\(d \mid (p - 1) \implies x^d \mid x^{p-1} \implies (x^d - 1) \mid (x^{p-1} - 1) \implies x^{p-1} - 1 = (x^d - 1)q(x)\)</span> where <span class="math notranslate nohighlight">\(q(x)\)</span> is a polynomial of degree <span class="math notranslate nohighlight">\(p - 1 - d\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(d \mid (p - 1) \implies p - 1 = kd \implies x^{p-1} - 1 = x^{kd} - 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^{kd} - 1 &amp;= (x^d - 1)(x^{(k-1)d} + x^{(k-2)d} + x^{(k-3)d} + x^{(k-4)d} + \dotsb + x^d + 1) \\
+&amp;= (x^{(k-1)d+d} + x^{(k-2)d+d} + x^{(k-3)d+d} + x^{(k-4)d+d} + \dotsb + x^{2d} + x^d) &amp;- (x^{(k-1)d} + x^{(k-2)d} + \dotsb + x^d + 1) \\
+&amp;= (x^{kd} + x^{kd-d} + x^{kd-2d} + x^{kd-3d} \dotsb + x^{2d} + x^d)                   &amp;- (x^{(k-1)d} + x^{(k-2)d} + \dotsb + x^d + 1) \\
+&amp;= (x^{kd} + x^{(k-1)d} + x^{(k-2)d} + x^{(k-3)d} \dotsb + x^{2d} + x^d)                   &amp;- (x^{(k-1)d} + x^{(k-2)d} + \dotsb + x^d + 1) \\
+\end  {aligned}
+\)</span></p>
+<p>Observe that the terms telescope (i.e., all terms but two cancel each other out). To see this with <span class="math notranslate nohighlight">\(p-1\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^{p-1} - 1
+&amp;= (x^d - 1)(x^{p-1-d} + x^{p-1-2d} + x^{p-1-3d} + x^{p-1-4d} + \dotsb + x^d + 1) \\
+&amp;= (x^{p-1+(d-d)} + x^{p-1+(d-2d)} + x^{p-1+(d-3d)} + x^{p-1+(d-4d)} + \dotsb + x^{2d} + x^d) - (x^{p-1-d} + x^{p-1-2d} + x^{p-1-3d} + x^{p-1-4d} + \dotsb + x^d + 1) \\
+\end  {aligned}
+\)</span></p>
+<p>We know from Euler’s theorem that there are exactly <span class="math notranslate nohighlight">\(p-1\)</span> incongruent roots to the lefthand side modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(x^{p-1} \equiv 1 \mod p\)</span></p>
+<p>On the other hand, by Lagrange’s theorem, the second factor has at most <span class="math notranslate nohighlight">\(p - 1 - d\)</span> such roots, so the first factor must account for at least <span class="math notranslate nohighlight">\(d\)</span> of them. On the other hand, again by Lagrange’s theorem, the second factor has at most <span class="math notranslate nohighlight">\(d\)</span> roots modulo <span class="math notranslate nohighlight">\(p\)</span>. Therefore</p>
+<p><span class="math notranslate nohighlight">\(x^d \equiv 1 \mod p\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div><p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^d    &amp; \equiv 1 \mod  p &amp;                                    \\ \hline
+x      &amp; \equiv 1 \mod  2 &amp; x &amp;= 1                             \\ \hline
+x      &amp; \equiv 1 \mod  3 &amp; x &amp;= 1                             \\
+x^2    &amp; \equiv 1 \mod  3 &amp; x &amp;= 1, 2                          \\ \hline
+x      &amp; \equiv 1 \mod  5 &amp; x &amp;= 1                             \\
+x^2    &amp; \equiv 1 \mod  5 &amp; x &amp;= 1, 4                          \\
+x^4    &amp; \equiv 1 \mod  5 &amp; x &amp;= 1, 2, 3, 4                    \\ \hline
+x      &amp; \equiv 1 \mod  7 &amp; x &amp;= 1                             \\
+x^2    &amp; \equiv 1 \mod  7 &amp; x &amp;= 1, 6                          \\
+x^3    &amp; \equiv 1 \mod  7 &amp; x &amp;= 1, 2, 4                       \\
+x^6    &amp; \equiv 1 \mod  7 &amp; x &amp;= 1, 2, 3, 4, 5, 6              \\ \hline
+x      &amp; \equiv 1 \mod 11 &amp; x &amp;= 1                             \\
+x^2    &amp; \equiv 1 \mod 11 &amp; x &amp;= 1, 10                         \\
+x^5    &amp; \equiv 1 \mod 11 &amp; x &amp;= 1, 3, 4, 5, 9                 \\
+x^{10} &amp; \equiv 1 \mod 11 &amp; x &amp;= 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 \\ \hline
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p>We have now seen that when <span class="math notranslate nohighlight">\(\gcd(a, m) = 1\)</span> it is the case that <span class="math notranslate nohighlight">\(a\)</span> has order modulo <span class="math notranslate nohighlight">\(m\)</span> which divides <span class="math notranslate nohighlight">\(\phi(m)\)</span>. One question that can be asked is given any <span class="math notranslate nohighlight">\(d \mid \phi(m)\)</span> are there elements of order <span class="math notranslate nohighlight">\(d\)</span>? In the special case <span class="math notranslate nohighlight">\(d = \phi(m)\)</span> this would mean that</p>
+<p><span class="math notranslate nohighlight">\(a, a^2, \dotsc, a^{\phi(m)}\)</span></p>
+<p>are distinct modulo <span class="math notranslate nohighlight">\(m\)</span> because otherwise we would have</p>
+<p><span class="math notranslate nohighlight">\(a^u \equiv a^v \mod m\)</span> with <span class="math notranslate nohighlight">\(1 \le u \lt v \le \phi(m)\)</span></p>
+<p>and then</p>
+<p><span class="math notranslate nohighlight">\(a^{v-u} \equiv 1 \mod m\)</span> with <span class="math notranslate nohighlight">\(1 \le v-u \lt \phi(m)\)</span></p>
+<p>contradicting the assumption that <span class="math notranslate nohighlight">\(\text{ord}_m(a) = \phi(m)\)</span> is minimal.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a^t \equiv 1 \mod m &amp;&amp; \text{ord}_m(a) = t \\ \hline
+1^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(1) = 1 \\
+2^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(2) = 3 \\
+3^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(3) = 6 \\
+4^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(4) = 3 \\
+5^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(5) = 6 \\
+6^t \equiv 1 \mod 7 &amp;&amp; \text{ord}_7(6) = 2 \\
+\end  {aligned}
+\)</span></p>
+<p>There is one element of order <span class="math notranslate nohighlight">\(1\)</span>, one element of order <span class="math notranslate nohighlight">\(2\)</span>, two of order <span class="math notranslate nohighlight">\(3\)</span>, and two of order <span class="math notranslate nohighlight">\(6\)</span>.</p>
+<p>Is it a fluke that for each <span class="math notranslate nohighlight">\(d \mid 6 = \phi(7)\)</span> the number of elements of order <span class="math notranslate nohighlight">\(d\)</span> is <span class="math notranslate nohighlight">\(\phi(d)\)</span>?</p>
+</section>
+<hr class="docutils" />
+<section id="primitive-root">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Primitive Root</a><a class="headerlink" href="#primitive-root" title="Link to this heading">#</a></h2>
+<p><span style="color: #0096FF;"><b>PRIMITIVE ROOT</b></span> [Vaughan Definition 4.5]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}^+\)</span> and that <span class="math notranslate nohighlight">\(\gcd(a, m) = 1\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\text{ord}_m(a) = \phi(m)\)</span> then we say that <span class="math notranslate nohighlight">\(a\)</span> is a primitive root modulo <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</div>
+<p>In other words, a primitive root of a prime <span class="math notranslate nohighlight">\(p\)</span> is an integer <span class="math notranslate nohighlight">\(r\)</span> s.t. every integer not divisible by <span class="math notranslate nohighlight">\(p\)</span> is congruent to a power <span class="math notranslate nohighlight">\(r\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>We know that we do not always have primitive roots. For example, any number <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, 8) = 1\)</span> is odd and so <span class="math notranslate nohighlight">\(a^2 \equiv 1 \mod 8\)</span> whereas <span class="math notranslate nohighlight">\(\phi(8) = 4\)</span>.</p>
+<p>There are primitive roots to some moduli. For example, modulo <span class="math notranslate nohighlight">\(7\)</span> the powers of <span class="math notranslate nohighlight">\(3\)</span> are successively <span class="math notranslate nohighlight">\(3, 2, 6, 4, 5, 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+3^1 \equiv 3 \mod 7 \\
+3^2 \equiv 2 \mod 7 \\
+3^3 \equiv 6 \mod 7 \\
+3^4 \equiv 4 \mod 7 \\
+3^5 \equiv 5 \mod 7 \\
+3^6 \equiv 1 \mod 7 \\
+\end  {aligned}
+\)</span></p>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; display: inline-block; margin: 10px; padding: 15px 20px 0 20px;">
+<p>How to determine whether <span class="math notranslate nohighlight">\(a\)</span> is a primitive root modulo <span class="math notranslate nohighlight">\(p\)</span>?</p>
+<p>For each <span class="math notranslate nohighlight">\(2 \le a \lt m\)</span></p>
+<p><span class="math notranslate nohighlight">\(a^d \not\equiv 1 \mod p\)</span> for all <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span> other than <span class="math notranslate nohighlight">\(d = p - 1\)</span></p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="primitive-roots-modulo-a-prime">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Primitive roots modulo a prime</a><a class="headerlink" href="#primitive-roots-modulo-a-prime" title="Link to this heading">#</a></h2>
+<p>Gauss determined precisely which moduli possess primitive roots. The first step is the case of prime modulus.</p>
+<p><span style="color: #0096FF;"><b>THEOREM (GAUSS)</b></span> [Vaughan Theorem 4.6]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and let <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span>.</p>
+<p>Then there are <span class="math notranslate nohighlight">\(\phi(d)\)</span> residue classes <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\text{ord}_p(a) = d\)</span>.</p>
+<p>In particular, there are <span class="math notranslate nohighlight">\(\phi(p - 1) = \phi(\phi(p))\)</span> primitive roots modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+</div><p><span style="color: #0096FF;"><b>PROOF</b></span></p>
+<p>We have seen that the order of every reduced residue class modulo <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(p-1\)</span>.</p>
+<p>For a given <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span> let <span class="math notranslate nohighlight">\(\psi(d)\)</span> denote the number of reduced residues of order <span class="math notranslate nohighlight">\(d\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>The congruence <span class="math notranslate nohighlight">\(x^d \equiv 1 \mod p\)</span> has exactly <span class="math notranslate nohighlight">\(d\)</span> solutions.</p>
+<p>Thus every solution has order dividing <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<p>Also each residue with order dividing <span class="math notranslate nohighlight">\(d\)</span> is a solution.</p>
+<p>Thus for each <span class="math notranslate nohighlight">\(d \mid (p - 1)\)</span> we have</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d} \psi(r) = d \\
+\end  {aligned}
+\)</span></p>
+<p>This is reminiscent of an earlier formula</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d} \phi(r) = d \\
+\end  {aligned}
+\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(1 = d_1 \lt d_2 \lt \dots \lt d_k = p - 1\)</span> be the divisors of <span class="math notranslate nohighlight">\(p-1\)</span> in order.</p>
+<p>We have a relationship</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d_j} \psi(r) = d_j \text{ for each } j = 1, 2, \dotsc
+\end  {aligned}
+\)</span></p>
+<p>and of course the sum is over a subset of the divisors of <span class="math notranslate nohighlight">\(p - 1\)</span>. It is claimed that this determines <span class="math notranslate nohighlight">\(\psi(d_j)\)</span> uniquely. We can prove this by observing that if <span class="math notranslate nohighlight">\(N\)</span> is the number of positive divisors of <span class="math notranslate nohighlight">\(p - 1\)</span> then we have <span class="math notranslate nohighlight">\(N\)</span> linear equations in the <span class="math notranslate nohighlight">\(N\)</span> unknowns <span class="math notranslate nohighlight">\(\psi(r)\)</span> and we can write this in matrix notation</p>
+<p><span class="math notranslate nohighlight">\(\psi \mathcal{U} = \mathbf{d}\)</span></p>
+<p>Moreover <span class="math notranslate nohighlight">\(\mathcal{U}\)</span> is an upper triangular matrix with nonzero entries on the diagonal and so is invertible.</p>
+<p>Hence the <span class="math notranslate nohighlight">\(\psi(d_j)\)</span> are uniquely determined.</p>
+<p>But we already know a solution, namely <span class="math notranslate nohighlight">\(\psi = \phi\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>If we wish to avoid the linear algebra, starting from</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d_j} \psi(r) = d_j \text{ for each } j = 1, 2, \dotsc \\
+\end  {aligned}
+\)</span></p>
+<p>we can prove uniqueness by induction on <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>For the base case we have <span class="math notranslate nohighlight">\(\psi(1) = 1\)</span>.</p>
+<p>Then suppose <span class="math notranslate nohighlight">\(\psi(d_1), \dotsc, \psi(d_j)\)</span> are determined. Then we have</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{r \mid d_{j+1}} \psi(r) = d_{j+1} \\
+\end  {aligned}
+\)</span></p>
+<p>Hence</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\psi(d_{j+1}) = d_{j+1} -
+\underset{r \lt d_{j+1}}{\sum_{r \mid d_{j+1}}} \psi(r) \\
+\end  {aligned}
+\)</span></p>
+<p>and every term on the righthand side is already determined.</p>
+<p>Thus we can conclude that there is only one solution to our system of equations.</p>
+<p>But we already know this solution, namely <span class="math notranslate nohighlight">\(\psi(r) = \phi(r)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p><span class="math notranslate nohighlight">\(p = 13\)</span></p>
+<div class="full-width">
+<p><span class="math notranslate nohighlight">\(
+\begin{pmatrix}
+\underset{1}{\psi(1)} &amp; \underset{1}{\psi(2)} &amp; \underset{2}{\psi(3)} &amp; \underset{2}{\psi(4)} &amp; \underset{2}{\psi(6)} &amp; \underset{4}{\psi(12)} \\
+\end  {pmatrix}
+\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+\end  {pmatrix} =
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{pmatrix}
+\underset{1}{\psi(1)} &amp;+&amp;                     0 &amp;+&amp;                     0 &amp;+&amp;                     0 &amp;+&amp;                     0 &amp;+&amp;                      0 \\
+\underset{1}{\psi(1)} &amp;+&amp; \underset{1}{\psi(2)} &amp;+&amp;                     0 &amp;+&amp;                     0 &amp;+&amp;                     0 &amp;+&amp;                      0 \\
+\underset{1}{\psi(1)} &amp;+&amp;                     0 &amp;+&amp; \underset{2}{\psi(3)} &amp;+&amp;                     0 &amp;+&amp;                     0 &amp;+&amp;                      0 \\
+\underset{1}{\psi(1)} &amp;+&amp; \underset{1}{\psi(2)} &amp;+&amp;                     0 &amp;+&amp; \underset{2}{\psi(4)} &amp;+&amp;                     0 &amp;+&amp;                      0 \\
+\underset{1}{\psi(1)} &amp;+&amp; \underset{1}{\psi(2)} &amp;+&amp; \underset{2}{\psi(3)} &amp;+&amp;                     0 &amp;+&amp; \underset{2}{\psi(6)} &amp;+&amp;                      0 \\
+\underset{1}{\psi(1)} &amp;+&amp; \underset{1}{\psi(2)} &amp;+&amp; \underset{2}{\psi(3)} &amp;+&amp; \underset{2}{\psi(4)} &amp;+&amp; \underset{2}{\psi(6)} &amp;+&amp; \underset{4}{\psi(12)} \\
+\end  {pmatrix}^\top =
+\begin{pmatrix}
+1 \\ 2 \\ 3 \\ 4 \\ 6 \\ 12 \\
+\end  {pmatrix}^\top
+\)</span></p>
+</div><hr class="docutils" />
+<p>How about higher powers of odd primes?</p>
+<p><span style="color: #0096FF;"><b>THEOREM (GAUSS)</b></span> [Vaughan Theorem 4.8]</p>
+<div style="color: #0096FF;">
+<p>We have primitive roots modulo <span class="math notranslate nohighlight">\(m\)</span> when <span class="math notranslate nohighlight">\(m = 2\)</span>, <span class="math notranslate nohighlight">\(m = 4\)</span>, <span class="math notranslate nohighlight">\(m = p^k\)</span>, and <span class="math notranslate nohighlight">\(m = 2p^k\)</span> with <span class="math notranslate nohighlight">\(p\)</span> an odd prime, and in no other cases.</p>
+</div>
+<p>In applications one can usually reduce via the Chinese Remainder Theorem to powers of primes. Thus the lack of primitive roots for higher powers of <span class="math notranslate nohighlight">\(2\)</span> is a nuisance. Nevertheless, Gauss did prove something.</p>
+<p><span style="color: #0096FF;"><b>THEOREM (GAUSS)</b></span> [Vaughan Theorem 4.9]</p>
+<div style="color: #0096FF;">
+<p>Suppose that <span class="math notranslate nohighlight">\(k \ge 3\)</span>. Then the numbers <span class="math notranslate nohighlight">\((-1)^u 5^v\)</span> with <span class="math notranslate nohighlight">\(u = 0, 1\)</span> and <span class="math notranslate nohighlight">\(0 \le v \lt 2^{k-2}\)</span> form a set of reduced residues modulo <span class="math notranslate nohighlight">\(2^k\)</span>.</p>
+</div><hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="examining-some-moduli">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Examining some moduli</a><a class="headerlink" href="#examining-some-moduli" title="Link to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="k">def</span> <span class="nf">PR</span> <span class="p">(</span><span class="n">p</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;a&#39;</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;ord(a)&#39;</span><span class="si">:</span><span class="s2">&gt;6</span><span class="si">}</span><span class="s2"> |  </span><span class="si">{</span><span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;a^</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">)])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;-----+--------+&#39;</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+  <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">elems</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">**</span><span class="n">i</span><span class="o">%</span><span class="k">p</span> for i in range(1, p)]
+    <span class="n">order</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">elems</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">order</span><span class="si">:</span><span class="s2">&gt;6</span><span class="si">}</span><span class="s2"> |  </span><span class="si">{</span><span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">elem</span><span class="si">:</span><span class="s1">&gt;4</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">elem</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">elems</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+<section id="m-2">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="math notranslate nohighlight">\(m = 2\)</span></a><a class="headerlink" href="#m-2" title="Link to this heading">#</a></h3>
+<div style="color: red;">
+<p>The order of <span class="math notranslate nohighlight">\(1\)</span> to any modulus <span class="math notranslate nohighlight">\(m \gt 1\)</span> is equal to <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1^t &amp;\equiv 1 \mod m &amp; \text{ord}_m( 1) &amp;= 1 \\
+\end  {aligned}
+\)</span></p>
+</div>
+<p>The order of any odd integer modulo <span class="math notranslate nohighlight">\(2\)</span> is equal to <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \text{Totatives}       &amp;&amp;&amp; \phi(2)       = 1 \\
+&amp; \text{Primitive Roots} &amp;&amp;&amp; \phi(\phi(2)) = 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\text{Complete System of Residues} \\
+\begin{aligned}
+     a  &amp;= \{ mx + a \} &amp;&amp;         \\ \hline
+\bar{0} &amp;= \{ 2x     \} &amp;&amp; \text{} \\
+\bar{1} &amp;= \{ 2x + 1 \} &amp;&amp; \text{T, PR} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\text{Reduced Residues} \\
+\begin{aligned}
+a^t &amp;\equiv 1 \mod m \\ \hline
+(2x + 1) &amp;\equiv 1 \mod 2 \\ \hline
+1^t &amp;\equiv 1 \mod 2 &amp;&amp; \text{ord}_2(1) = 1 \\
+3^t &amp;\equiv 1 \mod 2 &amp;&amp; \text{ord}_2(3) = 1 \\
+5^t &amp;\equiv 1 \mod 2 &amp;&amp; \text{ord}_2(5) = 1 \\
+7^t &amp;\equiv 1 \mod 2 &amp;&amp; \text{ord}_2(7) = 1 \\ \vdots
+\end  {aligned}
+\)</span></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   a | ord(a) |  a^ 1
+-----+--------+------
+   1 |      1 |     1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x   &amp;\equiv 1 \mod 2 \text{ has 1 solution } &amp; x &amp;= 1 \\
+\end  {aligned}
+\)</span></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take an element from the first row and raise it to the power d, the value is the result modulo m</span>
+<span class="c1"># thus, solutions are 1s</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">&gt;2</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="o">**</span><span class="n">d</span><span class="o">%</span><span class="n">m</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">)])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1 |  1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="m-3">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="math notranslate nohighlight">\(m = 3\)</span></a><a class="headerlink" href="#m-3" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \text{Totatives}       &amp;&amp;&amp; \phi(3)       = 2 \\
+&amp; \text{Primitive Roots} &amp;&amp;&amp; \phi(\phi(3)) = 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^2 \mod 3\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Complete System of Residues} \\
+\begin{aligned}
+     a  &amp;= \{ mx + a \}                 \\ \hline
+\bar{0} &amp;= \{ 3x     \}                 \\
+\bar{1} &amp;= \{ 3x + 1 \} &amp;&amp; \text{T}     \\
+\bar{2} &amp;= \{ 3x + 2 \} &amp;&amp; \text{T, PR} \\
+\end  {aligned}
+\end  {array}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Reduced Residues} \\
+\begin{aligned}
+a^t &amp;\equiv 1 \mod m \\ \hline
+(3x + 1)   &amp;\equiv 1 \mod 3 &amp;&amp; 1, 4, 7, 10, \dotsc \\
+(3x + 2)^2 &amp;\equiv 1 \mod 3 &amp;&amp; 2, 5, 8, 11, \dotsc \\ \hline
+ 1^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 1)    &amp;= 1 \\
+ 2^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 2)    &amp;= 2 \\
+ 4^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 4)    &amp;= 1 \\
+ 5^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 5)    &amp;= 2 \\
+ 7^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 7)    &amp;= 1 \\
+ 8^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3( 8)    &amp;= 2 \\
+10^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3(10)    &amp;= 1 \\
+11^t     &amp;\equiv 1 \mod 3 &amp; \text{ord}_3(11)    &amp;= 2 \\ \vdots
+\end  {aligned}
+\end  {array}
+\)</span></p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   a | ord(a) |  a^ 1  a^ 2
+-----+--------+------------
+   1 |      1 |     1     1
+   2 |      2 |     2     1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x   &amp;\equiv 1 \mod 3 \text{ has 1 solution } &amp; x &amp;= 1    \\
+x^2 &amp;\equiv 1 \mod 3 \text{ has 2 solutions} &amp; x &amp;= 1, 2 \\
+\end  {aligned}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take an element from the first row and raise it to the power d, the value is the result modulo m</span>
+<span class="c1"># thus, solutions are 1s</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">&gt;2</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="o">**</span><span class="n">d</span><span class="o">%</span><span class="n">m</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">)])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1 |  1   2
+ 2 |  1   1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(3k + 2)^2
+&amp;= 9k^2 + 12k + 4 = 9k^2 + 12k + 3 + 1 \\
+&amp;= \underbrace{3(3k^2 + 4k + 1) + 1}_{3k + 1} \\
+&amp;\equiv 1 \mod 3 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="m-4">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="math notranslate nohighlight">\(m = 4\)</span></a><a class="headerlink" href="#m-4" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \text{Totatives}       &amp;&amp;&amp; \phi(4)       = 2 \\
+&amp; \text{Primitive Roots} &amp;&amp;&amp;               = 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Complete System of Residues} \\
+\begin{aligned}
+     a  &amp;= \{ mx + a \}                 \\ \hline
+\bar{0} &amp;= \{ 4x     \}                 \\
+\bar{1} &amp;= \{ 4x + 1 \} &amp;&amp; \text{T}     \\
+\bar{2} &amp;= \{ 4x + 2 \}                 \\
+\bar{3} &amp;= \{ 4x + 3 \} &amp;&amp; \text{T, PR} \impliedby \text{ord}_4(3) = \phi(4) \\
+\end  {aligned}
+\end  {array}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Reduced Residues} \\
+\begin{aligned}
+a^t &amp;\equiv 1 \mod m \\ \hline
+(4k+1)   &amp;\equiv 1 \mod 4 &amp;&amp; 1, 5,  9, 13, \dotsc \\
+(4k+3)^2 &amp;\equiv 1 \mod 4 &amp;&amp; 3, 7, 11, 15, \dotsc \\ \hline
+ 1^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 1)    &amp;= 1 \\
+ 3^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 3)    &amp;= 2 \\
+ 5^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 5)    &amp;= 1 \\
+ 7^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 7)    &amp;= 2 \\
+ 9^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4( 9)    &amp;= 1 \\
+11^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4(11)    &amp;= 2 \\
+13^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4(13)    &amp;= 1 \\
+15^t     &amp;\equiv 1 \mod 4 &amp; \text{ord}_4(15)    &amp;= 2 \\ \vdots
+\end  {aligned}
+\end  {array}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(4k + 3)^2
+&amp;= 16k^2 + 24k + 9 = 16k^2 + 24k + 8 + 1 \\
+&amp;= \underbrace{4(4k^2 + 6k + 2) + 1}_{4k + 1} \\
+&amp;\equiv 1 \mod 4 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="m-5">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="math notranslate nohighlight">\(m = 5\)</span></a><a class="headerlink" href="#m-5" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \text{Totatives}       &amp;&amp;&amp; \phi(5)       = 4 \\
+&amp; \text{Primitive Roots} &amp;&amp;&amp; \phi(\phi(5)) = 2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^4 \equiv 3^4 \equiv 4^2 \mod 5\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Complete System of Residues} \\
+\begin{aligned}
+     a  &amp;= \{ mx + a \} \\ \hline
+\bar{0} &amp;= \{ 5x     \} \\
+\bar{1} &amp;= \{ 5x + 1 \} &amp;&amp; \text{T} \\
+\bar{2} &amp;= \{ 5x + 2 \} &amp;&amp; \text{T, PR} \\
+\bar{3} &amp;= \{ 5x + 3 \} &amp;&amp; \text{T, PR} \\
+\bar{4} &amp;= \{ 5x + 4 \} &amp;&amp; \text{T} \\
+\end  {aligned}
+\end  {array}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Reduced Residues} \\
+\begin{aligned}
+a^t &amp;\equiv 1 \mod m \\ \hline
+(5k + 1)   &amp;\equiv 1 \mod 5 &amp;&amp; 1, 6, 11, 16, \dotsc \\
+(5k + 2)^4 &amp;\equiv 1 \mod 5 &amp;&amp; 2, 7, 12, 17, \dotsc \\
+(5k + 3)^4 &amp;\equiv 1 \mod 5 &amp;&amp; 3, 8, 13, 18, \dotsc \\
+(5k + 4)^2 &amp;\equiv 1 \mod 5 &amp;&amp; 4, 9, 14, 19, \dotsc \\ \hline
+ 1^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 1)    &amp;= 1 \\
+ 2^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 2)    &amp;= 4 \\
+ 3^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 3)    &amp;= 4 \\
+ 4^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 4)    &amp;= 2 \\
+ 6^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 6)    &amp;= 1 \\
+ 7^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 7)    &amp;= 4 \\
+ 8^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 8)    &amp;= 4 \\
+ 9^t     &amp;\equiv 1 \mod 5 &amp; \text{ord}_5( 9)    &amp;= 2 \\ \vdots
+\end  {aligned}
+\end  {array}
+\)</span></p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PR</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   a | ord(a) |  a^ 1  a^ 2  a^ 3  a^ 4
+-----+--------+------------------------
+   1 |      1 |     1     1     1     1
+   2 |      4 |     2     4     3     1
+   3 |      4 |     3     4     2     1
+   4 |      2 |     4     1     4     1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x   &amp;\equiv 1 \mod 5 \text{ has 1 solution } &amp; x &amp;= 1 \\
+x^2 &amp;\equiv 1 \mod 5 \text{ has 2 solutions} &amp; x &amp;= 1, 4 \\
+x^4 &amp;\equiv 1 \mod 5 \text{ has 4 solutions} &amp; x &amp;= 1, 2, 3, 4 \\
+\end  {aligned}
+\)</span></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take an element from the first row and raise it to the power d, the value is the result modulo m</span>
+<span class="c1"># thus, solutions are 1s</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">&gt;2</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="o">**</span><span class="n">d</span><span class="o">%</span><span class="n">m</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">)])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1 |  1   2   3   4
+ 2 |  1   4   4   1
+ 3 |  1   3   2   4
+ 4 |  1   1   1   1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(5k + 4)^2
+&amp;= 25k^2 + 40k + 16
+ = 25k^2 + 40k + 15 + 1 \\
+&amp;= \underbrace{5(5k^2 + 8k + 3) + 1}_{5k + 1} \\
+(5k + 3)^4
+&amp;= (25k^2 + 30k + 9)^2
+ = (25k^2 + 30k + 5 + 4)^2 \\
+&amp;= \underbrace{(5(5k^2 + 6k + 1) + 4)^2}_{(5k + 4)^2} \\
+(5k + 2)^4
+&amp;= (25k^2 + 20k + 4)^2 \\
+&amp;= \underbrace{(5(5k^2 + 4k) + 4)^2}_{(5k + 4)^2} \\
+&amp;\equiv 1 \mod 5 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="m-6">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="math notranslate nohighlight">\(m = 6\)</span></a><a class="headerlink" href="#m-6" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \text{Modulus}         &amp;&amp;&amp;           6   &amp;= 2 \times 3 \\
+&amp; \text{Totatives}       &amp;&amp;&amp;      \phi(6)  &amp;= 2 &amp; = \phi(2 \times 3) = \phi(2)\phi(3) = 1 \times 2 \\
+&amp; \text{Primitive Roots} &amp;&amp;&amp;               &amp;= 1 &amp; \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Complete System of Residues} \\
+\begin{aligned}
+     a  &amp;= \{ mx + a \} \\ \hline
+\bar{0} &amp;= \{ 6x     \} \\
+\bar{1} &amp;= \{ 6x + 1 \} &amp;&amp; \text{T} \\
+\bar{2} &amp;= \{ 6x + 2 \} \\
+\bar{3} &amp;= \{ 6x + 3 \} \\
+\bar{4} &amp;= \{ 6x + 4 \} \\
+\bar{5} &amp;= \{ 6x + 5 \} &amp;&amp; \text{T, PR} \impliedby \text{ord}_6(5) = \phi(6) \\
+\end  {aligned}
+\end  {array}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Reduced Residues} \\
+\begin{aligned}
+a^t &amp;\equiv 1 \mod m \\ \hline
+(6x + 1)   &amp;\equiv 1 \mod 6 &amp;&amp; 1,  7, 13, 19, \dotsc \\
+(6x + 5)^2 &amp;\equiv 1 \mod 6 &amp;&amp; 5, 11, 17, 23, \dotsc \\ \hline
+ 1^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6( 1)    &amp;= 1 \\
+ 5^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6( 5)    &amp;= 2 \\
+ 7^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6( 7)    &amp;= 1 \\
+11^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(11)    &amp;= 2 \\
+13^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(13)    &amp;= 1 \\
+17^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(17)    &amp;= 2 \\
+19^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(19)    &amp;= 1 \\
+23^t     &amp;\equiv 1 \mod 6 &amp; \text{ord}_6(23)    &amp;= 2 \\ \vdots
+\end  {aligned}
+\end  {array}
+\)</span></p>
+</div><p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(6k + 5)^2
+&amp;= 36k^2 + 60k + 25
+ = 36k^2 + 60k + 24 + 1 \\
+&amp;= \underbrace{6(6k^2 + 10k + 4) + 1}_{6k + 1} \\
+&amp;\equiv 1 \mod 6
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="m-7">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="math notranslate nohighlight">\(m = 7\)</span></a><a class="headerlink" href="#m-7" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \text{Modulus}         &amp;&amp;&amp;           7       \\
+&amp; \text{Totatives}       &amp;&amp;&amp;      \phi(7)  = 6 \\
+&amp; \text{Primitive Roots} &amp;&amp;&amp; \phi(\phi(7)) = 2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^3 \equiv 3^6 \equiv 4^3 \equiv 5^6 \equiv 6^2 \mod 7\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Complete System of Residues} \\
+\begin{aligned}
+     a  &amp;= \{ mx + a \}  &amp;                       &amp;&amp;&amp; \text{Reduced} &amp;&amp; \text{Order} &amp;&amp;&amp;        a^t &amp;\equiv 1 \mod m \\ \hline
+\bar{0} &amp;= \{ 7x     \}  &amp;                       &amp;&amp;&amp;                &amp;&amp;              &amp;&amp;&amp;                             \\
+\bar{1} &amp;= \{ 7x + 1 \} =&amp; 1,  8, 15, 22, \dotsc &amp;&amp;&amp; \text{T}       &amp;&amp; 1            &amp;&amp;&amp; (7x + 1)   &amp;\equiv 1 \mod 7 \\
+\bar{2} &amp;= \{ 7x + 2 \} =&amp; 2,  9, 16, 23, \dotsc &amp;&amp;&amp; \text{T}       &amp;&amp; 3            &amp;&amp;&amp; (7x + 2)^3 &amp;\equiv 1 \mod 7 \\
+\bar{3} &amp;= \{ 7x + 3 \} =&amp; 3, 10, 17, 24, \dotsc &amp;&amp;&amp; \text{T, PR}   &amp;&amp; 6            &amp;&amp;&amp; (7x + 3)^6 &amp;\equiv 1 \mod 7 \\
+\bar{4} &amp;= \{ 7x + 4 \} =&amp; 4, 11, 18, 25, \dotsc &amp;&amp;&amp; \text{T}       &amp;&amp; 3            &amp;&amp;&amp; (7x + 4)^3 &amp;\equiv 1 \mod 7 \\
+\bar{5} &amp;= \{ 7x + 5 \} =&amp; 5, 12, 19, 26, \dotsc &amp;&amp;&amp; \text{T, PR}   &amp;&amp; 6            &amp;&amp;&amp; (7x + 5)^6 &amp;\equiv 1 \mod 7 \\
+\bar{6} &amp;= \{ 7x + 6 \} =&amp; 6, 13, 20, 27, \dotsc &amp;&amp;&amp; \text{T}       &amp;&amp; 2            &amp;&amp;&amp; (7x + 6)^2 &amp;\equiv 1 \mod 7 \\ \hline
+\end  {aligned}
+\end  {array}
+\)</span></p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   a | ord(a) |  a^ 1  a^ 2  a^ 3  a^ 4  a^ 5  a^ 6
+-----+--------+------------------------------------
+   1 |      1 |     1     1     1     1     1     1
+   2 |      3 |     2     4     1     2     4     1
+   3 |      6 |     3     2     6     4     5     1
+   4 |      3 |     4     2     1     4     2     1
+   5 |      6 |     5     4     6     2     3     1
+   6 |      2 |     6     1     6     1     6     1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x   &amp;\equiv 1 \mod 7 \text{ has 1 solution } &amp; x &amp;= 1 \\
+x^2 &amp;\equiv 1 \mod 7 \text{ has 2 solutions} &amp; x &amp;= 1, 6 \\
+x^3 &amp;\equiv 1 \mod 7 \text{ has 3 solutions} &amp; x &amp;= 1, 2, 4 \\
+x^6 &amp;\equiv 1 \mod 7 \text{ has 6 solutions} &amp; x &amp;= 1, 2, 3, 4, 5, 6 \\
+\end  {aligned}
+\)</span></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take an element from the first row and raise it to the power d, the value is the result modulo m</span>
+<span class="c1"># thus, solutions are 1s</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">&gt;2</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="o">**</span><span class="n">d</span><span class="o">%</span><span class="n">m</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">)])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1 |  1   2   3   4   5   6
+ 2 |  1   4   2   2   4   1
+ 3 |  1   1   6   1   6   6
+ 4 |  1   2   4   4   2   1
+ 5 |  1   4   5   2   3   6
+ 6 |  1   1   1   1   1   1
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(7k + 2)^3 &amp;= (49k^2 + 28k +  4)(7k + 2) \\
+           &amp;= (7\underbrace{(7k^2 + 4k)}_k + 4)(7k + 2) \\
+           &amp;= 49k^2 + 42k + 8 = 49k^2 + 42k + 7 + 1 \\
+           &amp;= 7(\underbrace{7k^2 + 6k + 1}_k) + 1 \\
+(7k + 3)^6 &amp;= (49k^2 + 42k +  9)^3 = (49k^2 + 42k + 7 + 2)^3 \\
+           &amp;= (7\underbrace{(7k^2 + 6k + 1)}_k + 2)^3 \\
+(7k + 4)^3 &amp;= (49k^2 + 56k + 16)(7k + 4) = (49k^2 + 56k + 14 + 2)(7k + 4) \\
+           &amp;= (7(\underbrace{7k^2 + 8k + 2}_k) + 2)(7k + 4) \\
+(7k + 5)^6 &amp;= (49k^2 + 70k + 25)^3 = (49k^2 + 70k + 21 + 4)^3 \\
+           &amp;= (7(\underbrace{7k^2 + 10k + 3}_k) + 4)^3 \\
+(7k + 6)^2 &amp;= 49k^2 + 84k + 36 = 49k^2 + 84k + 35 + 1 \\
+           &amp;= 7\underbrace{(7k^2 + 12k + 5)}_k + 1 \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="m-8">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="math notranslate nohighlight">\(m = 8\)</span></a><a class="headerlink" href="#m-8" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \text{Modulus}         &amp;&amp;&amp;      8  &amp;= 2^3 \\
+&amp; \text{Totatives}       &amp;&amp;&amp; \phi(8) &amp;= 4 \\
+&amp; \text{Primitive Roots} &amp;&amp;&amp;         &amp;= 0 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 3^2 \equiv 5^2 \equiv 7^2 \mod 8\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Complete System of Residues} \\
+\begin{aligned}
+     a  &amp;= \{ mx + a \} &amp;&amp; \text{Reduced} &amp;&amp; \text{Order } t &amp;&amp;&amp;        a^t &amp;\equiv 1 \mod m \\ \hline
+\bar{0} &amp;= \{ 8x     \} &amp;&amp;                &amp;&amp;                 &amp;&amp;&amp;                             \\
+\bar{1} &amp;= \{ 8x + 1 \} &amp;&amp; \text{T}       &amp;&amp; 1               &amp;&amp;&amp; (8x + 1)   &amp;\equiv 1 \mod 8 \\
+\bar{2} &amp;= \{ 8x + 2 \} &amp;&amp;                &amp;&amp;                 &amp;&amp;&amp;                             \\
+\bar{3} &amp;= \{ 8x + 3 \} &amp;&amp; \text{T}       &amp;&amp; 2               &amp;&amp;&amp; (8x + 3)^2 &amp;\equiv 1 \mod 8 \\
+\bar{4} &amp;= \{ 8x + 4 \} &amp;&amp;                &amp;&amp;                 &amp;&amp;&amp;                             \\
+\bar{5} &amp;= \{ 8x + 5 \} &amp;&amp; \text{T}       &amp;&amp; 2               &amp;&amp;&amp; (8x + 5)^2 &amp;\equiv 1 \mod 8 \\
+\bar{6} &amp;= \{ 8x + 6 \} &amp;&amp;                &amp;&amp;                 &amp;&amp;&amp;                             \\
+\bar{7} &amp;= \{ 8x + 7 \} &amp;&amp; \text{T}       &amp;&amp; 2               &amp;&amp;&amp; (8x + 7)^2 &amp;\equiv 1 \mod 8 \\ \hline
+\end  {aligned}
+\end  {array}
+\)</span></p>
+</div></section>
+<hr class="docutils" />
+<section id="m-11">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="math notranslate nohighlight">\(m = 11\)</span></a><a class="headerlink" href="#m-11" title="Link to this heading">#</a></h3>
+<div class="full-width">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \text{Modulus}         &amp;                &amp;   &amp; 11 &amp; \\
+&amp; \text{Totatives}       &amp;      \phi(11)  &amp; = &amp; 10 &amp; \\
+&amp; \text{Primitive Roots} &amp; \phi(\phi(11)) &amp; = &amp;  4 &amp; = \phi(2 \times 5) = \phi(2)\phi(5) = 1 \times 4 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^{10} \equiv 3^5 \equiv 4^5 \equiv 5^5 \equiv 6^{10} \equiv 7^{10} \equiv 8^{10} \equiv 9^5 \equiv 10^2 \mod 11\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+\text{Complete System of Residues} \\
+\begin{aligned}
+      a  &amp;= \{ mx +  a \} &amp;&amp; \text{Reduced} &amp; \text{Order} &amp;&amp;                                 a^t &amp;\equiv 1 \mod m  \\ \hline
+\bar{ 0} &amp;= \{11x      \} &amp;&amp;                &amp;              &amp;&amp;                                                       \\
+\bar{ 1} &amp;= \{11x +  1 \} &amp;&amp; \text{T}       &amp;            1 &amp;&amp; (11x + \phantom{1}1)\phantom{^{15}} &amp;\equiv 1 \mod 11 \\
+\bar{ 2} &amp;= \{11x +  2 \} &amp;&amp; \text{T, PR}   &amp;           10 &amp;&amp; (11x + \phantom{1}2)^{10}           &amp;\equiv 1 \mod 11 \\
+\bar{ 3} &amp;= \{11x +  3 \} &amp;&amp; \text{T}       &amp;            5 &amp;&amp; (11x + \phantom{1}3)^{\phantom{1}5} &amp;\equiv 1 \mod 11 \\
+\bar{ 4} &amp;= \{11x +  4 \} &amp;&amp; \text{T}       &amp;            5 &amp;&amp; (11x + \phantom{1}4)^{\phantom{1}5} &amp;\equiv 1 \mod 11 \\
+\bar{ 5} &amp;= \{11x +  5 \} &amp;&amp; \text{T}       &amp;            5 &amp;&amp; (11x + \phantom{1}5)^{\phantom{1}5} &amp;\equiv 1 \mod 11 \\
+\bar{ 6} &amp;= \{11x +  6 \} &amp;&amp; \text{T, PR}   &amp;           10 &amp;&amp; (11x + \phantom{1}6)^{10}           &amp;\equiv 1 \mod 11 \\
+\bar{ 7} &amp;= \{11x +  7 \} &amp;&amp; \text{T, PR}   &amp;           10 &amp;&amp; (11x + \phantom{1}7)^{10}           &amp;\equiv 1 \mod 11 \\
+\bar{ 8} &amp;= \{11x +  8 \} &amp;&amp; \text{T, PR}   &amp;           10 &amp;&amp; (11x + \phantom{1}8)^{10}           &amp;\equiv 1 \mod 11 \\
+\bar{ 9} &amp;= \{11x +  9 \} &amp;&amp; \text{T}       &amp;            5 &amp;&amp; (11x + \phantom{1}9)^{\phantom{1}5} &amp;\equiv 1 \mod 11 \\
+\bar{10} &amp;= \{11x + 10 \} &amp;&amp; \text{T}       &amp;            2 &amp;&amp; (11x + 10)^{\phantom{1}2}           &amp;\equiv 1 \mod 11 \\ \hline
+\end  {aligned}
+\end  {array}
+\)</span></p>
+</div><p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+ 2 \not\equiv &amp;&amp;         2^2  &amp;&amp; \not\equiv &amp;&amp; \underset{\equiv 10}{2^5} &amp; \not\equiv 1 \mod 11 \\
+ 3 \not\equiv &amp;&amp;         3^2  &amp;&amp; \not\equiv &amp;&amp;               \boxed{3^5} &amp;     \equiv 1 \mod 11 \\
+ 4 \not\equiv &amp;&amp;         4^2  &amp;&amp; \not\equiv &amp;&amp;               \boxed{4^5} &amp;     \equiv 1 \mod 11 \\
+ 5 \not\equiv &amp;&amp;         5^2  &amp;&amp; \not\equiv &amp;&amp;               \boxed{5^5} &amp;     \equiv 1 \mod 11 \\
+ 6 \not\equiv &amp;&amp;         6^2  &amp;&amp; \not\equiv &amp;&amp; \underset{\equiv 10}{6^5} &amp; \not\equiv 1 \mod 11 \\
+ 7 \not\equiv &amp;&amp;         7^2  &amp;&amp; \not\equiv &amp;&amp; \underset{\equiv 10}{7^5} &amp; \not\equiv 1 \mod 11 \\
+ 8 \not\equiv &amp;&amp;         8^2  &amp;&amp; \not\equiv &amp;&amp; \underset{\equiv 10}{8^5} &amp; \not\equiv 1 \mod 11 \\
+ 9 \not\equiv &amp;&amp;         9^2  &amp;&amp; \not\equiv &amp;&amp;               \boxed{9^5} &amp;     \equiv 1 \mod 11 \\
+10 \not\equiv &amp;&amp; \boxed{10^2} &amp;&amp;            &amp;&amp;                           &amp;     \equiv 1 \mod 11 \\
+\end  {aligned}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PR</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   a | ord(a) |  a^ 1  a^ 2  a^ 3  a^ 4  a^ 5  a^ 6  a^ 7  a^ 8  a^ 9  a^10
+-----+--------+------------------------------------------------------------
+   1 |      1 |     1     1     1     1     1     1     1     1     1     1
+   2 |     10 |     2     4     8     5    10     9     7     3     6     1
+   3 |      5 |     3     9     5     4     1     3     9     5     4     1
+   4 |      5 |     4     5     9     3     1     4     5     9     3     1
+   5 |      5 |     5     3     4     9     1     5     3     4     9     1
+   6 |     10 |     6     3     7     9    10     5     8     4     2     1
+   7 |     10 |     7     5     2     3    10     4     6     9     8     1
+   8 |     10 |     8     9     6     4    10     3     2     5     7     1
+   9 |      5 |     9     4     3     5     1     9     4     3     5     1
+  10 |      2 |    10     1    10     1    10     1    10     1    10     1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Solutions to congruences of the form <span class="math notranslate nohighlight">\(x^d \equiv 1 \mod p\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x      &amp; \equiv 1 \mod 11 &amp;&amp; x = 1 \\
+x^2    &amp; \equiv 1 \mod 11 &amp;&amp; x = 1, 10 \\
+x^5    &amp; \equiv 1 \mod 11 &amp;&amp; x = 1, 3, 4, 5, 9 \\
+x^{10} &amp; \equiv 1 \mod 11 &amp;&amp; x = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 \\
+\end  {aligned}
+\)</span></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take an element from the first row and raise it to the power d, the value is the result modulo m</span>
+<span class="c1"># thus, solutions are 1s</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">&gt;2</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="s1">&#39;  &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="o">**</span><span class="n">d</span><span class="o">%</span><span class="n">m</span><span class="si">:</span><span class="s1">&gt;2</span><span class="si">}</span><span class="s1">&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">)])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1 |  1   2   3   4   5   6   7   8   9  10
+ 2 |  1   4   9   5   3   3   5   9   4   1
+ 3 |  1   8   5   9   4   7   2   6   3  10
+ 4 |  1   5   4   3   9   9   3   4   5   1
+ 5 |  1  10   1   1   1  10  10  10   1  10
+ 6 |  1   9   3   4   5   5   4   3   9   1
+ 7 |  1   7   9   5   3   8   6   2   4  10
+ 8 |  1   3   5   9   4   4   9   5   3   1
+ 9 |  1   6   4   3   9   2   8   7   5  10
+10 |  1   1   1   1   1   1   1   1   1   1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="m-13">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="math notranslate nohighlight">\(m = 13\)</span></a><a class="headerlink" href="#m-13" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(1 \equiv 2^{12} \equiv 3^3 \equiv 4^6 \equiv 5^4 \equiv 6^{12} \equiv 7^{12} \equiv 8^4 \equiv 9^3 \equiv 10^6 \equiv 11^{12} \equiv 12^2 \mod 13\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   a | ord(a) |  a^ 1  a^ 2  a^ 3  a^ 4  a^ 5  a^ 6  a^ 7  a^ 8  a^ 9  a^10  a^11  a^12
+-----+--------+------------------------------------------------------------------------
+   1 |      1 |     1     1     1     1     1     1     1     1     1     1     1     1
+   2 |     12 |     2     4     8     3     6    12    11     9     5    10     7     1
+   3 |      3 |     3     9     1     3     9     1     3     9     1     3     9     1
+   4 |      6 |     4     3    12     9    10     1     4     3    12     9    10     1
+   5 |      4 |     5    12     8     1     5    12     8     1     5    12     8     1
+   6 |     12 |     6    10     8     9     2    12     7     3     5     4    11     1
+   7 |     12 |     7    10     5     9    11    12     6     3     8     4     2     1
+   8 |      4 |     8    12     5     1     8    12     5     1     8    12     5     1
+   9 |      3 |     9     3     1     9     3     1     9     3     1     9     3     1
+  10 |      6 |    10     9    12     3     4     1    10     9    12     3     4     1
+  11 |     12 |    11     4     5     3     7    12     2     9     8    10     6     1
+  12 |      2 |    12     1    12     1    12     1    12     1    12     1    12     1
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="discrete-logarithms">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Discrete Logarithms</a><a class="headerlink" href="#discrete-logarithms" title="Link to this heading">#</a></h2>
+<p>As an application of primitive roots we can say something when <span class="math notranslate nohighlight">\(p\)</span> is odd about the solution of congruences of the form</p>
+<p><span class="math notranslate nohighlight">\(x^k \equiv a \mod p\)</span></p>
+<p>The case <span class="math notranslate nohighlight">\(a = 0\)</span> is easy. The only solution is <span class="math notranslate nohighlight">\(x \equiv 0 \mod p\)</span>.</p>
+<div style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^k &amp; \equiv &amp; \underset{a}{0} &amp; \mod p &amp;&amp; \implies p \mid x^k \\
+x   &amp; \equiv &amp; \underset{a}{0} &amp; \mod p &amp;&amp; \implies p \mid x   \\
+\end  {aligned}
+\)</span></p>
+<p>(Remember that <span class="math notranslate nohighlight">\(p \mid x^k \implies p \mid x\)</span>)</p>
+</div>
+<p>Suppose <span class="math notranslate nohighlight">\(a \not\equiv 0 \mod p \quad\quad \implies p \nmid a\)</span>.</p>
+<div style="color: #50C878;">
+<p>Claim</p>
+<p>Suppose <span class="math notranslate nohighlight">\(x^k \equiv a \mod p\)</span> and <span class="math notranslate nohighlight">\(a \not\equiv 0 \mod p \iff p \nmid \pm a\)</span>. Then <span class="math notranslate nohighlight">\(p \nmid x\)</span>.</p>
+<p>Proof by contradiction</p>
+<p><span class="math notranslate nohighlight">\(p \mid x \iff x \equiv 0 \mod p\)</span> implies that <span class="math notranslate nohighlight">\((0)^k = 0 \equiv a \mod p\)</span>. Contradiction. Thus <span class="math notranslate nohighlight">\(p \nmid x \iff p \nmid x^k\)</span>.</p>
+</div>
+<p>Then pick a primitive root <span class="math notranslate nohighlight">\(g\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>, and a <span class="math notranslate nohighlight">\(c\)</span> so that</p>
+<p><span class="math notranslate nohighlight">\(g^c \equiv a \mod p\)</span></p>
+<p>Also, since any solution <span class="math notranslate nohighlight">\(x\)</span> will have <span class="math notranslate nohighlight">\(p \nmid x\)</span> we can define <span class="math notranslate nohighlight">\(y\)</span> so that</p>
+<p><span class="math notranslate nohighlight">\(g^y \equiv x \mod p\)</span></p>
+<p>(This works because no power <span class="math notranslate nohighlight">\(y\)</span> of a primitive root <span class="math notranslate nohighlight">\(g\)</span> will be congruent to <span class="math notranslate nohighlight">\(0\)</span> the modulus, while some <span class="math notranslate nohighlight">\(y\)</span> will produce a congruence to any <span class="math notranslate nohighlight">\(x \not\equiv 0\)</span>.)</p>
+<div style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+g^{p-1} &amp;\equiv 1            &amp; \mod p \\
+g^c     &amp;\equiv x^k \equiv a &amp; \mod p \\
+g^y     &amp;\equiv x            &amp; \mod p &amp;&amp;&amp; \text{definition} \\
+(g^y)^k &amp;\equiv x^k          &amp; \mod p &amp;&amp;&amp; \text{raise to the k-th power} \\
+\end  {aligned}
+\)</span></p>
+</div>
+<p>Thus our congruence becomes</p>
+<p><span class="math notranslate nohighlight">\(g^{ky} \equiv g^c \mod p\)</span>.</p>
+<div style="color: red;">
+<p>Hence it follows that</p>
+<p><span class="math notranslate nohighlight">\(ky \equiv c \mod p - 1\)</span></p>
+</div>
+<p>We have turned a polynomial congruence into a linear one. This is a bit like using logarithms on real numbers.</p>
+<p>The exponents <span class="math notranslate nohighlight">\(c\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are called the discrete logarithms modulo <span class="math notranslate nohighlight">\(p\)</span> to the base <span class="math notranslate nohighlight">\(g\)</span>. Computing them numerically is hard and there is a protocol called Diffie-Hellman which uses them to exchange secure keys and passwords.</p>
+<div style="color: red;">
+<p>Our new congruence is soluble iff</p>
+<p><span class="math notranslate nohighlight">\(\gcd(k, p - 1) \mid c\)</span></p>
+</div>
+<p>and when this holds the <span class="math notranslate nohighlight">\(y\)</span> which satisfy it lie in a residue class modulo <span class="math notranslate nohighlight">\(\frac{p - 1}{\gcd(k, p - 1)}\)</span>. In other words, <span class="math notranslate nohighlight">\(\gcd(k, p - 1)\)</span> residue classes modulo <span class="math notranslate nohighlight">\(p - 1\)</span>.</p>
+<p>Thus when <span class="math notranslate nohighlight">\(a \not\equiv 0 \mod p\)</span> the original congruence is either insoluble or has <span class="math notranslate nohighlight">\(\gcd(k, p - 1)\)</span> solutions.</p>
+<p>The following theorem was just proved above.</p>
+<p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 4.10]</p>
+<div style="color: #0096FF;">
+<p>Suppose <span class="math notranslate nohighlight">\(p\)</span> is an odd prime. When <span class="math notranslate nohighlight">\(p \nmid a\)</span> the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^k \equiv a \mod p\)</span></p>
+<p>has <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(\gcd(k, p - 1)\)</span> solutions, and the number of reduced residues <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span> for which it is soluble is</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{p - 1}{\gcd(k, p - 1)}
+\end  {aligned}
+\)</span></p>
+</div><p>The previous theorem suggests the following.</p>
+<p><span style="color: #0096FF;"><b>DISCRETE LOGARITHM</b></span> [Vaughan Definition 4.11]</p>
+<div style="color: #0096FF;">
+<p>Given a primitive root <span class="math notranslate nohighlight">\(g\)</span> and a reduced residue class <span class="math notranslate nohighlight">\(a\)</span> modulo <span class="math notranslate nohighlight">\(m\)</span> we define the discrete logarithm</p>
+<p><span class="math notranslate nohighlight">\(\text{dlog}_g(a)\)</span></p>
+<p>or index <span class="math notranslate nohighlight">\(\text{ind}_g(a)\)</span> to be that unique residue class <span class="math notranslate nohighlight">\(\ell\)</span> modulo <span class="math notranslate nohighlight">\(\phi(m)\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(g^\ell \equiv a \mod m\)</span></p>
+</div>
+<p>The notation <span class="math notranslate nohighlight">\(\text{ind}_g(a)\)</span> is more commonly used, but <span class="math notranslate nohighlight">\(\text{dlog}_g(a)\)</span> seems more natural.</p>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p>Find a primitive root modulo <span class="math notranslate nohighlight">\(11\)</span> and construct a table of discrete logarithms.</p>
+<p>Table of powers of <span class="math notranslate nohighlight">\(g\)</span> modulo <span class="math notranslate nohighlight">\(11\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{lrrrrrrrrrr}
+           y &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp;  5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 \\ \hline
+x \equiv 2^y &amp; 2 &amp; 4 &amp; 8 &amp; 5 &amp; 10 &amp; 9 &amp; 7 &amp; 3 &amp; 6 &amp;  1 \\
+x \equiv 6^y &amp; 6 &amp; 3 &amp; 7 &amp; 9 &amp; 10 &amp; 5 &amp; 8 &amp; 4 &amp; 2 &amp;  1 \\
+x \equiv 7^y &amp; 7 &amp; 5 &amp; 2 &amp; 3 &amp; 10 &amp; 4 &amp; 6 &amp; 9 &amp; 8 &amp;  1 \\
+x \equiv 8^y &amp; 8 &amp; 9 &amp; 6 &amp; 4 &amp; 10 &amp; 3 &amp; 2 &amp; 5 &amp; 7 &amp;  1 \\
+\end  {array}
+\)</span></p>
+<p>Inverse tables</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{lrrrrrrrrrr}
+                        x &amp;  1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 \\ \hline
+y \equiv \text{dlog}_2(x) &amp; 10 &amp; 1 &amp; 8 &amp; 2 &amp; 4 &amp; 9 &amp; 7 &amp; 3 &amp; 6 &amp;  5 \\ \hline \hline \\
+                        x &amp;  1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 \\ \hline
+y \equiv \text{dlog}_6(x) &amp; 10 &amp; 9 &amp; 2 &amp; 8 &amp; 6 &amp; 1 &amp; 3 &amp; 7 &amp; 4 &amp;  5 \\ \hline \hline \\
+                        x &amp;  1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 \\ \hline
+y \equiv \text{dlog}_7(x) &amp; 10 &amp; 3 &amp; 4 &amp; 6 &amp; 2 &amp; 7 &amp; 1 &amp; 9 &amp; 8 &amp;  5 \\ \hline \hline \\
+                        x &amp;  1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 \\ \hline
+y \equiv \text{dlog}_8(x) &amp; 10 &amp; 7 &amp; 6 &amp; 4 &amp; 8 &amp; 3 &amp; 9 &amp; 1 &amp; 2 &amp;  5 \\
+\end  {array}
+\)</span></p>
+<p>Note that while <span class="math notranslate nohighlight">\(x\)</span> is a residue modulo <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(y\)</span> is a resiude modulo <span class="math notranslate nohighlight">\(p - 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(y\)</span> is the order, or exponent, to which <span class="math notranslate nohighlight">\(g\)</span> has to be raised to give <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>. In other words</p>
+<p><span class="math notranslate nohighlight">\(x \equiv g^{\text{dlog}_g(x)} \mod p\)</span></p>
+<p>We can use this to solve congruences.</p>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p>Solve the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^3 \equiv 6 \mod 11\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(k = 3\)</span> and <span class="math notranslate nohighlight">\(a \equiv 6 \mod 11\)</span>.</p>
+<p>Choose a primitive root <span class="math notranslate nohighlight">\(g = 2\)</span> modulo <span class="math notranslate nohighlight">\(11\)</span> as a base for discrete logarithms.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^3    &amp; \equiv &amp; 6   &amp; \mod 11 \\
+2^c    &amp; \equiv &amp; 6   &amp; \mod 11 &amp;&amp; 1 \\
+2^y    &amp; \equiv &amp; x   &amp; \mod 11 &amp;&amp; 3 \\
+2^{3y} &amp; \equiv &amp; 2^c &amp; \mod 11 \\
+3y     &amp; \equiv &amp; c   &amp; \mod 10 &amp;&amp; 2 \\
+\end  {aligned}
+\)</span></p>
+<p>Which power <span class="math notranslate nohighlight">\(c\)</span> of <span class="math notranslate nohighlight">\(2\)</span> is congruent to <span class="math notranslate nohighlight">\(6\)</span>. In the inverse table, <span class="math notranslate nohighlight">\(x = 6\)</span> and the corresponding entry <span class="math notranslate nohighlight">\(y = 9\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(2^9 \equiv 6 \mod 11\)</span></p>
+<p>Now we must solve <span class="math notranslate nohighlight">\(3y \equiv 9 \mod 10\)</span> which has the unique solution <span class="math notranslate nohighlight">\(y \equiv 3 \mod 10\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\underset{g}{2}\)</span> to the power <span class="math notranslate nohighlight">\(\underset{y}{3}\)</span> produces which <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(11\)</span>? In the table of discrete logarithms, <span class="math notranslate nohighlight">\(y = 3\)</span> and the corresponding entry <span class="math notranslate nohighlight">\(x = 8\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(2^3 \equiv x \equiv 8 \mod 11\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span><span class="o">**</span><span class="mi">3</span><span class="o">%</span><span class="k">11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p>Solve the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^5 \equiv 9 \mod 11\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(k = 5\)</span> and <span class="math notranslate nohighlight">\(a \equiv 9 \mod 11\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2^6 \equiv 9 \mod 11 \\
+5y  \equiv 6 \mod 10 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(\underset{k}{5}, \underset{p-1}{10}) = 5 \nmid \underset{c}{6}\)</span> and so this congruence is insoluble.</p>
+<p><span style="color: #50C878;"><b>EXAMPLE</b></span></p>
+<p>Solve the congruence</p>
+<p><span class="math notranslate nohighlight">\(x^{65} \equiv 10 \mod 11\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(k = 65\)</span> and <span class="math notranslate nohighlight">\(a \equiv 10 \mod 11\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2^5 &amp; \equiv &amp; 10 &amp; \mod 11 \\
+65y &amp; \equiv &amp;  5 &amp; \mod 10 \\
+13y &amp; \equiv &amp;  1 &amp; \mod  2 \\
+  y &amp; \equiv &amp;  1 &amp; \mod  2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(\underset{k}{65}, \underset{p-1}{10}) = 5 \mid \underset{c}{5}\)</span> and so this congruence is soluble.</p>
+<p>This congruence has one solution modulo <span class="math notranslate nohighlight">\(2\)</span></p>
+<p><span class="math notranslate nohighlight">\(y \equiv 1 \mod 2\)</span></p>
+<p>and <span class="math notranslate nohighlight">\(5\)</span> solutions modulo <span class="math notranslate nohighlight">\(10\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+65y \equiv 5 \mod 10
+\)</span></p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="acknowledgements">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/number"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="4_polynomials.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Polynomials</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="theory.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Number Theory</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#order-a-modulo-m">Order <em>a</em> modulo <em>m</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-root">Primitive Root</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-roots-modulo-a-prime">Primitive roots modulo a prime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-some-moduli">Examining some moduli</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-2"><span class="math notranslate nohighlight">\(m = 2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-3"><span class="math notranslate nohighlight">\(m = 3\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-4"><span class="math notranslate nohighlight">\(m = 4\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-5"><span class="math notranslate nohighlight">\(m = 5\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-6"><span class="math notranslate nohighlight">\(m = 6\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-7"><span class="math notranslate nohighlight">\(m = 7\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-8"><span class="math notranslate nohighlight">\(m = 8\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-11"><span class="math notranslate nohighlight">\(m = 11\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#m-13"><span class="math notranslate nohighlight">\(m = 13\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-logarithms">Discrete Logarithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
