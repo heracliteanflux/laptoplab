@@ -799,7 +799,13 @@ document.write(`
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">1</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>1</p>
-<p>Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> be integers with <span class="math notranslate nohighlight">\(0 \le m \le n\)</span>. The binomial coefficient <span class="math notranslate nohighlight">\(\binom{n}{m}\)</span> is defined inductively by</p>
+<p>Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> be integers with <span class="math notranslate nohighlight">\(0 \le m \le n\)</span>. The binomial coefficient</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\binom{n}{m} \\
+\end  {aligned}
+\)</span></p>
+<p>is defined inductively by</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \binom{\phantom{-}n}{\phantom{-}n} &amp;:= 1 \\
@@ -808,6 +814,7 @@ document.write(`
 \end  {aligned}
 \)</span></p>
 <hr class="docutils" />
+<p>Extending Pascal’s triangle, we have</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{array}{c|ccccc}
 n   &amp; \dots &amp; \underset{1}{\binom{n}{n}} &amp; \underset{0}{\binom{n  }{n+1}} &amp; \underset{ }{\binom{n  }{n+2}} &amp; \dots &amp; \binom{n  }{n+k-2} &amp; \binom{n  }{n+k-1} &amp; \binom{n  }{n+k} \\
@@ -817,14 +824,19 @@ n+2 &amp; &amp; &amp; \dots &amp; \underset{1}{\binom{n+2}{n+2}} &amp; \dots &am
 k=  &amp; \dots &amp; n &amp; n + 1 &amp; n + 2 &amp; \dots &amp; n + k - 2 &amp; n + k - 1 &amp; n + k \\
 \end  {array}
 \)</span></p>
+<p>The recurrence says that a given grid coefficient is the sum of its N and NW neighbors, or the difference of its S and W neighbors.</p>
+<hr class="docutils" />
 <p><b>CLAIM</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
+\boxed{ \boxed{
 \forall k \ge 1 \quad
 \forall n \ge 0 \quad
-\binom{n}{n+k} = 0 \\
+\binom{n}{n+k} = 0
+} } \\
 \end  {aligned}
 \)</span></p>
+<p>In other words, it is claimed that</p>
 <p>This is equivalent to saying</p>
 <p><span class="math notranslate nohighlight">\(\forall k \ge 1 \quad P(k)\)</span></p>
 <p>where</p>
@@ -884,26 +896,33 @@ P(j) : \quad
 <p><b>CLAIM</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
+\boxed{ \boxed{
 \forall n \ge 0 \quad
-\binom{n}{0} &amp;= 1 \\
+\binom{n}{0} = 1
+} } \\
 \end  {aligned}
 \)</span></p>
+<p>In other words, it is claimed that</p>
 <p><span class="math notranslate nohighlight">\(
-\begin{aligned}
 \boxed{
-P(k=0) \land \forall k \ge 1 \quad
-\left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k)
-}
+\begin{aligned}
+&amp; P(0) \quad \land \quad
+\forall k \ge 1 \quad
+\left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k) \\
+&amp; \text{where} \quad P(i) : \quad
+\binom{i}{0} = 1 \\
 \end  {aligned}
+} \\
 \)</span></p>
 <p><b>Base Case</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\boxed{ P(k=0) } : \quad
+P(0) : \quad
 \underset{1 \text{ by def}}{\binom{0}{0}} = 1 \\
 \end  {aligned}
 \)</span></p>
 <p><b>Induction Step</b></p>
+<p>We want to show that</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \boxed{
@@ -916,29 +935,18 @@ P(k=0) \land \forall k \ge 1 \quad
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 \boxed{
-\forall k \ge 1 \quad
+\exists k \ge 1 \quad
 \bigwedge_{i=0}^{k-1} P(i)
 }
 \end  {aligned}
 \)</span></p>
-<div style="color: red;">
-<p>Suppose that</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-\exists k \ge 1 \quad
-\forall i \quad
-0 \le i \lt k \quad
-\binom{i}{0} = 1 \\
-\end  {aligned}
-\)</span></p>
-</div>
-<p>It must be shown that</p>
+<p>Then</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 P(k) : \quad
 \binom{k}{0}
-&amp;= 1 \\
-&amp;= \underset{0 \text{ by def}}{\binom{k-1}{-1}} + \underset{1 \text{ by IH}}{\binom{k-1}{0}} \\
+= \underset{0 \text{ by def}}{\binom{k-1}{-1}} + \underset{1 \text{ by IH}}{\binom{k-1}{0}}
+= 1 \\
 \end  {aligned}
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
@@ -1027,18 +1035,67 @@ P(k) : \quad
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <p>ii</p>
 <p>Prove that if <span class="math notranslate nohighlight">\(p\)</span> is prime and <span class="math notranslate nohighlight">\(1 \le m \le p - 1\)</span> then <span class="math notranslate nohighlight">\(p \mid \binom{p}{m}\)</span>.</p>
+<p><a class="reference external" href="https://math.stackexchange.com/questions/328655/proving-prime-p-divides-binompk-for-k-in-1-ldots-p-1">https://math.stackexchange.com/questions/328655/proving-prime-p-divides-binompk-for-k-in-1-ldots-p-1</a></p>
+<p><a class="reference external" href="https://math.stackexchange.com/questions/1118819/proof-if-p-is-prime-and-0kp-then-p-divides-binom-pk">https://math.stackexchange.com/questions/1118819/proof-if-p-is-prime-and-0kp-then-p-divides-binom-pk</a></p>
+<p><a class="reference external" href="https://math.stackexchange.com/questions/2033748/for-any-prime-number-p-and-natural-number-i-p-prove-that-p-divides-p">https://math.stackexchange.com/questions/2033748/for-any-prime-number-p-and-natural-number-i-p-prove-that-p-divides-p</a></p>
+<p>Suppose that <span class="math notranslate nohighlight">\(1 \le m \le p-1\)</span> for some prime <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><span class="math notranslate nohighlight">\((\forall m \quad 1 \le m \le p-1 \quad p \nmid m) \implies p \nmid m!\)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\binom{p}{m}
+&amp; \binom{p}{m}
 = \frac{p!}{m! (p-m)!}
 = \frac{p \times (p-1) \times \dotsb \times (p-m+1)}{m!}
+= n \in \mathbb{N} \\
+&amp; p \times (p-1) \times \dotsb \times (p-m+1) = nm! \\
+&amp; p \mid nm! \implies p \mid n \\
 \end  {aligned}
 \)</span></p>
-<p>If <span class="math notranslate nohighlight">\(p \nmid \binom{p}{m}\)</span> then either <span class="math notranslate nohighlight">\(p\)</span> is not prime or it is not the case that <span class="math notranslate nohighlight">\(1 \le m \le p-1\)</span></p>
-<p>Suppose that <span class="math notranslate nohighlight">\(1 \le m \le p-1\)</span> for some prime <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">&gt;2</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;40.10f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1 |                             1.0000000000
+ 2 |                             0.5000000000
+ 3 |                             0.6666666667
+ 4 |                             1.5000000000
+ 5 |                             4.8000000000
+ 6 |                            20.0000000000
+ 7 |                           102.8571428571
+ 8 |                           630.0000000000
+ 9 |                          4480.0000000000
+10 |                         36288.0000000000
+11 |                        329890.9090909091
+12 |                       3326400.0000000000
+13 |                      36846276.9230769231
+14 |                     444787200.0000000000
+15 |                    5811886080.0000000000
+16 |                   81729648000.0000000000
+17 |                 1230752346352.9411764706
+18 |                19760412672000.0000000000
+19 |               336967037143578.9473684211
+20 |              6082255020441600.0000000000
+21 |            115852476579840000.0000000000
+22 |           2322315553259520000.0000000000
+23 |          48869596859895986086.9565217400
+24 |        1077167364120207360000.0000000000
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
 <p>2</p>
 <p>Prove that no polynomial <span class="math notranslate nohighlight">\(f(x)\)</span> of degree at least <span class="math notranslate nohighlight">\(1\)</span> with integral coefficients can be prime for every positive integer <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\lnot\exists f \quad \Big( \quad f \in \mathbb{Z}[x] \quad \land \quad \deg f \ge 1 \quad \land \quad \forall x \ge 1 \quad P(f(x)) \quad \Big)
+\)</span></p>
 <hr class="docutils" />
 <p>3</p>
 <p>If <span class="math notranslate nohighlight">\(2^n + 1\)</span> is an odd prime for some integer <span class="math notranslate nohighlight">\(n\)</span>, prove that <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span>.</p>
