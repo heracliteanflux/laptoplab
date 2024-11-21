@@ -261,6 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3_congruence.html">Congruence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_polynomials.html">Polynomials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_primitiveroot.html">Primitive Roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_quadratic_residues.html">Quadratic Residues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="theory.html">Number Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw.html">Exercises</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -759,19 +760,13 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-positive-powers-of-an-integer">Definition of the positive powers of an integer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-factorial-symbol">Definition of the factorial symbol</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-theorem">Binomial Theorem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-binomial-coefficients">Definition of binomial coefficients</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Binomial Theorem</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-pascal-s-triangle">Constructing Pascal’s Triangle</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-coefficients-are-positive-integers">Binomial coefficients are positive integers</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-well-ordering-principle-and-mathematical-induction">The well-ordering principle and mathematical induction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variations-on-the-induction-principle">Variations on the induction principle</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-induction">Strong Induction</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-sequence">Fibonacci Sequence</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-sequence">Fibonacci Sequence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-to-review">Fibonacci - to review</a></li>
 </ul>
 </li>
@@ -1085,194 +1080,6 @@ n! :=
 \end{split}\]</div>
 </section>
 <hr class="docutils" />
-<section id="binomial-theorem">
-<h2>Binomial Theorem<a class="headerlink" href="#binomial-theorem" title="Link to this heading">#</a></h2>
-<section id="definition-of-binomial-coefficients">
-<h3>Definition of binomial coefficients<a class="headerlink" href="#definition-of-binomial-coefficients" title="Link to this heading">#</a></h3>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> be integers with <span class="math notranslate nohighlight">\(0 \le k \le n\)</span>.<br />
-The binomial coefficients are the numbers defined as follows.</p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-\binom{n}{k}
-&amp;:= \frac{n!}{k!(n - k)!}
-= \frac{n(n - 1) \dots (n - k + 1)}{k!} \\
-\end{align*}
-\end{split}\]</div>
-<p>Note that</p>
-<div class="math notranslate nohighlight">
-\[
-\forall n \in \mathbb{N} \,\,
-\left[ \,\,
-\binom{n}{n} = \frac{n!}{n!(n - n)!} = 1
-= \frac{n!}{0!(n - 0)!} = \binom{n}{0}
-\,\, \right]
-\]</div>
-<p>Although it is clear from its definition that <span class="math notranslate nohighlight">\(\binom{n}{k} \in \mathbb{Q}^+\)</span> it is not yet clear that <span class="math notranslate nohighlight">\(\binom{n}{k} \in \mathbb{Z}\)</span>.</p>
-</section>
-<section id="id1">
-<h3>Binomial Theorem<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p><span class="math notranslate nohighlight">\(Theorem\)</span></p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(n\)</span> be a positive integer and let <span class="math notranslate nohighlight">\(x, y\)</span> be any numbers.<br />
-Then</p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-(x + y)^n
-&amp;= \binom{n}{0} x^n + \dots + \binom{n}{i} x^{n - i} y^i + \dots + \binom{n}{n} y^n \\
-&amp;= \sum_{k = 0}^n \binom{n}{k} x^{n - k} y^k
-= \sum_{k = 0}^n \binom{n}{n - k} x^k y^{n - k}\\
-\end{align*}
-\end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(Cases\)</span></p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(n = 1\)</span></p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-(x + y)^1
-&amp;= \binom{1}{0} x^1 y^0 + \binom{1}{1} x^0 y^1 \\
-&amp;= \frac{1!}{0!(1 - 0)!} x + \frac{1!}{1!(1 - 1)!} y \\
-&amp;= \frac{1}{1 \cdot 1} x + \frac{1}{1 \cdot 1} y \\
-&amp;= x + y \\
-\end{align*}
-\end{split}\]</div>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(n = 2\)</span></p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-(x + y)^2
-&amp;= \binom{2}{0} x^2 y^0 + \binom{2}{1} x^1 y^1 + \binom{2}{2} x^0 y^2 \\
-&amp;= \frac{2!}{0!(2 - 0)!} x^2 + \frac{2!}{1!(2 - 1)!} xy + \frac{2!}{2!(2 - 2)!} y^2 \\
-&amp;= \frac{2}{1 \cdot 2} x^2 + \frac{2}{1 \cdot 1} xy + \frac{2}{2 \cdot 1} y^2 \\
-&amp;= x^2 + 2xy + y^2 \\
-\end{align*}
-\end{split}\]</div>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(n = 3\)</span></p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-(x + y)^3
-&amp;= \binom{3}{0} x^3 y^0 + \binom{3}{1} x^2 y^1 + \binom{3}{2} x^1 y^2 + \binom{3}{3} x^0 y^3 \\
-&amp;= \frac{3!}{0!(3 - 0)!} x^3 + \frac{3!}{1!(3 - 1)!} x^2y + \frac{3!}{2!(3 - 2)!} xy^2 + \frac{3!}{3!(3 - 3)!} y^3 \\
-&amp;= \frac{6}{1 \cdot 6} x^3 + \frac{6}{1 \cdot 2} x^2y + \frac{6}{2 \cdot 1} xy^2 + \frac{6}{6 \cdot 1} y^3 \\
-&amp;= x^3 + 3x^2y + 3xy^2 + y^3 \\
-\end{align*}
-\end{split}\]</div>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(n = 4\)</span></p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-(x + y)^4
-&amp;= \binom{4}{0} x^4 y^0 + \binom{4}{1} x^3 y^1 + \binom{4}{2} x^2 y^2 + \binom{4}{3} x^1 y^3 + \binom{4}{4} x^0 y^4 \\
-&amp;= \frac{4!}{0!(4 - 0)!} x^4 + \frac{4!}{1!(4 - 1)!} x^3y + \frac{4!}{2!(4 - 2)!} x^2y^2 + \frac{4!}{3!(4 - 3)!} xy^3 + \frac{4!}{4!(4 - 4)!} y^4 \\
-&amp;= \frac{24}{1 \cdot 24} x^4 + \frac{24}{1 \cdot 6} x^3y + \frac{24}{2 \cdot 2} x^2y^2 + \frac{24}{6 \cdot 1} xy^3 + \frac{24}{24 \cdot 1} y^4 \\
-&amp;= x^4 + 4x^3y + 6x^2y^2 + 4xy^3 + y^4 \\
-\end{align*}
-\end{split}\]</div>
-<div class="full-width">
-<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, induction\)</span></p>
-<blockquote>
-<div><p>Base Case</p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\((x + y)^1 = \binom{1}{0} x^1 y^0 + \binom{1}{1} x^0 y^1\)</span></p>
-</div></blockquote>
-<p>Induction Step</p>
-<blockquote>
-<div><p>Induction Hypothesis: Let <span class="math notranslate nohighlight">\((x + y)^k = \binom{k}{0} x^k + \dots + \binom{k}{i} x^{k - i} y^i + \dots + \binom{k}{k} y^k\)</span> for some <span class="math notranslate nohighlight">\(k \in \mathbb{P}\)</span>.<br />
-<span class="math notranslate nohighlight">\((x + y)^{k + 1} = (x + y)(x + y)^k\)</span><br />
-<span class="math notranslate nohighlight">\(= (x + y)(\binom{k}{0} x^k + \dots + \binom{k}{i - 1} x^{k - (i - 1)} y^{i - 1} + \binom{k}{i} x^{k - i} y^i + \dots + \binom{k}{k} y^k)\)</span><br />
-<span class="math notranslate nohighlight">\(= \textcolor{green}{\binom{k}{0} x^{k + 1}} + \binom{k}{0} x^k y + \dots + \binom{k}{i - 1} x^{k + 2 - i} y^{i - 1} + \textcolor{green}{\binom{k}{i - 1} x^{k + 1 - i} y^i} + \textcolor{green}{\binom{k}{i} x^{k + 1 - i} y^i} + \binom{k}{i} x^{k - i} y^{i + 1} + \dots + \binom{k}{k} x y^k + \textcolor{green}{\binom{k}{k} y^{k + 1}}\)</span><br />
-Note that <span class="math notranslate nohighlight">\(\binom{k}{0} x^{k + 1} = x^{k + 1} = \binom{k + 1}{0} x^{k + 1}\)</span>.<br />
-Note that <span class="math notranslate nohighlight">\(\binom{k}{k} y^{k + 1} = y^{k + 1} = \binom{k + 1}{k + 1} y^{k + 1}\)</span>.<br />
-Note that <span class="math notranslate nohighlight">\(\binom{k}{i - 1} x^{k + 1 - i} y^i + \binom{k}{i} x^{k + 1 - i} y^i = \left( \binom{k}{i - 1} + \binom{k}{i} \right) x^{k + 1 - i} y^i\)</span>.<br />
-It is left for us to show that <span class="math notranslate nohighlight">\(\binom{k}{i - 1} + \binom{k}{i} = \binom{k + 1}{i}\)</span>.</p>
-</div></blockquote>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-&amp; \binom{k}{i - 1} + \binom{k}{i} \\
-= &amp; \frac{k!}{(i - 1)!(k + 1 - i)!} + \frac{k!}{i!(k - i)!} \\
-= &amp; \frac{k!}{(i - 1)!(k + 1 - i)(k - i)!} + \frac{k!}{i(i - 1)!(k - i)!} \\
-= &amp; \frac{k!}{(i - 1)!(k - i)!} \left( \frac{1}{(k + 1 - i)} + \frac{1}{i} \right) \\
-= &amp; \frac{k!}{(i - 1)!(k - i)!} \cdot \frac{k + 1}{i(k + 1 - i)} \\
-= &amp; \frac{(k + 1) \cdot k!}{i \cdot (i - 1)! \cdot (k + 1 - i) \cdot (k - i)!} \\
-= &amp; \frac{(k + 1)!}{i!(k + 1 - i)!} \\
-= &amp; \binom{k + 1}{i} \\
-\end{align*}
-\end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-</div></section>
-<section id="constructing-pascal-s-triangle">
-<h3>Constructing Pascal’s Triangle<a class="headerlink" href="#constructing-pascal-s-triangle" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{array}{c|}
-k \\
-\hline
-0 &amp;&amp; 1 \\
-1 &amp;&amp; 1 &amp;&amp; 1 \\
-2 &amp;&amp; 1 &amp;&amp; 2 &amp;&amp; 1 \\
-3 &amp;&amp; 1 &amp;&amp; 3 &amp;&amp; 3 &amp;&amp; 1 \\
-4 &amp;&amp; 1 &amp;&amp; 4 &amp;&amp; 6 &amp;&amp; 4 &amp;&amp; 1 \\
-5 &amp;&amp; 1 &amp;&amp; 5 &amp;&amp; 10 &amp;&amp; 10 &amp;&amp; 5 &amp;&amp; 1 \\
-6 &amp;&amp; 1 &amp;&amp; 6 &amp;&amp; 15 &amp;&amp; 20 &amp;&amp; 15 &amp;&amp; 6 &amp;&amp; 1 \\
-\vdots &amp;&amp; \\
-\hline
-i= &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 2 &amp;&amp; 3 &amp;&amp; 4 &amp;&amp; 5 &amp;&amp; 6 &amp;&amp; \dots \\
-\end{array}
-\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[
-\binom{k}{i - 1} + \binom{k}{i} = \binom{k + 1}{i}
-\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{array}{c|}
-k \\
-\hline
-0 &amp;&amp; \binom{0}{0} \\
-1 &amp;&amp; \binom{1}{0} &amp;&amp; \binom{1}{1} \\
-2 &amp;&amp; \binom{2}{0} &amp;&amp; \binom{2}{1} &amp;&amp; \binom{2}{2} \\
-3 &amp;&amp; \binom{3}{0} &amp;&amp; \binom{3}{1} &amp;&amp; \binom{3}{2} &amp;&amp; \binom{3}{3} \\
-4 &amp;&amp; \binom{4}{0} &amp;&amp; \binom{4}{1} &amp;&amp; \binom{4}{2} &amp;&amp; \binom{4}{3} &amp;&amp; \binom{4}{4} \\
-5 &amp;&amp; \binom{5}{0} &amp;&amp; \binom{5}{1} &amp;&amp; \binom{5}{2} &amp;&amp; \binom{5}{3} &amp;&amp; \binom{5}{4} &amp;&amp; \binom{5}{5} \\
-6 &amp;&amp; \binom{6}{0} &amp;&amp; \binom{6}{1} &amp;&amp; \binom{6}{2} &amp;&amp; \binom{6}{3} &amp;&amp; \binom{6}{4} &amp;&amp; \binom{6}{5} &amp;&amp; \binom{6}{6} \\
-\vdots &amp;&amp; \\
-\hline
-i= &amp;&amp; 0 &amp;&amp; 1 &amp;&amp; 2 &amp;&amp; 3 &amp;&amp; 4 &amp;&amp; 5 &amp;&amp; 6 &amp;&amp; \dots \\
-\end{array}
-\end{split}\]</div>
-</section>
-<section id="binomial-coefficients-are-positive-integers">
-<h3>Binomial coefficients are positive integers<a class="headerlink" href="#binomial-coefficients-are-positive-integers" title="Link to this heading">#</a></h3>
-<p><span class="math notranslate nohighlight">\(Claim\)</span></p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(k\)</span> be integers with <span class="math notranslate nohighlight">\(0 \le k \le n\)</span>.<br />
-<span class="math notranslate nohighlight">\(\binom{n}{k} \in \mathbb{Z}\)</span>.</p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\forall n, k \in \mathbb{Z} \,\,
-\left[\,\,
-\binom{n}{k} \in \mathbb{Z}
-\,\,\right]
-\]</div>
-</section>
-</section>
-<hr class="docutils" />
 <section id="the-well-ordering-principle-and-mathematical-induction">
 <h2>The well-ordering principle and mathematical induction<a class="headerlink" href="#the-well-ordering-principle-and-mathematical-induction" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest 1.2.2 pp. 20]</p>
@@ -1410,6 +1217,12 @@ But <span class="math notranslate nohighlight">\(gcd(F_k, F_{k + 1}) = 1\)</span
 <p>Therefore every two successive terms of the Fibonacci sequence are relatively prime.</p>
 </div></blockquote>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://courses.grainger.illinois.edu/cs173/fa2017/B-lecture/Lectures/InductionNotes.pdf">https://courses.grainger.illinois.edu/cs173/fa2017/B-lecture/Lectures/InductionNotes.pdf</a></p>
+<p><a class="reference external" href="https://jeffe.cs.illinois.edu/teaching/algorithms/notes/98-induction.pdf">https://jeffe.cs.illinois.edu/teaching/algorithms/notes/98-induction.pdf</a></p>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2122,19 +1935,13 @@ F_n = \frac{\phi^n - \psi^n}{\phi - \psi}
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-positive-powers-of-an-integer">Definition of the positive powers of an integer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-the-factorial-symbol">Definition of the factorial symbol</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-theorem">Binomial Theorem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-binomial-coefficients">Definition of binomial coefficients</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Binomial Theorem</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-pascal-s-triangle">Constructing Pascal’s Triangle</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-coefficients-are-positive-integers">Binomial coefficients are positive integers</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-well-ordering-principle-and-mathematical-induction">The well-ordering principle and mathematical induction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variations-on-the-induction-principle">Variations on the induction principle</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-induction">Strong Induction</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-sequence">Fibonacci Sequence</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-sequence">Fibonacci Sequence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fibonacci-to-review">Fibonacci - to review</a></li>
 </ul>
 </li>

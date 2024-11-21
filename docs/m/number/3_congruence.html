@@ -261,6 +261,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Congruence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_polynomials.html">Polynomials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_primitiveroot.html">Primitive Roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_quadratic_residues.html">Quadratic Residues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="theory.html">Number Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hw.html">Exercises</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -764,6 +765,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-totient-function">Euler’s Totient Function</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-pseudoprimes">Fermat pseudoprimes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carmichael-numbers">Carmichael Numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>
@@ -816,18 +820,22 @@ document.write(`
 </ul>
 </li>
 <li><p><a class="reference internal" href="#reduced-residues" id="id14">Reduced Residues</a></p></li>
-<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id15">Fermat pseudoprimes</a></p></li>
-<li><p><a class="reference internal" href="#carmichael-numbers" id="id16">Carmichael Numbers</a></p></li>
-<li><p><a class="reference internal" href="#mersenne-primes" id="id17">Mersenne Primes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#linear-congruence" id="id18">Linear Congruence</a></p>
+<li><p><a class="reference internal" href="#euler-s-totient-function" id="id15">Euler’s Totient Function</a></p>
 <ul>
-<li><p><a class="reference internal" href="#chinese-remainder-theorem" id="id19">Chinese Remainder Theorem</a></p></li>
+<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id16">Fermat pseudoprimes</a></p></li>
+<li><p><a class="reference internal" href="#carmichael-numbers" id="id17">Carmichael Numbers</a></p></li>
+<li><p><a class="reference internal" href="#mersenne-primes" id="id18">Mersenne Primes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#polynomial-congruence" id="id20">Polynomial Congruence</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id21">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#linear-congruence" id="id19">Linear Congruence</a></p>
+<ul>
+<li><p><a class="reference internal" href="#chinese-remainder-theorem" id="id20">Chinese Remainder Theorem</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#polynomial-congruence" id="id21">Polynomial Congruence</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id22">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -1091,10 +1099,12 @@ x \cdot (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is odd}  \\
 \bar{10} &amp;= \{ x \in \mathbb{Z} : 3 \mid (x - 5.2) \} = \{ 3x + 10 \} = \{ 3(x + 3) + 1 \} \\
 \end  {aligned}
 \)</span></p>
-<p><span style="color: #0096FF;"><b>ARITHMETIC FUNCTION</b></span></p>
-<div style="color: #0096FF;">
-<p>A function defined on <span class="math notranslate nohighlight">\(\mathbb{N}\)</span> is called arithmetic.</p>
-</div><p><span style="color: #0096FF;"><b>TOTIENT FUNCTION</b></span></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="euler-s-totient-function">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Euler’s Totient Function</a><a class="headerlink" href="#euler-s-totient-function" title="Link to this heading">#</a></h2>
+<p><span style="color: #0096FF;"><b>TOTIENT FUNCTION</b></span></p>
 <div style="color: #0096FF;">
 <p>Euler’s totient function <span class="math notranslate nohighlight">\(\phi(n)\)</span> is the number of <span class="math notranslate nohighlight">\(x \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le n\)</span> and <span class="math notranslate nohighlight">\(\gcd(x, n) = 1\)</span>.</p>
 </div>
@@ -1346,12 +1356,7 @@ y &amp; \\ \hline
 \gcd(10, n) = 1 &amp;&amp; \phi(10n) &amp;= \phi(10) \phi( n) &amp;&amp;= 4\phi(n) \\
 \end  {aligned}
 \)</span></p>
-<p><span style="color: #0096FF;"><b>MULTIPLICATIVE FUNCTION</b></span> [Vaughan Definition 3.13]</p>
-<div style="color: #0096FF;">
-<p>If an arithmetical function <span class="math notranslate nohighlight">\(f\)</span> which is not identically <span class="math notranslate nohighlight">\(0\)</span> satisfies</p>
-<p><span class="math notranslate nohighlight">\(f(mn) = f(m) f(n)\)</span></p>
-<p>whenever <span class="math notranslate nohighlight">\(\gcd(m, n) = 1\)</span> then <span class="math notranslate nohighlight">\(f\)</span> is called multiplicative.</p>
-</div><p><span style="color: #0096FF;"><b>COROLLARY</b></span> [Vaughan Corollary 3.14]</p>
+<p><span style="color: #0096FF;"><b>COROLLARY</b></span> [Vaughan Corollary 3.14]</p>
 <div style="color: #0096FF;">
 <p>Euler’s function is multiplicative.</p>
 </div><p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.15]</p>
@@ -1461,10 +1466,9 @@ m &amp;= 341561645 &amp; a &amp;= 2 &amp; 2^{m - 1} &amp;\equiv 1 \mod m  \\
 p &amp;= 17, a = 3 &amp;&amp; 3^{17} \equiv 3 \mod 17 \\
 \end  {aligned}
 \)</span></p>
-</section>
 <hr class="docutils" />
 <section id="fermat-pseudoprimes">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
 <p>Pseudoprimes are composite integers masquerading as primes.</p>
 <p>Could Fermat’s theorem give us a primality test? Unfortunately, it is possible that</p>
 <p><span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span></p>
@@ -1491,7 +1495,7 @@ n &amp;= 341561645 &amp;&amp;= 5 \times 67 \times 773 \times 1319 &amp; 2^{n - 1
 </section>
 <hr class="docutils" />
 <section id="carmichael-numbers">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CARMICHAEL NUMBER</b></span> [Vaughan Definition 3.19]</p>
 <div style="color: #0096FF;">
 <p>A composite <span class="math notranslate nohighlight">\(n\)</span> which satisfies <span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, n) = 1\)</span> is called a Carmichael number.</p>
@@ -1501,7 +1505,7 @@ n &amp;= 341561645 &amp;&amp;= 5 \times 67 \times 773 \times 1319 &amp; 2^{n - 1
 </section>
 <hr class="docutils" />
 <section id="mersenne-primes">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>MERSENNE PRIME</b></span> [Vaughan Definition 3.20]</p>
 <div style="color: #0096FF;">
 <p>Define <span class="math notranslate nohighlight">\(M(n) = 2^n - 1\)</span>. If it is prime then it is a Mersenne prime.</p>
@@ -1524,7 +1528,7 @@ M(11) &amp;=&amp; 2^{11} - 1 &amp;=&amp; 2047 &amp;= \textcolor{red}{23 \times 8
 </section>
 <hr class="docutils" />
 <section id="linear-congruence">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Linear congruences have the form</p>
 <p><span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span></p>
@@ -1635,7 +1639,7 @@ p &amp;= 3 &amp;&amp; (3 - 1)! \equiv -1 \mod 3 \\
 <p>This theorem actually gives a necessary and sufficient condition for <span class="math notranslate nohighlight">\(p\)</span> to be prime, since if <span class="math notranslate nohighlight">\(p\)</span> were to be composite then <span class="math notranslate nohighlight">\(\gcd((p - 1)!, p) \gt 1\)</span>. However, it is useless because <span class="math notranslate nohighlight">\((p - 1)!\)</span> grows very rapidly.</p>
 <hr class="docutils" />
 <section id="chinese-remainder-theorem">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">Chinese Remainder Theorem</a><a class="headerlink" href="#chinese-remainder-theorem" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Chinese Remainder Theorem</a><a class="headerlink" href="#chinese-remainder-theorem" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>SYSTEM OF LINEAR CONGRUENCES</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(
@@ -1737,7 +1741,7 @@ x
 </section>
 <hr class="docutils" />
 <section id="polynomial-congruence">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">Polynomial Congruence</a><a class="headerlink" href="#polynomial-congruence" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Polynomial Congruence</a><a class="headerlink" href="#polynomial-congruence" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>The solution of a general polynomial congruence can be quite tricky, even for a polynomial with a single variable.</p>
 <p><span style="color: #0096FF;"><b>POLYNOMIAL CONGRUENCE</b></span></p>
@@ -1783,7 +1787,7 @@ x
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
@@ -1872,6 +1876,9 @@ x
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-totient-function">Euler’s Totient Function</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-pseudoprimes">Fermat pseudoprimes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carmichael-numbers">Carmichael Numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mersenne-primes">Mersenne Primes</a></li>

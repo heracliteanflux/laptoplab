@@ -261,6 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3_congruence.html">Congruence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_polynomials.html">Polynomials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_primitiveroot.html">Primitive Roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_quadratic_residues.html">Quadratic Residues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="theory.html">Number Theory</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -798,21 +799,243 @@ document.write(`
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">1</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>1</p>
-<p>Let <span class="math notranslate nohighlight">\(n \in \mathbb{Z}\)</span> and <span class="math notranslate nohighlight">\(m \in \mathbb{Z}\)</span> with <span class="math notranslate nohighlight">\(0 \le m \le n\)</span>. The binomial coefficient <span class="math notranslate nohighlight">\(\binom{n}{m}\)</span> is defined inductively by</p>
+<p>Let <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span> be integers with <span class="math notranslate nohighlight">\(0 \le m \le n\)</span>. The binomial coefficient <span class="math notranslate nohighlight">\(\binom{n}{m}\)</span> is defined inductively by</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\binom{\phantom{-}0}{\phantom{-}0} &amp;:= 1 \\
+\binom{\phantom{-}n}{\phantom{-}n} &amp;:= 1 \\
 \binom{\phantom{-}n}{-1}           &amp;:= 0 \\
-\binom{n+1}{m}                     &amp;= \binom{n}{m-1} + \binom{n}{m} \\
+\binom{n+1}{m}                     &amp;= \binom{n}{m-1} + \binom{n}{m} \iff \binom{n}{m} = \binom{n+1}{m} - \binom{n}{m-1} \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{c|ccccc}
+n   &amp; \dots &amp; \underset{1}{\binom{n}{n}} &amp; \underset{0}{\binom{n  }{n+1}} &amp; \underset{ }{\binom{n  }{n+2}} &amp; \dots &amp; \binom{n  }{n+k-2} &amp; \binom{n  }{n+k-1} &amp; \binom{n  }{n+k} \\
+n+1 &amp; &amp; \dots &amp; \underset{1}{\binom{n+1}{n+1}} &amp; \underset{0}{\binom{n+1}{n+2}} &amp; \dots &amp; \binom{n+1}{n+k-2} &amp; \binom{n+1}{n+k-1} &amp; \binom{n+1}{n+k} \\
+n+2 &amp; &amp; &amp; \dots &amp; \underset{1}{\binom{n+2}{n+2}} &amp; \dots &amp; \binom{n+2}{n+k-2} &amp; \binom{n+2}{n+k-1} &amp; \binom{n+2}{n+k} \\
+\vdots &amp; &amp; &amp; &amp; \vdots &amp; &amp; \vdots &amp; \vdots &amp; \vdots \\ \hline
+k=  &amp; \dots &amp; n &amp; n + 1 &amp; n + 2 &amp; \dots &amp; n + k - 2 &amp; n + k - 1 &amp; n + k \\
+\end  {array}
+\)</span></p>
+<p><b>CLAIM</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\forall k \ge 1 \quad
+\forall n \ge 0 \quad
+\binom{n}{n+k} = 0 \\
+\end  {aligned}
+\)</span></p>
+<p>This is equivalent to saying</p>
+<p><span class="math notranslate nohighlight">\(\forall k \ge 1 \quad P(k)\)</span></p>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+P(k) : \quad
+\forall n \ge 0 \quad
+\binom{n}{n+k} = 0 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{ P(k=1) \land \forall j \ge 2 \quad \left( \bigwedge_{i=1}^{j-1} P(i) \right) \implies P(j) } \\
+\end  {aligned}
+\)</span></p>
+<p><b>Base Case</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{ P(k = 1) } : \quad \forall n \ge 0 \quad
+\binom{n}{n+1} &amp;= \underset{1}{\binom{n+1}{n+1}} - \underset{1}{\binom{n}{n}} = 0 \\
+\end  {aligned}
+\)</span></p>
+<p><b>Induction Step</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{ \forall j \ge 2 \quad \left( \bigwedge_{i=1}^{j-1} P(i) \right) \implies P(j) } \\
+\end  {aligned}
+\)</span></p>
+<p><b>Induction Hypothesis</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{ \forall j \ge 2 \quad \bigwedge_{i=1}^{j-1} P(i) } \\
 \end  {aligned}
 \)</span></p>
 <div style="color: red;">
-<p>What about <span class="math notranslate nohighlight">\(\binom{n}{n} := 1\)</span>?</div></p>
-<p>Based on this definition <span class="math notranslate nohighlight">\(\binom{n}{0}\)</span> ends up being <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>Suppose that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\exists j \ge 2 \quad
+\forall i \quad 1 \le i \lt j \quad
+\binom{n}{n+1} = 0 \\
+\end  {aligned}
+\)</span></p>
+</div>
+<p>It must be shown that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+P(j) : \quad
+\forall n \ge 0 \quad
+\binom{n}{n+j}
+&amp;= 0 \\
+&amp;= \underset{0 \text{ by IH}}{\binom{n+1}{n+1+j-1}} - \underset{0 \text{ by IH}}{\binom{n}{n+j-1}} 
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<p><b>CLAIM</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\forall n \ge 0 \quad
+\binom{n}{0} &amp;= 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{
+P(k=0) \land \forall k \ge 1 \quad
+\left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k)
+}
+\end  {aligned}
+\)</span></p>
+<p><b>Base Case</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{ P(k=0) } : \quad
+\underset{1 \text{ by def}}{\binom{0}{0}} = 1 \\
+\end  {aligned}
+\)</span></p>
+<p><b>Induction Step</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{
+\forall k \ge 1 \quad
+\left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k)
+}
+\end  {aligned}
+\)</span></p>
+<p><b>Induction Hypothesis</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{
+\forall k \ge 1 \quad
+\bigwedge_{i=0}^{k-1} P(i)
+}
+\end  {aligned}
+\)</span></p>
+<div style="color: red;">
+<p>Suppose that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\exists k \ge 1 \quad
+\forall i \quad
+0 \le i \lt k \quad
+\binom{i}{0} = 1 \\
+\end  {aligned}
+\)</span></p>
+</div>
+<p>It must be shown that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+P(k) : \quad
+\binom{k}{0}
+&amp;= 1 \\
+&amp;= \underset{0 \text{ by def}}{\binom{k-1}{-1}} + \underset{1 \text{ by IH}}{\binom{k-1}{0}} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
 <p>i</p>
 <p>Prove that <span class="math notranslate nohighlight">\(\binom{n}{m} \in \mathbb{Z}\)</span>.</p>
+<p><a class="reference external" href="https://math.stackexchange.com/questions/2158/division-of-factorials-binomal-coefficients-are-integers">https://math.stackexchange.com/questions/2158/division-of-factorials-binomal-coefficients-are-integers</a></p>
+<p><a class="reference external" href="https://math.stackexchange.com/questions/11601/proof-that-a-combination-is-an-integer">https://math.stackexchange.com/questions/11601/proof-that-a-combination-is-an-integer</a></p>
+<p><b>CLAIM</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\forall n \ge 0 \quad
+\forall m \quad
+0 \le m \le n \quad
+\binom{n}{m} \in \mathbb{Z} \\
+\end  {aligned}
+\)</span></p>
+<p>is equivalent to</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\forall n \ge 0 \quad
+P(n) \\
+\end  {aligned}
+\)</span></p>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+P(n) : \quad
+\forall m \quad
+0 \le m \le n \quad
+\binom{n}{m} \in \mathbb{Z} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{ P(0) \land \forall k \ge 1 \quad \left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k) } \\
+\end  {aligned}
+\)</span></p>
+<p><b>Base Case</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \boxed{
+P(k=0) : \quad
+\forall m \quad
+0 \le m \le k \quad
+\binom{0}{m} \in \mathbb{Z}
+} \\
+&amp; \underset{1 \text{ by def}}{\binom{0}{0}} = 1 \\
+\end  {aligned}
+\)</span></p>
+<p><b>Induction Step</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{ \forall k \ge 1 \quad \left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k) } \\
+\end  {aligned}
+\)</span></p>
+<p><b>Induction Hypothesis</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\boxed{ \forall k \ge 1 \quad \bigwedge_{i=0}^{k-1} P(i) } \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; P(k-1) : \quad
+\forall m \quad
+0 \le m \le k-1 \quad
+\binom{k-1}{m} \in \mathbb{Z} \\
+&amp; \binom{k-1}{0}, \binom{k-1}{1}, \dotsc, \binom{k-1}{k-1} \in \mathbb{Z} \\
+\end  {aligned}
+\)</span></p>
+<p>It must be shown that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \boxed{
+P(k) : \quad
+\forall m \quad
+0 \le m \le k \quad
+\binom{k}{m} \in \mathbb{Z}
+} \\
+&amp; \binom{k}{0} = \underset{0 \text{ by def}}{\binom{k-1}{ -1}} + \underset{\text{int by IH}}{\binom{k-1}{0}} \in \mathbb{Z} \\
+&amp; \binom{k}{1} = \underset{\text{int by IH}}{\binom{k-1}{  0}} + \underset{\text{int by IH}}{\binom{k-1}{1}} \in \mathbb{Z} \\ &amp; \quad \vdots \\
+&amp; \binom{k}{k} = \underset{\text{int by IH}}{\binom{k-1}{k-1}} + \underset{0               }{\binom{k-1}{k}} \in \mathbb{Z} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <p>ii</p>
 <p>Prove that if <span class="math notranslate nohighlight">\(p\)</span> is prime and <span class="math notranslate nohighlight">\(1 \le m \le p - 1\)</span> then <span class="math notranslate nohighlight">\(p \mid \binom{p}{m}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\binom{p}{m}
+= \frac{p!}{m! (p-m)!}
+= \frac{p \times (p-1) \times \dotsb \times (p-m+1)}{m!}
+\end  {aligned}
+\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(p \nmid \binom{p}{m}\)</span> then either <span class="math notranslate nohighlight">\(p\)</span> is not prime or it is not the case that <span class="math notranslate nohighlight">\(1 \le m \le p-1\)</span></p>
+<p>Suppose that <span class="math notranslate nohighlight">\(1 \le m \le p-1\)</span> for some prime <span class="math notranslate nohighlight">\(p\)</span>.</p>
 <hr class="docutils" />
 <p>2</p>
 <p>Prove that no polynomial <span class="math notranslate nohighlight">\(f(x)\)</span> of degree at least <span class="math notranslate nohighlight">\(1\)</span> with integral coefficients can be prime for every positive integer <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -1050,7 +1273,25 @@ ds &amp;= (x - y)(x + y) = x^2 - y^2 = 105 \\
 <p>1</p>
 <p>Find all solutions (if there are any) to each of the following congruences.</p>
 <p>i</p>
-<p><span class="math notranslate nohighlight">\(x^2 \equiv -1 \mod 7\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+x^2 \equiv -1 \mod 7
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+x^2 \equiv -1 \equiv 6 \mod 7
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="o">%</span><span class="k">7</span> for i in range(1, p)]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 2, 2, 4, 1]
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>

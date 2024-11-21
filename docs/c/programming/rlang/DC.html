@@ -261,6 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/3_congruence.html">Congruence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/4_polynomials.html">Polynomials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/5_primitiveroot.html">Primitive Roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/number/6_quadratic_residues.html">Quadratic Residues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/theory.html">Number Theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/hw.html">Exercises</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/number/book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -980,13 +981,13 @@ additional features.  The original behavior of these functions should not be aff
     max, mean, min, prod, range, sample, sum
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching core tidyverse packages</span> ─────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching core tidyverse packages</span> ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
 <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">forcats</span> 1.0.0     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">stringr</span> 1.5.0
 <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr  </span> 1.0.2     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble </span> 3.2.1
 <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">readr  </span> 2.1.4     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr  </span> 1.3.0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 <span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">between()</span>        masks <span class=" -Color -Color-Blue">data.table</span>::between()
 <span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">mosaic</span>::<span class=" -Color -Color-Green">count()</span>         masks <span class=" -Color -Color-Blue">dplyr</span>::count()
 <span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">purrr</span>::<span class=" -Color -Color-Green">cross()</span>          masks <span class=" -Color -Color-Blue">mosaic</span>::cross()
@@ -1016,7 +1017,7 @@ additional features.  The original behavior of these functions should not be aff
 <span class=" -Color -Color-Cyan">ℹ</span> Use the conflicted package (<span class=" -Color -Color-Blue">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
 </pre></div>
 </div>
-<div class="output text_html">'EXECUTED : 2024-11-14 16:21:34.772702'</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
+<div class="output text_html">'EXECUTED : 2024-11-20 21:43:07.432561'</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
 Platform: aarch64-apple-darwin20 (64-bit)
 Running under: macOS 15.1
 
@@ -1188,12 +1189,12 @@ loaded via a namespace (and not attached):
 	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>⋯</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td>female</td><td> 6</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>1.283</td><td>24.4</td><td>⋯</td><td>   NA</td><td>      NA</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>3.13</td><td>15890.60</td><td>1</td><td>41</td></tr>
-	<tr><th scope=row>2</th><td>female</td><td>17</td><td>no</td><td>Other/Multi       </td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>1.683</td><td>68.6</td><td>⋯</td><td>   NA</td><td>-0.53363</td><td>53</td><td>165</td><td>113</td><td>74</td><td>4.43</td><td> 2501.08</td><td>1</td><td> 8</td></tr>
-	<tr><th scope=row>3</th><td>female</td><td>62</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>78</td><td>no</td><td>0</td><td>1.611</td><td>71.1</td><td>⋯</td><td>1.134</td><td>-0.06773</td><td>NA</td><td> NA</td><td>138</td><td>15</td><td>2.40</td><td>18708.06</td><td>1</td><td> 1</td></tr>
-	<tr><th scope=row>4</th><td>male  </td><td>13</td><td>no</td><td>Other Hispanic    </td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>1.716</td><td>60.9</td><td>⋯</td><td>1.037</td><td>-0.41861</td><td>43</td><td>146</td><td>108</td><td>59</td><td>4.68</td><td>15074.68</td><td>1</td><td> 7</td></tr>
-	<tr><th scope=row>5</th><td>female</td><td>12</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>1.547</td><td>36.7</td><td>⋯</td><td>   NA</td><td>-0.96314</td><td>74</td><td>161</td><td>103</td><td>70</td><td>0.00</td><td>12836.62</td><td>1</td><td>11</td></tr>
-	<tr><th scope=row>6</th><td>male  </td><td> 2</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>0.994</td><td>15.8</td><td>⋯</td><td>   NA</td><td>      NA</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>4.93</td><td>10904.92</td><td>2</td><td> 6</td></tr>
+	<tr><th scope=row>1</th><td>male  </td><td>60</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>NA</td><td>no</td><td>0</td><td>   NA</td><td>   NA</td><td>⋯</td><td>   NA</td><td> 0.00000</td><td> NA</td><td> NA</td><td> NA</td><td>NA</td><td>2.64</td><td>    0.000</td><td>1</td><td>42</td></tr>
+	<tr><th scope=row>2</th><td>female</td><td> 3</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>0.987</td><td> 18.7</td><td>⋯</td><td>   NA</td><td>      NA</td><td> 40</td><td>131</td><td> NA</td><td>NA</td><td>1.36</td><td> 6370.301</td><td>2</td><td>33</td></tr>
+	<tr><th scope=row>3</th><td>male  </td><td>42</td><td>no</td><td>Non-Hispanic Black</td><td>alive</td><td>74</td><td>no</td><td>0</td><td>1.877</td><td>105.6</td><td>⋯</td><td>1.315</td><td> 0.21200</td><td>112</td><td>237</td><td>156</td><td>94</td><td>2.12</td><td> 5401.639</td><td>2</td><td> 9</td></tr>
+	<tr><th scope=row>4</th><td>male  </td><td>16</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>1.822</td><td> 68.3</td><td>⋯</td><td>1.203</td><td> 0.24084</td><td> 38</td><td>175</td><td>104</td><td>74</td><td>5.00</td><td>11698.544</td><td>1</td><td> 1</td></tr>
+	<tr><th scope=row>5</th><td>female</td><td>12</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>1.574</td><td> 44.4</td><td>⋯</td><td>   NA</td><td>-0.41705</td><td> 44</td><td>157</td><td>106</td><td>65</td><td>1.20</td><td> 9711.419</td><td>1</td><td> 1</td></tr>
+	<tr><th scope=row>6</th><td>male  </td><td> 3</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td>0</td><td>1.036</td><td> 18.9</td><td>⋯</td><td>   NA</td><td>      NA</td><td> 39</td><td>193</td><td> NA</td><td>NA</td><td>1.00</td><td> 8466.337</td><td>1</td><td> 9</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1209,7 +1210,7 @@ loaded via a namespace (and not attached):
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">39</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">9</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Red">chr</span> (1): Engine
 <span class=" -Color -Color-Green">dbl</span> (8): mass, ncylinder, strokes, displacement, bore, stroke, BHP, RPM
@@ -1903,7 +1904,7 @@ loaded via a namespace (and not attached):
 “Removed 2575 rows containing missing values (`geom_point()`).”
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/9eb5bbeb3ba371015e39f25ed33de38c72e9a50abca6da93a69145404c38beec.png"><img alt="../../../_images/9eb5bbeb3ba371015e39f25ed33de38c72e9a50abca6da93a69145404c38beec.png" src="../../../_images/9eb5bbeb3ba371015e39f25ed33de38c72e9a50abca6da93a69145404c38beec.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/57623f2d09d2bf4f41a7d0a515be9617b457bdfcfd68f8eec1edb337e3b4df19.png"><img alt="../../../_images/57623f2d09d2bf4f41a7d0a515be9617b457bdfcfd68f8eec1edb337e3b4df19.png" src="../../../_images/57623f2d09d2bf4f41a7d0a515be9617b457bdfcfd68f8eec1edb337e3b4df19.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1957,7 +1958,7 @@ loaded via a namespace (and not attached):
 “Removed 2575 rows containing missing values (`geom_point()`).”
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/78c5283fa820b5351ee485eb75663d2fddd51e99682e63cfc142e45dd4dce9a3.png"><img alt="../../../_images/78c5283fa820b5351ee485eb75663d2fddd51e99682e63cfc142e45dd4dce9a3.png" src="../../../_images/78c5283fa820b5351ee485eb75663d2fddd51e99682e63cfc142e45dd4dce9a3.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/9c906648599e15be7754c8a928c1af2b8f8558c19763326d2caac2c3d7b1c8a0.png"><img alt="../../../_images/9c906648599e15be7754c8a928c1af2b8f8558c19763326d2caac2c3d7b1c8a0.png" src="../../../_images/9c906648599e15be7754c8a928c1af2b8f8558c19763326d2caac2c3d7b1c8a0.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -2318,7 +2319,7 @@ loaded via a namespace (and not attached):
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">1728</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">16</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Green">dbl</span> (16): price, lot_size, waterfront, age, land_value, construction, air_co...
 </pre></div>
@@ -2420,7 +2421,7 @@ loaded via a namespace (and not attached):
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">1728</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">16</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Green">dbl</span> (16): price, lot_size, waterfront, age, land_value, construction, air_co...
 </pre></div>
@@ -2461,7 +2462,7 @@ loaded via a namespace (and not attached):
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">13</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">3</span>
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Red">chr</span> (2): system_type, meaning
 <span class=" -Color -Color-Green">dbl</span> (1): code
