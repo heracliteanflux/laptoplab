@@ -837,58 +837,55 @@ k=  &amp; \dots &amp; n &amp; n + 1 &amp; n + 2 &amp; \dots &amp; n + k - 2 &amp
 \end  {aligned}
 \)</span></p>
 <p>In other words, it is claimed that</p>
-<p>This is equivalent to saying</p>
-<p><span class="math notranslate nohighlight">\(\forall k \ge 1 \quad P(k)\)</span></p>
-<p>where</p>
 <p><span class="math notranslate nohighlight">\(
+\boxed{
 \begin{aligned}
-P(k) : \quad
+&amp; P(1) \quad \land \quad
+\forall j \ge 2 \quad
+\left( \bigwedge_{i=1}^{j-1} P(i) \right) \implies P(j) \\
+&amp; \text{where} \quad
+P(i) : \quad
 \forall n \ge 0 \quad
-\binom{n}{n+k} = 0 \\
+\binom{n}{n+i} = 0 \\
 \end  {aligned}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-\boxed{ P(k=1) \land \forall j \ge 2 \quad \left( \bigwedge_{i=1}^{j-1} P(i) \right) \implies P(j) } \\
-\end  {aligned}
+}
 \)</span></p>
 <p><b>Base Case</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\boxed{ P(k = 1) } : \quad \forall n \ge 0 \quad
-\binom{n}{n+1} &amp;= \underset{1}{\binom{n+1}{n+1}} - \underset{1}{\binom{n}{n}} = 0 \\
+P(1) : \quad
+\forall n \ge 0 \quad
+\binom{n}{n+1}
+&amp;= \underset{1 \text{ by def}}{\binom{n+1}{n+1}} - \underset{1 \text{ by def}}{\binom{n}{n}} = 0 \\
 \end  {aligned}
 \)</span></p>
 <p><b>Induction Step</b></p>
+<p>We want to show that</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\boxed{ \forall j \ge 2 \quad \left( \bigwedge_{i=1}^{j-1} P(i) \right) \implies P(j) } \\
+\boxed{
+\forall j \ge 2 \quad
+\left( \bigwedge_{i=1}^{j-1} P(i) \right) \implies P(j)
+} \\
 \end  {aligned}
 \)</span></p>
 <p><b>Induction Hypothesis</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\boxed{ \forall j \ge 2 \quad \bigwedge_{i=1}^{j-1} P(i) } \\
-\end  {aligned}
-\)</span></p>
-<div style="color: red;">
-<p>Suppose that</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
+\boxed{
 \exists j \ge 2 \quad
-\forall i \quad 1 \le i \lt j \quad
-\binom{n}{n+1} = 0 \\
+\bigwedge_{i=1}^{j-1} P(i)
+} \\
 \end  {aligned}
 \)</span></p>
-</div>
-<p>It must be shown that</p>
+<p>Then</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 P(j) : \quad
 \forall n \ge 0 \quad
 \binom{n}{n+j}
-&amp;= 0 \\
-&amp;= \underset{0 \text{ by IH}}{\binom{n+1}{n+1+j-1}} - \underset{0 \text{ by IH}}{\binom{n}{n+j-1}} 
+= \underset{0 \text{ by IH}}{\binom{n+1}{n+1+j-1}} - \underset{0 \text{ by IH}}{\binom{n}{n+j-1}}
+= 0 \\
 \end  {aligned}
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
@@ -958,55 +955,56 @@ P(k) : \quad
 <p><b>CLAIM</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
+\boxed{ \boxed{
 \forall n \ge 0 \quad
 \forall m \quad
 0 \le m \le n \quad
-\binom{n}{m} \in \mathbb{Z} \\
+\binom{n}{m} \in \mathbb{Z}
+} } \\
 \end  {aligned}
 \)</span></p>
-<p>is equivalent to</p>
+<p>In other words, it is claimed that</p>
 <p><span class="math notranslate nohighlight">\(
+\boxed{
 \begin{aligned}
-\forall n \ge 0 \quad
-P(n) \\
-\end  {aligned}
-\)</span></p>
-<p>where</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
+&amp; P(0) \quad \land \quad
+\forall k \ge 1 \quad
+\left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k) \\
+&amp; \text{where} \quad
 P(n) : \quad
 \forall m \quad
 0 \le m \le n \quad
 \binom{n}{m} \in \mathbb{Z} \\
 \end  {aligned}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-\boxed{ P(0) \land \forall k \ge 1 \quad \left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k) } \\
-\end  {aligned}
+}
 \)</span></p>
 <p><b>Base Case</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-&amp; \boxed{
-P(k=0) : \quad
+&amp; P(0) : \quad
 \forall m \quad
 0 \le m \le k \quad
-\binom{0}{m} \in \mathbb{Z}
-} \\
+\binom{0}{m} \in \mathbb{Z} \\
 &amp; \underset{1 \text{ by def}}{\binom{0}{0}} = 1 \\
 \end  {aligned}
 \)</span></p>
 <p><b>Induction Step</b></p>
+<p>We want to show that</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\boxed{ \forall k \ge 1 \quad \left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k) } \\
+\boxed{
+\forall k \ge 1 \quad
+\left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k)
+} \\
 \end  {aligned}
 \)</span></p>
 <p><b>Induction Hypothesis</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-\boxed{ \forall k \ge 1 \quad \bigwedge_{i=0}^{k-1} P(i) } \\
+\boxed{
+\exists k \ge 1 \quad
+\bigwedge_{i=0}^{k-1} P(i)
+} \\
 \end  {aligned}
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(
@@ -1018,15 +1016,13 @@ P(k=0) : \quad
 &amp; \binom{k-1}{0}, \binom{k-1}{1}, \dotsc, \binom{k-1}{k-1} \in \mathbb{Z} \\
 \end  {aligned}
 \)</span></p>
-<p>It must be shown that</p>
+<p>Then</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-&amp; \boxed{
-P(k) : \quad
+&amp; P(k) : \quad
 \forall m \quad
 0 \le m \le k \quad
-\binom{k}{m} \in \mathbb{Z}
-} \\
+\binom{k}{m} \in \mathbb{Z} \\
 &amp; \binom{k}{0} = \underset{0 \text{ by def}}{\binom{k-1}{ -1}} + \underset{\text{int by IH}}{\binom{k-1}{0}} \in \mathbb{Z} \\
 &amp; \binom{k}{1} = \underset{\text{int by IH}}{\binom{k-1}{  0}} + \underset{\text{int by IH}}{\binom{k-1}{1}} \in \mathbb{Z} \\ &amp; \quad \vdots \\
 &amp; \binom{k}{k} = \underset{\text{int by IH}}{\binom{k-1}{k-1}} + \underset{0               }{\binom{k-1}{k}} \in \mathbb{Z} \\
