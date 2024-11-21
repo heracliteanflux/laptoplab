@@ -257,8 +257,10 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_binomial.html">Binomial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_division.html">Division</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_arithmetic_functions.html">Arithmetic Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_polynomials.html">Polynomials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_primitiveroot.html">Primitive Roots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="6_quadratic_residues.html">Quadratic Residues</a></li>
@@ -836,7 +838,7 @@ k=  &amp; \dots &amp; n &amp; n + 1 &amp; n + 2 &amp; \dots &amp; n + k - 2 &amp
 } } \\
 \end  {aligned}
 \)</span></p>
-<p>In other words, it is claimed that</p>
+<p>It suffices to show that</p>
 <p><span class="math notranslate nohighlight">\(
 \boxed{
 \begin{aligned}
@@ -849,6 +851,12 @@ P(i) : \quad
 \binom{n}{n+i} = 0 \\
 \end  {aligned}
 }
+\)</span></p>
+<p>Thus the claim is equivalent to</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bigwedge_{i=1}^\infty P(i)
+\end  {aligned}
 \)</span></p>
 <p><b>Base Case</b></p>
 <p><span class="math notranslate nohighlight">\(
@@ -899,7 +907,7 @@ P(j) : \quad
 } } \\
 \end  {aligned}
 \)</span></p>
-<p>In other words, it is claimed that</p>
+<p>It suffices to show that</p>
 <p><span class="math notranslate nohighlight">\(
 \boxed{
 \begin{aligned}
@@ -910,6 +918,12 @@ P(j) : \quad
 \binom{i}{0} = 1 \\
 \end  {aligned}
 } \\
+\)</span></p>
+<p>Thus the claim is equivalent to</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bigwedge_{i=0}^\infty P(i)
+\end  {aligned}
 \)</span></p>
 <p><b>Base Case</b></p>
 <p><span class="math notranslate nohighlight">\(
@@ -949,7 +963,12 @@ P(k) : \quad
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <hr class="docutils" />
 <p>i</p>
-<p>Prove that <span class="math notranslate nohighlight">\(\binom{n}{m} \in \mathbb{Z}\)</span>.</p>
+<p>Prove that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\binom{n}{m} \in \mathbb{Z}
+\end  {aligned}
+\)</span></p>
 <p><a class="reference external" href="https://math.stackexchange.com/questions/2158/division-of-factorials-binomal-coefficients-are-integers">https://math.stackexchange.com/questions/2158/division-of-factorials-binomal-coefficients-are-integers</a></p>
 <p><a class="reference external" href="https://math.stackexchange.com/questions/11601/proof-that-a-combination-is-an-integer">https://math.stackexchange.com/questions/11601/proof-that-a-combination-is-an-integer</a></p>
 <p><b>CLAIM</b></p>
@@ -963,7 +982,7 @@ P(k) : \quad
 } } \\
 \end  {aligned}
 \)</span></p>
-<p>In other words, it is claimed that</p>
+<p>It suffices to show that</p>
 <p><span class="math notranslate nohighlight">\(
 \boxed{
 \begin{aligned}
@@ -971,19 +990,25 @@ P(k) : \quad
 \forall k \ge 1 \quad
 \left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k) \\
 &amp; \text{where} \quad
-P(n) : \quad
+P(i) : \quad
 \forall m \quad
-0 \le m \le n \quad
-\binom{n}{m} \in \mathbb{Z} \\
+0 \le m \le i \quad
+\binom{i}{m} \in \mathbb{Z} \\
 \end  {aligned}
 }
+\)</span></p>
+<p>Thus the claim is equivalent to</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\bigwedge_{i=0}^\infty P(i)
+\end  {aligned}
 \)</span></p>
 <p><b>Base Case</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
 &amp; P(0) : \quad
 \forall m \quad
-0 \le m \le k \quad
+0 \le m \le 0 \quad
 \binom{0}{m} \in \mathbb{Z} \\
 &amp; \underset{1 \text{ by def}}{\binom{0}{0}} = 1 \\
 \end  {aligned}
