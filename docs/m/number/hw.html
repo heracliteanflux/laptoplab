@@ -761,7 +761,7 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prime-polynomials">Prime Polynomials</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#powers-of-2">Powers of <span class="math notranslate nohighlight">\(2\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-positive-integer-is-a-sum-of-powers-of-2">Every positive integer is a sum of powers of <span class="math notranslate nohighlight">\(2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-nonnegative-integer-is-a-sum-of-powers-of-2">Every nonnegative integer is a sum of powers of <span class="math notranslate nohighlight">\(2\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-positive-integer-has-a-unique-binary-expression">Every positive integer has a unique binary expression</a></li>
 </ul>
 </li>
@@ -804,7 +804,7 @@ document.write(`
 </li>
 <li><p><a class="reference internal" href="#prime-polynomials" id="id12">Prime Polynomials</a></p></li>
 <li><p><a class="reference internal" href="#powers-of-2" id="id13">Powers of <span class="math notranslate nohighlight">\(2\)</span></a></p></li>
-<li><p><a class="reference internal" href="#every-positive-integer-is-a-sum-of-powers-of-2" id="id14">Every positive integer is a sum of powers of <span class="math notranslate nohighlight">\(2\)</span></a></p></li>
+<li><p><a class="reference internal" href="#every-nonnegative-integer-is-a-sum-of-powers-of-2" id="id14">Every nonnegative integer is a sum of powers of <span class="math notranslate nohighlight">\(2\)</span></a></p></li>
 <li><p><a class="reference internal" href="#every-positive-integer-has-a-unique-binary-expression" id="id15">Every positive integer has a unique binary expression</a></p></li>
 </ul>
 </li>
@@ -1327,22 +1327,100 @@ m &amp;&amp;&amp; \\
 <li><p><a class="reference external" href="https://math.stackexchange.com/questions/3385685/a-power-of-two-doesnt-have-any-other-odd-divisor-than-pm-1">https://math.stackexchange.com/questions/3385685/a-power-of-two-doesnt-have-any-other-odd-divisor-than-pm-1</a></p></li>
 <li><p><a class="reference external" href="https://proofwiki.org/wiki/Difference_of_Two_Powers">https://proofwiki.org/wiki/Difference_of_Two_Powers</a></p></li>
 <li><p><a class="reference external" href="https://proofwiki.org/wiki/Sum_of_Two_Odd_Powers">https://proofwiki.org/wiki/Sum_of_Two_Odd_Powers</a></p></li>
+<li><p><a class="reference external" href="https://johnwickerson.wordpress.com/2010/01/04/oddpowers/">https://johnwickerson.wordpress.com/2010/01/04/oddpowers/</a></p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="every-positive-integer-is-a-sum-of-powers-of-2">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Every positive integer is a sum of powers of <span class="math notranslate nohighlight">\(2\)</span></a><a class="headerlink" href="#every-positive-integer-is-a-sum-of-powers-of-2" title="Link to this heading">#</a></h3>
-<p>CLAIM</p>
-<p>Any nonnegative integer <span class="math notranslate nohighlight">\(n \le 2^m\)</span> for some <span class="math notranslate nohighlight">\(m \ge 0\)</span> can be expressed as a sum of powers of <span class="math notranslate nohighlight">\(2\)</span>.</p>
-<p>PROOF by induction on <span class="math notranslate nohighlight">\(m\)</span></p>
-<p>BC</p>
-<p>Any nonnegative integer <span class="math notranslate nohighlight">\(n \le 2^0\)</span> can be expressed as a sum of powers of <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<section id="every-nonnegative-integer-is-a-sum-of-powers-of-2">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Every nonnegative integer is a sum of powers of <span class="math notranslate nohighlight">\(2\)</span></a><a class="headerlink" href="#every-nonnegative-integer-is-a-sum-of-powers-of-2" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
+<p>Any nonnegative integer <span class="math notranslate nohighlight">\(n \le 2^\ell\)</span> for any <span class="math notranslate nohighlight">\(\ell \ge 0\)</span> can be expressed as a sum of zero or more powers of <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<fieldset style="border: 2px solid #B4F2E1; border-radius: 5px; display: inline-block; margin: 10px; padding: 15px 20px 0 20px;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \forall \ell \ge 0
+\quad
+\forall n
+\quad
+1 \le n \le 2^\ell
+\quad
+\exists m \ge 0
+\quad
+n = 2^{j_0} + 2^{j_1} + \dotsb + 2^{j_m}
+\quad
+\land
+\quad
+0 \le j_0 \le j_1 \le \dotsb \le j_m \le \ell \\
+&amp; 0 \text{ is an empty sum of powers of } 2 \\
+\end  {aligned}
+\)</span></p>
+</fieldset><p><span style="color: #0096FF;"><b>PROOF by induction on <span class="math notranslate nohighlight">\(\ell\)</span></b></span></p>
+<p>It suffices to show that</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\begin{aligned}
+&amp; P(0)
+\quad \land \quad
+\forall \ell \ge 1
+\quad
+\left( \bigwedge_{i=0}^{\ell - 1} P(i) \right)
+\implies
+P(\ell) \\
+&amp; \text{where}
+\quad
+P(i) :
+\quad
+\forall n
+\quad
+1 \le n \le 2^i
+\quad
+\exists m \ge 0
+\quad
+n = 2^{j_0} + 2^{j_1} + \dotsb + 2^{j_m}
+\quad
+\land
+\quad
+0 \le j_0 \le j_1 \le \dotsb \le j_m \le i
+\end  {aligned}
+}
+\)</span></p>
+<p><b>BC</b></p>
+<p><span class="math notranslate nohighlight">\(
+P(0) :
+\quad
+\forall n
+\quad
+1 \le n \le 2^0
+\quad
+\exists m \ge 0
+\quad
+n = 2^{j_0} + 2^{j_1} + \dotsb + 2^{j_m}
+\quad
+\land
+\quad
+0 \le j_0 \le j_1 \le \dotsb \le j_m \le 0
+\)</span></p>
 <p><span class="math notranslate nohighlight">\(1 = 2^0\)</span></p>
-<p>IH</p>
-<p>Any nonnegative integer <span class="math notranslate nohighlight">\(n \le 2^{k-1}\)</span> can be expressed as a sum of powers of <span class="math notranslate nohighlight">\(2\)</span>.</p>
-<p>Then for any nonnegative integer <span class="math notranslate nohighlight">\(n \le 2^k\)</span> it is either the case that</p>
+<p><b>IS</b></p>
+<p><b>IH</b></p>
+<p><span class="math notranslate nohighlight">\(
+P(k-1) :
+\quad
+\forall n
+\quad
+1 \le n \le 2^{k-1}
+\quad
+\exists m \ge 0
+\quad
+n = 2^{j_0} + 2^{j_1} + \dotsb + 2^{j_m}
+\quad
+\land
+\quad
+0 \le j_0 \le j_1 \le \dotsb \le j_m \le k-1
+\)</span></p>
+<p>Then for any <span class="math notranslate nohighlight">\(n \le 2^k\)</span> it is either the case that</p>
 <p><span class="math notranslate nohighlight">\(n \le 2^{k-1}\)</span></p>
-<p>in which case <span class="math notranslate nohighlight">\(n\)</span> can be expressed as a sum of powers of <span class="math notranslate nohighlight">\(2\)</span> by the induction hypothesis, or</p>
+<p>in which case <span class="math notranslate nohighlight">\(n\)</span> can be expressed as a sum of zero or more powers of <span class="math notranslate nohighlight">\(2\)</span> by the induction hypothesis, or</p>
 <p><span class="math notranslate nohighlight">\(2^{k-1} \lt n \le 2^k\)</span></p>
 <p>in which case</p>
 <p><span class="math notranslate nohighlight">\(
@@ -1351,7 +1429,61 @@ m &amp;&amp;&amp; \\
 &amp; n - 2^{k-1} \le 2^{k-1}
 \end  {aligned}
 \)</span></p>
-<p>Thus</p>
+<p>and so</p>
+<p><span class="math notranslate nohighlight">\(n = \underbrace{n - 2^{k-1}}_{\text{sum of powers of } 2} + \underbrace{\quad 2^{k-1} \quad}_{\text{sum of powers of } 2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
+<p>Any nonnegative integer can be expressed as a sum of powers of <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<fieldset style="border: 2px solid #B4F2E1; border-radius: 5px; display: inline-block; margin: 10px; padding: 15px 20px 0 20px;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \forall n \in \mathbb{N}^+
+\quad
+\exists m \ge 0
+\quad
+n = 2^{j_0} + 2^{j_1} + 2^{j_2} + \dotsb + 2^{j_m}
+\quad
+\land
+\quad
+0 \le j_0 \le j_1 \le \dotsb \le j_m \\
+&amp; 0 \text{ is an empty sum of powers of } 2 \\
+\end  {aligned}
+\)</span></p>
+</fieldset><p><span style="color: #0096FF;"><b>PROOF by induction on <span class="math notranslate nohighlight">\(n\)</span></b></span></p>
+<p>It suffices to show that</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\begin{aligned}
+&amp; P(1)
+\quad
+\land
+\quad
+\forall k \ge 2
+\quad
+\left( \bigwedge_{i=0}^{k-1} P(i) \right) \implies P(k) \\
+&amp; \text{where}
+\quad
+P(i) :
+\quad
+\exists m \ge 0
+\quad
+i = 2^{j_0} + 2^{j_1} + 2^{j_2} + \dotsb + 2^{j_m}
+\quad
+\land
+\quad
+0 \le j_0 \le j_1 \le \dotsb \le j_m
+\end  {aligned}
+}
+\)</span></p>
+<p><b>BC</b></p>
+<p><span class="math notranslate nohighlight">\(
+P(1) : \quad 1 = 2^0
+\quad
+m = 0
+\quad
+j_0 = 0
+\)</span></p>
+<p><b>IS</b></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 </section>
 <hr class="docutils" />
@@ -1474,6 +1606,86 @@ k = 2^{t_0+1} + 2^{t_1+1} + 2^{t_2+1} + \dotsb + 2^{t_s+1}
 <hr class="docutils" />
 <p>5</p>
 <p>Prove that there are no positive integers <span class="math notranslate nohighlight">\(a, b, n\)</span> with <span class="math notranslate nohighlight">\(n \gt 1\)</span> such that <span class="math notranslate nohighlight">\((a^n - b^n) \mid (a^n + b^n)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\lnot
+\quad
+\left(
+\quad
+\exists a, b \ge 1
+\quad
+\exists n \ge 2
+\quad
+(a^n - b^n) \mid (a^n + b^n)
+\quad
+\right)
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\forall a, b \ge 1
+\quad
+\forall n \ge 2
+\quad
+(a^n - b^n) \nmid (a^n + b^n)
+\)</span></p>
+<p><b>PROOF by contradiction</b></p>
+<p>Suppose <span class="math notranslate nohighlight">\((a^n - b^n) \mid (a^n + b^n)\)</span> for some <span class="math notranslate nohighlight">\(a, b \ge 1, n \ge 2\)</span>.</p>
+<p>Then there is some integer <span class="math notranslate nohighlight">\(k\)</span> for which</p>
+<p><span class="math notranslate nohighlight">\((a^n - b^n)k = (a^n + b^n)\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(d = \gcd(a, b)\)</span> and define <span class="math notranslate nohighlight">\(a_1 = a/d\)</span> and <span class="math notranslate nohighlight">\(b_1 = b/d\)</span>. We know that <span class="math notranslate nohighlight">\(\gcd(a_1, b_1) = 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(a^n - b^n)k &amp;= (a^n + b^n) \\
+\left( \frac{d^n}{d^n} a^n - \frac{d^n}{d^n} b^n \right) k &amp;= \left( \frac{d^n}{d^n} a^n + \frac{d^n}{d^n} b^n \right) \\
+d^n \left( \frac{a^n}{d^n} - \frac{b^n}{d^n} \right) k &amp;= d^n \left( \frac{a^n}{d^n} + \frac{b^n}{d^n} \right) \\
+(a_1^n - b_1^n) k &amp;= (a_1^n + b_1^n) \\
+\end  {aligned}
+\)</span></p>
+<p>We know that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; (a^n_1 - b^n_1) \mid [(a_1^n + b_1^n) + (a_1^n - b_1^n)] \\
+&amp; (a^n_1 - b^n_1) \mid 2a_1^n \\
+&amp; (a^n_1 - b^n_1) \mid (2a_1^n + (-2)(a_1^n - b_1^n)) \\
+&amp; (a^n_1 - b^n_1) \mid 2b_1^n \\
+&amp; (a^n_1 - b^n_1) \mid b_1^n \quad \oplus \quad (a^n_1 - b^n_1) \mid 2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(1 = \gcd(a_1, b_1) = \gcd(a_1^n, b_1^n) = \gcd(a_1^n - b_1^n, b_1^n)\)</span></p>
+<p>Thus <span class="math notranslate nohighlight">\((a^n_1 - b^n_1) \mid 2\)</span></p>
+<p>But this is impossible for <span class="math notranslate nohighlight">\(a, b \ge 1, n \ge 2\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(a = b\)</span> then <span class="math notranslate nohighlight">\(a^n - b^n = 0\)</span>. Thus <span class="math notranslate nohighlight">\(a \ne b\)</span>.</p>
+<p>WLOG <span class="math notranslate nohighlight">\(a \gt b \iff a^n \gt b^n \iff a^n - b^n \gt 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+0 \lt a^n - b^n \le 2b^n
+\iff
+b^n \lt a^n \le 3b^n
+\iff
+1 \lt \left( \frac{a}{b} \right)^n \le 3
+\)</span></p>
+<p>We know that there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(a^n - b^n)k &amp;= (a^n + b^n) \\
+ka^n - kb^n  &amp;=  a^n + b^n  \\
+ka^n -  a^n  &amp;= kb^n + b^n  \\
+a^n(k - 1)   &amp;= b^n(k + 1)  \\
+\frac{a^n}{b^n} &amp;= \frac{k+1}{k-1} \\
+\left( \frac{a}{b} \right)^n &amp;= \frac{k+1}{k-1} \\
+\end  {aligned}
+\)</span></p>
+<p>Thus <span class="math notranslate nohighlight">\(k \ne 1\)</span>. Further</p>
+<p><span class="math notranslate nohighlight">\(
+1 \lt \frac{k+1}{k-1} \le 3
+\implies
+3k - 3 \ge k + 1
+\iff
+k \ge 2
+\)</span></p>
+<p>Resources</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/831696/show-that-there-are-no-a-b-geq-1-n-geq-2-such-that-an%E2%88%92bn-mid-anbn">https://math.stackexchange.com/questions/831696/show-that-there-are-no-a-b-geq-1-n-geq-2-such-that-an−bn-mid-anbn</a></p></li>
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/71779/why-does-an-bn-never-divide-an-bn">https://math.stackexchange.com/questions/71779/why-does-an-bn-never-divide-an-bn</a></p></li>
+</ul>
 <hr class="docutils" />
 <p>6</p>
 <p>Write a program to evaluate the expression <span class="math notranslate nohighlight">\(a^m \mod m\)</span> when <span class="math notranslate nohighlight">\(a = 2\)</span> or <span class="math notranslate nohighlight">\(a = 3\)</span> and</p>
@@ -1834,7 +2046,7 @@ x^{ 7} \equiv 8 \mod 11 \\
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prime-polynomials">Prime Polynomials</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#powers-of-2">Powers of <span class="math notranslate nohighlight">\(2\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-positive-integer-is-a-sum-of-powers-of-2">Every positive integer is a sum of powers of <span class="math notranslate nohighlight">\(2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-nonnegative-integer-is-a-sum-of-powers-of-2">Every nonnegative integer is a sum of powers of <span class="math notranslate nohighlight">\(2\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-positive-integer-has-a-unique-binary-expression">Every positive integer has a unique binary expression</a></li>
 </ul>
 </li>
