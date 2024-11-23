@@ -752,7 +752,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-division">Integer Division</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-implies-a-le-b">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies |a| \le |b|\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-pm-1-divide-every-integer">Claim: <span class="math notranslate nohighlight">\(\pm 1\)</span> divide every integer</a></li>
@@ -768,6 +771,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (a \mid c) \implies a \mid (bx + cy)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#even">Even</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odd">Odd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-the-sum-or-difference-of-two-even-integers-is-even">Claim: the sum or difference of two even integers is even</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-the-sum-or-difference-of-two-odd-integers-is-even">Claim: the sum or difference of two odd integers is even</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-the-sum-or-difference-of-an-even-integer-and-an-odd-integer-is-odd">Claim: the sum or difference of an even integer and an odd integer is odd</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-every-odd-integer-has-the-form-4k-pm-1">Claim: every odd integer has the form <span class="math notranslate nohighlight">\(4k \pm 1\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-if-n-is-odd-then-8-mid-n-2-1">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is odd then <span class="math notranslate nohighlight">\(8 \mid (n^2 - 1)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-if-m-and-n-are-integers-of-the-form-4k-1-then-so-is-mn">Claim: if <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> then so is <span class="math notranslate nohighlight">\(mn\)</span></a></li>
@@ -813,65 +819,72 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="division">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink">Division</a><a class="headerlink" href="#division" title="Link to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Division</a><a class="headerlink" href="#division" title="Link to this heading">#</a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#division" id="id1">Division</a></p>
+<li><p><a class="reference internal" href="#division" id="id2">Division</a></p>
 <ul>
-<li><p><a class="reference internal" href="#summary" id="id2">Summary</a></p></li>
-<li><p><a class="reference internal" href="#integer-division" id="id3">Integer Division</a></p>
+<li><p><a class="reference internal" href="#summary" id="id3">Summary</a></p>
 <ul>
-<li><p><a class="reference internal" href="#claim-a-mid-b-implies-a-le-b" id="id4">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies |a| \le |b|\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-pm-1-divide-every-integer" id="id5">Claim: <span class="math notranslate nohighlight">\(\pm 1\)</span> divide every integer</a></p></li>
-<li><p><a class="reference internal" href="#claim-every-non-zero-integer-divides-itself" id="id6">Claim: every non-zero integer divides itself</a></p></li>
-<li><p><a class="reference internal" href="#claim-zero-division-zero-divides-no-non-zero-integer" id="id7">Claim (zero division): zero divides no non-zero integer</a></p></li>
-<li><p><a class="reference internal" href="#claim-every-integer-integer-divides-0" id="id8">Claim: every integer “integer-divides” <span class="math notranslate nohighlight">\(0\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-the-product-of-two-integers-is-one-iff-both-are-one-or-negative-one" id="id9">Claim: the product of two integers is one iff both are one or negative one</a></p></li>
-<li><p><a class="reference internal" href="#claim-two-integers-divide-each-other-iff-they-are-equal-up-to-sign" id="id10">Claim: two integers divide each other iff they are equal up to sign</a></p></li>
-<li><p><a class="reference internal" href="#claim-ac-bc-iff-a-b" id="id11">Claim: <span class="math notranslate nohighlight">\(ac = bc \iff a = b\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-ac-mid-bc-iff-a-mid-b" id="id12">Claim: <span class="math notranslate nohighlight">\(ac \mid bc \iff a \mid b\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-a-mid-b-implies-a-mid-bc" id="id13">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c" id="id14">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy" id="id15">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (a \mid c) \implies a \mid (bx + cy)\)</span></a></p></li>
-<li><p><a class="reference internal" href="#even" id="id16">Even</a></p></li>
-<li><p><a class="reference internal" href="#odd" id="id17">Odd</a></p></li>
-<li><p><a class="reference internal" href="#claim-every-odd-integer-has-the-form-4k-pm-1" id="id18">Claim: every odd integer has the form <span class="math notranslate nohighlight">\(4k \pm 1\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-if-n-is-odd-then-8-mid-n-2-1" id="id19">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is odd then <span class="math notranslate nohighlight">\(8 \mid (n^2 - 1)\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-if-m-and-n-are-integers-of-the-form-4k-1-then-so-is-mn" id="id20">Claim: if <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> then so is <span class="math notranslate nohighlight">\(mn\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-if-mn-is-of-the-form-4k-1-then-so-is-one-of-m-or-n" id="id21">Claim: if <span class="math notranslate nohighlight">\(mn\)</span> is of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> then so is one of <span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(n\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-the-square-root-of-2-is-irrational" id="id22">Claim: the square root of <span class="math notranslate nohighlight">\(2\)</span> is irrational</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id4"></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#prime" id="id23">Prime</a></p></li>
-<li><p><a class="reference internal" href="#euclid-s-theorem" id="id24">Euclid’s Theorem</a></p></li>
-<li><p><a class="reference internal" href="#division-algorithm" id="id25">Division Algorithm</a></p></li>
-<li><p><a class="reference internal" href="#gcd" id="id26">GCD</a></p></li>
-<li><p><a class="reference internal" href="#euclid-s-lemma" id="id27">Euclid’s Lemma</a></p></li>
-<li><p><a class="reference internal" href="#fundamental-theorem-of-arithmetic" id="id28">Fundamental Theorem of Arithmetic</a></p>
+<li><p><a class="reference internal" href="#integer-division" id="id5">Integer Division</a></p>
 <ul>
-<li><p><a class="reference internal" href="#claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1" id="id29">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then it has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-a-mid-b-implies-a-le-b" id="id6">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies |a| \le |b|\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-pm-1-divide-every-integer" id="id7">Claim: <span class="math notranslate nohighlight">\(\pm 1\)</span> divide every integer</a></p></li>
+<li><p><a class="reference internal" href="#claim-every-non-zero-integer-divides-itself" id="id8">Claim: every non-zero integer divides itself</a></p></li>
+<li><p><a class="reference internal" href="#claim-zero-division-zero-divides-no-non-zero-integer" id="id9">Claim (zero division): zero divides no non-zero integer</a></p></li>
+<li><p><a class="reference internal" href="#claim-every-integer-integer-divides-0" id="id10">Claim: every integer “integer-divides” <span class="math notranslate nohighlight">\(0\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-the-product-of-two-integers-is-one-iff-both-are-one-or-negative-one" id="id11">Claim: the product of two integers is one iff both are one or negative one</a></p></li>
+<li><p><a class="reference internal" href="#claim-two-integers-divide-each-other-iff-they-are-equal-up-to-sign" id="id12">Claim: two integers divide each other iff they are equal up to sign</a></p></li>
+<li><p><a class="reference internal" href="#claim-ac-bc-iff-a-b" id="id13">Claim: <span class="math notranslate nohighlight">\(ac = bc \iff a = b\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-ac-mid-bc-iff-a-mid-b" id="id14">Claim: <span class="math notranslate nohighlight">\(ac \mid bc \iff a \mid b\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-a-mid-b-implies-a-mid-bc" id="id15">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c" id="id16">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy" id="id17">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (a \mid c) \implies a \mid (bx + cy)\)</span></a></p></li>
+<li><p><a class="reference internal" href="#even" id="id18">Even</a></p></li>
+<li><p><a class="reference internal" href="#odd" id="id19">Odd</a></p></li>
+<li><p><a class="reference internal" href="#claim-the-sum-or-difference-of-two-even-integers-is-even" id="id20">Claim: the sum or difference of two even integers is even</a></p></li>
+<li><p><a class="reference internal" href="#claim-the-sum-or-difference-of-two-odd-integers-is-even" id="id21">Claim: the sum or difference of two odd integers is even</a></p></li>
+<li><p><a class="reference internal" href="#claim-the-sum-or-difference-of-an-even-integer-and-an-odd-integer-is-odd" id="id22">Claim: the sum or difference of an even integer and an odd integer is odd</a></p></li>
+<li><p><a class="reference internal" href="#claim-every-odd-integer-has-the-form-4k-pm-1" id="id23">Claim: every odd integer has the form <span class="math notranslate nohighlight">\(4k \pm 1\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-if-n-is-odd-then-8-mid-n-2-1" id="id24">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is odd then <span class="math notranslate nohighlight">\(8 \mid (n^2 - 1)\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-if-m-and-n-are-integers-of-the-form-4k-1-then-so-is-mn" id="id25">Claim: if <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> then so is <span class="math notranslate nohighlight">\(mn\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-if-mn-is-of-the-form-4k-1-then-so-is-one-of-m-or-n" id="id26">Claim: if <span class="math notranslate nohighlight">\(mn\)</span> is of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> then so is one of <span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(n\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-the-square-root-of-2-is-irrational" id="id27">Claim: the square root of <span class="math notranslate nohighlight">\(2\)</span> is irrational</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#canonical-representation-of-a-positive-integer" id="id30">Canonical representation of a positive integer</a></p></li>
-<li><p><a class="reference internal" href="#gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i" id="id31"><span class="math notranslate nohighlight">\(\gcd(a, b) = \prod_{i=1}^k p_i^{\min(r_i, s_i)}\)</span></a></p>
+<li><p><a class="reference internal" href="#prime" id="id28">Prime</a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-theorem" id="id29">Euclid’s Theorem</a></p></li>
+<li><p><a class="reference internal" href="#division-algorithm" id="id30">Division Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#gcd" id="id31">GCD</a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-lemma" id="id32">Euclid’s Lemma</a></p></li>
+<li><p><a class="reference internal" href="#fundamental-theorem-of-arithmetic" id="id33">Fundamental Theorem of Arithmetic</a></p>
 <ul>
-<li><p><a class="reference internal" href="#gcd-a-n-b-n-gcd-a-b-n" id="id32"><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1" id="id34">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then it has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#lcm" id="id33">LCM</a></p></li>
-<li><p><a class="reference internal" href="#trial-division" id="id34">Trial Division</a></p></li>
-<li><p><a class="reference internal" href="#prime-counting-function" id="id35">Prime-Counting Function</a></p></li>
-<li><p><a class="reference internal" href="#sieve-of-eratosthenes" id="id36">Sieve of Eratosthenes</a></p></li>
-<li><p><a class="reference internal" href="#fermat-factorization" id="id37">Fermat Factorization</a></p></li>
-<li><p><a class="reference internal" href="#misc-proofs" id="id38">Misc Proofs</a></p>
+<li><p><a class="reference internal" href="#canonical-representation-of-a-positive-integer" id="id35">Canonical representation of a positive integer</a></p></li>
+<li><p><a class="reference internal" href="#gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i" id="id36"><span class="math notranslate nohighlight">\(\gcd(a, b) = \prod_{i=1}^k p_i^{\min(r_i, s_i)}\)</span></a></p>
 <ul>
-<li><p><a class="reference internal" href="#there-is-no-smallest-positive-rational-number" id="id39">There is no smallest positive rational number</a></p></li>
-<li><p><a class="reference internal" href="#divisor-function" id="id40">Divisor Function</a></p></li>
+<li><p><a class="reference internal" href="#gcd-a-n-b-n-gcd-a-b-n" id="id37"><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#resources" id="id41">Resources</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id42">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#lcm" id="id38">LCM</a></p></li>
+<li><p><a class="reference internal" href="#trial-division" id="id39">Trial Division</a></p></li>
+<li><p><a class="reference internal" href="#prime-counting-function" id="id40">Prime-Counting Function</a></p></li>
+<li><p><a class="reference internal" href="#sieve-of-eratosthenes" id="id41">Sieve of Eratosthenes</a></p></li>
+<li><p><a class="reference internal" href="#fermat-factorization" id="id42">Fermat Factorization</a></p></li>
+<li><p><a class="reference internal" href="#misc-proofs" id="id43">Misc Proofs</a></p>
+<ul>
+<li><p><a class="reference internal" href="#there-is-no-smallest-positive-rational-number" id="id44">There is no smallest positive rational number</a></p></li>
+<li><p><a class="reference internal" href="#divisor-function" id="id45">Divisor Function</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#resources" id="id46">Resources</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id47">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -880,7 +893,7 @@ document.write(`
 <hr class="docutils" />
 <hr class="docutils" />
 <section id="summary">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Summary</a><a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Summary</a><a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <div class="full-width" style="color: #0096FF;">
 <p><b>Integer Division</b></p>
@@ -1056,6 +1069,18 @@ n = 2k \pm 1
 }
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{even} &amp;\pm    \text{even} &amp;&amp;= \text{even} \\
+\text{odd}  &amp;\pm    \text{odd}  &amp;&amp;= \text{even} \\
+\text{even} &amp;\pm    \text{odd}  &amp;&amp;= \text{odd}  \\
+\text{even} &amp;\times \text{even} &amp;&amp;= \text{even} \\
+\text{even} &amp;\times \text{odd}  &amp;&amp;= \text{even} \\
+\text{odd}  &amp;\times \text{odd}  &amp;&amp;= \text{odd}  \\
+\end  {aligned}
+\)</span></p>
+<section id="id1">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"></a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
 \boxed{
 \forall n \in \mathbb{Z}
 \quad
@@ -1124,17 +1149,6 @@ n = 4t - 1
 \sqrt{2} \ne p/q
 }
 \)</span></p>
-<p><b>Parity</b></p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-\text{even} &amp;\pm    \text{even} &amp;&amp;= \text{even} \\
-\text{odd}  &amp;\pm    \text{odd}  &amp;&amp;= \text{even} \\
-\text{even} &amp;\pm    \text{odd}  &amp;&amp;= \text{odd}  \\
-\text{even} &amp;\times \text{even} &amp;&amp;= \text{even} \\
-\text{even} &amp;\times \text{odd}  &amp;&amp;= \text{even} \\
-\text{odd}  &amp;\times \text{odd}  &amp;&amp;= \text{odd}  \\
-\end  {aligned}
-\)</span></p>
 <p><b>GCD</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -1167,9 +1181,10 @@ a \times b
 </fieldset><hr class="docutils" />
 <hr class="docutils" />
 </section>
+</section>
 <hr class="docutils" />
 <section id="integer-division">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Integer Division</a><a class="headerlink" href="#integer-division" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Integer Division</a><a class="headerlink" href="#integer-division" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>DIVISION</b></span></p>
 <fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <div style="color: #0096FF;">
@@ -1227,7 +1242,7 @@ ac = b
 \)</span></p>
 <hr class="docutils" />
 <section id="claim-a-mid-b-implies-a-le-b">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies |a| \le |b|\)</span></a><a class="headerlink" href="#claim-a-mid-b-implies-a-le-b" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies |a| \le |b|\)</span></a><a class="headerlink" href="#claim-a-mid-b-implies-a-le-b" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1265,7 +1280,7 @@ a \mid b
 </section>
 <hr class="docutils" />
 <section id="claim-pm-1-divide-every-integer">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(\pm 1\)</span> divide every integer</a><a class="headerlink" href="#claim-pm-1-divide-every-integer" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(\pm 1\)</span> divide every integer</a><a class="headerlink" href="#claim-pm-1-divide-every-integer" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1295,7 +1310,7 @@ a \equiv 0 \mod 1
 </section>
 <hr class="docutils" />
 <section id="claim-every-non-zero-integer-divides-itself">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Claim: every non-zero integer divides itself</a><a class="headerlink" href="#claim-every-non-zero-integer-divides-itself" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Claim: every non-zero integer divides itself</a><a class="headerlink" href="#claim-every-non-zero-integer-divides-itself" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1341,7 +1356,7 @@ a \equiv 0 \mod a
 </section>
 <hr class="docutils" />
 <section id="claim-zero-division-zero-divides-no-non-zero-integer">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Claim (zero division): zero divides no non-zero integer</a><a class="headerlink" href="#claim-zero-division-zero-divides-no-non-zero-integer" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Claim (zero division): zero divides no non-zero integer</a><a class="headerlink" href="#claim-zero-division-zero-divides-no-non-zero-integer" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1366,7 +1381,7 @@ a \ne 0
 <p>How about <span class="math notranslate nohighlight">\(0 \mid 0\)</span>? See the next claim.</p>
 </section>
 <section id="claim-every-integer-integer-divides-0">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Claim: every integer “integer-divides” <span class="math notranslate nohighlight">\(0\)</span></a><a class="headerlink" href="#claim-every-integer-integer-divides-0" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Claim: every integer “integer-divides” <span class="math notranslate nohighlight">\(0\)</span></a><a class="headerlink" href="#claim-every-integer-integer-divides-0" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1405,7 +1420,7 @@ a \times k = 0 - 0
 </section>
 <hr class="docutils" />
 <section id="claim-the-product-of-two-integers-is-one-iff-both-are-one-or-negative-one">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Claim: the product of two integers is one iff both are one or negative one</a><a class="headerlink" href="#claim-the-product-of-two-integers-is-one-iff-both-are-one-or-negative-one" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Claim: the product of two integers is one iff both are one or negative one</a><a class="headerlink" href="#claim-the-product-of-two-integers-is-one-iff-both-are-one-or-negative-one" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1437,7 +1452,7 @@ a = b = \pm 1
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-two-integers-divide-each-other-iff-they-are-equal-up-to-sign">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Claim: two integers divide each other iff they are equal up to sign</a><a class="headerlink" href="#claim-two-integers-divide-each-other-iff-they-are-equal-up-to-sign" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Claim: two integers divide each other iff they are equal up to sign</a><a class="headerlink" href="#claim-two-integers-divide-each-other-iff-they-are-equal-up-to-sign" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1495,7 +1510,7 @@ b \mid a \\
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-ac-bc-iff-a-b">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(ac = bc \iff a = b\)</span></a><a class="headerlink" href="#claim-ac-bc-iff-a-b" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(ac = bc \iff a = b\)</span></a><a class="headerlink" href="#claim-ac-bc-iff-a-b" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1524,7 +1539,7 @@ a = b
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-ac-mid-bc-iff-a-mid-b">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(ac \mid bc \iff a \mid b\)</span></a><a class="headerlink" href="#claim-ac-mid-bc-iff-a-mid-b" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(ac \mid bc \iff a \mid b\)</span></a><a class="headerlink" href="#claim-ac-mid-bc-iff-a-mid-b" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1573,7 +1588,7 @@ a \mid b
 </section>
 <hr class="docutils" />
 <section id="claim-a-mid-b-implies-a-mid-bc">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a><a class="headerlink" href="#claim-a-mid-b-implies-a-mid-bc" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a><a class="headerlink" href="#claim-a-mid-b-implies-a-mid-bc" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1601,7 +1616,7 @@ a \mid bc
 </section>
 <hr class="docutils" />
 <section id="claim-a-mid-b-land-b-mid-c-implies-a-mid-c">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a><a class="headerlink" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a><a class="headerlink" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1639,7 +1654,7 @@ a_1 \mid a_k
 </section>
 <hr class="docutils" />
 <section id="claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (a \mid c) \implies a \mid (bx + cy)\)</span></a><a class="headerlink" href="#claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (a \mid c) \implies a \mid (bx + cy)\)</span></a><a class="headerlink" href="#claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1682,8 +1697,8 @@ a \Bigm\vert \sum_{i=1}^k b_i x_i
 </section>
 <hr class="docutils" />
 <section id="even">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">Even</a><a class="headerlink" href="#even" title="Link to this heading">#</a></h3>
-<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Even</a><a class="headerlink" href="#even" title="Link to this heading">#</a></h3>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>EVEN</b></span></p>
 <div style="color: #0096FF;">
 <p>An integer <span class="math notranslate nohighlight">\(n\)</span> is called <b>even</b> if there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that</p>
@@ -1705,8 +1720,8 @@ n = 2k
 </div>
 </fieldset></section>
 <section id="odd">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">Odd</a><a class="headerlink" href="#odd" title="Link to this heading">#</a></h3>
-<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Odd</a><a class="headerlink" href="#odd" title="Link to this heading">#</a></h3>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>ODD</b></span></p>
 <div style="color: #0096FF;">
 <p>An integer is called <b>odd</b> if it is not even.</p>
@@ -1745,32 +1760,131 @@ n = 2k \pm 1
 \end{aligned}
 \)</span></p>
 </div>
-</fieldset><hr class="docutils" />
-<p><span style="color: #0096FF;"><b>Property</b></span></p>
+</fieldset><p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp;
+2 \mid n
+&amp; \iff
+2 \times k = n - 0
+&amp; \iff
+n \equiv \phantom{\pm} 0 \mod 2
+\\
+&amp;
+2 \mid (n \pm 1)
+&amp; \iff
+2 \times k = n \pm 1
+&amp; \iff
+n \equiv \pm 1 \mod 2
+\\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="claim-the-sum-or-difference-of-two-even-integers-is-even">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Claim: the sum or difference of two even integers is even</a><a class="headerlink" href="#claim-the-sum-or-difference-of-two-even-integers-is-even" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(\text{even} \pm \text{even} = \text{even}\)</span></p>
-</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\forall a, b \in \mathbb{Z}
+\quad
+\text{Even}(a)
+\land
+\text{Even}(b)
+\quad
+\implies
+\quad
+\text{Even}(a \pm b)
+}
+\)</span></p>
+</div>
+<p><b>Proof</b></p>
 <p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are even integers. Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(a = 2m\)</span> and <span class="math notranslate nohighlight">\(b = 2n\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(a + b = 2m + 2n = 2(m + n)\)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset>
+<p>The converse statement is not encessarily true. For example</p>
+<p><span class="math notranslate nohighlight">\(2 \mid (1 + 3)\)</span> but <span class="math notranslate nohighlight">\(2 \nmid 1\)</span> and <span class="math notranslate nohighlight">\(2 \nmid 3\)</span></p>
+</section>
 <hr class="docutils" />
-<p><span style="color: #0096FF;"><b>Property</b></span></p>
+<section id="claim-the-sum-or-difference-of-two-odd-integers-is-even">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Claim: the sum or difference of two odd integers is even</a><a class="headerlink" href="#claim-the-sum-or-difference-of-two-odd-integers-is-even" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(\text{odd} \pm \text{odd} = \text{even}\)</span></p>
-</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\forall a, b \in \mathbb{Z}
+\quad
+\text{Odd}(a)
+\land
+\text{Odd}(b)
+\quad
+\implies
+\quad
+\text{Even}(a \pm b)
+}
+\)</span></p>
+</div>
+<p><b>Proof</b></p>
 <p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are odd integers. Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(a = 2m + 1\)</span> and <span class="math notranslate nohighlight">\(b = 2n + 1\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(a + b = 2m + 1 + 2n + 1 = 2(m + n + 1)\)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset>
+<p>The converse statement is not encessarily true. For example</p>
+<p><span class="math notranslate nohighlight">\(2 \mid (4 + 6)\)</span> but <span class="math notranslate nohighlight">\(2 \nmid (4 \pm 1)\)</span> and <span class="math notranslate nohighlight">\(2 \nmid (6 \pm 1)\)</span></p>
+</section>
 <hr class="docutils" />
-<p><span style="color: #0096FF;"><b>Property</b></span></p>
+<section id="claim-the-sum-or-difference-of-an-even-integer-and-an-odd-integer-is-odd">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Claim: the sum or difference of an even integer and an odd integer is odd</a><a class="headerlink" href="#claim-the-sum-or-difference-of-an-even-integer-and-an-odd-integer-is-odd" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(\text{even} \pm \text{odd} = \text{odd}\)</span></p>
-</div><p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\forall a, b \in \mathbb{Z}
+\quad
+\text{Even}(a)
+\land
+\text{Odd}(b)
+\quad
+\iff
+\quad
+\text{Odd}(a \pm b)
+}
+\)</span></p>
+</div>
+<p><b>Proof</b></p>
+<p><i>First Direction</i></p>
 <p>Suppose <span class="math notranslate nohighlight">\(a\)</span> is even and <span class="math notranslate nohighlight">\(b\)</span> is odd. Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(a = 2m\)</span> and <span class="math notranslate nohighlight">\(b = 2n + 1\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(a + b = 2m + 2n + 1 = 2(m + n) + 1\)</span></p>
+<p><i>Second Direction</i></p>
+<p>Suppose</p>
+<p><span class="math notranslate nohighlight">\(2 \mid (a \pm b \pm 1)\)</span></p>
+<p>Then</p>
+<p><span class="math notranslate nohighlight">\(2k = a \pm b \pm 1\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(a\)</span> is even then <span class="math notranslate nohighlight">\(b\)</span> is odd.</p>
+<p><span class="math notranslate nohighlight">\(2k = 2k' \pm b \pm 1 \iff \pm b = 2k - 2k' \mp 1 = 2(k - k') \pm 1\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(a\)</span> is odd then <span class="math notranslate nohighlight">\(b\)</span> is even.</p>
+<p><span class="math notranslate nohighlight">\(2k = (2k' \pm 1) \pm b \pm 1 \iff \pm b = 2k - 2k' \mp 2 = 2(k - k' \pm 1)\)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<hr class="docutils" />
-<p><span style="color: #0096FF;"><b>Property</b></span></p>
+</fieldset><hr class="docutils" />
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(\text{even} \times \text{even} = \text{even}\)</span></p>
+<p>$
+\boxed{</p>
+<p>}
+$</p>
+</div>
+<p><b>Proof</b></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset><p><span style="color: #0096FF;"><b>Property</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(\text{even} \times \text{even} = \text{even}\)</span></p>
 </div>
@@ -1885,7 +1999,7 @@ Even(n) \iff Odd(n + 1)
 </section>
 <hr class="docutils" />
 <section id="claim-every-odd-integer-has-the-form-4k-pm-1">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">Claim: every odd integer has the form <span class="math notranslate nohighlight">\(4k \pm 1\)</span></a><a class="headerlink" href="#claim-every-odd-integer-has-the-form-4k-pm-1" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Claim: every odd integer has the form <span class="math notranslate nohighlight">\(4k \pm 1\)</span></a><a class="headerlink" href="#claim-every-odd-integer-has-the-form-4k-pm-1" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1928,7 +2042,7 @@ n = 4k \pm 1
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-if-n-is-odd-then-8-mid-n-2-1">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is odd then <span class="math notranslate nohighlight">\(8 \mid (n^2 - 1)\)</span></a><a class="headerlink" href="#claim-if-n-is-odd-then-8-mid-n-2-1" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is odd then <span class="math notranslate nohighlight">\(8 \mid (n^2 - 1)\)</span></a><a class="headerlink" href="#claim-if-n-is-odd-then-8-mid-n-2-1" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -2031,7 +2145,7 @@ i = 2k + 1
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-if-m-and-n-are-integers-of-the-form-4k-1-then-so-is-mn">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> then so is <span class="math notranslate nohighlight">\(mn\)</span></a><a class="headerlink" href="#claim-if-m-and-n-are-integers-of-the-form-4k-1-then-so-is-mn" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> then so is <span class="math notranslate nohighlight">\(mn\)</span></a><a class="headerlink" href="#claim-if-m-and-n-are-integers-of-the-form-4k-1-then-so-is-mn" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -2076,7 +2190,7 @@ m                   &amp;&amp; n &amp;                &amp;&amp; &amp; mn \\
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-if-mn-is-of-the-form-4k-1-then-so-is-one-of-m-or-n">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(mn\)</span> is of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> then so is one of <span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(n\)</span></a><a class="headerlink" href="#claim-if-mn-is-of-the-form-4k-1-then-so-is-one-of-m-or-n" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(mn\)</span> is of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> then so is one of <span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(n\)</span></a><a class="headerlink" href="#claim-if-mn-is-of-the-form-4k-1-then-so-is-one-of-m-or-n" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -2177,7 +2291,7 @@ mn = 4k - 1 &amp;= (2s + 1)(2t + 1) \\
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-the-square-root-of-2-is-irrational">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">Claim: the square root of <span class="math notranslate nohighlight">\(2\)</span> is irrational</a><a class="headerlink" href="#claim-the-square-root-of-2-is-irrational" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Claim: the square root of <span class="math notranslate nohighlight">\(2\)</span> is irrational</a><a class="headerlink" href="#claim-the-square-root-of-2-is-irrational" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -2216,7 +2330,7 @@ mn = 4k - 1 &amp;= (2s + 1)(2t + 1) \\
 </section>
 <hr class="docutils" />
 <section id="prime">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink">Prime</a><a class="headerlink" href="#prime" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">Prime</a><a class="headerlink" href="#prime" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>PRIME</b></span></p>
 <div style="color: #0096FF;">
 <p>Let <span class="math notranslate nohighlight">\(p\)</span> be a positive integer with <span class="math notranslate nohighlight">\(p \gt 1\)</span>. <span class="math notranslate nohighlight">\(p\)</span> is called prime if it has exactly two (positive) divisors, <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(p\)</span>.</p>
@@ -2259,7 +2373,7 @@ mn = 4k - 1 &amp;= (2s + 1)(2t + 1) \\
 </section>
 <hr class="docutils" />
 <section id="euclid-s-theorem">
-<h2><a class="toc-backref" href="#id24" role="doc-backlink">Euclid’s Theorem</a><a class="headerlink" href="#euclid-s-theorem" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">Euclid’s Theorem</a><a class="headerlink" href="#euclid-s-theorem" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>EUCLID’S THEOREM</b></span> [Vaughan Theorem 1.5]</p>
 <div style="color: #0096FF;">
 <p>There are infinitely many primes.</p>
@@ -2324,7 +2438,7 @@ P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
 </section>
 <hr class="docutils" />
 <section id="division-algorithm">
-<h2><a class="toc-backref" href="#id25" role="doc-backlink">Division Algorithm</a><a class="headerlink" href="#division-algorithm" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">Division Algorithm</a><a class="headerlink" href="#division-algorithm" title="Link to this heading">#</a></h2>
 <p>Division of an integer by a positive integer produces a quotient and a remainder. (Operating on remainders will form the basis of modular arithmetic.)</p>
 <p><span style="color: #0096FF;"><b>THEOREM: DIVISION ALGORITHM</b></span></p>
 <div style="color: #0096FF;">
@@ -2442,7 +2556,7 @@ r &amp;= a \textbf{ mod } d &amp;&amp;= a - d \lfloor a/d \rfloor \\
 </section>
 <hr class="docutils" />
 <section id="gcd">
-<h2><a class="toc-backref" href="#id26" role="doc-backlink">GCD</a><a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">GCD</a><a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p><span style="color: #0096FF;"><b>THEOREM</b></span></p>
 <div style="color: #0096FF;">
@@ -2525,7 +2639,7 @@ b &amp; \lt 0 &amp;&amp; \implies a \times \phantom{(-}0\phantom{)}  &amp;&amp; 
 </section>
 <hr class="docutils" />
 <section id="euclid-s-lemma">
-<h2><a class="toc-backref" href="#id27" role="doc-backlink">Euclid’s Lemma</a><a class="headerlink" href="#euclid-s-lemma" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Euclid’s Lemma</a><a class="headerlink" href="#euclid-s-lemma" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>EUCLID’S LEMMA</b></span> [Vaughan Theorem 1.15]</p>
 <div style="color: #0096FF;">
 <p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and that there are integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> such that <span class="math notranslate nohighlight">\(p \mid ab\)</span>.</p>
@@ -2605,7 +2719,7 @@ p &amp; ab \\ \hline
 </section>
 <hr class="docutils" />
 <section id="fundamental-theorem-of-arithmetic">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink">Fundamental Theorem of Arithmetic</a><a class="headerlink" href="#fundamental-theorem-of-arithmetic" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">Fundamental Theorem of Arithmetic</a><a class="headerlink" href="#fundamental-theorem-of-arithmetic" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>FUNDAMENTAL THEOREM OF ARITHMETIC</b></span> [Vaughan Theorem 1.18]</p>
 <div style="color: #0096FF;">
 <p>Factorization into primes is unique up to ordering of the factors (i.e., regardless of the ordering of the multiplicands).</p>
@@ -2637,7 +2751,7 @@ p &amp; ab \\ \hline
 </ul>
 <hr class="docutils" />
 <section id="claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1">
-<h3><a class="toc-backref" href="#id29" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then it has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span></a><a class="headerlink" href="#claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then it has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span></a><a class="headerlink" href="#claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
 <p>If <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then <span class="math notranslate nohighlight">\(n\)</span> has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\exists k \in \mathbb{N} \quad n = 2^k \quad \implies \quad \forall d \in \mathbb{Z} \quad d \ne \pm 1 \quad d \nmid n\)</span></p>
@@ -2658,7 +2772,7 @@ n
 </section>
 <hr class="docutils" />
 <section id="canonical-representation-of-a-positive-integer">
-<h2><a class="toc-backref" href="#id30" role="doc-backlink">Canonical representation of a positive integer</a><a class="headerlink" href="#canonical-representation-of-a-positive-integer" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Canonical representation of a positive integer</a><a class="headerlink" href="#canonical-representation-of-a-positive-integer" title="Link to this heading">#</a></h2>
 <p>Every positive integer <span class="math notranslate nohighlight">\(n\)</span> can be represented in exactly one way as a product of prime powers</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -2678,7 +2792,7 @@ k &amp;&amp;&amp; n \\
 </section>
 <hr class="docutils" />
 <section id="gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i">
-<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="math notranslate nohighlight">\(\gcd(a, b) = \prod_{i=1}^k p_i^{\min(r_i, s_i)}\)</span></a><a class="headerlink" href="#gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="math notranslate nohighlight">\(\gcd(a, b) = \prod_{i=1}^k p_i^{\min(r_i, s_i)}\)</span></a><a class="headerlink" href="#gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>Property of GCD</b></span></p>
 <div style="color: #0096FF;">
 <p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive integers. Then by the fundamental theorem of arithmetic we can write</p>
@@ -2695,7 +2809,7 @@ k &amp;&amp;&amp; n \\
 \)</span></p>
 <hr class="docutils" />
 <section id="gcd-a-n-b-n-gcd-a-b-n">
-<h3><a class="toc-backref" href="#id32" role="doc-backlink"><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></a><a class="headerlink" href="#gcd-a-n-b-n-gcd-a-b-n" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></a><a class="headerlink" href="#gcd-a-n-b-n-gcd-a-b-n" title="Link to this heading">#</a></h3>
 <p><b>CLAIM</b></p>
 <p><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></p>
 <p><b>PROOF</b></p>
@@ -2738,7 +2852,7 @@ b^n            &amp; = &amp; (\pm 1)^n &amp; \times &amp; p_1^{ns_1}            
 </section>
 <hr class="docutils" />
 <section id="lcm">
-<h2><a class="toc-backref" href="#id33" role="doc-backlink">LCM</a><a class="headerlink" href="#lcm" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">LCM</a><a class="headerlink" href="#lcm" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>LEAST COMMON MULTIPLE</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(
@@ -2755,7 +2869,7 @@ b^n            &amp; = &amp; (\pm 1)^n &amp; \times &amp; p_1^{ns_1}            
 </section>
 <hr class="docutils" />
 <section id="trial-division">
-<h2><a class="toc-backref" href="#id34" role="doc-backlink">Trial Division</a><a class="headerlink" href="#trial-division" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id39" role="doc-backlink">Trial Division</a><a class="headerlink" href="#trial-division" title="Link to this heading">#</a></h2>
 <p>The simplest way to try to factorize a number <span class="math notranslate nohighlight">\(n\)</span> is by <em><strong>trial division</strong></em>.</p>
 <p><span style="color: #0096FF;"><b>TRIAL DIVISION</b></span></p>
 <div style="color: #0096FF;">
@@ -2768,7 +2882,7 @@ Since the smallest proper divisor of <span class="math notranslate nohighlight">
 </section>
 <hr class="docutils" />
 <section id="prime-counting-function">
-<h2><a class="toc-backref" href="#id35" role="doc-backlink">Prime-Counting Function</a><a class="headerlink" href="#prime-counting-function" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id40" role="doc-backlink">Prime-Counting Function</a><a class="headerlink" href="#prime-counting-function" title="Link to this heading">#</a></h2>
 <p>The number <span class="math notranslate nohighlight">\(\pi(x)\)</span> of primes <span class="math notranslate nohighlight">\(p \le x\)</span> is approximately</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -2861,7 +2975,7 @@ x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
 </section>
 <hr class="docutils" />
 <section id="sieve-of-eratosthenes">
-<h2><a class="toc-backref" href="#id36" role="doc-backlink">Sieve of Eratosthenes</a><a class="headerlink" href="#sieve-of-eratosthenes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id41" role="doc-backlink">Sieve of Eratosthenes</a><a class="headerlink" href="#sieve-of-eratosthenes" title="Link to this heading">#</a></h2>
 <p>Trial division, or its sophisticated variants, is useful in the production of tables of primes or counts of primes (such as the value of the prime-counting function). The sieve of Eratosthenes is the simplest form of this.</p>
 <p>Construct a <span class="math notranslate nohighlight">\(\lfloor \sqrt{N} \rfloor \times \lfloor \sqrt{N} \rfloor\)</span> array. Here <span class="math notranslate nohighlight">\(N = 100\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
@@ -2961,7 +3075,7 @@ x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
 </section>
 <hr class="docutils" />
 <section id="fermat-factorization">
-<h2><a class="toc-backref" href="#id37" role="doc-backlink">Fermat Factorization</a><a class="headerlink" href="#fermat-factorization" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id42" role="doc-backlink">Fermat Factorization</a><a class="headerlink" href="#fermat-factorization" title="Link to this heading">#</a></h2>
 <p>Here is an idea that goes back to Fermat.</p>
 <p>Given <span class="math notranslate nohighlight">\(n\)</span> suppose we can find <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> so that</p>
 <p><span class="math notranslate nohighlight">\(n = x^2 - y^2\)</span> with <span class="math notranslate nohighlight">\(0 \le y \lt x\)</span>.</p>
@@ -3012,10 +3126,10 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 </section>
 <hr class="docutils" />
 <section id="misc-proofs">
-<h2><a class="toc-backref" href="#id38" role="doc-backlink">Misc Proofs</a><a class="headerlink" href="#misc-proofs" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id43" role="doc-backlink">Misc Proofs</a><a class="headerlink" href="#misc-proofs" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="there-is-no-smallest-positive-rational-number">
-<h3><a class="toc-backref" href="#id39" role="doc-backlink">There is no smallest positive rational number</a><a class="headerlink" href="#there-is-no-smallest-positive-rational-number" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id44" role="doc-backlink">There is no smallest positive rational number</a><a class="headerlink" href="#there-is-no-smallest-positive-rational-number" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
 <p>There is no smallest positive rational number.</p>
 <p><span style="color: #0096FF;"><b>PROOF by contradiction</b></span></p>
@@ -3032,7 +3146,7 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 </section>
 <hr class="docutils" />
 <section id="divisor-function">
-<h3><a class="toc-backref" href="#id40" role="doc-backlink">Divisor Function</a><a class="headerlink" href="#divisor-function" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id45" role="doc-backlink">Divisor Function</a><a class="headerlink" href="#divisor-function" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <p>Let <span class="math notranslate nohighlight">\(d(n)\)</span> be the number of divisors of the integer <span class="math notranslate nohighlight">\(n\)</span> with prime factorization <span class="math notranslate nohighlight">\(p^a q^b r^c \dots\)</span></p>
 <p>Then <span class="math notranslate nohighlight">\(d(n) = (a + 1)(b + 1)(c + 1) \dots\)</span></p>
@@ -3078,7 +3192,7 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 </section>
 <hr class="docutils" />
 <section id="resources">
-<h2><a class="toc-backref" href="#id41" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id46" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.themathpage.com/Alg/difference-two-squares-2.htm">https://www.themathpage.com/Alg/difference-two-squares-2.htm</a></p></li>
 </ul>
@@ -3087,7 +3201,7 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id42" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id47" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
@@ -3161,7 +3275,10 @@ y &amp;= \frac{m_1 - m_2}{2} \\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-division">Integer Division</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-implies-a-le-b">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies |a| \le |b|\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-pm-1-divide-every-integer">Claim: <span class="math notranslate nohighlight">\(\pm 1\)</span> divide every integer</a></li>
@@ -3177,6 +3294,9 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (a \mid c) \implies a \mid (bx + cy)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#even">Even</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odd">Odd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-the-sum-or-difference-of-two-even-integers-is-even">Claim: the sum or difference of two even integers is even</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-the-sum-or-difference-of-two-odd-integers-is-even">Claim: the sum or difference of two odd integers is even</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-the-sum-or-difference-of-an-even-integer-and-an-odd-integer-is-odd">Claim: the sum or difference of an even integer and an odd integer is odd</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-every-odd-integer-has-the-form-4k-pm-1">Claim: every odd integer has the form <span class="math notranslate nohighlight">\(4k \pm 1\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-if-n-is-odd-then-8-mid-n-2-1">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is odd then <span class="math notranslate nohighlight">\(8 \mid (n^2 - 1)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-if-m-and-n-are-integers-of-the-form-4k-1-then-so-is-mn">Claim: if <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> then so is <span class="math notranslate nohighlight">\(mn\)</span></a></li>
