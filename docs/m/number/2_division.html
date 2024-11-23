@@ -948,6 +948,15 @@ ac \mid bc
 a \mid b
 }
 \)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\forall a, b, c \in \mathbb{Z}
+\quad
+a \mid b
+\implies
+a \mid bc
+}
+\)</span></p>
 <p><b>Parity</b></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -997,11 +1006,12 @@ a \times b
 <p><span style="color: #0096FF;"><b>DIVISION</b></span></p>
 <fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <div style="color: #0096FF;">
-<p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers with <span class="math notranslate nohighlight">\(a \ne 0\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers.</p>
 <p>We say that <span class="math notranslate nohighlight">\(a\)</span> <b>divides</b> <span class="math notranslate nohighlight">\(b\)</span> when there is an integer <span class="math notranslate nohighlight">\(c\)</span> such that <span class="math notranslate nohighlight">\(ac = b\)</span> (or equivalently if <span class="math notranslate nohighlight">\(b/a\)</span> is an integer) and we write</p>
 <p><span class="math notranslate nohighlight">\(a \mid b\)</span></p>
 </div>
 </fieldset>
+<p>This is effectively equivalent to the requirement that <span class="math notranslate nohighlight">\(b/a\)</span> be an integer in which case <span class="math notranslate nohighlight">\(a \ne 0\)</span>. This requirement is sometimes relaxed to allow for the possibility that <span class="math notranslate nohighlight">\(0 \mid 0\)</span>. However, the number <span class="math notranslate nohighlight">\(0/0\)</span> remains undefined. More on this later.</p>
 <p>We say that <span class="math notranslate nohighlight">\(a\)</span> is a <b>divisor</b> or <b>factor</b> of <span class="math notranslate nohighlight">\(b\)</span> and that <span class="math notranslate nohighlight">\(b\)</span> is a <b>multiple</b> of <span class="math notranslate nohighlight">\(a\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
 \underset{\text{divisor}}{\quad a \quad} \mid \underset{\text{multiple}}{\quad b \quad}
@@ -1290,11 +1300,14 @@ a \mid b
 <p><b>Proof</b></p>
 <p><i>First Direction</i></p>
 <p>Suppose <span class="math notranslate nohighlight">\(ac \mid bc\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(ack/c = bc/c \iff ak = b \iff a \mid b\)</span>.</p>
+<p>Another way to view this is that</p>
+<p><span class="math notranslate nohighlight">\(ack = bc \iff ack - bc = 0 \iff c(ak - b) = 0 \iff c = 0 \lor ak - b = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(c \ne 0 \implies ak - b = 0 \iff ak = b\)</span></p>
 <div style="color: red;">
 <p>What would happen if <span class="math notranslate nohighlight">\(c\)</span> were equal to <span class="math notranslate nohighlight">\(0\)</span>?</p>
 <p>Suppose <span class="math notranslate nohighlight">\(a0 \mid b0\)</span>. Then any integer <span class="math notranslate nohighlight">\(k\)</span> satisfies the equation <span class="math notranslate nohighlight">\(a(0k) = (b0)\)</span>.</p>
 <p>If the RHS were simply <span class="math notranslate nohighlight">\(b\)</span> then this would show that <span class="math notranslate nohighlight">\(a \mid b\)</span>. However, the RHS is <span class="math notranslate nohighlight">\(0\)</span>, so this only shows that <span class="math notranslate nohighlight">\(a \mid 0\)</span>.</p>
-<p>Another way to look at this is what to do with <span class="math notranslate nohighlight">\(0/0\)</span> in the following equation?</p>
+<p>Another way to view this is what to do with <span class="math notranslate nohighlight">\(0/0\)</span> in the following equation?</p>
 <p><span class="math notranslate nohighlight">\(a0k/0 = b0/0 \quad \iff \quad (0/0) \times ak = (0/0) \times b\)</span></p>
 <p>In other words, although <span class="math notranslate nohighlight">\(0 \mid 0\)</span> because <span class="math notranslate nohighlight">\(0\)</span> is a divisor (multiple) of <span class="math notranslate nohighlight">\(0\)</span>, the number <span class="math notranslate nohighlight">\(0/0\)</span> is undefined (i.e., <span class="math notranslate nohighlight">\(0/0\)</span> is not equal to <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1\)</span>, or any other number).</p>
 </div>
@@ -1333,7 +1346,14 @@ a \mid bc
 <p><b>Proof</b></p>
 <p>Suppose <span class="math notranslate nohighlight">\(a \mid b\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(ak = b \implies a(ck) = (bc) \implies a \mid bc\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-</fieldset><p><span style="color: #0096FF;"><b>Claim</b></span></p>
+</fieldset>
+<p>The converse statement does not hold. In other words, if <span class="math notranslate nohighlight">\(a \mid bc\)</span> then it may be the case that neither does <span class="math notranslate nohighlight">\(a \mid b\)</span> nor does <span class="math notranslate nohighlight">\(a \mid c\)</span>. For example, if <span class="math notranslate nohighlight">\(a = 4\)</span>, <span class="math notranslate nohighlight">\(b = 6\)</span>, and <span class="math notranslate nohighlight">\(c = 10\)</span> then</p>
+<p><span class="math notranslate nohighlight">\(4 \mid 6 \times 10 \iff 4 \times 15 = 6 \times 10\)</span> but <span class="math notranslate nohighlight">\(4 \nmid 6\)</span> and <span class="math notranslate nohighlight">\(4 \nmid 10\)</span>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/1518415/prove-if-a-b-then-a-bc-for-all-integers-c-true">https://math.stackexchange.com/questions/1518415/prove-if-a-b-then-a-bc-for-all-integers-c-true</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <p>If <span class="math notranslate nohighlight">\(ac = ad\)</span> with <span class="math notranslate nohighlight">\(a \ne 0\)</span> then <span class="math notranslate nohighlight">\(c = d\)</span>.</p>
 <hr class="docutils" />
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
