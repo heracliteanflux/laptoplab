@@ -763,8 +763,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-implies-a-le-b">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies |a| \le |b|\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-ac-bc-iff-a-b">Claim: <span class="math notranslate nohighlight">\(ac = bc \iff a = b\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-ac-mid-bc-iff-a-mid-b">Claim: <span class="math notranslate nohighlight">\(ac \mid bc \iff a \mid b\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-implies-a-mid-bc">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-implies-a-mid-bc">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (a \mid c) \implies a \mid (bx + cy)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#even">Even</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odd">Odd</a></li>
@@ -838,8 +838,8 @@ document.write(`
 <li><p><a class="reference internal" href="#claim-a-mid-b-implies-a-le-b" id="id10">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies |a| \le |b|\)</span></a></p></li>
 <li><p><a class="reference internal" href="#claim-ac-bc-iff-a-b" id="id11">Claim: <span class="math notranslate nohighlight">\(ac = bc \iff a = b\)</span></a></p></li>
 <li><p><a class="reference internal" href="#claim-ac-mid-bc-iff-a-mid-b" id="id12">Claim: <span class="math notranslate nohighlight">\(ac \mid bc \iff a \mid b\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-a-mid-b-implies-a-mid-bc" id="id13">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c" id="id14">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c" id="id13">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-a-mid-b-implies-a-mid-bc" id="id14">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a></p></li>
 <li><p><a class="reference internal" href="#claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy" id="id15">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (a \mid c) \implies a \mid (bx + cy)\)</span></a></p></li>
 <li><p><a class="reference internal" href="#even" id="id16">Even</a></p></li>
 <li><p><a class="reference internal" href="#odd" id="id17">Odd</a></p></li>
@@ -965,41 +965,23 @@ a = b = \pm 1
 \Big( \quad b \ne 0 \quad \land \quad a \mid b \quad \Big) \quad \implies \quad |a| \le |b|
 }
 \)</span></p>
+<!-- ac = bc iff a = b -->
 <p><span class="math notranslate nohighlight">\(
 \boxed{
 \forall a, b, c \in \mathbb{Z}
 \quad
-c \ne 0
-\quad
-\land
-\quad
-ac = bc
-\iff
-a = b
+c \ne 0 \quad \implies \quad \Big( \quad ac = bc \iff a = b \quad \Big)
 }
 \)</span></p>
+<!-- ac | bc iff a | b -->
 <p><span class="math notranslate nohighlight">\(
 \boxed{
 \forall a, b, c \in \mathbb{Z}
 \quad
-c \ne 0
-\quad
-\land
-\quad
-ac \mid bc
-\iff
-a \mid b
+c \ne 0 \quad \implies \quad \Big( \quad ac \mid bc \iff a \mid b \quad \Big)
 }
 \)</span></p>
-<p><span class="math notranslate nohighlight">\(
-\boxed{
-\forall a, b, c \in \mathbb{Z}
-\quad
-a \mid b
-\implies
-a \mid bc
-}
-\)</span></p>
+<!-- if a | b and b | c then a | c -->
 <p><span class="math notranslate nohighlight">\(
 \boxed{
 \forall a, b, c \in \mathbb{Z}
@@ -1011,6 +993,15 @@ a \mid bc
 a \mid c
 }
 \)</span></p>
+<!-- a | b iff a | bc -->
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\forall a, b, c \in \mathbb{Z}
+\quad
+a \mid b \quad \implies \quad a \mid bc
+}
+\)</span></p>
+<!-- if a | b and a | c then a | bx + cy -->
 <p><span class="math notranslate nohighlight">\(
 \boxed{
 \forall a, b, c, x, y \in \mathbb{Z}
@@ -1472,21 +1463,27 @@ b \mid a \\
 \boxed{
 \forall a, b, c \in \mathbb{Z}
 \quad
-c \ne 0
-\quad
-\land
-\quad
-ac = bc
-\iff
-a = b
+c \ne 0 \quad \implies \quad \Big( \quad ac = bc \quad \iff \quad a = b \quad \Big)
 }
 \)</span></p>
 </div>
 <p><b>Proof</b></p>
-<p><span class="math notranslate nohighlight">\(ca/c = cb/c \quad \iff \quad a = b \quad \iff \quad ca = cb\)</span></p>
-<div style="color: red;">
-<p>If <span class="math notranslate nohighlight">\(c = 0\)</span> then <span class="math notranslate nohighlight">\(0a = 0b\)</span> is true for any <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> even when <span class="math notranslate nohighlight">\(a \ne b\)</span>.</p>
-</div>
+<p><i>First Direction</i></p>
+<p>It must be shown that if <span class="math notranslate nohighlight">\(ac = bc\)</span> then <span class="math notranslate nohighlight">\(a = b\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(ac = bc\)</span> with <span class="math notranslate nohighlight">\(c \ne 0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(ac/c = bc/c \quad \iff \quad a = b\)</span></p>
+<p>And with <span class="math notranslate nohighlight">\(c = 0\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp;a0 = 0 = b0 \iff (a = b \lor a \ne b) \\
+&amp;a0 = 0 = b0 \quad \;\not\!\!\!\!\implies \quad a = b \\
+\end  {aligned}
+\)</span></p>
+<p>In other words, if we allowed <span class="math notranslate nohighlight">\(c = 0\)</span> then <span class="math notranslate nohighlight">\(a\)</span> would not have to equal <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p><i>Second Direction</i></p>
+<p>It must be shown that if <span class="math notranslate nohighlight">\(a = b\)</span> then <span class="math notranslate nohighlight">\(ac = bc\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(a = b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(a = b \quad \iff \quad ac = bc\)</span> for any <span class="math notranslate nohighlight">\(c\)</span>, including <span class="math notranslate nohighlight">\(c = 0\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 </fieldset></section>
 <hr class="docutils" />
@@ -1501,37 +1498,30 @@ a = b
 \boxed{
 \forall a, b, c \in \mathbb{Z}
 \quad
-c \ne 0
-\quad
-\land
-\quad
-ac \mid bc
-\iff
-a \mid b
+c \ne 0 \quad \implies \quad \Big( \quad ac \mid bc \quad \iff \quad a \mid b \quad \Big)
 }
 \)</span></p>
 </div>
 <p><b>Proof</b></p>
 <p><i>First Direction</i></p>
-<p>Suppose <span class="math notranslate nohighlight">\(ac \mid bc\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(ack/c = bc/c \iff ak = b \iff a \mid b\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(ac \mid bc\)</span> with <span class="math notranslate nohighlight">\(c \ne 0\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(ack/c = bc/c \iff ak = b \iff a \mid b\)</span>.</p>
 <p>Another way to view this is that</p>
 <p><span class="math notranslate nohighlight">\(ack = bc \iff ack - bc = 0 \iff c(ak - b) = 0 \iff c = 0 \lor ak - b = 0\)</span></p>
 <p><span class="math notranslate nohighlight">\(c \ne 0 \implies ak - b = 0 \iff ak = b\)</span></p>
+<p>And with <span class="math notranslate nohighlight">\(c = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp;a0k = 0 = b0 \iff (a \mid 0 \land b \mid 0) \\
+&amp;a0k = 0 = b0 \quad \;\not\!\!\!\!\implies \quad a \mid b \\
+\end  {aligned}
+\)</span></p>
 <div style="color: red;">
-<p>What would happen if <span class="math notranslate nohighlight">\(c\)</span> were equal to <span class="math notranslate nohighlight">\(0\)</span>?</p>
-<p>Suppose <span class="math notranslate nohighlight">\(a0 \mid b0\)</span>. Then <span class="math notranslate nohighlight">\(a0k = b0 \iff 0k = 0 \iff 0 \mid 0\)</span>.</p>
 <p>Another way to view this is what to do with <span class="math notranslate nohighlight">\(0/0\)</span> in the following equation?</p>
 <p><span class="math notranslate nohighlight">\(a0k/0 = b0/0 \quad \iff \quad (0/0) \times ak = (0/0) \times b\)</span></p>
 <p>Although <span class="math notranslate nohighlight">\(0 \mid 0\)</span> because <span class="math notranslate nohighlight">\(0\)</span> is a divisor (multiple) of <span class="math notranslate nohighlight">\(0\)</span>, the number <span class="math notranslate nohighlight">\(0/0\)</span> is undefined (i.e., <span class="math notranslate nohighlight">\(0/0\)</span> is not equal to <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1\)</span>, or any other number).</p>
 </div>
 <p><i>Second Direction</i></p>
-<p>Suppose <span class="math notranslate nohighlight">\(a \mid b\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(ak = b \iff (ac)k = (bc) \iff ac \mid bc\)</span>.</p>
-<div style="color: red;">
-<p>What would happen if <span class="math notranslate nohighlight">\(c\)</span> were equal to <span class="math notranslate nohighlight">\(0\)</span>?</p>
-<p>Suppose <span class="math notranslate nohighlight">\(a \mid b\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(ak = b \quad \iff \quad (a0)k = (b0)\)</span>.</p>
-<p>This shows that <span class="math notranslate nohighlight">\((a0) \mid (b0)\)</span>, or that <span class="math notranslate nohighlight">\(0 \mid 0\)</span>, which we do allow.</p>
-<p>Therefore the condition that <span class="math notranslate nohighlight">\(c \ne 0\)</span> seems to be required by the first direction only.</p>
-</div>
+<p>Suppose <span class="math notranslate nohighlight">\(a \mid b\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(ak = b \iff (ac)k = (bc) \iff ac \mid bc\)</span> for any integer <span class="math notranslate nohighlight">\(c\)</span>, including <span class="math notranslate nohighlight">\(c = 0\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 </fieldset>
 <ul class="simple">
@@ -1539,36 +1529,8 @@ a \mid b
 </ul>
 </section>
 <hr class="docutils" />
-<section id="claim-a-mid-b-implies-a-mid-bc">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a><a class="headerlink" href="#claim-a-mid-b-implies-a-mid-bc" title="Link to this heading">#</a></h3>
-<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
-<p><span style="color: #0096FF;"><b>Claim</b></span></p>
-<div style="color: #0096FF;">
-<p>Let <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> be integers.</p>
-<p>If <span class="math notranslate nohighlight">\(a \mid b\)</span> then <span class="math notranslate nohighlight">\(a \mid bc\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(
-\boxed{
-\forall a, b, c \in \mathbb{Z}
-\quad
-a \mid b
-\implies
-a \mid bc
-}
-\)</span></p>
-</div>
-<p><b>Proof</b></p>
-<p>Suppose <span class="math notranslate nohighlight">\(a \mid b\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(ak = b \implies a(ck) = (bc) \implies a \mid bc\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-</fieldset>
-<p>The converse statement does not hold. In other words, if <span class="math notranslate nohighlight">\(a \mid bc\)</span> then it may be the case that neither does <span class="math notranslate nohighlight">\(a \mid b\)</span> nor does <span class="math notranslate nohighlight">\(a \mid c\)</span>. For example, if <span class="math notranslate nohighlight">\(a = 4\)</span>, <span class="math notranslate nohighlight">\(b = 6\)</span>, and <span class="math notranslate nohighlight">\(c = 10\)</span> then</p>
-<p><span class="math notranslate nohighlight">\(4 \mid 6 \times 10 \iff 4 \times 15 = 6 \times 10\)</span> but <span class="math notranslate nohighlight">\(4 \nmid 6\)</span> and <span class="math notranslate nohighlight">\(4 \nmid 10\)</span>.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://math.stackexchange.com/questions/1518415/prove-if-a-b-then-a-bc-for-all-integers-c-true">https://math.stackexchange.com/questions/1518415/prove-if-a-b-then-a-bc-for-all-integers-c-true</a></p></li>
-</ul>
-</section>
-<hr class="docutils" />
 <section id="claim-a-mid-b-land-b-mid-c-implies-a-mid-c">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a><a class="headerlink" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a><a class="headerlink" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -1603,6 +1565,32 @@ a \mid c
 a_1 \mid a_k
 \end  {aligned}
 \)</span></p>
+</section>
+<hr class="docutils" />
+<section id="claim-a-mid-b-implies-a-mid-bc">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a><a class="headerlink" href="#claim-a-mid-b-implies-a-mid-bc" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
+<p>Let <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> be integers.</p>
+<p>If <span class="math notranslate nohighlight">\(a \mid b\)</span> then <span class="math notranslate nohighlight">\(a \mid bc\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\forall a, b, c \in \mathbb{Z}
+\quad
+a \mid b \quad \implies \quad a \mid bc
+}
+\)</span></p>
+</div>
+<p><b>Proof</b></p>
+<p>Suppose <span class="math notranslate nohighlight">\(a \mid b\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that <span class="math notranslate nohighlight">\(ak = b \implies a(ck) = (bc) \implies a \mid bc\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset>
+<p>The converse statement does not hold. In other words, if <span class="math notranslate nohighlight">\(a \mid bc\)</span> then it may be the case that neither does <span class="math notranslate nohighlight">\(a \mid b\)</span> nor does <span class="math notranslate nohighlight">\(a \mid c\)</span>. For example, if <span class="math notranslate nohighlight">\(a = 4\)</span>, <span class="math notranslate nohighlight">\(b = 6\)</span>, and <span class="math notranslate nohighlight">\(c = 10\)</span> then</p>
+<p><span class="math notranslate nohighlight">\(4 \mid 6 \times 10 \iff 4 \times 15 = 6 \times 10\)</span> but <span class="math notranslate nohighlight">\(4 \nmid 6\)</span> and <span class="math notranslate nohighlight">\(4 \nmid 10\)</span>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/1518415/prove-if-a-b-then-a-bc-for-all-integers-c-true">https://math.stackexchange.com/questions/1518415/prove-if-a-b-then-a-bc-for-all-integers-c-true</a></p></li>
+</ul>
 </section>
 <hr class="docutils" />
 <section id="claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy">
@@ -3333,8 +3321,8 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-implies-a-le-b">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies |a| \le |b|\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-ac-bc-iff-a-b">Claim: <span class="math notranslate nohighlight">\(ac = bc \iff a = b\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-ac-mid-bc-iff-a-mid-b">Claim: <span class="math notranslate nohighlight">\(ac \mid bc \iff a \mid b\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-implies-a-mid-bc">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-land-b-mid-c-implies-a-mid-c">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (b \mid c) \implies a \mid c\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-implies-a-mid-bc">Claim: <span class="math notranslate nohighlight">\(a \mid b \implies a \mid bc\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-a-mid-b-land-a-mid-c-implies-a-mid-bx-cy">Claim: <span class="math notranslate nohighlight">\((a \mid b) \land (a \mid c) \implies a \mid (bx + cy)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#even">Even</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#odd">Odd</a></li>
