@@ -78,7 +78,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Congruence" href="3_congruence.html" />
-    <link rel="prev" title="Binomial" href="11_binomial.html" />
+    <link rel="prev" title="Fibonacci" href="20_fibonacci.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -258,6 +258,7 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1_induction.html">Mathematical Induction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_binomial.html">Binomial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_fibonacci.html">Fibonacci</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Division</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_congruence.html">Congruence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="13_arithmetic_functions.html">Arithmetic Functions</a></li>
@@ -2446,8 +2447,7 @@ mn = 4k - 1 &amp;= (2s + 1)(2t + 1) \\
 <h3><a class="toc-backref" href="#id33" role="doc-backlink">False Claim: if <span class="math notranslate nohighlight">\(mn\)</span> is of the form <span class="math notranslate nohighlight">\(8k - 1\)</span> then so is one of <span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(n\)</span></a><a class="headerlink" href="#false-claim-if-mn-is-of-the-form-8k-1-then-so-is-one-of-m-or-n" title="Link to this heading">#</a></h3>
 <div class="full-width">
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
-<p><span style="color: #0096FF;"><b>False Claim</b></span></p>
-<div style="color: #0096FF;">
+<p><b>False Claim</b></p>
 <p>If <span class="math notranslate nohighlight">\(mn\)</span> is of the form <span class="math notranslate nohighlight">\(8k - 1\)</span> then so is one of <span class="math notranslate nohighlight">\(m\)</span> or <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p><b>Discussion</b></p>
 <p>It can be shown that an integer takes one of the following forms, for some integer <span class="math notranslate nohighlight">\(k\)</span>.</p>
@@ -2488,7 +2488,6 @@ mn = 4k - 1 &amp;= (2s + 1)(2t + 1) \\
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 </fieldset>
-</div>
 <p>For example</p>
 <p><span class="math notranslate nohighlight">\(8.5 - 1 = 39 = 3 \times 13 = (8.0 + 3) \times (8.2 - 3)\)</span></p>
 <hr class="docutils" />
@@ -2535,56 +2534,56 @@ n \equiv           -1 \mod 8 \quad \iff \quad n + 1 = 8k \\
 \boxed{
 \begin{aligned}
 &amp; \begin{array}{rrcc}
- 1 &amp; 2. 0 + 1 &amp; 4. 0 + 1 &amp; 6.0 + 1 &amp; 8.0 + 1 \\
-   &amp; 2. 1 - 1 &amp;          &amp;         &amp;         \\
- 3 &amp; 2. 1 + 1 &amp; 4. 1 - 1 &amp;         &amp;         \\
-   &amp; 2. 2 - 1 &amp;          &amp;         &amp;         \\
- 5 &amp; 2. 2 + 1 &amp; 4. 1 + 1 &amp; 6.1 - 1 &amp;         \\
-   &amp; 2. 3 - 1 &amp;          &amp;         &amp;         \\
- 7 &amp; 2. 3 + 1 &amp; 4. 2 - 1 &amp; 6.1 + 1 &amp; 8.1 - 1 \\
-   &amp; 2. 4 - 1 &amp;          &amp;         &amp;         \\
- 9 &amp; 2. 4 + 1 &amp; 4. 2 + 1 &amp;         &amp; 8.1 + 1 \\
-   &amp; 2. 5 - 1 &amp;          &amp;         &amp;         \\
-11 &amp; 2. 5 + 1 &amp; 4. 3 - 1 &amp; 6.2 - 1 &amp;         \\
-   &amp; 2. 6 - 1 &amp;          &amp;         &amp;         \\
-13 &amp; 2. 6 + 1 &amp; 4. 3 + 1 &amp; 6.2 + 1 &amp;         \\
-   &amp; 2. 7 - 1 &amp;          &amp;         &amp;         \\
-15 &amp; 2. 7 + 1 &amp; 4. 4 - 1 &amp;         &amp; 8.2 - 1 \\
-   &amp; 2. 8 - 1 &amp;          &amp;         &amp;         \\
-17 &amp; 2. 8 + 1 &amp; 4. 4 + 1 &amp; 6.3 - 1 &amp; 8.2 + 1 \\
-   &amp; 2. 9 - 1 &amp;          &amp;         &amp;         \\
-19 &amp; 2. 9 + 1 &amp; 4. 5 - 1 &amp; 6.3 + 1 &amp;         \\
-   &amp; 2.10 - 1 &amp;          &amp;         &amp;         \\
-21 &amp; 2.10 + 1 &amp; 4. 5 + 1 &amp;         &amp;         \\
-   &amp; 2.11 - 1 &amp;          &amp;         &amp;         \\
-23 &amp; 2.11 + 1 &amp; 4. 6 - 1 &amp; 6.4 - 1 &amp; 8.3 - 1 \\
-   &amp; 2.12 - 1 &amp;          &amp;         &amp;         \\
-25 &amp; 2.12 + 1 &amp; 4. 6 + 1 &amp; 6.4 + 1 &amp; 8.3 + 1 \\
-   &amp; 2.13 - 1 &amp;          &amp;         &amp;         \\
-27 &amp; 2.13 + 1 &amp; 4. 7 - 1 &amp;         &amp;         \\
-   &amp; 2.14 - 1 &amp;          &amp;         &amp;         \\
-29 &amp; 2.14 + 1 &amp; 4. 7 + 1 &amp; 6.5 - 1 &amp;         \\
-   &amp; 2.15 - 1 &amp;          &amp;         &amp;         \\
-31 &amp; 2.15 + 1 &amp; 4. 8 - 1 &amp; 6.5 + 1 &amp; 8.4 - 1 \\
-   &amp; 2.16 - 1 &amp;          &amp;         &amp;         \\
-33 &amp; 2.16 + 1 &amp; 4. 8 + 1 &amp;         &amp; 8.4 + 1 \\
-   &amp; 2.17 - 1 &amp;          &amp;         &amp;         \\
-35 &amp; 2.17 + 1 &amp; 4. 9 - 1 &amp; 6.6 - 1 &amp;         \\
-   &amp; 2.18 - 1 &amp;          &amp;         &amp;         \\
-37 &amp; 2.18 + 1 &amp; 4. 9 + 1 &amp; 6.6 + 1 &amp;         \\
-   &amp; 2.19 - 1 &amp;          &amp;         &amp;         \\
-39 &amp; 2.19 + 1 &amp; 4.10 - 1 &amp;         &amp; 8.5 - 1 \\
-   &amp; 2.20 - 1 &amp;          &amp;         &amp;         \\
-41 &amp; 2.20 + 1 &amp; 4.10 + 1 &amp; 6.7 - 1 &amp; 8.5 + 1 \\
-   &amp; 2.21 - 1 &amp;          &amp;         &amp;         \\
-43 &amp; 2.21 + 1 &amp; 4.11 - 1 &amp; 6.7 + 1 &amp;         \\
-   &amp; 2.22 - 1 &amp;          &amp;         &amp;         \\
-45 &amp; 2.22 + 1 &amp; 4.11 + 1 &amp; 6.8 - 1 &amp;         \\
-   &amp; 2.23 - 1 &amp;          &amp;         &amp;         \\
-47 &amp; 2.23 + 1 &amp; 4.12 - 1 &amp; 6.8 + 1 &amp; 8.6 - 1 \\
-   &amp; 2.24 - 1 &amp;          &amp;         &amp;         \\
-49 &amp; 2.24 + 1 &amp; 4.12 + 1 &amp;         &amp; 8.6 + 1 \\
-   &amp; 2.25 - 1 &amp;          &amp;         &amp;         \\
+ 1 &amp; 2. 0 + 1 &amp; 4. 0 + 1 &amp; 6.0 + 1 &amp; 8.0 + 1 &amp; 10.0 + 1 \\
+   &amp; 2. 1 - 1 &amp;          &amp;         &amp;         &amp; \\
+ 3 &amp; 2. 1 + 1 &amp; 4. 1 - 1 &amp;         &amp;         &amp; \\
+   &amp; 2. 2 - 1 &amp;          &amp;         &amp;         &amp; \\
+ 5 &amp; 2. 2 + 1 &amp; 4. 1 + 1 &amp; 6.1 - 1 &amp;         &amp; \\
+   &amp; 2. 3 - 1 &amp;          &amp;         &amp;         &amp; \\
+ 7 &amp; 2. 3 + 1 &amp; 4. 2 - 1 &amp; 6.1 + 1 &amp; 8.1 - 1 &amp; \\
+   &amp; 2. 4 - 1 &amp;          &amp;         &amp;         &amp; \\
+ 9 &amp; 2. 4 + 1 &amp; 4. 2 + 1 &amp;         &amp; 8.1 + 1 &amp; 10.1 - 1 \\
+   &amp; 2. 5 - 1 &amp;          &amp;         &amp;         &amp; \\
+11 &amp; 2. 5 + 1 &amp; 4. 3 - 1 &amp; 6.2 - 1 &amp;         &amp; 10.1 + 1 \\
+   &amp; 2. 6 - 1 &amp;          &amp;         &amp;         &amp; \\
+13 &amp; 2. 6 + 1 &amp; 4. 3 + 1 &amp; 6.2 + 1 &amp;         &amp; \\
+   &amp; 2. 7 - 1 &amp;          &amp;         &amp;         &amp; \\
+15 &amp; 2. 7 + 1 &amp; 4. 4 - 1 &amp;         &amp; 8.2 - 1 &amp; \\
+   &amp; 2. 8 - 1 &amp;          &amp;         &amp;         &amp; \\
+17 &amp; 2. 8 + 1 &amp; 4. 4 + 1 &amp; 6.3 - 1 &amp; 8.2 + 1 &amp; \\
+   &amp; 2. 9 - 1 &amp;          &amp;         &amp;         &amp; \\
+19 &amp; 2. 9 + 1 &amp; 4. 5 - 1 &amp; 6.3 + 1 &amp;         &amp; 10.2 - 1 \\
+   &amp; 2.10 - 1 &amp;          &amp;         &amp;         &amp; \\
+21 &amp; 2.10 + 1 &amp; 4. 5 + 1 &amp;         &amp;         &amp; \\
+   &amp; 2.11 - 1 &amp;          &amp;         &amp;         &amp; \\
+23 &amp; 2.11 + 1 &amp; 4. 6 - 1 &amp; 6.4 - 1 &amp; 8.3 - 1 &amp; \\
+   &amp; 2.12 - 1 &amp;          &amp;         &amp;         &amp; \\
+25 &amp; 2.12 + 1 &amp; 4. 6 + 1 &amp; 6.4 + 1 &amp; 8.3 + 1 &amp; \\
+   &amp; 2.13 - 1 &amp;          &amp;         &amp;         &amp; \\
+27 &amp; 2.13 + 1 &amp; 4. 7 - 1 &amp;         &amp;         &amp; \\
+   &amp; 2.14 - 1 &amp;          &amp;         &amp;         &amp; \\
+29 &amp; 2.14 + 1 &amp; 4. 7 + 1 &amp; 6.5 - 1 &amp;         &amp; \\
+   &amp; 2.15 - 1 &amp;          &amp;         &amp;         &amp; \\
+31 &amp; 2.15 + 1 &amp; 4. 8 - 1 &amp; 6.5 + 1 &amp; 8.4 - 1 &amp; \\
+   &amp; 2.16 - 1 &amp;          &amp;         &amp;         &amp; \\
+33 &amp; 2.16 + 1 &amp; 4. 8 + 1 &amp;         &amp; 8.4 + 1 &amp; \\
+   &amp; 2.17 - 1 &amp;          &amp;         &amp;         &amp; \\
+35 &amp; 2.17 + 1 &amp; 4. 9 - 1 &amp; 6.6 - 1 &amp;         &amp; \\
+   &amp; 2.18 - 1 &amp;          &amp;         &amp;         &amp; \\
+37 &amp; 2.18 + 1 &amp; 4. 9 + 1 &amp; 6.6 + 1 &amp;         &amp; \\
+   &amp; 2.19 - 1 &amp;          &amp;         &amp;         &amp; \\
+39 &amp; 2.19 + 1 &amp; 4.10 - 1 &amp;         &amp; 8.5 - 1 &amp; \\
+   &amp; 2.20 - 1 &amp;          &amp;         &amp;         &amp; \\
+41 &amp; 2.20 + 1 &amp; 4.10 + 1 &amp; 6.7 - 1 &amp; 8.5 + 1 &amp; \\
+   &amp; 2.21 - 1 &amp;          &amp;         &amp;         &amp; \\
+43 &amp; 2.21 + 1 &amp; 4.11 - 1 &amp; 6.7 + 1 &amp;         &amp; \\
+   &amp; 2.22 - 1 &amp;          &amp;         &amp;         &amp; \\
+45 &amp; 2.22 + 1 &amp; 4.11 + 1 &amp; 6.8 - 1 &amp;         &amp; \\
+   &amp; 2.23 - 1 &amp;          &amp;         &amp;         &amp; \\
+47 &amp; 2.23 + 1 &amp; 4.12 - 1 &amp; 6.8 + 1 &amp; 8.6 - 1 &amp; \\
+   &amp; 2.24 - 1 &amp;          &amp;         &amp;         &amp; \\
+49 &amp; 2.24 + 1 &amp; 4.12 + 1 &amp;         &amp; 8.6 + 1 &amp; \\
+   &amp; 2.25 - 1 &amp;          &amp;         &amp;         &amp; \\
 \end  {array}
 \end  {aligned}
 }
@@ -3507,12 +3506,12 @@ y &amp;= \frac{m_1 - m_2}{2} \\
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="11_binomial.html"
+       href="20_fibonacci.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Binomial</p>
+        <p class="prev-next-title">Fibonacci</p>
       </div>
     </a>
     <a class="right-next"
