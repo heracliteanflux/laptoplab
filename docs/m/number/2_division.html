@@ -791,6 +791,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prime">Prime</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite">Composite</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-every-positive-integer-is-a-product-of-primes">Claim: every positive integer is a product of primes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-theorem-on-the-infinitude-of-primes">Euclid’s Theorem on the infinitude of primes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-proof-of-the-infinitude-of-primes">Euler’s proof of the infinitude of primes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-every-number-of-the-form-4k-1-has-a-prime-factor-of-this-form">Claim: every number of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> has a prime factor of this form</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-there-are-infinitely-many-primes-of-the-form-4k-1">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(4k - 1\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-every-number-of-the-form-6k-1-has-a-prime-factor-of-this-form">Claim: every number of the form <span class="math notranslate nohighlight">\(6k - 1\)</span> has a prime factor of this form</a></li>
@@ -879,39 +881,41 @@ document.write(`
 <li><p><a class="reference internal" href="#prime" id="id35">Prime</a></p></li>
 <li><p><a class="reference internal" href="#composite" id="id36">Composite</a></p></li>
 <li><p><a class="reference internal" href="#claim-every-positive-integer-is-a-product-of-primes" id="id37">Claim: every positive integer is a product of primes</a></p></li>
-<li><p><a class="reference internal" href="#claim-every-number-of-the-form-4k-1-has-a-prime-factor-of-this-form" id="id38">Claim: every number of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> has a prime factor of this form</a></p></li>
-<li><p><a class="reference internal" href="#claim-there-are-infinitely-many-primes-of-the-form-4k-1" id="id39">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(4k - 1\)</span></a></p></li>
-<li><p><a class="reference internal" href="#claim-every-number-of-the-form-6k-1-has-a-prime-factor-of-this-form" id="id40">Claim: every number of the form <span class="math notranslate nohighlight">\(6k - 1\)</span> has a prime factor of this form</a></p></li>
-<li><p><a class="reference internal" href="#claim-there-are-infinitely-many-primes-of-the-form-6k-1" id="id41">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(6k - 1\)</span></a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-theorem-on-the-infinitude-of-primes" id="id38">Euclid’s Theorem on the infinitude of primes</a></p></li>
+<li><p><a class="reference internal" href="#euler-s-proof-of-the-infinitude-of-primes" id="id39">Euler’s proof of the infinitude of primes</a></p></li>
+<li><p><a class="reference internal" href="#claim-every-number-of-the-form-4k-1-has-a-prime-factor-of-this-form" id="id40">Claim: every number of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> has a prime factor of this form</a></p></li>
+<li><p><a class="reference internal" href="#claim-there-are-infinitely-many-primes-of-the-form-4k-1" id="id41">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(4k - 1\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-every-number-of-the-form-6k-1-has-a-prime-factor-of-this-form" id="id42">Claim: every number of the form <span class="math notranslate nohighlight">\(6k - 1\)</span> has a prime factor of this form</a></p></li>
+<li><p><a class="reference internal" href="#claim-there-are-infinitely-many-primes-of-the-form-6k-1" id="id43">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(6k - 1\)</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#division-algorithm" id="id42">Division Algorithm</a></p></li>
-<li><p><a class="reference internal" href="#gcd" id="id43">GCD</a></p></li>
-<li><p><a class="reference internal" href="#euclid-s-lemma" id="id44">Euclid’s Lemma</a></p></li>
-<li><p><a class="reference internal" href="#fundamental-theorem-of-arithmetic" id="id45">Fundamental Theorem of Arithmetic</a></p>
+<li><p><a class="reference internal" href="#division-algorithm" id="id44">Division Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#gcd" id="id45">GCD</a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-lemma" id="id46">Euclid’s Lemma</a></p></li>
+<li><p><a class="reference internal" href="#fundamental-theorem-of-arithmetic" id="id47">Fundamental Theorem of Arithmetic</a></p>
 <ul>
-<li><p><a class="reference internal" href="#claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1" id="id46">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then it has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1" id="id48">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then it has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#canonical-representation-of-a-positive-integer" id="id47">Canonical representation of a positive integer</a></p></li>
-<li><p><a class="reference internal" href="#gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i" id="id48"><span class="math notranslate nohighlight">\(\gcd(a, b) = \prod_{i=1}^k p_i^{\min(r_i, s_i)}\)</span></a></p>
+<li><p><a class="reference internal" href="#canonical-representation-of-a-positive-integer" id="id49">Canonical representation of a positive integer</a></p></li>
+<li><p><a class="reference internal" href="#gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i" id="id50"><span class="math notranslate nohighlight">\(\gcd(a, b) = \prod_{i=1}^k p_i^{\min(r_i, s_i)}\)</span></a></p>
 <ul>
-<li><p><a class="reference internal" href="#gcd-a-n-b-n-gcd-a-b-n" id="id49"><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></a></p></li>
+<li><p><a class="reference internal" href="#gcd-a-n-b-n-gcd-a-b-n" id="id51"><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#lcm" id="id50">LCM</a></p></li>
-<li><p><a class="reference internal" href="#trial-division" id="id51">Trial Division</a></p></li>
-<li><p><a class="reference internal" href="#prime-counting-function" id="id52">Prime-Counting Function</a></p></li>
-<li><p><a class="reference internal" href="#sieve-of-eratosthenes" id="id53">Sieve of Eratosthenes</a></p></li>
-<li><p><a class="reference internal" href="#fermat-factorization" id="id54">Fermat Factorization</a></p></li>
-<li><p><a class="reference internal" href="#misc-proofs" id="id55">Misc Proofs</a></p>
+<li><p><a class="reference internal" href="#lcm" id="id52">LCM</a></p></li>
+<li><p><a class="reference internal" href="#trial-division" id="id53">Trial Division</a></p></li>
+<li><p><a class="reference internal" href="#prime-counting-function" id="id54">Prime-Counting Function</a></p></li>
+<li><p><a class="reference internal" href="#sieve-of-eratosthenes" id="id55">Sieve of Eratosthenes</a></p></li>
+<li><p><a class="reference internal" href="#fermat-factorization" id="id56">Fermat Factorization</a></p></li>
+<li><p><a class="reference internal" href="#misc-proofs" id="id57">Misc Proofs</a></p>
 <ul>
-<li><p><a class="reference internal" href="#there-is-no-smallest-positive-rational-number" id="id56">There is no smallest positive rational number</a></p></li>
-<li><p><a class="reference internal" href="#divisor-function" id="id57">Divisor Function</a></p></li>
+<li><p><a class="reference internal" href="#there-is-no-smallest-positive-rational-number" id="id58">There is no smallest positive rational number</a></p></li>
+<li><p><a class="reference internal" href="#divisor-function" id="id59">Divisor Function</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#resources" id="id58">Resources</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id59">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#resources" id="id60">Resources</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id61">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -2656,6 +2660,22 @@ Prime(p) \iff
 </fieldset>
 <p><span class="math notranslate nohighlight">\(1\)</span> is not a prime because it has exactly one (positive) divisor, and a prime number has exactly two (positive) divisors. Thus the smallest prime is <span class="math notranslate nohighlight">\(2\)</span> which is the only even prime, since any other hypothetical even prime <span class="math notranslate nohighlight">\(n\)</span> would have at least three distinct (positive) divisors, namely <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, and <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>The units <span class="math notranslate nohighlight">\(\pm 1\)</span> and the primes have no proper divisors.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 &amp;&amp; &amp; \textcolor{red}  {1 \mid 1} \\
+2 &amp;&amp; &amp; \textcolor{green}{1 \mid 2} &amp;&amp; \textcolor{green}{2 \mid 2} \\
+3 &amp;&amp; &amp; \textcolor{green}{1 \mid 3} &amp;&amp; 2 \nmid 3 &amp;&amp; \textcolor{green}{3 \mid 3} \\
+4 &amp;&amp; &amp; \textcolor{red}  {1 \mid 4} &amp;&amp; \textcolor{red}{2 \mid 4} &amp;&amp; 3 \nmid 4 &amp;&amp; \textcolor{red}{4 \mid 4} \\
+5 &amp;&amp; &amp; \textcolor{green}{1 \mid 5} &amp;&amp; 2 \nmid 5 &amp;&amp; 3 \nmid 5 &amp;&amp; 4 \nmid 5 &amp;&amp; \textcolor{green}{5 \mid 5} \\
+6 &amp;&amp; &amp; \textcolor{red}  {1 \mid 6} &amp;&amp; \textcolor{red}{2 \mid 6} &amp;&amp; \textcolor{red}{3 \mid 6} &amp;&amp; 4 \nmid 6 &amp;&amp; 5 \nmid 6 &amp;&amp; \textcolor{red}{6 \mid 6} \\
+7 &amp;&amp; &amp; \textcolor{green}{1 \mid 7} &amp;&amp; 2 \nmid 7 &amp;&amp;  3 \nmid 7 &amp;&amp;  4 \nmid 7 &amp;&amp;  5 \nmid 7 &amp;&amp;  6 \nmid 7 &amp;&amp;  \textcolor{green}{7 \mid 7} \\
+8 &amp;&amp; &amp; \textcolor{red}  {1 \mid 8} &amp;&amp; \textcolor{red}{2 \mid 8} &amp;&amp; 3 \nmid 8 &amp;&amp; \textcolor{red}{4 \mid 8} &amp;&amp; 5 \nmid 8 &amp;&amp; 6 \nmid 8 &amp;&amp; 7 \nmid 8 &amp;&amp; \textcolor{red}{8 \mid 8} \\
+9 &amp;&amp; &amp; \textcolor{red}  {1 \mid 9} &amp;&amp; 2 \nmid 9 &amp;&amp; \textcolor{red}{3 \mid 9} &amp;&amp; 4 \nmid 9 &amp;&amp; 5 \nmid 9 &amp;&amp; 6 \nmid 9 &amp;&amp; 7 \nmid 9 &amp;&amp; 8 \nmid 9 &amp;&amp; \textcolor{red}{9 \mid 9} \\
+10 &amp;&amp; &amp; \textcolor{red}{1 \mid 10} &amp;&amp; \textcolor{red}{2 \mid 10} &amp;&amp; 3 \nmid 10 &amp;&amp; 4 \nmid 10 &amp;&amp; \textcolor{red}{5 \mid 10} &amp;&amp; 6 \nmid 10 &amp;&amp; 7 \nmid 10 &amp;&amp; 8 \nmid 10 &amp;&amp; 9 \nmid 10 &amp;&amp; \textcolor{red}{10 \mid 10} \\
+11 &amp;&amp; &amp; \textcolor{green}{1 \mid 11} &amp;&amp; 2 \nmid 11 &amp;&amp; 3 \nmid 11 &amp;&amp; 4 \nmid 11 &amp;&amp; 5 \nmid 11 &amp;&amp; 6 \nmid 11 &amp;&amp; 7 \nmid 11 &amp;&amp; 8 \nmid 11 &amp;&amp; 9 \nmid 11 &amp;&amp; 10 \nmid 11 &amp;&amp; \textcolor{green}{11 \mid 11} \\
+\vdots \\
+\end{aligned}
+\)</span></p>
 <fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #50C878;"><b>Example</b></span></p>
 <p>To show that <span class="math notranslate nohighlight">\(101\)</span> is prime it must be shown that it has no divisors <span class="math notranslate nohighlight">\(1 \lt d \lt 101\)</span>.</p>
@@ -2774,8 +2794,143 @@ P(\ell) : &amp; \quad \ell = \underset{p_1}{d} \times \underset{p_2}{\ell/d} = \
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 </fieldset></section>
 <hr class="docutils" />
+<section id="euclid-s-theorem-on-the-infinitude-of-primes">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">Euclid’s Theorem on the infinitude of primes</a><a class="headerlink" href="#euclid-s-theorem-on-the-infinitude-of-primes" title="Link to this heading">#</a></h3>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<p><span style="color: #0096FF;"><b>EUCLID’S THEOREM</b></span> [Vaughan Theorem 1.5] [Humphreys &amp; Prest 1.3.4 pp. 29] Euclid’s Elements Book IX Proposition 20</p>
+<div style="color: #0096FF;">
+<p>There are infinitely many primes. (In other words, there is no largest prime.)</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\forall p \in \mathbb{P} \,\,
+[\,\,
+Prime(p) \implies
+\exists q \in \mathbb{P} \,\,
+[\,\,
+Prime(q) \land (q \gt p)
+\,\,]
+\,\,]
+}
+\)</span></p>
+</div>
+<p>To show that there are infinitely many primes, it must be shown that every finite list of primes is missing a prime. Thus “the list of all primes” cannot be finite.</p>
+<p><b>Proof by contradiction</b></p>
+<p>Suppose that there are only a finite number of primes</p>
+<p><span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span></p>
+<p>the first few of which we already know, and consider the number one more than their product</p>
+<p><span class="math notranslate nohighlight">\(m = p_1 p_2 \dots p_n + 1\)</span></p>
+<p>Clearly <span class="math notranslate nohighlight">\(m \gt 1\)</span> since we already know the first few primes <span class="math notranslate nohighlight">\(p_1 = 2, p_2 = 3, \dotsc\)</span></p>
+<p><span class="math notranslate nohighlight">\(m\)</span> is a product of primes since <span class="math notranslate nohighlight">\(m \gt 1\)</span>.</p>
+<p>In particular, there is a prime <span class="math notranslate nohighlight">\(p\)</span> which divides <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(p\)</span> must be one of <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span> since every prime is listed here, and so <span class="math notranslate nohighlight">\(p\)</span> divides the product <span class="math notranslate nohighlight">\(p_1 p_2 \dots p_n\)</span>.</p>
+<p>Since <span class="math notranslate nohighlight">\(p \mid m\)</span> and <span class="math notranslate nohighlight">\(p \mid p_1 p_2 \dots p_n\)</span> it is the case that</p>
+<p><span class="math notranslate nohighlight">\(p \mid (m - p_1 p_2 \dots p_n) = 1\)</span></p>
+<p>But no prime divides <span class="math notranslate nohighlight">\(1\)</span>, so our assumption must have been false.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>Since <span class="math notranslate nohighlight">\(m\)</span> is greater than <span class="math notranslate nohighlight">\(1\)</span> it has a prime factor <span class="math notranslate nohighlight">\(p\)</span> which can’t be any of <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span> since <span class="math notranslate nohighlight">\(m\)</span> has remainder <span class="math notranslate nohighlight">\(1\)</span> when divided by each <span class="math notranslate nohighlight">\(p_i\)</span>.</p>
+<p>Euclid’s proof tells us that we can always find a prime outside of a finite list of primes <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span> by using a prime factor of <span class="math notranslate nohighlight">\(p_1p_2 \dots p_n + 1\)</span>, not by using <span class="math notranslate nohighlight">\(p_1p_2 \dots p_n + 1\)</span> itself.</p>
+<p><span class="math notranslate nohighlight">\(Proof\)</span> [Humphreys &amp; Prest pp. 29-30]</p>
+<blockquote>
+<div><p>Choose any positive integer <span class="math notranslate nohighlight">\(n\)</span> and let <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span> be the first <span class="math notranslate nohighlight">\(n\)</span> prime numbers.<br />
+We will show that there is a prime number different from each of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>. Since <span class="math notranslate nohighlight">\(n\)</span> may be chosen as large as we like, this will show that there are not just finitely many primes.<br />
+Define the number <span class="math notranslate nohighlight">\(N = (p_1 p_2 \dots p_n) + 1\)</span> which need not itself be prime.<br />
+<span class="math notranslate nohighlight">\(N\)</span> has remainder <span class="math notranslate nohighlight">\(1\)</span> when divided by each of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>; in particular, none of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span> divides <span class="math notranslate nohighlight">\(N\)</span> exactly.<br />
+<span class="math notranslate nohighlight">\(N\)</span> has a prime divisor <span class="math notranslate nohighlight">\(p\)</span> by the fundamental theorem of arithmetic.<br />
+Since <span class="math notranslate nohighlight">\(p \mid N\)</span> it cannot be the case that <span class="math notranslate nohighlight">\(p\)</span> is equal to any of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>.<br />
+Therefore we have shown that there exists a prime which is not in our original list.</p>
+</div></blockquote>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>The idea of this proof is to show how, given any finite set of primes, we can construct a number greater than or equal to <span class="math notranslate nohighlight">\(2\)</span> which is not divisible by any of them and which, therefore, must have a prime factor not in our original set.</p>
+<p>The integer <span class="math notranslate nohighlight">\(N\)</span> defined in the proof need not itself be prime: we simply showed that it has a prime divisor not equal to any of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>. In principle, one may find a <span class="math notranslate nohighlight">\(p\)</span> as in the proof by factorizing <span class="math notranslate nohighlight">\(N\)</span>. So the proof is, in principle, a recipe which, given any finite list of primes, will produce a new prime not already in the list.</p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="euler-s-proof-of-the-infinitude-of-primes">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">Euler’s proof of the infinitude of primes</a><a class="headerlink" href="#euler-s-proof-of-the-infinitude-of-primes" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<p><span style="color: #0096FF;"><b>Euler’s Proof of the infinitude of primes</b></span></p>
+<div style="color: #0096FF;">
+<p>There are an infinite number of primes.</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+}
+\)</span></p>
+</div>
+<p><b>Proof</b></p>
+<p>Suppose that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+S(x) = \sum_{n \le x} \frac{1}{n}
+\end  {aligned}
+\)</span></p>
+<p>Then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+S(x) \ge \sum_{n \le x} \int_n^{n + 1} \frac{dt}{t} \ge \int_1^x \frac{dt}{t} = \log x
+\end  {aligned}
+\)</span></p>
+<p>Consider</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+P(x) = \prod_{p \le x} (1 - 1/p)^{-1}
+\end  {aligned}
+\)</span></p>
+<p>where the product is over the primes not exceeding <span class="math notranslate nohighlight">\(x\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
+     &amp;= \prod_{p \le x} \left(1 + \frac{1}{p} + \frac{1}{p^2} + \dotsb \right) \ge \sum_{n \le x} \frac{1}{n} = S(x) \ge \log x
+\end  {aligned}
+\)</span></p>
+<p>Observe that when one multiplies out the LHS every fraction <span class="math notranslate nohighlight">\(1/n\)</span> with <span class="math notranslate nohighlight">\(n \le x\)</span> occurs.</p>
+<p>Since <span class="math notranslate nohighlight">\(\log x \to \infty\)</span> as <span class="math notranslate nohighlight">\(x \to \infty\)</span> there must be infinitely many primes.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset><fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<p><span style="color: #0096FF;"><b>THEOREM (EULER)</b></span></p>
+<div style="color: #0096FF;">
+<p>The sum</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_p \frac{1}{p}
+\end  {aligned}
+\)</span></p>
+<p>diverges.</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+}
+\)</span></p>
+</div>
+<p>We can be more precise. Take the <span class="math notranslate nohighlight">\(\log\)</span> of both sides of <span class="math notranslate nohighlight">\(P(x) \ge \log x\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\log P(x) &amp;\ge \log \log x \\
+\log \left( \prod_{p \le x} (1 - 1/p)^{-1} \right) &amp;\ge \log \log x \\
+-\sum_{p \le x} \log (1 - 1/p) &amp;\ge \log \log x \\
+\end  {aligned}
+\)</span></p>
+<p>Moreover the expression on the LHS</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+-\sum_{p \le x} \log (1 - 1/p) = \sum_{p \le x} \sum_{k = 1}^\infty \frac{1}{kp^k}
+\end  {aligned}
+\)</span></p>
+<p>Here the terms with <span class="math notranslate nohighlight">\(k \ge 2\)</span> contribute at most</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{p \le x} \frac{1}{2} \sum_{k = 2}^\infty \frac{1}{p^k}
+\le \frac{1}{2} \sum_{n=2}^\infty \frac{1}{n(n - 1)}
+= \frac{1}{2}
+\end  {aligned}
+\)</span></p>
+<p>Thus we have proved that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sum_{p \le x} \frac{1}{p} \ge \log \log x - \frac{1}{2}
+\end  {aligned}
+\)</span></p>
+</fieldset></section>
+<hr class="docutils" />
 <section id="claim-every-number-of-the-form-4k-1-has-a-prime-factor-of-this-form">
-<h3><a class="toc-backref" href="#id38" role="doc-backlink">Claim: every number of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> has a prime factor of this form</a><a class="headerlink" href="#claim-every-number-of-the-form-4k-1-has-a-prime-factor-of-this-form" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id40" role="doc-backlink">Claim: every number of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> has a prime factor of this form</a><a class="headerlink" href="#claim-every-number-of-the-form-4k-1-has-a-prime-factor-of-this-form" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -2794,7 +2949,7 @@ P(\ell) : &amp; \quad \ell = \underset{p_1}{d} \times \underset{p_2}{\ell/d} = \
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-there-are-infinitely-many-primes-of-the-form-4k-1">
-<h3><a class="toc-backref" href="#id39" role="doc-backlink">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(4k - 1\)</span></a><a class="headerlink" href="#claim-there-are-infinitely-many-primes-of-the-form-4k-1" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(4k - 1\)</span></a><a class="headerlink" href="#claim-there-are-infinitely-many-primes-of-the-form-4k-1" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -2814,7 +2969,7 @@ P(\ell) : &amp; \quad \ell = \underset{p_1}{d} \times \underset{p_2}{\ell/d} = \
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-every-number-of-the-form-6k-1-has-a-prime-factor-of-this-form">
-<h3><a class="toc-backref" href="#id40" role="doc-backlink">Claim: every number of the form <span class="math notranslate nohighlight">\(6k - 1\)</span> has a prime factor of this form</a><a class="headerlink" href="#claim-every-number-of-the-form-6k-1-has-a-prime-factor-of-this-form" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">Claim: every number of the form <span class="math notranslate nohighlight">\(6k - 1\)</span> has a prime factor of this form</a><a class="headerlink" href="#claim-every-number-of-the-form-6k-1-has-a-prime-factor-of-this-form" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -2838,7 +2993,7 @@ P(\ell) : &amp; \quad \ell = \underset{p_1}{d} \times \underset{p_2}{\ell/d} = \
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-there-are-infinitely-many-primes-of-the-form-6k-1">
-<h3><a class="toc-backref" href="#id41" role="doc-backlink">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(6k - 1\)</span></a><a class="headerlink" href="#claim-there-are-infinitely-many-primes-of-the-form-6k-1" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(6k - 1\)</span></a><a class="headerlink" href="#claim-there-are-infinitely-many-primes-of-the-form-6k-1" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -2877,7 +3032,7 @@ P(\ell) : &amp; \quad \ell = \underset{p_1}{d} \times \underset{p_2}{\ell/d} = \
 </section>
 <hr class="docutils" />
 <section id="division-algorithm">
-<h2><a class="toc-backref" href="#id42" role="doc-backlink">Division Algorithm</a><a class="headerlink" href="#division-algorithm" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id44" role="doc-backlink">Division Algorithm</a><a class="headerlink" href="#division-algorithm" title="Link to this heading">#</a></h2>
 <p>Division of an integer by a positive integer produces a quotient and a remainder. (Operating on remainders will form the basis of modular arithmetic.)</p>
 <p><span style="color: #0096FF;"><b>THEOREM: DIVISION ALGORITHM</b></span></p>
 <div style="color: #0096FF;">
@@ -2995,7 +3150,7 @@ r &amp;= a \textbf{ mod } d &amp;&amp;= a - d \lfloor a/d \rfloor \\
 </section>
 <hr class="docutils" />
 <section id="gcd">
-<h2><a class="toc-backref" href="#id43" role="doc-backlink">GCD</a><a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id45" role="doc-backlink">GCD</a><a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p><span style="color: #0096FF;"><b>THEOREM</b></span></p>
 <div style="color: #0096FF;">
@@ -3078,7 +3233,7 @@ b &amp; \lt 0 &amp;&amp; \implies a \times \phantom{(-}0\phantom{)}  &amp;&amp; 
 </section>
 <hr class="docutils" />
 <section id="euclid-s-lemma">
-<h2><a class="toc-backref" href="#id44" role="doc-backlink">Euclid’s Lemma</a><a class="headerlink" href="#euclid-s-lemma" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id46" role="doc-backlink">Euclid’s Lemma</a><a class="headerlink" href="#euclid-s-lemma" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>EUCLID’S LEMMA</b></span> [Vaughan Theorem 1.15]</p>
 <div style="color: #0096FF;">
 <p>Suppose that <span class="math notranslate nohighlight">\(p\)</span> is prime and that there are integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> such that <span class="math notranslate nohighlight">\(p \mid ab\)</span>.</p>
@@ -3158,7 +3313,7 @@ p &amp; ab \\ \hline
 </section>
 <hr class="docutils" />
 <section id="fundamental-theorem-of-arithmetic">
-<h2><a class="toc-backref" href="#id45" role="doc-backlink">Fundamental Theorem of Arithmetic</a><a class="headerlink" href="#fundamental-theorem-of-arithmetic" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id47" role="doc-backlink">Fundamental Theorem of Arithmetic</a><a class="headerlink" href="#fundamental-theorem-of-arithmetic" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>FUNDAMENTAL THEOREM OF ARITHMETIC</b></span> [Vaughan Theorem 1.18]</p>
 <div style="color: #0096FF;">
 <p>Factorization into primes is unique up to ordering of the factors (i.e., regardless of the ordering of the multiplicands).</p>
@@ -3190,7 +3345,7 @@ p &amp; ab \\ \hline
 </ul>
 <hr class="docutils" />
 <section id="claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1">
-<h3><a class="toc-backref" href="#id46" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then it has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span></a><a class="headerlink" href="#claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id48" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then it has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span></a><a class="headerlink" href="#claim-if-n-is-a-power-of-2-then-it-has-no-odd-divisors-other-than-pm-1" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
 <p>If <span class="math notranslate nohighlight">\(n\)</span> is a power of <span class="math notranslate nohighlight">\(2\)</span> then <span class="math notranslate nohighlight">\(n\)</span> has no odd divisors other than <span class="math notranslate nohighlight">\(\pm 1\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\exists k \in \mathbb{N} \quad n = 2^k \quad \implies \quad \forall d \in \mathbb{Z} \quad d \ne \pm 1 \quad d \nmid n\)</span></p>
@@ -3211,7 +3366,7 @@ n
 </section>
 <hr class="docutils" />
 <section id="canonical-representation-of-a-positive-integer">
-<h2><a class="toc-backref" href="#id47" role="doc-backlink">Canonical representation of a positive integer</a><a class="headerlink" href="#canonical-representation-of-a-positive-integer" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id49" role="doc-backlink">Canonical representation of a positive integer</a><a class="headerlink" href="#canonical-representation-of-a-positive-integer" title="Link to this heading">#</a></h2>
 <p>Every positive integer <span class="math notranslate nohighlight">\(n\)</span> can be represented in exactly one way as a product of prime powers</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -3231,7 +3386,7 @@ k &amp;&amp;&amp; n \\
 </section>
 <hr class="docutils" />
 <section id="gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i">
-<h2><a class="toc-backref" href="#id48" role="doc-backlink"><span class="math notranslate nohighlight">\(\gcd(a, b) = \prod_{i=1}^k p_i^{\min(r_i, s_i)}\)</span></a><a class="headerlink" href="#gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id50" role="doc-backlink"><span class="math notranslate nohighlight">\(\gcd(a, b) = \prod_{i=1}^k p_i^{\min(r_i, s_i)}\)</span></a><a class="headerlink" href="#gcd-a-b-prod-i-1-k-p-i-min-r-i-s-i" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>Property of GCD</b></span></p>
 <div style="color: #0096FF;">
 <p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive integers. Then by the fundamental theorem of arithmetic we can write</p>
@@ -3248,7 +3403,7 @@ k &amp;&amp;&amp; n \\
 \)</span></p>
 <hr class="docutils" />
 <section id="gcd-a-n-b-n-gcd-a-b-n">
-<h3><a class="toc-backref" href="#id49" role="doc-backlink"><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></a><a class="headerlink" href="#gcd-a-n-b-n-gcd-a-b-n" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id51" role="doc-backlink"><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></a><a class="headerlink" href="#gcd-a-n-b-n-gcd-a-b-n" title="Link to this heading">#</a></h3>
 <p><b>CLAIM</b></p>
 <p><span class="math notranslate nohighlight">\(\gcd(a^n, b^n) = \gcd(a, b)^n\)</span></p>
 <p><b>PROOF</b></p>
@@ -3291,7 +3446,7 @@ b^n            &amp; = &amp; (\pm 1)^n &amp; \times &amp; p_1^{ns_1}            
 </section>
 <hr class="docutils" />
 <section id="lcm">
-<h2><a class="toc-backref" href="#id50" role="doc-backlink">LCM</a><a class="headerlink" href="#lcm" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id52" role="doc-backlink">LCM</a><a class="headerlink" href="#lcm" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>LEAST COMMON MULTIPLE</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(
@@ -3308,7 +3463,7 @@ b^n            &amp; = &amp; (\pm 1)^n &amp; \times &amp; p_1^{ns_1}            
 </section>
 <hr class="docutils" />
 <section id="trial-division">
-<h2><a class="toc-backref" href="#id51" role="doc-backlink">Trial Division</a><a class="headerlink" href="#trial-division" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id53" role="doc-backlink">Trial Division</a><a class="headerlink" href="#trial-division" title="Link to this heading">#</a></h2>
 <p>The simplest way to try to factorize a number <span class="math notranslate nohighlight">\(n\)</span> is by <em><strong>trial division</strong></em>.</p>
 <p><span style="color: #0096FF;"><b>TRIAL DIVISION</b></span></p>
 <div style="color: #0096FF;">
@@ -3321,7 +3476,7 @@ Since the smallest proper divisor of <span class="math notranslate nohighlight">
 </section>
 <hr class="docutils" />
 <section id="prime-counting-function">
-<h2><a class="toc-backref" href="#id52" role="doc-backlink">Prime-Counting Function</a><a class="headerlink" href="#prime-counting-function" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id54" role="doc-backlink">Prime-Counting Function</a><a class="headerlink" href="#prime-counting-function" title="Link to this heading">#</a></h2>
 <p>The number <span class="math notranslate nohighlight">\(\pi(x)\)</span> of primes <span class="math notranslate nohighlight">\(p \le x\)</span> is approximately</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -3414,7 +3569,7 @@ x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
 </section>
 <hr class="docutils" />
 <section id="sieve-of-eratosthenes">
-<h2><a class="toc-backref" href="#id53" role="doc-backlink">Sieve of Eratosthenes</a><a class="headerlink" href="#sieve-of-eratosthenes" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id55" role="doc-backlink">Sieve of Eratosthenes</a><a class="headerlink" href="#sieve-of-eratosthenes" title="Link to this heading">#</a></h2>
 <p>Trial division, or its sophisticated variants, is useful in the production of tables of primes or counts of primes (such as the value of the prime-counting function). The sieve of Eratosthenes is the simplest form of this.</p>
 <p>[Humphreys &amp; Prest pp. 26]</p>
 <p>To find the primes less than some number <span class="math notranslate nohighlight">\(n\)</span>, prepare an array of the integers from <span class="math notranslate nohighlight">\(2\)</span> to <span class="math notranslate nohighlight">\(n\)</span>. Save <span class="math notranslate nohighlight">\(2\)</span> and then delete all multiples of <span class="math notranslate nohighlight">\(2\)</span>. Now look for the next undeleted integer (which will be <span class="math notranslate nohighlight">\(3\)</span>), save it and delete all its multiples. The smallest undeleted number will be the next prime, <span class="math notranslate nohighlight">\(5\)</span>. Continue in this way to find all the primes up to <span class="math notranslate nohighlight">\(n\)</span>. In fact, it will turn out that you can stop this process once you have reached the greatest integer which is less than or equal to the square root of <span class="math notranslate nohighlight">\(n\)</span>, in the sense that any integers left undeleted at this stage will be prime.</p>
@@ -3516,7 +3671,7 @@ x = 2^16     x/ln(x) =    5909.28       π(2^16) = 6542
 </section>
 <hr class="docutils" />
 <section id="fermat-factorization">
-<h2><a class="toc-backref" href="#id54" role="doc-backlink">Fermat Factorization</a><a class="headerlink" href="#fermat-factorization" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id56" role="doc-backlink">Fermat Factorization</a><a class="headerlink" href="#fermat-factorization" title="Link to this heading">#</a></h2>
 <p>Here is an idea that goes back to Fermat.</p>
 <p>Given <span class="math notranslate nohighlight">\(n\)</span> suppose we can find <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> so that</p>
 <p><span class="math notranslate nohighlight">\(n = x^2 - y^2\)</span> with <span class="math notranslate nohighlight">\(0 \le y \lt x\)</span>.</p>
@@ -3567,10 +3722,10 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 </section>
 <hr class="docutils" />
 <section id="misc-proofs">
-<h2><a class="toc-backref" href="#id55" role="doc-backlink">Misc Proofs</a><a class="headerlink" href="#misc-proofs" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id57" role="doc-backlink">Misc Proofs</a><a class="headerlink" href="#misc-proofs" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="there-is-no-smallest-positive-rational-number">
-<h3><a class="toc-backref" href="#id56" role="doc-backlink">There is no smallest positive rational number</a><a class="headerlink" href="#there-is-no-smallest-positive-rational-number" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id58" role="doc-backlink">There is no smallest positive rational number</a><a class="headerlink" href="#there-is-no-smallest-positive-rational-number" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
 <p>There is no smallest positive rational number.</p>
 <p><span style="color: #0096FF;"><b>PROOF by contradiction</b></span></p>
@@ -3587,7 +3742,7 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 </section>
 <hr class="docutils" />
 <section id="divisor-function">
-<h3><a class="toc-backref" href="#id57" role="doc-backlink">Divisor Function</a><a class="headerlink" href="#divisor-function" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id59" role="doc-backlink">Divisor Function</a><a class="headerlink" href="#divisor-function" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <p>Let <span class="math notranslate nohighlight">\(d(n)\)</span> be the number of divisors of the integer <span class="math notranslate nohighlight">\(n\)</span> with prime factorization <span class="math notranslate nohighlight">\(p^a q^b r^c \dots\)</span></p>
 <p>Then <span class="math notranslate nohighlight">\(d(n) = (a + 1)(b + 1)(c + 1) \dots\)</span></p>
@@ -3633,7 +3788,7 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 </section>
 <hr class="docutils" />
 <section id="resources">
-<h2><a class="toc-backref" href="#id58" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id60" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.themathpage.com/Alg/difference-two-squares-2.htm">https://www.themathpage.com/Alg/difference-two-squares-2.htm</a></p></li>
 </ul>
@@ -3642,7 +3797,7 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id59" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id61" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
@@ -3754,6 +3909,8 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prime">Prime</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite">Composite</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-every-positive-integer-is-a-product-of-primes">Claim: every positive integer is a product of primes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-theorem-on-the-infinitude-of-primes">Euclid’s Theorem on the infinitude of primes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-s-proof-of-the-infinitude-of-primes">Euler’s proof of the infinitude of primes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-every-number-of-the-form-4k-1-has-a-prime-factor-of-this-form">Claim: every number of the form <span class="math notranslate nohighlight">\(4k - 1\)</span> has a prime factor of this form</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-there-are-infinitely-many-primes-of-the-form-4k-1">Claim: there are infinitely many primes of the form <span class="math notranslate nohighlight">\(4k - 1\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-every-number-of-the-form-6k-1-has-a-prime-factor-of-this-form">Claim: every number of the form <span class="math notranslate nohighlight">\(6k - 1\)</span> has a prime factor of this form</a></li>
