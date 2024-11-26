@@ -2814,15 +2814,6 @@ Prime(q) \land (q \gt p)
 <p>Since <span class="math notranslate nohighlight">\(m\)</span> is greater than <span class="math notranslate nohighlight">\(1\)</span> it has a prime factor <span class="math notranslate nohighlight">\(p\)</span> which can’t be any of <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span> since <span class="math notranslate nohighlight">\(m\)</span> has remainder <span class="math notranslate nohighlight">\(1\)</span> when divided by each <span class="math notranslate nohighlight">\(p_i\)</span>.</p>
 <p>Euclid’s proof tells us that we can always find a prime outside of a finite list of primes <span class="math notranslate nohighlight">\(p_1, p_2, \dotsc, p_n\)</span> by using a prime factor of <span class="math notranslate nohighlight">\(p_1p_2 \dots p_n + 1\)</span>, not by using <span class="math notranslate nohighlight">\(p_1p_2 \dots p_n + 1\)</span> itself.</p>
 <p><span class="math notranslate nohighlight">\(Proof\)</span> [Humphreys &amp; Prest pp. 29-30]</p>
-<blockquote>
-<div><p>Choose any positive integer <span class="math notranslate nohighlight">\(n\)</span> and let <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span> be the first <span class="math notranslate nohighlight">\(n\)</span> prime numbers.<br />
-We will show that there is a prime number different from each of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>. Since <span class="math notranslate nohighlight">\(n\)</span> may be chosen as large as we like, this will show that there are not just finitely many primes.<br />
-Define the number <span class="math notranslate nohighlight">\(N = (p_1 p_2 \dots p_n) + 1\)</span> which need not itself be prime.<br />
-<span class="math notranslate nohighlight">\(N\)</span> has remainder <span class="math notranslate nohighlight">\(1\)</span> when divided by each of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>; in particular, none of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span> divides <span class="math notranslate nohighlight">\(N\)</span> exactly.<br />
-<span class="math notranslate nohighlight">\(N\)</span> has a prime divisor <span class="math notranslate nohighlight">\(p\)</span> by the fundamental theorem of arithmetic.<br />
-Since <span class="math notranslate nohighlight">\(p \mid N\)</span> it cannot be the case that <span class="math notranslate nohighlight">\(p\)</span> is equal to any of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>.<br />
-Therefore we have shown that there exists a prime which is not in our original list.</p>
-</div></blockquote>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 <p>The idea of this proof is to show how, given any finite set of primes, we can construct a number greater than or equal to <span class="math notranslate nohighlight">\(2\)</span> which is not divisible by any of them and which, therefore, must have a prime factor not in our original set.</p>
 <p>The integer <span class="math notranslate nohighlight">\(N\)</span> defined in the proof need not itself be prime: we simply showed that it has a prime divisor not equal to any of <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span>. In principle, one may find a <span class="math notranslate nohighlight">\(p\)</span> as in the proof by factorizing <span class="math notranslate nohighlight">\(N\)</span>. So the proof is, in principle, a recipe which, given any finite list of primes, will produce a new prime not already in the list.</p>
@@ -2931,66 +2922,6 @@ P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
 <p>If all prime factors were of the form <span class="math notranslate nohighlight">\(4k + 1\)</span> then so would be their product.</p>
 <p>Thus at least one must be of the form <span class="math notranslate nohighlight">\(4k - 1\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
-<p><span style="color: #50C878;"><b>Example</b></span></p>
-<p><span class="math notranslate nohighlight">\(
-\boxed{
-\begin{aligned}
-&amp; \begin{array}{rrcc}
- 1 &amp; 2. 0 + 1 &amp; 4. 0 + 1 \\
-   &amp; 2. 1 - 1 &amp;          \\
- 3 &amp; 2. 1 + 1 &amp; 4. 1 - 1 \\
-   &amp; 2. 2 - 1 &amp;          \\
- 5 &amp; 2. 2 + 1 &amp; 4. 1 + 1 \\
-   &amp; 2. 3 - 1 &amp;          \\
- 7 &amp; 2. 3 + 1 &amp; 4. 2 - 1 \\
-   &amp; 2. 4 - 1 &amp;          \\
- 9 &amp; 2. 4 + 1 &amp; 4. 2 + 1 \\
-   &amp; 2. 5 - 1 &amp;          \\
-11 &amp; 2. 5 + 1 &amp; 4. 3 - 1 \\
-   &amp; 2. 6 - 1 &amp;          \\
-13 &amp; 2. 6 + 1 &amp; 4. 3 + 1 \\
-   &amp; 2. 7 - 1 &amp;          \\
-15 &amp; 2. 7 + 1 &amp; 4. 4 - 1 \\
-   &amp; 2. 8 - 1 &amp;          \\
-17 &amp; 2. 8 + 1 &amp; 4. 4 + 1 \\
-   &amp; 2. 9 - 1 &amp;          \\
-19 &amp; 2. 9 + 1 &amp; 4. 5 - 1 \\
-   &amp; 2.10 - 1 &amp;          \\
-21 &amp; 2.10 + 1 &amp; 4. 5 + 1 \\
-   &amp; 2.11 - 1 &amp;          \\
-23 &amp; 2.11 + 1 &amp; 4. 6 - 1 \\
-   &amp; 2.12 - 1 &amp;          \\
-25 &amp; 2.12 + 1 &amp; 4. 6 + 1 \\
-   &amp; 2.13 - 1 &amp;          \\
-27 &amp; 2.13 + 1 &amp; 4. 7 - 1 \\
-   &amp; 2.14 - 1 &amp;          \\
-29 &amp; 2.14 + 1 &amp; 4. 7 + 1 \\
-   &amp; 2.15 - 1 &amp;          \\
-31 &amp; 2.15 + 1 &amp; 4. 8 - 1 \\
-   &amp; 2.16 - 1 &amp;          \\
-33 &amp; 2.16 + 1 &amp; 4. 8 + 1 \\
-   &amp; 2.17 - 1 &amp;          \\
-35 &amp; 2.17 + 1 &amp; 4. 9 - 1 \\
-   &amp; 2.18 - 1 &amp;          \\
-37 &amp; 2.18 + 1 &amp; 4. 9 + 1 \\
-   &amp; 2.19 - 1 &amp;          \\
-39 &amp; 2.19 + 1 &amp; 4.10 - 1 \\
-   &amp; 2.20 - 1 &amp;          \\
-41 &amp; 2.20 + 1 &amp; 4.10 + 1 \\
-   &amp; 2.21 - 1 &amp;          \\
-43 &amp; 2.21 + 1 &amp; 4.11 - 1 \\
-   &amp; 2.22 - 1 &amp;          \\
-45 &amp; 2.22 + 1 &amp; 4.11 + 1 \\
-   &amp; 2.23 - 1 &amp;          \\
-47 &amp; 2.23 + 1 &amp; 4.12 - 1 \\
-   &amp; 2.24 - 1 &amp;          \\
-49 &amp; 2.24 + 1 &amp; 4.12 + 1 \\
-   &amp; 2.25 - 1 &amp;          \\
-\end  {array}
-\end  {aligned}
-}
-\)</span></p>
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-there-are-infinitely-many-primes-of-the-form-4k-1">
@@ -3033,6 +2964,8 @@ P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
 <p>Thus at least one must be of the form <span class="math notranslate nohighlight">\(6k - 1\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 </div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p><span style="color: #50C878;"><b>Example</b></span></p>
 </fieldset></section>
 <hr class="docutils" />
 <section id="claim-there-are-infinitely-many-primes-of-the-form-6k-1">
@@ -3054,18 +2987,22 @@ P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
 <p><span class="math notranslate nohighlight">\(p \mid (6p_1 p_2 \dots p_n - m) = 1\)</span>. But no prime divides <span class="math notranslate nohighlight">\(1\)</span>, so our assumption must have been false.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 </fieldset><hr class="docutils" />
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(p \mid x \iff p \mid x^k\)</span> for any <span class="math notranslate nohighlight">\(k \gt 0\)</span></p>
-<p><span class="math notranslate nohighlight">\(p \nmid x \iff p \nmid x^k\)</span> for any <span class="math notranslate nohighlight">\(k \gt 0\)</span></p>
-</div><p>first direction</p>
-<p><span class="math notranslate nohighlight">\(p \nmid x \implies p \nmid x^k\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+}
+\)</span></p>
+</div>
+<p><b>Proof</b></p>
+<p><i>First Direction <span class="math notranslate nohighlight">\(p \nmid x \implies p \nmid x^k\)</span></i></p>
 <p><span class="math notranslate nohighlight">\(p \nmid x \iff x \not\equiv 0 \mod p \implies x^k \not\equiv 0 \mod p \iff p \nmid x^k\)</span></p>
-<p>second direction</p>
-<p><span class="math notranslate nohighlight">\(p \nmid x^k \implies p \nmid x\)</span></p>
-<p>suppose <span class="math notranslate nohighlight">\(p \mid x \iff x \equiv 0 \mod p\)</span> and then <span class="math notranslate nohighlight">\(x^k \equiv 0^k \equiv 0 \mod p \iff p \mid x^k\)</span>. Contradiction.</p>
+<p><i>Second Direction <span class="math notranslate nohighlight">\(p \nmid x^k \implies p \nmid x\)</span></i></p>
+<p>Suppose <span class="math notranslate nohighlight">\(p \mid x \iff x \equiv 0 \mod p\)</span> and then <span class="math notranslate nohighlight">\(x^k \equiv 0^k \equiv 0 \mod p \iff p \mid x^k\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<hr class="docutils" />
+</fieldset><hr class="docutils" />
 <hr class="docutils" />
 </section>
 </section>
