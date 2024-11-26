@@ -754,14 +754,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bezout-s-identity">Bézout’s Identity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gcd">Computing GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-algorithm">Euclid’s Algorithm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-gcd-as-a-linear-combination-via-matrices">Find the GCD as a linear combination via matrices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-of-gcd">Generalization of GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcm">LCM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-euclidean-algorithm">Extended Euclidean Algorithm</a></li>
 </ul>
             </nav>
         </div>
@@ -785,106 +782,6 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<hr class="docutils" />
-<section id="gcd">
-<h2>GCD<a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest 1.1.2 pp. 6]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be positive integers. <span class="math notranslate nohighlight">\(a, b \in \mathbb{P}\)</span><br />
-There is a positive integer <span class="math notranslate nohighlight">\(d\)</span> such that</p>
-<blockquote>
-<div><p>(i) <span class="math notranslate nohighlight">\(d\)</span> divides <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(d\)</span> divides <span class="math notranslate nohighlight">\(b\)</span>, and<br />
-(ii) if <span class="math notranslate nohighlight">\(c\)</span> is a positive integer which divides both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> then <span class="math notranslate nohighlight">\(c\)</span> divides <span class="math notranslate nohighlight">\(d\)</span> (i.e., any common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> divides <span class="math notranslate nohighlight">\(d\)</span>).</p>
-</div></blockquote>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\forall a, b \in \mathbb{P} \,\,
-[ \,\, \exists d \in \mathbb{P} \,\, ((d \mid a \land d \mid b) \land (\forall c \in \mathbb{P} ((c \mid a \land c \mid b) \implies c \mid d))) \,\, ]
-\]</div>
-<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, contradiction\)</span> [Humphreys &amp; Prest pp. 6]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(D\)</span> be the set of all positive integers of the form <span class="math notranslate nohighlight">\(as + bt\)</span> where <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> vary over the set of all integers.</p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-D = \{ as + bt : s, t \in \mathbb{Z}, as + bt \gt 0 \}
-\]</div>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(D\)</span> is non-empty since <span class="math notranslate nohighlight">\(a = a \cdot 1 + b \cdot 0\)</span> is in <span class="math notranslate nohighlight">\(D\)</span>.<br />
-<span class="math notranslate nohighlight">\(D\)</span> has a least element <span class="math notranslate nohighlight">\(d\)</span> by the well-ordering principle.<br />
-Since <span class="math notranslate nohighlight">\(d\)</span> is in <span class="math notranslate nohighlight">\(D\)</span>, there are integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> such that <span class="math notranslate nohighlight">\(d = as + bt\)</span>.<br />
-We must show that (ii) any common divisor <span class="math notranslate nohighlight">\(c\)</span> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is a divisor of <span class="math notranslate nohighlight">\(d\)</span>.</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(c \mid a\)</span> and <span class="math notranslate nohighlight">\(c \mid b\)</span>.<br />
-Then there are integers <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> such that <span class="math notranslate nohighlight">\(a = cg\)</span> and <span class="math notranslate nohighlight">\(b = ch\)</span>.<br />
-<span class="math notranslate nohighlight">\(as + bt = (cg)s + (ch)t = c(gs + ht) \implies c \mid c(gs + ht) \implies c \mid as + bt \implies c \mid d\)</span><br />
-<span class="math notranslate nohighlight">\(\therefore c \mid d\)</span></p>
-</div></blockquote>
-<p>We must show that (i) <span class="math notranslate nohighlight">\(d \mid a\)</span> and <span class="math notranslate nohighlight">\(d \mid b\)</span>.<br />
-Showing that <span class="math notranslate nohighlight">\(d \mid a\)</span> is sufficient because <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are interchangeable throughout the proof and so, by symmetry, <span class="math notranslate nohighlight">\(d \mid b\)</span>.</p>
-<blockquote>
-<div><p>We may write <span class="math notranslate nohighlight">\(a = dq + r \,\, , \,\, 0 \le r \lt d\)</span> by the division theorem.<br />
-To show that <span class="math notranslate nohighlight">\(d \mid a\)</span> is to show that <span class="math notranslate nohighlight">\(r = 0\)</span>.<br />
-<span class="math notranslate nohighlight">\(a = dq + r \implies \textcolor{green}{r} = a - dq = a - (as + bt)q = \textcolor{green}{a(1 - sq) + b(-tq)}\)</span><br />
-If <span class="math notranslate nohighlight">\(r\)</span> were positive then it would meet the criteria of <span class="math notranslate nohighlight">\(D\)</span> and so would belong to <span class="math notranslate nohighlight">\(D\)</span>.<br />
-But <span class="math notranslate nohighlight">\(d\)</span> was chosen to be minimal in <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(r\)</span> is strictly less than <span class="math notranslate nohighlight">\(d\)</span>. <span class="math notranslate nohighlight">\(Contradiction!\)</span><br />
-<span class="math notranslate nohighlight">\(\therefore (r = 0) \land (d \mid a) \land (d \mid b)\)</span></p>
-</div></blockquote>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<p><span class="math notranslate nohighlight">\(Definition\)</span> [Humphreys &amp; Prest pp. 7] [Bressoud pp. 6]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers.<br />
-The integer <span class="math notranslate nohighlight">\(d\)</span> satisfying conditions (i) and (ii) of theorem 1.1.2 is called the greatest common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> and is denoted <span class="math notranslate nohighlight">\(gcd(a, b)\)</span>.<br />
-In other words, the greatest common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is the largest positive integer which divides both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
-</div></blockquote>
-<blockquote>
-<div><p>Note that <span class="math notranslate nohighlight">\(gcd(a, b) = gcd(b, a)\)</span>.<br />
-Note that if <span class="math notranslate nohighlight">\(a \mid b\)</span> then <span class="math notranslate nohighlight">\(a = gcd(a, b)\)</span>.</p>
-</div></blockquote>
-</section>
-<hr class="docutils" />
-<section id="bezout-s-identity">
-<h2>Bézout’s Identity<a class="headerlink" href="#bezout-s-identity" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(Corollary\)</span> [Humphreys &amp; Prest 1.1.3 pp. 7-8]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be positive integers.<br />
-The greatest common divisor <span class="math notranslate nohighlight">\(d\)</span> of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is the smallest positive integral linear combination of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.<br />
-That is, <span class="math notranslate nohighlight">\(d = as + bt\)</span> for some integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(Lemma\)</span> [Bressoud 1.5 pp. 6]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be integers and let <span class="math notranslate nohighlight">\(g = gcd(a, b)\)</span>.<br />
-Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(g = ma + nb\)</span>.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(Proof\)</span> [Bressoud pp. 6]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(p\)</span> be a prime and let <span class="math notranslate nohighlight">\(p \mid ab\)</span>.<br />
-If <span class="math notranslate nohighlight">\(p \mid a\)</span> then we are done.<br />
-If <span class="math notranslate nohighlight">\(p \nmid a\)</span> then <span class="math notranslate nohighlight">\(gcd(p, a) = 1\)</span> because <span class="math notranslate nohighlight">\(1\)</span> is the only other positive integer that divides <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<blockquote>
-<div><p>Then there are integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> s.t. <span class="math notranslate nohighlight">\(gcd(p, a) = 1 = mp + na \iff b = mpb + nab\)</span>.<br />
-Show that <span class="math notranslate nohighlight">\(p \mid mpb\)</span>.</p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(p \mid p(mb) = mpb\)</span> since <span class="math notranslate nohighlight">\(p\)</span> divides integer multiples of itself.</p>
-</div></blockquote>
-<p>Show that <span class="math notranslate nohighlight">\(p \mid nab\)</span>.</p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\(p \mid ab\)</span> and so it follows that <span class="math notranslate nohighlight">\(p \mid ab(n)\)</span> since <span class="math notranslate nohighlight">\(p\)</span> divides integer multiples of itself.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(\therefore p \mid b = mpb + nab\)</span>.</p>
-</div></blockquote>
-<p>Therefore, if <span class="math notranslate nohighlight">\(p \nmid a\)</span> then <span class="math notranslate nohighlight">\(p \mid b\)</span>.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<p><span class="math notranslate nohighlight">\(Example\)</span> [Bressoud pp. 6]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a = 21\)</span> and <span class="math notranslate nohighlight">\(b = 6\)</span> so that <span class="math notranslate nohighlight">\(g = 3 = gcd(21, 6)\)</span>.<br />
-Then there are integers <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(-3\)</span> st <span class="math notranslate nohighlight">\(3 = 1 \cdot 21 + (-3) \cdot 6\)</span>.<br />
-There are also integers <span class="math notranslate nohighlight">\(-1\)</span> and <span class="math notranslate nohighlight">\(4\)</span> st <span class="math notranslate nohighlight">\(3 = (-1) \cdot 21 + 4 \cdot 6\)</span>.</p>
-</div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="computing-gcd">
@@ -1391,10 +1288,6 @@ m = lcm(a, b)
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(lcm(6, 15, 4) = lcm(lcm(6, 15), 4) = lcm(30, 4) = 60\)</span>.</p>
 </div></blockquote>
-</section>
-<hr class="docutils" />
-<section id="extended-euclidean-algorithm">
-<h2>Extended Euclidean Algorithm<a class="headerlink" href="#extended-euclidean-algorithm" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 </section>
 </section>
@@ -1464,14 +1357,11 @@ m = lcm(a, b)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bezout-s-identity">Bézout’s Identity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gcd">Computing GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-algorithm">Euclid’s Algorithm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-gcd-as-a-linear-combination-via-matrices">Find the GCD as a linear combination via matrices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-of-gcd">Generalization of GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lcm">LCM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extended-euclidean-algorithm">Extended Euclidean Algorithm</a></li>
 </ul>
   </nav></div>
 
