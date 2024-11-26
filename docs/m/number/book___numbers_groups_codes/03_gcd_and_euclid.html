@@ -754,7 +754,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-theorem">Division Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bezout-s-identity">Bézout’s Identity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gcd">Computing GCD</a></li>
@@ -787,83 +786,6 @@ document.write(`
 </div>
 </div>
 </section>
-<hr class="docutils" />
-<section id="division-theorem">
-<h2>Division Theorem<a class="headerlink" href="#division-theorem" title="Link to this heading">#</a></h2>
-<p>The division theorem expresses a key property of integer division (that is, when an integer is divided by a non-zero integer).</p>
-<p><span class="math notranslate nohighlight">\(Theorem\)</span> [Humphreys &amp; Prest 1.1.1 pp. 3-4] [Bressoud pp. 7]</p>
-<blockquote>
-<div><p>Given integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with <span class="math notranslate nohighlight">\(a \ne 0\)</span> there exist unique integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> such that<br />
-<span class="math notranslate nohighlight">\(b = q \times a + r\)</span> where <span class="math notranslate nohighlight">\(0 \le r \lt |a|\)</span><br />
-where <span class="math notranslate nohighlight">\(q\)</span> is the quotient of <span class="math notranslate nohighlight">\(b\)</span> by <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(r\)</span> is the remainder.</p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\color{red}
-\forall a, b \in \mathbb{Z} \,\,
-((b \ne 0) \implies \exists q, r \in \mathbb{Z} \,\,
-((abs(b) \gt r \ge 0) \land (a = qb + r)))
-\]</div>
-<blockquote>
-<div><p>It is proved elsewhere that if <span class="math notranslate nohighlight">\(a \mid b\)</span>, then <span class="math notranslate nohighlight">\(r = 0\)</span>.<br />
-If <span class="math notranslate nohighlight">\(a \nmid b\)</span>, then <span class="math notranslate nohighlight">\(r\)</span> satisfies the stronger inequalities <span class="math notranslate nohighlight">\(0 \lt r \lt |a|\)</span>.<br />
-In other words, remainders are always non-negative.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 4]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a = 3\)</span> and <span class="math notranslate nohighlight">\(b = 7\)</span>.<br />
-Then there are integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> st <span class="math notranslate nohighlight">\(7 = 3q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt |3|\)</span>.<br />
-<span class="math notranslate nohighlight">\(7 = 2 \cdot 3 + 1\)</span> with <span class="math notranslate nohighlight">\(0 \le 1 \lt |3|\)</span>.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 4]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a = 4\)</span> and <span class="math notranslate nohighlight">\(b = 12\)</span>.<br />
-Then there are integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> st <span class="math notranslate nohighlight">\(12 = 4q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt |4|\)</span>.<br />
-<span class="math notranslate nohighlight">\(12 = 3 \cdot 4 + 0\)</span> with <span class="math notranslate nohighlight">\(0 \le 0 \lt |4|\)</span>.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 14]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a = 4\)</span> and <span class="math notranslate nohighlight">\(b = -9\)</span>.<br />
-Then there are integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> st <span class="math notranslate nohighlight">\(-9 = 4q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt |4|\)</span>.<br />
-<span class="math notranslate nohighlight">\(-9 = (-3) \cdot 4 + 3\)</span> with <span class="math notranslate nohighlight">\(0 \le 3 \lt |4|\)</span>.<br />
-Note that <span class="math notranslate nohighlight">\(q = -2\)</span> and <span class="math notranslate nohighlight">\(r = -1\)</span> do not satisfy <span class="math notranslate nohighlight">\(0 \le r \lt |4|\)</span>.<br />
-<span class="math notranslate nohighlight">\(-9 = (-2) \cdot 4 + (-1)\)</span> but not with <span class="math notranslate nohighlight">\(0 \le -1 \lt |4|\)</span>.</p>
-</div></blockquote>
-<div style="color: red;">
-<p><span class="math notranslate nohighlight">\(Proof \,\, by \,\, contradiction\)</span></p>
-<p>Assume <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive.</p>
-<p>If <span class="math notranslate nohighlight">\(b \gt a\)</span>, then just take <span class="math notranslate nohighlight">\(q = 0, r = a\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[
-a = 0 \times b + a
-\]</div>
-<p>Therefore, let <span class="math notranslate nohighlight">\(b \le a\)</span>.</p>
-<p>Consider the set of non-negative differences between <span class="math notranslate nohighlight">\(b\)</span> and integer multiples of <span class="math notranslate nohighlight">\(a\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[
-D = \{ a - bk : a - bk \ge 0 \land k \in \mathbb{N} \}
-\]</div>
-<p><span class="math notranslate nohighlight">\(D\)</span> is non-empty since it contains <span class="math notranslate nohighlight">\(a = a - b \cdot 0\)</span> and <span class="math notranslate nohighlight">\(a \ge b \gt 0\)</span>.</p>
-<p>By the well-ordering principle, <span class="math notranslate nohighlight">\(D\)</span> contains a least element: <span class="math notranslate nohighlight">\(r = a - bq\)</span>, say.</p>
-<p><span class="math notranslate nohighlight">\(Contradictory \,\, step\)</span></p>
-<p>If it were the case that <span class="math notranslate nohighlight">\(r\)</span> was not strictly less than <span class="math notranslate nohighlight">\(b\)</span>, then we would have <span class="math notranslate nohighlight">\(r - b \ge 0\)</span></p>
-<div class="math notranslate nohighlight">
-\[
-r \not\lt b \implies r - b \ge 0
-\]</div>
-<p>and, therefore, <span class="math notranslate nohighlight">\(r - b = (a - bq) - b = a - b(q + 1)\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-r     &amp;= a - bq       \\
-r - b &amp;= a - b(q + 1) \\
-\implies r - b &amp;\lt r &amp;&amp; Contradiction! \\
-\end{align*}
-\end{split}\]</div>
-<p>Then <span class="math notranslate nohighlight">\(r - b\)</span> would be a member of <span class="math notranslate nohighlight">\(D\)</span> strictly less than <span class="math notranslate nohighlight">\(r\)</span>, contradicting the minimality of <span class="math notranslate nohighlight">\(r\)</span>.</p>
-<p>Therefore, <span class="math notranslate nohighlight">\(r\)</span> does satisfy <span class="math notranslate nohighlight">\(0 \le r \lt b\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<red></section>
 <hr class="docutils" />
 <section id="gcd">
 <h2>GCD<a class="headerlink" href="#gcd" title="Link to this heading">#</a></h2>
@@ -1542,7 +1464,6 @@ m = lcm(a, b)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-theorem">Division Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bezout-s-identity">Bézout’s Identity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gcd">Computing GCD</a></li>

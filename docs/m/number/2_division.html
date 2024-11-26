@@ -801,7 +801,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-p-mid-a-iff-p-mid-a-n">Claim: <span class="math notranslate nohighlight">\(p \mid a \iff p \mid a^n\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm">Division Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-theorem">Division Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-lemma">Euclid’s Lemma</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-theorem-of-arithmetic">Fundamental Theorem of Arithmetic</a><ul class="nav section-nav flex-column">
@@ -893,7 +893,7 @@ document.write(`
 <li><p><a class="reference internal" href="#claim-p-mid-a-iff-p-mid-a-n" id="id45">Claim: <span class="math notranslate nohighlight">\(p \mid a \iff p \mid a^n\)</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#division-algorithm" id="id46">Division Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#division-theorem" id="id46">Division Theorem</a></p></li>
 <li><p><a class="reference internal" href="#gcd" id="id47">GCD</a></p></li>
 <li><p><a class="reference internal" href="#euclid-s-lemma" id="id48">Euclid’s Lemma</a></p></li>
 <li><p><a class="reference internal" href="#fundamental-theorem-of-arithmetic" id="id49">Fundamental Theorem of Arithmetic</a></p>
@@ -3025,20 +3025,303 @@ P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 </div>
 </fieldset><hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{rrcc}
+ 1 &amp; 2. 0 + 1 &amp; 4. 0 + 1 &amp; 6.0 + 1 &amp; 8.0 + 1 &amp; \\
+   &amp; 2. 1 - 1 &amp;          &amp;         &amp;         &amp; \\
+ 3 &amp; 2. 1 + 1 &amp; 4. 1 - 1 &amp;         &amp;         &amp; \\
+   &amp; 2. 2 - 1 &amp;          &amp;         &amp;         &amp; \\
+ 5 &amp; 2. 2 + 1 &amp; 4. 1 + 1 &amp; 6.1 - 1 &amp;         &amp; \\
+   &amp; 2. 3 - 1 &amp;          &amp;         &amp;         &amp; \\
+ 7 &amp; 2. 3 + 1 &amp; 4. 2 - 1 &amp; 6.1 + 1 &amp; 8.1 - 1 &amp; \\
+   &amp; 2. 4 - 1 &amp;          &amp;         &amp;         &amp; \\
+ 9 &amp; 2. 4 + 1 &amp; 4. 2 + 1 &amp;         &amp; 8.1 + 1 &amp; \\
+   &amp; 2. 5 - 1 &amp;          &amp;         &amp;         &amp; \\
+11 &amp; 2. 5 + 1 &amp; 4. 3 - 1 &amp; 6.2 - 1 &amp;         &amp; \\
+   &amp; 2. 6 - 1 &amp;          &amp;         &amp;         &amp; \\
+13 &amp; 2. 6 + 1 &amp; 4. 3 + 1 &amp; 6.2 + 1 &amp;         &amp; \\
+   &amp; 2. 7 - 1 &amp;          &amp;         &amp;         &amp; \\
+15 &amp; 2. 7 + 1 &amp; 4. 4 - 1 &amp;         &amp; 8.2 - 1 &amp; \\
+   &amp; 2. 8 - 1 &amp;          &amp;         &amp;         &amp; \\
+17 &amp; 2. 8 + 1 &amp; 4. 4 + 1 &amp; 6.3 - 1 &amp; 8.2 + 1 &amp; \\
+   &amp; 2. 9 - 1 &amp;          &amp;         &amp;         &amp; \\
+19 &amp; 2. 9 + 1 &amp; 4. 5 - 1 &amp; 6.3 + 1 &amp;         &amp; \\
+   &amp; 2.10 - 1 &amp;          &amp;         &amp;         &amp; \\
+21 &amp; 2.10 + 1 &amp; 4. 5 + 1 &amp;         &amp;         &amp; \\
+   &amp; 2.11 - 1 &amp;          &amp;         &amp;         &amp; \\
+23 &amp; 2.11 + 1 &amp; 4. 6 - 1 &amp; 6.4 - 1 &amp; 8.3 - 1 &amp; \\
+   &amp; 2.12 - 1 &amp;          &amp;         &amp;         &amp; \\
+25 &amp; 2.12 + 1 &amp; 4. 6 + 1 &amp; 6.4 + 1 &amp; 8.3 + 1 &amp; \\
+   &amp; 2.13 - 1 &amp;          &amp;         &amp;         &amp; \\
+27 &amp; 2.13 + 1 &amp; 4. 7 - 1 &amp;         &amp;         &amp; \\
+   &amp; 2.14 - 1 &amp;          &amp;         &amp;         &amp; \\
+29 &amp; 2.14 + 1 &amp; 4. 7 + 1 &amp; 6.5 - 1 &amp;         &amp; \\
+   &amp; 2.15 - 1 &amp;          &amp;         &amp;         &amp; \\
+31 &amp; 2.15 + 1 &amp; 4. 8 - 1 &amp; 6.5 + 1 &amp; 8.4 - 1 &amp; \\
+   &amp; 2.16 - 1 &amp;          &amp;         &amp;         &amp; \\
+33 &amp; 2.16 + 1 &amp; 4. 8 + 1 &amp;         &amp; 8.4 + 1 &amp; \\
+   &amp; 2.17 - 1 &amp;          &amp;         &amp;         &amp; \\
+35 &amp; 2.17 + 1 &amp; 4. 9 - 1 &amp; 6.6 - 1 &amp;         &amp; \\
+   &amp; 2.18 - 1 &amp;          &amp;         &amp;         &amp; \\
+37 &amp; 2.18 + 1 &amp; 4. 9 + 1 &amp; 6.6 + 1 &amp;         &amp; \\
+   &amp; 2.19 - 1 &amp;          &amp;         &amp;         &amp; \\
+39 &amp; 2.19 + 1 &amp; 4.10 - 1 &amp;         &amp; 8.5 - 1 &amp; \\
+   &amp; 2.20 - 1 &amp;          &amp;         &amp;         &amp; \\
+41 &amp; 2.20 + 1 &amp; 4.10 + 1 &amp; 6.7 - 1 &amp; 8.5 + 1 &amp; \\
+   &amp; 2.21 - 1 &amp;          &amp;         &amp;         &amp; \\
+43 &amp; 2.21 + 1 &amp; 4.11 - 1 &amp; 6.7 + 1 &amp;         &amp; \\
+   &amp; 2.22 - 1 &amp;          &amp;         &amp;         &amp; \\
+45 &amp; 2.22 + 1 &amp; 4.11 + 1 &amp;         &amp;         &amp; \\
+   &amp; 2.23 - 1 &amp;          &amp;         &amp;         &amp; \\
+47 &amp; 2.23 + 1 &amp; 4.12 - 1 &amp; 6.8 - 1 &amp; 8.6 - 1 &amp; \\
+   &amp; 2.24 - 1 &amp;          &amp;         &amp;         &amp; \\
+49 &amp; 2.24 + 1 &amp; 4.12 + 1 &amp; 6.8 + 1 &amp; 8.6 + 1 &amp; \\
+   &amp; 2.25 - 1 &amp;          &amp;         &amp;         &amp; \\
+\end  {array}
+\)</span></p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{l}
+2k     &amp; \\
+2k + 1 &amp;= 2(k + 1) - 1 \\
+\end  {array}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; 2 \mid n     &amp;&amp; \iff 2k = n - 0   \iff n \equiv \phantom{\pm}0 \mod 2 \\
+&amp; 2 \mid n \pm 1 &amp;&amp; \iff 2k = n \pm 1 \iff n \equiv \mp 1 \mod 2 \\
+\end  {aligned}
+\)</span></p>
+<p>An integer takes exactly one of the following forms.</p>
+<ul class="simple">
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(2k \pm 1\)</span> - an odd number is expressed as both <span class="math notranslate nohighlight">\(2k + 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and as <span class="math notranslate nohighlight">\(2k' - 1\)</span> with <span class="math notranslate nohighlight">\(k' = k + 1\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{llll}
+4k     &amp;= 2(2k)     &amp;               &amp; \text{multiples of both } 2 \text{ and } 4 \\
+4k + 1 &amp;            &amp;= 4(k + 1) - 3 &amp; \text{} \\
+4k + 2 &amp;= 2(2k + 1) &amp;= 4(k + 1) - 2 &amp; \text{multiples of } 2 \text{ but not } 4 \\
+4k + 3 &amp;            &amp;= 4(k + 1) - 1 &amp; \text{} \\
+\end  {array}
+\)</span></p>
+<p>An integer takes exactly one of the following forms.</p>
+<ul class="simple">
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span></p>
+<ul>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2, 4\)</span></p></li>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span> but not <span class="math notranslate nohighlight">\(4\)</span></p></li>
+</ul>
+</li>
+<li><p>odd number of the form <span class="math notranslate nohighlight">\(4k \pm 1\)</span></p>
+<ul>
+<li><p>both <span class="math notranslate nohighlight">\(4k + 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(4k' - 3\)</span> with <span class="math notranslate nohighlight">\(k' = k + 1\)</span></p></li>
+<li><p>both <span class="math notranslate nohighlight">\(4k - 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(4k' + 3\)</span> with <span class="math notranslate nohighlight">\(k' = k - 1\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; 4 \mid n       &amp;&amp; \iff 4k = n - 0   \iff n \equiv \phantom{-1 \equiv \pm} 0 \mod 4 \\
+&amp; 4 \mid n   + 1 &amp;&amp; \iff 4k = n + 1   \iff n \equiv -1 \equiv \phantom{\pm} 3 \mod 4 &amp;&amp; \iff 4 \mid n - 3 \\
+&amp; 4 \mid n \pm 2 &amp;&amp; \iff 4k = n \pm 2 \iff n \equiv \phantom{-1 \equiv} \mp 2 \mod 4 \\
+&amp; 4 \mid n   + 3 &amp;&amp; \iff 4k = n + 3   \iff n \equiv -3 \equiv \phantom{\pm} 1 \mod 4 &amp;&amp; \iff 4 \mid n - 1 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{llll}
+6k     &amp;= 2(3k)     &amp;               &amp; \text{multiples of } 2, 3, 6 \\
+6k + 1 &amp;            &amp;= 6(k + 1) - 5 &amp; \text{} \\
+6k + 2 &amp;= 2(3k + 1) &amp;= 6(k + 1) - 4 &amp; \text{multiples of } 2 \text{ but not } 3, 6 \\
+6k + 3 &amp;= 3(2k + 1) &amp;= 6(k + 1) - 3 &amp; \text{multiples of } 3 \text{ but not } 2, 6 \\
+6k + 4 &amp;= 2(3k + 2) &amp;= 6(k + 1) - 2 &amp; \text{multiples of } 2 \text{ but not } 3, 6 \\
+6k + 5 &amp;            &amp;= 6(k + 1) - 1 &amp; \text{} \\
+\end  {array}
+\)</span></p>
+<p>An integer takes exactly one of the following forms.</p>
+<ul class="simple">
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span></p>
+<ul>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2, 3, 6\)</span></p></li>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span> but not <span class="math notranslate nohighlight">\(3, 6\)</span></p></li>
+</ul>
+</li>
+<li><p>odd multiple of <span class="math notranslate nohighlight">\(3\)</span></p></li>
+<li><p>odd number of the form <span class="math notranslate nohighlight">\(6k \pm 1\)</span></p>
+<ul>
+<li><p>both <span class="math notranslate nohighlight">\(6k + 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(6k' - 5\)</span> with <span class="math notranslate nohighlight">\(k' = k + 1\)</span></p></li>
+<li><p>both <span class="math notranslate nohighlight">\(6k - 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(6k' + 5\)</span> with <span class="math notranslate nohighlight">\(k' = k - 1\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; 6 \mid n       &amp;&amp; \iff 6k = n - 0   \iff n \equiv \phantom{-1 \equiv \pm} 0 \mod 6 \\
+&amp; 6 \mid n   + 1 &amp;&amp; \iff 6k = n + 1   \iff n \equiv -1 \equiv \phantom{\pm} 5 \mod 6 &amp; \iff 6 \mid n - 5 \\
+&amp; 6 \mid n   + 2 &amp;&amp; \iff 6k = n + 2   \iff n \equiv -2 \equiv \phantom{\pm} 4 \mod 6 &amp; \iff 6 \mid n - 4 \\
+&amp; 6 \mid n \pm 3 &amp;&amp; \iff 6k = n \pm 3 \iff n \equiv \phantom{-1 \equiv} \mp 3 \mod 6 \\
+&amp; 6 \mid n   + 4 &amp;&amp; \iff 6k = n + 4   \iff n \equiv -4 \equiv \phantom{\pm} 2 \mod 6 &amp; \iff 6 \mid n - 2 \\
+&amp; 6 \mid n   + 5 &amp;&amp; \iff 6k = n + 5   \iff n \equiv -5 \equiv \phantom{\pm} 1 \mod 6 &amp; \iff 6 \mid n - 1 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{llll}
+8k     &amp;= 2(2(2k))     &amp;               &amp; \text{multiples of } 2, 4, 8 \\
+8k + 1 &amp;               &amp;= 8(k + 1) - 7 &amp; \text{} \\
+8k + 2 &amp;= 2(4k + 1)    &amp;= 8(k + 1) - 6 &amp; \text{multiples of } 2 \text{ but not } 4, 8 \\
+8k + 3 &amp;               &amp;= 8(k + 1) - 5 &amp; \text{} \\
+8k + 4 &amp;= 2(2(2k + 1)) &amp;= 8(k + 1) - 4 &amp; \text{multiples of } 2, 4 \text{ but not } 8 \\
+8k + 5 &amp;               &amp;= 8(k + 1) - 3 &amp; \text{} \\
+8k + 6 &amp;= 2(4k + 3)    &amp;= 8(k + 1) - 2 &amp; \text{multiples of } 2 \text{ but not } 4, 8 \\
+8k + 7 &amp;               &amp;= 8(k + 1) - 1 &amp; \text{} \\
+\end  {array}
+\)</span></p>
+<p>An integer takes exactly one of the following forms.</p>
+<ul class="simple">
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span></p>
+<ul>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2, 4, 8\)</span></p></li>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2, 4\)</span> but not <span class="math notranslate nohighlight">\(8\)</span></p></li>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span>, but not <span class="math notranslate nohighlight">\(4, 8\)</span></p></li>
+</ul>
+</li>
+<li><p>odd number of the form <span class="math notranslate nohighlight">\(8k \pm 1\)</span></p>
+<ul>
+<li><p>both <span class="math notranslate nohighlight">\(8k + 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(8k' - 7\)</span> with <span class="math notranslate nohighlight">\(k' = k + 1\)</span></p></li>
+<li><p>both <span class="math notranslate nohighlight">\(8k - 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(8k' + 7\)</span> with <span class="math notranslate nohighlight">\(k' = k - 1\)</span></p></li>
+</ul>
+</li>
+<li><p>odd number of the form <span class="math notranslate nohighlight">\(8k \pm 3\)</span></p>
+<ul>
+<li><p>both <span class="math notranslate nohighlight">\(8k + 3\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(8k' - 5\)</span> with <span class="math notranslate nohighlight">\(k' = k + 1\)</span></p></li>
+<li><p>both <span class="math notranslate nohighlight">\(8k - 3\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(8k' + 5\)</span> with <span class="math notranslate nohighlight">\(k' = k - 1\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; 8 \mid n       &amp;&amp; \iff 8k = n - 0   \iff n \equiv \phantom{-1 \equiv \pm} 0 \mod 8 \\
+&amp; 8 \mid n   + 1 &amp;&amp; \iff 8k = n + 1   \iff n \equiv -1 \equiv \phantom{\pm} 7 \mod 8 &amp; \iff 8 \mid n - 7 \\
+&amp; 8 \mid n   + 2 &amp;&amp; \iff 8k = n + 2   \iff n \equiv -2 \equiv \phantom{\pm} 6 \mod 8 &amp; \iff 8 \mid n - 6 \\
+&amp; 8 \mid n   + 3 &amp;&amp; \iff 8k = n + 3   \iff n \equiv -3 \equiv \phantom{\pm} 5 \mod 8 &amp; \iff 8 \mid n - 5 \\
+&amp; 8 \mid n \pm 4 &amp;&amp; \iff 8k = n \pm 4 \iff n \equiv \phantom{-1 \equiv} \mp 4 \mod 8 \\
+&amp; 8 \mid n   + 5 &amp;&amp; \iff 8k = n + 5   \iff n \equiv -5 \equiv \phantom{\pm} 3 \mod 8 &amp; \iff 8 \mid n - 3 \\
+&amp; 8 \mid n   + 6 &amp;&amp; \iff 8k = n + 5   \iff n \equiv -6 \equiv \phantom{\pm} 2 \mod 8 &amp; \iff 8 \mid n - 2 \\
+&amp; 8 \mid n   + 7 &amp;&amp; \iff 8k = n + 5   \iff n \equiv -7 \equiv \phantom{\pm} 1 \mod 8 &amp; \iff 8 \mid n - 1 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{llll}
+10k     &amp;= 2(5k)        &amp;               &amp; \text{multiples of } 2, 5, 10 \\
+10k + 1 &amp;               &amp;= 10(k + 1) - 9 &amp; \text{} \\
+10k + 2 &amp;= 2(5k + 1)    &amp;= 10(k + 1) - 8 &amp; \text{multiples of } 2 \text{ but not } 5, 10 \\
+10k + 3 &amp;               &amp;= 10(k + 1) - 7 &amp; \text{} \\
+10k + 4 &amp;= 2(5k + 2)    &amp;= 10(k + 1) - 6 &amp; \text{multiples of } 2 \text{ but not } 5, 10 \\
+10k + 5 &amp;= 5(2k + 1)    &amp;= 10(k + 1) - 5 &amp; \text{multiples of } 5 \text{ but not } 2, 10 \\
+10k + 6 &amp;= 2(5k + 3)    &amp;= 10(k + 1) - 4 &amp; \text{multiples of } 2 \text{ but not } 5, 10 \\
+10k + 7 &amp;               &amp;= 10(k + 1) - 3 &amp; \text{} \\
+10k + 8 &amp;= 2(5k + 4)    &amp;= 10(k + 1) - 2 &amp; \text{multiples of } 2 \text{ but not } 5, 10 \\
+10k + 9 &amp;               &amp;= 10(k + 1) - 1 &amp; \text{} \\
+\end  {array}
+\)</span></p>
+<p>An integer takes exactly one of the following forms.</p>
+<ul class="simple">
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span></p>
+<ul>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2, 5, 10\)</span></p></li>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span> but not <span class="math notranslate nohighlight">\(5, 10\)</span></p></li>
+</ul>
+</li>
+<li><p>odd multiple of <span class="math notranslate nohighlight">\(5\)</span></p></li>
+<li><p>odd number of the form <span class="math notranslate nohighlight">\(10k \pm 1\)</span></p>
+<ul>
+<li><p>both <span class="math notranslate nohighlight">\(10k + 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(10k' - 9\)</span> with <span class="math notranslate nohighlight">\(k' = k + 1\)</span></p></li>
+<li><p>both <span class="math notranslate nohighlight">\(10k - 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(10k' + 9\)</span> with <span class="math notranslate nohighlight">\(k' = k - 1\)</span></p></li>
+</ul>
+</li>
+<li><p>odd number of the form <span class="math notranslate nohighlight">\(10k \pm 3\)</span></p>
+<ul>
+<li><p>both <span class="math notranslate nohighlight">\(10k + 3\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(10k' - 7\)</span> with <span class="math notranslate nohighlight">\(k' = k + 1\)</span></p></li>
+<li><p>both <span class="math notranslate nohighlight">\(10k - 3\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(10k' + 7\)</span> with <span class="math notranslate nohighlight">\(k' = k - 1\)</span></p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{llll}
+12k      &amp;= 2(2(3k))     &amp;                 &amp; \text{multiples of } 2, 3, 4, 6, 12 \\
+12k +  1 &amp;               &amp;= 12(k + 1) - 11 &amp; \text{} \\
+12k +  2 &amp;= 2(6k + 1)    &amp;= 12(k + 1) - 10 &amp; \text{multiples of } 2 \text{ but not } 3, 4, 6, 12 \\
+12k +  3 &amp;= 3(4k + 1)    &amp;= 12(k + 1) -  9 &amp; \text{multiples of } 3 \text{ but not } 2, 4, 6, 12 \\
+12k +  4 &amp;= 2(2(3k + 1)) &amp;= 12(k + 1) -  8 &amp; \text{multiples of } 2, 4 \text{ but not } 3, 6, 12 \\
+12k +  5 &amp;               &amp;= 12(k + 1) -  7 &amp; \text{} \\
+12k +  6 &amp;= 2(3(2k + 1)) &amp;= 12(k + 1) -  6 &amp; \text{multiples of } 2, 3, 6 \text{ but not } 4, 12 \\
+12k +  7 &amp;               &amp;= 12(k + 1) -  5 &amp; \text{} \\
+12k +  8 &amp;= 2(2(3k + 2)) &amp;= 12(k + 1) -  4 &amp; \text{multiples of } 2, 4 \text{ but not } 3, 6, 12 \\
+12k +  9 &amp;= 3(4k + 3)    &amp;= 12(k + 1) -  3 &amp; \text{multiples of } 3 \text{ but not } 2, 4, 6, 12 \\
+12k + 10 &amp;= 2(6k + 5)    &amp;= 12(k + 1) -  2 &amp; \text{multiples of } 2 \text{ but not } 3, 4, 6, 12 \\
+12k + 11 &amp;               &amp;= 12(k + 1) -  1 &amp; \text{} \\
+\end  {array}
+\)</span></p>
+<p>An integer takes exactly one of the following forms.</p>
+<ul class="simple">
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span></p>
+<ul>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2, 3, 4, 6, 12\)</span></p></li>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2, 3, 6\)</span> but not <span class="math notranslate nohighlight">\(4, 12\)</span></p></li>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2, 4\)</span> but not <span class="math notranslate nohighlight">\(3, 6, 12\)</span></p></li>
+<li><p>multiple of <span class="math notranslate nohighlight">\(2\)</span> but not <span class="math notranslate nohighlight">\(3, 4, 6, 12\)</span></p></li>
+</ul>
+</li>
+<li><p>odd multiple of <span class="math notranslate nohighlight">\(3\)</span></p></li>
+<li><p>odd number of the form <span class="math notranslate nohighlight">\(12k \pm 1\)</span></p>
+<ul>
+<li><p>both <span class="math notranslate nohighlight">\(12k + 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(12k' - 11\)</span> with <span class="math notranslate nohighlight">\(k' = k + 1\)</span></p></li>
+<li><p>both <span class="math notranslate nohighlight">\(12k - 1\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(12k' + 11\)</span> with <span class="math notranslate nohighlight">\(k' = k - 1\)</span></p></li>
+</ul>
+</li>
+<li><p>odd number of the form <span class="math notranslate nohighlight">\(12k \pm 5\)</span></p>
+<ul>
+<li><p>both <span class="math notranslate nohighlight">\(12k + 5\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(12k' - 7\)</span> with <span class="math notranslate nohighlight">\(k' = k + 1\)</span></p></li>
+<li><p>both <span class="math notranslate nohighlight">\(12k - 5\)</span> for some <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(12k' + 7\)</span> with <span class="math notranslate nohighlight">\(k' = k - 1\)</span></p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
 <hr class="docutils" />
 </section>
 </section>
 <hr class="docutils" />
-<section id="division-algorithm">
-<h2><a class="toc-backref" href="#id46" role="doc-backlink">Division Algorithm</a><a class="headerlink" href="#division-algorithm" title="Link to this heading">#</a></h2>
+<section id="division-theorem">
+<h2><a class="toc-backref" href="#id46" role="doc-backlink">Division Theorem</a><a class="headerlink" href="#division-theorem" title="Link to this heading">#</a></h2>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <p>Division of an integer by a positive integer produces a quotient and a remainder. (Operating on remainders will form the basis of modular arithmetic.)</p>
-<p><span style="color: #0096FF;"><b>THEOREM: DIVISION ALGORITHM</b></span></p>
+<p><span style="color: #0096FF;"><b>THEOREM: DIVISION ALGORITHM</b></span> [Humphreys &amp; Prest 1.1.1 pp. 3-4] [Bressoud pp. 7]</p>
 <div style="color: #0096FF;">
 <p>Let <span class="math notranslate nohighlight">\(a\)</span> be an integer and <span class="math notranslate nohighlight">\(d\)</span> a positive integer. Then there are <u>unique</u> integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt d\)</span> s.t.</p>
 <p><span class="math notranslate nohighlight">\(a = dq + r\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(d\)</span> is called the <strong>divisor</strong>; <span class="math notranslate nohighlight">\(a\)</span> is called the <strong>dividend</strong>; <span class="math notranslate nohighlight">\(q\)</span> is called the <strong>quotient</strong>; and <span class="math notranslate nohighlight">\(r\)</span> is called the <strong>remainder</strong>.</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\begin{aligned}
+\forall a, d \in \mathbb{Z} \quad
+\Big( \quad d \ne 0 \quad \implies \quad
+\exists ! q \in \mathbb{Z} \quad \exists ! r \in \mathbb{Z} \quad
+\Big( a = dq + r \quad \land \quad 0 \le r \lt |d|
+\Big) \Big)
+\end  {aligned}
+}
+\)</span></p>
 </div>
-<p><span style="color: #0096FF;"><b>Proof</b></span></p>
+<p>Sometimes we say that <span class="math notranslate nohighlight">\(d\)</span> is a nonnegative integer so that <span class="math notranslate nohighlight">\(0 \le r \lt |d|\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(d \mid a\)</span> then <span class="math notranslate nohighlight">\(r = 0\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(d \nmid a\)</span> then <span class="math notranslate nohighlight">\(r \ne 0\)</span> and satisfies the stronger inequalities <span class="math notranslate nohighlight">\(0 \lt r \lt |d|\)</span>.</p>
+<p>In other words, remainders are nonnegative.</p>
+<p><b>Proof</b></p>
 <p>Let <span class="math notranslate nohighlight">\(D = \{ a - dx \mid x \in \mathbb{Z} \} = \{ a, a \pm d, a \pm 2d, a \pm 3d, \dotsc \}\)</span>.</p>
 <p>No matter what <span class="math notranslate nohighlight">\(a\)</span> is, <span class="math notranslate nohighlight">\(D\)</span> has at least one non-negative element and so has a least non-negative element <span class="math notranslate nohighlight">\(r\)</span>.</p>
 <p>If <span class="math notranslate nohighlight">\(a \ge 0\)</span> then <span class="math notranslate nohighlight">\(a \in D\)</span>.</p>
@@ -3058,8 +3341,55 @@ P(x) &amp;= \prod_{p \le x} (1 - 1/p)^{-1} \\
 <p><span class="math notranslate nohighlight">\(d \le d|q' - q|\)</span> and <span class="math notranslate nohighlight">\(|r' - r| \lt d\)</span></p>
 <p>Contradiction!</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<hr class="docutils" />
-<p>The integer <span class="math notranslate nohighlight">\(a\)</span> is divisible by the integer <span class="math notranslate nohighlight">\(d\)</span> iff the remainder is <span class="math notranslate nohighlight">\(0\)</span> when <span class="math notranslate nohighlight">\(a\)</span> is divided by <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<div style="color: red;">
+<p><b>Proof by contradiction</b></p>
+<p>Assume <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive.</p>
+<p>If <span class="math notranslate nohighlight">\(b \gt a\)</span>, then just take <span class="math notranslate nohighlight">\(q = 0, r = a\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+a = 0 \times b + a
+\]</div>
+<p>Therefore, let <span class="math notranslate nohighlight">\(b \le a\)</span>.</p>
+<p>Consider the set of non-negative differences between <span class="math notranslate nohighlight">\(b\)</span> and integer multiples of <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+D = \{ a - bk : a - bk \ge 0 \land k \in \mathbb{N} \}
+\]</div>
+<p><span class="math notranslate nohighlight">\(D\)</span> is non-empty since it contains <span class="math notranslate nohighlight">\(a = a - b \cdot 0\)</span> and <span class="math notranslate nohighlight">\(a \ge b \gt 0\)</span>.</p>
+<p>By the well-ordering principle, <span class="math notranslate nohighlight">\(D\)</span> contains a least element: <span class="math notranslate nohighlight">\(r = a - bq\)</span>, say.</p>
+<p><span class="math notranslate nohighlight">\(Contradictory \,\, step\)</span></p>
+<p>If it were the case that <span class="math notranslate nohighlight">\(r\)</span> was not strictly less than <span class="math notranslate nohighlight">\(b\)</span>, then we would have <span class="math notranslate nohighlight">\(r - b \ge 0\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+r \not\lt b \implies r - b \ge 0
+\]</div>
+<p>and, therefore, <span class="math notranslate nohighlight">\(r - b = (a - bq) - b = a - b(q + 1)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+r     &amp;= a - bq       \\
+r - b &amp;= a - b(q + 1) \\
+\implies r - b &amp;\lt r &amp;&amp; Contradiction! \\
+\end{align*}
+\end{split}\]</div>
+<p>Then <span class="math notranslate nohighlight">\(r - b\)</span> would be a member of <span class="math notranslate nohighlight">\(D\)</span> strictly less than <span class="math notranslate nohighlight">\(r\)</span>, contradicting the minimality of <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>Therefore, <span class="math notranslate nohighlight">\(r\)</span> does satisfy <span class="math notranslate nohighlight">\(0 \le r \lt b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p><span style="color: #50C878;"><b>Example</b></span> [Humphreys &amp; Prest pp. 4, 14]</p>
+<p>Let <span class="math notranslate nohighlight">\(a = 3\)</span> and <span class="math notranslate nohighlight">\(b = 7\)</span>.</p>
+<p>Then there are integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> st <span class="math notranslate nohighlight">\(7 = 3q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt |3|\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(7 = 2 \cdot 3 + 1\)</span> with <span class="math notranslate nohighlight">\(0 \le 1 \lt |3|\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(a = 4\)</span> and <span class="math notranslate nohighlight">\(b = 12\)</span>.</p>
+<p>Then there are integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> st <span class="math notranslate nohighlight">\(12 = 4q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt |4|\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(12 = 3 \cdot 4 + 0\)</span> with <span class="math notranslate nohighlight">\(0 \le 0 \lt |4|\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(a = 4\)</span> and <span class="math notranslate nohighlight">\(b = -9\)</span>.</p>
+<p>Then there are integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> st <span class="math notranslate nohighlight">\(-9 = 4q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt |4|\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(-9 = (-3) \cdot 4 + 3\)</span> with <span class="math notranslate nohighlight">\(0 \le 3 \lt |4|\)</span>.</p>
+<p>Note that <span class="math notranslate nohighlight">\(q = -2\)</span> and <span class="math notranslate nohighlight">\(r = -1\)</span> do not satisfy <span class="math notranslate nohighlight">\(0 \le r \lt |4|\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(-9 = (-2) \cdot 4 + (-1)\)</span> but not with <span class="math notranslate nohighlight">\(0 \le -1 \lt |4|\)</span>.</p>
+</fieldset><p>The integer <span class="math notranslate nohighlight">\(a\)</span> is divisible by the integer <span class="math notranslate nohighlight">\(d\)</span> iff the remainder is <span class="math notranslate nohighlight">\(0\)</span> when <span class="math notranslate nohighlight">\(a\)</span> is divided by <span class="math notranslate nohighlight">\(b\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(d \mid a \iff a = dq + 0\)</span></p>
 <p>We can use the following notation to express the quotient and the remainder:</p>
 <p><span class="math notranslate nohighlight">\(
@@ -3917,7 +4247,7 @@ y &amp;= \frac{m_1 - m_2}{2} \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-p-mid-a-iff-p-mid-a-n">Claim: <span class="math notranslate nohighlight">\(p \mid a \iff p \mid a^n\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-algorithm">Division Algorithm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-theorem">Division Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcd">GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-lemma">Euclid’s Lemma</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-theorem-of-arithmetic">Fundamental Theorem of Arithmetic</a><ul class="nav section-nav flex-column">
