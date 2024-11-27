@@ -753,7 +753,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gcd">Computing GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-algorithm">Euclid’s Algorithm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-gcd-as-a-linear-combination-via-matrices">Find the GCD as a linear combination via matrices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-of-gcd">Generalization of GCD</a></li>
@@ -781,63 +780,6 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<hr class="docutils" />
-<section id="computing-gcd">
-<h2>Computing GCD<a class="headerlink" href="#computing-gcd" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(Lemma\)</span> [Humphreys &amp; Prest 1.1.4 pp. 8] Euclid’s <em>Elements</em> Book VII Proposition 1</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> be natural numbers and let <span class="math notranslate nohighlight">\(a\)</span> be non-zero.<br />
-Let <span class="math notranslate nohighlight">\(b = aq + r\)</span> where <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> are positive integers.<br />
-Then <span class="math notranslate nohighlight">\(gcd(a, b) = gcd(a, r)\)</span>.</p>
-</div></blockquote>
-<div class="math notranslate nohighlight">
-\[
-\color{red}
-\forall a, b \in \mathbb{N} \,\,
-[ \,\,
-((a \ne 0) \land
-(\exists q, r \in \mathbb{P} \,\,
-(b = aq + r)))
-\implies
-gcd(a, b) = gcd(a, r)
-\,\, ]
-\]</div>
-<p><span class="math notranslate nohighlight">\(Proof\)</span> [Humphreys &amp; Prest pp. 8]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(d = gcd(a, b)\)</span>.<br />
-<span class="math notranslate nohighlight">\(b = aq + r \iff b - aq = r\)</span></p>
-<blockquote>
-<div><p>By definition, <span class="math notranslate nohighlight">\(d \mid a\)</span> and <span class="math notranslate nohighlight">\(d \mid b\)</span>.<br />
-Then <span class="math notranslate nohighlight">\(d \mid b - aq \iff d \mid r\)</span> and so <span class="math notranslate nohighlight">\(d\)</span> is a common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(r\)</span>.<br />
-<span class="math notranslate nohighlight">\(\therefore d \mid gcd(a, r)\)</span> since a common divisor of two integers also divides their <span class="math notranslate nohighlight">\(gcd\)</span>.</p>
-</div></blockquote>
-<blockquote>
-<div><p>By definition, <span class="math notranslate nohighlight">\(gcd(a, r) \mid a\)</span> and <span class="math notranslate nohighlight">\(gcd(a, r) \mid r\)</span>.<br />
-<span class="math notranslate nohighlight">\(gcd(a, r) \mid aq + r \iff gcd(a, r) \mid b\)</span> and so <span class="math notranslate nohighlight">\(gcd(a, r)\)</span> is a common divisor of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.<br />
-<span class="math notranslate nohighlight">\(\therefore gcd(a, r) \mid d\)</span> since a common divisor of two integers also divides their <span class="math notranslate nohighlight">\(gcd\)</span>.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(\therefore d = gcd(a, r) = gcd(a, b)\)</span> since <span class="math notranslate nohighlight">\(d \mid gcd(a, r)\)</span> and <span class="math notranslate nohighlight">\(gcd(a, r) \mid d\)</span>.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<p><span class="math notranslate nohighlight">\(Example\)</span> [Humphreys &amp; Prest pp. 8-9]</p>
-<blockquote>
-<div><p>Let <span class="math notranslate nohighlight">\(a = 30\)</span> and <span class="math notranslate nohighlight">\(b = 171\)</span>.<br />
-Then we can write <span class="math notranslate nohighlight">\(171 = 30q + r\)</span> with <span class="math notranslate nohighlight">\(q = 5\)</span> and <span class="math notranslate nohighlight">\(r = 21\)</span> (or <span class="math notranslate nohighlight">\(q = 3\)</span> and <span class="math notranslate nohighlight">\(r = 81\)</span>).<br />
-Let <span class="math notranslate nohighlight">\(d = gcd(30, 171)\)</span>.<br />
-<span class="math notranslate nohighlight">\(171 = 30 \cdot 5 + 21 \iff 171 - 30 \cdot 5 = 21\)</span></p>
-<blockquote>
-<div><p>By definition, <span class="math notranslate nohighlight">\(d \mid 30\)</span> and <span class="math notranslate nohighlight">\(d \mid 171\)</span>.<br />
-Then <span class="math notranslate nohighlight">\(d \mid 171 - 30 \cdot 5 \iff d \mid 21\)</span>.<br />
-<span class="math notranslate nohighlight">\(\therefore d \mid gcd(30, 21)\)</span>.</p>
-</div></blockquote>
-<blockquote>
-<div><p>By definition, <span class="math notranslate nohighlight">\(gcd(30, 21) \mid 30\)</span> and <span class="math notranslate nohighlight">\(gcd(30, 21) \mid 21\)</span>.<br />
-<span class="math notranslate nohighlight">\(gcd(30, 21) \mid 30 \cdot 5 + 21 \iff gcd(30, 21) \mid 171\)</span>.<br />
-<span class="math notranslate nohighlight">\(gcd(30, 21) \mid d\)</span>.</p>
-</div></blockquote>
-<p><span class="math notranslate nohighlight">\(\therefore d = gcd(30, 21) = gcd(30, 171)\)</span>.</p>
-</div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="euclid-s-algorithm">
@@ -1356,7 +1298,6 @@ m = lcm(a, b)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-environment">Programming Environment</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gcd">Computing GCD</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclid-s-algorithm">Euclid’s Algorithm</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-gcd-as-a-linear-combination-via-matrices">Find the GCD as a linear combination via matrices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalization-of-gcd">Generalization of GCD</a></li>
