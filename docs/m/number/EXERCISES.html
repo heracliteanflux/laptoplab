@@ -1956,7 +1956,7 @@ F_n = \frac{\theta^n - (-\theta)^{-n}}{\sqrt{5}}
 \)</span></p>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <div class="full-width" style="color: #0096FF;">
-<p>In the following we define <span class="math notranslate nohighlight">\(\varphi = \theta\)</span> and <span class="math notranslate nohighlight">\(\psi = -\theta^{-1}\)</span>.</p>
+<p>Define <span class="math notranslate nohighlight">\(\varphi = \theta\)</span> and <span class="math notranslate nohighlight">\(\psi = -\theta^{-1}\)</span>.</p>
 <p>We know that</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -2043,7 +2043,86 @@ s \le 1 + \frac{\log 2b \sqrt{5}}{\log \theta}
 \end  {aligned}
 \)</span></p>
 <p>This shows that Euclid’s algorithm runs in time at most linear in the bit size of <span class="math notranslate nohighlight">\(\min(a, b)\)</span>.</p>
-</section>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p>We want to show the following.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+F_0 \le r_{s-1} \\
+F_1 \le r_{s-2} \\
+F_2 \le r_{s-3} \\ \vdots \\
+F_{s-2} \le r_{1} \\
+F_{s-1} \le r_{0} \\
+\end  {aligned}
+\)</span></p>
+<p>It suffices to show that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; P(0) \quad \land \quad P(1) \quad \land \quad
+\forall \ell \ge 2
+\quad
+\left( \bigwedge_{i=0}^{\ell-1} P(i) \right) \implies P(\ell) \\
+&amp; \text{where} \quad P(i) : \quad F_i \le r_{s-1-i}
+\end  {aligned}
+\)</span></p>
+<p><b>Proof by induction on <span class="math notranslate nohighlight">\(k\)</span></b></p>
+<p><i>Basis</i></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; P(0) : \quad
+F_0 = 0 \le r_{s-1} \\
+&amp; P(1) : \quad
+F_1 = 1 \le r_{s-2} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(0)\)</span> is true because the division theorem stipulates that <span class="math notranslate nohighlight">\(0 \le r\)</span> for any <span class="math notranslate nohighlight">\(r\)</span> (i.e., remainders are non-negative).</p>
+<p><span class="math notranslate nohighlight">\(P(1)\)</span> is true because Euclid’s algorithm stipulates that <span class="math notranslate nohighlight">\(r_j \lt r_{j-1}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(0 \le r_{s-1} \lt r_{s-2} \implies 1 \le r_{s-2}\)</span></p>
+<p><i>Induction Step</i></p>
+<p>We must show that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\forall \ell \ge 2 \quad \left( \bigwedge_{i=0}^{\ell-1} P(i) \right) \implies P(\ell)
+\end  {aligned}
+\)</span></p>
+<p><i>Induction Hypothesis</i></p>
+<p>Suppose that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\exists \ell \ge 2 \quad \bigwedge_{i=0}^{\ell-1} P(i)
+\end  {aligned}
+\)</span></p>
+<p>Then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+F_{\ell - 2} &amp; \le r_{s - 1 - (\ell - 2)} = r_{s - \ell + 1} \\
+F_{\ell - 1} &amp; \le r_{s - 1 - (\ell - 1)} = r_{s - \ell} \\
+F_{\ell}     &amp;   = F_{\ell - 1} + F_{\ell - 2} \\
+F_{\ell}     &amp; \le r_{s - \ell} + r_{s - \ell + 1}
+\end  {aligned}
+\)</span></p>
+<p>Euclid’s algorithm says</p>
+<p><span class="math notranslate nohighlight">\(r_{s - \ell - 1} = r_{s - \ell} q_{s - \ell + 1} + r_{s - \ell + 1} \quad 0 \lt r_{s - \ell + 1} \lt r_{s - \ell}\)</span></p>
+<p>Thus</p>
+<p><span class="math notranslate nohighlight">\(F_{\ell} \le r_{s - \ell - 1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Proof</b></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+F_{s-1} &amp;= \frac{\varphi^{s-1} - \psi^{s-1}}{\sqrt{5}} \le r_{s-1-(s-1)} = r_0 \\
+\varphi^{s-1} &amp;\le r_0 \sqrt{5} + \psi^{s-1} \\
+\log \varphi^{s-1} &amp;\le \log (r_0 \sqrt{5} + \psi^{s-1}) \\
+(s - 1) (\log \varphi) &amp;\le \log (r_0 \sqrt{5} + \psi^{s-1}) \\
+s - 1 &amp;\le \frac{\log (r_0 \sqrt{5} + \psi^{s-1})}{\log \varphi} \\
+s &amp;\le 1 + \frac{\log (r_0 \sqrt{5} + \psi^{s-1})}{\log \varphi} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset></section>
 </section>
 <hr class="docutils" />
 <section id="id7">
