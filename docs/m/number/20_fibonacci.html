@@ -756,6 +756,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-if-m-divides-two-consecutive-fibonacci-numbers-it-is-1">Claim: if <span class="math notranslate nohighlight">\(m\)</span> divides two consecutive Fibonacci numbers it is <span class="math notranslate nohighlight">\(1\)</span></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#golden-ratio">Golden Ratio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binet-s-formula">Binet’s Formula</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
 </ul>
@@ -770,21 +772,39 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fibonacci">
-<h1>Fibonacci<a class="headerlink" href="#fibonacci" title="Link to this heading">#</a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Fibonacci</a><a class="headerlink" href="#fibonacci" title="Link to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#fibonacci" id="id1">Fibonacci</a></p>
+<ul>
+<li><p><a class="reference internal" href="#fibonacci-sequence" id="id2">Fibonacci Sequence</a></p>
+<ul>
+<li><p><a class="reference internal" href="#claim-if-m-divides-two-consecutive-fibonacci-numbers-it-is-1" id="id3">Claim: if <span class="math notranslate nohighlight">\(m\)</span> divides two consecutive Fibonacci numbers it is <span class="math notranslate nohighlight">\(1\)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#golden-ratio" id="id4">Golden Ratio</a></p></li>
+<li><p><a class="reference internal" href="#binet-s-formula" id="id5">Binet’s Formula</a></p></li>
+<li><p><a class="reference internal" href="#figures" id="id6">Figures</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id7">Terms</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
 <hr class="docutils" />
 <section id="fibonacci-sequence">
-<h2>Fibonacci Sequence<a class="headerlink" href="#fibonacci-sequence" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Fibonacci Sequence</a><a class="headerlink" href="#fibonacci-sequence" title="Link to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(
 F :=
 \begin{cases}
+F_0 &amp;= 0 \\
 F_1 &amp;= 1 \\
-F_2 &amp;= 1 \\
 F_{n + 1} &amp;= F_n + F_{n - 1} &amp;&amp; n \in \{ 2, 3, \dots \} \\
 \end{cases}
 \)</span></p>
 <hr class="docutils" />
 <section id="claim-if-m-divides-two-consecutive-fibonacci-numbers-it-is-1">
-<h3>Claim: if <span class="math notranslate nohighlight">\(m\)</span> divides two consecutive Fibonacci numbers it is <span class="math notranslate nohighlight">\(1\)</span><a class="headerlink" href="#claim-if-m-divides-two-consecutive-fibonacci-numbers-it-is-1" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Claim: if <span class="math notranslate nohighlight">\(m\)</span> divides two consecutive Fibonacci numbers it is <span class="math notranslate nohighlight">\(1\)</span></a><a class="headerlink" href="#claim-if-m-divides-two-consecutive-fibonacci-numbers-it-is-1" title="Link to this heading">#</a></h3>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <div style="color: #0096FF;">
@@ -833,8 +853,192 @@ m \mid 1 \iff mk = 1 \implies m = \pm 1 \\
 </fieldset></section>
 </section>
 <hr class="docutils" />
+<section id="golden-ratio">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Golden Ratio</a><a class="headerlink" href="#golden-ratio" title="Link to this heading">#</a></h2>
+<p>Two quantities <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> with <span class="math notranslate nohighlight">\(a \gt b \gt 0\)</span> are in the golden ratio if their ratio is the same as the ratio of their sum <span class="math notranslate nohighlight">\(a + b\)</span> to the larger of the two quantities <span class="math notranslate nohighlight">\(a\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{a + b}{a} = \frac{a}{b} = \varphi
+\end  {aligned}
+\)</span></p>
+<p>where the constant <span class="math notranslate nohighlight">\(\varphi\)</span> denotes the golden ratio. Suppose <span class="math notranslate nohighlight">\(b = 1\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{a + 1}{a} = a = \varphi
+\quad \implies \quad
+\frac{\varphi + 1}{\varphi} = \varphi
+\quad \iff \quad
+\varphi^2 = \varphi + 1
+\end  {aligned}
+\)</span></p>
+<p>Thus the constant <span class="math notranslate nohighlight">\(\varphi\)</span> satisfies the quadratic equation</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^2 = x + 1
+\quad \iff \quad
+x^2 - x - 1 = 0
+\quad \iff \quad
+x = \frac{1 \pm \sqrt{5}}{2}
+= \frac{-\underset{(-1)}{b} \pm \sqrt{\underset{(-1)}{b^2} - 4 \underset{(\phantom{-}1)}{a} \underset{(-1)}{c}}}{2 \underset{(\phantom{-}1)}{a}}
+\end  {aligned}
+\)</span></p>
+<p>and is an irrational number with a value of</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp;&amp; \varphi
+&amp;= \frac{1 + \sqrt{5}}{2}
+= \phantom{-} 1.618 \, 033 \, 988 \, 749 \, 894 \, 848 \, 204 \, 586 \, 834 \, 365 \, 6 \dots \\
+-\varphi^{-1}
+&amp;= -\frac{2}{1 + \sqrt{5}}
+= -\frac{2 (1 - \sqrt{5})}{(1 + \sqrt{5})(1 - \sqrt{5})}
+= &amp; \psi &amp;= \frac{1 - \sqrt{5}}{2}
+= -0.618 \, 033 \, 988 \, 749 \, 894 \, 848 \, 204 \, 586 \, 834 \, 365 \, 6 \dots \\
+\end  {aligned}
+\)</span></p>
+<p>Thus the golden ratio <span class="math notranslate nohighlight">\(\varphi\)</span> and its negative reciprocal <span class="math notranslate nohighlight">\(\psi = -\varphi^{-1}\)</span> are the roots of the quadratic equation <span class="math notranslate nohighlight">\(x^2 - x - 1 = 0\)</span>.</p>
+<p>(It is also the case that <span class="math notranslate nohighlight">\(-\varphi\)</span> and <span class="math notranslate nohighlight">\(\varphi^{-1}\)</span> are the roots of the quadratic equation <span class="math notranslate nohighlight">\(x^2 + x - 1 = 0\)</span>.)</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\varphi + \psi
+= \varphi - \frac{1}{\varphi}
+&amp;= \frac{1 \textcolor{#0096FF}{+ \sqrt{5}}}{2} + \frac{\phantom{-} 1 \textcolor{#0096FF}{- \sqrt{5}}}{2}
+=&amp; 1 \\
+\varphi - \psi
+= \varphi + \frac{1}{\varphi}
+&amp;= \frac{\textcolor{#0096FF}{1} + \sqrt{5}}{2} + \frac{\textcolor{#0096FF}{-1} + \sqrt{5}}{2}
+=&amp; \sqrt{5} \\
+\end  {aligned}
+\)</span></p>
+<p>Thus</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+-\frac{1}{\varphi} &amp;= 1 - \varphi
+&amp; \quad \iff \quad
+\frac{1}{\varphi} &amp;= \varphi - 1
+ \quad \iff \quad
+&amp; \varphi &amp;= 1 + \frac{1}{\varphi}
+&amp; \quad \iff \quad
+\varphi^2 = \varphi + 1
+\\
+\phantom{-} \psi &amp;= 1 + \frac{1}{\psi}
+&amp; \quad \iff \quad
+\frac{1}{\psi} &amp;= \psi - 1
+ \quad \iff \quad
+&amp; -\frac{1}{\psi} &amp;= 1 - \psi
+&amp; \quad \iff \quad
+\psi^2 = \psi + 1
+\end  {aligned}
+\)</span></p>
+<p>That is</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \varphi^{-1} &amp;&amp;= \varphi - 1                       &amp;&amp;= 0.618 \, 033 \, 988 \, 749 \, 894 \, 848 \, 204 \, 586 \, 834 \, 365 \, 6 \dots \\
+&amp; \varphi^0    &amp;&amp;                                    &amp;&amp;= 1 \\ \hline
+&amp; \varphi      &amp;&amp;= \varphi^0 + \varphi^{-1}          &amp;&amp;= 1.618 \, 033 \, 988 \, 749 \, 894 \, 848 \, 204 \, 586 \, 834 \, 365 \, 6 \dots \\
+&amp; \varphi^2    &amp;&amp;= \varphi^{\phantom{0}} + \varphi^0 &amp;&amp;= 2.618 \, 033 \, 988 \, 749 \, 894 \, 848 \, 204 \, 586 \, 834 \, 365 \, 6 \dots \\ &amp; \vdots \\
+&amp; \varphi^n    &amp;&amp;= \varphi^{n-1} + \varphi^{n-2} \\
+\end  {aligned}
+\)</span></p>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; \psi^{-1} &amp;&amp;= \psi - 1                    &amp;&amp;= -1.618 \, 033 \, 988 \, 749 \, 894 \, 848 \, 204 \, 586 \, 834 \, 365 \, 6 \dots \\
+&amp; \psi^0    &amp;&amp;                              &amp;&amp;= \phantom{-} 1 \\ \hline
+&amp; \psi      &amp;&amp;= \psi^0 + \psi^{-1}          &amp;&amp;= -0.618 \, 033 \, 988 \, 749 \, 894 \, 848 \, 204 \, 586 \, 834 \, 365 \, 6 \dots \\
+&amp; \psi^2    &amp;&amp;= \psi^{\phantom{0}} + \psi^0 &amp;&amp; \\ &amp; \vdots \\
+&amp; \psi^n    &amp;&amp;= \psi^{n-1} + \psi^{n-2} \\
+\end  {aligned}
+\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="binet-s-formula">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Binet’s Formula</a><a class="headerlink" href="#binet-s-formula" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+F_n = a \varphi^n + b \psi^n
+\end  {aligned}
+\)</span></p>
+<p>for some constants <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+F_0 &amp;= a \phantom{\varphi} + b \phantom{\psi} = 0 \quad \iff \quad a = -b \\
+F_1 &amp;= a \varphi + b \psi = 1 \quad \iff \quad a = \frac{1}{\varphi - \psi} \\
+\end  {aligned}
+\)</span></p>
+<p>Thus</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\begin{aligned}
+F_n = \frac{\varphi^n - \psi^n}{\varphi - \psi}
+= \frac{\varphi^n - (-\varphi)^{-n}}{\sqrt{5}}
+\end  {aligned}
+}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+F_n &amp;= (\varphi^n - \psi^n)/\sqrt{5} \\ \hline
+F_0 &amp;= (\varphi^0 - \psi^0)/\sqrt{5}
+   &amp;&amp;= 0 \\
+F_1 &amp;= \underbrace{(\varphi\phantom{^1} - \psi\phantom{^1})}_{\sqrt{5}}/\sqrt{5}
+   &amp;&amp;= 1 \\
+F_2 &amp;= (\varphi^2 - \psi^2)/\sqrt{5} \\
+    &amp;= (\varphi + 1 - \psi - 1)/\sqrt{5} \\
+    &amp;= \underbrace{(\varphi - \psi)/\sqrt{5}}_{F_1} + \underbrace{(1 - 1)/\sqrt{5}}_{F_0}
+   &amp;&amp;= 1 \\
+F_3 &amp;= (\varphi^3 - \psi^3)/\sqrt{5} \\
+    &amp;= ((\varphi + 1) \varphi - (\psi + 1) \psi)/\sqrt{5} \\
+    &amp;= (\varphi^2 + \varphi - \psi^2 - \psi)/\sqrt{5} \\
+    &amp;= \underbrace{(\varphi^2 - \psi^2)/\sqrt{5}}_{F_2} + \underbrace{(\varphi - \psi)/\sqrt{5}}_{F_1}
+   &amp;&amp;= 2 \\
+F_4 &amp;= (\varphi^4 - \psi^4)/\sqrt{5} \\
+    &amp;= ((\varphi + 1) \varphi^2 - (\psi + 1) \psi^2)/\sqrt{5} \\
+    &amp;= (\varphi^3 + \varphi^2 - \psi^3 - \psi^2)/\sqrt{5} \\
+    &amp;= \underbrace{(\varphi^3 - \psi^3)/\sqrt{5}}_{F_3} + \underbrace{(\varphi^2 - \psi^2)/\sqrt{5}}_{F_2}
+   &amp;&amp;= 3 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+F_n + F_{n-1} \\
+\frac{\varphi^n - \psi^n}{\sqrt{5}} + \frac{\varphi^{n-1} - \psi^{n-1}}{\sqrt{5}} \\
+\frac{(\varphi^n + \varphi^{n-1}) - (\psi^n + \psi^{n-1})}{\sqrt{5}} \\
+\frac{(\varphi + 1) \varphi^{n-1} - (\psi + 1) \psi^{n-1}}{\sqrt{5}} \\
+\frac{\varphi^2 \varphi^{n-1} - \psi^2 \psi^{n-1}}{\sqrt{5}} \\
+\frac{\varphi^{n+1} - \psi^{n+1}}{\sqrt{5}} \\
+F_{n+1}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+F_n &amp;= \frac{\varphi^n - \psi^n}{\sqrt{5}} \\
+\varphi^n
+&amp;= F_n (\varphi - \psi) + \psi^n &amp;&amp; \varphi - \psi = \sqrt{5} \\
+&amp;= F_n \varphi + \psi^n - F_n \psi \\
+&amp;= F_n \varphi + \psi^n - \psi \left( \frac{\varphi^n - \psi^n}{\sqrt{5}} \right) \\
+&amp;= F_n \varphi + \frac{\psi^n \sqrt{5} - \psi (\varphi^n - \psi^n)}{\sqrt{5}} \\
+&amp;= F_n \varphi + \frac{\psi^n (\varphi - \psi) - \varphi^n \psi + \psi^{n+1}}{\sqrt{5}} \\
+&amp;= F_n \varphi + \frac{\varphi \psi^n - \psi^{n+1} - \varphi^n \psi + \psi^{n+1}}{\sqrt{5}} \\
+&amp;= F_n \varphi + \frac{\varphi \psi^n - \varphi^n \psi}{\sqrt{5}} \\
+&amp;= F_n \varphi + \frac{\varphi \psi (\psi^{n-1} - \varphi^{n-1})}{\sqrt{5}} &amp;&amp; \varphi \psi = -1 \\
+&amp;= F_n \varphi + \frac{\varphi^{n-1} - \psi^{n-1}}{\sqrt{5}} \\
+&amp;= F_n \varphi + F_{n-1} \\
+\end  {aligned}
+\)</span></p>
+<p>Thus</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\begin{aligned}
+\varphi^n = F_n \varphi + F_{n-1}
+\end  {aligned}
+}
+\)</span></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/1933071/prove-by-induction-fibonacci-f-n-frac-left-frac1-sqrt-52-rightn-le">https://math.stackexchange.com/questions/1933071/prove-by-induction-fibonacci-f-n-frac-left-frac1-sqrt-52-rightn-le</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
 <section id="figures">
-<h2>Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Figures</a><a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jacques_Philippe_Marie_Binet">w</a> ] <code class="docutils literal notranslate"><span class="pre">1786-1856</span></code> Binet, Jacques</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/%C3%89douard_Lucas">w</a> ] <code class="docutils literal notranslate"><span class="pre">1842-1891</span></code> Lucas, Édouard</p></li>
@@ -842,7 +1046,7 @@ m \mid 1 \iff mk = 1 \implies m = \pm 1 \\
 </section>
 <hr class="docutils" />
 <section id="terms">
-<h2>Terms<a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>[ w ] Binet’s Formula</p></li>
 <li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fibbinary_number">w</a> ] Fibbinary Number</p></li>
@@ -926,6 +1130,8 @@ m \mid 1 \iff mk = 1 \implies m = \pm 1 \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-if-m-divides-two-consecutive-fibonacci-numbers-it-is-1">Claim: if <span class="math notranslate nohighlight">\(m\)</span> divides two consecutive Fibonacci numbers it is <span class="math notranslate nohighlight">\(1\)</span></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#golden-ratio">Golden Ratio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binet-s-formula">Binet’s Formula</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
 </ul>
