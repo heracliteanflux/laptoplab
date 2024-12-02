@@ -767,6 +767,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lehman-s-method">4 - Lehman’s Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#m1">M1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1</a><ul class="nav section-nav flex-column">
@@ -822,23 +823,24 @@ document.write(`
 </li>
 <li><p><a class="reference internal" href="#id3" id="id18">2</a></p></li>
 <li><p><a class="reference internal" href="#id4" id="id19">3</a></p></li>
-<li><p><a class="reference internal" href="#m1" id="id20">M1</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id21">5</a></p>
+<li><p><a class="reference internal" href="#lehman-s-method" id="id20">4 - Lehman’s Method</a></p></li>
+<li><p><a class="reference internal" href="#m1" id="id21">M1</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id22">5</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id6" id="id22">1</a></p>
+<li><p><a class="reference internal" href="#id6" id="id23">1</a></p>
 <ul>
-<li><p><a class="reference internal" href="#f-n-frac-theta-n-theta-n-sqrt-5" id="id23"><span class="math notranslate nohighlight">\(F_n = \frac{\theta^n - (-\theta)^{-n}}{\sqrt{5}}\)</span></a></p></li>
-<li><p><a class="reference internal" href="#euclid-s-algorithm-runs-in-time-at-most-linear-in-the-bit-size-of-min-a-b" id="id24">Euclid’s algorithm runs in time at most linear in the bit size of <span class="math notranslate nohighlight">\(\min(a, b)\)</span></a></p></li>
+<li><p><a class="reference internal" href="#f-n-frac-theta-n-theta-n-sqrt-5" id="id24"><span class="math notranslate nohighlight">\(F_n = \frac{\theta^n - (-\theta)^{-n}}{\sqrt{5}}\)</span></a></p></li>
+<li><p><a class="reference internal" href="#euclid-s-algorithm-runs-in-time-at-most-linear-in-the-bit-size-of-min-a-b" id="id25">Euclid’s algorithm runs in time at most linear in the bit size of <span class="math notranslate nohighlight">\(\min(a, b)\)</span></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#solving-linear-congruences" id="id25">2 - Solving linear congruences</a></p></li>
-<li><p><a class="reference internal" href="#n-3-1-is-not-a-perfect-square" id="id26">3 - <span class="math notranslate nohighlight">\(7n^3 - 1\)</span> is not a perfect square</a></p></li>
-<li><p><a class="reference internal" href="#a-equiv-b-mod-m-1-m-2-iff-a-equiv-b-mod-m-1-m-2" id="id27">4 - <span class="math notranslate nohighlight">\(a \equiv b \mod m_1, m_2 \iff a \equiv b \mod m_1 m_2\)</span></a></p></li>
-<li><p><a class="reference internal" href="#solving-simultaneous-congruences" id="id28">5 - Solving simultaneous congruences</a></p></li>
+<li><p><a class="reference internal" href="#solving-linear-congruences" id="id26">2 - Solving linear congruences</a></p></li>
+<li><p><a class="reference internal" href="#n-3-1-is-not-a-perfect-square" id="id27">3 - <span class="math notranslate nohighlight">\(7n^3 - 1\)</span> is not a perfect square</a></p></li>
+<li><p><a class="reference internal" href="#a-equiv-b-mod-m-1-m-2-iff-a-equiv-b-mod-m-1-m-2" id="id28">4 - <span class="math notranslate nohighlight">\(a \equiv b \mod m_1, m_2 \iff a \equiv b \mod m_1 m_2\)</span></a></p></li>
+<li><p><a class="reference internal" href="#solving-simultaneous-congruences" id="id29">5 - Solving simultaneous congruences</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id7" id="id29">6</a></p></li>
-<li><p><a class="reference internal" href="#m2-review" id="id30">M2 Review</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id30">6</a></p></li>
+<li><p><a class="reference internal" href="#m2-review" id="id31">M2 Review</a></p></li>
 </ul>
 </li>
 </ul>
@@ -1867,8 +1869,23 @@ ds &amp;= (x - y)(x + y) = x^2 - y^2 = 105 \\
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
+<section id="lehman-s-method">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">4 - Lehman’s Method</a><a class="headerlink" href="#lehman-s-method" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p>The object is to use Lehman’s method to find factors. The first two problems could be done by hand, but it would be more convenient to use a good calculator, or Pari/gp. It is not claimed that for the numbers below Lehman’s method is necessarily faster than trial division, although it is a lot less tedious. More to the point, you can see the possibilities. Lehman’s method runs as follows.</p>
+<p>Given <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> proceed as follows.</p>
+<p>1. Try trial division <span class="math notranslate nohighlight">\(d \mid n\)</span> for <span class="math notranslate nohighlight">\(d \le n^{\frac{1}{3}}\)</span> for <span class="math notranslate nohighlight">\(d\)</span> in the range. It suffices to take prime values of <span class="math notranslate nohighlight">\(d\)</span> only and for the first number <span class="math notranslate nohighlight">\(n\)</span> below these are well known. If a factor is found, stop. Pari/gp has a list of primes built in.</p>
+<p>2. For each <span class="math notranslate nohighlight">\(t \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(1 \le t \le n^{\frac{1}{3}}\)</span> and <span class="math notranslate nohighlight">\(x \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\((4tn)^{\frac{1}{2}} \le x \le (4tn + n^{\frac{2}{3}})^{\frac{1}{2}}\)</span> (for the first number below the intervals that arise contain at most one integer) compute <span class="math notranslate nohighlight">\(x^2 - 4tn\)</span> and check to see if this is a perfect square <span class="math notranslate nohighlight">\(y^2\)</span>. When it is, compute <span class="math notranslate nohighlight">\(\gcd(x + y, n)\)</span>, and if this gives a proper factor of <span class="math notranslate nohighlight">\(n\)</span> then stop.</p>
+<p>In the first two cases list the remainders on division by primes <span class="math notranslate nohighlight">\(3, 7, 11, 13, 17, \dotsc\)</span> up to <span class="math notranslate nohighlight">\(n^{\frac{1}{3}}\)</span> and for each <span class="math notranslate nohighlight">\(t\)</span> with <span class="math notranslate nohighlight">\(1 \le t \le n^{\frac{1}{3}}\)</span> list the possible values for <span class="math notranslate nohighlight">\(x\)</span>, and if <span class="math notranslate nohighlight">\(x^2 - 4tn\)</span> is a perfect square <span class="math notranslate nohighlight">\(y^2\)</span> compute <span class="math notranslate nohighlight">\(\gcd(x + y, n)\)</span> and then stop. For the third number just give a value of <span class="math notranslate nohighlight">\(t\)</span>, the corresponding values of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> and the factor. Note that Pari/gp has the gcd function built in. If a different programming language is used you will probably need to construct the gcd algorithm from scratch.</p>
+<p>Find a nontrivial factor of <span class="math notranslate nohighlight">\(19109\)</span>.</p>
+<p>Find a nontrivial factor of <span class="math notranslate nohighlight">\(2048129\)</span>.</p>
+<p>Find a nontrivial factor of <span class="math notranslate nohighlight">\(9912409831\)</span>.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
 <section id="m1">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink">M1</a><a class="headerlink" href="#m1" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">M1</a><a class="headerlink" href="#m1" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p><strong>1</strong></p>
 <p>Show that <span class="math notranslate nohighlight">\(n \mid (n - 1)!\)</span> for all composite <span class="math notranslate nohighlight">\(n \gt 4\)</span>.</p>
@@ -1931,10 +1948,10 @@ ds &amp;= (x - y)(x + y) = x^2 - y^2 = 105 \\
 </section>
 <hr class="docutils" />
 <section id="id5">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink">5</a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">5</a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="id6">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink">1</a><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">1</a><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>1</p>
 <p>Let <span class="math notranslate nohighlight">\(\{ F_n : n = 0, 1, \dotsc \}\)</span> be the Fibonacci sequence defined by</p>
 <p><span class="math notranslate nohighlight">\(
@@ -1952,7 +1969,7 @@ F_{n+1} &amp;= F_n + F_{n-1} \\
 \end  {aligned}
 \)</span></p>
 <section id="f-n-frac-theta-n-theta-n-sqrt-5">
-<h4><a class="toc-backref" href="#id23" role="doc-backlink"><span class="math notranslate nohighlight">\(F_n = \frac{\theta^n - (-\theta)^{-n}}{\sqrt{5}}\)</span></a><a class="headerlink" href="#f-n-frac-theta-n-theta-n-sqrt-5" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id24" role="doc-backlink"><span class="math notranslate nohighlight">\(F_n = \frac{\theta^n - (-\theta)^{-n}}{\sqrt{5}}\)</span></a><a class="headerlink" href="#f-n-frac-theta-n-theta-n-sqrt-5" title="Link to this heading">#</a></h4>
 <p>i</p>
 <p>Prove that</p>
 <p><span class="math notranslate nohighlight">\(
@@ -2039,7 +2056,7 @@ F_k
 </div>
 </fieldset></section>
 <section id="euclid-s-algorithm-runs-in-time-at-most-linear-in-the-bit-size-of-min-a-b">
-<h4><a class="toc-backref" href="#id24" role="doc-backlink">Euclid’s algorithm runs in time at most linear in the bit size of <span class="math notranslate nohighlight">\(\min(a, b)\)</span></a><a class="headerlink" href="#euclid-s-algorithm-runs-in-time-at-most-linear-in-the-bit-size-of-min-a-b" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">Euclid’s algorithm runs in time at most linear in the bit size of <span class="math notranslate nohighlight">\(\min(a, b)\)</span></a><a class="headerlink" href="#euclid-s-algorithm-runs-in-time-at-most-linear-in-the-bit-size-of-min-a-b" title="Link to this heading">#</a></h4>
 <p>ii</p>
 <p>Suppose that <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive integers with <span class="math notranslate nohighlight">\(b \le a\)</span> and we adopt the notation used in the description of Euclid’s algorithm.</p>
 <p>Prove that for <span class="math notranslate nohighlight">\(k = 0, 1, \dotsc, s - 1\)</span> we have <span class="math notranslate nohighlight">\(F_k \le r_{s-1-k}\)</span> and</p>
@@ -2154,7 +2171,7 @@ s
 </section>
 <hr class="docutils" />
 <section id="solving-linear-congruences">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink">2 - Solving linear congruences</a><a class="headerlink" href="#solving-linear-congruences" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">2 - Solving linear congruences</a><a class="headerlink" href="#solving-linear-congruences" title="Link to this heading">#</a></h3>
 <p>2</p>
 <p>Solve where possible.</p>
 <p>i</p>
@@ -2252,7 +2269,7 @@ x \equiv -96 \mod 21
 </section>
 <hr class="docutils" />
 <section id="n-3-1-is-not-a-perfect-square">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink">3 - <span class="math notranslate nohighlight">\(7n^3 - 1\)</span> is not a perfect square</a><a class="headerlink" href="#n-3-1-is-not-a-perfect-square" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">3 - <span class="math notranslate nohighlight">\(7n^3 - 1\)</span> is not a perfect square</a><a class="headerlink" href="#n-3-1-is-not-a-perfect-square" title="Link to this heading">#</a></h3>
 <p>Prove that</p>
 <p><span class="math notranslate nohighlight">\(7n^3 - 1\)</span></p>
 <p>can never be a perfect square.</p>
@@ -2287,7 +2304,7 @@ x^2 \equiv -1 \equiv 6 \mod 7
 </section>
 <hr class="docutils" />
 <section id="a-equiv-b-mod-m-1-m-2-iff-a-equiv-b-mod-m-1-m-2">
-<h3><a class="toc-backref" href="#id27" role="doc-backlink">4 - <span class="math notranslate nohighlight">\(a \equiv b \mod m_1, m_2 \iff a \equiv b \mod m_1 m_2\)</span></a><a class="headerlink" href="#a-equiv-b-mod-m-1-m-2-iff-a-equiv-b-mod-m-1-m-2" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">4 - <span class="math notranslate nohighlight">\(a \equiv b \mod m_1, m_2 \iff a \equiv b \mod m_1 m_2\)</span></a><a class="headerlink" href="#a-equiv-b-mod-m-1-m-2-iff-a-equiv-b-mod-m-1-m-2" title="Link to this heading">#</a></h3>
 <p>Suppose that <span class="math notranslate nohighlight">\(m_1, m_2 \in \mathbb{N}\)</span>, that <span class="math notranslate nohighlight">\(\gcd(m_1, m_2) = 1\)</span>, and that <span class="math notranslate nohighlight">\(a, b \in \mathbb{Z}\)</span>.</p>
 <p>Prove that</p>
 <p><span class="math notranslate nohighlight">\(a \equiv b \mod m_1\)</span></p>
@@ -2352,7 +2369,7 @@ m_2 (m_1 k) = a - b
 </section>
 <hr class="docutils" />
 <section id="solving-simultaneous-congruences">
-<h3><a class="toc-backref" href="#id28" role="doc-backlink">5 - Solving simultaneous congruences</a><a class="headerlink" href="#solving-simultaneous-congruences" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">5 - Solving simultaneous congruences</a><a class="headerlink" href="#solving-simultaneous-congruences" title="Link to this heading">#</a></h3>
 <p>Solve the simultaneous congruences</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
@@ -2415,7 +2432,7 @@ x
 </section>
 <hr class="docutils" />
 <section id="id7">
-<h2><a class="toc-backref" href="#id29" role="doc-backlink">6</a><a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">6</a><a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>1</p>
 <p>Find all solutions (if there are any) to each of the following congruences.</p>
@@ -2444,7 +2461,7 @@ x^2 \equiv -1 \equiv 6 \mod 7
 </section>
 <hr class="docutils" />
 <section id="m2-review">
-<h2><a class="toc-backref" href="#id30" role="doc-backlink">M2 Review</a><a class="headerlink" href="#m2-review" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">M2 Review</a><a class="headerlink" href="#m2-review" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>1</p>
 <p>Suppose that <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(q\)</span>, and <span class="math notranslate nohighlight">\(r\)</span> are distinct primes. Prove that</p>
@@ -2563,6 +2580,7 @@ x^{ 7} \equiv 8 \mod 11 \\
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lehman-s-method">4 - Lehman’s Method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#m1">M1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">5</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1</a><ul class="nav section-nav flex-column">
