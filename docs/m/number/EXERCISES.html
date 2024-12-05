@@ -1881,6 +1881,1797 @@ ds &amp;= (x - y)(x + y) = x^2 - y^2 = 105 \\
 <p>Find a nontrivial factor of <span class="math notranslate nohighlight">\(2048129\)</span>.</p>
 <p>Find a nontrivial factor of <span class="math notranslate nohighlight">\(9912409831\)</span>.</p>
 <hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="kn">import</span> <span class="nn">sympy</span>
+
+<span class="c1"># SIEVE OF ERATOSTHENES</span>
+<span class="k">def</span> <span class="nf">sieve_eratosthenes</span> <span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>                                  <span class="c1"># initialize list of primes</span>
+  <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>                                 <span class="c1"># 0, 1 non-prime</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">isprime</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">isprime</span><span class="p">:</span>
+      <span class="k">yield</span> <span class="n">i</span>                                         <span class="c1"># 2, 3, 5, 7, ...</span>
+      <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span> <span class="k">else</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">):</span> <span class="c1"># mark odd multiples of i as non-prime, starting with i^2</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># list of primes up to 2,000,000</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">sieve_eratosthenes</span><span class="p">(</span><span class="mi">2000000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(n = 19109\)</span> and <span class="math notranslate nohighlight">\(\left\lfloor n^{\frac{1}{3}} \right\rfloor = 26\)</span>.</p>
+<p>Trial division with <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7, 11, 13, 17, 19, 23\)</span> finds no factors.</p>
+<p>For <span class="math notranslate nohighlight">\(1 \le t \le 27\)</span> consider the numbers <span class="math notranslate nohighlight">\(x\)</span> with</p>
+<p><span class="math notranslate nohighlight">\(\left\lceil \sqrt{76436t} \right\rceil \le x \le \left\lfloor \sqrt{76436t + \underset{676}{26}^2} \right\rfloor\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{76436} \right\rceil}_{277}
+\le x \le
+\underbrace{\left\lfloor \sqrt{76436 + \underset{676}{26}^2} \right\rfloor}_{277}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                    x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{76729}{277}^2 &amp;-&amp; 76436 &amp;=&amp; 293 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{\underset{152872}{76436 \times 2}} \right\rceil}_{391}
+\le x \le
+\underbrace{\left\lfloor \sqrt{\underset{152872}{76436 \times 2} + \underset{676}{26}^2} \right\rfloor}_{391}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                     x^2 &amp;-&amp;    4tn &amp;=&amp;               y^2 \\
+\underset{152881}{391}^2 &amp;-&amp; 152872 &amp;=&amp; \underset{3^2}{9} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(x + y, n) = \gcd(391 + 3, 19109) = 197\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{rrrr|r}
+ q &amp;     r &amp;  x &amp;   y \\ \hline
+   &amp; 19109 &amp;  1 &amp;   0 \\
+48 &amp;   394 &amp;  0 &amp;   1 \\ \hline
+ 2 &amp;   197 &amp;  1 &amp; -48 &amp; 197 = 19109 \times \phantom{(-} 1 \phantom{)} + 394 \times (-48) \\
+\end  {array}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">19109</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n^(1/3)             </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="n">ps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Decimal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
+  <span class="n">tn4</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">n</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     4tn            </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">tn4</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sqrt(4tn)           </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">tn4</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sqrt(4tn + n^(2/3)) </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">tn4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="o">**</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span><span class="o">**</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n^(1/3)             26.734946548226876635375099845183210520548060538579
+
+9554.5
+6369.6666666666666666666666666666666666666666666667
+3821.8
+2729.8571428571428571428571428571428571428571428571
+1737.1818181818181818181818181818181818181818181818
+1469.9230769230769230769230769230769230769230769231
+1124.0588235294117647058823529411764705882352941176
+1005.7368421052631578947368421052631578947368421053
+830.82608695652173913043478260869565217391304347826
+
+     4tn            76436
+sqrt(4tn)           276.47061326658209588614393919861341402044590723322
+sqrt(4tn + n^(2/3)) 277.76025159647401965726601051259381319105566345308
+
+     4tn            152872
+sqrt(4tn)           390.98849087920733833749742379052300590824078431321
+sqrt(4tn + n^(2/3)) 391.90146384893301159360086397560742535003571338853
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(n = 2048129\)</span> and <span class="math notranslate nohighlight">\(\left\lfloor n^{\frac{1}{3}} \right\rfloor = 126\)</span>.</p>
+<p>Trial division with <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7, 11, \dotsc \le 126\)</span> finds no factors.</p>
+<p>For <span class="math notranslate nohighlight">\(1 \le t \le 127\)</span> consider the numbers <span class="math notranslate nohighlight">\(x\)</span> with</p>
+<p><span class="math notranslate nohighlight">\(\left\lceil \sqrt{8192516t} \right\rceil \le x \le \left\lfloor \sqrt{8192516t + \underset{15876}{126}^2} \right\rfloor\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{8192516} \right\rceil}_{2863}
+\le x \le
+\underbrace{\left\lfloor \sqrt{8192516 + 15876} \right\rfloor}_{2865}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{8196769}{2863}^2 &amp;-&amp; 8192516 &amp;=&amp;  4253 \\
+\underset{8202496}{2864}^2 &amp;-&amp; 8192516 &amp;=&amp;  9980 \\
+\underset{8208225}{2865}^2 &amp;-&amp; 8192516 &amp;=&amp; 15709 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{16385032} \right\rceil}_{4048}
+\le x \le
+\underbrace{\left\lfloor \sqrt{16385032 + 15876} \right\rfloor}_{4049}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{16386304}{4048}^2 &amp;-&amp; 16385032 &amp;=&amp; 1272 \\
+\underset{16394401}{4049}^2 &amp;-&amp; 16385032 &amp;=&amp; 9369 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 3\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{24577548} \right\rceil}_{4958}
+\le x \le
+\underbrace{\left\lfloor \sqrt{24577548 + 15876} \right\rfloor}_{4959}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{24581764}{4958}^2 &amp;-&amp; 24577548 &amp;=&amp;  4216 \\
+\underset{24591681}{4959}^2 &amp;-&amp; 24577548 &amp;=&amp; 14133 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 4\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{32770064} \right\rceil}_{5725}
+\le x \le
+\underbrace{\left\lfloor \sqrt{32770064 + 15876} \right\rfloor}_{5725}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{32775625}{5725}^2 &amp;-&amp; 32770064 &amp;=&amp; 5561 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 5\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{40962580} \right\rceil}_{6401}
+\le x \le
+\underbrace{\left\lfloor \sqrt{40962580 + 15876} \right\rfloor}_{6401}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{32775625}{6401}^2 &amp;-&amp; 40962580 &amp;=&amp; 10221 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 6\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{49155096} \right\rceil}_{7012}
+\le x \le
+\underbrace{\left\lfloor \sqrt{49155096 + 15876} \right\rfloor}_{7012}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{49168144}{7012}^2 &amp;-&amp; 49155096 &amp;=&amp; 13048 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 7\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{57347612} \right\rceil}_{7573}
+\le x \le
+\underbrace{\left\lfloor \sqrt{57347612 + 15876} \right\rfloor}_{7573}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{57350329}{7573}^2 &amp;-&amp; 57347612 &amp;=&amp; 13048 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 8\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{65540128} \right\rceil}_{8096}
+\le x \le
+\underbrace{\left\lfloor \sqrt{65540128 + 15876} \right\rfloor}_{8096}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{65545216}{8096}^2 &amp;-&amp; 65540128 &amp;=&amp; 5088 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 9\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{73732644} \right\rceil}_{8587}
+\le x \le
+\underbrace{\left\lfloor \sqrt{73732644 + 15876} \right\rfloor}_{8587}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{73736569}{8587}^2 &amp;-&amp; 73732644 &amp;=&amp; 3925 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 10\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{81925160} \right\rceil}_{9052}
+\le x \le
+\underbrace{\left\lfloor \sqrt{81925160 + 15876} \right\rfloor}_{9052}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{73736569}{9052}^2 &amp;-&amp; 81925160 &amp;=&amp; 13544 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 11\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{90117676} \right\rceil}_{9493}
+\le x \le
+\underbrace{\left\lfloor \sqrt{90117676 + 15876} \right\rfloor}_{9493}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{73736569}{9493}^2 &amp;-&amp; 90117676 &amp;=&amp; 13544 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 126\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{1032257016} \right\rceil}_{32129}
+\le x \le
+\underbrace{\left\lfloor \sqrt{1032257016 + 15876} \right\rfloor}_{32129}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{1032272641}{32129}^2 &amp;-&amp; 1032257016 &amp;=&amp; 15625 = 125^2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(x + y, n) = \gcd(32129 + 125, 2048129) = 16127\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{rrrr|r}
+ q &amp;       r &amp;  x &amp;   y \\ \hline
+   &amp; 2048129 &amp;  1 &amp;   0 \\
+63 &amp;   32254 &amp;  0 &amp;   1 \\ \hline
+ 2 &amp;   16127 &amp;  1 &amp; -63 &amp; 16127 = 2048129 \times \phantom{(-} 1 \phantom{)} + 32254 \times (-63) \\
+\end  {array}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">2048129</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39; n      &#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;4n      &#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="mi">4</span><span class="o">*</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39; n^(1/3)&#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">n</span><span class="o">**</span><span class="n">Decimal</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39; n^(2/3)&#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">n</span><span class="o">**</span><span class="n">Decimal</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">127</span><span class="p">):</span>
+  <span class="n">tn4</span>     <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">n</span>
+  <span class="n">tn4sqrt</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">tn4</span><span class="p">)</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span>
+  <span class="n">n23</span>     <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">upper</span>   <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">tn4</span> <span class="o">+</span> <span class="n">n23</span><span class="p">)</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     4tn            </span><span class="si">{</span><span class="n">tn4</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sqrt(4tn)           </span><span class="si">{</span><span class="n">tn4sqrt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sqrt(4tn + n^(2/3)) </span><span class="si">{</span><span class="n">upper</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">tn4sqrt</span><span class="p">),</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">upper</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x = </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sympy</span><span class="o">.</span><span class="n">ntheory</span><span class="o">.</span><span class="n">primetest</span><span class="o">.</span><span class="n">is_square</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">tn4</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SQUARE&#39;</span><span class="p">)</span>
+
+  <span class="nb">print</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PRIMES DIVISORS&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;===============&#39;</span><span class="p">)</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sieve_eratosthenes</span><span class="p">(</span><span class="mi">126</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">&gt;3</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">Decimal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;35.25f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> n        2048129
+4n        8192516
+ n^(1/3)  126.99475043917973 126.99475043917971834975904019791009781782746585143
+ n^(2/3)  16127.666639109537 16127.666639109537266674948750120764196170117236009
+
+t = 1
+     4tn            8192516
+sqrt(4tn)           2862.2571512706540882228974758753658940285093901787
+sqrt(4tn + n^(2/3)) 2865.0730647994143505524209484312961238083202465218
+
+x = 1
+x = 1
+x = 1
+
+
+t = 2
+     4tn            16385032
+sqrt(4tn)           4047.8428823263385157118733213176839171347281987811
+sqrt(4tn + n^(2/3)) 4049.8345233650115242392576721584579122390297207510
+
+x = 2
+x = 2
+
+
+t = 3
+     4tn            24577548
+sqrt(4tn)           4957.5748103281305905187470399025424242869823614653
+sqrt(4tn + n^(2/3)) 4959.2011117355493078390147044399485416905112461189
+
+x = 3
+x = 3
+
+
+t = 4
+     4tn            32770064
+sqrt(4tn)           5724.5143025413081764457949517507317880570187803574
+sqrt(4tn + n^(2/3)) 5725.9227786129903596847216392903219215894802971098
+
+x = 4
+
+
+t = 5
+     4tn            40962580
+sqrt(4tn)           6400.2015593260810991979003638708598569835928266817
+sqrt(4tn + n^(2/3)) 6401.4613696123412548174212762817815377339418674184
+
+x = 5
+
+
+t = 6
+     4tn            49155096
+sqrt(4tn)           7011.0695332452665670160772823634858729688609029346
+sqrt(4tn + n^(2/3)) 7012.2195962932529895635615368923201551947079867822
+
+x = 6
+
+
+t = 7
+     4tn            57347612
+sqrt(4tn)           7572.8206105783332493112847323040609684868856377040
+sqrt(4tn + n^(2/3)) 7573.8853745379004076146875061270453306424078656575
+
+x = 7
+
+
+t = 8
+     4tn            65540128
+sqrt(4tn)           8095.6857646526770314237466426353678342694563975623
+sqrt(4tn + n^(2/3)) 8096.6817688877405907269130398012332055019651437662
+
+x = 8
+
+
+t = 9
+     4tn            73732644
+sqrt(4tn)           8586.7714538119622646686924276260976820855281705361
+sqrt(4tn + n^(2/3)) 8587.7105020278311944376606798763058213086952056327
+
+x = 9
+
+
+t = 10
+     4tn            81925160
+sqrt(4tn)           9051.2518471203749839149465146490844498909724841782
+sqrt(4tn + n^(2/3)) 9052.1427113495677855751816012462065269149945693480
+
+x = 10
+
+
+t = 11
+     4tn            90117676
+sqrt(4tn)           9493.0330242762771082046364826530958239254064216666
+sqrt(4tn + n^(2/3)) 9493.8824337906725779383061726003913719999225237849
+
+
+
+t = 12
+     4tn            98310192
+sqrt(4tn)           9915.1496206562611810374940798050848485739647229307
+sqrt(4tn + n^(2/3)) 9915.9628713826427117107629365754854874464004233904
+
+
+
+t = 13
+     4tn            106502708
+sqrt(4tn)           10320.014922469831390219537245779787493667193023735
+sqrt(4tn + n^(2/3)) 10320.796270958898473857400030917876024960536158782
+
+
+
+t = 14
+     4tn            114695224
+sqrt(4tn)           10709.585612898381419801703473443183089527882671404
+sqrt(4tn + n^(2/3)) 10710.338541177823314823273178450574295132517989980
+
+x = 14
+
+
+t = 15
+     4tn            122887740
+sqrt(4tn)           11085.474279434326485112733195325003502723414546780
+sqrt(4tn + n^(2/3)) 11086.201678962867599772735515017037074074682639948
+
+x = 15
+
+
+t = 16
+     4tn            131080256
+sqrt(4tn)           11449.028605082616352891589903501463576114037560715
+sqrt(4tn + n^(2/3)) 11449.732908091747468625901425575725282830323334715
+
+
+
+t = 17
+     4tn            139272772
+sqrt(4tn)           11801.388562368413094365169322686872177400336893579
+sqrt(4tn + n^(2/3)) 11802.071837886732647706331650771505921727770852697
+
+x = 17
+
+
+t = 18
+     4tn            147465288
+sqrt(4tn)           12143.528646979015547135619963953051751404184596343
+sqrt(4tn + n^(2/3)) 12144.192672493265387251823028823229175106115303193
+
+x = 18
+
+
+t = 19
+     4tn            155657804
+sqrt(4tn)           12476.289672815391953466625793257787384475733635936
+sqrt(4tn + n^(2/3)) 12476.935988720913502299570239448385135655102870391
+
+
+
+t = 20
+     4tn            163850320
+sqrt(4tn)           12800.403118652162198395800727741719713967185653363
+sqrt(4tn + n^(2/3)) 12801.033070289253783116322575118751545463497030908
+
+x = 20
+
+
+t = 21
+     4tn            172042836
+sqrt(4tn)           13116.510054126440534499208824043933995644674723407
+sqrt(4tn + n^(2/3)) 13117.124824695353923018726948822506926703183306424
+
+x = 21
+
+
+t = 22
+     4tn            180235352
+sqrt(4tn)           13425.176050987189940761538692107476301135043320862
+sqrt(4tn + n^(2/3)) 13425.776687649736094379700024891107945691355494358
+
+
+
+t = 23
+     4tn            188427868
+sqrt(4tn)           13726.903073891066125407542650030016332547209259884
+sqrt(4tn + n^(2/3)) 13727.490508706939892286291195937308711546664492238
+
+x = 23
+
+
+t = 24
+     4tn            196620384
+sqrt(4tn)           14022.139066490533134032154564726971745937721805869
+sqrt(4tn + n^(2/3)) 14022.714133385131494341240571194313420504804791512
+
+
+
+t = 25
+     4tn            204812900
+sqrt(4tn)           14311.285756353270441114487379376829470142546950893
+sqrt(4tn + n^(2/3)) 14311.849204999300836738831931536663861629587690204
+
+
+
+t = 26
+     4tn            213005416
+sqrt(4tn)           14594.705067249560559034821348451653074046642905772
+sqrt(4tn + n^(2/3)) 14595.257574521907675597989621713146877155534754564
+
+x = 26
+
+
+t = 27
+     4tn            221197932
+sqrt(4tn)           14872.724430984391771556241119707627272860947084396
+sqrt(4tn + n^(2/3)) 14873.266610487392166986624820153498950382179118769
+
+x = 27
+
+
+t = 28
+     4tn            229390448
+sqrt(4tn)           15145.641221156666498622569464608121936973771275408
+sqrt(4tn + n^(2/3)) 15146.173631205972656118910594632672245838847355307
+
+x = 28
+
+
+t = 29
+     4tn            237582964
+sqrt(4tn)           15413.726479991786853090698302835650364673509285096
+sqrt(4tn + n^(2/3)) 15414.249630346561874337339004807212611896945033867
+
+x = 29
+
+
+t = 30
+     4tn            245775480
+sqrt(4tn)           15677.228071314137770857633568866148726250260529327
+sqrt(4tn + n^(2/3)) 15677.742428890682581696247081993309558105855393535
+
+
+
+t = 31
+     4tn            253967996
+sqrt(4tn)           15936.373364100127031134923106763756232826006155790
+sqrt(4tn + n^(2/3)) 15936.879357849174588407216369919839591765791644354
+
+
+
+t = 32
+     4tn            262160512
+sqrt(4tn)           16191.371529305354062847493285270735668538912795125
+sqrt(4tn + n^(2/3)) 16191.869554397945414133201492075917904784372981319
+
+
+
+t = 33
+     4tn            270353028
+sqrt(4tn)           16442.415515975747290438424284803207434460518451128
+sqrt(4tn + n^(2/3)) 16442.905937413833225931058490084686467512885871474
+
+
+
+t = 34
+     4tn            278545544
+sqrt(4tn)           16689.683759736132280074142454164186308125275094789
+sqrt(4tn + n^(2/3)) 16690.166915481675001843999686868877035980635441782
+
+x = 34
+
+
+t = 35
+     4tn            286738060
+sqrt(4tn)           16933.341666664616142741399445368267329134724483843
+sqrt(4tn + n^(2/3)) 16933.817870363407495542483974102277842985133151441
+
+
+
+t = 36
+     4tn            294930576
+sqrt(4tn)           17173.542907623924529337384855252195364171056341072
+sqrt(4tn + n^(2/3)) 17174.012450986493027824066164676458768371307265011
+
+x = 36
+
+
+t = 37
+     4tn            303123092
+sqrt(4tn)           17410.430551827258013922611699874234086278334368890
+sqrt(4tn + n^(2/3)) 17410.893706718190449328184199529504062428129296986
+
+
+
+t = 38
+     4tn            311315608
+sqrt(4tn)           17644.138063390911927281238817891618632774197514324
+sqrt(4tn + n^(2/3)) 17644.595083669080604679096819882014352335153350882
+
+
+
+t = 39
+     4tn            319508124
+sqrt(4tn)           17874.790180586736050841178064296676922159772813996
+sqrt(4tn + n^(2/3)) 17875.241303731792968031830350207585237516533524209
+
+x = 39
+
+
+t = 40
+     4tn            327700640
+sqrt(4tn)           18102.503694240749967829893029298168899781944968356
+sqrt(4tn + n^(2/3)) 18102.949142795465788303484041162278284657480732307
+
+
+
+t = 41
+     4tn            335893156
+sqrt(4tn)           18327.388139066624787462181469154501741381788083720
+sqrt(4tn + n^(2/3)) 18327.828121919931666749623804648382186027790243219
+
+
+
+t = 42
+     4tn            344085672
+sqrt(4tn)           18549.546409548671225427455137897435115296889166293
+sqrt(4tn + n^(2/3)) 18549.981123080397614303925945863460843429867413139
+
+
+
+t = 43
+     4tn            352278188
+sqrt(4tn)           18769.075310201086195651254071874639027381919881482
+sqrt(4tn + n^(2/3)) 18769.504939306180048451219294980852265221401696357
+
+
+
+t = 44
+     4tn            360470704
+sqrt(4tn)           18986.066048552554216409272965306191647850812843333
+sqrt(4tn + n^(2/3)) 18986.490767559946584020505787880958724936956556636
+
+
+
+t = 45
+     4tn            368663220
+sqrt(4tn)           19200.604677978243297593701091612579570950778480045
+sqrt(4tn + n^(2/3)) 19201.024651477303115752423177106024458120780708650
+
+x = 45
+
+
+t = 46
+     4tn            376855736
+sqrt(4tn)           19412.772496477673397439577868253881665529437497780
+sqrt(4tn + n^(2/3)) 19413.187880063364018304307755421680165383616503453
+
+x = 46
+
+
+t = 47
+     4tn            385048252
+sqrt(4tn)           19622.646406639446959506892609344850629613204794140
+sqrt(4tn + n^(2/3)) 19623.057347585749987081446888107442802034560966740
+
+x = 47
+
+
+t = 48
+     4tn            393240768
+sqrt(4tn)           19830.299241312522362074988159610169697147929445861
+sqrt(4tn + n^(2/3)) 19830.705879182392068831442504566818560186831269751
+
+
+
+t = 49
+     4tn            401433284
+sqrt(4tn)           20035.800058894578617560282331127561258199565731251
+sqrt(4tn + n^(2/3)) 20036.202526093588316036315632433667852470548471806
+
+x = 49
+
+
+t = 50
+     4tn            409625800
+sqrt(4tn)           20239.214411631692578559366606588419585673640993906
+sqrt(4tn + n^(2/3)) 20239.612833911598556726195603528191194040834761996
+
+
+
+t = 51
+     4tn            417818316
+sqrt(4tn)           20440.604589884321716630462409790117586805307121178
+sqrt(4tn + n^(2/3)) 20440.999086801972889137367711112392721299417314673
+
+
+
+t = 52
+     4tn            426010832
+sqrt(4tn)           20640.029844939662780439074491559574987334386047471
+sqrt(4tn + n^(2/3)) 20640.420530276002338898916044672814810503309335412
+
+
+
+t = 53
+     4tn            434203348
+sqrt(4tn)           20837.546592629373170680128440430460680080807732429
+sqrt(4tn + n^(2/3)) 20837.933574772693606911522121529776168704421397769
+
+
+
+t = 54
+     4tn            442395864
+sqrt(4tn)           21033.208599735799701048231847090457618906582708804
+sqrt(4tn + n^(2/3)) 21033.591982032909292467359770142785157728467798714
+
+
+
+t = 55
+     4tn            450588380
+sqrt(4tn)           21227.067154932166935639851907638144747902479938110
+sqrt(4tn + n^(2/3)) 21227.447036010691447906587339051355829966453394909
+
+
+
+t = 56
+     4tn            458780896
+sqrt(4tn)           21419.171225796762839603406946886366179055765342807
+sqrt(4tn + n^(2/3)) 21419.547699861430304252675334897956175625108347449
+
+
+
+t = 57
+     4tn            466973412
+sqrt(4tn)           21609.567603263143497358824859495217687216095155068
+sqrt(4tn + n^(2/3)) 21609.940760368573707839603058666352561690517901823
+
+
+
+t = 58
+     4tn            475165928
+sqrt(4tn)           21798.301034713691649522584628542058793648515049988
+sqrt(4tn + n^(2/3)) 21798.670961015928174350462232998009728456993854388
+
+
+
+t = 59
+     4tn            483358444
+sqrt(4tn)           21985.414346789100258410415695655514009869403254324
+sqrt(4tn + n^(2/3)) 21985.781124777875164289875702445863184896240897031
+
+
+
+t = 60
+     4tn            491550960
+sqrt(4tn)           22170.948558868652970225466390650007005446829093560
+sqrt(4tn + n^(2/3)) 22171.312267582157925163367554667743811217006919777
+
+x = 60
+
+
+t = 61
+     4tn            499743476
+sqrt(4tn)           22354.942988073129952909067378964131885344908645032
+sqrt(4tn + n^(2/3)) 22355.303703296877590025341147431799340257985115847
+
+x = 61
+
+
+t = 62
+     4tn            507935992
+sqrt(4tn)           22537.435346551745571354673711694704747168059564479
+sqrt(4tn + n^(2/3)) 22537.793141002938258030011823688246998961951430219
+
+
+
+t = 63
+     4tn            516128508
+sqrt(4tn)           22718.461831734999747933854196912182905460656913112
+sqrt(4tn + n^(2/3)) 22718.816775233676099077919110032959155542417575981
+
+
+
+t = 64
+     4tn            524321024
+sqrt(4tn)           22898.057210165232705783179807002927152228075121430
+sqrt(4tn + n^(2/3)) 22898.409369793332646762526513050234138534672158188
+
+
+
+t = 65
+     4tn            532513540
+sqrt(4tn)           23076.254895454764845298637201924539293255668516805
+sqrt(4tn + n^(2/3)) 23076.604335704139501788939726593453848970981892550
+
+
+
+t = 66
+     4tn            540706056
+sqrt(4tn)           23253.087020866713300573387869569181705458621645036
+sqrt(4tn + n^(2/3)) 23253.433803777004529328585069507698978365666454147
+
+
+
+t = 67
+     4tn            548898572
+sqrt(4tn)           23428.584506964990777643628095998271017305669627354
+sqrt(4tn + n^(2/3)) 23428.928692252215090063473856720983052856374099258
+
+
+
+t = 68
+     4tn            557091088
+sqrt(4tn)           23602.777124736826188730338645373744354800673787157
+sqrt(4tn + n^(2/3)) 23603.118769913417727642589188386595301101782160434
+
+x = 68
+
+
+t = 69
+     4tn            565283604
+sqrt(4tn)           23775.693554552725181791230931706806156761694512477
+sqrt(4tn + n^(2/3)) 23776.032715039721058218375019909918820581693632444
+
+x = 69
+
+
+t = 70
+     4tn            573476120
+sqrt(4tn)           23947.361441294529390088918991532037681648181729744
+sqrt(4tn + n^(2/3)) 23947.698170526517006040780698962890187891433584928
+
+
+
+t = 71
+     4tn            581668636
+sqrt(4tn)           24117.807445951632358761756335387259658090526184279
+sqrt(4tn + n^(2/3)) 24118.141795475021412384994658235356080083054063622
+
+x = 71
+
+
+t = 72
+     4tn            589861152
+sqrt(4tn)           24287.057293958031094271239927906103502808369192687
+sqrt(4tn + n^(2/3)) 24287.389313523161985168053362170252570074861128868
+
+
+
+t = 73
+     4tn            598053668
+sqrt(4tn)           24455.135820518355894367944409289606809009032623457
+sqrt(4tn + n^(2/3)) 24455.465558165910524195040139980910826713271332221
+
+
+
+t = 74
+     4tn            606246184
+sqrt(4tn)           24622.067013148997600954945457870801199016718357167
+sqrt(4tn + n^(2/3)) 24622.394515291137491736063690847040134961451298631
+
+
+
+t = 75
+     4tn            614438700
+sqrt(4tn)           24787.874051640652952593735199512712121434911807327
+sqrt(4tn + n^(2/3)) 24788.199363137272653726714787759366655548302910517
+
+x = 75
+
+
+t = 76
+     4tn            622631216
+sqrt(4tn)           24952.579345630783906933251586515574768951467271871
+sqrt(4tn + n^(2/3)) 24952.902509861234369170212616624381849542021765784
+
+
+
+t = 77
+     4tn            630823732
+sqrt(4tn)           25116.204569958415593921049806475020699558490740669
+sqrt(4tn + n^(2/3)) 25116.525628889022149420519078239680011078777634821
+
+
+
+t = 78
+     4tn            639016248
+sqrt(4tn)           25278.770697959186955159870217027807416754824682227
+sqrt(4tn + n^(2/3)) 25279.089692206859401341843918276970167857233629327
+
+x = 78
+
+
+t = 79
+     4tn            647208764
+sqrt(4tn)           25440.298032845448565916494148451683190738834293877
+sqrt(4tn + n^(2/3)) 25440.615001737656294498602658380887912274723545970
+
+
+
+t = 80
+     4tn            655401280
+sqrt(4tn)           25600.806237304324396791601455483439427934371306727
+sqrt(4tn + n^(2/3)) 25601.121218935687262513142077421936261870967054791
+
+x = 80
+
+
+t = 81
+     4tn            663593796
+sqrt(4tn)           25760.314361435886794006077282878293046256584511608
+sqrt(4tn + n^(2/3)) 25760.627392721612237040772879419570687246881518845
+
+
+
+t = 82
+     4tn            671786312
+sqrt(4tn)           25918.840869143820568146938061363848484243843638507
+sqrt(4tn + n^(2/3)) 25919.151985870199175202555133537035601335995734612
+
+x = 82
+
+
+t = 83
+     4tn            679978828
+sqrt(4tn)           26076.403663082070029408741794531270833414148764322
+sqrt(4tn + n^(2/3)) 26076.712899954225050818205131052530092802798898558
+
+
+
+t = 84
+     4tn            688171344
+sqrt(4tn)           26233.020108252881068998417648087867991289349446814
+sqrt(4tn + n^(2/3)) 26233.327498939952234104249349830276540876833225326
+
+
+
+t = 85
+     4tn            696363860
+sqrt(4tn)           26388.707054344288203410237941265687116972724928743
+sqrt(4tn + n^(2/3)) 26389.012631522216344515680413655350153884108473679
+
+x = 85
+
+
+t = 86
+     4tn            704556376
+sqrt(4tn)           26543.480856888382113843034114602331310268568473568
+sqrt(4tn + n^(2/3)) 26543.784652280448486820249663162845800105670822971
+
+
+
+t = 87
+     4tn            712748892
+sqrt(4tn)           26697.357397315562775377794447683099720056467595162
+sqrt(4tn + n^(2/3)) 26697.659441730825434136911539951173556749626037815
+
+
+
+t = 88
+     4tn            720941408
+sqrt(4tn)           26850.352101974379881523077384214952602270086641723
+sqrt(4tn + n^(2/3)) 26850.652425344138918241428063594838695819529728462
+
+
+
+t = 89
+     4tn            729133924
+sqrt(4tn)           27002.479960181435157335213170614325056282902180222
+sqrt(4tn + n^(2/3)) 27002.778591593848966226149977300536630237690080417
+
+
+
+t = 90
+     4tn            737326440
+sqrt(4tn)           27153.755541361124951744839543947253349672917452535
+sqrt(4tn + n^(2/3)) 27154.052509094090826804730122167327695940355520733
+
+x = 90
+
+
+t = 91
+     4tn            745518956
+sqrt(4tn)           27304.193011330695616450105975433120344165573467804
+sqrt(4tn + n^(2/3)) 27304.488342883099877491392703275777926297013107450
+
+
+
+t = 92
+     4tn            753711472
+sqrt(4tn)           27453.806147782132250815085300060032665094418519768
+sqrt(4tn + n^(2/3)) 27454.099869903567639428516560163125308214022880563
+
+x = 92
+
+
+t = 93
+     4tn            761903988
+sqrt(4tn)           27602.608355008770801091923167147516590545395015442
+sqrt(4tn + n^(2/3)) 27602.900493727812038177115555466065797428118694778
+
+
+
+t = 94
+     4tn            770096504
+sqrt(4tn)           27750.612677921184953017738706020528458634723978276
+sqrt(4tn + n^(2/3)) 27750.903258572307047534860650351699099134154807247
+
+
+
+t = 95
+     4tn            778289020
+sqrt(4tn)           27897.831815393826407739509500669899884319571882282
+sqrt(4tn + n^(2/3)) 27898.120862643044503201799192642732613377008148291
+
+x = 95
+
+
+t = 96
+     4tn            786481536
+sqrt(4tn)           28044.278132981066268064309129453943491875443611739
+sqrt(4tn + n^(2/3)) 28044.565670850370464725179964076496276478145348283
+
+
+
+t = 97
+     4tn            794674052
+sqrt(4tn)           28189.963675038675012145053859198269788768869007580
+sqrt(4tn + n^(2/3)) 28190.249726929328668897208160948125955685081512373
+
+x = 97
+
+
+t = 98
+     4tn            802866568
+sqrt(4tn)           28334.900176284369609983113249223787419943097391468
+sqrt(4tn + n^(2/3)) 28335.184764999135074624430196289282864244523981993
+
+x = 98
+
+
+t = 99
+     4tn            811059084
+sqrt(4tn)           28479.099072828831324613909447959287471776219265000
+sqrt(4tn + n^(2/3)) 28479.382220593182831758748734290604144888223731833
+
+
+
+t = 100
+     4tn            819251600
+sqrt(4tn)           28622.571512706540882228974758753658940285093901787
+sqrt(4tn + n^(2/3)) 28622.853241188920465270447197121587577972142255656
+
+
+
+t = 101
+     4tn            827444116
+sqrt(4tn)           28765.328365933874734409413337152978258747799991296
+sqrt(4tn + n^(2/3)) 28765.608696265043394864797091800406086748151383363
+
+
+
+t = 102
+     4tn            835636632
+sqrt(4tn)           28907.380234120144149828834423309331327789740221024
+sqrt(4tn + n^(2/3)) 28907.659186911677189916615454573903656028111247442
+
+
+
+t = 103
+     4tn            843829148
+sqrt(4tn)           29048.737459655626141623736624966334170168260681254
+sqrt(4tn + n^(2/3)) 29049.015055017598472055153062938872231527528983517
+
+x = 103
+
+
+t = 104
+     4tn            852021664
+sqrt(4tn)           29189.410134499121118069642696903306148093285811544
+sqrt(4tn + n^(2/3)) 29189.686392057025482830465450925423431491034497791
+
+
+
+t = 105
+     4tn            860214180
+sqrt(4tn)           29329.408108586166966088172383377491842957676491448
+sqrt(4tn + n^(2/3)) 29329.683047497105361288350239519695052010002465754
+
+
+
+t = 106
+     4tn            868406696
+sqrt(4tn)           29468.740997877734240419296977188664789509368566691
+sqrt(4tn + n^(2/3)) 29469.014636845920328580120576502517653419824078849
+
+x = 106
+
+
+t = 107
+     4tn            876599212
+sqrt(4tn)           29607.418192068014223831978731037551143061513881519
+sqrt(4tn + n^(2/3)) 29607.690549359622243213773765041485832458481369059
+
+
+
+t = 108
+     4tn            884791728
+sqrt(4tn)           29745.448861968783543112482239415254545721894168792
+sqrt(4tn + n^(2/3)) 29745.719955426177070138576160786492201338771132187
+
+
+
+t = 109
+     4tn            892984244
+sqrt(4tn)           29882.841966586779110292733699419050561208092408558
+sqrt(4tn + n^(2/3)) 29883.111813642151039274335227684122495839844792235
+
+x = 109
+
+
+t = 110
+     4tn            901176760
+sqrt(4tn)           30019.606259909539326516000361201153562442673144323
+sqrt(4tn + n^(2/3)) 30019.874877597992573288515755791232559050407281300
+
+
+
+t = 111
+     4tn            909369276
+sqrt(4tn)           30155.750297414256179082931471491014419212474026124
+sqrt(4tn + n^(2/3)) 30156.017702386352883369210680850864707601925430908
+
+x = 111
+
+
+t = 112
+     4tn            917561792
+sqrt(4tn)           30291.282442313332997245138929216243873947542550816
+sqrt(4tn + n^(2/3)) 30291.548650847138382996356683426852758444574487563
+
+
+
+t = 113
+     4tn            925754308
+sqrt(4tn)           30426.210871549549556145551294094628829108941552743
+sqrt(4tn + n^(2/3)) 30426.475899562195101013307177120753108539764800202
+
+
+
+t = 114
+     4tn            933946824
+sqrt(4tn)           30560.543581552995668239815459042112513332441585780
+sqrt(4tn + n^(2/3)) 30560.807444611784824672846187541981471782123535068
+
+
+
+t = 115
+     4tn            942139340
+sqrt(4tn)           30694.288393771242469351440960989811790258197092731
+sqrt(4tn + n^(2/3)) 30694.551107104320863221212103178466286666647030717
+
+
+
+t = 116
+     4tn            950331856
+sqrt(4tn)           30827.452959983573706181396605671300729347018570193
+sqrt(4tn + n^(2/3)) 30827.714538490184507561471715838273821345573354138
+
+
+
+t = 117
+     4tn            958524372
+sqrt(4tn)           30960.044767409494170658611737339362481001579071206
+sqrt(4tn + n^(2/3)) 30960.305225669838179201960738279242883863433949181
+
+
+
+t = 118
+     4tn            966716888
+sqrt(4tn)           31092.071143621165977862341224541085268861747766861
+sqrt(4tn + n^(2/3)) 31092.330495905884886428645279168227888800278987143
+
+
+
+t = 119
+     4tn            974909404
+sqrt(4tn)           31223.539261268892865388603465066725741945471194818
+sqrt(4tn + n^(2/3)) 31223.797521548193154916950087443564433338657310493
+
+
+
+t = 120
+     4tn            983101920
+sqrt(4tn)           31354.456142628275541715267137732297452500521058653
+sqrt(4tn + n^(2/3)) 31354.713324580709512979972069717440285187427173856
+
+
+
+t = 121
+     4tn            991294436
+sqrt(4tn)           31484.828663977194970451872234629024834313603291966
+sqrt(4tn + n^(2/3)) 31485.084780998114529824593874300709917056036721525
+
+x = 121
+
+
+t = 122
+     4tn            999486952
+sqrt(4tn)           31614.663559810343172286538011282598418968600715098
+sqrt(4tn + n^(2/3)) 31614.918625020041154848143852997381433559462534261
+
+
+
+t = 123
+     4tn            1007679468
+sqrt(4tn)           31743.967426898610651869317774676496100046565925696
+sqrt(4tn + n^(2/3)) 31744.221453150163682379853337239666378728244430295
+
+x = 123
+
+
+t = 124
+     4tn            1015871984
+sqrt(4tn)           31872.746728200254062269846213527512465652012311580
+sqrt(4tn + n^(2/3)) 31872.999728087080219115154553565446205426267100804
+
+
+
+t = 125
+     4tn            1024064500
+sqrt(4tn)           32001.007796630405495989501819354299284917964133409
+sqrt(4tn + n^(2/3)) 32001.259782493549352045739956278875443998512977714
+
+
+
+t = 126
+     4tn            1032257016
+sqrt(4tn)           32128.756838695144259405110420329549268583648014211
+sqrt(4tn + n^(2/3)) 32129.007822630301223809034844474209063649280297574
+
+x = 126
+SQUARE
+
+
+t = 127
+     4tn            1040449532
+sqrt(4tn)           32255.999937996031686438304708749337486826477696950
+sqrt(4tn + n^(2/3)) 32256.249931860322959757178822536800235277056709464
+
+x = 127
+SQUARE
+
+
+PRIMES DIVISORS
+===============
+  2    1024064.5000000000000000000000000
+  3     682709.6666666666666666666666667
+  5     409625.8000000000000000000000000
+  7     292589.8571428571428571428571429
+ 11     186193.5454545454545454545454545
+ 13     157548.3846153846153846153846154
+ 17     120478.1764705882352941176470588
+ 19     107796.2631578947368421052631579
+ 23      89049.0869565217391304347826087
+ 29      70625.1379310344827586206896552
+ 31      66068.6774193548387096774193548
+ 37      55354.8378378378378378378378378
+ 41      49954.3658536585365853658536585
+ 43      47630.9069767441860465116279070
+ 47      43577.2127659574468085106382979
+ 53      38643.9433962264150943396226415
+ 59      34714.0508474576271186440677966
+ 61      33575.8852459016393442622950820
+ 67      30569.0895522388059701492537313
+ 71      28846.8873239436619718309859155
+ 73      28056.5616438356164383561643836
+ 79      25925.6835443037974683544303797
+ 83      24676.2530120481927710843373494
+ 89      23012.6853932584269662921348315
+ 97      21114.7319587628865979381443299
+101      20278.5049504950495049504950495
+103      19884.7475728155339805825242718
+107      19141.3925233644859813084112150
+109      18790.1743119266055045871559633
+113      18125.0353982300884955752212389
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+(n^{\frac{1}{3}})^2
+\end  {aligned}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">10001</span>
+<span class="mi">40004</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40468.18982677113
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(n = 9912409831\)</span> and <span class="math notranslate nohighlight">\(\left\lfloor n^{\frac{1}{3}} \right\rfloor = 2148\)</span> since <span class="math notranslate nohighlight">\(\underset{9910665792}{2148^3} \lt 9912409831 \lt \underset{9924513949}{2149^3}\)</span>.</p>
+<p>Trial division with <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7, 11, \dotsc \le 2148\)</span> finds no factors.</p>
+<p>For <span class="math notranslate nohighlight">\(1 \le t \le 2149\)</span> consider the numbers <span class="math notranslate nohighlight">\(x\)</span> with</p>
+<p><span class="math notranslate nohighlight">\(\left\lceil \sqrt{39649639324 \times t} \right\rceil \le x \le \left\lfloor \sqrt{39649639324 \times t + \underset{4613904}{2148^2}} \right\rfloor\)</span></p>
+<p><span class="math notranslate nohighlight">\(t = 4\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\underbrace{\left\lceil \sqrt{158598557296} \right\rceil}_{398245}
+\le x \le
+\underbrace{\left\lfloor \sqrt{158598557296 + 4613904} \right\rfloor}_{32129}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+                x^2 &amp;-&amp;   4tn &amp;=&amp; y^2 \\
+\underset{1032272641}{32129}^2 &amp;-&amp; 1032257016 &amp;=&amp; 15625 = 125^2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gcd(x + y, n) = \gcd(32129 + 125, 2048129) = 16127\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{rrrr|r}
+ q &amp;       r &amp;  x &amp;   y \\ \hline
+   &amp; 2048129 &amp;  1 &amp;   0 \\
+63 &amp;   32254 &amp;  0 &amp;   1 \\ \hline
+ 2 &amp;   16127 &amp;  1 &amp; -63 &amp; 16127 = 2048129 \times \phantom{(-} 1 \phantom{)} + 32254 \times (-63) \\
+\end  {array}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">158598557296</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>398244.3437087337
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span>    <span class="o">=</span> <span class="mi">9912409831</span>
+<span class="n">n13</span>  <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">n13f</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n13</span><span class="p">)</span>
+<span class="n">n23</span>  <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">n23f</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n23</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;      n       &#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;     4n       &#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="mi">4</span><span class="o">*</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;      n^(1/3) &#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">n13</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;      n^(1/3) &#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">n</span><span class="o">**</span><span class="n">Decimal</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;floor(n^(1/3))&#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">n13f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;      n^(2/3) &#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">n23</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;      n^(2/3) &#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">n</span><span class="o">**</span><span class="n">Decimal</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;floor(n^(2/3))&#39;</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">n23f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PRIME DIVISORS&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;==============&#39;</span><span class="p">)</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sieve_eratosthenes</span><span class="p">(</span><span class="n">n13f</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">Decimal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;65.50f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span> <span class="c1">#1 + n13f + 1):</span>
+  <span class="n">tn4</span>     <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">n</span>
+  <span class="n">tn4sqrt</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">tn4</span><span class="p">)</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span>
+  <span class="n">n23</span>     <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cbrt</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">upper</span>   <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">tn4</span> <span class="o">+</span> <span class="n">n23</span><span class="p">)</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     4tn            </span><span class="si">{</span><span class="n">tn4</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sqrt(4tn)           </span><span class="si">{</span><span class="n">tn4sqrt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sqrt(4tn + n^(2/3)) </span><span class="si">{</span><span class="n">upper</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">()</span>
+
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">tn4sqrt</span><span class="p">),</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">upper</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sympy</span><span class="o">.</span><span class="n">ntheory</span><span class="o">.</span><span class="n">primetest</span><span class="o">.</span><span class="n">is_square</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">tn4</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">n</span><span class="si">}</span><span class="s2"> SQUARE&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      n         9912409831
+     4n         39649639324
+
+      n^(1/3)   2148.1259914024376
+      n^(1/3)   2148.1259914024375767662986878824584025622621249186
+floor(n^(1/3))  2148
+
+      n^(2/3)   4614445.274938705
+      n^(2/3)   4614445.2749387053179754438918125418445146804765325
+floor(n^(2/3))  4614445
+
+
+PRIME DIVISORS
+==============
+   2      4956204915.50000000000000000000000000000000000000000000000000
+   3      3304136610.33333333333333333333333333333333333333330000000000
+   5      1982481966.20000000000000000000000000000000000000000000000000
+   7      1416058547.28571428571428571428571428571428571428570000000000
+  11       901128166.45454545454545454545454545454545454545455000000000
+  13       762493063.92307692307692307692307692307692307692308000000000
+  17       583082931.23529411764705882352941176470588235294118000000000
+  19       521705780.57894736842105263157894736842105263157895000000000
+  23       430974340.47826086956521739130434782608695652173913000000000
+  29       341807235.55172413793103448275862068965517241379310000000000
+  31       319755155.83870967741935483870967741935483870967742000000000
+  37       267902968.40540540540540540540540540540540540540541000000000
+  41       241766093.43902439024390243902439024390243902439024000000000
+  43       230521158.86046511627906976744186046511627906976744000000000
+  47       210902336.82978723404255319148936170212765957446809000000000
+  53       187026600.58490566037735849056603773584905660377358000000000
+  59       168006946.28813559322033898305084745762711864406780000000000
+  61       162498521.81967213114754098360655737704918032786885000000000
+  67       147946415.38805970149253731343283582089552238805970000000000
+  71       139611406.07042253521126760563380281690140845070423000000000
+  73       135786436.04109589041095890410958904109589041095890000000000
+  79       125473542.16455696202531645569620253164556962025316000000000
+  83       119426624.46987951807228915662650602409638554216867000000000
+  89       111375391.35955056179775280898876404494382022471910000000000
+  97       102189792.07216494845360824742268041237113402061856000000000
+ 101        98142671.59405940594059405940594059405940594059405900000000
+ 103        96236988.65048543689320388349514563106796116504854400000000
+ 107        92639344.21495327102803738317757009345794392523364500000000
+ 109        90939539.73394495412844036697247706422018348623853200000000
+ 113        87720440.98230088495575221238938053097345132743362800000000
+ 127        78050471.11023622047244094488188976377952755905511800000000
+ 131        75667250.61832061068702290076335877862595419847328200000000
+ 137        72353356.43065693430656934306569343065693430656934300000000
+ 139        71312300.94244604316546762589928057553956834532374100000000
+ 149        66526240.47651006711409395973154362416107382550335600000000
+ 151        65645098.21854304635761589403973509933774834437086100000000
+ 157        63136368.35031847133757961783439490445859872611465000000000
+ 163        60812330.25153374233128834355828220858895705521472400000000
+ 167        59355747.49101796407185628742514970059880239520958100000000
+ 173        57297166.65317919075144508670520231213872832369942200000000
+ 179        55376591.23463687150837988826815642458100558659217900000000
+ 181        54764695.19889502762430939226519337016574585635359100000000
+ 191        51897433.67015706806282722513089005235602094240837700000000
+ 193        51359636.43005181347150259067357512953367875647668400000000
+ 197        50316801.17258883248730964467005076142131979695431500000000
+ 199        49811104.67839195979899497487437185929648241206030200000000
+ 211        46978245.64454976303317535545023696682464454976303300000000
+ 223        44450268.30044843049327354260089686098654708520179400000000
+ 227        43667003.66079295154185022026431718061674008810572700000000
+ 229        43285632.44978165938864628820960698689956331877729300000000
+ 233        42542531.46351931330472103004291845493562231759656700000000
+ 239        41474518.12133891213389121338912133891213389121338900000000
+ 241        41130331.24896265560165975103734439834024896265560200000000
+ 251        39491672.63346613545816733067729083665338645418326700000000
+ 257        38569688.05836575875486381322957198443579766536965000000000
+ 263        37689771.22053231939163498098859315589353612167300400000000
+ 269        36849107.17843866171003717472118959107806691449814100000000
+ 271        36577158.04797047970479704797047970479704797047970500000000
+ 277        35784873.03610108303249097472924187725631768953068600000000
+ 281        35275479.82562277580071174377224199288256227758007100000000
+ 283        35026183.14840989399293286219081272084805653710247300000000
+ 293        33830750.27645051194539249146757679180887372013651900000000
+ 307        32287979.90553745928338762214983713355048859934853400000000
+ 311        31872700.42122186495176848874598070739549839228295800000000
+ 313        31669040.99361022364217252396166134185303514376996800000000
+ 317        31269431.64353312302839116719242902208201892744479500000000
+ 331        29946857.49546827794561933534743202416918429003021100000000
+ 337        29413679.02373887240356083086053412462908011869436200000000
+ 347        28566022.56772334293948126801152737752161383285302600000000
+ 349        28402320.43266475644699140401146131805157593123209200000000
+ 353        28080481.10764872521246458923512747875354107648725200000000
+ 359        27611169.44568245125348189415041782729805013927576600000000
+ 367        27009291.09264305177111716621253405994550408719346000000000
+ 373        26574825.28418230563002680965147453083109919571045600000000
+ 379        26154115.64907651715039577836411609498680738786279700000000
+ 383        25880965.61618798955613577023498694516971279373368100000000
+ 389        25481773.34447300771208226221079691516709511568123400000000
+ 397        24968286.72795969773299748110831234256926952141057900000000
+ 401        24719226.51122194513715710723192019950124688279301700000000
+ 409        24235720.85819070904645476772616136919315403422982900000000
+ 419        23657302.69928400954653937947494033412887828162291200000000
+ 421        23544916.46318289786223277909738717339667458432304000000000
+ 431        22998630.69837587006960556844547563805104408352668200000000
+ 433        22892401.45727482678983833718244803695150115473441100000000
+ 439        22579521.25512528473804100227790432801822323462414600000000
+ 443        22375642.95936794582392776523702031602708803611738100000000
+ 449        22076636.59465478841870824053452115812917594654788400000000
+ 457        21690174.68490153172866520787746170678336980306345700000000
+ 461        21501973.60303687635574837310195227765726681127982600000000
+ 463        21409092.50755939524838012958963282937365010799136100000000
+ 467        21225716.98286937901498929336188436830835117773019300000000
+ 479        20693966.24425887265135699373695198329853862212943600000000
+ 487        20354024.29363449691991786447638603696098562628336800000000
+ 491        20188207.39511201629327902240325865580448065173116100000000
+ 499        19864548.75951903807615230460921843687374749498998000000000
+ 503        19706580.18091451292246520874751491053677932405566600000000
+ 509        19474282.57563850687622789783889980353634577603143400000000
+ 521        19025738.63915547024952015355086372360844529750479800000000
+ 523        18952982.46845124282982791586998087954110898661567900000000
+ 541        18322384.16081330868761552680221811460258780036968600000000
+ 547        18121407.36928702010968921389396709323583180987202900000000
+ 557        17796067.91921005385996409335727109515260323159784600000000
+ 563        17606411.77797513321492007104795737122557726465364100000000
+ 569        17420755.41476274165202108963093145869947275922671400000000
+ 571        17359737.00700525394045534150612959719789842381786300000000
+ 577        17179219.81109185441941074523396880415944540727902900000000
+ 587        16886558.48551959114139693356047700170357751277683100000000
+ 593        16715699.54637436762225969645868465430016863406408100000000
+ 599        16548263.49081803005008347245409015025041736227045100000000
+ 601        16493194.39434276206322795341098169717138103161397700000000
+ 607        16330164.46622734761120263591433278418451400329489300000000
+ 613        16170325.98858075040783034257748776508972267536704700000000
+ 617        16065494.05348460291734197730956239870340356564019400000000
+ 619        16013586.15670436187399030694668820678513731825525000000000
+ 631        15709048.86053882725832012678288431061806656101426300000000
+ 641        15463977.89547581903276131045241809672386895475819000000000
+ 643        15415878.43079315707620528771384136858475894245723200000000
+ 647        15320571.60896445131375579598145285935085007727975300000000
+ 653        15179800.66003062787136294027565084226646248085758000000000
+ 659        15041593.06676783004552352048558421851289833080424900000000
+ 661        14996081.43872919818456883509833585476550680786686800000000
+ 673        14728692.17087667161961367013372956909361069836552700000000
+ 677        14641668.87887740029542097488921713441654357459379600000000
+ 683        14513045.14055636896046852122986822840409956076134700000000
+ 691        14345021.46309696092619392185238784370477568740955100000000
+ 701        14140384.92296718972895863052781740370898716119828800000000
+ 709        13980831.91960507757404795486600846262341325811001400000000
+ 719        13786383.63143254520166898470097357440890125173852600000000
+ 727        13634676.52132049518569463548830811554332874828060500000000
+ 733        13523069.34652114597544338335607094133697135061391500000000
+ 739        13413274.46684709066305818673883626522327469553450600000000
+ 743        13341063.02960969044414535666218034993270524899057900000000
+ 751        13198947.84420772303595206391478029294274300932090500000000
+ 757        13094332.66974900924702774108322324966974900924702800000000
+ 761        13025505.69119579500657030223390275952693823915900100000000
+ 769        12889999.78023407022106631989596879063719115734720400000000
+ 773        12823298.61707632600258732212160413971539456662354500000000
+ 787        12595184.02922490470139771283354510800508259212198200000000
+ 797        12437151.60727728983688833124215809284818067754077800000000
+ 809        12252669.75401730531520395550061804697156983930778700000000
+ 811        12222453.55240443896424167694204685573366214549938300000000
+ 821        12073580.79293544457978075517661388550548112058465300000000
+ 823        12044240.37788578371810449574726609963547995139732700000000
+ 827        11985985.28536880290205562273276904474002418379685600000000
+ 829        11957068.55367913148371531966224366706875753920386000000000
+ 839        11814552.83790226460071513706793802145411203814064400000000
+ 853        11620644.58499413833528722157092614302461899179366900000000
+ 857        11566405.87047841306884480746791131855309218203033800000000
+ 859        11539475.93830034924330616996507566938300349243306200000000
+ 863        11485990.53418308227114716106604866743916570104287400000000
+ 877        11302633.78677309007981755986316989737742303306727500000000
+ 881        11251316.49375709421112372304199772985244040862656100000000
+ 883        11225832.19818799546998867497168742921857304643261600000000
+ 887        11175208.37767756482525366403607666290868094701240100000000
+ 907        10928787.02425578831312017640573318632855567805953700000000
+ 911        10880801.13172338090010976948408342480790340285400700000000
+ 919        10786082.51468988030467899891186071817192600652883600000000
+ 929        10669978.28955866523143164693218514531754574811625400000000
+ 937        10578879.22198505869797225186766275346851654215581600000000
+ 941        10533910.55366631243358129649309245483528161530286900000000
+ 947        10467169.83210137275607180570221752903907074973600800000000
+ 953        10401269.49737670514165792235047219307450157397691500000000
+ 967        10250682.34850051706308169596690796277145811789038300000000
+ 971        10208455.02677651905252317198764160659114315139031900000000
+ 977        10145762.36540429887410440122824974411463664278403300000000
+ 983        10083835.02644964394710071210579857578840284842319400000000
+ 991        10002431.71644803229061553985872855701311806256306800000000
+ 997         9942236.54062186559679037111334002006018054162487460000000
+1009         9823993.88602576808721506442021803766105054509415260000000
+1013         9785202.20236920039486673247778874629812438302073050000000
+1019         9727585.70264965652600588812561334641805691854759570000000
+1021         9708530.68658178256611165523996082272282076395690500000000
+1031         9614364.53055286129970902036857419980601357904946650000000
+1033         9595750.07841239109390125847047434656340755082284610000000
+1039         9540336.69971126082771896053897978825794032723772860000000
+1049         9449389.73403241182078169685414680648236415633937080000000
+1051         9431408.02188392007611798287345385347288296860133210000000
+1061         9342516.33459000942507068803016022620169651272384540000000
+1063         9324938.69332079021636876763875823142050799623706490000000
+1069         9272600.40318054256314312441534144059869036482694110000000
+1087         9119052.28242870285188592456301747930082796688132470000000
+1091         9085618.54353803849679193400549954170485792850595780000000
+1093         9068993.44098810612991765782250686184812442817932300000000
+1097         9035925.09662716499544211485870556061987237921604380000000
+1103         8986772.28558476881233000906618313689936536718041700000000
+1109         8938151.33543733092876465284039675383228133453561770000000
+1117         8874135.92748433303491495076096687555953446732318710000000
+1123         8826722.91273374888691006233303650934995547640249330000000
+1129         8779813.84499557130203720106288751107174490699734280000000
+1151         8611998.11555169417897480451781059947871416159860990000000
+1153         8597059.69731136166522116218560277536860364267129230000000
+1163         8523138.28976784178847807394668959587274290627687020000000
+1171         8464910.18872758326216908625106746370623398804440650000000
+1181         8393234.40389500423370025402201524132091447925486880000000
+1187         8350808.61920808761583824768323504633529907329401850000000
+1193         8308809.58172673931265716680637049455155071248952220000000
+1201         8253463.63946711074104912572855953372189841798501250000000
+1213         8171813.54575432811211871393239901071723000824402310000000
+1217         8144954.66803615447822514379622021364009860312243220000000
+1223         8104995.77350776778413736713000817661488143908421910000000
+1229         8065427.03905614320585842148087876322213181448331980000000
+1231         8052323.17709179528838342810722989439480097481722180000000
+1237         8013265.82942603071948261924009700889248181083265970000000
+1249         7936276.88630904723779023218574859887910328262610090000000
+1259         7873240.53296266878474980142970611596505162827640980000000
+1277         7762262.98433829287392325763508222396241190289741580000000
+1279         7750124.96559812353401094605160281469898358092259580000000
+1283         7725962.45596258768511301636788776305533904910366330000000
+1289         7689999.86889061287820015515903801396431342125678820000000
+1291         7678086.62354763749031758326878388845855925639039500000000
+1297         7642567.33307632999228989976869699306090979182729380000000
+1301         7619069.81629515757109915449654112221368178324365870000000
+1303         7607375.15809669992325402916346891788181120491174210000000
+1307         7584093.21423106350420811017597551644988523335883700000000
+1319         7515094.64063684609552691432903714935557240333586050000000
+1321         7503716.75321725965177895533686601059803179409538230000000
+1327         7469788.87038432554634513941220798794272795779954790000000
+1361         7283181.36002939015429831006612784717119764878765610000000
+1367         7251214.21433796634967081199707388441843452816386250000000
+1373         7219526.46103423160961398397669337217771303714493810000000
+1381         7177704.43953656770456191165821868211440984793627810000000
+1399         7085353.70335954253037884203002144388849177984274480000000
+1409         7035067.30376153300212916962384669978708303761533000000000
+1423         6965853.71117357695010541110330288123682361208713980000000
+1427         6946327.84232655921513665031534688156972669936930620000000
+1429         6936605.89993002099370188943317004898530440867739680000000
+1433         6917243.42707606420097697138869504535938590369853450000000
+1439         6888401.55038220986796386379430159833217512161223070000000
+1447         6850317.78230822391154111955770559778852798894263990000000
+1451         6831433.37767057201929703652653342522398345968297730000000
+1453         6822030.16586373021335168616655196145905024088093600000000
+1459         6793975.20973269362577107607950651130911583276216590000000
+1471         6738551.89055064581917063222297756628144119646498980000000
+1481         6693051.87778528021607022282241728561782579338284940000000
+1483         6684025.50977747808496291301416048550236008091706000000000
+1487         6666045.61600537995965030262273032952252858103564220000000
+1489         6657091.89456010745466756212222968435191403626595030000000
+1493         6639256.41728064300066979236436704621567314132618890000000
+1499         6612681.67511674449633088725817211474316210807204800000000
+1511         6560165.34149569821310390469887491727332892124420910000000
+1523         6508476.57977675640183847669074195666447800393959290000000
+1531         6474467.55780535597648595689092096668843892880470280000000
+1543         6424115.25016202203499675955930006480881399870382370000000
+1549         6399231.65332472562943834732085216268560361523563590000000
+1553         6382749.40824211204121056020605280103026400515132000000000
+1559         6358184.62540089801154586273252084669660038486209110000000
+1567         6325724.20612635609444798978940650925335035098915120000000
+1571         6309617.97008274984086569064290260980267345639719920000000
+1579         6277650.30462317922735908803039898670044331855604810000000
+1583         6261787.63802905874921036007580543272267845862286800000000
+1597         6206894.07075767063243581715716969317470256731371320000000
+1601         6191386.52779512804497189256714553404122423485321670000000
+1607         6168269.96328562538892345986309894212818917237087740000000
+1609         6160602.75388440024860161591050341827221876942200120000000
+1613         6145325.37569745815251084934903905765654060756354620000000
+1619         6122550.85299567634342186534898085237801111797405810000000
+1621         6114996.81122763726095003084515731030228254164096240000000
+1627         6092446.11616472034419176398279041180086047940995700000000
+1637         6055228.97434331093463653023824068417837507635919360000000
+1657         5982142.32407966203983101991550995775497887748943870000000
+1663         5960559.12868310282621767889356584485868911605532170000000
+1667         5946256.64727054589082183563287342531493701259748050000000
+1669         5939131.11503894547633313361294188136608747753145600000000
+1693         5854937.88009450679267572356763142350856467808623740000000
+1697         5841137.20153211549793753682969946965232763700648200000000
+1699         5834261.23072395526780459093584461447910535609181870000000
+1709         5800122.77998829724985371562317144528964306612053830000000
+1721         5759680.32016269610691458454386984311446833236490410000000
+1723         5752994.67846778874056877539175856065002901915264070000000
+1733         5719797.94056549336410848240046162723600692440854010000000
+1741         5693515.12406662837449741527857553130384836300976450000000
+1747         5673960.97939324556382369776760160274756725815684030000000
+1753         5654540.69081574443810610382201939532230462065031370000000
+1759         5635252.88857305287094940306992609437180216031836270000000
+1777         5578170.97974113674732695554305008441193021947101860000000
+1783         5559399.79304542905215928210880538418395961862030290000000
+1787         5546955.69725797425853385562395075545607162842753220000000
+1789         5540754.51704863051984348798211291224147568474007830000000
+1801         5503836.66352026651860077734591893392559689061632430000000
+1811         5473445.51684152401987852015461071231363887355052460000000
+1823         5437416.25397696105320899616017553483269336258913880000000
+1831         5413659.11032222829055161114145275805570726379027850000000
+1847         5366762.22577152138603140227395776935571196534921490000000
+1861         5326388.94734013970983342289091886082751209027404620000000
+1867         5309271.46813069094804499196572040707016604177825390000000
+1871         5297920.80758952431854623196151790486370924639230360000000
+1873         5292263.65776828617191671115856914041644420715429790000000
+1877         5280985.52530633990410229088971763452317527970165160000000
+1879         5275364.46567323044172432144757849920170303352847260000000
+1889         5247437.70831127580730545262043409211222869242985710000000
+1901         5214313.43029984218832193582325092056812204103103630000000
+1907         5197907.61982170949134766649187205034084950183534350000000
+1913         5181604.72085729221118661787767903815995818086774700000000
+1931         5133303.90005178663904712584153288451579492490937340000000
+1933         5127992.66994309363683393688566994309363683393688570000000
+1949         5085895.24422780913288866085171883016931759876859930000000
+1951         5080681.61506919528446950281906714505381855458739110000000
+1973         5024029.31120121642169285352255448555499239736441970000000
+1979         5008797.28701364325416877210712481051035876705406770000000
+1987         4988631.01711122294916960241570206341217916456970310000000
+1993         4973612.55945810336176618163572503763171098845960860000000
+1997         4963650.39108662994491737606409614421632448673009510000000
+1999         4958684.25762881440720360180090045022511255627813910000000
+2003         4948781.74288567149276085871193210184722915626560160000000
+2011         4929094.89358528095474888115365489806066633515663850000000
+2017         4914432.24144769459593455627169062964799206742687160000000
+2027         4890187.38579181055747409965466206216082881105081400000000
+2029         4885367.09265648102513553474618038442582552981764420000000
+2039         4861407.46983815595880333496812162824914173614516920000000
+2053         4828256.12810521188504627374573794447150511446663420000000
+2063         4804852.07513330101793504604944255937954435288414930000000
+2069         4790918.23634606089898501691638472692121797970033830000000
+2081         4763291.60547813551177318596828447861604997597308990000000
+2083         4758718.11377820451272203552568410945751320211233800000000
+2087         4749597.42740776233828461907043603258265452803066600000000
+2089         4745050.18238391574916227860220201053135471517472470000000
+2099         4722443.94044783230109575988565983801810385898046690000000
+2111         4695599.16200852676456655613453339649455234486025580000000
+2113         4691154.67628963558920965451964032181732134406057740000000
+2129         4655899.40394551432597463597933302019727571629873180000000
+2131         4651529.71891130924448615673392773345847020178320040000000
+2137         4638469.73841834347215722976134768366869443144595230000000
+2141         4629803.75105091078935077066791219056515646893974780000000
+2143         4625482.88894073728418105459636024265048996733551100000000
+t = 1
+     4tn            39649639324
+sqrt(4tn)           199122.17185436683559978188020864658328740463104868
+sqrt(4tn + n^(2/3)) 199133.75848729150246155061232451760773204320100381
+
+x = 199123
+x = 199124
+x = 199125
+x = 199126
+x = 199127
+x = 199128
+x = 199129
+x = 199130
+x = 199131
+x = 199132
+x = 199133
+t = 2
+     4tn            79299278648
+sqrt(4tn)           281601.27600563176425373918268642771623437305264171
+sqrt(4tn + n^(2/3)) 281609.46911152496411420439022830837937706077218364
+
+x = 281602
+x = 281603
+x = 281604
+x = 281605
+x = 281606
+x = 281607
+x = 281608
+x = 281609
+t = 3
+     4tn            118948917972
+sqrt(4tn)           344889.71856522484628045779136163296705990112908301
+sqrt(4tn + n^(2/3)) 344896.40824061205764055675917328978342072105573440
+
+x = 344890
+x = 344891
+x = 344892
+x = 344893
+x = 344894
+x = 344895
+x = 344896
+t = 4
+     4tn            158598557296
+sqrt(4tn)           398244.34370873367119956376041729316657480926209735
+sqrt(4tn + n^(2/3)) 398250.13715160843979614626721720160109975995289368
+
+x = 398245
+398245 522729 SQUARE
+x = 398246
+x = 398247
+x = 398248
+x = 398249
+x = 398250
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />

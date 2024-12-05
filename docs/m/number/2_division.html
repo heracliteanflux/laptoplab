@@ -852,7 +852,11 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-diophantine-equations">Linear Diophantine Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lehman-s-method">Lehman’s Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lehman-s-method">Lehman’s Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dirichlet-s-theorem">Dirichlet’s Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-lehman-s-method">Proof of Lehman’s Method</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misc-proofs">Misc Proofs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#there-is-no-smallest-positive-rational-number">There is no smallest positive rational number</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divisor-function">Divisor Function</a></li>
@@ -986,15 +990,20 @@ document.write(`
 </ul>
 </li>
 <li><p><a class="reference internal" href="#linear-diophantine-equations" id="id85">Linear Diophantine Equations</a></p></li>
-<li><p><a class="reference internal" href="#lehman-s-method" id="id86">Lehman’s Method</a></p></li>
-<li><p><a class="reference internal" href="#misc-proofs" id="id87">Misc Proofs</a></p>
+<li><p><a class="reference internal" href="#lehman-s-method" id="id86">Lehman’s Method</a></p>
 <ul>
-<li><p><a class="reference internal" href="#there-is-no-smallest-positive-rational-number" id="id88">There is no smallest positive rational number</a></p></li>
-<li><p><a class="reference internal" href="#divisor-function" id="id89">Divisor Function</a></p></li>
+<li><p><a class="reference internal" href="#dirichlet-s-theorem" id="id87">Dirichlet’s Theorem</a></p></li>
+<li><p><a class="reference internal" href="#proof-of-lehman-s-method" id="id88">Proof of Lehman’s Method</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#resources" id="id90">Resources</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id91">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#misc-proofs" id="id89">Misc Proofs</a></p>
+<ul>
+<li><p><a class="reference internal" href="#there-is-no-smallest-positive-rational-number" id="id90">There is no smallest positive rational number</a></p></li>
+<li><p><a class="reference internal" href="#divisor-function" id="id91">Divisor Function</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#resources" id="id92">Resources</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id93">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -5328,101 +5337,256 @@ a(x - x_0) &amp;= b(y_0 - y) \\
 <h2><a class="toc-backref" href="#id86" role="doc-backlink">Lehman’s Method</a><a class="headerlink" href="#lehman-s-method" title="Link to this heading">#</a></h2>
 <p>Lehman’s method is based on differences of squares and is a small improvement over trial division.</p>
 <fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
-<p><span style="color: #0096FF;"><b>LEHMAN’S METHOD</b></span></p>
+<p><span style="color: #0096FF;"><b>LEHMAN’S METHOD</b></span> [Vaughan Algorithm 2.2]</p>
 <div style="color: #0096FF;">
-<ol class="arabic simple">
-<li><p>Apply trial division with <span class="math notranslate nohighlight">\(d = 2, 3, \dotsc, d \le n^{\frac{1}{3}}\)</span></p></li>
-<li><p>For <span class="math notranslate nohighlight">\(1 \le t \le n^{\frac{1}{3}} + 1\)</span> consider the numbers <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(\sqrt{4tn} \le x \le \sqrt{4tn + n^{\frac{2}{3}}}\)</span> Check each <span class="math notranslate nohighlight">\(x^2 - 4tn\)</span> to see if it is a perfect square <span class="math notranslate nohighlight">\(y^2\)</span> (compute <span class="math notranslate nohighlight">\(4tn - \lfloor \sqrt{4tn} \rfloor^2\)</span>)</p></li>
-<li><p>If there are <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> s.t. <span class="math notranslate nohighlight">\(x^2 - 4tn = y^2\)</span> then compute <span class="math notranslate nohighlight">\(\gcd(x + y, n)\)</span>.</p></li>
-<li><p>If there is no <span class="math notranslate nohighlight">\(t \le n^{\frac{1}{3}} + 1\)</span> for which there are <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, then <span class="math notranslate nohighlight">\(n\)</span> is prime.</p></li>
-</ol>
+<p>1. Apply trial division with <span class="math notranslate nohighlight">\(d = 2, 3, \dotsc, d \le n^{\frac{1}{3}}\)</span></p>
+<p>2. For <span class="math notranslate nohighlight">\(1 \le t \le n^{\frac{1}{3}} + 1\)</span> consider the numbers <span class="math notranslate nohighlight">\(x\)</span> with</p>
+<p><span class="math notranslate nohighlight">\(\sqrt{4tn} \le x \le \sqrt{4tn + n^{\frac{2}{3}}}\)</span></p>
+<p>Check each <span class="math notranslate nohighlight">\(x^2 - 4tn\)</span> to see if it is a perfect square <span class="math notranslate nohighlight">\(y^2\)</span> (compute <span class="math notranslate nohighlight">\(4tn - \left\lfloor \sqrt{4tn} \right\rfloor^2\)</span>)</p>
+<p>3. If there are <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(x^2 - 4tn = y^2\)</span> then compute <span class="math notranslate nohighlight">\(\gcd(x + y, n)\)</span>.</p>
+<p>4. If there is no <span class="math notranslate nohighlight">\(t \le n^{\frac{1}{3}} + 1\)</span> for which there are <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, then <span class="math notranslate nohighlight">\(n\)</span> is prime.</p>
 </div>
-<p><b>Proof</b> below.</p>
-</fieldset><p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-n &amp;= 10001 \\
-\lfloor n^{\frac{1}{3}} \rfloor &amp;= 21
-\end  {aligned}
-\)</span></p>
-<p>1. Trial division with <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7, 11, 13, 17, 19\)</span> finds no factors.</p>
-<p>2. For <span class="math notranslate nohighlight">\(1 \le t \le 22\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-  x^2 &amp;- 4tn   \\ \hline
-\underset{200^2}{40000} &amp;- 40004 &amp;&amp;=  -4 \\
-\underset{201^2}{40401} &amp;- 40004 &amp;&amp;= 397 \\
-\end  {aligned}
-\)</span></p>
-<fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<p><b>Proof</b></p>
+<p>The proof depends on a subject called Diophantine approximation, via continued fractions, which in turn has some connections with Euclid’s algorithm. We can take a shortcut via Dirichlet (below).</p>
+<p><a class="reference external" href="https://www.ams.org/journals/mcom/1974-28-126/S0025-5718-1974-0340163-2/S0025-5718-1974-0340163-2.pdf">https://www.ams.org/journals/mcom/1974-28-126/S0025-5718-1974-0340163-2/S0025-5718-1974-0340163-2.pdf</a></p>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <p><span style="color: #50C878;"><b>Example</b></span></p>
-<p><span class="math notranslate nohighlight">\(n = 10001\)</span> and so <span class="math notranslate nohighlight">\(\lfloor (10001)^{\frac{1}{3}} \rfloor = 21\)</span></p>
-<p>Trial division with <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7, 11, 13, 17, 19\)</span> finds no factors.</p>
+<p><span class="math notranslate nohighlight">\(n = 10001\)</span> and so <span class="math notranslate nohighlight">\(\lfloor n^{\frac{1}{3}} \rfloor = 21\)</span></p>
+<p><span class="math notranslate nohighlight">\(21^3 \lt 10000 \lt 22^3\)</span></p>
+<p>1. Trial division with <span class="math notranslate nohighlight">\(d = 2, 3, 5, 7, 11, 13, 17, 19\)</span> finds no factors.</p>
+<p>2. For <span class="math notranslate nohighlight">\(1 \le t \le 22\)</span> consider the numbers <span class="math notranslate nohighlight">\(x\)</span> with</p>
+<p><span class="math notranslate nohighlight">\(\left\lceil \sqrt{40004t} \right\rceil \le x \le \left\lfloor \sqrt{40004t + \underset{441}{21}^2} \right\rfloor\)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
   t &amp;= 1 \\
 4tn &amp;= 40004 \\
-\lfloor \sqrt{4tn} \rfloor &amp;= \lfloor \sqrt{40004} \rfloor = 200 \\
+\left\lceil \sqrt{4tn} \right\rceil &amp;= 201 \\
 \left\lfloor \sqrt{4tn + n^{\frac{2}{3}}} \right\rfloor
-&amp;= \left\lfloor \sqrt{40004 + 21^2} \right\rfloor
-= \left\lfloor \sqrt{40004 + 441} \right\rfloor
-= \left\lfloor \sqrt{40445} \right\rfloor
+&amp;= \left\lfloor \sqrt{\underbrace{40004 + 441}_{40445}} \right\rfloor
 = 201 \\
-4tn - \lfloor \sqrt{4tn} \rfloor^2 &amp;= 40004 - 200^2 = 40004 - 40000 = 4 = 2^2 \\
 \end  {aligned}
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-  x^2 &amp;-&amp; 4tn   &amp;=&amp; y^2 \\
-(200^2 = 40000) &amp;-&amp; 40004 &amp;=&amp;  -4 \\
-(201^2 = 40401) &amp;-&amp; 40004 &amp;=&amp; 397 \\
+4tn - \left\lfloor \sqrt{4tn} \right\rfloor^2 &amp;= 40004 - \underset{40004}{200}^2 = 4 = 2^2 \\
+x^2 - 4tn &amp;= \underset{40401}{201}^2 - 40004 = 397 \\
 \end  {aligned}
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
   t &amp;= 2 \\
 4tn &amp;= 80008 \\
-\lfloor \sqrt{4tn} \rfloor &amp;= \lfloor \sqrt{80008} \rfloor = 282 \\
+\left\lceil \sqrt{4tn} \right\rceil &amp;= 283 \\
 \left\lfloor \sqrt{4tn + n^{\frac{2}{3}}} \right\rfloor
-&amp;= \left\lfloor \sqrt{80008 + 21^2} \right\rfloor
-= \left\lfloor \sqrt{80008 + 441} \right\rfloor
-= \left\lfloor \sqrt{80449} \right\rfloor
+&amp;= \left\lfloor \sqrt{\underbrace{80008 + 441}_{80449}} \right\rfloor
 = 283 \\
-4tn - \lfloor \sqrt{4tn} \rfloor^2 &amp;= 80008 - 282^2 = 80008 - 79524 = 484 = 22^2 \\
-4tn - \left\lfloor \sqrt{4tn + n^{\frac{2}{3}}} \right\rfloor &amp;= 80008 - 283^2 = 80008 - 80089 = -81 = -9^2 \\
 \end  {aligned}
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-  x^2 &amp;-&amp; 4tn   &amp;=&amp; y^2 \\
-(282^2 = 79524) &amp;-&amp; 80008 &amp;=&amp; -484 \\
-(283^2 = 80089) &amp;-&amp; 80008 &amp;=&amp;   81 \\
+4tn - \left\lfloor \sqrt{4tn} \right\rfloor^2 &amp;= 80008 - \underset{79524}{282}^2 = 484 = 22^2 \\
+x^2 - 4tn &amp;= \underset{80089}{283}^2 - 80008 = 81 = 9^2 \\
 \end  {aligned}
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(\gcd(x + y, n) = \gcd(283 + 9, 10001) = 73\)</span></p>
-</fieldset><div style="color: red;">
-<p><strong>Proof of Lehman’s Method</strong></p>
-<ul class="simple">
-<li><p>depends on a subject called Diophantine approximation, via continued fractions, which in turn has some connections with Euclid’s algorithm</p></li>
-<li><p>we can take a shortcut via Dirichlet</p></li>
-</ul>
-<p><strong>Dirichlet Theorem</strong></p>
-<p>For any real number <span class="math notranslate nohighlight">\(\alpha\)</span> and any integer <span class="math notranslate nohighlight">\(Q \ge 1\)</span> there exits integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(q\)</span> with <span class="math notranslate nohighlight">\(1 \le q \le Q\)</span> s.t.</p>
-<p><span class="math notranslate nohighlight">\(\left| \alpha - \frac{a}{q} \right| \le \frac{1}{q(Q + 1)}\)</span></p>
-<p>As a consequence of casting out all common factors of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(q\)</span> in <span class="math notranslate nohighlight">\(a/q\)</span> we have</p>
-<p><span class="math notranslate nohighlight">\(\gcd(a, q) = 1\)</span></p>
-<p><strong>Proof of Lehman’s Algorithm</strong></p>
-<p>When there is a <span class="math notranslate nohighlight">\(d \mid n\)</span> with <span class="math notranslate nohighlight">\(n^{\frac{1}{3}} \lt d \le n^{\frac{1}{2}}\)</span> then there is a <span class="math notranslate nohighlight">\(t\)</span> with <span class="math notranslate nohighlight">\(1 \le t \le n^{\frac{1}{3}} + 1\)</span> and <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> s.t.</p>
-<p><span class="math notranslate nohighlight">\(4tn \le x^2 \le 4tn + n^{\frac{2}{3}}, x^2 - y^2 = 4tn\)</span></p>
-<p>The runtime is bounded by <span class="math notranslate nohighlight">\(n^{\frac{1}{3}}\)</span></p>
-</div><hr class="docutils" />
+</fieldset><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10001</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
+  <span class="n">tn4</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="o">*</span><span class="n">n</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(4tn)^(1/2)           </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">tn4</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(4tn + n^(2/3))^(1/2) </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">tn4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="o">**</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span><span class="o">**</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4tn)^(1/2)           200.00999975001249921880468339875973944309979013137
+(4tn + n^(2/3))^(1/2) 201.16706943923780820782055420590837397530737200471
+
+(4tn)^(1/2)           282.85685425670702668230465161705172548037581530420
+(4tn + n^(2/3))^(1/2) 283.67620595808018197598741952851738922420698676761
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
+<section id="dirichlet-s-theorem">
+<h3><a class="toc-backref" href="#id87" role="doc-backlink">Dirichlet’s Theorem</a><a class="headerlink" href="#dirichlet-s-theorem" title="Link to this heading">#</a></h3>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<p><span style="color: #0096FF;"><b>DIRICHLET’S APPROXIMATION THEOREM</b></span> [Vaughan Theorem 2.2]</p>
+<div style="color: #0096FF;">
+<p>For any real number <span class="math notranslate nohighlight">\(\alpha\)</span> and any integer <span class="math notranslate nohighlight">\(Q \ge 1\)</span> there exist integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(q\)</span> with <span class="math notranslate nohighlight">\(1 \le q \le Q\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\left| \alpha - \frac{a}{q} \right| \le \frac{1}{q(Q + 1)} \lt \frac{1}{qQ}
+\quad \iff \quad
+\left| q\alpha - a \right| \le \frac{1}{Q + 1} \lt \frac{1}{Q}
+\end  {aligned}
+\)</span></p>
+</div>
+<p>As an immediate consequence of casting out all common factors of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(q\)</span> in <span class="math notranslate nohighlight">\(a/q\)</span> we have</p>
+<p>COROLLARY [Vaughan Corollary 2.3]</p>
+<p>The conclusion holds with the additional condition <span class="math notranslate nohighlight">\(\gcd(a, q) = 1\)</span>.</p>
+<p><b>Proof</b></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset></section>
+<section id="proof-of-lehman-s-method">
+<h3><a class="toc-backref" href="#id88" role="doc-backlink">Proof of Lehman’s Method</a><a class="headerlink" href="#proof-of-lehman-s-method" title="Link to this heading">#</a></h3>
+<fieldset style="border: 2px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<p><span style="color: #0096FF;"><b>LEHMAN’S METHOD PROOF</b></span></p>
+<p><b>Proof</b></p>
+<p>We must show that if there is a divisor <span class="math notranslate nohighlight">\(d\)</span> of <span class="math notranslate nohighlight">\(n\)</span> with</p>
+<p><span class="math notranslate nohighlight">\(n^{\frac{1}{3}} \lt d \le n^{\frac{1}{2}}\)</span></p>
+<p>then there is a <span class="math notranslate nohighlight">\(t\)</span> with</p>
+<p><span class="math notranslate nohighlight">\(1 \le t \le n^{\frac{1}{3}} + 1\)</span></p>
+<p>and an <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(4tn \le x^2 \le 4tn + n^{\frac{2}{3}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(x^2 - y^2 = 4tn\)</span></p>
+<p>We use Dirichlet’s theorem with</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\alpha &amp;= \frac{n}{d^2} \\
+Q &amp;= \left\lfloor \frac{d}{n^{\frac{1}{3}}} \right\rfloor \\
+\end  {aligned}
+\)</span></p>
+<p>Since <span class="math notranslate nohighlight">\(d \gt n^{\frac{1}{3}}\)</span> we have</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+Q = \left\lfloor \frac{d}{n^{\frac{1}{3}}} \right\rfloor \gt 1
+\end  {aligned}
+\)</span></p>
+<p>Thus we know that there are <span class="math notranslate nohighlight">\(a \in \mathbb{Z}\)</span> and <span class="math notranslate nohighlight">\(q \in \mathbb{N}\)</span> such that <span class="math notranslate nohighlight">\(1 \le q \le Q\)</span> and</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\left| \frac{n}{d^2} - \frac{a}{q} \right| \le \frac{1}{q(Q + 1)} \lt \frac{n^{\frac{1}{3}}}{qd}
+\quad \iff \quad
+\left| \frac{n}{d}q - ad \right| \lt n^{\frac{1}{3}}
+\end  {aligned}
+\)</span></p>
+<div style="color: #50C878;">
+<p>We know from a property of the floor function that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0 \le \frac{d}{n^{\frac{1}{3}}} - Q \lt 1
+&amp; \quad \iff \quad
+Q \le \frac{d}{n^{\frac{1}{3}}} \lt Q + 1 \\
+&amp; \quad \iff \quad
+Qn^{\frac{1}{3}} \le d \lt (Q + 1)n^{\frac{1}{3}} \\
+&amp; \quad \iff \quad
+\frac{d}{Q + 1} \lt n^{\frac{1}{3}} \\
+&amp; \quad \iff \quad
+\frac{1}{Q + 1} \lt \frac{n^{\frac{1}{3}}}{d} \\
+&amp; \quad \iff \quad
+\frac{1}{q(Q + 1)} \lt \frac{n^{\frac{1}{3}}}{qd} \\
+\end  {aligned}
+\)</span></p>
+<p>It is also the case that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{cccccc}
+&amp;                         Q &amp; \le &amp; \frac{d}{n^{\frac{1}{3}}} &amp; \iff &amp; \frac{Qn^{\frac{1}{3}}}{d}       &amp; \le 1 &amp; \iff &amp; \frac{n^{\frac{1}{3}}}{d} &amp; \le &amp; \frac{1}{Q} \\
+&amp; \frac{d}{n^{\frac{1}{3}}} &amp; \lt &amp; Q + 1                     &amp; \iff &amp; \frac{d}{n^{\frac{1}{3}}(Q + 1)} &amp; \lt 1 &amp; \iff &amp; \frac{1}{Q + 1}           &amp; \lt &amp; \frac{n^{\frac{1}{3}}}{d} \\
+\end  {array}
+\)</span></p>
+<p>Thus</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{1}{Q + 1} \lt \frac{n^{\frac{1}{3}}}{d} \le \frac{1}{Q}
+\end  {aligned}
+\)</span></p>
+</div>
+<p>Let</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x &amp;= \phantom{|} \frac{n}{d}q + ad \\
+y &amp;= \left| \frac{n}{d}q - ad \right| \\
+t &amp;= aq \\
+\end  {aligned}
+\)</span></p>
+<p>Then</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x^2
+&amp;= \left( \frac{n}{d}q + ad \right) \left( \frac{n}{d}q + ad \right)
+&amp;= \frac{n^2}{d^2}q^2 + 2nqa + a^2d^2 \\
+y^2
+&amp;= \left| \frac{n}{d}q - ad \right| \left| \frac{n}{d}q - ad \right|
+&amp;= \frac{n^2}{d^2}q^2 - 2nqa + a^2d^2 \\
+&amp;= x^2 + 4tn \\
+\end  {aligned}
+\)</span></p>
+<p>Moreover</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\left| \frac{n}{d}q - ad \right| = y \lt n^{\frac{1}{3}}
+\quad \iff \quad
+y^2 \lt n^{\frac{2}{3}}
+\end  {aligned}
+\)</span></p>
+<p>and</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+t = aq
+\lt \frac{n}{d^2}q^2 + n^{\frac{1}{3}} \frac{q}{d}
+\le \frac{n}{d^2}Q^2 + n^{\frac{1}{3}} \frac{Q}{d}
+\le n^{\frac{1}{3}} + 1
+\end  {aligned}
+\)</span></p>
+<div style="color: red;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\left| \frac{n}{d}q - ad \right| \lt n^{\frac{1}{3}}
+\quad \iff \quad
+-n^{\frac{1}{3}} \lt \frac{n}{d}q - ad \lt n^{\frac{1}{3}}
+\quad \iff \quad
+ad - \frac{n}{d}q \lt n^{\frac{1}{3}} \quad \land \quad \frac{n}{d}q - ad \lt n^{\frac{1}{3}}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+&amp; t = aq \lt \frac{n}{d^2}q^2 + n^{\frac{1}{3}} \frac{q}{d}
+= \frac{q}{d} \left( \frac{n}{d}q + n^{\frac{1}{3}} \right)
+\quad \iff \quad
+ad \lt \frac{n}{d}q + n^{\frac{1}{3}}
+\quad \iff \quad
+ad - \frac{n}{d}q \lt n^{\frac{1}{3}} \\
+&amp; t = aq
+\lt \frac{n}{d^2}q^2 + n^{\frac{1}{3}} \frac{q}{d}
+\le \frac{n}{d^2}Q^2 + n^{\frac{1}{3}} \frac{Q}{d}
+\le n^{\frac{1}{3}} + 1
+\end  {aligned}
+\)</span></p>
+</div>
+<div style="color: #50C878;">
+<p>We know that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+Qn^{\frac{1}{3}} \le d \iff \frac{Qn^{\frac{1}{3}}}{d} \le 1
+\end  {aligned}
+\)</span></p>
+<p>and so it follows that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{n}{d^2}Q^2 + n^{\frac{1}{3}} \frac{Q}{d}
+= n^{\frac{1}{3}} \frac{Qn^{\frac{1}{3}}}{d} \frac{Qn^{\frac{1}{3}}}{d} + \frac{Qn^{\frac{1}{3}}}{d}
+\le n^{\frac{1}{3}} + 1
+\end  {aligned}
+\)</span></p>
+</div>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset><hr class="docutils" />
+<hr class="docutils" />
+</section>
 </section>
 <hr class="docutils" />
 <section id="misc-proofs">
-<h2><a class="toc-backref" href="#id87" role="doc-backlink">Misc Proofs</a><a class="headerlink" href="#misc-proofs" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id89" role="doc-backlink">Misc Proofs</a><a class="headerlink" href="#misc-proofs" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="there-is-no-smallest-positive-rational-number">
-<h3><a class="toc-backref" href="#id88" role="doc-backlink">There is no smallest positive rational number</a><a class="headerlink" href="#there-is-no-smallest-positive-rational-number" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id90" role="doc-backlink">There is no smallest positive rational number</a><a class="headerlink" href="#there-is-no-smallest-positive-rational-number" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
 <p>There is no smallest positive rational number.</p>
 <p><span style="color: #0096FF;"><b>PROOF by contradiction</b></span></p>
@@ -5439,7 +5603,7 @@ n &amp;= 10001 \\
 </section>
 <hr class="docutils" />
 <section id="divisor-function">
-<h3><a class="toc-backref" href="#id89" role="doc-backlink">Divisor Function</a><a class="headerlink" href="#divisor-function" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id91" role="doc-backlink">Divisor Function</a><a class="headerlink" href="#divisor-function" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>Claim</b></span></p>
 <p>Let <span class="math notranslate nohighlight">\(d(n)\)</span> be the number of divisors of the integer <span class="math notranslate nohighlight">\(n\)</span> with prime factorization <span class="math notranslate nohighlight">\(p^a q^b r^c \dots\)</span></p>
 <p>Then <span class="math notranslate nohighlight">\(d(n) = (a + 1)(b + 1)(c + 1) \dots\)</span></p>
@@ -5485,7 +5649,7 @@ n &amp;= 10001 \\
 </section>
 <hr class="docutils" />
 <section id="resources">
-<h2><a class="toc-backref" href="#id90" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id92" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.themathpage.com/Alg/difference-two-squares-2.htm">https://www.themathpage.com/Alg/difference-two-squares-2.htm</a></p></li>
 </ul>
@@ -5494,7 +5658,7 @@ n &amp;= 10001 \\
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id91" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id93" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
 <p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
@@ -5668,7 +5832,11 @@ n &amp;= 10001 \\
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-diophantine-equations">Linear Diophantine Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lehman-s-method">Lehman’s Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lehman-s-method">Lehman’s Method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dirichlet-s-theorem">Dirichlet’s Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-lehman-s-method">Proof of Lehman’s Method</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misc-proofs">Misc Proofs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#there-is-no-smallest-positive-rational-number">There is no smallest positive rational number</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divisor-function">Divisor Function</a></li>
