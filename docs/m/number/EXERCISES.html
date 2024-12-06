@@ -1845,20 +1845,239 @@ ds &amp;= (x - y)(x + y) = x^2 - y^2 = 105 \\
 <hr class="docutils" />
 <p>1</p>
 <p>Write a program to find <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(mx + ny = \gcd(m, n)\)</span> where</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euclid</span> <span class="p">(</span><span class="n">a</span>          <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">b</span>          <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">print_flag</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    
+    <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">print_flag</span><span class="p">:</span>
+        <span class="n">pad</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)),</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x m + </span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x n&#39;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">q</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">y2</span>
+        <span class="k">if</span> <span class="n">print_flag</span> <span class="ow">and</span> <span class="n">b</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="w"> </span><span class="n">q</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x m + </span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x n&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">print_flag</span>           <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x m + </span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x n&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>i</p>
 <p><span class="math notranslate nohighlight">\(m = 8148657527, n = 8148653735\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">8148657527</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">8148653735</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">euclid</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            8148657527           1 x m +          0 x n
+         1  8148653735           0 x m +          1 x n
+   2148906        3792           1 x m +         -1 x n
+         1        2183    -2148906 x m +    2148907 x n
+         1        1609     2148907 x m +   -2148908 x n
+         2         574    -4297813 x m +    4297815 x n
+         1         461    10744533 x m +  -10744538 x n
+         4         113   -15042346 x m +   15042353 x n
+        12           9    70913917 x m +  -70913950 x n
+         1           5  -866009350 x m +  866009753 x n
+         1           4   936923267 x m + -936923703 x n
+                     1  -1802932617 x m + 1802933456 x n
+</pre></div>
+</div>
+</div>
+</div>
 <p>ii</p>
 <p><span class="math notranslate nohighlight">\(m = 8418785375, n = 7849911069\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">8418785375</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">7849911069</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">euclid</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            8418785375           1 x m +          0 x n
+         1  7849911069           0 x m +          1 x n
+        13   568874306           1 x m +         -1 x n
+         1   454545091         -13 x m +         14 x n
+         3   114329215          14 x m +        -15 x n
+         1   111557446         -55 x m +         59 x n
+        40     2771769          69 x m +        -74 x n
+         4      686686       -2815 x m +       3019 x n
+        27       25025       11329 x m +     -12150 x n
+         2       11011     -308698 x m +     331069 x n
+         3        3003      628725 x m +    -674288 x n
+         1        2002    -2194873 x m +    2353933 x n
+                  1001     2823598 x m +   -3028221 x n
+</pre></div>
+</div>
+</div>
+</div>
 <p>iii</p>
 <p><span class="math notranslate nohighlight">\(m = 4029583209458450398503, n = 3449459408504500003009\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">4029583209458450398503</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3449459408504500003009</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">euclid</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                        4029583209458450398503                       1 x m +                      0 x n
+                     1  3449459408504500003009                       0 x m +                      1 x n
+                     5   580123800953950395494                       1 x m +                     -1 x n
+                     1   548840403734748025539                      -5 x m +                      6 x n
+                    17    31283397219202369955                       6 x m +                     -7 x n
+                     1    17022651008307736304                    -107 x m +                    125 x n
+                     1    14260746210894633651                     113 x m +                   -132 x n
+                     5     2761904797413102653                    -220 x m +                    257 x n
+                     6      451222223829120386                    1213 x m +                  -1417 x n
+                     8       54571454438380337                   -7498 x m +                   8759 x n
+                     3       14650588322077690                   61197 x m +                 -71489 x n
+                     1       10619689472147267                 -191089 x m +                 223226 x n
+                     2        4030898849930423                  252286 x m +                -294715 x n
+                     1        2557891772286421                 -695661 x m +                 812656 x n
+                     1        1473007077644002                  947947 x m +               -1107371 x n
+                     1        1084884694642419                -1643608 x m +                1920027 x n
+                     2         388122383001583                 2591555 x m +               -3027398 x n
+                     1         308639928639253                -6826718 x m +                7974823 x n
+                     3          79482454362330                 9418273 x m +              -11002221 x n
+                     1          70192565552263               -35081537 x m +               40981486 x n
+                     7           9289888810067                44499810 x m +              -51983707 x n
+                     1           5163343881794              -346580207 x m +              404867435 x n
+                     1           4126544928273               391080017 x m +             -456851142 x n
+                     3           1036798953521              -737660224 x m +              861718577 x n
+                     1           1016148067710              2604060689 x m +            -3042006873 x n
+                    49             20650885811             -3341720913 x m +             3903725450 x n
+                     4              4254662971            166348385426 x m +          -194324553923 x n
+                     1              3632233927           -668735262617 x m +           781201941142 x n
+                     5               622429044            835083648043 x m +          -975526495065 x n
+                     1               520088707          -4844153502832 x m +          5658834416467 x n
+                     5               102340337           5679237150875 x m +         -6634360911532 x n
+                    12                 8387022         -33240339257207 x m +         38830638974127 x n
+                     4                 1696073         404563308237359 x m +       -472602028601056 x n
+                     1                 1602730       -1651493572206643 x m +       1929238753378351 x n
+                    17                   93343        2056056880444002 x m +      -2401840781979407 x n
+                     5                   15899      -36604460539754677 x m +      42760532047028270 x n
+                     1                   13848      185078359579217387 x m +    -216204501017120757 x n
+                     6                    2051     -221682820118972064 x m +     258965033064149027 x n
+                     1                    1542     1515175280293049771 x m +   -1769994699402014919 x n
+                     3                     509    -1736858100412021835 x m +    2028959732466163946 x n
+                    33                      15     6725749581529115276 x m +   -7856873896800506757 x n
+                     1                      14  -223686594290872825943 x m +  261305798326882886927 x n
+                                             1   230412343872401941219 x m + -269162672223683393684 x n
+</pre></div>
+</div>
+</div>
+</div>
 <p>iv</p>
 <p><span class="math notranslate nohighlight">\(m = 304250263527210, n = 230958203482321\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">304250263527210</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">230958203482321</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">euclid</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                 304250263527210                1 x m +               0 x n
+              1  230958203482321                0 x m +               1 x n
+              3   73292060044889                1 x m +              -1 x n
+              6   11082023347654               -3 x m +               4 x n
+              1    6799919958965               19 x m +             -25 x n
+              1    4282103388689              -22 x m +              29 x n
+              1    2517816570276               41 x m +             -54 x n
+              1    1764286818413              -63 x m +              83 x n
+              2     753529751863              104 x m +            -137 x n
+              2     257227314687             -271 x m +             357 x n
+              1     239075122489              646 x m +            -851 x n
+             13      18152192198             -917 x m +            1208 x n
+              5       3096623915            12567 x m +          -16555 x n
+              1       2669072623           -63752 x m +           83983 x n
+              6        427551292            76319 x m +         -100538 x n
+              4        103764871          -521666 x m +          687211 x n
+              8         12491808          2162983 x m +        -2849382 x n
+              3          3830407        -17825530 x m +        23482267 x n
+              3          1000587         55639573 x m +       -73296183 x n
+              1           828646       -184744249 x m +       243370816 x n
+              4           171941        240383822 x m +      -316666999 x n
+              1           140882      -1146279537 x m +      1510038812 x n
+              4            31059       1386663359 x m +     -1826705811 x n
+              1            16646      -6692932973 x m +      8816862056 x n
+              1            14413       8079596332 x m +    -10643567867 x n
+              6             2233     -14772529305 x m +     19460429923 x n
+              2             1015      96714772162 x m +   -127406147405 x n
+                             203    -208202073629 x m +    274272724733 x n
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
 <p>2</p>
 <p>Show that if <span class="math notranslate nohighlight">\(\gcd(a, b) = 1\)</span> then <span class="math notranslate nohighlight">\(\gcd(a - b, a + b) = 1\)</span> or <span class="math notranslate nohighlight">\(2\)</span>. Exactly when is the value <span class="math notranslate nohighlight">\(2\)</span>?</p>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>If <span class="math notranslate nohighlight">\(\gcd(a, b) = 1\)</span> then <span class="math notranslate nohighlight">\(\gcd(a - b, a + b) = 1\)</span> or <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<p><b>Proof</b></p>
+<p>Suppose <span class="math notranslate nohighlight">\(\gcd(a, b) = 1 = as + bt\)</span> for some integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(d = \gcd(a + b, a - b)\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(\forall x, y \in \mathbb{Z} \quad d \mid ((a + b)x + (a - b)y)\)</span></p>
+<p>In particular</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+d &amp; \mid ((a + b) + (a - b)) = 2a \\
+d &amp; \mid ((a + b) - (a - b)) = 2b \\
+\therefore d &amp; \mid \gcd(2a, 2b) \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\forall x', y' \in \mathbb{Z}
+\quad
+\gcd(2a, 2b) \mid (2ax' + 2by')
+\quad \implies \quad
+d \mid (2ax' + 2by')
+\)</span></p>
+<p>In particular</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+d &amp; \mid 2 \underbrace{(as + bt)}_{1} \\
+\end  {aligned}
+\)</span></p>
+<p>The only divisors of <span class="math notranslate nohighlight">\(2\)</span> are <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(d = 2\)</span> divides even <span class="math notranslate nohighlight">\(a + b\)</span> and even <span class="math notranslate nohighlight">\(a - b\)</span>, just when <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> have the same parity.</p>
+<p>Otherwise <span class="math notranslate nohighlight">\(a + b\)</span> and <span class="math notranslate nohighlight">\(a - b\)</span> are odd, <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> have opposite parity, and <span class="math notranslate nohighlight">\(d = 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a + b &amp;= 2k +  2k' + 1  &amp;&amp; = 2(k + k') + 1 \\
+a - b &amp;= 2k - (2k' + 1) &amp;&amp; = 2(k - k') - 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/32737/prove-gcdab-a-b-1-or-2-if-gcda-b-1">https://math.stackexchange.com/questions/32737/prove-gcdab-a-b-1-or-2-if-gcda-b-1</a></p></li>
+</ul>
 <hr class="docutils" />
 <p>3</p>
 <p>The Fibonacci sequence (1202) is defined iteratively by <span class="math notranslate nohighlight">\(F_1 = F_2 = 1\)</span>, <span class="math notranslate nohighlight">\(F_{n + 1} = F_n + F_{n - 1} (n = 2, 3, \dotsc)\)</span>. Show that if <span class="math notranslate nohighlight">\(m, n \in \mathbb{N}\)</span> satisfy <span class="math notranslate nohighlight">\(m \mid F_n\)</span> and <span class="math notranslate nohighlight">\(m \mid F_{n + 1}\)</span> then <span class="math notranslate nohighlight">\(m = 1\)</span>.</p>
+<p>See the page on Fibonacci.</p>
 <hr class="docutils" />
 <p>4</p>
 <p>The squarefree numbers are the natural numbers which have no repeated prime factors, e.g <span class="math notranslate nohighlight">\(6\)</span>, <span class="math notranslate nohighlight">\(105\)</span>. Note that <span class="math notranslate nohighlight">\(1\)</span> is the only natural number which is both squarefree and a perfect square. Prove that every <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(n \gt 1\)</span> can be written uniquely as the product of a perfect square and a squarefree number.</p>
