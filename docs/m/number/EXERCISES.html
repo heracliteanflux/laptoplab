@@ -1836,6 +1836,9 @@ ds &amp;= (x - y)(x + y) = x^2 - y^2 = 105 \\
 \)</span></p>
 <p>Thus <span class="math notranslate nohighlight">\(\gcd(a + b, c + d) \mid \pm 1 \implies \gcd(a + b, c + d) = | \pm 1 |\)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/52373/proof-that-gcdaxby-cxdy-gcdx-y-if-ad-bc-pm-1">https://math.stackexchange.com/questions/52373/proof-that-gcdaxby-cxdy-gcdx-y-if-ad-bc-pm-1</a></p></li>
+</ul>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
@@ -2035,37 +2038,46 @@ ds &amp;= (x - y)(x + y) = x^2 - y^2 = 105 \\
 <p><b>Claim</b></p>
 <p>If <span class="math notranslate nohighlight">\(\gcd(a, b) = 1\)</span> then <span class="math notranslate nohighlight">\(\gcd(a - b, a + b) = 1\)</span> or <span class="math notranslate nohighlight">\(2\)</span>.</p>
 <p><b>Proof</b></p>
-<p>Suppose <span class="math notranslate nohighlight">\(\gcd(a, b) = 1 = as + bt\)</span> for some integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.</p>
-<p>Let <span class="math notranslate nohighlight">\(d = \gcd(a + b, a - b)\)</span>. Then</p>
-<p><span class="math notranslate nohighlight">\(\forall x, y \in \mathbb{Z} \quad d \mid ((a + b)x + (a - b)y)\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(\gcd(a, b) = 1\)</span>. Then there are integers <span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(t\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(\gcd(a, b) = 1 = as + bt\)</span></p>
+<p>Let <span class="math notranslate nohighlight">\(d = \gcd(a - b, a + b)\)</span>. Then</p>
+<p><span class="math notranslate nohighlight">\(\forall x, y \in \mathbb{Z} \quad d \mid ((a - b)x + (a + b)y)\)</span></p>
 <p>In particular</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-d &amp; \mid ((a + b) + (a - b)) = 2a \\
-d &amp; \mid ((a + b) - (a - b)) = 2b \\
-\therefore d &amp; \mid \gcd(2a, 2b) \\
+d &amp; \mid ((a - b) + (a + b)) = 2a \\
+d &amp; \mid ((a - b) - (a - b)) = 2b \\
 \end  {aligned}
 \)</span></p>
+<p>Thus</p>
+<p><span class="math notranslate nohighlight">\(d \mid \gcd(2a, 2b) = 2 \gcd(a, b) = 2\)</span></p>
+<p>If we didn’t already know this then we could proceed as follows.</p>
+<p><span class="math notranslate nohighlight">\(\forall x', y' \in \mathbb{Z} \quad \gcd(2a, 2b) \mid (2ax' + 2by')\)</span></p>
+<p>Thus</p>
+<p><span class="math notranslate nohighlight">\(\forall x', y' \in \mathbb{Z} \quad d \mid (2ax' + 2by')\)</span></p>
+<p>In particular</p>
+<p><span class="math notranslate nohighlight">\(d \mid (2as + 2bt) = 2(as + bt) = 2\)</span></p>
+<p>since we already know that <span class="math notranslate nohighlight">\(\gcd(a, b) = 1 = as + bt\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
-\forall x', y' \in \mathbb{Z}
-\quad
-\gcd(2a, 2b) \mid (2ax' + 2by')
+d \mid 2
+\quad \iff \quad
+\exists k \in \mathbb{Z} \quad
+dk = 2
 \quad \implies \quad
-d \mid (2ax' + 2by')
+(\boxed{d = 1} \land k = 2) \lor (\boxed{d = 2} \land k = 1)
 \)</span></p>
-<p>In particular</p>
+<p>Suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> have the same parity (i.e., both even or both odd). Then both <span class="math notranslate nohighlight">\(a - b\)</span> and <span class="math notranslate nohighlight">\(a + b\)</span> are even, of the form <span class="math notranslate nohighlight">\(2k\)</span>, and <span class="math notranslate nohighlight">\(d = 2\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-d &amp; \mid 2 \underbrace{(as + bt)}_{1} \\
+a - b &amp;= 2k - 2k' = 2(k - k') \\
+a + b &amp;= 2k + 2k' = 2(k + k') \\
 \end  {aligned}
 \)</span></p>
-<p>The only divisors of <span class="math notranslate nohighlight">\(2\)</span> are <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(d = 2\)</span> divides even <span class="math notranslate nohighlight">\(a + b\)</span> and even <span class="math notranslate nohighlight">\(a - b\)</span>, just when <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> have the same parity.</p>
-<p>Otherwise <span class="math notranslate nohighlight">\(a + b\)</span> and <span class="math notranslate nohighlight">\(a - b\)</span> are odd, <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> have opposite parity, and <span class="math notranslate nohighlight">\(d = 1\)</span>.</p>
+<p>On the other hand, suppose <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> have opposite parity. Then both <span class="math notranslate nohighlight">\(a - b\)</span> and <span class="math notranslate nohighlight">\(a + b\)</span> are odd, of the form <span class="math notranslate nohighlight">\(2k + 1\)</span>, and <span class="math notranslate nohighlight">\(d = 1\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-a + b &amp;= 2k +  2k' + 1  &amp;&amp; = 2(k + k') + 1 \\
-a - b &amp;= 2k - (2k' + 1) &amp;&amp; = 2(k - k') - 1 \\
+a - b &amp;= (2k + 1) - 2k' = 2(k - k') + 1 \\
+a + b &amp;= (2k + 1) + 2k' = 2(k + k') + 1 \\
 \end  {aligned}
 \)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
@@ -2081,10 +2093,112 @@ a - b &amp;= 2k - (2k' + 1) &amp;&amp; = 2(k - k') - 1 \\
 <hr class="docutils" />
 <p>4</p>
 <p>The squarefree numbers are the natural numbers which have no repeated prime factors, e.g <span class="math notranslate nohighlight">\(6\)</span>, <span class="math notranslate nohighlight">\(105\)</span>. Note that <span class="math notranslate nohighlight">\(1\)</span> is the only natural number which is both squarefree and a perfect square. Prove that every <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(n \gt 1\)</span> can be written uniquely as the product of a perfect square and a squarefree number.</p>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>Every <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(n \gt 1\)</span> can be written uniquely as the product of a perfect square and a squarefree number.</p>
+<p><b>Introduction</b></p>
+<p>Primes are the product of <span class="math notranslate nohighlight">\(1\)</span> and themselves with <span class="math notranslate nohighlight">\(1\)</span> the perfect square and the prime the squarefree number.</p>
+<p>Perfect squares are the product of <span class="math notranslate nohighlight">\(1\)</span> and themselves with <span class="math notranslate nohighlight">\(1\)</span> the squarefree number.</p>
+<p>Squarefree numbers are the product of <span class="math notranslate nohighlight">\(1\)</span> and themselves with <span class="math notranslate nohighlight">\(1\)</span> the perfect square.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+ 1 &amp;=&amp;   1 \times &amp;&amp;&amp; 1                               \\ \hline
+ 4 &amp;=&amp; 2^2 \times &amp;&amp;&amp; 1                               \\
+ 6 &amp;=&amp;   1 \times &amp;&amp;&amp; 2 \times 3                      \\
+ 8 &amp;=&amp; 2^2 \times &amp;&amp;&amp; 2                               &amp;&amp;= 2^3 \\
+ 9 &amp;=&amp; 3^2 \times &amp;&amp;&amp; 1                               \\
+10 &amp;=&amp;   1 \times &amp;&amp;&amp; 2 \times 5                      \\
+12 &amp;=&amp; 2^2 \times &amp;&amp;&amp; 3                               \\
+14 &amp;=&amp;   1 \times &amp;&amp;&amp; 2 \times 7                      \\
+15 &amp;=&amp;   1 \times &amp;&amp;&amp; 3 \times 5                      \\
+16 &amp;=&amp; 4^2 \times &amp;&amp;&amp; 1                               &amp;&amp;= 2^4 \\
+18 &amp;=&amp; 3^2 \times &amp;&amp;&amp; 2                               \\
+20 &amp;=&amp; 2^2 \times &amp;&amp;&amp; 5                               \\
+21 &amp;=&amp;   1 \times &amp;&amp;&amp; 3 \times \phantom{1} 7          \\
+22 &amp;=&amp;   1 \times &amp;&amp;&amp; 2 \times 11                     \\
+24 &amp;=&amp; 2^2 \times &amp;&amp;&amp; 2 \times \phantom{1} 3          &amp;&amp;= 2^3 \times 3 \\
+25 &amp;=&amp; 5^2 \times &amp;&amp;&amp; 1                               \\
+26 &amp;=&amp;   1 \times &amp;&amp;&amp; 2 \times 13                     \\
+28 &amp;=&amp; 2^2 \times &amp;&amp;&amp; 7                               \\
+30 &amp;=&amp;   1 \times &amp;&amp;&amp; 2 \times \phantom{1} 3 \times 5 \\
+32 &amp;=&amp; 4^2 \times &amp;&amp;&amp; 2                               &amp;&amp;= 2^5 \\
+33 &amp;=&amp;   1 \times &amp;&amp;&amp; 3 \times 11                     \\
+34 &amp;=&amp;   1 \times &amp;&amp;&amp; 2 \times 17                     \\
+35 &amp;=&amp;   1 \times &amp;&amp;&amp; 5 \times \phantom{1} 7          \\
+36 &amp;=&amp; 6^2 \times &amp;&amp;&amp; 1                               &amp;&amp;= 2^2 \times 3^2 \\
+38 &amp;=&amp;   1 \times &amp;&amp;&amp; 2 \times 19                     \\ \vdots
+\end  {aligned}
+\)</span></p>
+<p><b>Proof</b></p>
+<p>From the division theorem we know that for any integer <span class="math notranslate nohighlight">\(a\)</span> there are unique integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(a = 2q + r\)</span> with <span class="math notranslate nohighlight">\(0 \le r \lt 2\)</span></p>
+<p>From a basic property of the floor function we know that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\forall a \in \mathbb{N} \quad
+0 \le \frac{a}{2} - \left\lfloor \frac{a}{2} \right\rfloor \lt 1
+&amp; \quad \iff \quad
+\phantom{2} \left\lfloor \frac{a}{2} \right\rfloor \le \frac{a}{2} \lt \phantom{2} \left\lfloor \frac{a}{2} \right\rfloor + 1 \\
+&amp; \quad \iff \quad
+2 \left\lfloor \frac{a}{2} \right\rfloor \le \phantom{\frac{}{}} a \lt 2 \left\lfloor \frac{a}{2} \right\rfloor + 2 \\
+&amp; \quad \iff \quad
+2 \left\lfloor \frac{a}{2} \right\rfloor \le \phantom{\frac{}{}} a \le 2 \left\lfloor \frac{a}{2} \right\rfloor + 1 \\
+\end  {aligned}
+\)</span></p>
+<p>In other words either</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a = 2 \left\lfloor \frac{a}{2} \right\rfloor \phantom{+1} &amp;&amp; a \text{ even}
+\end  {aligned}
+\)</span></p>
+<p>or</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a = 2 \left\lfloor \frac{a}{2} \right\rfloor + 1  &amp;&amp; a \text{ odd}
+\end  {aligned}
+\)</span></p>
+<p>Thus</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\forall a \in \mathbb{N} \quad
+a = 2 \left\lfloor \frac{a}{2} \right\rfloor + (a \text{ mod } 2)
+\end  {aligned}
+\)</span></p>
+<p>From the FTA we know that any <span class="math notranslate nohighlight">\(a\)</span> can be expressed uniquely as a product of prime powers</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a
+= p_1^{a_1} p_2^{a_2} \dots p_k^{a_k}
+= \prod_{i=1}^k p_i^{a_i}
+\quad \land \quad
+a_i \ge 1
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a
+= \prod_{i=1}^k p_i^{a_i}
+= \prod_{i=1}^k p_i^{2 \lfloor a_i/2 \rfloor + (a_i \text{ mod } 2)}
+= \prod_{i=1}^k p_i^{2 \lfloor a_i/2 \rfloor} \prod_{i=1}^k p_i^{(a_i \text{ mod } 2)}
+= \underbrace{\left( \prod_{i=1}^k p_i^{\lfloor a_i/2 \rfloor} \right)^2}_{\text{perfect square}} \underbrace{\prod_{i=1}^k p_i^{(a_i \text{ mod } 2)}}_{\text{squarefree}}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/114895/for-every-n-ge-1-there-exist-uniquely-determined-integers-a-gt-0-and-b-g">https://math.stackexchange.com/questions/114895/for-every-n-ge-1-there-exist-uniquely-determined-integers-a-gt-0-and-b-g</a></p></li>
+</ul>
 <hr class="docutils" />
 <p>5</p>
 <p>Let <span class="math notranslate nohighlight">\(a \in \mathbb{N}\)</span> and <span class="math notranslate nohighlight">\(b \in \mathbb{Z}\)</span>. Prove that the equations <span class="math notranslate nohighlight">\(\gcd(x, y) = a\)</span> and <span class="math notranslate nohighlight">\(xy = b\)</span> can be solved simultaneously in integers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> iff <span class="math notranslate nohighlight">\(a^2 \mid b\)</span>.</p>
-<hr class="docutils" />
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Proof</b></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset><hr class="docutils" />
 <hr class="docutils" />
 </section>
 <hr class="docutils" />
