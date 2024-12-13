@@ -1,0 +1,57 @@
+Traceback (most recent call last):
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+even = generate_even_numbers()
+print([next(even) for _ in range(25)])
+
+odd = generate_odd_numbers()
+print([next(odd) for _ in range(25)])
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[7], line 2[0m
+[1;32m      1[0m even [38;5;241m=[39m generate_even_numbers()
+[0;32m----> 2[0m [38;5;28mprint[39m([43m[[49m[38;5;28;43mnext[39;49m[43m([49m[43meven[49m[43m)[49m[43m [49m[38;5;28;43;01mfor[39;49;00m[43m [49m[43m_[49m[43m [49m[38;5;129;43;01min[39;49;00m[43m [49m[38;5;28;43mrange[39;49m[43m([49m[38;5;241;43m25[39;49m[43m)[49m[43m][49m)
+[1;32m      4[0m odd [38;5;241m=[39m generate_odd_numbers()
+[1;32m      5[0m [38;5;28mprint[39m([[38;5;28mnext[39m(odd) [38;5;28;01mfor[39;00m _ [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m25[39m)])
+
+Cell [0;32mIn[7], line 2[0m, in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m      1[0m even [38;5;241m=[39m generate_even_numbers()
+[0;32m----> 2[0m [38;5;28mprint[39m([[38;5;28;43mnext[39;49m[43m([49m[43meven[49m[43m)[49m [38;5;28;01mfor[39;00m _ [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m25[39m)])
+[1;32m      4[0m odd [38;5;241m=[39m generate_odd_numbers()
+[1;32m      5[0m [38;5;28mprint[39m([[38;5;28mnext[39m(odd) [38;5;28;01mfor[39;00m _ [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m25[39m)])
+
+Cell [0;32mIn[6], line 5[0m, in [0;36mgenerate_even_numbers[0;34m()[0m
+[1;32m      2[0m n [38;5;241m=[39m generate_integers([38;5;124m'[39m[38;5;124m+[39m[38;5;124m'[39m)
+[1;32m      3[0m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[1;32m      4[0m   [38;5;66;03m# even integers are of the form 2k[39;00m
+[0;32m----> 5[0m   [38;5;28;01myield[39;00m [38;5;241m2[39m [38;5;241m*[39m [38;5;28;43mnext[39;49m[43m([49m[43mn[49m[43m)[49m
+
+Cell [0;32mIn[3], line 40[0m, in [0;36mgenerate_integers[0;34m(n, subset)[0m
+[1;32m     37[0m [38;5;66;03m# yield negative integers for sets other than the non-negative integers[39;00m
+[1;32m     38[0m [38;5;28;01mif[39;00m (subset [38;5;241m!=[39m [38;5;124m'[39m[38;5;124m+[39m[38;5;124m'[39m
+[1;32m     39[0m [38;5;129;01mand[39;00m subset [38;5;241m!=[39m [38;5;124m'[39m[38;5;124mn[39m[38;5;124m'[39m):
+[0;32m---> 40[0m   [38;5;28;01myield[39;00m [38;5;241;43m-[39;49m[43mn[49m
+[1;32m     41[0m n [38;5;241m+[39m[38;5;241m=[39m [38;5;241m1[39m
+
+[0;31mTypeError[0m: bad operand type for unary -: 'str'
+

@@ -16,38 +16,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=0d97562f" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -81,6 +84,7 @@
     <link rel="prev" title="R" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -96,19 +100,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
       method="get">
@@ -116,7 +109,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -124,8 +116,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -141,7 +133,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,6 +149,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../../index.html">
   
@@ -169,15 +164,11 @@
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
@@ -269,6 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/5_primitiveroot.html">Primitive Roots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/6_quadratic_residues.html">Quadratic Residues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../m/number/EXERCISES.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../m/number/PYTHON.html">Implementations</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/number/book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../m/number/book___numbers_groups_codes/00_introduction.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../m/number/book___numbers_groups_codes/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
@@ -281,7 +273,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../m/number/book___numbers_groups_codes/1.5.html">1.5</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../m/number/implementation.html">Implementation</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../m/set/index.html">Set Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -682,9 +673,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -712,27 +703,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -1020,7 +1003,7 @@ additional features.  The original behavior of these functions should not be aff
 <span class=" -Color -Color-Cyan">ℹ</span> Use the conflicted package (<span class=" -Color -Color-Blue">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
 </pre></div>
 </div>
-<div class="output text_html">'EXECUTED : 2024-12-12 19:36:49.107911'</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
+<div class="output text_html">'EXECUTED : 2024-12-13 16:40:17.448802'</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
 Platform: aarch64-apple-darwin20 (64-bit)
 Running under: macOS 15.1
 
@@ -1192,12 +1175,12 @@ loaded via a namespace (and not attached):
 	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>⋯</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td>female</td><td>47</td><td>no</td><td>Other Hispanic    </td><td>alive</td><td>52</td><td>no </td><td>0</td><td>1.565</td><td>81.9</td><td>⋯</td><td>0.9970</td><td>-0.53363</td><td>NA</td><td> NA</td><td>109</td><td>79</td><td>3.18</td><td>27108.119</td><td>2</td><td>21</td></tr>
-	<tr><th scope=row>2</th><td>male  </td><td>10</td><td>no</td><td>Non-Hispanic Black</td><td>NA   </td><td>NA</td><td>no </td><td>0</td><td>1.405</td><td>48.7</td><td>⋯</td><td>0.9560</td><td>      NA</td><td>46</td><td>205</td><td> 94</td><td>46</td><td>0.80</td><td> 4449.853</td><td>2</td><td>33</td></tr>
-	<tr><th scope=row>3</th><td>male  </td><td> 1</td><td>no</td><td>Non-Hispanic Black</td><td>NA   </td><td>NA</td><td>no </td><td>0</td><td>   NA</td><td>11.5</td><td>⋯</td><td>    NA</td><td>      NA</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>2.88</td><td> 3105.398</td><td>2</td><td>10</td></tr>
-	<tr><th scope=row>4</th><td>female</td><td>26</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>NA</td><td>no </td><td>0</td><td>   NA</td><td>  NA</td><td>⋯</td><td>    NA</td><td> 0.00000</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>0.61</td><td>    0.000</td><td>1</td><td> 8</td></tr>
-	<tr><th scope=row>5</th><td>female</td><td>43</td><td>no</td><td>Mexican American  </td><td>alive</td><td>45</td><td>yes</td><td>0</td><td>1.604</td><td>97.8</td><td>⋯</td><td>1.0758</td><td> 0.87813</td><td>35</td><td>222</td><td>117</td><td>80</td><td>0.65</td><td> 7126.214</td><td>1</td><td>34</td></tr>
-	<tr><th scope=row>6</th><td>female</td><td>12</td><td>no</td><td>Non-Hispanic Black</td><td>NA   </td><td>NA</td><td>no </td><td>0</td><td>1.550</td><td>92.2</td><td>⋯</td><td>1.0920</td><td> 0.00000</td><td>NA</td><td> NA</td><td>124</td><td>52</td><td>0.52</td><td> 3111.735</td><td>2</td><td>16</td></tr>
+	<tr><th scope=row>1</th><td>male  </td><td>57</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>80</td><td>no </td><td>0</td><td>1.683</td><td> 75.1</td><td>⋯</td><td>1.1000</td><td> 0.76478</td><td>42</td><td>199</td><td>137</td><td>90</td><td>2.40</td><td>31011.685</td><td>1</td><td>11</td></tr>
+	<tr><th scope=row>2</th><td>female</td><td> 1</td><td>no</td><td>Non-Hispanic Black</td><td>NA   </td><td>NA</td><td>no </td><td>0</td><td>   NA</td><td> 12.4</td><td>⋯</td><td>    NA</td><td>      NA</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>0.00</td><td> 1615.886</td><td>1</td><td>41</td></tr>
+	<tr><th scope=row>3</th><td>male  </td><td>38</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>30</td><td>no </td><td>0</td><td>1.679</td><td>103.2</td><td>⋯</td><td>1.1170</td><td>      NA</td><td>27</td><td>188</td><td>112</td><td>75</td><td>1.54</td><td>36995.324</td><td>2</td><td>32</td></tr>
+	<tr><th scope=row>4</th><td>female</td><td>30</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>55</td><td>yes</td><td>0</td><td>1.601</td><td> 73.4</td><td>⋯</td><td>1.1670</td><td>-0.67068</td><td>61</td><td>187</td><td>109</td><td>52</td><td>1.33</td><td>25699.197</td><td>2</td><td>23</td></tr>
+	<tr><th scope=row>5</th><td>female</td><td>44</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>42</td><td>no </td><td>0</td><td>1.748</td><td> 90.6</td><td>⋯</td><td>1.2400</td><td>-0.73148</td><td>47</td><td>195</td><td>118</td><td>62</td><td>5.00</td><td>37263.256</td><td>1</td><td>29</td></tr>
+	<tr><th scope=row>6</th><td>male  </td><td>85</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>66</td><td>no </td><td>0</td><td>1.594</td><td> 97.4</td><td>⋯</td><td>0.9788</td><td>-0.00226</td><td>45</td><td>179</td><td>117</td><td>66</td><td>2.84</td><td> 4469.224</td><td>1</td><td>21</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1907,7 +1890,7 @@ loaded via a namespace (and not attached):
 “Removed 2575 rows containing missing values (`geom_point()`).”
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/d94dd4b73d2febba7d061d69860cd2c7dbc29573efd65210f1e42ba470db7eff.png"><img alt="../../../_images/d94dd4b73d2febba7d061d69860cd2c7dbc29573efd65210f1e42ba470db7eff.png" src="../../../_images/d94dd4b73d2febba7d061d69860cd2c7dbc29573efd65210f1e42ba470db7eff.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/7ee980a56c73a0c6cb5ee86b131b7fde4503f720e08c3fc7dff1ad773c126724.png"><img alt="../../../_images/7ee980a56c73a0c6cb5ee86b131b7fde4503f720e08c3fc7dff1ad773c126724.png" src="../../../_images/7ee980a56c73a0c6cb5ee86b131b7fde4503f720e08c3fc7dff1ad773c126724.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1961,7 +1944,7 @@ loaded via a namespace (and not attached):
 “Removed 2575 rows containing missing values (`geom_point()`).”
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/a87e1d247bfb66e5473954fe42171284d2cbd511ef2384121ba4d038a2754946.png"><img alt="../../../_images/a87e1d247bfb66e5473954fe42171284d2cbd511ef2384121ba4d038a2754946.png" src="../../../_images/a87e1d247bfb66e5473954fe42171284d2cbd511ef2384121ba4d038a2754946.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/6bc4d60ed629cd9f92fa13e6fa313456778bddae6909c23e92263171ea116500.png"><img alt="../../../_images/6bc4d60ed629cd9f92fa13e6fa313456778bddae6909c23e92263171ea116500.png" src="../../../_images/6bc4d60ed629cd9f92fa13e6fa313456778bddae6909c23e92263171ea116500.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -5691,7 +5674,8 @@ S[CD]|T[NX]|UT|V[AIT]|W[AIVY])\s+(\d+(?:-\d+)?)\s*$
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -5793,8 +5777,8 @@ By DF
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

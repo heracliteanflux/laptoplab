@@ -16,38 +16,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=0d97562f" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -81,6 +84,7 @@
     <link rel="prev" title="Indeterminate Forms" href="indeterminateforms.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -96,19 +100,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
       method="get">
@@ -116,7 +109,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -124,8 +116,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -141,7 +133,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,6 +149,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../../index.html">
   
@@ -169,15 +164,11 @@
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
@@ -269,6 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../number/5_primitiveroot.html">Primitive Roots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../number/6_quadratic_residues.html">Quadratic Residues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../number/EXERCISES.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/PYTHON.html">Implementations</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../number/book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/00_introduction.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
@@ -281,7 +273,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/1.5.html">1.5</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../../number/implementation.html">Implementation</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../set/index.html">Set Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -682,9 +673,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -712,27 +703,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -994,20 +977,20 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EXECUTED            : 2024-12-12 19:37:43.750115
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EXECUTED            : 2024-12-13 16:42:05.871475
 
 Platform            : 15.1 | Darwin | 24.1.0 | arm64
                     : UTF-8
 
-Python              : 3.11.9 | packaged by conda-forge | (main, Apr 19 2024, 18:34:54) [Clang 16.0.6 ]
-                    : sys.version_info(major=3, minor=11, micro=9, releaselevel=&#39;final&#39;, serial=0)
+Python              : 3.11.11 | packaged by conda-forge | (main, Dec  5 2024, 14:21:42) [Clang 18.1.8 ]
+                    : sys.version_info(major=3, minor=11, micro=11, releaselevel=&#39;final&#39;, serial=0)
                     : CPython
 
-Matplotlib          : 3.8.4
-NumPy               : 1.26.4
-Pandas              : 2.2.2
-Plotly              : 5.22.0
-SymPy               : 1.12
+Matplotlib          : 3.9.3
+NumPy               : 2.0.2
+Pandas              : 2.2.3
+Plotly              : 5.24.1
+SymPy               : 1.13.3
 </pre></div>
 </div>
 </div>
@@ -1289,7 +1272,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/e91ea476d731f85dece6b8e68164a4b6e8920b9aa12dc66b372ffc32fe2fdb4f.png"><img alt="../../../_images/e91ea476d731f85dece6b8e68164a4b6e8920b9aa12dc66b372ffc32fe2fdb4f.png" src="../../../_images/e91ea476d731f85dece6b8e68164a4b6e8920b9aa12dc66b372ffc32fe2fdb4f.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/921f78fdfa1c8a78a51ad912e6bed700d5b696dd2c6bdd4e886dcedd8639a684.png" src="../../../_images/921f78fdfa1c8a78a51ad912e6bed700d5b696dd2c6bdd4e886dcedd8639a684.png" />
 </div>
 </div>
 </section>
@@ -1344,7 +1327,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/952d0960085505a96e8c7d590ec6426bc419cd43976da5e783fabf2542ed0bb2.png"><img alt="../../../_images/952d0960085505a96e8c7d590ec6426bc419cd43976da5e783fabf2542ed0bb2.png" src="../../../_images/952d0960085505a96e8c7d590ec6426bc419cd43976da5e783fabf2542ed0bb2.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/6d15f8c924fff9fd18959acea30e9952bb3a35c7d628ed4f9986584faf23486d.png" src="../../../_images/6d15f8c924fff9fd18959acea30e9952bb3a35c7d628ed4f9986584faf23486d.png" />
 </div>
 </div>
 </section>
@@ -1445,7 +1428,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/247c49871798be0a6393a570bd873a4f6a6ae2f8687e6a1815805765e2efec05.png"><img alt="../../../_images/247c49871798be0a6393a570bd873a4f6a6ae2f8687e6a1815805765e2efec05.png" src="../../../_images/247c49871798be0a6393a570bd873a4f6a6ae2f8687e6a1815805765e2efec05.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/b9d186533ee15d5293a9c6c95b5a8f688724d20de0288d537d07bd53dda1b0ba.png" src="../../../_images/b9d186533ee15d5293a9c6c95b5a8f688724d20de0288d537d07bd53dda1b0ba.png" />
 </div>
 </div>
 </section>
@@ -1516,7 +1499,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/34c47e2d5b16f8953be0ba77d334c7ef03368c1e5eec684716eddf219c38487f.png"><img alt="../../../_images/34c47e2d5b16f8953be0ba77d334c7ef03368c1e5eec684716eddf219c38487f.png" src="../../../_images/34c47e2d5b16f8953be0ba77d334c7ef03368c1e5eec684716eddf219c38487f.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/6de8d53d7af11772447af96010894d07e7cb2daca77d0b9abf53d939ba6bf818.png" src="../../../_images/6de8d53d7af11772447af96010894d07e7cb2daca77d0b9abf53d939ba6bf818.png" />
 </div>
 </div>
 </section>
@@ -1564,7 +1547,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/a438d9684bb467fdccc4cd33731e4dac5b1196941ba09f5ab89c730e4a45e638.png"><img alt="../../../_images/a438d9684bb467fdccc4cd33731e4dac5b1196941ba09f5ab89c730e4a45e638.png" src="../../../_images/a438d9684bb467fdccc4cd33731e4dac5b1196941ba09f5ab89c730e4a45e638.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/44bec84ef74884c59f3c223efd753af00b5e72160396eaffaf229210701f48b3.png" src="../../../_images/44bec84ef74884c59f3c223efd753af00b5e72160396eaffaf229210701f48b3.png" />
 </div>
 </div>
 </section>
@@ -1612,7 +1595,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/01f0876e3ba084a2866926b982048ff7411c1d30a919ffffe5eab61b03cc2d6a.png"><img alt="../../../_images/01f0876e3ba084a2866926b982048ff7411c1d30a919ffffe5eab61b03cc2d6a.png" src="../../../_images/01f0876e3ba084a2866926b982048ff7411c1d30a919ffffe5eab61b03cc2d6a.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/3f1c11162c701b85a9695a67f3601d32285a4105a2393f5061a6d59cd618f1ec.png" src="../../../_images/3f1c11162c701b85a9695a67f3601d32285a4105a2393f5061a6d59cd618f1ec.png" />
 </div>
 </div>
 </section>
@@ -1660,7 +1643,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/8cbf8625f5d3eb36284d3d295054551f4338dc7401ea7c051b577a31f86082d0.png"><img alt="../../../_images/8cbf8625f5d3eb36284d3d295054551f4338dc7401ea7c051b577a31f86082d0.png" src="../../../_images/8cbf8625f5d3eb36284d3d295054551f4338dc7401ea7c051b577a31f86082d0.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/c4691e1e71e0fef4e2ed2353a8038775f753c3017f3137286542cae23195d3a3.png" src="../../../_images/c4691e1e71e0fef4e2ed2353a8038775f753c3017f3137286542cae23195d3a3.png" />
 </div>
 </div>
 </section>
@@ -1708,7 +1691,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/ecbed7bdaefbf3b4276d86c5579a773e78da5005fd89c4ee2ce6eae0e446bf49.png"><img alt="../../../_images/ecbed7bdaefbf3b4276d86c5579a773e78da5005fd89c4ee2ce6eae0e446bf49.png" src="../../../_images/ecbed7bdaefbf3b4276d86c5579a773e78da5005fd89c4ee2ce6eae0e446bf49.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/27328edb56ab8b044c7a1e35a11a538a3dba5aa11c8a5284a84aae263c01ef72.png" src="../../../_images/27328edb56ab8b044c7a1e35a11a538a3dba5aa11c8a5284a84aae263c01ef72.png" />
 </div>
 </div>
 </section>
@@ -1762,7 +1745,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/8ed561874cb4d20e1f0cc69351022f1216f6ab780236fb6c76555e7ca94a1f3c.png"><img alt="../../../_images/8ed561874cb4d20e1f0cc69351022f1216f6ab780236fb6c76555e7ca94a1f3c.png" src="../../../_images/8ed561874cb4d20e1f0cc69351022f1216f6ab780236fb6c76555e7ca94a1f3c.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/8a9586497f1101023cdbe076c2abf661fd0dcf506ce5fa0d6463d5511cbdf8f0.png" src="../../../_images/8a9586497f1101023cdbe076c2abf661fd0dcf506ce5fa0d6463d5511cbdf8f0.png" />
 </div>
 </div>
 </section>
@@ -1825,7 +1808,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/2133511861d40bfe1408eae36ed738f3a4d18459adf5790353d92f5c2acd2fad.png"><img alt="../../../_images/2133511861d40bfe1408eae36ed738f3a4d18459adf5790353d92f5c2acd2fad.png" src="../../../_images/2133511861d40bfe1408eae36ed738f3a4d18459adf5790353d92f5c2acd2fad.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/346a1c10a365bcb46131d75078e6c0b54eb0fa89408226fb7666bd1425c4ffbc.png" src="../../../_images/346a1c10a365bcb46131d75078e6c0b54eb0fa89408226fb7666bd1425c4ffbc.png" />
 </div>
 </div>
 </section>
@@ -1884,7 +1867,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/ab8ef2e70e526bdc1febf96aa496a1ce2b3b596b0196bf87b7880c1cff30b512.png"><img alt="../../../_images/ab8ef2e70e526bdc1febf96aa496a1ce2b3b596b0196bf87b7880c1cff30b512.png" src="../../../_images/ab8ef2e70e526bdc1febf96aa496a1ce2b3b596b0196bf87b7880c1cff30b512.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/ee7bf0cb94008e48c550fcdd1327a52cd9fb791545347f62148cdb5eccc4a0dc.png" src="../../../_images/ee7bf0cb94008e48c550fcdd1327a52cd9fb791545347f62148cdb5eccc4a0dc.png" />
 </div>
 </div>
 </section>
@@ -1939,7 +1922,7 @@ r\le-1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/379b87ae0d21df7e3c1ab55c16bc5a092ef4ce2a7596ad789b8f4ab735c5c70a.png"><img alt="../../../_images/379b87ae0d21df7e3c1ab55c16bc5a092ef4ce2a7596ad789b8f4ab735c5c70a.png" src="../../../_images/379b87ae0d21df7e3c1ab55c16bc5a092ef4ce2a7596ad789b8f4ab735c5c70a.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/98c4b18e0046b1ce2d0a10a37479dbd6092aa9909a202364d9b877c56d74875b.png" src="../../../_images/98c4b18e0046b1ce2d0a10a37479dbd6092aa9909a202364d9b877c56d74875b.png" />
 </div>
 </div>
 </section>
@@ -2086,7 +2069,7 @@ f_n=f_{n-1}+f_{n-2}
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/2213fd265198ecc30b0679958fc6c39d03bd94e0394cf41d263072c93c53d32d.png"><img alt="../../../_images/2213fd265198ecc30b0679958fc6c39d03bd94e0394cf41d263072c93c53d32d.png" src="../../../_images/2213fd265198ecc30b0679958fc6c39d03bd94e0394cf41d263072c93c53d32d.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/2213fd265198ecc30b0679958fc6c39d03bd94e0394cf41d263072c93c53d32d.png" src="../../../_images/2213fd265198ecc30b0679958fc6c39d03bd94e0394cf41d263072c93c53d32d.png" />
 </div>
 </div>
 </section>
@@ -2216,7 +2199,7 @@ L=6
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/e44be90252d4392e33bacd74920cb780603561f95f67d873cae96a028df87a07.png"><img alt="../../../_images/e44be90252d4392e33bacd74920cb780603561f95f67d873cae96a028df87a07.png" src="../../../_images/e44be90252d4392e33bacd74920cb780603561f95f67d873cae96a028df87a07.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/e44be90252d4392e33bacd74920cb780603561f95f67d873cae96a028df87a07.png" src="../../../_images/e44be90252d4392e33bacd74920cb780603561f95f67d873cae96a028df87a07.png" />
 </div>
 </div>
 </section>
@@ -2281,7 +2264,7 @@ L=6
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/dd97ac6ddb1ec62a2e755e40d16a436dca893b3ae32a7d51e740e962c9838b39.png"><img alt="../../../_images/dd97ac6ddb1ec62a2e755e40d16a436dca893b3ae32a7d51e740e962c9838b39.png" src="../../../_images/dd97ac6ddb1ec62a2e755e40d16a436dca893b3ae32a7d51e740e962c9838b39.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/dd97ac6ddb1ec62a2e755e40d16a436dca893b3ae32a7d51e740e962c9838b39.png" src="../../../_images/dd97ac6ddb1ec62a2e755e40d16a436dca893b3ae32a7d51e740e962c9838b39.png" />
 </div>
 </div>
 </section>
@@ -2366,7 +2349,7 @@ x^2\gt1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/ac81676978844ce7d073010ea178169091988be7f95ea23a99a24d0eedb2bbfd.png"><img alt="../../../_images/ac81676978844ce7d073010ea178169091988be7f95ea23a99a24d0eedb2bbfd.png" src="../../../_images/ac81676978844ce7d073010ea178169091988be7f95ea23a99a24d0eedb2bbfd.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/ac81676978844ce7d073010ea178169091988be7f95ea23a99a24d0eedb2bbfd.png" src="../../../_images/ac81676978844ce7d073010ea178169091988be7f95ea23a99a24d0eedb2bbfd.png" />
 </div>
 </div>
 </section>
@@ -2756,7 +2739,8 @@ e^x
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2880,8 +2864,8 @@ By DF
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

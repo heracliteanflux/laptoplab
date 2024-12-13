@@ -1,4 +1,17 @@
 Traceback (most recent call last):
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 782, in _async_poll_for_reply
+    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
+    result = await obj
+             ^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_client/channels.py", line 313, in get_msg
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
   File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
   File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
@@ -12,101 +25,20 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^
   File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-# %load imports.py
-import numpy                    as np
-import numpy.random             as npr
-import pandas                   as pd
-
-import matplotlib               as mpl
-mpl.rcParams['lines.color'] = 'k'
-mpl.rcParams['axes.prop_cycle'] = mpl.cycler('color',['k'])
-from   matplotlib import cm
-from   matplotlib.patches import Ellipse
-import matplotlib.pyplot        as plt
-plt.style.use('ggplot');
-from   matplotlib.ticker import LinearLocator
-
-import plotly
-import plotly.express           as px
-import plotly.graph_objects     as go
-
-import sympy as sy
-from   sympy.geometry import Point, Line
-from   sympy import (diff,
-                     dsolve,
-                     Eq,
-                     expand,
-                     factor,
-                     Function,
-                     init_printing,
-                     Integer,
-                     Integral,
-                     integrate,
-                     latex,
-                     limit,
-                     Matrix,
-                     Poly,
-                     Rational,
-                     solve,
-                     Symbol,
-                     symbols)
-
-S =Symbol
-ss=symbols
-x,y,z,t,u,v=ss(names='x y z t u v')
-init_printing(use_unicode=True)
-
-import math
-import numexpr
-
-from   datetime import datetime as d
-import locale                   as l
-import platform                 as p
-import sys                      as s
-
-pad = 20
-print(f"{'Executed'.upper():<{pad}}: {d.now()}")
-print()
-print(f"{'Platform'        :<{pad}}: "
-      f"{p.mac_ver()[0]} | "
-      f"{p.system()} | "
-      f"{p.release()} | "
-      f"{p.machine()}")
-print(f"{''                :<{pad}}: {l.getpreferredencoding()}")
-print()
-print(f"{'Python'          :<{pad}}: {s.version}")
-print(f"{''                :<{pad}}: {s.version_info}")
-print(f"{''                :<{pad}}: {p.python_implementation()}")
-print()
-print(f"{'Matplotlib'      :<{pad}}: {mpl.__version__}")
-print(f"{'Numexpr'         :<{pad}}: {numexpr.__version__}")
-print(f"{'NumPy'           :<{pad}}: {np.__version__}")
-print(f"{'Pandas'          :<{pad}}: {pd.__version__}")
-print(f"{'Plotly'          :<{pad}}: {plotly.__version__}")
-print(f"{'SymPy'           :<{pad}}: {sy.__version__}")
-# print()
-# from pprint import PrettyPrinter
-# pp = PrettyPrinter(indent=2)
-# pp.pprint([name for name in dir()
-#            if name[0] != '_'
-#            and name not in ['In', 'Out', 'exit', 'get_ipython', 'quit']])
-------------------
-
-
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 46[0m
-[1;32m     43[0m init_printing(use_unicode[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
-[1;32m     45[0m [38;5;28;01mimport[39;00m [38;5;21;01mmath[39;00m
-[0;32m---> 46[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumexpr[39;00m
-[1;32m     48[0m [38;5;28;01mfrom[39;00m   [38;5;21;01mdatetime[39;00m [38;5;28;01mimport[39;00m datetime [38;5;28;01mas[39;00m d
-[1;32m     49[0m [38;5;28;01mimport[39;00m [38;5;21;01mlocale[39;00m                   [38;5;28;01mas[39;00m [38;5;21;01ml[39;00m
-
-[0;31mModuleNotFoundError[0m: No module named 'numexpr'
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 1005, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
+    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/df/anaconda3/envs/ml/lib/python3.11/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+['# %load imports.py', 'import numpy                    as np', 'import numpy.random             as npr', 'import pandas                   as pd', '']
+...
+['# from pprint import PrettyPrinter', '# pp = PrettyPrinter(indent=2)', '# pp.pprint([name for name in dir()', "#            if name[0] != '_'", "#            and name not in ['In', 'Out', 'exit', 'get_ipython', 'quit']])"]
+-------------------
 

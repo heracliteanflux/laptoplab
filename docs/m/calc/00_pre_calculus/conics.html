@@ -16,38 +16,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=0d97562f" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -81,6 +84,7 @@
     <link rel="prev" title="Euclidean Trigonometry" href="trig.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -96,19 +100,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
       method="get">
@@ -116,7 +109,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -124,8 +116,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -141,7 +133,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,6 +149,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../../index.html">
   
@@ -169,15 +164,11 @@
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
@@ -269,6 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../number/5_primitiveroot.html">Primitive Roots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../number/6_quadratic_residues.html">Quadratic Residues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../number/EXERCISES.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/PYTHON.html">Implementations</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../number/book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/00_introduction.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
@@ -281,7 +273,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/1.5.html">1.5</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../../number/implementation.html">Implementation</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../set/index.html">Set Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -682,9 +673,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -712,27 +703,19 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -924,15 +907,109 @@ document.write(`
 </details>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">46</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">init_printing</span><span class="p">(</span><span class="n">use_unicode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">import</span> <span class="nn">math</span>
-<span class="ne">---&gt; </span><span class="mi">46</span> <span class="kn">import</span> <span class="nn">numexpr</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span>   <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span> <span class="k">as</span> <span class="n">d</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="kn">import</span> <span class="nn">locale</span>                   <span class="k">as</span> <span class="nn">l</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span>   <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span>   <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Ellipse</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span>        <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">);</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span>   <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">LinearLocator</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numexpr&#39;
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">ml</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">pyplot</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">55</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="kn">from</span> <span class="nn">cycler</span> <span class="kn">import</span> <span class="n">cycler</span>  <span class="c1"># noqa: F401</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="ne">---&gt; </span><span class="mi">55</span> <span class="kn">import</span> <span class="nn">matplotlib.colorbar</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="kn">import</span> <span class="nn">matplotlib.image</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">ml</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">colorbar</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">collections</span><span class="p">,</span> <span class="n">cm</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">contour</span><span class="p">,</span> <span class="n">ticker</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">import</span> <span class="nn">matplotlib.artist</span> <span class="k">as</span> <span class="nn">martist</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">ml</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">contour</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">15</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_docstring</span>
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">matplotlib.backend_bases</span> <span class="kn">import</span> <span class="n">MouseButton</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">matplotlib.path</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">ml</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">backend_bases</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">49</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="ne">---&gt; </span><span class="mi">49</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">_api</span><span class="p">,</span> <span class="n">backend_tools</span> <span class="k">as</span> <span class="n">tools</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">_docstring</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="n">_tight_bbox</span><span class="p">,</span> <span class="n">transforms</span><span class="p">,</span> <span class="n">widgets</span><span class="p">,</span> <span class="n">is_interactive</span><span class="p">,</span> <span class="n">rcParams</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="kn">from</span> <span class="nn">matplotlib._pylab_helpers</span> <span class="kn">import</span> <span class="n">Gcf</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="kn">from</span> <span class="nn">matplotlib.backend_managers</span> <span class="kn">import</span> <span class="n">ToolManager</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">ml</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">text</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">16</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">artist</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">_docstring</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">.artist</span> <span class="kn">import</span> <span class="n">Artist</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">.font_manager</span> <span class="kn">import</span> <span class="n">FontProperties</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">.patches</span> <span class="kn">import</span> <span class="n">FancyArrowPatch</span><span class="p">,</span> <span class="n">FancyBboxPatch</span><span class="p">,</span> <span class="n">Rectangle</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">.textpath</span> <span class="kn">import</span> <span class="n">TextPath</span><span class="p">,</span> <span class="n">TextToPath</span>  <span class="c1"># noqa # Logically located here</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">ml</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">font_manager</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1588</span>
+<span class="g g-Whitespace">   </span><span class="mi">1584</span>     <span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;generated new fontManager&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1585</span>     <span class="k">return</span> <span class="n">fm</span>
+<span class="ne">-&gt; </span><span class="mi">1588</span> <span class="n">fontManager</span> <span class="o">=</span> <span class="n">_load_fontmanager</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1589</span> <span class="n">findfont</span> <span class="o">=</span> <span class="n">fontManager</span><span class="o">.</span><span class="n">findfont</span>
+<span class="g g-Whitespace">   </span><span class="mi">1590</span> <span class="n">get_font_names</span> <span class="o">=</span> <span class="n">fontManager</span><span class="o">.</span><span class="n">get_font_names</span>
+
+<span class="nn">File ~/anaconda3/envs/ml/lib/python3.11/site-packages/matplotlib/font_manager.py:1582,</span> in <span class="ni">_load_fontmanager</span><span class="nt">(try_read_cache)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1580</span>             <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Using fontManager instance from </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fm_path</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1581</span>             <span class="k">return</span> <span class="n">fm</span>
+<span class="ne">-&gt; </span><span class="mi">1582</span> <span class="n">fm</span> <span class="o">=</span> <span class="n">FontManager</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1583</span> <span class="n">json_dump</span><span class="p">(</span><span class="n">fm</span><span class="p">,</span> <span class="n">fm_path</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1584</span> <span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;generated new fontManager&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/ml/lib/python3.11/site-packages/matplotlib/font_manager.py:1046,</span> in <span class="ni">FontManager.__init__</span><span class="nt">(self, size, weight)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1043</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span>     <span class="k">for</span> <span class="n">fontext</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;afm&quot;</span><span class="p">,</span> <span class="s2">&quot;ttf&quot;</span><span class="p">]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1045</span>         <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="p">[</span><span class="o">*</span><span class="n">findSystemFonts</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">fontext</span><span class="o">=</span><span class="n">fontext</span><span class="p">),</span>
+<span class="ne">-&gt; </span><span class="mi">1046</span>                      <span class="o">*</span><span class="n">findSystemFonts</span><span class="p">(</span><span class="n">fontext</span><span class="o">=</span><span class="n">fontext</span><span class="p">)]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1047</span>             <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1048</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">addfont</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/ml/lib/python3.11/site-packages/matplotlib/font_manager.py:295,</span> in <span class="ni">findSystemFonts</span><span class="nt">(fontpaths, fontext)</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span> <span class="n">installed_fonts</span> <span class="o">=</span> <span class="n">_get_fontconfig_fonts</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">294</span> <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">295</span>     <span class="n">installed_fonts</span> <span class="o">+=</span> <span class="n">_get_macos_fonts</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>     <span class="n">fontpaths</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">X11FontDirectories</span><span class="p">,</span> <span class="o">*</span><span class="n">OSXFontDirectories</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/envs/ml/lib/python3.11/site-packages/matplotlib/font_manager.py:271,</span> in <span class="ni">_get_macos_fonts</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Cache and list the font paths known to ``system_profiler SPFontsDataType``.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span>     <span class="n">d</span><span class="p">,</span> <span class="o">=</span> <span class="n">plistlib</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">271</span>         <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s2">&quot;system_profiler&quot;</span><span class="p">,</span> <span class="s2">&quot;-xml&quot;</span><span class="p">,</span> <span class="s2">&quot;SPFontsDataType&quot;</span><span class="p">]))</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span> <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">,</span> <span class="n">plistlib</span><span class="o">.</span><span class="n">InvalidFileException</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>     <span class="k">return</span> <span class="p">[]</span>
+
+<span class="nn">File ~/anaconda3/envs/ml/lib/python3.11/subprocess.py:466,</span> in <span class="ni">check_output</span><span class="nt">(timeout, *popenargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span>         <span class="n">empty</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">empty</span>
+<span class="ne">--&gt; </span><span class="mi">466</span> <span class="k">return</span> <span class="n">run</span><span class="p">(</span><span class="o">*</span><span class="n">popenargs</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">467</span>            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+
+<span class="nn">File ~/anaconda3/envs/ml/lib/python3.11/subprocess.py:550,</span> in <span class="ni">run</span><span class="nt">(input, capture_output, timeout, check, *popenargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">548</span> <span class="k">with</span> <span class="n">Popen</span><span class="p">(</span><span class="o">*</span><span class="n">popenargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">process</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">550</span>         <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="k">except</span> <span class="n">TimeoutExpired</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">552</span>         <span class="n">process</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+
+<span class="nn">File ~/anaconda3/envs/ml/lib/python3.11/subprocess.py:1196,</span> in <span class="ni">Popen.communicate</span><span class="nt">(self, input, timeout)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1194</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_stdin_write</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1195</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1196</span>     <span class="n">stdout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1197</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1198</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1138,7 +1215,7 @@ x=0&amp;\implies y=-6\\
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/be603e0fb5833dfe5bb58b0ff3a11dc20700bc331f38fe21fd63869a45d8dbb9.png"><img alt="../../../_images/be603e0fb5833dfe5bb58b0ff3a11dc20700bc331f38fe21fd63869a45d8dbb9.png" src="../../../_images/be603e0fb5833dfe5bb58b0ff3a11dc20700bc331f38fe21fd63869a45d8dbb9.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/be603e0fb5833dfe5bb58b0ff3a11dc20700bc331f38fe21fd63869a45d8dbb9.png" src="../../../_images/be603e0fb5833dfe5bb58b0ff3a11dc20700bc331f38fe21fd63869a45d8dbb9.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1202,7 +1279,7 @@ y=\frac{-b\pm\sqrt{b^2-4ac}}{a^2}
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/79e1d6d2561a693eb88ebf06b2f6635d782832c52e84c9750cc4d33e028c3ef4.png"><img alt="../../../_images/79e1d6d2561a693eb88ebf06b2f6635d782832c52e84c9750cc4d33e028c3ef4.png" src="../../../_images/79e1d6d2561a693eb88ebf06b2f6635d782832c52e84c9750cc4d33e028c3ef4.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/79e1d6d2561a693eb88ebf06b2f6635d782832c52e84c9750cc4d33e028c3ef4.png" src="../../../_images/79e1d6d2561a693eb88ebf06b2f6635d782832c52e84c9750cc4d33e028c3ef4.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1242,7 +1319,7 @@ where <span class="math notranslate nohighlight">\(a\gt0\)</span></p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/0278c480f76afab1627606189c56b843f7899b51260a0299aec5bba9bb1c650a.png"><img alt="../../../_images/0278c480f76afab1627606189c56b843f7899b51260a0299aec5bba9bb1c650a.png" src="../../../_images/0278c480f76afab1627606189c56b843f7899b51260a0299aec5bba9bb1c650a.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/0278c480f76afab1627606189c56b843f7899b51260a0299aec5bba9bb1c650a.png" src="../../../_images/0278c480f76afab1627606189c56b843f7899b51260a0299aec5bba9bb1c650a.png" />
 </div>
 </div>
 </section>
@@ -1282,7 +1359,7 @@ where <span class="math notranslate nohighlight">\(B^2-4AC=0\)</span></p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/a2df70185b8b0baf6d815a0f0e66ca945c7c077966579569bae0e18b5905314d.png"><img alt="../../../_images/a2df70185b8b0baf6d815a0f0e66ca945c7c077966579569bae0e18b5905314d.png" src="../../../_images/a2df70185b8b0baf6d815a0f0e66ca945c7c077966579569bae0e18b5905314d.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/a2df70185b8b0baf6d815a0f0e66ca945c7c077966579569bae0e18b5905314d.png" src="../../../_images/a2df70185b8b0baf6d815a0f0e66ca945c7c077966579569bae0e18b5905314d.png" />
 </div>
 </div>
 </section>
@@ -1453,7 +1530,7 @@ x=\pm1\\
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/7556687c216f1ce778b24583208db4ef39b110fbc8e0a0d7217119a7db8e48c6.png"><img alt="../../../_images/7556687c216f1ce778b24583208db4ef39b110fbc8e0a0d7217119a7db8e48c6.png" src="../../../_images/7556687c216f1ce778b24583208db4ef39b110fbc8e0a0d7217119a7db8e48c6.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/7556687c216f1ce778b24583208db4ef39b110fbc8e0a0d7217119a7db8e48c6.png" src="../../../_images/7556687c216f1ce778b24583208db4ef39b110fbc8e0a0d7217119a7db8e48c6.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1503,7 +1580,7 @@ x=\pm1\\
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/7512cdb83fb9a4d2dfb772c3048c50fda8f6e25a7c8adadc4d7c25cc29ce10cd.png"><img alt="../../../_images/7512cdb83fb9a4d2dfb772c3048c50fda8f6e25a7c8adadc4d7c25cc29ce10cd.png" src="../../../_images/7512cdb83fb9a4d2dfb772c3048c50fda8f6e25a7c8adadc4d7c25cc29ce10cd.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/7512cdb83fb9a4d2dfb772c3048c50fda8f6e25a7c8adadc4d7c25cc29ce10cd.png" src="../../../_images/7512cdb83fb9a4d2dfb772c3048c50fda8f6e25a7c8adadc4d7c25cc29ce10cd.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1523,7 +1600,7 @@ x=\pm1\\
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/621b07127bea562aaffbef552ad3b4b11364e98f7c2dfafa232aa247ee0598cb.png"><img alt="../../../_images/621b07127bea562aaffbef552ad3b4b11364e98f7c2dfafa232aa247ee0598cb.png" src="../../../_images/621b07127bea562aaffbef552ad3b4b11364e98f7c2dfafa232aa247ee0598cb.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/621b07127bea562aaffbef552ad3b4b11364e98f7c2dfafa232aa247ee0598cb.png" src="../../../_images/621b07127bea562aaffbef552ad3b4b11364e98f7c2dfafa232aa247ee0598cb.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1543,7 +1620,7 @@ x=\pm1\\
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/2c2f3c6be706d476a88ddecb80a8d114db5cc5faa53fe2ababf02035d032ac29.png"><img alt="../../../_images/2c2f3c6be706d476a88ddecb80a8d114db5cc5faa53fe2ababf02035d032ac29.png" src="../../../_images/2c2f3c6be706d476a88ddecb80a8d114db5cc5faa53fe2ababf02035d032ac29.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/2c2f3c6be706d476a88ddecb80a8d114db5cc5faa53fe2ababf02035d032ac29.png" src="../../../_images/2c2f3c6be706d476a88ddecb80a8d114db5cc5faa53fe2ababf02035d032ac29.png" />
 </div>
 </div>
 </section>
@@ -1579,7 +1656,7 @@ where <span class="math notranslate nohighlight">\(B^2-4AC\lt0\)</span></p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/9c98b220cc6003663d25dd1e736f80ebc179426c8d5b97664f8cbe73a0e51d81.png"><img alt="../../../_images/9c98b220cc6003663d25dd1e736f80ebc179426c8d5b97664f8cbe73a0e51d81.png" src="../../../_images/9c98b220cc6003663d25dd1e736f80ebc179426c8d5b97664f8cbe73a0e51d81.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/9c98b220cc6003663d25dd1e736f80ebc179426c8d5b97664f8cbe73a0e51d81.png" src="../../../_images/9c98b220cc6003663d25dd1e736f80ebc179426c8d5b97664f8cbe73a0e51d81.png" />
 </div>
 </div>
 </section>
@@ -1700,7 +1777,7 @@ x^2-y^2=1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/cc14ac8b4315f36b0be4e4333c2184418c73139f7dbd1a14b70d8659778dcb17.png"><img alt="../../../_images/cc14ac8b4315f36b0be4e4333c2184418c73139f7dbd1a14b70d8659778dcb17.png" src="../../../_images/cc14ac8b4315f36b0be4e4333c2184418c73139f7dbd1a14b70d8659778dcb17.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/cc14ac8b4315f36b0be4e4333c2184418c73139f7dbd1a14b70d8659778dcb17.png" src="../../../_images/cc14ac8b4315f36b0be4e4333c2184418c73139f7dbd1a14b70d8659778dcb17.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1738,7 +1815,7 @@ y^2-x^2=1
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/6897fa043ec6e99f7d075b34439c9bdde6d5d1194f0db164c6257cbff873d322.png"><img alt="../../../_images/6897fa043ec6e99f7d075b34439c9bdde6d5d1194f0db164c6257cbff873d322.png" src="../../../_images/6897fa043ec6e99f7d075b34439c9bdde6d5d1194f0db164c6257cbff873d322.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/6897fa043ec6e99f7d075b34439c9bdde6d5d1194f0db164c6257cbff873d322.png" src="../../../_images/6897fa043ec6e99f7d075b34439c9bdde6d5d1194f0db164c6257cbff873d322.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1826,7 +1903,7 @@ y&amp;=\frac{1}{2}x\\
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/0a9f4e8a3fefa3fcc1937ab7f287e383216dc5e616f60cd51ae5a753f836aa77.png"><img alt="../../../_images/0a9f4e8a3fefa3fcc1937ab7f287e383216dc5e616f60cd51ae5a753f836aa77.png" src="../../../_images/0a9f4e8a3fefa3fcc1937ab7f287e383216dc5e616f60cd51ae5a753f836aa77.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/0a9f4e8a3fefa3fcc1937ab7f287e383216dc5e616f60cd51ae5a753f836aa77.png" src="../../../_images/0a9f4e8a3fefa3fcc1937ab7f287e383216dc5e616f60cd51ae5a753f836aa77.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1894,7 +1971,7 @@ y&amp;=4\\
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/94a2d3895250e4b7de575866cbd3820138adb17ec3826426baac45a3953a301b.png"><img alt="../../../_images/94a2d3895250e4b7de575866cbd3820138adb17ec3826426baac45a3953a301b.png" src="../../../_images/94a2d3895250e4b7de575866cbd3820138adb17ec3826426baac45a3953a301b.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/94a2d3895250e4b7de575866cbd3820138adb17ec3826426baac45a3953a301b.png" src="../../../_images/94a2d3895250e4b7de575866cbd3820138adb17ec3826426baac45a3953a301b.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1929,7 +2006,7 @@ where <span class="math notranslate nohighlight">\(B^2-4AC\gt0\)</span></p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../../../_images/136d8810838c1811d19f970892c56d6627778c801ce73373af1685548d8b2f87.png"><img alt="../../../_images/136d8810838c1811d19f970892c56d6627778c801ce73373af1685548d8b2f87.png" src="../../../_images/136d8810838c1811d19f970892c56d6627778c801ce73373af1685548d8b2f87.png" style="width: 600px; height: 600px;" /></a>
+<img alt="../../../_images/136d8810838c1811d19f970892c56d6627778c801ce73373af1685548d8b2f87.png" src="../../../_images/136d8810838c1811d19f970892c56d6627778c801ce73373af1685548d8b2f87.png" />
 </div>
 </div>
 </section>
@@ -2007,7 +2084,8 @@ where <span class="math notranslate nohighlight">\(B^2-4AC\gt0\)</span></p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2081,8 +2159,8 @@ By DF
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
