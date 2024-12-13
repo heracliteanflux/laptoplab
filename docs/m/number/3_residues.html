@@ -738,7 +738,6 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Residues</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factoring-a-scalar-out-of-a-congruence">Factoring a scalar out of a congruence</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a></li>
 </ul>
 </li>
@@ -780,24 +779,23 @@
 <li><p><a class="reference internal" href="#contents" id="id4">Contents</a></p></li>
 <li><p><a class="reference internal" href="#id2" id="id5">Residues</a></p>
 <ul>
-<li><p><a class="reference internal" href="#factoring-a-scalar-out-of-a-congruence" id="id6">Factoring a scalar out of a congruence</a></p></li>
-<li><p><a class="reference internal" href="#reduced-residues" id="id7">Reduced Residues</a></p></li>
+<li><p><a class="reference internal" href="#reduced-residues" id="id6">Reduced Residues</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#euler-s-totient-function" id="id8">Euler’s Totient Function</a></p>
+<li><p><a class="reference internal" href="#euler-s-totient-function" id="id7">Euler’s Totient Function</a></p>
 <ul>
-<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id9">Fermat pseudoprimes</a></p></li>
-<li><p><a class="reference internal" href="#carmichael-numbers" id="id10">Carmichael Numbers</a></p></li>
-<li><p><a class="reference internal" href="#mersenne-primes" id="id11">Mersenne Primes</a></p></li>
+<li><p><a class="reference internal" href="#fermat-pseudoprimes" id="id8">Fermat pseudoprimes</a></p></li>
+<li><p><a class="reference internal" href="#carmichael-numbers" id="id9">Carmichael Numbers</a></p></li>
+<li><p><a class="reference internal" href="#mersenne-primes" id="id10">Mersenne Primes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#linear-congruence" id="id12">Linear Congruence</a></p>
+<li><p><a class="reference internal" href="#linear-congruence" id="id11">Linear Congruence</a></p>
 <ul>
-<li><p><a class="reference internal" href="#chinese-remainder-theorem" id="id13">Chinese Remainder Theorem</a></p></li>
+<li><p><a class="reference internal" href="#chinese-remainder-theorem" id="id12">Chinese Remainder Theorem</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#polynomial-congruence" id="id14">Polynomial Congruence</a></p></li>
-<li><p><a class="reference internal" href="#acknowledgements" id="id15">Acknowledgements</a></p></li>
+<li><p><a class="reference internal" href="#polynomial-congruence" id="id13">Polynomial Congruence</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id14">Acknowledgements</a></p></li>
 </ul>
 </li>
 </ul>
@@ -851,45 +849,8 @@ r + mx + s + my = t + m(x + y + z) \in \bar{t}
 <p>Thus it makes sense to write <span class="math notranslate nohighlight">\(\bar{r} + \bar{s} = \bar{t}\)</span> and then we have <span class="math notranslate nohighlight">\(\bar{r} + \bar{s} = \bar{s} + \bar{r}\)</span>.</p>
 <p>It is also the case that <span class="math notranslate nohighlight">\(\overline{r} + \overline{-r} = \overline{0}\)</span></p>
 <hr class="docutils" />
-<section id="factoring-a-scalar-out-of-a-congruence">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Factoring a scalar out of a congruence</a><a class="headerlink" href="#factoring-a-scalar-out-of-a-congruence" title="Link to this heading">#</a></h3>
-<p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
-<div style="color: #0096FF;">
-<p><span class="math notranslate nohighlight">\(kx \equiv ka \mod n \iff x \equiv a \mod n/d\)</span> where <span class="math notranslate nohighlight">\(d = \gcd(n, k)\)</span></p>
-</div>
-<p>The modulus changes when dividing a congruence if you are dividing both sides of the congruence by a number that is not relatively prime to the modulus. In other words, if the number you’re dividing by shares a common factor with the modulus, you must also divide the modulus by that same common factor to maintain the congruence relation.</p>
-<p><span style="color: #0096FF;"><b>PROOF</b></span></p>
-<p><span class="math notranslate nohighlight">\(kx \equiv ka \mod n \iff n \mid k(x - a) \iff n/d \mid (k/d)(x - a)\)</span> where <span class="math notranslate nohighlight">\(d = \gcd(n, k)\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-\frac{n}{\gcd(n, k)} \Biggm\vert\left( \frac{k}{\gcd(n, k)}(x - a) \right)
-\end  {aligned}
-\)</span></p>
-<p>By Euclid’s Lemma we know that</p>
-<p><span class="math notranslate nohighlight">\(n/d \mid (k/d)(x - a) \implies\)</span> either <span class="math notranslate nohighlight">\(n/d \mid k/d\)</span> or <span class="math notranslate nohighlight">\(n/d \mid (x - a)\)</span></p>
-<p>And we know that</p>
-<p><span class="math notranslate nohighlight">\(
-\gcd(n/d, k/d) =
-\begin{aligned}
-\gcd\left( \frac{n}{\gcd(n, k)}, \frac{k}{\gcd(n, k)} \right) = 1
-\end  {aligned}
-\)</span></p>
-<p>Thus it must be the case that</p>
-<p><span class="math notranslate nohighlight">\(n/d \mid (x - a) \iff x \equiv a \mod n/d\)</span></p>
-<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-<p><a class="reference external" href="https://crypto.stanford.edu/pbc/notes/numbertheory/arith.html">https://crypto.stanford.edu/pbc/notes/numbertheory/arith.html</a></p>
-<div style="color: #50C878;"><b>EXAMPLE</b></div>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-65y   &amp; \equiv &amp;  5   &amp; \mod 10 \\
-5.13y &amp; \equiv &amp;  5.1 &amp; \mod 10/\gcd(5, 10) \\
-  13y &amp; \equiv &amp;    1 &amp; \mod 2 \\
-\end  {aligned}
-\)</span></p>
-</section>
-<hr class="docutils" />
 <section id="reduced-residues">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Reduced Residues</a><a class="headerlink" href="#reduced-residues" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Reduced Residues</a><a class="headerlink" href="#reduced-residues" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>THEOREM</b></span> [Vaughan Theorem 3.]</p>
 <div style="color: #0096FF;">
 <p>Suppose that <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span>, <span class="math notranslate nohighlight">\(\gcd(k, m) = 1\)</span>, and</p>
@@ -949,7 +910,7 @@ r + mx + s + my = t + m(x + y + z) \in \bar{t}
 </section>
 <hr class="docutils" />
 <section id="euler-s-totient-function">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">Euler’s Totient Function</a><a class="headerlink" href="#euler-s-totient-function" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Euler’s Totient Function</a><a class="headerlink" href="#euler-s-totient-function" title="Link to this heading">#</a></h2>
 <p><span style="color: #0096FF;"><b>TOTIENT FUNCTION</b></span></p>
 <div style="color: #0096FF;">
 <p>Euler’s totient function <span class="math notranslate nohighlight">\(\phi(n)\)</span> is the number of <span class="math notranslate nohighlight">\(x \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(1 \le x \le n\)</span> and <span class="math notranslate nohighlight">\(\gcd(x, n) = 1\)</span>.</p>
@@ -1314,7 +1275,7 @@ p &amp;= 17, a = 3 &amp;&amp; 3^{17} \equiv 3 \mod 17 \\
 \)</span></p>
 <hr class="docutils" />
 <section id="fermat-pseudoprimes">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Fermat pseudoprimes</a><a class="headerlink" href="#fermat-pseudoprimes" title="Link to this heading">#</a></h3>
 <p>Pseudoprimes are composite integers masquerading as primes.</p>
 <p>Could Fermat’s theorem give us a primality test? Unfortunately, it is possible that</p>
 <p><span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span></p>
@@ -1341,7 +1302,7 @@ n &amp;= 341561645 &amp;&amp;= 5 \times 67 \times 773 \times 1319 &amp; 2^{n - 1
 </section>
 <hr class="docutils" />
 <section id="carmichael-numbers">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Carmichael Numbers</a><a class="headerlink" href="#carmichael-numbers" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>CARMICHAEL NUMBER</b></span> [Vaughan Definition 3.19]</p>
 <div style="color: #0096FF;">
 <p>A composite <span class="math notranslate nohighlight">\(n\)</span> which satisfies <span class="math notranslate nohighlight">\(a^{n - 1} \equiv 1 \mod n\)</span> for all <span class="math notranslate nohighlight">\(a\)</span> with <span class="math notranslate nohighlight">\(\gcd(a, n) = 1\)</span> is called a Carmichael number.</p>
@@ -1351,7 +1312,7 @@ n &amp;= 341561645 &amp;&amp;= 5 \times 67 \times 773 \times 1319 &amp; 2^{n - 1
 </section>
 <hr class="docutils" />
 <section id="mersenne-primes">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Mersenne Primes</a><a class="headerlink" href="#mersenne-primes" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>MERSENNE PRIME</b></span> [Vaughan Definition 3.20]</p>
 <div style="color: #0096FF;">
 <p>Define <span class="math notranslate nohighlight">\(M(n) = 2^n - 1\)</span>. If it is prime then it is a Mersenne prime.</p>
@@ -1374,7 +1335,7 @@ M(11) &amp;=&amp; 2^{11} - 1 &amp;=&amp; 2047 &amp;= \textcolor{red}{23 \times 8
 </section>
 <hr class="docutils" />
 <section id="linear-congruence">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Linear Congruence</a><a class="headerlink" href="#linear-congruence" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Linear congruences have the form</p>
 <p><span class="math notranslate nohighlight">\(ax \equiv b \mod m\)</span></p>
@@ -1486,7 +1447,7 @@ p &amp;= 3 &amp;&amp; (3 - 1)! \equiv -1 \mod 3 \\
 <p>This theorem actually gives a necessary and sufficient condition for <span class="math notranslate nohighlight">\(p\)</span> to be prime, since if <span class="math notranslate nohighlight">\(p\)</span> were to be composite then <span class="math notranslate nohighlight">\(\gcd((p - 1)!, p) \gt 1\)</span>. However, it is useless because <span class="math notranslate nohighlight">\((p - 1)!\)</span> grows very rapidly.</p>
 <hr class="docutils" />
 <section id="chinese-remainder-theorem">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">Chinese Remainder Theorem</a><a class="headerlink" href="#chinese-remainder-theorem" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Chinese Remainder Theorem</a><a class="headerlink" href="#chinese-remainder-theorem" title="Link to this heading">#</a></h3>
 <p><span style="color: #0096FF;"><b>SYSTEM OF LINEAR CONGRUENCES</b></span></p>
 <div style="color: #0096FF;">
 <p><span class="math notranslate nohighlight">\(
@@ -1588,7 +1549,7 @@ x
 </section>
 <hr class="docutils" />
 <section id="polynomial-congruence">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">Polynomial Congruence</a><a class="headerlink" href="#polynomial-congruence" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Polynomial Congruence</a><a class="headerlink" href="#polynomial-congruence" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>The solution of a general polynomial congruence can be quite tricky, even for a polynomial with a single variable.</p>
 <p><span style="color: #0096FF;"><b>POLYNOMIAL CONGRUENCE</b></span></p>
@@ -1634,10 +1595,10 @@ x
 </section>
 <hr class="docutils" />
 <section id="acknowledgements">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. Chapter 1. McGraw-Hill.</p>
-<p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
-<p><code class="docutils literal notranslate"><span class="pre">2023</span></code> Vaughan, Robert. <em>A Course of Elementary Number Theory</em>.</p>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SDCP</span></code> <code class="docutils literal notranslate"><span class="pre">2006</span></code> Dasgupta, Sanjoy; Christos Papadimitriou; &amp; Umesh Vazirani. <em>Algorithms</em>. McGraw-Hill.</p>
+<p><code class="docutils literal notranslate"><span class="pre">KRDM</span></code> <code class="docutils literal notranslate"><span class="pre">2018</span></code> Rosen, Kenneth. <em>Discrete Mathematics and its Applications</em> 8e. McGraw-Hill.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CENT</span></code> <code class="docutils literal notranslate"><span class="pre">2023</span></code> [ <a class="reference external" href="https://personal.science.psu.edu/rcv4/">h</a> ] Vaughan, Robert. <em>A Course of Elementary Number Theory</em>. CMPSC/MATH 467 Factorization and Primality Testing. The Pennsylvania State University. [ <a class="reference external" href="https://bpb-us-e1.wpmucdn.com/sites.psu.edu/dist/6/167041/files/2023/07/CENT.pdf">book</a> ]</p>
 <hr class="docutils" />
 <hr class="docutils" />
 <hr class="docutils" />
@@ -1711,7 +1672,6 @@ x
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Residues</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factoring-a-scalar-out-of-a-congruence">Factoring a scalar out of a congruence</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduced-residues">Reduced Residues</a></li>
 </ul>
 </li>

@@ -740,8 +740,10 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-congruence-relation">The congruence relation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-textbf-mod-m-versus-a-equiv-b-mod-m"><span class="math notranslate nohighlight">\(a = b \textbf{ mod } m\)</span> versus <span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factoring-a-scalar-out-of-a-congruence">Factoring a scalar out of a congruence</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-inverse-modulo-m">Multiplicative inverse modulo <span class="math notranslate nohighlight">\(m\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Modular Arithmetic</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition">Modular Addition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication">Modular Multiplication</a></li>
@@ -776,21 +778,23 @@
 <li><p><a class="reference internal" href="#the-congruence-relation" id="id4">The congruence relation</a></p></li>
 <li><p><a class="reference internal" href="#a-b-textbf-mod-m-versus-a-equiv-b-mod-m" id="id5"><span class="math notranslate nohighlight">\(a = b \textbf{ mod } m\)</span> versus <span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span></a></p></li>
 <li><p><a class="reference internal" href="#properties" id="id6">Properties</a></p></li>
+<li><p><a class="reference internal" href="#factoring-a-scalar-out-of-a-congruence" id="id7">Factoring a scalar out of a congruence</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#id1" id="id7">Modular Arithmetic</a></p>
+<li><p><a class="reference internal" href="#multiplicative-inverse-modulo-m" id="id8">Multiplicative inverse modulo <span class="math notranslate nohighlight">\(m\)</span></a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id9">Modular Arithmetic</a></p>
 <ul>
-<li><p><a class="reference internal" href="#modular-addition" id="id8">Modular Addition</a></p></li>
-<li><p><a class="reference internal" href="#modular-multiplication" id="id9">Modular Multiplication</a></p></li>
-<li><p><a class="reference internal" href="#modular-division" id="id10">Modular Division</a></p></li>
-<li><p><a class="reference internal" href="#modular-exponentiation" id="id11">Modular Exponentiation</a></p>
+<li><p><a class="reference internal" href="#modular-addition" id="id10">Modular Addition</a></p></li>
+<li><p><a class="reference internal" href="#modular-multiplication" id="id11">Modular Multiplication</a></p></li>
+<li><p><a class="reference internal" href="#modular-division" id="id12">Modular Division</a></p></li>
+<li><p><a class="reference internal" href="#modular-exponentiation" id="id13">Modular Exponentiation</a></p>
 <ul>
-<li><p><a class="reference internal" href="#python" id="id12">Python</a></p></li>
+<li><p><a class="reference internal" href="#python" id="id14">Python</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#resources" id="id13">Resources</a></p></li>
+<li><p><a class="reference internal" href="#resources" id="id15">Resources</a></p></li>
 </ul>
 </li>
 </ul>
@@ -890,7 +894,7 @@ n \mid (a - b) \quad &amp; \iff \quad n (k/c) = a - b \\
 <div class="full-width" style="color: #0096FF;">
 <p>Products preserve congruences.</p>
 <p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> and <span class="math notranslate nohighlight">\(z \equiv t \mod m\)</span> then <span class="math notranslate nohighlight">\(xz \equiv yt \mod m\)</span>.</p>
-<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> then for any <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> it is the case that <span class="math notranslate nohighlight">\(x^n \equiv y^n \mod m\)</span> (using induction on <span class="math notranslate nohighlight">\(n\)</span>).</p>
+<p>If <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> then for any <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> it is the case that <span class="math notranslate nohighlight">\(x^n \equiv y^n \mod m\)</span> (using induction on <span class="math notranslate nohighlight">\(n\)</span>). This follows from the polynomial rule below.</p>
 </div>
 </fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <p><span style="color: #50C878;"><b>Example</b></span></p>
@@ -908,20 +912,84 @@ n \mid (a - b) \quad &amp; \iff \quad n (k/c) = a - b \\
 <p>If <span class="math notranslate nohighlight">\(f\)</span> is a polynomial with integer coefficients and <span class="math notranslate nohighlight">\(x \equiv y \mod m\)</span> then <span class="math notranslate nohighlight">\(f(x) \equiv f(y) \mod m\)</span>.</p>
 <p>(since polynomials are just sums of products)</p>
 </div>
+<p>This means that if</p>
+<p><span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span></p>
+<p>then</p>
+<p><span class="math notranslate nohighlight">\(a^n \equiv b^n \mod m\)</span></p>
+<p>but it is usually the case that</p>
+<p><span class="math notranslate nohighlight">\(n^a \not\equiv n^b \mod m\)</span></p>
 </fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <div class="full-width" style="color: #50C878;">
 <p>Thus while performing a sequence of arithmetic operations it is legal to reduce intermediate results to their remainders modulo <span class="math notranslate nohighlight">\(m\)</span> at any stage:</p>
 <p><span class="math notranslate nohighlight">\(2^{345} \equiv (2^5)^{69} \equiv 32^{69} \equiv 1^{69} \equiv 1 \quad(\text{mod } 31)\)</span></p>
 </div>
-</fieldset><hr class="docutils" />
+</fieldset><fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<p><span style="color: #0096FF;"><b></b></span></p>
+<div class="full-width" style="color: #0096FF;">
+<p>If <span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span> and <span class="math notranslate nohighlight">\(d \mid m\)</span> then <span class="math notranslate nohighlight">\(a \equiv b \mod d\)</span>.</p>
+</div>
+</fieldset></section>
+<hr class="docutils" />
+<section id="factoring-a-scalar-out-of-a-congruence">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Factoring a scalar out of a congruence</a><a class="headerlink" href="#factoring-a-scalar-out-of-a-congruence" title="Link to this heading">#</a></h3>
+<p><span style="color: #0096FF;"><b>CLAIM</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(kx \equiv ka \mod n \iff x \equiv a \mod n/d\)</span> where <span class="math notranslate nohighlight">\(d = \gcd(n, k)\)</span></p>
+</div>
+<p>The modulus changes when dividing a congruence if you are dividing both sides of the congruence by a number that is not relatively prime to the modulus. In other words, if the number you’re dividing by shares a common factor with the modulus, you must also divide the modulus by that same common factor to maintain the congruence relation.</p>
+<p><span style="color: #0096FF;"><b>PROOF</b></span></p>
+<p><span class="math notranslate nohighlight">\(kx \equiv ka \mod n \iff n \mid k(x - a) \iff n/d \mid (k/d)(x - a)\)</span> where <span class="math notranslate nohighlight">\(d = \gcd(n, k)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{n}{\gcd(n, k)} \Biggm\vert\left( \frac{k}{\gcd(n, k)}(x - a) \right)
+\end  {aligned}
+\)</span></p>
+<p>By Euclid’s Lemma we know that</p>
+<p><span class="math notranslate nohighlight">\(n/d \mid (k/d)(x - a) \implies\)</span> either <span class="math notranslate nohighlight">\(n/d \mid k/d\)</span> or <span class="math notranslate nohighlight">\(n/d \mid (x - a)\)</span></p>
+<p>And we know that</p>
+<p><span class="math notranslate nohighlight">\(
+\gcd(n/d, k/d) =
+\begin{aligned}
+\gcd\left( \frac{n}{\gcd(n, k)}, \frac{k}{\gcd(n, k)} \right) = 1
+\end  {aligned}
+\)</span></p>
+<p>Thus it must be the case that</p>
+<p><span class="math notranslate nohighlight">\(n/d \mid (x - a) \iff x \equiv a \mod n/d\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><a class="reference external" href="https://crypto.stanford.edu/pbc/notes/numbertheory/arith.html">https://crypto.stanford.edu/pbc/notes/numbertheory/arith.html</a></p>
+<div style="color: #50C878;"><b>EXAMPLE</b></div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+65y   &amp; \equiv &amp;  5   &amp; \mod 10 \\
+5.13y &amp; \equiv &amp;  5.1 &amp; \mod 10/\gcd(5, 10) \\
+  13y &amp; \equiv &amp;    1 &amp; \mod 2 \\
+\end  {aligned}
+\)</span></p>
+<hr class="docutils" />
 <p>Congruences modulo <span class="math notranslate nohighlight">\(m\)</span> partition the integers into <span class="math notranslate nohighlight">\(m\)</span> equivalence or residue classes.</p>
 <hr class="docutils" />
 <hr class="docutils" />
 </section>
 </section>
 <hr class="docutils" />
+<section id="multiplicative-inverse-modulo-m">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Multiplicative inverse modulo <span class="math notranslate nohighlight">\(m\)</span></a><a class="headerlink" href="#multiplicative-inverse-modulo-m" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<p><span style="color: #0096FF;"><b>MULTIPLICATIVE INVERSE MODULO <span class="math notranslate nohighlight">\(m\)</span></b></span></p>
+<div class="full-width" style="color: #0096FF;">
+<p>If <span class="math notranslate nohighlight">\(m \gt 1\)</span> and <span class="math notranslate nohighlight">\(\gcd(a, m) = 1\)</span> then there is a unique integer <span class="math notranslate nohighlight">\(x\)</span> in <span class="math notranslate nohighlight">\(0 \lt x \lt m\)</span> for which <span class="math notranslate nohighlight">\(ax \equiv 1 \mod m\)</span>.</p>
+</div>
+<p>The extended Euclidean algorithm provides a way to compute <span class="math notranslate nohighlight">\(x\)</span> given <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(a\)</span>. Use the algorithm to find <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(ax + my = gcd(a,m) = 1\)</span>. The number <span class="math notranslate nohighlight">\(x\)</span> returned by the algorithm might not be in the interval <span class="math notranslate nohighlight">\(0 &lt; x &lt; m\)</span>; if it is not, then either add or subtract <span class="math notranslate nohighlight">\(m\)</span> from it to find an <span class="math notranslate nohighlight">\(x\)</span> in the interval. The number <span class="math notranslate nohighlight">\(x\)</span> is called the multiplicative inverse of a modulo <span class="math notranslate nohighlight">\(m\)</span> and is sometimes written <span class="math notranslate nohighlight">\(a^{−1} \mod m\)</span>. Remember that <span class="math notranslate nohighlight">\(a\)</span> has a multiplicative inverse modulo <span class="math notranslate nohighlight">\(m\)</span> only when <span class="math notranslate nohighlight">\(gcd(a,m) = 1\)</span>.</p>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<p><span style="color: #50C878;"><b>Example</b></span></p>
+<div class="full-width" style="color: #50C878;">
+</div>
+</fieldset><hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
 <section id="id1">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">Modular Arithmetic</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Modular Arithmetic</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <p><span style="color: #0096FF;"><b></b></span></p>
@@ -934,27 +1002,27 @@ n \mid (a - b) \quad &amp; \iff \quad n (k/c) = a - b \\
 <p><span class="math notranslate nohighlight">\(x(y + z) \equiv xy + xz \quad(\text{mod } N)\)</span></p>
 </div>
 </fieldset><section id="modular-addition">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Modular Addition</a><a class="headerlink" href="#modular-addition" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Modular Addition</a><a class="headerlink" href="#modular-addition" title="Link to this heading">#</a></h3>
 <p>To add two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span> we start with regular addition. <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are each in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span> so their sum is in the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(2(N - 1)\)</span>. When the sum exceeds <span class="math notranslate nohighlight">\(N - 1\)</span> we subtract <span class="math notranslate nohighlight">\(N\)</span> so that it falls back into the range <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N - 1\)</span>. The overall computations consists of an addition and a possible subtraction of numbers which never exceed <span class="math notranslate nohighlight">\(2N\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(T(n) = O(n)\)</span> where <span class="math notranslate nohighlight">\(n = \lceil \log N \rceil\)</span></p>
 </section>
 <hr class="docutils" />
 <section id="modular-multiplication">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Modular Multiplication</a><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Modular Multiplication</a><a class="headerlink" href="#modular-multiplication" title="Link to this heading">#</a></h3>
 <p>To multiply two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> modulo <span class="math notranslate nohighlight">\(N\)</span>, we start with regular multiplication and then reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span>. The product can be as large as <span class="math notranslate nohighlight">\((N - 1)^2\)</span> but this is still at most <span class="math notranslate nohighlight">\(2n\)</span> bits long since <span class="math notranslate nohighlight">\(\log (N - 1)^2 = 2 \log (N - 1) \le 2n\)</span>. To reduce the answer modulo <span class="math notranslate nohighlight">\(N\)</span> we compute the remainder upon dividing it by <span class="math notranslate nohighlight">\(N\)</span> using the quadratic-time division algorithm. Multiplication thus remains a quadratic operation.</p>
 <p><strong>Complexity</strong></p>
 <p><span class="math notranslate nohighlight">\(T(n) = \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{multiplication}} + \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{reduction modulo \textit{N} via division}} = O(n^2)\)</span></p>
 </section>
 <hr class="docutils" />
 <section id="modular-division">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Modular Division</a><a class="headerlink" href="#modular-division" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Modular Division</a><a class="headerlink" href="#modular-division" title="Link to this heading">#</a></h3>
 <p>In ordinary arithmetic there is just one tricky case–division by zero. In modular arithmetic there are other tricky cases.</p>
 <p>When division is legal, its running time is</p>
 <p><span class="math notranslate nohighlight">\(T(n) = O(n^3)\)</span></p>
 </section>
 <hr class="docutils" />
 <section id="modular-exponentiation">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Modular Exponentiation</a><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Modular Exponentiation</a><a class="headerlink" href="#modular-exponentiation" title="Link to this heading">#</a></h3>
 <p>Can <span class="math notranslate nohighlight">\(x^y \mod N\)</span> be computed quickly for values of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> that are several hundred bits long? The result is some number modulo <span class="math notranslate nohighlight">\(N\)</span> and is therefore itself a few hundred bits long. The raw value <span class="math notranslate nohighlight">\(x^y\)</span> could be much longer. When <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are just <span class="math notranslate nohighlight">\(20\text{-b}\)</span> numbers <span class="math notranslate nohighlight">\(x^y\)</span> is at least <span class="math notranslate nohighlight">\((2^{19})^{2^{19}} = 2^{(19)(524,288)}\)</span> which is about ten million bits long. Imagine what would happen if <span class="math notranslate nohighlight">\(y\)</span> is a <span class="math notranslate nohighlight">\(500\text{-b}\)</span> number. To make sure the numbers we are dealing with never grow too large, we need to perform all intermediate computations modulo <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>Calculate <span class="math notranslate nohighlight">\(x^y \mod N\)</span> by repeatedly multiplying by <span class="math notranslate nohighlight">\(x \mod N\)</span>. The resulting sequence of intermediate products <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to \dotsb \to x^y \mod N\)</span> consists of numbers smaller than <span class="math notranslate nohighlight">\(N\)</span>, so the individual multiplications do not take too long. But if <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(500\)</span> bits long we need to perform <span class="math notranslate nohighlight">\(y - 1 \approx 2^{500}\)</span> multiplications which is exponential in the size of <span class="math notranslate nohighlight">\(y\)</span>.</p>
 <p>It will be better to start with <span class="math notranslate nohighlight">\(x\)</span> and repeatedly square modulo <span class="math notranslate nohighlight">\(N\)</span>: <span class="math notranslate nohighlight">\(x \mod N \to x^2 \mod N \to x^4 \mod N \to x^8 \mod N \to \dotsb \to x^{2^{\lfloor \log y \rfloor}} \mod N\)</span>.</p>
@@ -993,7 +1061,7 @@ x \cdot (x^{\lfloor y/2 \rfloor})^2 &amp; \text{if \textit{y} is odd}  \\
 <p>Let <span class="math notranslate nohighlight">\(n\)</span> be the size in bits of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> (whichever is the largest of the three). As with multiplication, the algorithm will halt after at most <span class="math notranslate nohighlight">\(n\)</span> recursive calls and during each call it multiplies <span class="math notranslate nohighlight">\(n\)</span>-bit numbers (doing computation modulo <span class="math notranslate nohighlight">\(N\)</span> saves us here) for a total running time of</p>
 <p><span class="math notranslate nohighlight">\(T(n) = \underbrace{\quad\quad O(n) \quad\quad}_{\text{recursive calls}} \times \underbrace{\quad\quad O(n^2) \quad\quad}_{\text{multiplication}} = O(n^3)\)</span></p>
 <section id="python">
-<h4><a class="toc-backref" href="#id12" role="doc-backlink">Python</a><a class="headerlink" href="#python" title="Link to this heading">#</a></h4>
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">Python</a><a class="headerlink" href="#python" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.geeksforgeeks.org/fast-exponentiation-in-python/">https://www.geeksforgeeks.org/fast-exponentiation-in-python/</a></p></li>
 </ul>
@@ -1025,7 +1093,7 @@ s^{5}  &amp;= s(s^2)^2 \\
 </section>
 <hr class="docutils" />
 <section id="resources">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pi.math.cornell.edu/~morris/135/mod.pdf">https://pi.math.cornell.edu/~morris/135/mod.pdf</a></p></li>
 <li><p><a class="reference external" href="https://kconrad.math.uconn.edu/blurbs/ugradnumthy/modarith.pdf">https://kconrad.math.uconn.edu/blurbs/ugradnumthy/modarith.pdf</a></p></li>
@@ -1106,8 +1174,10 @@ s^{5}  &amp;= s(s^2)^2 \\
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-congruence-relation">The congruence relation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-b-textbf-mod-m-versus-a-equiv-b-mod-m"><span class="math notranslate nohighlight">\(a = b \textbf{ mod } m\)</span> versus <span class="math notranslate nohighlight">\(a \equiv b \mod m\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factoring-a-scalar-out-of-a-congruence">Factoring a scalar out of a congruence</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-inverse-modulo-m">Multiplicative inverse modulo <span class="math notranslate nohighlight">\(m\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Modular Arithmetic</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-addition">Modular Addition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-multiplication">Modular Multiplication</a></li>
