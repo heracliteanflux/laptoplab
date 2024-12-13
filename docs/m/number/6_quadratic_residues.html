@@ -71,6 +71,8 @@
                 gtag('config', 'G-4697ZWLBEP');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'm/number/6_quadratic_residues';</script>
     <script src="../../_static/script.js?v=dcd15d02"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -255,12 +257,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0_arithmetic.html">Arithmetic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_induction.html">Mathematical Induction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_binomial.html">Binomial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="20_fibonacci.html">Fibonacci</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_division.html">Division</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_congruence.html">Congruence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5_MODULAR_ARITHMETIC.html">Modular Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_residues.html">Residues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="13_arithmetic_functions.html">Arithmetic Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_polynomials.html">Polynomials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_primitiveroot.html">Primitive Roots</a></li>
@@ -279,7 +282,6 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="implementation.html">Implementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sieve_of_eratosthenes.html">Sieve of Eratosthenes</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../set/index.html">Set Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -761,6 +763,27 @@ document.write(`
 <li><p><a class="reference internal" href="#quadratic-residues" id="id1">Quadratic Residues</a></p></li>
 </ul>
 </nav>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<p>Given an <span class="math notranslate nohighlight">\(n\)</span>, the product of two small primes, ffind a <span class="math notranslate nohighlight">\(t, x, y\)</span> so that <span class="math notranslate nohighlight">\(4tn = x^2 - y^2\)</span>.</p>
+<p>An essential part of this is quadratic congruences</p>
+<p><span class="math notranslate nohighlight">\(x^2 \equiv c \mod m\)</span></p>
+<p>If you can solve mod p</p>
+<p>Lagrange’s theorem?</p>
+<p><span class="math notranslate nohighlight">\(p - x \ne x\)</span></p>
+<p><span class="math notranslate nohighlight">\(px \equiv 0 \mod p \iff x \equiv 0 \mod p \iff x^2 \not\equiv c \mod p\)</span></p>
+<p>theorem</p>
+<p><span class="math notranslate nohighlight">\(x^2 \equiv -1 \mod p\)</span> is solvable <span class="math notranslate nohighlight">\(\iff p \equiv 1 \mod 4\)</span></p>
+<p>theorem</p>
+<p><span class="math notranslate nohighlight">\(N(x, c) = \text{count}\{ p \le x \mid x^2 \equiv c \mod p \text{ soluble} \} = \pi(x)/2 + \text{error}\)</span></p>
+<p>It’s very fast to determine whether <span class="math notranslate nohighlight">\(x^2 \equiv c \mod p\)</span> is soluble, because underlying algrithm based on euclidean algorithm?</p>
+<p><strong>Quadratic Residue</strong> (QR)</p>
+<p><strong>Quadratic Non Residue</strong> (QNR)</p>
+<p><span class="math notranslate nohighlight">\(0\)</span> residue class is undefined</p>
+<p><strong>Legendre Symbol</strong></p>
+<p><span class="math notranslate nohighlight">\(1 + (\frac{c}{p})_L = \text{number of solutions to } x^2 \equiv c \mod p\)</span></p>
+<p>Dirichlet generalization</p>
 <hr class="docutils" />
 <hr class="docutils" />
 <hr class="docutils" />
