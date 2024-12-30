@@ -249,6 +249,7 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="0_arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="0.1_fractions.html">Fractions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_induction.html">Mathematical Induction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11_binomial.html">Binomial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="20_fibonacci.html">Fibonacci</a></li>
@@ -4504,7 +4505,47 @@ q &amp;   r &amp;  x &amp;  y \\ \hline
 <p>But <span class="math notranslate nohighlight">\(\gcd(91, 143) = 13 \nmid 84 = 2^2 \times 3 \times 7\)</span>.</p>
 <p>Thus the linear congruence is insoluble.</p>
 </div>
-</fieldset><p>ii</p>
+</fieldset><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">euclid</span> <span class="p">(</span><span class="n">a</span>          <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">b</span>          <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">print_flag</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    
+    <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">print_flag</span><span class="p">:</span>
+        <span class="n">pad</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)),</span> <span class="mi">1</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x m + </span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x n&#39;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">q</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">y2</span>
+        <span class="k">if</span> <span class="n">print_flag</span> <span class="ow">and</span> <span class="n">b</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="w"> </span><span class="n">q</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x m + </span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x n&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">print_flag</span>           <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x m + </span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x n&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">m</span> <span class="o">=</span>  <span class="mi">91</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">143</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">euclid</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        91     1 x m +    0 x n
+   0   143     0 x m +    1 x n
+   1    91     1 x m +    0 x n
+   1    52    -1 x m +    1 x n
+   1    39     2 x m +   -1 x n
+        13    -3 x m +    2 x n
+</pre></div>
+</div>
+</div>
+</div>
+<p>ii</p>
 <p><span class="math notranslate nohighlight">\(91x \equiv 84 \mod 147\)</span></p>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
 <div class="full-width" style="color: #0096FF;">
@@ -4551,6 +4592,48 @@ x \equiv -96 \mod 21
 \)</span></p>
 </div>
 </fieldset><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">euclid</span> <span class="p">(</span><span class="n">a</span>          <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">b</span>          <span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+            <span class="n">print_flag</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    
+    <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">print_flag</span><span class="p">:</span>
+        <span class="n">pad</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)),</span> <span class="mi">1</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x m + </span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x n&#39;</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">q</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">q</span> <span class="o">*</span> <span class="n">y2</span>
+        <span class="k">if</span> <span class="n">print_flag</span> <span class="ow">and</span> <span class="n">b</span> <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="w"> </span><span class="n">q</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x m + </span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x n&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">print_flag</span>           <span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;&quot;</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1">  </span><span class="si">{</span><span class="n">x1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x m + </span><span class="si">{</span><span class="n">y1</span><span class="si">:</span><span class="s1">&gt;</span><span class="si">{</span><span class="n">pad</span><span class="si">}}</span><span class="s1"> x n&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">m</span> <span class="o">=</span>  <span class="mi">91</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">147</span>
+
+<span class="k">assert</span><span class="p">(</span><span class="n">euclid</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        91     1 x m +    0 x n
+   0   147     0 x m +    1 x n
+   1    91     1 x m +    0 x n
+   1    56    -1 x m +    1 x n
+   1    35     2 x m +   -1 x n
+   1    21    -3 x m +    2 x n
+   1    14     5 x m +   -3 x n
+         7    -8 x m +    5 x n
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">13</span> <span class="o">*</span>   <span class="mi">9</span> <span class="o">%</span>  <span class="mi">21</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">91</span> <span class="o">*</span>   <span class="mi">9</span> <span class="o">%</span> <span class="mi">147</span><span class="p">)</span>

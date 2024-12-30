@@ -1,0 +1,1981 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fractions &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=0d97562f" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/number/0.1_fractions';</script>
+    <script src="../../_static/script.js?v=dcd15d02"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Mathematical Induction" href="1_induction.html" />
+    <link rel="prev" title="Arithmetic" href="0_arithmetic.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../figures.html">Figures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calc/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/01_calculus/intro.html">The Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/01_calculus/03_integration/intro.html">Integration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calc/02_vector_calculus/intro.html">Vector Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../func/index.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../func/absval.html">Absolute Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/floor_ceil.html">Floor and Ceiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/ramp.html">Ramp Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../func/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linalg/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algebra/index.html">Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algebra/book___a_transition_to_advanced_mathematics.html">Book: <em>A Transition to Advanced Mathematics</em></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Number Theory</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="0_arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Fractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_binomial.html">Binomial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_fibonacci.html">Fibonacci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_division.html">Division</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.5_MODULAR_ARITHMETIC.html">Modular Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_residues.html">Residues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_arithmetic_functions.html">Arithmetic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_polynomials.html">Polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_primitiveroot.html">Primitive Roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_quadratic_residues.html">Quadratic Residues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EXERCISES.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PYTHON.html">Implementations</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/00_introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/06_congruence.html">Congruence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="book___numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set/index.html">Set Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../set/elemset.html">Elementary Set Theory</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../logic/introduction.html">Introduction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../combinatorics/index.html">Combinatorics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../combinatorics/counting.html">Counting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../discrete/index.html">Discrete Mathematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../discrete/languages.html">Languages and Machines</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../coding/index.html">Mathematical Coding</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../coding/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/02.html">The main coding theory problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coding/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linprog/index.html">Linear Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/definitions.html">Some Definitions &amp; Graphing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/convex.html">Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/cones.html">Cones &amp; Dual Cones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/rowtableaux.html">Row Tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/sensitivity.html">Dual LP &amp; Sensitivity Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/exercises/0.html">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/exercises/132.html">[13.2] Production Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linprog/exercises/midterm2.html">Midterm II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../numerical/index.html">Numerical Methods &amp; Scientific Computing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../more/index.html">More Math</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../more/summation/index.html">Summations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../more/cas.html">Computer Algebra Systems</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Science &amp; Engineering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/systems/index.html">Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/c_lang/index.html">C</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/shell/bash.html">Bash</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/c_lang/network_programming.html">Network Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/systems/distributed/index.html">Distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/hardware/index.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/systems/file/index.html">Filesystem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/ds%26a/index.html">DS&amp;A</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/ds%26a/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/data_structures/index.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/linked_list/index.html">Linked List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/stack/index.html">Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/data_structures/priority_queue/index.html">Priority Queue</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/arithmetic/index.html">Arithmetic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/arithmetic/array_sum/index.html">Array Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/arithmetic/integer_multiplication/index.html">Integer Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/ds%26a/deduplication/index.html">Deduplication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/merge/index.html">Merge</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/merge/sorted_array_merge/index.html">Sorted Array Merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/merge/k_way_merge/index.html"><span class="math notranslate nohighlight">\(k\)</span>-Way Merge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/selection/index.html">Select</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/selection/k-th_smallest_element/index.html">Naive Selection: <span class="math notranslate nohighlight">\(k\)</span>-th smallest element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/selection/quickselect/index.html">Quickselect</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/sort/index.html">Sort</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/insertion_sort/index.html">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/bubble_sort/index.html">Bubble Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/merge_sort/index.html">Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/selection_sort/index.html">Selection Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/sort/quick_sort/index.html">Quick Sort</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/search/index.html">Search</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/search/linear_search/index.html">Linear Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/search/binary_search/index.html">Binary Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/trees_and_graphs/index.html">Trees &amp; Graphs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/trees_and_graphs/trees/index.html">Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/trees_and_graphs/graphs/index.html">Graphs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/optimization/index.html">Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference external" href="https://heracliteanflux.github.io/laptoplab/m/linearprogramming/index.html">Linear Programming</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/index.html">Dynamic Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/lucas_numbers/index.html">Lucas Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/bellman-ford/index.html">Bellman-Ford</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../c/ds%26a/dynamic_programming/0-1_knapsack/index.html">0-1 Knapsack</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/ds%26a/course/index.html">PSU CMPSC 465</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/01.html">Assignment 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/02.html">Assignment 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/03.html">Assignment 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/04.html">Assignment 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/05.html">Assignment 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/m.html">Midterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/06.html">Assignment 6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/07.html">Assignment 7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/08.html">Assignment 8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/ds%26a/course/hw/f.html">Final</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/heracliteanflux/systems/tree/main/clang">https://github.com/heracliteanflux/systems/tree/main/clang</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/programming/rlang/index.html">R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/sec/index.html">Security</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/ctf/index.html">CTF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/gitops/index.html">GitOps</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/sec/network/index.html">Networking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/data/index.html">Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../c/data/relational/index.html">Relational</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/files.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/info/index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../c/learning/index.html">Artificial Intelligence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../l/index.html">Languages &amp; Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/ling/index.html">Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../l/ling/phonetics/index.html">Phonetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lang/index.html">Languages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../l/lit/index.html">Literature</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../p/index.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/ancient/index.html">Ancient Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../p/modern/index.html">Early Modern Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/galileo/index.html">Galileo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../p/modern/descartes/index.html">Descartes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../p/modern/kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../p/music.html">Music</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../s/index.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/astro/index.html">Astronomy &amp; Astrophysics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../diy/index.html">Home Lab &amp; DIY</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../diy/network/index.html">Network</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fractions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-numbers">Rational Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-rational-number">Definition: rational number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-b-fraction">Base-<span class="math notranslate nohighlight">\(b\)</span> fraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-there-is-no-smallest-positive-rational-number">Claim: there is no smallest positive rational number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-sqrt-2-is-irrational">Claim: <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> is irrational</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-the-square-root-of-a-non-perfect-square-is-irrational">Claim: the square root of a non-perfect square is irrational</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repunits">Repunits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-r-n-10-n-1-9">Claim: <span class="math notranslate nohighlight">\(R_n = (10^n - 1) / 9\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-r-m-mid-r-n-iff-m-mid-n">Claim: <span class="math notranslate nohighlight">\(R_m \mid R_n \iff m \mid n\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-r-2-mid-r-2n">Claim: <span class="math notranslate nohighlight">\(R_2 \mid R_{2n}\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-r-3-mid-r-3n">Claim: <span class="math notranslate nohighlight">\(R_3 \mid R_{3n}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-text-prime-r-n-implies-text-prime-n">Claim: <span class="math notranslate nohighlight">\(\text{Prime}(R_n) \implies \text{Prime}(n)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeating-decimal-fractions">Repeating Decimal Fractions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reciprocal-of-a-prime">Reciprocal of a prime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-prime-factors-of-10-n-1">Primitive prime factors of <span class="math notranslate nohighlight">\(10^n - 1\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-repeating-decimal-fractions">General repeating decimal fractions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeating-base-b-fractions">Repeating base-<span class="math notranslate nohighlight">\(b\)</span> fractions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-2">Base <span class="math notranslate nohighlight">\(2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#base-3">Base <span class="math notranslate nohighlight">\(3\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fractions">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Fractions</a><a class="headerlink" href="#fractions" title="Link to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#fractions" id="id1">Fractions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rational-numbers" id="id2">Rational Numbers</a></p>
+<ul>
+<li><p><a class="reference internal" href="#definition-rational-number" id="id3">Definition: rational number</a></p></li>
+<li><p><a class="reference internal" href="#base-b-fraction" id="id4">Base-<span class="math notranslate nohighlight">\(b\)</span> fraction</a></p></li>
+<li><p><a class="reference internal" href="#claim-there-is-no-smallest-positive-rational-number" id="id5">Claim: there is no smallest positive rational number</a></p></li>
+<li><p><a class="reference internal" href="#claim-sqrt-2-is-irrational" id="id6">Claim: <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> is irrational</a></p></li>
+<li><p><a class="reference internal" href="#claim-the-square-root-of-a-non-perfect-square-is-irrational" id="id7">Claim: the square root of a non-perfect square is irrational</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#repunits" id="id8">Repunits</a></p>
+<ul>
+<li><p><a class="reference internal" href="#claim-r-n-10-n-1-9" id="id9">Claim: <span class="math notranslate nohighlight">\(R_n = (10^n - 1) / 9\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-r-m-mid-r-n-iff-m-mid-n" id="id10">Claim: <span class="math notranslate nohighlight">\(R_m \mid R_n \iff m \mid n\)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#claim-r-2-mid-r-2n" id="id11">Claim: <span class="math notranslate nohighlight">\(R_2 \mid R_{2n}\)</span></a></p></li>
+<li><p><a class="reference internal" href="#claim-r-3-mid-r-3n" id="id12">Claim: <span class="math notranslate nohighlight">\(R_3 \mid R_{3n}\)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#claim-text-prime-r-n-implies-text-prime-n" id="id13">Claim: <span class="math notranslate nohighlight">\(\text{Prime}(R_n) \implies \text{Prime}(n)\)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#repeating-decimal-fractions" id="id14">Repeating Decimal Fractions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#reciprocal-of-a-prime" id="id15">Reciprocal of a prime</a></p></li>
+<li><p><a class="reference internal" href="#primitive-prime-factors-of-10-n-1" id="id16">Primitive prime factors of <span class="math notranslate nohighlight">\(10^n - 1\)</span></a></p></li>
+<li><p><a class="reference internal" href="#general-repeating-decimal-fractions" id="id17">General repeating decimal fractions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#repeating-base-b-fractions" id="id18">Repeating base-<span class="math notranslate nohighlight">\(b\)</span> fractions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#base-2" id="id19">Base <span class="math notranslate nohighlight">\(2\)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#base-3" id="id20">Base <span class="math notranslate nohighlight">\(3\)</span></a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#acknowledgements" id="id21">Acknowledgements</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<section id="rational-numbers">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Rational Numbers</a><a class="headerlink" href="#rational-numbers" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="definition-rational-number">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Definition: rational number</a><a class="headerlink" href="#definition-rational-number" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition</b></p>
+<p>A <b>rational number</b> is a member of the set</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\mathbb{Q} = \left \{ \frac{p}{q} \mid p, q \in \mathbb{Z}, q \ne 0 \right \}
+\end  {aligned}
+\)</span></p>
+</div>
+<p>This is to say that a rational number is any number of the form <span class="math notranslate nohighlight">\(p/q\)</span> with <span class="math notranslate nohighlight">\(p\)</span> any integer and <span class="math notranslate nohighlight">\(q\)</span> any integer other than <span class="math notranslate nohighlight">\(0\)</span>.</p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="base-b-fraction">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Base-<span class="math notranslate nohighlight">\(b\)</span> fraction</a><a class="headerlink" href="#base-b-fraction" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition</b></p>
+<p>When expressed in the base-<span class="math notranslate nohighlight">\(b\)</span> positional numeral system, the radix-point representation of a rational number is called a base-<span class="math notranslate nohighlight">\(b\)</span> fraction; is written in base-<span class="math notranslate nohighlight">\(b\)</span> notation; and is either finite (terminating) or infinite but periodic. (Infinite non-periodic radix point representations are not rational.)</p>
+<p>Those which are terminating have the form</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{a}{b^n}
+\end  {aligned}
+\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> is an integer and <span class="math notranslate nohighlight">\(n \ge 0\)</span>.</p>
+<p>When they are expressed as reduced fractions, they have the form</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{a}{\prod p_i^{n_i}}
+\end  {aligned}
+\)</span></p>
+<p>where the <span class="math notranslate nohighlight">\(p_i\)</span> are unique primes and each <span class="math notranslate nohighlight">\(n_i \ge 0\)</span></p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.25 &amp;= \frac{25}{100} = \frac{25}{10^2} = \frac{5^2}{2^2 \times 5^2} = \frac{1}{2^2} \\
+0.123456789 &amp;= \frac{123456789}{10^9} \\
+\end  {aligned}
+\)</span></p>
+</div>
+</fieldset><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">decimal</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">8</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">9</span><span class="p">)</span><span class="si">:</span><span class="s1">f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">5</span><span class="o">**</span><span class="mi">10</span><span class="p">)</span><span class="si">:</span><span class="s1">f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+0.25
+0.125
+0.0625
+0.03125
+0.015625
+0.0078125
+0.00390625
+0.001953125
+0.0009765625
+0.2
+0.04
+0.008
+0.0016
+0.00032
+0.000064
+0.0000128
+0.00000256
+0.000000512
+0.0000001024
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="claim-there-is-no-smallest-positive-rational-number">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Claim: there is no smallest positive rational number</a><a class="headerlink" href="#claim-there-is-no-smallest-positive-rational-number" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>There is no smallest positive rational number.</p>
+<p><b>Proof by contradiction</b></p>
+<p>Suppose <span class="math notranslate nohighlight">\(\varepsilon \gt 0\)</span> is the smallest positive number.</p>
+<p><span class="math notranslate nohighlight">\(\exists n \in \mathbb{N} \quad n \gt \frac{1}{\varepsilon} \gt 0 \quad
+\iff \quad 0 \lt 1 \lt n \varepsilon \quad
+\iff \quad 0 \lt \frac{1}{n} \lt \varepsilon\)</span></p>
+<p>Thus there is a rational number <span class="math notranslate nohighlight">\(\frac{1}{n}\)</span> strictly smaller then <span class="math notranslate nohighlight">\(\varepsilon\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/1171640/prove-there-is-no-smallest-positive-rational-number">https://math.stackexchange.com/questions/1171640/prove-there-is-no-smallest-positive-rational-number</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="claim-sqrt-2-is-irrational">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> is irrational</a><a class="headerlink" href="#claim-sqrt-2-is-irrational" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p><span style="color: #0096FF;"><b>Claim</b></span></p>
+<div style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(\sqrt{2}\)</span> is irrational.</p>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\forall p, q \in \mathbb{Z}
+\quad
+\sqrt{2} \ne p/q
+}
+\)</span></p>
+</div>
+<p><b>Proof by contradiction</b></p>
+<p>Let <span class="math notranslate nohighlight">\(\sqrt{2} = \frac{m}{n}\)</span> where <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers and the fraction is reduced (i.e., <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> have no common divisors larger than <span class="math notranslate nohighlight">\(1\)</span>).</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\sqrt{2} &amp;= \frac{m}{n} &amp;&amp; \text{hypothesis} \\
+2 &amp;= \frac{m^2}{n^2} \\
+2n^2 &amp;= m^2 \\
+2 &amp;\mid m^2 \\
+2 \mid m^2 &amp;\rightarrow 2 \mid m \\
+2 &amp;\mid m &amp;&amp; \text{modus ponens} \\
+2 \mid m^2 &amp;\rightarrow 4 \mid m^2 \\
+4 &amp;\mid m^2 &amp;&amp; \text{modus ponens} \\
+4 &amp;\mid 2n^2 \\
+2 &amp;\mid n^2 \\
+2 \mid n^2 &amp;\rightarrow 2 \mid n \\
+2 &amp;\mid n &amp;&amp; \text{modus ponens} \\
+2 \mid m &amp;\land 2 \mid n &amp;&amp; \text{contradiction, m and n have no common divisors larger than 1} \\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="claim-the-square-root-of-a-non-perfect-square-is-irrational">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Claim: the square root of a non-perfect square is irrational</a><a class="headerlink" href="#claim-the-square-root-of-a-non-perfect-square-is-irrational" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decimal</span><span class="o">.</span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4142135623730950488016887242096980785696718753769480731766797379907324784621070388503875343276415727350138462309122970249248360558507372126441214970999358314132226659275055927557999505011527820605715
+1.7320508075688772935274463415058723669428052538103806280558069794519330169088000370811461867572485756756261414154067030299699450949989524788116555120943736485280932319023055820679748201010846749232650
+2
+2.2360679774997896964091736687312762354406183596115257242708972454105209256378048994144144083787822749695081761507737835042532677244470738635863601215334527088667781731918791658112766453226398565805358
+2.4494897427831780981972840747058913919659474806566701284326925672509603774573150265398594331046402348185946012266141891248588654598377573416257839512372785528289127475276765712476301052709117702234813
+2.6457513110645905905016157536392604257102591830824501803683344592010688232302836277603928864745436106150645783384974630957435298886272147844273905558801077227171507297283238922996895948650872607009781
+2.8284271247461900976033774484193961571393437507538961463533594759814649569242140777007750686552831454700276924618245940498496721117014744252882429941998716628264453318550111855115999010023055641211429
+3
+3.1622776601683793319988935444327185337195551393252168268575048527925944386392382213442481083793002951873472841528400551485488560304538800146905195967001539033449216571792599406591501534741133394841241
+3.3166247903553998491149327366706866839270885455893535970586821461164846426090438467088433991282906509070125578495274565922754397848575474797793249330447288473028739748286556825773944446120980444771931
+3.4641016151377545870548926830117447338856105076207612561116139589038660338176000741622923735144971513512522828308134060599398901899979049576233110241887472970561864638046111641359496402021693498465300
+3.6055512754639892931192212674704959462512965738452462127104530562271669482930104452046190820184907176735141820240635403760306782646978077051630171668927097577426905642741526332338303949623469447962732
+3.7416573867739413855837487323165493017560198077787269463037454673200351563069390279768098951943795715009910887277519775455065653681642425926600420525518351174074011244748586319111000152304026279990639
+3.8729833462074168851792653997823996108329217052915908265875737661134830919369790335192873768586735179163022068609496470131895404391636496156798917461212035110687547910134935812839195312288892925658464
+4
+4.1231056256176605498214098559740770251471992253736204343986335730949543463376215935878636508106842966845440409392141416153014208404158683630795481457469069776770232664362408630877905675723857082255214
+4.2426406871192851464050661726290942357090156261308442195300392139721974353863211165511626029829247182050415386927368910747745081675522116379323644912998074942396679977825167782673998515034583461817144
+4.3588989435406735522369819838596156591370039252324449368903441381595573282031580856561591558519445269056586212982742136295839927838261170121565608364174699009777529188794058900619967156631207402231024
+4.4721359549995793928183473374625524708812367192230514485417944908210418512756097988288288167575645499390163523015475670085065354488941477271727202430669054177335563463837583316225532906452797131610715
+4.5825756949558400065880471937280084889844565767679719026072421239068684255477708866043615594934450326776009053975857408733118991707556019635738633623447553702817228244277981919405969049143449200907589
+4.6904157598234295545656301135444662805882283534117371536057018910170246327532397214821155960615431353545958966615086074816519524407829256216669587091816644475006412621612507549281883318625299999547607
+4.7958315233127195415974380641626939199967070419041293464853091144482572359074640824921914464369188606174745632457368651339289039212302654888457837943340796647275696716534943439784345614167987213151199
+4.8989794855663561963945681494117827839318949613133402568653851345019207549146300530797188662092804696371892024532283782497177309196755146832515679024745571056578254950553531424952602105418235404469626
+5
+5.0990195135927848300282241090227819895637709460995964075849708044259336320622241955883488510939320083611902582410399106614317793411215362998027726261199368133520082339240815865151806094369250287447031
+5.1961524227066318805823390245176171008284157614311418841674209383557990507264001112434385602717457270268784242462201090899098352849968574364349665362831209455842796957069167462039244603032540247697950
+5.2915026221291811810032315072785208514205183661649003607366689184021376464605672555207857729490872212301291566769949261914870597772544295688547811117602154454343014594566477845993791897301745214019561
+5.3851648071345040312507104915403295562951201616447888376803886700166459628276586928766337816798354844187048217939457606076886214019815556269532167282089245286717225261852146812359900130524480162903887
+5.4772255750516611345696978280080213395274469499798325422689444973249327712272273380085843616387062576472682594285139224407200789882646558891471252604198935050656868264028988871051985377336304477847147
+5.5677643628300219221194712989185495204763933775704143039684325856035898392542362929272183961849266784232165273979702662246059605013064646282681808419453379149333606084327393411893979331802930420688912
+5.6568542494923801952067548968387923142786875015077922927067189519629299138484281554015501373105662909400553849236491880996993442234029488505764859883997433256528906637100223710231998020046111282422859
+5.7445626465380286598506114682189293182202644579827923676998774705659007214574046270271253655967881224195574769456508378699348226152034034016185320195623077727279780166059158065937139742960566892208393
+5.8309518948453004708741528775455830765213983348859719544500067448678100619967126276652403264530353985567896220753549113518138736161708062859032260788244471816650543597702392681686483765432696564217300
+5.9160797830996160425673282915616170484155012307943403228797196691428224591056530367657525271831091780886256351142545557014556938552338585094349499376739498383895803700961289381157992259578429781758257
+6
+6.0827625302982196889996842452020670620849700947864111864191530464863327253189102398030664279578486634309351009051311637335380630767099485320383186097849995856628707940771530658337937645881664262317752
+6.1644140029689764502501923814542442252356240234445745448745720724583996502636642129667297991988999451485573039376372358875471600792658521760774197322762213297753418109603138362566974097121924856614309
+6.2449979983983982058468931209397944610729599779916563084529719306096112005835145006333361122213405871078349258574629044252950568604567243495990597880972889480590074765230840349978985860648346791063790
+6.3245553203367586639977870888654370674391102786504336537150097055851888772784764426884962167586005903746945683056801102970977120609077600293810391934003078066898433143585198813183003069482266789682482
+6.4031242374328486864882176746218132645204201326210188855292726266681827581968760742893543022498699631708118325037971832624697443725142112330988364172050650439039921343140743747700211730776936057203656
+6.4807406984078602309659674360879966577052043070583465497113543978096173778440443714003609066056102356754505420974116943354919134049066086889458189616646739513055852278226360956688226806687615217766337
+6.5574385243020006523441099976360016279269663198837897698654601055856598534885756393558052909696785480205411487092432948778350774256228665603878572113758557372053351090456851332197091046894344386347945
+6.6332495807107996982298654733413733678541770911787071941173642922329692852180876934176867982565813018140251156990549131845508795697150949595586498660894576946057479496573113651547888892241960889543862
+6.7082039324993690892275210061938287063218550788345771728126917362315627769134146982432432251363468249085245284523213505127598031733412215907590803646003581266003345195756374974338299359679195697416073
+6.7823299831252681390645563266259691051957483239232882327502195820807282639871125898626409409363300442287000181967426685942998961358601841490652156523645059927977397852813630015367571073924151444703591
+6.8556546004010441249358714490848489604606434610013262754851081856785171151368169992273251485000668369387569463435050661463046586231209369361955981526052741257505749402788460391895965942489416118534618
+6.9282032302755091741097853660234894677712210152415225122232279178077320676352001483245847470289943027025045656616268121198797803799958099152466220483774945941123729276092223282718992804043386996930601
+7
+7.0710678118654752440084436210484903928483593768847403658833986899536623923105351942519376716382078636750692311545614851246241802792536860632206074854996791570661133296375279637789997525057639103028574
+7.1414284285428499979993998113672652787661711599027338332084308827658204064400218862589882135328204182344896322605085215295815466096322465946787839686916244470357893130712278304054854497502892233699591
+7.2111025509279785862384425349409918925025931476904924254209061124543338965860208904092381640369814353470283640481270807520613565293956154103260343337854195154853811285483052664676607899246938895925465
+7.2801098892805182710973024915270327937776696825764774383781817912841157386249051833295794090809267521926345704730578121591478607551197854097861346782052065719981334333481202942475392280650066566606151
+7.3484692283495342945918522241176741758978424419700103852980777017528811323719450796195782993139207044557838036798425673745765963795132720248773518537118356584867382425830297137428903158127353106704439
+7.4161984870956629487113974408007130609799043190975015987326232643438301843138502427530092131958249435060251118527371575593825139136423010154461705926617347552313804518958130491099187304014989155571111
+7.4833147735478827711674974646330986035120396155574538926074909346400703126138780559536197903887591430019821774555039550910131307363284851853200841051036702348148022489497172638222000304608052559981277
+7.5498344352707496972366848069461170582221947046233801382986269057107219539178111955824520741475239725844805423035157662458783507649332000555248164549891235486173086744908698071616786779551450935724945
+7.6157731058639082856614110271583230053607055925465984689504842405203521573730012446422697143871516456159754405294463161782232691575521416341683715145671575570830142116864678782934713885175716318188333
+7.6811457478686081757696870217313724730624510776148839280247364839355416579927098518560477279613777990163890596843161121054272109435603196185138761250222033127370837786598564116322367990051535297322558
+7.7459666924148337703585307995647992216658434105831816531751475322269661838739580670385747537173470358326044137218992940263790808783272992313597834922424070221375095820269871625678390624577785851316928
+7.8102496759066543941297227357591014135683051366485633001772437601907855889367270544254330522670048951809016347174073124814645423508312509409587191924342753556457573666259976822115180663887389133915306
+7.8740078740118110196850344488120078636810861220208537945988425503137608468176980569261913512487468899274528896885176656037207165466281832245669587779201962338692686878093824711350350963633007054081039
+7.9372539331937717715048472609177812771307775492473505411050033776032064696908508832811786594236308318451937350154923892872305896658816443532821716676403231681514521891849716768990687845952617821029342
+8
+8.0622577482985496523666132303037711311343963056085733879365923892638749510256882029601542667172306436374424661399459122137486521203713617318640664998639516346680732476140964607778153697072738489747875
+8.1240384046359603604598835682660403485042040867253128276515755945329168028406726949991576029479368774379795115158706979971130233106785864212780932877481518908006112423387355553565737525114572222055108
+8.1853527718724499699537037247339294588804868154980399630667152027236676144610979453439246716378683445347112751560062117629486101122041499597215679276595504061556730049674275869872067932507202423696525
+8.2462112512353210996428197119481540502943984507472408687972671461899086926752431871757273016213685933690880818784282832306028416808317367261590962914938139553540465328724817261755811351447714164510428
+8.3066238629180748525842627449074920102322142489556557794321883690375850334231515738673985082323570502650140398579058715564968053169772933677466362900537190348219845363540128702276531157493212912316442
+8.3666002653407554797817202578518748939281536929867219981119154308041877259431700983081471196495153616539829886670005366818085500267591292170185983575372535614070629200287506930116586139040099402004607
+8.4261497731763586306341399062027360316080024015607500136678111293272255027552030554856935372989696590710268270756597231945252158480986050984086757096672032616737347462276528839657396417949308142503335
+8.4852813742385702928101323452581884714180312522616884390600784279443948707726422331023252059658494364100830773854737821495490163351044232758647289825996149884793359955650335565347997030069166923634288
+8.5440037453175311678716483262397064345944553295332822419086512537716488193272983810809720301070094296006326527052708678496692766775147416252724364926530251797139849089416612292723769440572485560534202
+8.6023252670426267717294735350497136320275355572907356195080456412374269346630170127833308906989620643961833585872424486369871987918628114443286285813460863582642520203052917276153146201033762720557549
+8.6602540378443864676372317075293618347140262690519031402790348972596650845440001854057309337862428783781307070770335151498497254749947623940582775604718682426404661595115279103398741005054233746163251
+8.7177978870813471044739639677192313182740078504648898737806882763191146564063161713123183117038890538113172425965484272591679855676522340243131216728349398019555058377588117801239934313262414804462048
+8.7749643873921220604063883074163095608758768275545035909276956297827646462193062816756931570687057559376509872409905802416686553752517477572146708851227131510230292241002964068906473742342555235360607
+8.8317608663278468547640427269592539641746394809314178262102029725571399382354428403704355394147715177336298254657760131157341254118470733273490885404798363352391906275767076768586794292867784251194751
+8.8881944173155888500914416754087278170764506037295262983547201163761005996285995960235929527136305531572553393912710668994040926720086833684910226619300416917521751833103766854153073873463613059628836
+8.9442719099991587856366946749251049417624734384461028970835889816420837025512195976576576335151290998780327046030951340170130708977882954543454404861338108354671126927675166632451065812905594263221430
+9
+9.0553851381374166265738081669840664130521244640969402765817412300186579807660592333849606785909909264457605150586778478304554915747504894737052510207241109504079084976278564826004142401720838787055588
+9.1104335791442988819456261046886691900991391682649558524969384650660211942834056655853414609291772467392469263375806996277188833018479713212634239934084257902132096108839857446223581341982419852888703
+9.1651513899116800131760943874560169779689131535359438052144842478137368510955417732087231189868900653552018107951714817466237983415112039271477267246895107405634456488555963838811938098286898401815179
+9.2195444572928873100022742817627931572468050487224640080077522054426710268018754607678940907932805649403398088788716841521246633465171722339398057111487771732015843132779951574309724454413579467764258
+9.2736184954957037525164160739901746262634689120762982133738265983282368364638430232320458573584743842452165762824641162613268599562026590133654641372300489142747900674806838018601484629392338537427396
+9.3273790530888150455544755423205569832762406941916546710561972984467845488072496784142205629118820160044848274987435977588581638862854968878008273157620663117495091428678637715577187985660062812106753
+9.3808315196468591091312602270889325611764567068234743072114037820340492655064794429642311921230862707091917933230172149633039048815658512433339174183633288950012825243225015098563766637250599999095213
+9.4339811320566038113206603776226407169836226334151213206629814489800229095851180585410269868903841045350129742817498749829425249898532185221933827433201100290351854895379614777469719207287855232212582
+9.4868329805051379959966806332981556011586654179756504805725145583777833159177146640327443251379008855620418524585201654456465680913616400440715587901004617100347649715377798219774504604223400184523723
+9.5393920141694564915262158602322654025462342525054575390815185291036255230565072182778217644912206982248047270565568810629641875366075664205587217485112358253619515898318033030763627327853141830993962
+9.5916630466254390831948761283253878399934140838082586929706182288965144718149281649843828928738377212349491264914737302678578078424605309776915675886681593294551393433069886879568691228335974426302398
+9.6436507609929549957600310474326631839069036930632524073001768877312864186686497229000547092936085910813735834079459888525078156923158960159673355918346889559335228277696014305185023001631661086163012
+9.6953597148326580281488811508453133936521509879546795905397174862330398675733007284832586784769174965761217583961461720749739508186659384572218446059393320499014838286486802838438228573681815397722798
+9.7467943448089639068384131998996002992525839003374910319917500057200817724602493568487120960380655275565398814077562431392566503698274552459716672732910651642211674708692097257369453249429567132222776
+9.7979589711327123927891362988235655678637899226266805137307702690038415098292601061594377324185609392743784049064567564994354618393510293665031358049491142113156509901107062849905204210836470808939252
+9.8488578017961047217462114149176244816961362874427641717231545298364405837076786300932007841154257624381011988717491997180751037381469502849289227809728869989613900774752564814979436103320980003879403
+9.8994949366116653416118210694678865499877031276386365122367581659351273492347492719527127402934910091450969236163860791744738523909551604885088504796995508198925586614925391492905996535080694744240003
+9.9498743710661995473447982100120600517812656367680607911760464383494539278271315401265301973848719527210376735485823697768263193545726424393379747991341865419086219244859670477321833338362941334315793
+10
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="repunits">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Repunits</a><a class="headerlink" href="#repunits" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition</b></p>
+<p>The <b>repunits</b> are the decimal numbers <span class="math notranslate nohighlight">\(R_n\)</span> with <span class="math notranslate nohighlight">\(n\)</span> ones and no other digits.</p>
+</div>
+<hr>
+<p>Here are the first few repunits along with their unique prime factorizations.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+R_1    &amp;=           1 &amp;&amp; \\
+R_2    &amp;=          11 &amp;&amp;= \phantom{111} \textcolor{#0096FF}{11} \\
+R_3    &amp;=         111 &amp;&amp;= \phantom{1111} 3 \times \phantom{1111} \textcolor{#0096FF}{37} \\
+R_4    &amp;=        1111 &amp;&amp;= \phantom{111} 11 \times \phantom{111} \textcolor{#0096FF}{101} \\
+R_5    &amp;=       11111 &amp;&amp;= \phantom{111} \textcolor{#0096FF}{41} \times \phantom{111} \textcolor{#0096FF}{271} \\
+R_6    &amp;=      111111 &amp;&amp;= \phantom{111} 11 \times \phantom{11111} 3 \times \phantom{11} \textcolor{#0096FF}{7} \times \phantom{1111} \textcolor{#0096FF}{13} \times 37 \\
+R_7    &amp;=     1111111 &amp;&amp;= \phantom{11} \textcolor{#0096FF}{239} \times \phantom{11} \textcolor{#0096FF}{4649} \\
+R_8    &amp;=    11111111 &amp;&amp;= \phantom{111} 11 \times \phantom{1111} \textcolor{#0096FF}{73} \times 101 \times \phantom{111} \textcolor{#0096FF}{137} \\
+R_9    &amp;=   111111111 &amp;&amp;= \phantom{1111} 3 \times \phantom{11111} 3 \times \phantom{1} 37 \times \textcolor{#0096FF}{333667} \\
+R_{10} &amp;=  1111111111 &amp;&amp;= \phantom{111} 11 \times \phantom{1111} 41 \times 271 \times \phantom{11} \textcolor{#0096FF}{9091} \\
+R_{11} &amp;= 11111111111 &amp;&amp;= \textcolor{#0096FF}{21649} \times \textcolor{#0096FF}{513239} \\ \vdots \\
+\end  {aligned}
+\)</span></p>
+</fieldset><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">decimal</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">7</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Decimal(&#39;0.0078125&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="claim-r-n-10-n-1-9">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(R_n = (10^n - 1) / 9\)</span></a><a class="headerlink" href="#claim-r-n-10-n-1-9" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>The decimal number <span class="math notranslate nohighlight">\(R_n\)</span> with <span class="math notranslate nohighlight">\(n\)</span> ones and no other digits is just</p>
+<p><span class="math notranslate nohighlight">\((10^n - 1) / 9\)</span></p>
+</div>
+<p><b>Proof</b></p>
+<p>Let <span class="math notranslate nohighlight">\(R_n\)</span> be a decimal number with <span class="math notranslate nohighlight">\(n\)</span> ones and no other digits.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+  R_n \phantom{+1} &amp;= (10^n - 1) / 9 \\
+9 R_n \phantom{+1} &amp;= \phantom{(} 10^n - 1 \\
+9 R_n + 1          &amp;= \phantom{(} 10^n \\
+\end  {aligned}
+\)</span></p>
+<p>Then <span class="math notranslate nohighlight">\(9R_n\)</span> is a decimal number with <span class="math notranslate nohighlight">\(n\)</span> nines and no other digits. One more than that is the decimal number that consists of a <span class="math notranslate nohighlight">\(1\)</span> followed by <span class="math notranslate nohighlight">\(n\)</span> zeros, which is just <span class="math notranslate nohighlight">\(10^n\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset></section>
+<hr class="docutils" />
+<section id="claim-r-m-mid-r-n-iff-m-mid-n">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(R_m \mid R_n \iff m \mid n\)</span></a><a class="headerlink" href="#claim-r-m-mid-r-n-iff-m-mid-n" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p><span class="math notranslate nohighlight">\(R_m \mid R_n \iff m \mid n\)</span></p>
+</div>
+<p><b>Proof</b></p>
+<p><i>First Direction</i></p>
+<p>We must show that if <span class="math notranslate nohighlight">\(R_m \mid R_n\)</span> then <span class="math notranslate nohighlight">\(m \mid n\)</span>.</p>
+<p>Suppose <span class="math notranslate nohighlight">\(R_m \mid R_n\)</span>. Then there is an integer <span class="math notranslate nohighlight">\(k\)</span> such that</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+R_n = R_m k
+\quad \iff \quad
+\frac{10^n - 1}{9} = \frac{10^m - 1}{9} k
+\quad \iff \quad
+10^n - 1 = (10^m - 1) k
+\end  {aligned}
+\)</span></p>
+<div style="color: red;">
+<p>We employ difference of powers.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+10^n - 1^n = (10 - 1)(10^{n-1} + 10^{n-2} + \dotsb + 10 + 1) = (10^m - 1) k
+\end  {aligned}
+\)</span></p>
+<p><i>Second Direction</i></p>
+<p>We must show that if <span class="math notranslate nohighlight">\(m \mid n\)</span> then <span class="math notranslate nohighlight">\(R_m \mid R_n\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/223818/2m-12n-1-divides-2mn-1-if-and-only-if-gcdm-n-1">https://math.stackexchange.com/questions/223818/2m-12n-1-divides-2mn-1-if-and-only-if-gcdm-n-1</a></p></li>
+</ul>
+<section id="claim-r-2-mid-r-2n">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(R_2 \mid R_{2n}\)</span></a><a class="headerlink" href="#claim-r-2-mid-r-2n" title="Link to this heading">#</a></h4>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p><span class="math notranslate nohighlight">\(11\)</span> divides every repunit with an even number of ones.</p>
+</div>
+<div style="color: red;">
+<p><b>Proof</b></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset></section>
+<section id="claim-r-3-mid-r-3n">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(R_3 \mid R_{3n}\)</span></a><a class="headerlink" href="#claim-r-3-mid-r-3n" title="Link to this heading">#</a></h4>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p><span class="math notranslate nohighlight">\(111\)</span> (and <span class="math notranslate nohighlight">\(3\)</span> and <span class="math notranslate nohighlight">\(37\)</span>) divides <span class="math notranslate nohighlight">\(R_{3n}\)</span> for every <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+<div style="color: red;">
+<p><b>Proof</b></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset></section>
+</section>
+<section id="claim-text-prime-r-n-implies-text-prime-n">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Claim: <span class="math notranslate nohighlight">\(\text{Prime}(R_n) \implies \text{Prime}(n)\)</span></a><a class="headerlink" href="#claim-text-prime-r-n-implies-text-prime-n" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p><span class="math notranslate nohighlight">\(R_n\)</span> cannot be prime unless <span class="math notranslate nohighlight">\(n\)</span> is prime.</p>
+</div>
+<hr>
+<p>In other words, <span class="math notranslate nohighlight">\(R_6\)</span> and <span class="math notranslate nohighlight">\(R_9\)</span> cannot be prime but <span class="math notranslate nohighlight">\(R_2, R_3, R_5, R_7,\)</span> and <span class="math notranslate nohighlight">\(R_{11}\)</span> might be prime.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+R_2    &amp;=          11 &amp;&amp;= \phantom{111} 11 \\
+R_3    &amp;=         111 &amp;&amp;= \phantom{1111} 3 \times \phantom{1111} 37 \\
+R_5    &amp;=       11111 &amp;&amp;= \phantom{111} 41 \times \phantom{111} 271 \\
+R_7    &amp;=     1111111 &amp;&amp;= \phantom{11} 239 \times \phantom{11} 4649 \\
+R_{11} &amp;= 11111111111 &amp;&amp;= 21649 \times 513239 \\ \vdots \\
+\end  {aligned}
+\)</span></p>
+<p>It turns out that the first few prime repunits after <span class="math notranslate nohighlight">\(R_2\)</span> are <span class="math notranslate nohighlight">\(R_{19}, R_{23}, R_{317},\)</span> and <span class="math notranslate nohighlight">\(R_{1031}\)</span>.</p>
+<hr>
+<div style="color: red;">
+<p><b>Proof</b></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</div>
+</fieldset><hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="repeating-decimal-fractions">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Repeating Decimal Fractions</a><a class="headerlink" href="#repeating-decimal-fractions" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="reciprocal-of-a-prime">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Reciprocal of a prime</a><a class="headerlink" href="#reciprocal-of-a-prime" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>When <span class="math notranslate nohighlight">\(p\)</span> is a prime number other than <span class="math notranslate nohighlight">\(2\)</span> or <span class="math notranslate nohighlight">\(5\)</span> the length of the period for the decimal fraction for <span class="math notranslate nohighlight">\(1/p\)</span> is the smallest positive integer <span class="math notranslate nohighlight">\(n\)</span> for which <span class="math notranslate nohighlight">\(p\)</span> divides <span class="math notranslate nohighlight">\(10^n - 1\)</span>.</p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+   3 &amp; \mid (10^1    - 1) &amp;&amp; \quad \ell \left(    3 \right) &amp;= \phantom{1} 1 &amp;&amp; \quad \frac{1}{   3} &amp;= 0.\bar{3} \\
+   7 &amp; \mid (10^6    - 1) &amp;&amp; \quad \ell \left(    7 \right) &amp;= \phantom{1} 6 &amp;&amp; \quad \frac{1}{   7} &amp;= 0.\overline{142857} \\
+  11 &amp; \mid (10^2    - 1) &amp;&amp; \quad \ell \left(   11 \right) &amp;= \phantom{1} 2 &amp;&amp; \quad \frac{1}{  11} &amp;= 0.\overline{09} \\
+  13 &amp; \mid (10^6    - 1) &amp;&amp; \quad \ell \left(   13 \right) &amp;= \phantom{1} 6 &amp;&amp; \quad \frac{1}{  13} &amp;= 0.\overline{076923} \\
+  17 &amp; \mid (10^{16} - 1) &amp;&amp; \quad \ell \left(   17 \right) &amp;= 16            &amp;&amp; \quad \frac{1}{  17} &amp;= 0.\overline{0588235294117647} \\
+  19 &amp; \mid (10^{18} - 1) &amp;&amp; \quad \ell \left(   19 \right) &amp;= 18            &amp;&amp; \quad \frac{1}{  19} &amp;= 0.\overline{052631578947368421} \\
+  23 &amp; \mid (10^{22} - 1) &amp;&amp; \quad \ell \left(   23 \right) &amp;= 22            &amp;&amp; \quad \frac{1}{  23} &amp;= 0.\overline{0434782608695652173913} \\
+  29 &amp; \mid (10^{28} - 1) &amp;&amp; \quad \ell \left(   29 \right) &amp;= 28            &amp;&amp; \quad \frac{1}{  29} &amp;= 0.\overline{0344827586206896551724137931} \\
+  31 &amp; \mid (10^{15} - 1) &amp;&amp; \quad \ell \left(   31 \right) &amp;= 15            &amp;&amp; \quad \frac{1}{  31} &amp;= 0.\overline{032258064516129} \\
+  37 &amp; \mid (10^3    - 1) &amp;&amp; \quad \ell \left(   37 \right) &amp;= \phantom{1} 3 &amp;&amp; \quad \frac{1}{  37} &amp;= 0.\overline{027} \\
+  41 &amp; \mid (10^5    - 1) &amp;&amp; \quad \ell \left(   41 \right) &amp;= \phantom{1} 5 &amp;&amp; \quad \frac{1}{  41} &amp;= 0.\overline{02439} \\ \vdots \\
+  73 &amp; \mid (10^8    - 1) &amp;&amp; \quad \ell \left(   73 \right) &amp;= \phantom{1} 8 &amp;&amp; \quad \frac{1}{  73} &amp;= 0.\overline{01369863} \\ \vdots \\
+ 101 &amp; \mid (10^4    - 1) &amp;&amp; \quad \ell \left(  101 \right) &amp;= \phantom{1} 4 &amp;&amp; \quad \frac{1}{ 101} &amp;= 0.\overline{0099} \\ \vdots \\
+ 137 &amp; \mid (10^8    - 1) &amp;&amp; \quad \ell \left(  137 \right) &amp;= \phantom{1} 8 &amp;&amp; \quad \frac{1}{ 137} &amp;= 0.\overline{00729927} \\ \vdots \\
+ 239 &amp; \mid (10^7    - 1) &amp;&amp; \quad \ell \left(  239 \right) &amp;= \phantom{1} 7 &amp;&amp; \quad \frac{1}{ 239} &amp;= 0.\overline{0041841} \\ \vdots \\
+ 271 &amp; \mid (10^5    - 1) &amp;&amp; \quad \ell \left(  271 \right) &amp;= \phantom{1} 5 &amp;&amp; \quad \frac{1}{ 271} &amp;= 0.\overline{00369} \\ \vdots \\
+4649 &amp; \mid (10^7    - 1) &amp;&amp; \quad \ell \left( 4649 \right) &amp;= \phantom{1} 7 &amp;&amp; \quad \frac{1}{4649} &amp;= 0.\overline{0002151} \\ \vdots \\
+\end  {aligned}
+\)</span></p>
+</div>
+</fieldset></section>
+<hr class="docutils" />
+<section id="primitive-prime-factors-of-10-n-1">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Primitive prime factors of <span class="math notranslate nohighlight">\(10^n - 1\)</span></a><a class="headerlink" href="#primitive-prime-factors-of-10-n-1" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition</b></p>
+<p>The <b>primitive prime factors of</b> <span class="math notranslate nohighlight">\(10^n - 1\)</span> are the primes that divide <span class="math notranslate nohighlight">\(10^n - 1\)</span> but not <span class="math notranslate nohighlight">\(10^m - 1\)</span> for any <span class="math notranslate nohighlight">\(0 \lt m \lt n\)</span>. These are exactly the primes <span class="math notranslate nohighlight">\(p\)</span> for which the length of the period of the decimal fraction for <span class="math notranslate nohighlight">\(1/p\)</span> is <span class="math notranslate nohighlight">\(n\)</span>.</p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+10^n - 1 &amp;&amp;&amp; \text{primitive prime factors} \\ \hline
+3^2 R_1    &amp;= 3^2 \times           1 &amp;&amp;  3 \\
+3^2 R_2    &amp;= 3^2 \times          11 &amp;&amp; 11 \\
+3^2 R_3    &amp;= 3^2 \times         111 &amp;&amp; 37 \\
+3^2 R_4    &amp;= 3^2 \times        1111 &amp;&amp; 101 \\
+3^2 R_5    &amp;= 3^2 \times       11111 &amp;&amp; 41, 271 \\
+3^2 R_6    &amp;= 3^2 \times      111111 &amp;&amp; 7, 13 \\
+3^2 R_7    &amp;= 3^2 \times     1111111 &amp;&amp; 239, 4649 \\
+3^2 R_8    &amp;= 3^2 \times    11111111 &amp;&amp; 73, 137 \\
+3^2 R_9    &amp;= 3^2 \times   111111111 &amp;&amp; 333667 \\
+3^2 R_{10} &amp;= 3^2 \times  1111111111 &amp;&amp; 9091 \\
+3^2 R_{11} &amp;= 3^2 \times 11111111111 &amp;&amp; 21649, 513239 \\ \vdots \\
+\end  {aligned}
+\)</span></p>
+</div>
+</fieldset><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">decimal</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="mi">7</span><span class="o">*</span><span class="mi">11</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Decimal(&#39;0.004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329004329&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="general-repeating-decimal-fractions">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">General repeating decimal fractions</a><a class="headerlink" href="#general-repeating-decimal-fractions" title="Link to this heading">#</a></h3>
+<p>In 1801, Gauss determined the period length of the decimal fraction for every rational number <span class="math notranslate nohighlight">\(a/b\)</span> in terms of the factors of numbers <span class="math notranslate nohighlight">\(10^n - 1\)</span>.</p>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p>Let <span class="math notranslate nohighlight">\(p\)</span> be a prime number other than <span class="math notranslate nohighlight">\(2\)</span> or <span class="math notranslate nohighlight">\(5\)</span> and let <span class="math notranslate nohighlight">\(m\)</span> be a positive integer.</p>
+<p>1</p>
+<p>If <span class="math notranslate nohighlight">\(p\)</span> does not divide the integer <span class="math notranslate nohighlight">\(r\)</span> then the length of the period of the decimal fraction <span class="math notranslate nohighlight">\(r/p^m\)</span> is the smallest positive integer <span class="math notranslate nohighlight">\(e\)</span> for which <span class="math notranslate nohighlight">\(p^m\)</span> divides <span class="math notranslate nohighlight">\(10^e - 1\)</span>.</p>
+<div style="color: red;">
+<p>This means that <span class="math notranslate nohighlight">\(e\)</span> is a divisor of <span class="math notranslate nohighlight">\(p^{m-1} (p - 1)\)</span>.</p>
+</div>
+<div style="color: #50C878;">
+<p>We will see that the following holds after studying congruences, Euler’s totient, and primitive roots.</p>
+<p><span class="math notranslate nohighlight">\(
+p^m \mid (10^e - 1)
+\quad \iff \quad
+10^e \equiv 1 \mod p^m
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+(e = \text{ord}_{p^m}(10)) \mid (\phi(p^m) = p^{m-1}(p-1))
+\)</span></p>
+</div>
+<p>Call this period length <span class="math notranslate nohighlight">\(\ell(p^m)\)</span>.</p>
+<p>2</p>
+<p>If <span class="math notranslate nohighlight">\(M = p_1^{m_1} p_2^{m_2} \dotsb p_k^{m_k}\)</span> where the <span class="math notranslate nohighlight">\(p_i\)</span> are distinct primes not equal to <span class="math notranslate nohighlight">\(2\)</span> or <span class="math notranslate nohighlight">\(5\)</span> then the length of the period of the decimal fraction for <span class="math notranslate nohighlight">\(r/M\)</span> is the least common multiple <span class="math notranslate nohighlight">\(\ell(M)\)</span> of the numbers <span class="math notranslate nohighlight">\(\ell(p_1^{m_1}), \ell(p_2^{m_2}), \dotsc, \ell(p_k^{m_k})\)</span>.</p>
+<p>In all these cases the period begins with the first digit after the decimal point.</p>
+<p>3</p>
+<p>In the case where <span class="math notranslate nohighlight">\(N = 2^a 5^b M\)</span> with <span class="math notranslate nohighlight">\(M\)</span> not divisible by <span class="math notranslate nohighlight">\(2\)</span> or <span class="math notranslate nohighlight">\(5\)</span> the decimal fraction for <span class="math notranslate nohighlight">\(r/N\)</span> becomes periodic after the first <span class="math notranslate nohighlight">\(c\)</span> digits following the decimal point, where <span class="math notranslate nohighlight">\(c = \max(a, b)\)</span>, and the length of the period is <span class="math notranslate nohighlight">\(\ell(M)\)</span>.</p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+3   &amp; \mid (10^1 - 1) &amp;&amp; \quad \ell \left( 3   \right) &amp;= \phantom{1} 1 &amp;&amp; \quad \frac{1}{3}   &amp;= 0.\overline{3} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{2}{3}   &amp;= 0.\overline{6} \\
+3^2 &amp; \mid (10^1 - 1) &amp;&amp; \quad \ell \left( 3^2 \right) &amp;= \phantom{1} 1 &amp;&amp; \quad \frac{1}{3^2} &amp;= 0.\overline{1} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{2}{3^2} &amp;= 0.\overline{2} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{4}{3^2} &amp;= 0.\overline{4} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{5}{3^2} &amp;= 0.\overline{5} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{7}{3^2} &amp;= 0.\overline{7} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{8}{3^2} &amp;= 0.\overline{8} \\
+3^3 &amp; \mid (10^3 - 1) &amp;&amp; \quad \ell \left( 3^3 \right) &amp;= \phantom{1} 3 &amp;&amp; \quad \frac{1}{3^3} &amp;= 0.\overline{037} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{2}{3^3} &amp;= 0.\overline{074} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{4}{3^3} &amp;= 0.\overline{148} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{5}{3^3} &amp;= 0.\overline{185} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{7}{3^3} &amp;= 0.\overline{259} \\
+    &amp;                 &amp;&amp;                               &amp;                &amp;&amp; \quad \frac{8}{3^3} &amp;= 0.\overline{296} \\ &amp;&amp;&amp;&amp;&amp;&amp;&amp; \vdots \\
+\end  {aligned}
+\)</span></p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+11   &amp; \mid (10^2     - 1) &amp;&amp; \quad \ell \left( 11   \right) &amp;= \phantom{1}  2  &amp;&amp; \quad \frac{1}{11}   &amp;= 0.\overline{09} \\
+     &amp;                     &amp;&amp;                                &amp;                  &amp;&amp; \quad \frac{2}{11}   &amp;= 0.\overline{18} \\ &amp;&amp;&amp;&amp;&amp;&amp;&amp; \vdots \\
+11^2 &amp; \mid (10^{22}  - 1) &amp;&amp; \quad \ell \left( 11^2 \right) &amp;= \phantom{1}  22 &amp;&amp; \quad \frac{1}{11^2} &amp;= 0.\overline{0082644628099173553719} \\
+     &amp;                     &amp;&amp;                                &amp;                  &amp;&amp; \quad \frac{2}{11^2} &amp;= 0.\overline{0165289256198347107438} \\ &amp;&amp;&amp;&amp;&amp;&amp;&amp; \vdots \\
+11^3 &amp; \mid (10^{242} - 1) &amp;&amp; \quad \ell \left( 11^3 \right) &amp;= \phantom{1} 242 &amp;&amp; \quad \frac{1}{11^3} &amp;= 0.\overline{00075131480090157776108189331329827197595792637114951164537941397445529676934635612321562734785875281743050338091660405709992486851990984222389181066867017280240420736288504883546205860255447032306536438767843726521412471825694966190833959429} \\
+     &amp;                     &amp;&amp;                                &amp;                  &amp;&amp; \quad \frac{2}{11^3} &amp;= 0.\overline{00150262960180315552216378662659654395191585274229902329075882794891059353869271224643125469571750563486100676183320811419984973703981968444778362133734034560480841472577009767092411720510894064613072877535687453042824943651389932381667918858} \\ &amp;&amp;&amp;&amp;&amp;&amp;&amp; \vdots \\
+\end  {aligned}
+\)</span></p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{7}{740} = 7 \times \frac{1}{2^2 \times 5^1 \times 37}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(c = \max(2, 1) = 2\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+37   &amp; \mid (10^3 - 1) &amp;&amp; \quad \ell \left( 37 \right) &amp;= \phantom{1} 3  &amp;&amp; \quad \frac{1}{37}  &amp;= 0.\overline{027} \\
+     &amp;                 &amp;&amp;                              &amp;                 &amp;&amp; \quad \frac{7}{37}  &amp;= 0.\overline{189} \\
+     &amp;                 &amp;&amp;                              &amp;                 &amp;&amp; \quad \frac{1}{2^2 5}  &amp;= 0.05 \\
+     &amp;                 &amp;&amp;                              &amp;                 &amp;&amp; \quad \frac{7}{740} &amp;= 0.00\overline{945} \\ &amp;&amp;&amp;&amp;&amp;&amp;&amp; \vdots \\
+\end  {aligned}
+\)</span></p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 10px 20px;">
+<div class="full-width" style="color: #50C878;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{163}{407} = \frac{163}{11 \times 37}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\ell(11) = 2, \ell(37) = 3, \text{lcm}[2, 3] = 6\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\frac{1  }{407} &amp;= 0.\overline{002457} \\ \vdots \\
+\frac{163}{407} &amp;= 0.\overline{400491} \\ \vdots \\
+\end  {aligned}
+\)</span></p>
+</div>
+</fieldset><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">decimal</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">123456789091111122</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">73</span><span class="o">*</span><span class="mi">11</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="mi">10</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Decimal(&#39;150141059273.7088481670298879202988792029887920298879202988792029887920298879202988792029887920298879202988792029887920298879202988792029887920298879202988792029887920298879202988792029887920298879202988792029887920298879202988792029887920298879202989&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+0.1666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667
+0.1428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571429
+0.1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+0.09090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909090909091
+0.08333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+0.07692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692307692
+0.07142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857142857143
+0.06666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667
+0.05882352941176470588235294117647058823529411764705882352941176470588235294117647058823529411764705882352941176470588235294117647058823529411764705882352941176470588235294117647058823529411764705882352941176470588235294117647058823529411764705882352941
+0.05555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555556
+0.05263157894736842105263157894736842105263157894736842105263157894736842105263157894736842105263157894736842105263157894736842105263157894736842105263157894736842105263157894736842105263157894736842105263157894736842105263157894736842105263157894736842
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="repeating-base-b-fractions">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Repeating base-<span class="math notranslate nohighlight">\(b\)</span> fractions</a><a class="headerlink" href="#repeating-base-b-fractions" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="base-2">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Base <span class="math notranslate nohighlight">\(2\)</span></a><a class="headerlink" href="#base-2" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\boxed{
+\begin{aligned}
+\frac{1}{2}  &amp;= 0.1_2 \\
+\frac{1}{3}  &amp;= 0.\overline{01}_2 \\
+\frac{1}{4}  &amp;= 0.01_2 \\
+\frac{1}{5}  &amp;= 0.\overline{0011}_2 \\
+\frac{1}{6}  &amp;= 0.0\overline{01}_2 \\
+\frac{1}{7}  &amp;= 0.\overline{001}_2 \\
+\frac{1}{8}  &amp;= 0.001_2 \\
+\frac{1}{9}  &amp;= 0.\overline{000111}_2 \\
+\frac{1}{10} &amp;= 0.0\overline{0011}_2 \\
+\end  {aligned}
+}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\frac{1}{2} = 0.1_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(N = 2\)</span> only consists of prime factors of the base and so the binary fraction terminates.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times b &amp;= 2 &amp;&amp;= \textcolor{#0096FF}{1} \times 2 + 0 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.1_2 = 1 \times 2^{-1} = \frac{1}{2}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\frac{1}{3} = 0.\overline{01}_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times b &amp;= 2 &amp;&amp;= \textcolor{#0096FF}{0} \times 3 + 2 \\
+2 \times b &amp;= 4 &amp;&amp;= \textcolor{#0096FF}{1} \times 3 + 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.\overline{01}_2
+&amp;= 0 \times 2^{-1} + 1 \times 2^{-2} + 0 \times 2^{-3} + 1 \times 2^{-4} + 0 \times 2^{-5} + 1 \times 2^{-6} + 0 \times 2^{-7} + 1 \times 2^{-8} + \dotsb \\
+&amp;= 2^{-2} + 2^{-4} + 2^{-6} + 2^{-8} + \dotsb \\
+&amp;= 2^{-2} + (2^{-2})(2^{-2}) + (2^{-2})(2^{-2})^2 + (2^{-2})(2^{-2})^3 + \dotsb \\
+&amp;= 2^{-2} \times (1 + (2^{-2}) + (2^{-2})^2 + (2^{-2})^3 + \dotsb) \\
+&amp;= 2^{-2} \times \frac{1}{1 - 2^{-2}} \\
+&amp;= \frac{1}{4} \times \frac{4}{3} \\
+&amp;= \frac{1}{3} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\frac{1}{4} = 0.01_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(N = 4 = 2^2\)</span> only consists of prime factors of the base and so the binary fraction terminates.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times b &amp;= 2 &amp;&amp;= \textcolor{#0096FF}{0} \times 4 + 2 \\
+2 \times b &amp;= 4 &amp;&amp;= \textcolor{#0096FF}{1} \times 4 + 0 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.01_2 = 1 \times 2^{-2} = \frac{1}{4}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\frac{1}{5} = 0.\overline{0011}_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(N = 5\)</span> is prime but is not a factor of the base. Therefore, the period is the smallest <span class="math notranslate nohighlight">\(e\)</span> such that <span class="math notranslate nohighlight">\(N \mid (2^e - 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times b &amp;= 2 &amp;&amp;= \textcolor{#0096FF}{0} \times 5 + 2 \\
+2 \times b &amp;= 4 &amp;&amp;= \textcolor{#0096FF}{0} \times 5 + 4 \\
+4 \times b &amp;= 8 &amp;&amp;= \textcolor{#0096FF}{1} \times 5 + 3 \\
+3 \times b &amp;= 6 &amp;&amp;= \textcolor{#0096FF}{1} \times 5 + 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.\overline{0011}_2
+&amp;= 0 \times 2^{-1} + 0 \times 2^{-2} + 1 \times 2^{-3} + 1 \times 2^{-4} + 0 \times 2^{-5} + 0 \times 2^{-6} + 1 \times 2^{-7} + 1 \times 2^{-8} + \dotsb \\
+&amp;= (2^{-3} + 2^{-4}) + (2^{-7} + 2^{-8}) + (2^{-11} + 2^{-12}) + \dotsb \\
+&amp;= (2^{-3} + 2^{-4}) + (2^{-3} + 2^{-4})(2^{-4}) + (2^{-3} + 2^{-4})(2^{-4})^2 + \dotsb \\
+&amp;= (2^{-3} + 2^{-4}) \times (1 + (2^{-4}) + (2^{-4})^2 + \dotsb) \\
+&amp;= (2^{-3} + 2^{-4}) \times \frac{1}{1 - \frac{1}{16}} \\
+&amp;= \left( \frac{1}{8} + \frac{1}{16} \right) \times \frac{16}{15} \\
+&amp;= \frac{3}{16} \times \frac{16}{15} \\
+&amp;= \frac{1}{5} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\frac{1}{6} = 0.0\overline{01}_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(N = 6 = 2^1 \times 3\)</span> and <span class="math notranslate nohighlight">\(\ell(3) = 2\)</span>. Therefore, the period is <span class="math notranslate nohighlight">\(2\)</span> and begins <span class="math notranslate nohighlight">\(1\)</span> digit after the radix point.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times b &amp;= 2 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 2 \\
+2 \times b &amp;= 4 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 4 \\
+4 \times b &amp;= 8 &amp;&amp;= \textcolor{#0096FF}{1} \times N + 2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.0\overline{01}_2
+&amp;= 0 \times 2^{-1} + 0 \times 2^{-2} + 1 \times 2^{-3} + 0 \times 2^{-4} + 1 \times 2^{-5} + 0 \times 2^{-6} + 1 \times 2^{-7} + 0 \times 2^{-8} + 1 \times 2^{-9} + \dotsb \\
+&amp;= 2^{-3} + 2^{-5} + 2^{-7} + 2^{-9} + \dotsb \\
+&amp;= 2^{-3} + (2^{-3})(2^{-2}) + (2^{-3})(2^{-2})^2 + (2^{-3})(2^{-2})^3 + \dotsb \\
+&amp;= 2^{-3} \times (1 + (2^{-2}) + (2^{-2})^2 + (2^{-2})^3 + \dotsb) \\
+&amp;= 2^{-3} \times \frac{1}{1 - \frac{1}{4}} \\
+&amp;= \frac{1}{8} \times \frac{4}{3} \\
+&amp;= \frac{1}{6} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\frac{1}{7} = 0.\overline{001}_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(N = 7\)</span> is prime but is not a factor of the base. Therefore, the period is the smallest <span class="math notranslate nohighlight">\(e\)</span> such that <span class="math notranslate nohighlight">\(N \mid (2^e - 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times b &amp;= 2 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 2 \\
+2 \times b &amp;= 4 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 4 \\
+4 \times b &amp;= 8 &amp;&amp;= \textcolor{#0096FF}{1} \times N + 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.\overline{001}_2
+&amp;= 0 \times 2^{-1} + 0 \times 2^{-2} + 1 \times 2^{-3} + 0 \times 2^{-4} + 0 \times 2^{-5} + 1 \times 2^{-6} + 0 \times 2^{-7} + 0 \times 2^{-8} + 1 \times 2^{-9} + \dotsb \\
+&amp;= 2^{-3} + 2^{-6} + 2^{-9} + \dotsb \\
+&amp;= 2^{-3} + (2^{-3})(2^{-3}) + (2^{-3})(2^{-3})^2 + \dotsb \\
+&amp;= 2^{-3} \times (1 + (2^{-3}) + (2^{-3})^2 + \dotsb) \\
+&amp;= 2^{-3} \times \frac{1}{1 - \frac{1}{8}} \\
+&amp;= \frac{1}{8} \times \frac{8}{7} \\
+&amp;= \frac{1}{7} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\frac{1}{8} = 0.001_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(N = 8 = 2^3\)</span> only consists of prime factors of the base and so the binary fraction terminates.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times b &amp;= 2 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 2 \\
+2 \times b &amp;= 4 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 4 \\
+4 \times b &amp;= 8 &amp;&amp;= \textcolor{#0096FF}{1} \times N + 0 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.001_2 = 1 \times 2^{-3} = \frac{1}{8}
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\frac{1}{9} = 0.\overline{000111}_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(N = 9 = 3^2\)</span>. Therefore, the period is the smallest <span class="math notranslate nohighlight">\(e\)</span> such that <span class="math notranslate nohighlight">\(N \mid (2^e - 1)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times b &amp;=  2 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 2 \\
+2 \times b &amp;=  4 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 4 \\
+4 \times b &amp;=  8 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 8 \\
+8 \times b &amp;= 16 &amp;&amp;= \textcolor{#0096FF}{1} \times N + 7 \\
+7 \times b &amp;= 14 &amp;&amp;= \textcolor{#0096FF}{1} \times N + 5 \\
+5 \times b &amp;= 10 &amp;&amp;= \textcolor{#0096FF}{1} \times N + 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.\overline{000111}_2
+&amp;= 0 \times 2^{-1} + 0 \times 2^{-2} + 0 \times 2^{-3} + 1 \times 2^{-4} + 1 \times 2^{-5} + 1 \times 2^{-6} + 0 \times 2^{-7} + 0 \times 2^{-8} + 0 \times 2^{-9} + \dotsb \\
+&amp;= (2^{-4} + 2^{-5} + 2^{-6}) + (2^{-10} + 2^{-11} + 2^{-12}) + (2^{-16} + 2^{-17} + 2^{-18}) + \dotsb \\
+&amp;= (2^{-4} + 2^{-5} + 2^{-6}) + (2^{-4} + 2^{-5} + 2^{-6})(2^{-6}) + (2^{-4} + 2^{-5} + 2^{-6})(2^{-6})^2 + \dotsb \\
+&amp;= (2^{-4} + 2^{-5} + 2^{-6}) \times (1 + (2^{-6}) + (2^{-6})^2 + \dotsb) \\
+&amp;= (2^{-4} + 2^{-5} + 2^{-6}) \times \frac{1}{1 - \frac{1}{64}} \\
+&amp;= \left( \frac{1}{16} + \frac{1}{32} + \frac{1}{64} \right) \times \frac{64}{63} \\
+&amp;= \frac{7}{64} \times \frac{64}{63} \\
+&amp;= \frac{1}{9} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p><span class="math notranslate nohighlight">\(\boxed{\frac{1}{10} = 0.0\overline{0011}_2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(N = 10 = 2^1 \times 5\)</span> and <span class="math notranslate nohighlight">\(\ell(5) = 4\)</span>. Therefore, the period is <span class="math notranslate nohighlight">\(4\)</span> and begins <span class="math notranslate nohighlight">\(1\)</span> digit after the radix point.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times b &amp;=  2 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 2 \\
+2 \times b &amp;=  4 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 4 \\
+4 \times b &amp;=  8 &amp;&amp;= \textcolor{#0096FF}{0} \times N + 8 \\
+8 \times b &amp;= 16 &amp;&amp;= \textcolor{#0096FF}{1} \times N + 6 \\
+6 \times b &amp;= 12 &amp;&amp;= \textcolor{#0096FF}{1} \times N + 2 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+0.0\overline{0011}_2
+&amp;= 0 \times 2^{-1} + 0 \times 2^{-2} + 0 \times 2^{-3} + 1 \times 2^{-4} + 1 \times 2^{-5} + 0 \times 2^{-6} + 0 \times 2^{-7} + 1 \times 2^{-8} + 1 \times 2^{-9} + \dotsb \\
+&amp;= (2^{-4} + 2^{-5}) + (2^{-8} + 2^{-9}) + (2^{-12} + 2^{-13}) + \dotsb \\
+&amp;= (2^{-4} + 2^{-5}) + (2^{-4} + 2^{-5})(2^{-4}) + (2^{-4} + 2^{-5})(2^{-4})^2 + \dotsb \\
+&amp;= (2^{-4} + 2^{-5}) \times (1 + (2^{-4}) + (2^{-4})^2 + \dotsb) \\
+&amp;= (2^{-4} + 2^{-5}) \times \frac{1}{1 - \frac{1}{16}} \\
+&amp;= \left( \frac{1}{16} + \frac{1}{32} \right) \times \frac{16}{15} \\
+&amp;= \frac{3}{32} \times \frac{16}{15} \\
+&amp;= \frac{1}{10} \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<hr class="docutils" />
+<section id="base-3">
+<h4><a class="toc-backref" href="#id20" role="doc-backlink">Base <span class="math notranslate nohighlight">\(3\)</span></a><a class="headerlink" href="#base-3" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+2 &amp; \mid (3^1 - 1) &amp;&amp; \quad \ell(2) &amp;= 1 &amp;&amp; \quad \frac{1}{2} &amp;= 0.\overline{1}  &amp;   0.5  &amp;&amp; \times 3 &amp;= \textcolor{#0096FF}{1}.5  \\
+4 &amp; \mid (3^2 - 1) &amp;&amp; \quad \ell(4) &amp;= 2 &amp;&amp; \quad \frac{1}{4} &amp;= 0.\overline{02} &amp;   0.25 &amp;&amp; \times 3 &amp;= \textcolor{#0096FF}{0}.75 \\
+                                                                          &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;        &amp;&amp; \times 3 &amp;= \textcolor{#0096FF}{2}.25 \\
+5 &amp; \mid (3^4 - 1) &amp;&amp; \quad \ell(5) &amp;= 4 &amp;&amp; \quad \frac{1}{5} &amp;= 0.\overline{0121} &amp; 0.2  &amp;&amp; \times 3 &amp;= \textcolor{#0096FF}{0}.6  \\
+                                                                          &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;        &amp;&amp; \times 3 &amp;= \textcolor{#0096FF}{1}.8  \\
+                                                                          &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;        &amp;&amp; \times 3 &amp;= \textcolor{#0096FF}{2}.4  \\
+                                                                          &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;        &amp;&amp; \times 3 &amp;= \textcolor{#0096FF}{1}.2  \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+7 \mid (3^6 - 1) \quad \ell(7) = 6 \quad \frac{1}{7} = 0.\overline{010212}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times 3 &amp;=  3 &amp;= \textcolor{#0096FF}{0} \times 7 + 3 \\
+3 \times 3 &amp;=  9 &amp;= \textcolor{#0096FF}{1} \times 7 + 2 \\
+2 \times 3 &amp;=  6 &amp;= \textcolor{#0096FF}{0} \times 7 + 6 \\
+6 \times 3 &amp;= 18 &amp;= \textcolor{#0096FF}{2} \times 7 + 4 \\
+4 \times 3 &amp;= 12 &amp;= \textcolor{#0096FF}{1} \times 7 + 5 \\
+5 \times 3 &amp;= 15 &amp;= \textcolor{#0096FF}{2} \times 7 + 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+8 \mid (3^2 - 1) \quad \ell(8) = 2 \quad \frac{1}{8} = 0.\overline{01}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times 3 &amp;=  3 &amp;= \textcolor{#0096FF}{0} \times 8 + 3 \\
+3 \times 3 &amp;=  9 &amp;= \textcolor{#0096FF}{1} \times 8 + 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+10 \mid (3^4 - 1) \quad \ell(10) = 4 \quad \frac{1}{10} = 0.\overline{0022}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times 3 &amp;=  3 &amp;= \textcolor{#0096FF}{0} \times 10 + 3 \\
+3 \times 3 &amp;=  9 &amp;= \textcolor{#0096FF}{0} \times 10 + 9 \\
+9 \times 3 &amp;= 27 &amp;= \textcolor{#0096FF}{2} \times 10 + 7 \\
+7 \times 3 &amp;= 21 &amp;= \textcolor{#0096FF}{2} \times 10 + 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+20 \mid (3^4 - 1) \quad \ell(20) = 4 \quad \frac{1}{20} = 0.\overline{0011}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+1 \times 3 &amp;=  3 &amp;= \textcolor{#0096FF}{0} \times 20 + 3 \\
+3 \times 3 &amp;=  9 &amp;= \textcolor{#0096FF}{0} \times 20 + 9 \\
+9 \times 3 &amp;= 27 &amp;= \textcolor{#0096FF}{1} \times 20 + 7 \\
+7 \times 3 &amp;= 21 &amp;= \textcolor{#0096FF}{1} \times 20 + 1 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(30 = 2 \times 3 \times 5 \quad \ell(2) = 1, \ell(5) = 4, \text{lcm}[1, 4] = 4\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\frac{1}{30} = 0.0\overline{0022}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+ 1 \times 3 &amp;=  3 &amp;= \textcolor{#0096FF}{0} \times 30 + \phantom{2} 3 \\
+ 3 \times 3 &amp;=  9 &amp;= \textcolor{#0096FF}{0} \times 30 + \phantom{2} 9 \\
+ 9 \times 3 &amp;= 27 &amp;= \textcolor{#0096FF}{0} \times 30 + 27 \\
+27 \times 3 &amp;= 81 &amp;= \textcolor{#0096FF}{2} \times 30 + 21 \\
+21 \times 3 &amp;= 63 &amp;= \textcolor{#0096FF}{2} \times 30 + \phantom{2} 3 \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x &amp;= 0 \times 3^{-1} + (0 \times 3^{-2} + 0 \times 3^{-3} + 2 \times 3^{-4} + 2 \times 3^{-5}) + (0 \times 3^{-6} + 0 \times 3^{-7} + 2 \times 3^{-8} + 2 \times 3^{-9}) + \dotsb \\
+  &amp;= (2 \times 3^{-4} + 2 \times 3^{-5}) + (2 \times 3^{-8} + 2 \times 3^{-9}) + \dotsb \\
+  &amp;= (2 \times 3^{-4} + 2 \times 3^{-5}) \times \left( 1 + \frac{1}{3^4} + \frac{1}{3^8} + \dotsb \right) \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(35 = 5 \times 7 \quad \ell(5) = 4, \ell(7) = 6, \text{lcm}[4, 6] = 12\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\frac{1}{35} = 0.\overline{000202211101}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+ 1 \times 3 &amp;=  3 &amp;= \textcolor{#0096FF}{0} \times 35 + \phantom{2} 3 \\
+ 3 \times 3 &amp;=  9 &amp;= \textcolor{#0096FF}{0} \times 35 + \phantom{2} 9 \\
+ 9 \times 3 &amp;= 27 &amp;= \textcolor{#0096FF}{0} \times 35 + 27 \\
+27 \times 3 &amp;= 81 &amp;= \textcolor{#0096FF}{2} \times 35 + 11 \\
+11 \times 3 &amp;= 33 &amp;= \textcolor{#0096FF}{0} \times 35 + 33 \\
+33 \times 3 &amp;= 99 &amp;= \textcolor{#0096FF}{2} \times 35 + 29 \\
+29 \times 3 &amp;= 87 &amp;= \textcolor{#0096FF}{2} \times 35 + 17 \\
+17 \times 3 &amp;= 51 &amp;= \textcolor{#0096FF}{1} \times 35 + 16 \\
+16 \times 3 &amp;= 48 &amp;= \textcolor{#0096FF}{1} \times 35 + 13 \\
+13 \times 3 &amp;= 39 &amp;= \textcolor{#0096FF}{1} \times 35 + \phantom{2} 4 \\
+ 4 \times 3 &amp;= 12 &amp;= \textcolor{#0096FF}{0} \times 35 + 12 \\
+12 \times 3 &amp;= 36 &amp;= \textcolor{#0096FF}{1} \times 35 + \phantom{2} 1 \\
+\end  {aligned}
+\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">decimal</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">3</span><span class="o">**</span><span class="mi">39</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># e = 1</span>
+<span class="c1"># while True:</span>
+<span class="c1">#   e += 1</span>
+<span class="c1">#   m = 3**e - 1</span>
+<span class="c1">#   n = 30</span>
+<span class="c1">#   frac, _ = math.modf(decimal.Decimal(m)/decimal.Decimal(n))</span>
+<span class="c1">#   if frac == 0:</span>
+<span class="c1">#     print(e)</span>
+<span class="c1">#     break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Decimal(&#39;135085171767299208.8666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="acknowledgements">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">TJOF</span></code> <code class="docutils literal notranslate"><span class="pre">2013</span></code> Wagstaff Jr., Samuel S. <em>The Joy of Factoring</em>. AMS Student Mathematical Library.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/number"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="0_arithmetic.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Arithmetic</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1_induction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mathematical Induction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-numbers">Rational Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-rational-number">Definition: rational number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-b-fraction">Base-<span class="math notranslate nohighlight">\(b\)</span> fraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-there-is-no-smallest-positive-rational-number">Claim: there is no smallest positive rational number</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-sqrt-2-is-irrational">Claim: <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> is irrational</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-the-square-root-of-a-non-perfect-square-is-irrational">Claim: the square root of a non-perfect square is irrational</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repunits">Repunits</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-r-n-10-n-1-9">Claim: <span class="math notranslate nohighlight">\(R_n = (10^n - 1) / 9\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-r-m-mid-r-n-iff-m-mid-n">Claim: <span class="math notranslate nohighlight">\(R_m \mid R_n \iff m \mid n\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-r-2-mid-r-2n">Claim: <span class="math notranslate nohighlight">\(R_2 \mid R_{2n}\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-r-3-mid-r-3n">Claim: <span class="math notranslate nohighlight">\(R_3 \mid R_{3n}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-text-prime-r-n-implies-text-prime-n">Claim: <span class="math notranslate nohighlight">\(\text{Prime}(R_n) \implies \text{Prime}(n)\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeating-decimal-fractions">Repeating Decimal Fractions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reciprocal-of-a-prime">Reciprocal of a prime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-prime-factors-of-10-n-1">Primitive prime factors of <span class="math notranslate nohighlight">\(10^n - 1\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-repeating-decimal-fractions">General repeating decimal fractions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repeating-base-b-fractions">Repeating base-<span class="math notranslate nohighlight">\(b\)</span> fractions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-2">Base <span class="math notranslate nohighlight">\(2\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#base-3">Base <span class="math notranslate nohighlight">\(3\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
