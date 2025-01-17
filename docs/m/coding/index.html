@@ -74,11 +74,13 @@
                 gtag('config', 'G-4697ZWLBEP');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'm/coding/index';</script>
     <script src="../../_static/script.js?v=dcd15d02"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Linear Programming" href="../linprog/index.html" />
+    <link rel="next" title="Raymond Hill’s A First Course in Coding Theory" href="text__a_first_course_in_coding_theory/index.html" />
     <link rel="prev" title="Languages and Machines" href="../discrete/languages.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -289,7 +291,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../discrete/languages.html">Languages and Machines</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Mathematical Coding</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Mathematical Coding</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="text__a_first_course_in_coding_theory/index.html">Raymond Hill’s <em>A First Course in Coding Theory</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="text__a_first_course_in_coding_theory/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="text__a_first_course_in_coding_theory/02.html">The main coding theory problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="text__a_first_course_in_coding_theory/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="text__error-correcting_codes_and_finite_fields/index.html">Oliver Pretzel’s <em>Error-Correcting Codes and Finite Fields</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="text__error-correcting_codes_and_finite_fields/01_introduction.html">Introduction</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../linprog/index.html">Linear Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -731,9 +743,11 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">YouTube</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
@@ -750,17 +764,17 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mathematical-coding">
 <h1><a class="toc-backref" href="#id1" role="doc-backlink">Mathematical Coding</a><a class="headerlink" href="#mathematical-coding" title="Link to this heading">#</a></h1>
-<hr class="docutils" />
-<section id="table-of-contents">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink">Table of Contents</a><a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#mathematical-coding" id="id1">Mathematical Coding</a></p>
 <ul>
-<li><p><a class="reference internal" href="#table-of-contents" id="id2">Table of Contents</a></p></li>
-<li><p><a class="reference internal" href="#sections" id="id3">Sections</a></p></li>
-<li><p><a class="reference internal" href="#resources" id="id4">Resources</a></p></li>
+<li><p><a class="reference internal" href="#sections" id="id2">Sections</a></p></li>
+<li><p><a class="reference internal" href="#resources" id="id3">Resources</a></p>
+<ul>
+<li><p><a class="reference internal" href="#youtube" id="id4">YouTube</a></p></li>
+</ul>
+</li>
 <li><p><a class="reference internal" href="#figures" id="id5">Figures</a></p></li>
 <li><p><a class="reference internal" href="#texts" id="id6">Texts</a></p></li>
 <li><p><a class="reference internal" href="#terms" id="id7">Terms</a></p></li>
@@ -768,16 +782,21 @@
 </li>
 </ul>
 </nav>
-</section>
 <hr class="docutils" />
 <section id="sections">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">Sections</a><a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Sections</a><a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="text__a_first_course_in_coding_theory/index.html">Raymond Hill’s <em>A First Course in Coding Theory</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="text__error-correcting_codes_and_finite_fields/index.html">Oliver Pretzel’s <em>Error-Correcting Codes and Finite Fields</em></a></li>
+</ul>
 </div>
 </section>
 <hr class="docutils" />
 <section id="resources">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<section id="youtube">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">YouTube</a><a class="headerlink" href="#youtube" title="Link to this heading">#</a></h3>
 <p>Ben Eater</p>
 <ul class="simple">
 <li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=h0jloehRKas">y</a> ] Ben Eater. (2020). “What is error correction? Hamming codes in hardware”. YouTube.</p></li>
@@ -794,17 +813,20 @@
 <li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=_CPxe8yql0Q">y</a> ] <code class="docutils literal notranslate"><span class="pre">11-23-2023</span></code>. Primal Space. “Voyager’s 15 Billion Mile Software Update”.</p></li>
 </ul>
 </section>
+</section>
 <hr class="docutils" />
 <section id="figures">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">Figures</a><a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Richard_Hamming">w</a> ] Hamming, Richard (1915-1998)</p></li>
-<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Claude_Shannon">w</a> ] Shannon, Claude (1916-2001)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Richard_Hamming">w</a> ] <code class="docutils literal notranslate"><span class="pre">1915-1998</span></code> Hamming, Richard</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Claude_Shannon">w</a> ] <code class="docutils literal notranslate"><span class="pre">1916-2001</span></code> Shannon, Claude</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="texts">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">Texts</a><a class="headerlink" href="#texts" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">FCCT</span></code> <code class="docutils literal notranslate"><span class="pre">1990</span></code> Hill, Raymond. <em>A First Course in Coding Theory</em>. Clarendon Press: Oxford Applied Mathematics and Computing Science Series.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ECFF</span></code> <code class="docutils literal notranslate"><span class="pre">1992</span></code> Pretzel, Oliver. <em>Error-Correcting Codes and Finite Fields</em>. Oxford University Press Applied Mathematics and Computing Science Series.</p>
 <ul class="simple">
 <li><p>Ball, Simeon. (2020). <em>A Course in Algebraic Error-Correcting Codes</em>.</p></li>
 <li><p>Berlekamp, Elwyn R. (2015). <em>Algebraic Coding Theory</em>.</p></li>
@@ -815,7 +837,6 @@
 <li><p>Csiszár, Imre &amp; János Körner. (2011). <em>Information Theory: Coding Theorems for Discrete Memoryless Systems</em>. Cambridge University Press.</p></li>
 <li><p>Golomb, Solomon W., Robert E. Peile, &amp; Robert A. Scholtz. (1994). <em>Basic Concepts in Information Theory and Coding: The Adventures of Secret Agent 00111</em>. Springer.</p></li>
 <li><p>Hamming, Richard W. (1985). <em>Coding and Information Theory</em>.</p></li>
-<li><p>Hill, Raymond. (1990). <em>A First Course in Coding Theory</em>. Clarendon Press: Oxford Applied Mathematics and Computing Science Series.</p></li>
 <li><p>Huffman, W. Cary. &amp; Vera Pless. (2010). <em>Fundamentals of Error-Correcting Codes</em>. Cambridge University Press.</p></li>
 <li><p>Humphreys, J. F. &amp; M. Y. Prest. (2004). <em>Numbers, Groups, and Codes, 2nd Ed</em>. Cambridge University Press.</p></li>
 <li><p>Jones, Gareth A. &amp; J. Mary Jones. (2000) <em>Information and Coding Theory</em>. Springer Undergraduate Mathematics Series.</p></li>
@@ -825,7 +846,6 @@
 <li><p>Neubauer, Andre. (2007). <em>Coding Theory: Algorithms, Architectures, and Applications</em>. Wiley.</p></li>
 <li><p>Peterson, W. Wesley. (1972). <em>Error-Correcting Codes</em>. 2nd Ed. MIT Press.</p></li>
 <li><p>Pierce, John R. (1980). <em>An Introduction to Information Theory: Symbols, Signals, and Noise</em>. Dover.</p></li>
-<li><p>Pretzel, Oliver. (1992). <em>Error-Correcting Codes and Finite Fields</em>. Oxford University Press Applied Mathematics and Computing Science Series.</p></li>
 <li><p>Reza, Fazlollah M. (1994). <em>An Introduction to Information Theory</em>. Dover.</p></li>
 <li><p>Roman, Steven. (1997). <em>Introduction to Coding and Information Theory</em>. Springer Undergraduate Texts in Mathematics.</p></li>
 <li><p>Roman, Steven. (1992). <em>Coding and Information Theory</em>. Springer Graduate Texts in Mathematics.</p></li>
@@ -934,11 +954,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="../linprog/index.html"
+       href="text__a_first_course_in_coding_theory/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Linear Programming</p>
+        <p class="prev-next-title">Raymond Hill’s <em>A First Course in Coding Theory</em></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -959,9 +979,11 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">YouTube</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
