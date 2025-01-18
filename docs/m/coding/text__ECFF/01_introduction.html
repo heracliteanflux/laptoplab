@@ -918,19 +918,6 @@ word x   |           |  code word u        received word v    |                 
 <hr class="docutils" />
 <section id="parity-check-code">
 <h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="math notranslate nohighlight">\((8, 7)\)</span> Parity Check Code</a><a class="headerlink" href="#parity-check-code" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>52
-</pre></div>
-</div>
-</div>
-</div>
 <p>A byte, or <span class="math notranslate nohighlight">\(8\)</span> bits, is a common unit of information in computer systems which can represent values from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(255\)</span> inclusive.</p>
 <p>If we want to transmit English messages we can use the following alphabet.</p>
 <p><span class="math notranslate nohighlight">\(
@@ -945,7 +932,7 @@ A &amp;= \text{L} \cup \text{U} \cup \text{D} \cup \text{P} \\
 \end  {aligned}
 \)</span></p>
 <p>Observe that the number of symbols plus thirty or so more for control codes amounts to less than <span class="math notranslate nohighlight">\(127 = 2^7 - 1\)</span> or just <span class="math notranslate nohighlight">\(7\)</span> bits. Thus the eighth bit of a byte can be used as a parity bit to check that the byte has been received without error. The eighth bit is set so that the number of <span class="math notranslate nohighlight">\(1\)</span> s in the byte is even. This way, if a byte is transmitted and one of the bits goes wrong then the number of <span class="math notranslate nohighlight">\(1\)</span> s becomes odd and the receiver can ask for a retransmission. There is no way the receiver can tell which bit went wrong, and if two bits are incorrect the receiver will let the byte through. In practice, the order of the bits is reversed so that the check bit comes first.</p>
-<p>EXAMPLE</p>
+<p>For example</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{array}{rr|r}
 \text{symbol} &amp; 7\text{-bit ASCII code} &amp; 8\text{-bit encoding} \\ \hline
@@ -965,7 +952,7 @@ n + \frac{1}{7}n = n \left( 1 + \frac{1}{7} \right) = \frac{8}{7} n
 <p>(2)</p>
 <p>The code cannot correct errors; it is only suitable where the receiver can ask for retransmission, since errors can be detected but cannot be located</p>
 <p>(3)</p>
-<p>he probability of errors during transmission should be fairly low, because the code cannot cope with two errors in a byte</p>
+<p>The probability of errors during transmission should be fairly low, because the code cannot cope with two errors in a byte</p>
 <p>Implementation</p>
 <ul class="simple">
 <li><p>Encoder: divide the message into blocks of seven, and to each block add an eighth bit to make the number of <span class="math notranslate nohighlight">\(1\)</span> s even</p></li>
@@ -995,6 +982,13 @@ n + \frac{1}{7}n = n \left( 1 + \frac{1}{7} \right) = \frac{8}{7} n
 <hr class="docutils" />
 <section id="triple-check-code">
 <h3><a class="toc-backref" href="#id10" role="doc-backlink">Triple check code</a><a class="headerlink" href="#triple-check-code" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a + b + x &amp;\equiv 0 \mod 2 \\
+a + c + y &amp;\equiv 0 \mod 2 \\
+b + c + z &amp;\equiv 0 \mod 2 \\
+\end  {aligned}
+\)</span></p>
 <p>The message is divided into blocks of three <span class="math notranslate nohighlight">\(abc\)</span> where each of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> is <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. Three check bits <span class="math notranslate nohighlight">\(xyz\)</span> are added where each of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> is also <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. This is done in such a way that the following three conditions are satisfied.</p>
 <ol class="arabic simple">
 <li><p>The number of <span class="math notranslate nohighlight">\(1\)</span> s in <span class="math notranslate nohighlight">\(abx\)</span> is even.</p></li>
@@ -1004,15 +998,15 @@ n + \frac{1}{7}n = n \left( 1 + \frac{1}{7} \right) = \frac{8}{7} n
 <p>So if <span class="math notranslate nohighlight">\(abc = 110\)</span> then <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(y = 1\)</span>, and <span class="math notranslate nohighlight">\(z = 1\)</span> and so the code word is <span class="math notranslate nohighlight">\(110011\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{array}{rrr}
-\text{message } abc &amp; \text{encoded message } abcxyz \\ \hline
-000 &amp; 000000 \\
-001 &amp; 001011 \\
-010 &amp; 010101 \\
-011 &amp; 011110 \\
-100 &amp; 100110 \\
-101 &amp; 101101 \\
-110 &amp; 110011 \\
-111 &amp; 111000 \\
+\text{message } abc &amp; \text{encoded message } abcxyz &amp; a \text{ error} &amp; b \text{ error} &amp; c \text{ error} &amp; x \text{ error} &amp; y \text{ error} &amp; z \text{ error} \\ \hline
+000 &amp; 000000 &amp; \textcolor{red}{1}00000 &amp; 0\textcolor{red}{1}0000 &amp; 00\textcolor{red}{1}000 &amp; 000\textcolor{red}{1}00 &amp; 0000\textcolor{red}{1}0 &amp; 00000\textcolor{red}{1} \\
+001 &amp; 001011 &amp; \textcolor{red}{1}01011 &amp; 0\textcolor{red}{1}1011 &amp; 00\textcolor{red}{0}011 &amp; 001\textcolor{red}{1}11 &amp; 0010\textcolor{red}{0}1 &amp; 00101\textcolor{red}{0} \\
+010 &amp; 010101 &amp; \textcolor{red}{1}10101 &amp; 0\textcolor{red}{0}0101 &amp; 01\textcolor{red}{1}101 &amp; 010\textcolor{red}{0}01 &amp; 0101\textcolor{red}{1}1 &amp; 01010\textcolor{red}{0} \\
+011 &amp; 011110 &amp; \textcolor{red}{1}11110 &amp; 0\textcolor{red}{0}1110 &amp; 01\textcolor{red}{0}110 &amp; 011\textcolor{red}{0}10 &amp; 0111\textcolor{red}{0}0 &amp; 01111\textcolor{red}{1} \\
+100 &amp; 100110 &amp; \textcolor{red}{0}00110 &amp; 1\textcolor{red}{1}0110 &amp; 10\textcolor{red}{1}110 &amp; 100\textcolor{red}{0}10 &amp; 1001\textcolor{red}{0}0 &amp; 10011\textcolor{red}{1} \\
+101 &amp; 101101 &amp; \textcolor{red}{0}01101 &amp; 1\textcolor{red}{1}1101 &amp; 10\textcolor{red}{0}101 &amp; 101\textcolor{red}{0}01 &amp; 1011\textcolor{red}{1}1 &amp; 10110\textcolor{red}{0} \\
+110 &amp; 110011 &amp; \textcolor{red}{0}10011 &amp; 1\textcolor{red}{0}0011 &amp; 11\textcolor{red}{1}011 &amp; 110\textcolor{red}{1}11 &amp; 1100\textcolor{red}{0}1 &amp; 11001\textcolor{red}{0} \\
+111 &amp; 111000 &amp; \textcolor{red}{0}11000 &amp; 1\textcolor{red}{0}1000 &amp; 11\textcolor{red}{0}000 &amp; 111\textcolor{red}{1}00 &amp; 1110\textcolor{red}{1}0 &amp; 11100\textcolor{red}{1} \\
 \end  {array}
 \)</span></p>
 <p>Single-error correction</p>
@@ -1033,6 +1027,9 @@ n + \frac{1}{7}n = n \left( 1 + \frac{1}{7} \right) = \frac{8}{7} n
 <p>Encoder: divide the message into blocks of three, and to each block calculate a further three bits satisfying the three conditions; output an amalgamated block of six</p>
 <p>Error Processor: (assume that the receiver adopts a correction strategy where possible) check the three conditions; if none fail, the word is correct; if one or two fail, correct the single bit involved in the failing conditions and not in the others; if all three fail, send an error signal</p>
 <p>Decoder: strip the last three bits off each block unless there is an error signal</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\)</span></p>
 <hr class="docutils" />
 </section>
 </section>
