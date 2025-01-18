@@ -804,9 +804,45 @@
 </div>
 </fieldset><p>1.4</p>
 <p>There is one pattern of incorrect equations that the triple check code does not exploit to correct an error. Try to modify the definition of the triple check code to produce a code which adds three check bits to every block of four message bits and can still correct any single error.</p>
-<p>1.5</p>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a + b + d + x &amp;= 2k \\
+a + c + d + y &amp;= 2k \\
+b + c + d + z &amp;= 2k \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{rrr}
+\text{message } abcd &amp; \text{encoded message } abcdxyz \\ \hline
+0000 &amp; 0000000 \\
+0001 &amp; 0001111 \\
+0010 &amp; 0010011 \\
+0011 &amp; 0011100 \\
+0100 &amp; 0100101 \\
+0101 &amp; 0101010 \\
+0110 &amp; 0110110 \\
+0111 &amp; 0111001 \\
+1000 &amp; 1000110 \\
+1001 &amp; 1001001 \\
+1010 &amp; 1010101 \\
+1011 &amp; 1011010 \\
+1100 &amp; 1100011 \\
+1101 &amp; 1101100 \\
+1110 &amp; 1110000 \\
+1111 &amp; 1111111 \\
+\end  {array}
+\)</span></p>
+<p>This modified triple check code works the same way as the original triple check code with the addition that if the fourth message bit <span class="math notranslate nohighlight">\(d\)</span> is incorrect then all three conditions fail.</p>
+</div>
+</fieldset><p>1.5</p>
 <p>Show that it is not possible to devise a code adding three check bits to every block of five message bits in such a way that the code can correct every single error.</p>
-<p>1.6</p>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p>Since there are five message bits but only three check bits there is no unique set of failed conditions to check the fifth bit.</p>
+</div>
+</fieldset><p>1.6</p>
 <p>The standard ASCII code used to represent printable and non-printable characters in computers contains 128 7-bit symbols: for instance (in the usual descending order) ‘0’ is 0110000, a space ‘ ‘ is 0100000, ‘A’ is 1000001, and ‘a’ is 1100001. Devise a single error-correcting code for transmitting ASCII, using as few check bits as possible. Give encoding and error-correcting rules.</p>
 <hr class="docutils" />
 <hr class="docutils" />

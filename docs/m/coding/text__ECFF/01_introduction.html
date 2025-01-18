@@ -982,20 +982,21 @@ n + \frac{1}{7}n = n \left( 1 + \frac{1}{7} \right) = \frac{8}{7} n
 <hr class="docutils" />
 <section id="triple-check-code">
 <h3><a class="toc-backref" href="#id10" role="doc-backlink">Triple check code</a><a class="headerlink" href="#triple-check-code" title="Link to this heading">#</a></h3>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-a + b + x &amp;\equiv 0 \mod 2 \\
-a + c + y &amp;\equiv 0 \mod 2 \\
-b + c + z &amp;\equiv 0 \mod 2 \\
-\end  {aligned}
-\)</span></p>
-<p>The message is divided into blocks of three <span class="math notranslate nohighlight">\(abc\)</span> where each of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> is <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. Three check bits <span class="math notranslate nohighlight">\(xyz\)</span> are added where each of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> is also <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. This is done in such a way that the following three conditions are satisfied.</p>
+<p>The message is divided into blocks of three bits <span class="math notranslate nohighlight">\(abc\)</span> where each of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> is <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. Three check bits <span class="math notranslate nohighlight">\(xyz\)</span> are added where each of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> is also <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. This is done in such a way that the following three conditions are satisfied.</p>
 <ol class="arabic simple">
 <li><p>The number of <span class="math notranslate nohighlight">\(1\)</span> s in <span class="math notranslate nohighlight">\(abx\)</span> is even.</p></li>
 <li><p>The number of <span class="math notranslate nohighlight">\(1\)</span> s in <span class="math notranslate nohighlight">\(acy\)</span> is even.</p></li>
 <li><p>The number of <span class="math notranslate nohighlight">\(1\)</span> s in <span class="math notranslate nohighlight">\(bcz\)</span> is even.</p></li>
 </ol>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+a + b + x &amp;= 2k \\
+a + c + y &amp;= 2k \\
+b + c + z &amp;= 2k \\
+\end  {aligned}
+\)</span></p>
 <p>So if <span class="math notranslate nohighlight">\(abc = 110\)</span> then <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(y = 1\)</span>, and <span class="math notranslate nohighlight">\(z = 1\)</span> and so the code word is <span class="math notranslate nohighlight">\(110011\)</span>.</p>
+<p>Single-error correction mode</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{array}{rrr}
 \text{message } abc &amp; \text{encoded message } abcxyz &amp; a \text{ error} &amp; b \text{ error} &amp; c \text{ error} &amp; x \text{ error} &amp; y \text{ error} &amp; z \text{ error} \\ \hline
@@ -1009,7 +1010,6 @@ b + c + z &amp;\equiv 0 \mod 2 \\
 111 &amp; 111000 &amp; \textcolor{red}{0}11000 &amp; 1\textcolor{red}{0}1000 &amp; 11\textcolor{red}{0}000 &amp; 111\textcolor{red}{1}00 &amp; 1110\textcolor{red}{1}0 &amp; 11100\textcolor{red}{1} \\
 \end  {array}
 \)</span></p>
-<p>Single-error correction</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(a\)</span> is incorrect then conditions <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span> fail.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(b\)</span> is incorrect then conditions <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(3\)</span> fail.</p></li>
@@ -1018,18 +1018,19 @@ b + c + z &amp;\equiv 0 \mod 2 \\
 <li><p>If <span class="math notranslate nohighlight">\(y\)</span> is incorrect then condition <span class="math notranslate nohighlight">\(2\)</span> alone fails.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(z\)</span> is incorrect then condition <span class="math notranslate nohighlight">\(3\)</span> alone fails.</p></li>
 </ul>
-<p>Double-error detection - if two bits are in error then there is a condition involving one but not the other and so not all conditions will be satisfied</p>
+<p>Double-error detection mode - if a single bit is in error then the above holds and at least one condition fails; if two bits are in error then there is at least one condition involving one but not the other and so at least one condition fails</p>
+<p>Properties</p>
 <ul class="simple">
 <li><p>the code is moderately uneconomical: the encoded message is twice as long as the original</p></li>
 <li><p>for correction, the code can deal with one error in a block of six; for detection, the code can deal with two errors in a block of six</p></li>
 <li><p>since the code deals with one or two errors in a block of six rather than a block of three, the code is not quite as reliable as triple repetition (if used for pure error detection, the code can do rather better than this discussion suggests)</p></li>
 </ul>
-<p>Encoder: divide the message into blocks of three, and to each block calculate a further three bits satisfying the three conditions; output an amalgamated block of six</p>
-<p>Error Processor: (assume that the receiver adopts a correction strategy where possible) check the three conditions; if none fail, the word is correct; if one or two fail, correct the single bit involved in the failing conditions and not in the others; if all three fail, send an error signal</p>
-<p>Decoder: strip the last three bits off each block unless there is an error signal</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-\)</span></p>
+<p>Implementation</p>
+<ul class="simple">
+<li><p>Encoder: divide the message into blocks of three, and to each block calculate a further three bits satisfying the three conditions; output an amalgamated block of six</p></li>
+<li><p>Error Processor: (assume that the receiver adopts a correction strategy where possible) check the three conditions; if none fail, the word is correct; if one or two fail, correct the single bit involved in the failing conditions and not in the others; if all three fail, send an error signal</p></li>
+<li><p>Decoder: strip the last three bits off each block unless there is an error signal</p></li>
+</ul>
 <hr class="docutils" />
 </section>
 </section>
