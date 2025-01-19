@@ -305,11 +305,8 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../codes/index.html">Codes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../codes/brc3.html">BRC3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../codes/brc5.html">BRC5</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../codes/c1c2c3.html">Intro to binary codes C1, C2, C3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../codes/reedm.html">(32,64,16) Reed-Muller Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../codes/ternary_repetition.html">Ternary Repetition Codes</a></li>
 </ul>
 </details></li>
 </ul>
@@ -753,17 +750,19 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-codes">Block Codes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block">Definition: block</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block-code">Definition: block code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-encoder">Definition: encoder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-decoder">Definition: decoder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-received-word">Definition: received word</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-of-weight-k">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-hamming-distance-and-weight">Definition: Hamming distance and weight</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-distance-function">Definition: distance function</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-codes">Block Codes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block">Definition: block</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block-code">Definition: block code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-encoder">Definition: encoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-decoder">Definition: decoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-received-word">Definition: received word</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-of-weight-k">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-hamming-distance-and-weight">Definition: Hamming distance and weight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-distance-function">Definition: distance function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-processor-and-error-detector">Definition: error processor (and error detector)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-minimum-distance-of-a-code">Definition: minimum distance of a code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-error-detection">Claim: condition for error detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-error-correction">Claim: condition for error correction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shannon-s-theorem">Shannon’s Theorem</a></li>
 </ul>
             </nav>
@@ -784,8 +783,7 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#block-codes-weight-and-distance" id="id1">Block Codes, Weight, and Distance</a></p>
 <ul>
-<li><p><a class="reference internal" href="#block-codes" id="id2">Block Codes</a></p>
-<ul>
+<li><p><a class="reference internal" href="#block-codes" id="id2">Block Codes</a></p></li>
 <li><p><a class="reference internal" href="#definition-block" id="id3">Definition: block</a></p></li>
 <li><p><a class="reference internal" href="#definition-block-code" id="id4">Definition: block code</a></p></li>
 <li><p><a class="reference internal" href="#definition-encoder" id="id5">Definition: encoder</a></p></li>
@@ -794,9 +792,11 @@
 <li><p><a class="reference internal" href="#definition-error-of-weight-k" id="id8">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a></p></li>
 <li><p><a class="reference internal" href="#definition-hamming-distance-and-weight" id="id9">Definition: Hamming distance and weight</a></p></li>
 <li><p><a class="reference internal" href="#definition-distance-function" id="id10">Definition: distance function</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#shannon-s-theorem" id="id11">Shannon’s Theorem</a></p></li>
+<li><p><a class="reference internal" href="#definition-error-processor-and-error-detector" id="id11">Definition: error processor (and error detector)</a></p></li>
+<li><p><a class="reference internal" href="#definition-minimum-distance-of-a-code" id="id12">Definition: minimum distance of a code</a></p></li>
+<li><p><a class="reference internal" href="#claim-condition-for-error-detection" id="id13">Claim: condition for error detection</a></p></li>
+<li><p><a class="reference internal" href="#claim-condition-for-error-correction" id="id14">Claim: condition for error correction</a></p></li>
+<li><p><a class="reference internal" href="#shannon-s-theorem" id="id15">Shannon’s Theorem</a></p></li>
 </ul>
 </li>
 </ul>
@@ -826,8 +826,9 @@
                                                                                                                     v + error signal
 </pre></div>
 </div>
+</section>
 <section id="definition-block">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink">Definition: block</a><a class="headerlink" href="#definition-block" title="Link to this heading">#</a></h3>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Definition: block</a><a class="headerlink" href="#definition-block" title="Link to this heading">#</a></h2>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p>The encoder’s preprocessor divides the input message of arbitrary length into blocks (words) of a fixed number of symbols <span class="math notranslate nohighlight">\(m\)</span> and then the encoder translates each word into a codeword of fixed length <span class="math notranslate nohighlight">\(n\)</span>. Such a code is called a block code.</p>
 <div class="full-width" style="color: #0096FF;">
@@ -841,7 +842,7 @@
 </div>
 </fieldset></section>
 <section id="definition-block-code">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">Definition: block code</a><a class="headerlink" href="#definition-block-code" title="Link to this heading">#</a></h3>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Definition: block code</a><a class="headerlink" href="#definition-block-code" title="Link to this heading">#</a></h2>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <div class="full-width" style="color: #0096FF;">
 <p><b>Definition: Block Code</b></p>
@@ -854,7 +855,7 @@
 <p>For example, a binary code of rank <span class="math notranslate nohighlight">\(m\)</span> must have <span class="math notranslate nohighlight">\(2^m\)</span> code words.</p>
 </fieldset></section>
 <section id="definition-encoder">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">Definition: encoder</a><a class="headerlink" href="#definition-encoder" title="Link to this heading">#</a></h3>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Definition: encoder</a><a class="headerlink" href="#definition-encoder" title="Link to this heading">#</a></h2>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <div class="full-width" style="color: #0096FF;">
 <p><b>Definition: Encoder</b></p>
@@ -865,7 +866,7 @@
 <p>Often, the encoder preserves the message word <span class="math notranslate nohighlight">\(x\)</span> as the first part of the code word <span class="math notranslate nohighlight">\(u = E(x)\)</span>. Such an encoder is called standard or systematic, in which case the code word is divided into message symbols and check symbols and the decoder simply strips the check symbols.</p>
 </fieldset></section>
 <section id="definition-decoder">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Definition: decoder</a><a class="headerlink" href="#definition-decoder" title="Link to this heading">#</a></h3>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Definition: decoder</a><a class="headerlink" href="#definition-decoder" title="Link to this heading">#</a></h2>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <div class="full-width" style="color: #0096FF;">
 <p><b>Definition: Decoder</b></p>
@@ -880,7 +881,7 @@
 </div></section>
 <hr class="docutils" />
 <section id="definition-received-word">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Definition: received word</a><a class="headerlink" href="#definition-received-word" title="Link to this heading">#</a></h3>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Definition: received word</a><a class="headerlink" href="#definition-received-word" title="Link to this heading">#</a></h2>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p>When errors occur in transmission, the receiver reads a word <span class="math notranslate nohighlight">\(v\)</span> although the transmitter sent a word <span class="math notranslate nohighlight">\(u\)</span>.</p>
 <div class="full-width" style="color: #0096FF;">
@@ -891,7 +892,7 @@
 <p>(In this context the words <i>position</i> and <i>location</i> are synonyms for the word <i>place</i>.)</p>
 </fieldset></section>
 <section id="definition-error-of-weight-k">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a><a class="headerlink" href="#definition-error-of-weight-k" title="Link to this heading">#</a></h3>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a><a class="headerlink" href="#definition-error-of-weight-k" title="Link to this heading">#</a></h2>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <div class="full-width" style="color: #0096FF;">
 <p><b>Definition: Error of weight <span class="math notranslate nohighlight">\(k\)</span></b></p>
@@ -910,7 +911,7 @@ v &amp;= (1, \textcolor{red}{1}, 0, 1, \textcolor{red}{0}, 0) \\
 </div>
 </fieldset></section>
 <section id="definition-hamming-distance-and-weight">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Definition: Hamming distance and weight</a><a class="headerlink" href="#definition-hamming-distance-and-weight" title="Link to this heading">#</a></h3>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Definition: Hamming distance and weight</a><a class="headerlink" href="#definition-hamming-distance-and-weight" title="Link to this heading">#</a></h2>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p>It is useful to formalize the notion of differing places between words by regarding the number of places in which two words differ as a distance between them.</p>
 <div class="full-width" style="color: #0096FF;">
@@ -921,7 +922,7 @@ v &amp;= (1, \textcolor{red}{1}, 0, 1, \textcolor{red}{0}, 0) \\
 </div>
 </fieldset></section>
 <section id="definition-distance-function">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Definition: distance function</a><a class="headerlink" href="#definition-distance-function" title="Link to this heading">#</a></h3>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Definition: distance function</a><a class="headerlink" href="#definition-distance-function" title="Link to this heading">#</a></h2>
 <fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <p>The Hamming distance satisfies the properties of a distance function.</p>
 <div class="full-width" style="color: #0096FF;">
@@ -939,18 +940,18 @@ v &amp;= (1, \textcolor{red}{1}, 0, 1, \textcolor{red}{0}, 0) \\
 <p>Let</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-x &amp;= (x_1, \dotsc, x_n) \\
-y &amp;= (y_1, \dotsc, y_n) \\
-z &amp;= (z_1, \dotsc, z_n) \\
+x &amp;= (x_1, \dotsc, x_n) &amp;\textcolor{#50C878}{= (1, 0, 1, 1, 0, 1, 0, 0)} \\
+y &amp;= (y_1, \dotsc, y_n) &amp;\textcolor{#50C878}{= (0, 0, 1, 0, 1, 1, 0, 1)} \\
+z &amp;= (z_1, \dotsc, z_n) &amp;\textcolor{#50C878}{= (0, 1, 1, 0, 0, 0, 1, 1)} \\
 \end  {aligned}
 \)</span></p>
 <p>Then <span class="math notranslate nohighlight">\(d(x, z)\)</span> is the number of places in which <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span> differ. If we denote the set of these places by <span class="math notranslate nohighlight">\(U\)</span> then</p>
-<p><span class="math notranslate nohighlight">\(d(x, z) = |U| = |\{ i \mid x_i \ne z_i \}|\)</span></p>
+<p><span class="math notranslate nohighlight">\(d(x, z) = |U| = |\{ i \mid x_i \ne z_i \}| \textcolor{#50C878}{= |\{ 0, 1, 3, 5, 6, 7\}| = 6}\)</span></p>
 <p>Let</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-S &amp;= \{ i \mid x_i \ne z_i \land x_i =   y_i \} \\
-T &amp;= \{ i \mid x_i \ne z_i \land x_i \ne y_i \} \\
+S &amp;= \{ i \mid x_i \ne z_i \land x_i =   y_i \} \textcolor{#50C878}{= \{ 1, 5, 6 \}} \\
+T &amp;= \{ i \mid x_i \ne z_i \land x_i \ne y_i \} \textcolor{#50C878}{= \{ 0, 3, 7 \}} \\
 \end  {aligned}
 \)</span></p>
 <p>Then <span class="math notranslate nohighlight">\(U\)</span> is the disjoint union of <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span>. Thus</p>
@@ -961,13 +962,73 @@ T &amp;= \{ i \mid x_i \ne z_i \land x_i \ne y_i \} \\
 <p><span class="math notranslate nohighlight">\(|S| \le d(y, z)\)</span></p>
 <p><span class="math notranslate nohighlight">\(d(x, z) = |S| + |T| \le d(x, y) + d(y, z)\)</span></p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
-</fieldset><hr class="docutils" />
+</fieldset></section>
+<section id="definition-error-processor-and-error-detector">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Definition: error processor (and error detector)</a><a class="headerlink" href="#definition-error-processor-and-error-detector" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>An error processor <span class="math notranslate nohighlight">\(P\)</span> for <span class="math notranslate nohighlight">\(C\)</span> could just test each word <span class="math notranslate nohighlight">\(v\)</span> it receives to see if it is a code word or not and send an error signal for a non-code word, or it could attempt to correct certain non-code words. To give a flexible formal definition, we assume that when it receives a word <span class="math notranslate nohighlight">\(v\)</span> the processor puts out a word <span class="math notranslate nohighlight">\(u\)</span> and a signal (“good” or “bad”). The signal says whether the processor is putting out a code word or not.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Error Processor</b></p>
+<p>An <b><i>error processor</i></b> <span class="math notranslate nohighlight">\(P\)</span> for <span class="math notranslate nohighlight">\(C\)</span> is a map that accepts a received word <span class="math notranslate nohighlight">\(v\)</span> of length <span class="math notranslate nohighlight">\(n\)</span> and produces a pair <span class="math notranslate nohighlight">\((a, u)\)</span> where <span class="math notranslate nohighlight">\(a\)</span> takes on two values (“good” or “bad”) and <span class="math notranslate nohighlight">\(u\)</span> is a word of length <span class="math notranslate nohighlight">\(n\)</span>. The signal <span class="math notranslate nohighlight">\(a\)</span> has the value “good” when <span class="math notranslate nohighlight">\(u\)</span> is a code word and “bad” otherwise. An error processor that always leaves the received word unchanged is called an <b><i>error detector</i></b> and an error processor that always produces a code word is called <b><i>perfect</i></b>.</p>
+</div>
+<p>An error processor must start by testing the received word <span class="math notranslate nohighlight">\(v\)</span> to see if it is a code word or not. If <span class="math notranslate nohighlight">\(v\)</span> is a code word then the error processor’s job is done. It has no means of knowing what the message was and so it can do no better than accept the word it received as correct. It will transmit it unchanged with a “good” signal. This means that error patterns that distort one code word into another code word are undetectable and thus incorrectable.</p>
+</fieldset></section>
+<section id="definition-minimum-distance-of-a-code">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Definition: minimum distance of a code</a><a class="headerlink" href="#definition-minimum-distance-of-a-code" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>Suppose that we want to be able to detect all errors of weight at most <span class="math notranslate nohighlight">\(s\)</span>. It is necessary that any two distinct code words are at Hamming distance <span class="math notranslate nohighlight">\(s + 1\)</span>. It makes sense to introduce the notion for the smallest possible distance between distinct code words.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Minimum Distance</b></p>
+<p>Let <span class="math notranslate nohighlight">\(C\)</span> be an <span class="math notranslate nohighlight">\((n, m)\)</span>-code. The <b><i>minimum distance</i></b> <span class="math notranslate nohighlight">\(d(C)\)</span> of <span class="math notranslate nohighlight">\(C\)</span> is the smallest Hamming distance between distinct code words of <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</div>
+<p>This measure is so important that we sometimes call attention to it be describing <span class="math notranslate nohighlight">\(C\)</span> as an <span class="math notranslate nohighlight">\((n, m, d)\)</span>-code.</p>
+</fieldset></section>
+<section id="claim-condition-for-error-detection">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Claim: condition for error detection</a><a class="headerlink" href="#claim-condition-for-error-detection" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>The condition for error detection derived above is both necessary and sufficient.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>Let <span class="math notranslate nohighlight">\(C\)</span> be a code. Then it is possible for an error processor for <span class="math notranslate nohighlight">\(C\)</span> to detect all errors of weight <span class="math notranslate nohighlight">\(\le s\)</span> iff <span class="math notranslate nohighlight">\(d(C) \ge s + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\boxed{\exists D_{(C, s)} \iff d(C) \ge s + 1}\)</span></p>
+</div>
+<p><b>Proof</b></p>
+<p><i>First Direction</i> <span class="math notranslate nohighlight">\(\lnot Q \implies \lnot P\)</span></p>
+<p>If two code words <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are at a distance at most <span class="math notranslate nohighlight">\(s\)</span> then one can be distorted into the other by an error of weight at most <span class="math notranslate nohighlight">\(s\)</span>. In that case no error processor for <span class="math notranslate nohighlight">\(C\)</span> can detect all errors of weight at most <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<p><i>Second Direction</i> <span class="math notranslate nohighlight">\(Q \implies P\)</span></p>
+<p>Conversely if any two code words are at distance at least <span class="math notranslate nohighlight">\(s + 1\)</span> then any error of weight <span class="math notranslate nohighlight">\(s\)</span> will distort a code word into a non-code word. An error detector can check whether a received word is a code word or not, for instance by looking it up in a table. Thus all errors of weight at most <span class="math notranslate nohighlight">\(s\)</span> are detectable.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset></section>
+<section id="claim-condition-for-error-correction">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Claim: condition for error correction</a><a class="headerlink" href="#claim-condition-for-error-correction" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>There is a similar condition for error correction. Suppose we wish to be able to correct all single errors. Then given a received word and the information that an error of weight one occurred there must be only one code word that could have been transmitted. In other words no two code words <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> may be at distance at most <span class="math notranslate nohighlight">\(1\)</span> from the same word <span class="math notranslate nohighlight">\(w\)</span>. Thus by the triangle inequality the code must have minimum distance at least <span class="math notranslate nohighlight">\(3\)</span>.</p>
+<p>A similar argument works for larger errors. If we are to be able to correct all errors of weight up to <span class="math notranslate nohighlight">\(t\)</span> then given a word and the information that an error of weight at most <span class="math notranslate nohighlight">\(t\)</span> occurred there must be a unique code word that could have been transmitted. So no two code words may be at distance at most <span class="math notranslate nohighlight">\(t\)</span> from the same word <span class="math notranslate nohighlight">\(w\)</span>. Thus the code has minimum distance at least <span class="math notranslate nohighlight">\(2t + 1\)</span>.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>There exists an error processor for the code <span class="math notranslate nohighlight">\(C\)</span> that corrects all errors of weight up to <span class="math notranslate nohighlight">\(t\)</span> iff <span class="math notranslate nohighlight">\(C\)</span> has minimum distance <span class="math notranslate nohighlight">\(2t + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\boxed{\exists P_{(C, t)} \iff d(C) \ge 2t + 1}\)</span></p>
+</div>
+<p><b>Proof</b></p>
+<p><i>First Direction</i> <span class="math notranslate nohighlight">\(\lnot Q \implies \lnot P\)</span></p>
+<p>Suppose the code contains two code words <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> at distance at most <span class="math notranslate nohighlight">\(2t\)</span>. Let <span class="math notranslate nohighlight">\(w\)</span> be a word that agrees with <span class="math notranslate nohighlight">\(u\)</span> at all places that <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> agree. Further let <span class="math notranslate nohighlight">\(w\)</span> agree with <span class="math notranslate nohighlight">\(u\)</span> at the first <span class="math notranslate nohighlight">\(t\)</span> places where <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> disagree and with <span class="math notranslate nohighlight">\(v\)</span> in the remaining places where <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> disagree. (If <span class="math notranslate nohighlight">\(d(u, v) \lt t\)</span> then take <span class="math notranslate nohighlight">\(w = u\)</span>.) Then <span class="math notranslate nohighlight">\(d(u, w) \le t\)</span> and <span class="math notranslate nohighlight">\(d(v, w) \le t\)</span>. Now suppose <span class="math notranslate nohighlight">\(w\)</span> is received together with the information that at most <span class="math notranslate nohighlight">\(t\)</span> errors occurred. Then either <span class="math notranslate nohighlight">\(u\)</span> or <span class="math notranslate nohighlight">\(v\)</span> could have been transmitted (and possibly even some other code word). There is no way that from the given information an error processor can decide with certainty which code word was transmitted. So it will fail to correct some errors of weight <span class="math notranslate nohighlight">\(\le t\)</span>.</p>
+<p><i>Second Direction</i> <span class="math notranslate nohighlight">\(Q \implies P\)</span></p>
+<p>Conversely suppose that the code has minimum distance <span class="math notranslate nohighlight">\(2t + 1\)</span> and a word <span class="math notranslate nohighlight">\(w\)</span> is received together with the information that an error of weight at most <span class="math notranslate nohighlight">\(t\)</span> has occurred. If there were two code words <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> at distance at most <span class="math notranslate nohighlight">\(t\)</span> from <span class="math notranslate nohighlight">\(w\)</span> then by the triangle inequality <span class="math notranslate nohighlight">\(d(u, v) \le 2t\)</span>, contradicting our hypothesis. Thus there is a unique code word <span class="math notranslate nohighlight">\(u\)</span> at distance at most <span class="math notranslate nohighlight">\(t\)</span> from <span class="math notranslate nohighlight">\(w\)</span> and we can deduce that <span class="math notranslate nohighlight">\(u\)</span> must have been transmitted.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+u &amp;= (1, 0, 1, 1, 0, 1, 0, 0) \\
+v &amp;= (0, 0, 1, 0, 1, 1, 0, 1) \\
+w &amp;= (0, 0, 1, 0, 0, 1, 0, 1) \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset><p>The minimum distance <span class="math notranslate nohighlight">\(d(C)\)</span> of code <span class="math notranslate nohighlight">\(C\)</span> determines the worst-case error-detecting and -correcting</p>
 <hr class="docutils" />
-</section>
+<hr class="docutils" />
 </section>
 <hr class="docutils" />
 <section id="shannon-s-theorem">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">Shannon’s Theorem</a><a class="headerlink" href="#shannon-s-theorem" title="Link to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Shannon’s Theorem</a><a class="headerlink" href="#shannon-s-theorem" title="Link to this heading">#</a></h2>
 <p>the theoretical optimum for average coding performance</p>
 <hr class="docutils" />
 <hr class="docutils" />
@@ -1040,17 +1101,19 @@ T &amp;= \{ i \mid x_i \ne z_i \land x_i \ne y_i \} \\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-codes">Block Codes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block">Definition: block</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block-code">Definition: block code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-encoder">Definition: encoder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-decoder">Definition: decoder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-received-word">Definition: received word</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-of-weight-k">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-hamming-distance-and-weight">Definition: Hamming distance and weight</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-distance-function">Definition: distance function</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-codes">Block Codes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block">Definition: block</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block-code">Definition: block code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-encoder">Definition: encoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-decoder">Definition: decoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-received-word">Definition: received word</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-of-weight-k">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-hamming-distance-and-weight">Definition: Hamming distance and weight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-distance-function">Definition: distance function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-processor-and-error-detector">Definition: error processor (and error detector)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-minimum-distance-of-a-code">Definition: minimum distance of a code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-error-detection">Claim: condition for error detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-error-correction">Claim: condition for error correction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shannon-s-theorem">Shannon’s Theorem</a></li>
 </ul>
   </nav></div>

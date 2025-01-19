@@ -305,11 +305,8 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../codes/index.html">Codes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../codes/brc3.html">BRC3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../codes/brc5.html">BRC5</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../codes/c1c2c3.html">Intro to binary codes C1, C2, C3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../codes/reedm.html">(32,64,16) Reed-Muller Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../codes/ternary_repetition.html">Ternary Repetition Codes</a></li>
 </ul>
 </details></li>
 </ul>
@@ -764,7 +761,6 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-codes">Example codes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parity-check-code"><span class="math notranslate nohighlight">\((8, 7)\)</span> Parity Check Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triple-repetition-code">Triple repetition code</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triple-check-code">Triple check code</a></li>
 </ul>
 </li>
@@ -801,8 +797,7 @@
 <li><p><a class="reference internal" href="#example-codes" id="id7">Example codes</a></p>
 <ul>
 <li><p><a class="reference internal" href="#parity-check-code" id="id8"><span class="math notranslate nohighlight">\((8, 7)\)</span> Parity Check Code</a></p></li>
-<li><p><a class="reference internal" href="#triple-repetition-code" id="id9">Triple repetition code</a></p></li>
-<li><p><a class="reference internal" href="#triple-check-code" id="id10">Triple check code</a></p></li>
+<li><p><a class="reference internal" href="#triple-check-code" id="id9">Triple check code</a></p></li>
 </ul>
 </li>
 </ul>
@@ -963,32 +958,11 @@ n + \frac{1}{7}n = n \left( 1 + \frac{1}{7} \right) = \frac{8}{7} n
 <p>block length <span class="math notranslate nohighlight">\(n = 8\)</span></p>
 <p>rank <span class="math notranslate nohighlight">\(m = 7\)</span></p>
 <p>rate <span class="math notranslate nohighlight">\(7/8\)</span></p>
-</section>
-<hr class="docutils" />
-<section id="triple-repetition-code">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Triple repetition code</a><a class="headerlink" href="#triple-repetition-code" title="Link to this heading">#</a></h3>
-<p>Upon receiving the message <span class="math notranslate nohighlight">\(101\)</span> the receiver has two options: it can ask for a retransmission, or it can guess that it is more likely that a single <span class="math notranslate nohighlight">\(1\)</span> flipped to <span class="math notranslate nohighlight">\(0\)</span> rather than the case in which two <span class="math notranslate nohighlight">\(0\)</span> s flipped to <span class="math notranslate nohighlight">\(1\)</span> s.</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{array}{r|r}
-\text{symbol} &amp; \text{encoding} \\ \hline
-0 &amp; 000 \\
-1 &amp; 111 \\
-\end  {array}
-\)</span></p>
-<ul class="simple">
-<li><p>the code is uneconomical: the encoded message is <span class="math notranslate nohighlight">\(3\)</span> times as long as the original</p></li>
-<li><p>the code can correct single errors in a block of three (the error probability can be moderate); or alternatively where retransmission is possible, the code can be used to detect single or double errors in a block of three (the error probability can be quite high)</p></li>
-</ul>
-<p>Encoder: repeat each bit three times</p>
-<p>Error Processor: (assume that the receiver adopts a correction strategy where possible) take the majority vote in each block of three and make all three equal to that</p>
-<p>Decoder: strip the last two bits</p>
-<p>block length <span class="math notranslate nohighlight">\(n = 3\)</span></p>
-<p>rank <span class="math notranslate nohighlight">\(m = 1\)</span></p>
-<p>rate <span class="math notranslate nohighlight">\(1/3\)</span></p>
+<p><span class="math notranslate nohighlight">\(d(C) = 2\)</span> because <span class="math notranslate nohighlight">\(C\)</span> consists of all words of even weight</p>
 </section>
 <hr class="docutils" />
 <section id="triple-check-code">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Triple check code</a><a class="headerlink" href="#triple-check-code" title="Link to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Triple check code</a><a class="headerlink" href="#triple-check-code" title="Link to this heading">#</a></h3>
 <p>The message is divided into blocks of three bits <span class="math notranslate nohighlight">\(abc\)</span> where each of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> is <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. Three check bits <span class="math notranslate nohighlight">\(xyz\)</span> are added where each of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> is also <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. This is done in such a way that the following three conditions are satisfied.</p>
 <ol class="arabic simple">
 <li><p>The number of <span class="math notranslate nohighlight">\(1\)</span> s in <span class="math notranslate nohighlight">\(abx\)</span> is even.</p></li>
@@ -1041,6 +1015,7 @@ b + c + z &amp;= 2k \\
 <p>block length <span class="math notranslate nohighlight">\(n = 6\)</span></p>
 <p>rank <span class="math notranslate nohighlight">\(m = 3\)</span></p>
 <p>rate <span class="math notranslate nohighlight">\(1/2\)</span></p>
+<p><span class="math notranslate nohighlight">\(d(C) = 3\)</span></p>
 <hr class="docutils" />
 </section>
 </section>
@@ -1122,7 +1097,6 @@ b + c + z &amp;= 2k \\
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-codes">Example codes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parity-check-code"><span class="math notranslate nohighlight">\((8, 7)\)</span> Parity Check Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triple-repetition-code">Triple repetition code</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triple-check-code">Triple check code</a></li>
 </ul>
 </li>
