@@ -299,12 +299,14 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/coding/text__ECFF/index.html">ECFF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../m/coding/text__ECFF/01_introduction.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../m/coding/text__ECFF/02_block_codes_weight_and_distance.html">Block Codes, Weight, and Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/coding/text__ECFF/01_02_block_codes_weight_and_distance.html">Introduction &amp; Block Codes, Weight, and Distance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../m/coding/text__ECFF/exercises.html">Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../m/coding/codes/index.html">Codes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/coding/codes/repetition.html">Repetition Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/coding/codes/paritycheck.html">Parity Check Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../m/coding/codes/triplecheck.html">Triple Check Code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../m/coding/codes/c1c2c3.html">Intro to binary codes C1, C2, C3</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../m/coding/codes/reedm.html">(32,64,16) Reed-Muller Code</a></li>
 </ul>
@@ -1017,7 +1019,7 @@ additional features.  The original behavior of these functions should not be aff
 <span class=" -Color -Color-Cyan">ℹ</span> Use the conflicted package (<span class=" -Color -Color-Blue">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
 </pre></div>
 </div>
-<div class="output text_html">'EXECUTED : 2025-01-19 12:18:18.047631'</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
+<div class="output text_html">'EXECUTED : 2025-01-19 12:49:46.950933'</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.3.0 (2023-04-21)
 Platform: aarch64-apple-darwin20 (64-bit)
 Running under: macOS 15.2
 
@@ -1189,12 +1191,12 @@ loaded via a namespace (and not attached):
 	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>⋯</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td>male  </td><td>16</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no </td><td>0</td><td>1.727</td><td> 66.8</td><td>⋯</td><td>1.0560</td><td>-0.16427</td><td>30</td><td>137</td><td>118</td><td>61</td><td>1.07</td><td>16026.404</td><td>2</td><td> 4</td></tr>
-	<tr><th scope=row>2</th><td>female</td><td>29</td><td>no</td><td>Mexican American  </td><td>alive</td><td>82</td><td>yes</td><td>0</td><td>1.650</td><td> 70.5</td><td>⋯</td><td>1.0890</td><td>-0.43902</td><td>49</td><td>162</td><td>103</td><td>61</td><td>3.53</td><td> 4305.538</td><td>2</td><td>13</td></tr>
-	<tr><th scope=row>3</th><td>female</td><td> 6</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no </td><td>0</td><td>1.182</td><td> 21.1</td><td>⋯</td><td>    NA</td><td>      NA</td><td>55</td><td>136</td><td> NA</td><td>NA</td><td>3.31</td><td>13577.540</td><td>1</td><td>14</td></tr>
-	<tr><th scope=row>4</th><td>male  </td><td>49</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>58</td><td>no </td><td>0</td><td>1.929</td><td>113.6</td><td>⋯</td><td>1.3340</td><td> 0.67436</td><td>27</td><td>201</td><td>116</td><td>84</td><td>2.69</td><td>28418.091</td><td>1</td><td>15</td></tr>
-	<tr><th scope=row>5</th><td>female</td><td>72</td><td>no</td><td>Other/Multi       </td><td>other</td><td>33</td><td>no </td><td>1</td><td>1.638</td><td> 53.2</td><td>⋯</td><td>0.9466</td><td>      NA</td><td>52</td><td>108</td><td> NA</td><td>NA</td><td>5.00</td><td>16823.374</td><td>2</td><td>30</td></tr>
-	<tr><th scope=row>6</th><td>male  </td><td>14</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>yes</td><td>0</td><td>1.715</td><td> 82.6</td><td>⋯</td><td>0.9760</td><td> 0.42839</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>3.35</td><td>11644.709</td><td>2</td><td>18</td></tr>
+	<tr><th scope=row>1</th><td>female</td><td>16</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td> 0</td><td>1.715</td><td>71.4</td><td>⋯</td><td>   NA</td><td>0.11658</td><td>37</td><td>124</td><td>120</td><td>70</td><td>2.99</td><td>12857.781</td><td>1</td><td> 5</td></tr>
+	<tr><th scope=row>2</th><td>male  </td><td>16</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>no</td><td> 0</td><td>1.727</td><td>78.3</td><td>⋯</td><td>0.957</td><td>0.28320</td><td>NA</td><td> NA</td><td>108</td><td>86</td><td>0.62</td><td> 9264.253</td><td>1</td><td>38</td></tr>
+	<tr><th scope=row>3</th><td>male  </td><td>75</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>33</td><td>no</td><td> 0</td><td>1.819</td><td>90.8</td><td>⋯</td><td>1.310</td><td>0.79551</td><td>46</td><td>217</td><td>172</td><td>86</td><td>2.40</td><td> 4585.594</td><td>2</td><td>39</td></tr>
+	<tr><th scope=row>4</th><td>female</td><td>11</td><td>no</td><td>Mexican American  </td><td>NA   </td><td>NA</td><td>no</td><td> 0</td><td>1.602</td><td>61.3</td><td>⋯</td><td>1.046</td><td>     NA</td><td>47</td><td>187</td><td>114</td><td>54</td><td>1.22</td><td> 2357.371</td><td>1</td><td>15</td></tr>
+	<tr><th scope=row>5</th><td>male  </td><td> 0</td><td>no</td><td>Non-Hispanic White</td><td>NA   </td><td>NA</td><td>NA</td><td>NA</td><td>   NA</td><td> 7.0</td><td>⋯</td><td>   NA</td><td>     NA</td><td>NA</td><td> NA</td><td> NA</td><td>NA</td><td>0.83</td><td> 2369.766</td><td>1</td><td>37</td></tr>
+	<tr><th scope=row>6</th><td>male  </td><td>44</td><td>no</td><td>Non-Hispanic White</td><td>alive</td><td>42</td><td>no</td><td> 0</td><td>1.798</td><td>92.6</td><td>⋯</td><td>1.091</td><td>0.45432</td><td>57</td><td>249</td><td>129</td><td>80</td><td>0.00</td><td>33843.038</td><td>1</td><td>29</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1904,7 +1906,7 @@ loaded via a namespace (and not attached):
 “Removed 2575 rows containing missing values (`geom_point()`).”
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/363aa7384482043196ff4c169ad89c4c9255dfa256e0aa6929625407950c5766.png"><img alt="../../../_images/363aa7384482043196ff4c169ad89c4c9255dfa256e0aa6929625407950c5766.png" src="../../../_images/363aa7384482043196ff4c169ad89c4c9255dfa256e0aa6929625407950c5766.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/208eb02157336f8b698f7fc56e00255bf30f970e546d5705a40434e82b64bc50.png"><img alt="../../../_images/208eb02157336f8b698f7fc56e00255bf30f970e546d5705a40434e82b64bc50.png" src="../../../_images/208eb02157336f8b698f7fc56e00255bf30f970e546d5705a40434e82b64bc50.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1958,7 +1960,7 @@ loaded via a namespace (and not attached):
 “Removed 2575 rows containing missing values (`geom_point()`).”
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/95fa074d14e2998eeabf1fdf48e9c62acf19fd0d84e0d19cb9e9c99a4ebaae9b.png"><img alt="../../../_images/95fa074d14e2998eeabf1fdf48e9c62acf19fd0d84e0d19cb9e9c99a4ebaae9b.png" src="../../../_images/95fa074d14e2998eeabf1fdf48e9c62acf19fd0d84e0d19cb9e9c99a4ebaae9b.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/66ef3e813b0dbbf4f75a4ca34b4f24714f6b47933e88a459d2b312eab832cdd4.png"><img alt="../../../_images/66ef3e813b0dbbf4f75a4ca34b4f24714f6b47933e88a459d2b312eab832cdd4.png" src="../../../_images/66ef3e813b0dbbf4f75a4ca34b4f24714f6b47933e88a459d2b312eab832cdd4.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 <div class="cell docutils container">

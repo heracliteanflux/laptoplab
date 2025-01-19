@@ -1,0 +1,1335 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &amp; Block Codes, Weight, and Distance &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/style.css?v=0d97562f" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-4697ZWLBEP"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-4697ZWLBEP');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm/coding/text__ECFF/01_02_block_codes_weight_and_distance';</script>
+    <script src="../../../_static/script.js?v=dcd15d02"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Exercises" href="exercises.html" />
+    <link rel="prev" title="ECFF" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../figures.html">Figures</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../calc/index.html">Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/00_pre_calculus/intro.html">Pre Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/00_pre_calculus/trig.html">Euclidean Trigonometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/00_pre_calculus/conics.html">Conic Sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/01_calculus/intro.html">The Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/01_limit.html">Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/02_derivative.html">Derivatives</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../calc/01_calculus/03_integration/intro.html">Integration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/single.html">Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/techniques.html">Techniques of Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/double.html">Double Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/triple.html">Triple Integration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/gaussian.html">The Bell Curve, Gaussian Integral, &amp; Error Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/01_calculus/03_integration/math230hw1.html">HW1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/indeterminateforms.html">Indeterminate Forms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/series.html">Sequences &amp; Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/01_calculus/elemcomplexanalysis.html">Elementary Complex Analysis</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calc/02_vector_calculus/intro.html">Vector Calculus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/vectors/notebook.html">Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/dotproduct.html">Dot Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/projection.html">Vector Projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/crossproduct.html">Cross Product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/vectorfunctions.html">Vector Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/gradient.html">Gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/field.html">Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/lineintegrals.html">Line Integrals of Vector Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calc/02_vector_calculus/r3shapes.html">Curves &amp; Surfaces and their Parameterizations</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../calc/02_vector_calculus/coord/intro.html">Coordinate Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/polar.html">Polar Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/cylindrical.html">Cylindrical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/spherical.html">Spherical Coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../calc/02_vector_calculus/coord/transformation.html">Transformations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/matrix_calculus/intro.html">Matrix Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/tensor_calculus/intro.html">Tensor Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../calc/variational_calculus/intro.html">Variational Calculus</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../func/index.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../func/absval.html">Absolute Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/boxcar.html">Boxcar Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/floor_ceil.html">Floor and Ceiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/heaviside.html">Heaviside Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/ramp.html">Ramp Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../func/uniform.html">Continuous Uniform Function</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/index.html">Linear Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/01.html">Introduction to Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/02.html">Linear Combinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/03.html">Homogeneity of Linear Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/04.html">Linear Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/05.html">Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/06.html">More on Linear Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/07.html">Invertible Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/a1.html">Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/a2.html">Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/katex.html">Some examples of the use of KaTeX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../algebra/index.html">Algebra</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../algebra/book___a_transition_to_advanced_mathematics.html">Book: <em>A Transition to Advanced Mathematics</em></a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../number/index.html">Number Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../number/0_arithmetic.html">Arithmetic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/0.1_fractions.html">Fractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/1_induction.html">Mathematical Induction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/11_binomial.html">Binomial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/20_fibonacci.html">Fibonacci</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/2_division.html">Division</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/3_residues.html">Residues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/13_arithmetic_functions.html">Arithmetic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/4_polynomials.html">Polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/5_primitiveroot.html">Primitive Roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/6_quadratic_residues.html">Quadratic Residues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/EXERCISES.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../number/PYTHON.html">Implementations</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../number/book___numbers_groups_codes/index.html">Book: <em>Numbers, Groups, and Codes</em></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/00_introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/03_gcd_and_euclid.html">GCD &amp; Euclid’s Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/06_congruence.html">Congruence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/07_linear_congruence.html">Linear Congruences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/1.1.html">1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/1.2.html">1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/1.3.html">1.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/1.4.html">1.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../number/book___numbers_groups_codes/1.5.html">1.5</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../set/index.html">Set Theory</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../set/elemset.html">Elementary Set Theory</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../logic/index.html">Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../logic/introduction.html">Introduction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../combinatorics/index.html">Combinatorics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../combinatorics/counting.html">Counting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../discrete/index.html">Discrete Mathematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../discrete/languages.html">Languages and Machines</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Error-Correcting Codes</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../text__FCCT/index.html">FCCT</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../text__FCCT/01.html">Introduction to error-correcting codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../text__FCCT/02.html">The main coding theory problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../text__FCCT/exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">ECFF</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Introduction &amp; Block Codes, Weight, and Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exercises.html">Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../codes/index.html">Codes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../codes/repetition.html">Repetition Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../codes/paritycheck.html">Parity Check Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../codes/triplecheck.html">Triple Check Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../codes/c1c2c3.html">Intro to binary codes C1, C2, C3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../codes/reedm.html">(32,64,16) Reed-Muller Code</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linprog/index.html">Linear Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/definitions.html">Some Definitions &amp; Graphing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/convex.html">Convexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/cones.html">Cones &amp; Dual Cones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/rowtableaux.html">Row Tableaux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/sensitivity.html">Dual LP &amp; Sensitivity Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/0.html">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/132.html">[13.2] Production Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linprog/exercises/midterm2.html">Midterm II</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../numerical/index.html">Numerical Methods &amp; Scientific Computing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../more/index.html">More Math</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../more/summation/index.html">Summations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../more/cas.html">Computer Algebra Systems</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computer Science &amp; Engineering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/systems/index.html">Systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/c_lang/index.html">C</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/shell/index.html">Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/shell/bash.html">Bash</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/c_lang/network_programming.html">Network Programming</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/os/index.html">OS</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/macos/index.html">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/macos/commands.html">macOS Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/windows/index.html">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/os/windows/commands.html">Windows Utilities</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/systems/distributed/index.html">Distributed</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/blockchain.html">Blockchain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/bitcoin.html">Bitcoin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/systems/distributed/ethereum.html">Ethereum</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/hardware/index.html">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/embedded/index.html">Embedded</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/systems/file/index.html">Filesystem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/ds%26a/index.html">DS&amp;A</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/ds%26a/algorithms/index.html">Algorithms</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/data_structures/index.html">Data Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/linked_list/index.html">Linked List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/stack/index.html">Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/queue/index.html">Queue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/data_structures/priority_queue/index.html">Priority Queue</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/arithmetic/index.html">Arithmetic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/arithmetic/array_sum/index.html">Array Sum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/arithmetic/integer_multiplication/index.html">Integer Multiplication</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/ds%26a/deduplication/index.html">Deduplication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/merge/index.html">Merge</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/merge/sorted_array_merge/index.html">Sorted Array Merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/merge/k_way_merge/index.html"><span class="math notranslate nohighlight">\(k\)</span>-Way Merge</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/selection/index.html">Select</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/selection/k-th_smallest_element/index.html">Naive Selection: <span class="math notranslate nohighlight">\(k\)</span>-th smallest element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/selection/quickselect/index.html">Quickselect</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/sort/index.html">Sort</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/insertion_sort/index.html">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/bubble_sort/index.html">Bubble Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/merge_sort/index.html">Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/selection_sort/index.html">Selection Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/sort/quick_sort/index.html">Quick Sort</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/search/index.html">Search</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/search/linear_search/index.html">Linear Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/search/binary_search/index.html">Binary Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/index.html">Trees &amp; Graphs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/trees/index.html">Trees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/trees_and_graphs/graphs/index.html">Graphs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/optimization/index.html">Optimization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference external" href="https://heracliteanflux.github.io/laptoplab/m/linearprogramming/index.html">Linear Programming</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/index.html">Dynamic Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/lucas_numbers/index.html">Lucas Numbers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/bellman-ford/index.html">Bellman-Ford</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../c/ds%26a/dynamic_programming/0-1_knapsack/index.html">0-1 Knapsack</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/ds%26a/course/index.html">PSU CMPSC 465</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/01.html">Assignment 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/02.html">Assignment 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/03.html">Assignment 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/04.html">Assignment 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/05.html">Assignment 5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/m.html">Midterm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/06.html">Assignment 6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/07.html">Assignment 7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/08.html">Assignment 8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/ds%26a/course/hw/f.html">Final</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/programming/index.html">Programming</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/editor/index.html">Editors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/editor/vim/index.html">Vim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/editor/vsc/index.html">VSCode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/assembly/index.html">Assembly</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/heracliteanflux/systems/tree/main/clang">https://github.com/heracliteanflux/systems/tree/main/clang</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/python/index.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/python/package.html">Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/python/book_data_science_from_scratch.html"><em>Data Science from Scratch</em> 2e</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/programming/rlang/index.html">R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/DC.html"><em>Data Computing</em> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/R4DS.html"><em>R for Data Science</em> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/TMWR.html">Silge &amp; Robinson’s <em>Text Mining with R</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/forecasting_principles_and_practice.html"><em>Forecasting: Principles and Practice</em> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A01.html">A01 - Tidy Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A02.html">A02 - Graphical Exploration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A04.html">A04 - Data Wrangling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A05.html">A05 - Project: Popular Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A06.html">A06 - Project: Bird Species</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A07.html">A07 - Project: Bicycle Sharing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A08.html">A08 - Project: Scraping Nuclear Reactors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A09.html">A09 - Project: Street or Road?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/programming/rlang/STAT184/A10.html">A10 - Base R</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/golang/index.html">Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/dlang/index.html">D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/ruby/index.html">Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/notebook/index.html">Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/web/index.html">Web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/vr/index.html">VR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/software/index.html">Software Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/doc/index.html">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/programming/troubleshooting/index.html">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/sec/index.html">Security</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/ai/index.html">AI Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/cloud/index.html">Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/cryptology/index.html">Cryptography</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/ctf/index.html">CTF</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ctf/otw/index.html">OverTheWire</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/ctf/tryhackme/2023adventofcyber.html">AOC2023</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/defense/index.html">Defensive Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/devops/index.html">DevOps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/forensics/index.html">Digital Forensics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/dns/index.html">DNS</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/gitops/index.html">GitOps</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/gitops/git.html">Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/gitops/github.html">GitHub</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/hardware/index.html">Hardware Sec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/iot/index.html">IoT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/malware/index.html">Malware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/mobile/index.html">Mobile</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/sec/network/index.html">Networking</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/network/ethernet.html">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/sec/network/ip.html">Internet Protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/offensive/index.html">OffSec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/password/index.html">Passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/privacy/index.html">Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/ssh/index.html">SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/virtual/index.html">VMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/sec/websec/index.html">WebSec</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/data/index.html">Data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../c/data/relational/index.html">Relational</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/postgres/index.html">Postgres</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/mysql/index.html">MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/sqlite/index.html">SQLite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../c/data/relational/derby/index.html">Derby</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/nosql.html">NoSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/bigdata.html">Big Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/files.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/datetime.html">Date Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/unicode.html">Unicode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/data/graph.html">Graph Data</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/info/index.html">Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/computation/index.html">Computation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../c/learning/index.html">Artificial Intelligence</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/learning/robotics.html">Robotics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../c/learning/prompt_engineering.html">Prompt Engineering</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/graphics/index.html">Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../c/retro/index.html">Retro Gaming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other Stuff</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../l/index.html">Languages &amp; Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/ling/index.html">Linguistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../l/ling/phonetics/index.html">Phonetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/00_articulatory.html">Articulatory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/0102_acoustic.html">The Acoustic Theory of Speech Production</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/03_speech_processing.html">Speech Processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/04_auditory.html">Auditory Phonetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/05_speech_perception.html">Speech Perception</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/06_speech_analysis.html">Analysis of Speech Sounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L2.html">Acoustic properties of Anii vowels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L3.html">Acoustics and audition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L4.html">Sociophonetic properties of vowels and fricatives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L5.html">Analysis of a stop continuum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../l/ling/phonetics/lab/L6.html">Acoustic and auditory properties of speech sounds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/phonology.html">Phonology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/morphosyntax.html">Morphology &amp; Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/semantics.html">Semantics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/ling/historical.html">Historical Linguistics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lang/index.html">Languages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/constructed/index.html">Constructed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lang/latin/index.html">Latin</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../l/lit/index.html">Literature</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/poetry.html">Poetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/rhetoric.html">Rhetoric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/scifi.html">Science Fiction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../l/lit/tolkien.html">Tolkien</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../p/index.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/ancient/index.html">Ancient Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/00_ancient_near_east.html">Ancient Near East</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/01_archaic.html">Archaic Greece</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/02_milesians.html">The Milesians</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/03_anaxagoras.html">Anaxagoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/04_heraclitus.html">Heraclitus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/05_parmenides.html">Parmenides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/06_empedocles.html">Empedocles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/10_socrates.html">Socrates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/11_plato.html">Plato</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/12_aristotle.html">Aristotle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/20_atomism.html">Atomism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/21_megarianism.html">The Megarians and Dialectic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/ancient/greek.html">Philosophical Greek</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/medieval.html">Medieval Philosophy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../p/modern/index.html">Early Modern Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/galileo/index.html">Galileo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/galileo/assayer.html"><em>The Assayer</em> (1623)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hobbes.html">Hobbes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../../p/modern/descartes/index.html">Descartes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/index.html"><em>Meditations on First Philosophy</em> (1641)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/I.html">Meditation I: Concerning Those Things That Can Be Called into Doubt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/II.html">Meditation II: Concerning the Nature of the Human Mind: That It Is Better Known Than the Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/III.html">Meditation III: Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/IV.html">Meditation IV: Concerning the True and the False</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/V.html">Meditation V: Concerning the Essence of Material Things, and Again Concerning God, That He Exists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/VI.html">Meditation VI: Concerning the Existence of Material Things, and the Real Distinction between Mind and Body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../p/modern/descartes/meditations/objection_elisabeth.html">Elisabeth’s Objection</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/berkeley.html">Berkeley</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../p/modern/kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/metaphysics/index.html">Metaphysics &amp; Ontology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/existentialism.html">Existentialism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/law.html">Philosophy of Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/politics.html">Political Philosophy and its history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/history.html">Philosophy of History and the History of Ideas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/friendship.html">Friendship and Love</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/american.html">American Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/chinese.html">Chinese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/french.html">French Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/japanese.html">Japanese Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/spanish.html">Spanish Philosophy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/index.html">History and Philosophy of Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/physics_and_cosmology.html">History &amp; Philosophy of Physics &amp; Cosmology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/chemistry.html">History and Philosophy of Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/biology.html">Philosophy of Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/science/language.html">History &amp; Philosophy of Language &amp; Linguistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/math.html">Philosophy of Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/mind.html">Philosophy of Mind &amp; Consciousness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../p/music.html">Music</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../s/index.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/astro/index.html">Astronomy &amp; Astrophysics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/astro/telescope.html">Telescopes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/chemistry/index.html">Chemistry</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../s/electric/index.html">Electrical Engineering &amp; Electronics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electromagnetism.html">Electromagnetism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electronics.html">Electronics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../s/electric/electrical.html">Electrical</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../s/medicine/index.html">Health &amp; Medicine</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../diy/index.html">Home Lab &amp; DIY</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/3dprint/index.html">3D Print</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/audio/index.html">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/auto/index.html">Auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/building/index.html">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/edc/index.html">EDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/game/index.html">Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/air/index.html">IAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/metal/index.html">Metal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../diy/network/index.html">Network</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction & Block Codes, Weight, and Distance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alphabet">Alphabet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-alphabet">Binary Alphabet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-channel-model">The Channel Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-for-the-binary-symmetric-channel">Coding for the binary symmetric channel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-codes">Block Codes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block">Definition: block</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block-code">Definition: block code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-encoder">Definition: encoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-decoder">Definition: decoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-received-word">Definition: received word</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-of-weight-k">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-hamming-distance-and-weight">Definition: Hamming distance and weight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-distance-function">Definition: distance function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-processor-and-error-detector">Definition: error processor (and error detector)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-minimum-distance-of-a-code">Definition: minimum distance of a code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-error-detection">Claim: condition for error detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-error-correction">Claim: condition for error correction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-simultaneous-error-detection-and-correction">Claim: condition for simultaneous error detection and correction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shannon-s-theorem">Shannon’s Theorem</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-block-codes-weight-and-distance">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Introduction &amp; Block Codes, Weight, and Distance</a><a class="headerlink" href="#introduction-block-codes-weight-and-distance" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">ECFF</span></code> <code class="docutils literal notranslate"><span class="pre">1992</span></code> Pretzel, Oliver. <em>Error-Correcting Codes and Finite Fields</em>. Oxford University Press Applied Mathematics and Computing Science Series.</p>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction-block-codes-weight-and-distance" id="id1">Introduction &amp; Block Codes, Weight, and Distance</a></p>
+<ul>
+<li><p><a class="reference internal" href="#strings" id="id2">Strings</a></p>
+<ul>
+<li><p><a class="reference internal" href="#alphabet" id="id3">Alphabet</a></p></li>
+<li><p><a class="reference internal" href="#binary-alphabet" id="id4">Binary Alphabet</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#the-channel-model" id="id5">The Channel Model</a></p></li>
+<li><p><a class="reference internal" href="#coding-for-the-binary-symmetric-channel" id="id6">Coding for the binary symmetric channel</a></p></li>
+<li><p><a class="reference internal" href="#block-codes" id="id7">Block Codes</a></p></li>
+<li><p><a class="reference internal" href="#definition-block" id="id8">Definition: block</a></p></li>
+<li><p><a class="reference internal" href="#definition-block-code" id="id9">Definition: block code</a></p></li>
+<li><p><a class="reference internal" href="#definition-encoder" id="id10">Definition: encoder</a></p></li>
+<li><p><a class="reference internal" href="#definition-decoder" id="id11">Definition: decoder</a></p></li>
+<li><p><a class="reference internal" href="#definition-received-word" id="id12">Definition: received word</a></p></li>
+<li><p><a class="reference internal" href="#definition-error-of-weight-k" id="id13">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a></p></li>
+<li><p><a class="reference internal" href="#definition-hamming-distance-and-weight" id="id14">Definition: Hamming distance and weight</a></p></li>
+<li><p><a class="reference internal" href="#definition-distance-function" id="id15">Definition: distance function</a></p></li>
+<li><p><a class="reference internal" href="#definition-error-processor-and-error-detector" id="id16">Definition: error processor (and error detector)</a></p></li>
+<li><p><a class="reference internal" href="#definition-minimum-distance-of-a-code" id="id17">Definition: minimum distance of a code</a></p></li>
+<li><p><a class="reference internal" href="#claim-condition-for-error-detection" id="id18">Claim: condition for error detection</a></p></li>
+<li><p><a class="reference internal" href="#claim-condition-for-error-correction" id="id19">Claim: condition for error correction</a></p></li>
+<li><p><a class="reference internal" href="#claim-condition-for-simultaneous-error-detection-and-correction" id="id20">Claim: condition for simultaneous error detection and correction</a></p></li>
+<li><p><a class="reference internal" href="#shannon-s-theorem" id="id21">Shannon’s Theorem</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<p>The theory of error-correcting codes deals with the general problem of transmitting messages reliably. (Transmission in space (wires) and in time (storage).) In the classical theory no assumption is made about the nature of the message to be transmitted. Thus there is no statistic on which to base a guess of the correct message. Redundancy is built into the message at the transmitter so that the receiver can use that redundancy to correct errors. This goal can be achieved with high probability but not with certainty. A weakness of the classical theory is that errors that occur before the transmitter encodes and transmits the message cannot be corrected much less detected.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<section id="strings">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Strings</a><a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="alphabet">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Alphabet</a><a class="headerlink" href="#alphabet" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Alphabet</b></p>
+<p>A message is composed of <b>symbols</b> (or characters) from a fixed finite set called the <b><i>alphabet</i></b> <span class="math notranslate nohighlight">\(A\)</span>. All alphabets are assumed to have a null character which may be designated by <span class="math notranslate nohighlight">\(0\)</span>.</p>
+</div>
+<p>In the case of English, an alphabet is composed of uppercase and lowercase letters, (the digits,) punctuation marks, and whitespace characters. The null character is the space.</p>
+</fieldset></section>
+<section id="binary-alphabet">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Binary Alphabet</a><a class="headerlink" href="#binary-alphabet" title="Link to this heading">#</a></h3>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Binary Alphabet</b></p>
+<p>An alphabet with just one symbol is useless. So the next simplest alphabet is the <b><i>binary alphabet</i></b> <span class="math notranslate nohighlight">\(\textbf{B}\)</span> consisting of the two symbols <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\textbf{B} = \{ 0, 1 \}\)</span></p>
+<p>The elements of <span class="math notranslate nohighlight">\(\textbf{B}\)</span> are called bits.</p>
+</div>
+</fieldset><hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="the-channel-model">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">The Channel Model</a><a class="headerlink" href="#the-channel-model" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<p><b>The situation to be modeled</b></p>
+<p>Information is transmitted via a channel. The channel is prone to errors. The distorted information is processed at the receiving end to restore the original message as nearly as possible. Information is passed through the channel in separate lumps (discrete channel) or in a continuously varying form (continuous channel).</p>
+<p>Examples of channels</p>
+<ul class="simple">
+<li><p>Modulator (translates information into electrical signals), transmitter, receiver, demodulator: radio, television, satellite</p></li>
+<li><p>Cable: computer file transfer</p></li>
+<li><p>Storage medium + the means of storing and retrieving information from it (errors can occur either by a failure of the storage or reading device, or by deterioriation of the medium)</p></li>
+<li><p>language</p></li>
+</ul>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>The random error channel is one of the simplest models of a channel.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Random Error Channel</b></p>
+<p>A channel is called a <b><i>random error channel</i></b> if for each pair of distinct symbols <span class="math notranslate nohighlight">\((a, b)\)</span> of the alphabet there is a fixed probability <span class="math notranslate nohighlight">\(p_{(a, b)}\)</span> that when <span class="math notranslate nohighlight">\(a\)</span> is transmitted <span class="math notranslate nohighlight">\(b\)</span> is received.</p>
+</div>
+<p>The main point of this definition is that <span class="math notranslate nohighlight">\(p_{(a, b)}\)</span> does not depend on anything else, such as whether the previous symbol was correctly transmitted or not. For simplicity we assume that <span class="math notranslate nohighlight">\(p_{(a, b)}\)</span> is independent of the symbols <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> given that <span class="math notranslate nohighlight">\(a \ne b\)</span>.</p>
+</fieldset><fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Burst Error Channel</b></p>
+</div>
+<p>If the previous symbol was in error then that will increase the probability of the current symbol being corrupted.</p>
+</fieldset><fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Erasure</b></p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Symmetric Random Error Channel</b></p>
+<p>A random error channel is called <b><i>symmetric</i></b> if the probabilities <span class="math notranslate nohighlight">\(p_{(a, b)}\)</span> are the same for all possible choices of pairs <span class="math notranslate nohighlight">\((a, b)\)</span> with <span class="math notranslate nohighlight">\(a \ne b\)</span>.</p>
+</div>
+</fieldset><hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="coding-for-the-binary-symmetric-channel">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Coding for the binary symmetric channel</a><a class="headerlink" href="#coding-for-the-binary-symmetric-channel" title="Link to this heading">#</a></h2>
+<p>We assume the discrete symmetric random error channel.</p>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Symbol Error Probability</b></p>
+<p>The symbol error probability <span class="math notranslate nohighlight">\(p\)</span> is the probability that an error occurs in a single symbol (i.e., that a single symbol is received in error).</p>
+</div>
+<p>It can be assumed that</p>
+<p><span class="math notranslate nohighlight">\(p \lt 1/2\)</span></p>
+<p>as follows. If it were the case that <span class="math notranslate nohighlight">\(p \gt 1/2\)</span> then the received symbol would be more likely to be incorrect than correct. The solution is to flip every received symbol (e.g., if we receive a <span class="math notranslate nohighlight">\(1\)</span> we would interpret it as a <span class="math notranslate nohighlight">\(0\)</span> and vice versa). By flipping, the error probability becomes <span class="math notranslate nohighlight">\(1 - p\)</span> and satisfies <span class="math notranslate nohighlight">\(1 - p \lt 1/2\)</span>. Thus, the problem can always be reduced to a channel with <span class="math notranslate nohighlight">\(p \lt 1/2\)</span> via symbol-flipping.</p>
+<p>The assumption that <span class="math notranslate nohighlight">\(p \lt 1/2\)</span> is a standard simplification in communication theory because it represents the most useful scenario for communication systems. Channels with <span class="math notranslate nohighlight">\(p \ge 1/2\)</span> are considered impractical for direct communication without preprocessing (e.g., bit-flipping) as they effectively transmit noise rather than information. Error-correcting codes like Hamming codes, Reed-Solomon codes, or modern low-density parity-check (LDPC) codes are designed under the assumption that <span class="math notranslate nohighlight">\(p \lt 1/2\)</span>. (Coin-flip analogy: If the coin has a bias such that heads occurs less than 50% of the time <span class="math notranslate nohighlight">\((p \lt 1/2)\)</span>, you can reasonably expect tails to occur more often than heads. If the bias were such that heads occurred more than 50% of the time <span class="math notranslate nohighlight">\((p \gt 1/2)\)</span>, you could redefine the “success” outcome as tails by reversing the interpretation, effectively flipping the probabilities.)</p>
+<p>If <span class="math notranslate nohighlight">\(p = 1/2\)</span> then the output of the channel is independent of the input and we might as well stop transmitting.</p>
+</fieldset><fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Encoder</b></p>
+<p>The <b><i>encoder</i></b> takes an input signal called the message and modifies it in order to make it possible to detect and perhaps also correct any errors that the channel is likely to induce. At the other end of the channel is a <b><i>decoder</i></b> which retrieves the original message. Before the decoder is applied, the <b><i>error processor</i></b> attempts to correct or detect errors in the received message. According to the circumstances, it may modify the received message to enable the decoder to translate it (error correction), or it may send an error signal in which case the decoder will ignore part of the incoming message (error detection). Often the decoder and error processor are lumped together and the error signal is called a decoding failure. But it is better to keep them separate conceptually, even though in some implementations it is natural to combine them.</p>
+</div>
+</fieldset><div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>                          +--------------------------+
+                          |                          |
+                          |  Random error generator  |
+                          |                          |
+                          +--------------------------+
+                                       |                                                            +-----------+
+                                       |                                                            |           |  Message
+         +-----------+                 |                      +-------------------+----------------&gt;|  Decoder  |-----------&gt;
+Message  |           |  Signal         v   Distorted signal   |                   |  code word u&#39;   |           |  word x&#39;
+--------&gt;|  Encoder  |---------------&gt;|+|--------------------&gt;|  Error processor  |                 +-----------+
+word x   |           |  code word u        received word v    |                   |
+         +-----------+                                        +-------------------+-----------------------------------------&gt;
+                                                                                     v + error signal
+</pre></div>
+</div>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<p>How to assess the performance of a code over a given channel? The basis for this assessment is the Hamming distance which is the number of places in which two words differ.</p>
+<p>The worst-case error-processing performance of a code is determined by the minimum distance between code words. Then some elementary probability theory can be used to assess the performance of a code.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="block-codes">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Block Codes</a><a class="headerlink" href="#block-codes" title="Link to this heading">#</a></h2>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>                                                         +--------------------------+
+                                                         |                          |
+                                                         |  Random error generator  |
+                                                         |                          |
+                                                         +--------------------------+
+                                                                      |                                                            +-----------+
+                                                                      |                                                            |           |  Message
+           +----------------+           +-----------+                 |                      +-------------------+----------------&gt;|  Decoder  |-----------&gt;
+  Message  |                |  Message  |           |  Signal         v   Distorted signal   |                   |  code words u&#39;  |           |  words x&#39;
+----------&gt;|  Preprocessor  |----------&gt;|  Encoder  |---------------&gt;|+|--------------------&gt;|  Error processor  |                 +-----------+
+  string   |                |  words x  |           |  code words u       received words v   |                   |
+           +----------------+           +-----------+                                        +-------------------+-----------------------------------------&gt;
+                                                                                                                    v + error signal
+</pre></div>
+</div>
+</section>
+<section id="definition-block">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Definition: block</a><a class="headerlink" href="#definition-block" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>The encoder’s preprocessor divides the input message of arbitrary length into blocks (words) of a fixed number of symbols <span class="math notranslate nohighlight">\(m\)</span> and then the encoder translates each word into a codeword of fixed length <span class="math notranslate nohighlight">\(n\)</span>. Such a code is called a block code.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: <span class="math notranslate nohighlight">\(A\)</span>-word</b></p>
+<p>If <span class="math notranslate nohighlight">\(A\)</span> is an alphabet then an <span class="math notranslate nohighlight">\(A\)</span>-word of length <span class="math notranslate nohighlight">\(n\)</span> is a sequence of <span class="math notranslate nohighlight">\(n\)</span> symbols from <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<ol class="arabic simple">
+<li><p>The set of <span class="math notranslate nohighlight">\(A\)</span>-words of length <span class="math notranslate nohighlight">\(n\)</span> is denoted by <span class="math notranslate nohighlight">\(A^n\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> has <span class="math notranslate nohighlight">\(q\)</span> symbols then there are <span class="math notranslate nohighlight">\(q\)</span> choices for the symbol in each place in an <span class="math notranslate nohighlight">\(A\)</span>-word of length <span class="math notranslate nohighlight">\(n\)</span> and so the total number of such words is <span class="math notranslate nohighlight">\(q^n\)</span>.</p></li>
+<li><p>Thus <span class="math notranslate nohighlight">\(|A^n| = |A|^n = q^n\)</span>.</p></li>
+</ol>
+</div>
+</fieldset></section>
+<section id="definition-block-code">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Definition: block code</a><a class="headerlink" href="#definition-block-code" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Block Code</b></p>
+<p>An <span class="math notranslate nohighlight">\((n, m)\)</span>-block code <span class="math notranslate nohighlight">\(C\)</span> over the alphabet <span class="math notranslate nohighlight">\(A\)</span> of size <span class="math notranslate nohighlight">\(q\)</span> consists of a set of precisely <span class="math notranslate nohighlight">\(q^m\)</span> code words in <span class="math notranslate nohighlight">\(A^n\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(n\)</span> is called the code’s <b><i>block length</i></b>.</p>
+<p><span class="math notranslate nohighlight">\(m\)</span> is called the code’s <b><i>rank</i></b>.</p>
+<p><span class="math notranslate nohighlight">\(m/n\)</span> is called the code’s <b><i>rate</i></b> and satisfies <span class="math notranslate nohighlight">\(m \le n \iff m/n \le 1\)</span></p>
+</div>
+<p>We require precisely <span class="math notranslate nohighlight">\(q^m\)</span> codewords to ensure that an encoder exists. There are <span class="math notranslate nohighlight">\(q^m\)</span> possible message words and each must correspond to a distinct code word. Any further code words are not used and may as well be discarded.</p>
+<p>For example, a binary code of rank <span class="math notranslate nohighlight">\(m\)</span> must have <span class="math notranslate nohighlight">\(2^m\)</span> code words.</p>
+</fieldset></section>
+<section id="definition-encoder">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Definition: encoder</a><a class="headerlink" href="#definition-encoder" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Encoder</b></p>
+<p>An <b><i>encoder</i></b> <span class="math notranslate nohighlight">\(E\)</span> for <span class="math notranslate nohighlight">\(C\)</span> is a map from <span class="math notranslate nohighlight">\(A^m\)</span> to <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\boxed{E : A^m \to C \quad\quad x \mapsto u}\)</span></p>
+<p>It translates any <span class="math notranslate nohighlight">\(A\)</span>-word <span class="math notranslate nohighlight">\(x\)</span> of length <span class="math notranslate nohighlight">\(m\)</span> into a code word <span class="math notranslate nohighlight">\(u = E(x)\)</span>. The encoder is a bijection so that each message word corresponds to one and only one codeword and each codeword represents a unique message word.</p>
+</div>
+<p>Often, the encoder preserves the message word <span class="math notranslate nohighlight">\(x\)</span> as the first part of the code word <span class="math notranslate nohighlight">\(u = E(x)\)</span>. Such an encoder is called standard or systematic, in which case the code word is divided into message symbols and check symbols and the decoder simply strips the check symbols.</p>
+</fieldset></section>
+<section id="definition-decoder">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Definition: decoder</a><a class="headerlink" href="#definition-decoder" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Decoder</b></p>
+<p>The corresponding <b><i>decoder</i></b> <span class="math notranslate nohighlight">\(D\)</span> is the inverse map of <span class="math notranslate nohighlight">\(E\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\boxed{D : C \to A^m \quad\quad u \mapsto x}\)</span></p>
+<p>It takes every code word <span class="math notranslate nohighlight">\(u = E(x)\)</span> back to <span class="math notranslate nohighlight">\(x\)</span>.</p>
+</div>
+</fieldset><hr class="docutils" />
+<div style="font-size: 18px">
+<p>In a <b><i>binary symmetric channel</i></b> the error-processing capabilities of the coding system <u>do not depend on the encoder and decoder but only on the set of code words</u> because these are all that the channel sees; the choice of encoder and decoder is thus only a matter of practical convenience.</p>
+<p>Most of coding theory is concerned with (1) the construction of codes <span class="math notranslate nohighlight">\(C\)</span> and (2) efficient error processors.</p>
+</div></section>
+<hr class="docutils" />
+<section id="definition-received-word">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Definition: received word</a><a class="headerlink" href="#definition-received-word" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>When errors occur in transmission, the receiver reads a word <span class="math notranslate nohighlight">\(v\)</span> although the transmitter sent a word <span class="math notranslate nohighlight">\(u\)</span>.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Received Word</b></p>
+<p>If <span class="math notranslate nohighlight">\(u = (u_1, u_2, \dotsc, u_n)\)</span> and <span class="math notranslate nohighlight">\(v = (v_1, v_2, \dotsc, v_n)\)</span> are words in <span class="math notranslate nohighlight">\(A^n\)</span> then we refer to <span class="math notranslate nohighlight">\(u_j\)</span> as the entry of <span class="math notranslate nohighlight">\(u\)</span> in place <span class="math notranslate nohighlight">\(j\)</span>, and we say that <span class="math notranslate nohighlight">\(v\)</span> differs from <span class="math notranslate nohighlight">\(u\)</span> in place <span class="math notranslate nohighlight">\(j\)</span> if <span class="math notranslate nohighlight">\(u_j \ne v_j\)</span>.</p>
+<p>The word <span class="math notranslate nohighlight">\(v\)</span> to be analyzed by the error processor is called the <b><i>received word</i></b>.</p>
+</div>
+<p>(In this context the words <i>position</i> and <i>location</i> are synonyms for the word <i>place</i>.)</p>
+</fieldset></section>
+<section id="definition-error-of-weight-k">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a><a class="headerlink" href="#definition-error-of-weight-k" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Error of weight <span class="math notranslate nohighlight">\(k\)</span></b></p>
+<p>If the received word <span class="math notranslate nohighlight">\(v\)</span> differs from the transmitted one in <span class="math notranslate nohighlight">\(k\)</span> places we say that an <b><i>error of weight <span class="math notranslate nohighlight">\(k\)</span></i></b> occurred (or that <span class="math notranslate nohighlight">\(k\)</span> errors occurred).</p>
+</div>
+</fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<div class="full-width" style="color: #50C878;">
+<p>Suppose <span class="math notranslate nohighlight">\(u\)</span> is transmitted and <span class="math notranslate nohighlight">\(v\)</span> is received.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+u &amp;= (1, \textcolor{red}{0}, 0, 1, \textcolor{red}{1}, 0) \\
+v &amp;= (1, \textcolor{red}{1}, 0, 1, \textcolor{red}{0}, 0) \\
+\end  {aligned}
+\)</span></p>
+<p>Then an error of weight <span class="math notranslate nohighlight">\(2\)</span> has occurred.</p>
+</div>
+</fieldset></section>
+<section id="definition-hamming-distance-and-weight">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Definition: Hamming distance and weight</a><a class="headerlink" href="#definition-hamming-distance-and-weight" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>It is useful to formalize the notion of differing places between words by regarding the number of places in which two words differ as a distance between them.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Hamming distance and weight</b></p>
+<p>The <b><i>Hamming distance</i></b> <span class="math notranslate nohighlight">\(d(u, v)\)</span> between two words <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> is the number of entries in which they differ.</p>
+<p>The <b><i>Hamming weight</i></b> <span class="math notranslate nohighlight">\(\text{wt}(u)\)</span> of <span class="math notranslate nohighlight">\(u\)</span> is the number of non-null entries in <span class="math notranslate nohighlight">\(u\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(\textbf{0} = (0, \dotsc, 0)\)</span> then <span class="math notranslate nohighlight">\(\text{wt}(u) = d(u, \textbf{0})\)</span>.</p>
+</div>
+</fieldset></section>
+<section id="definition-distance-function">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Definition: distance function</a><a class="headerlink" href="#definition-distance-function" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>The Hamming distance satisfies the properties of a distance function.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Distance Function</b></p>
+<p>A function <span class="math notranslate nohighlight">\(f(x, y)\)</span> on pairs of elements of a set <span class="math notranslate nohighlight">\(X\)</span> is a distance function if it satisfies the following conditions.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(f(x, y)\)</span> is always a non-negative real number.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x, y) = 0\)</span> iff <span class="math notranslate nohighlight">\(x = y\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x, y) = f(y, x)\)</span></p></li>
+<li><p>Triangle Inequality: For any three elements <span class="math notranslate nohighlight">\(x, y, z \in X\)</span> it is the case that <span class="math notranslate nohighlight">\(f(x, z) \le f(x, y) + f(y, z)\)</span></p></li>
+</ol>
+</div>
+<p><b>Proof</b></p>
+<p>Conditions 1, 2, and 3 follow from the definition of the Hamming distance. Condition 4:</p>
+<p>Let</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+x &amp;= (x_1, \dotsc, x_n) &amp;\textcolor{#50C878}{= (1, 0, 1, 1, 0, 1, 0, 0)} \\
+y &amp;= (y_1, \dotsc, y_n) &amp;\textcolor{#50C878}{= (0, 0, 1, 0, 1, 1, 0, 1)} \\
+z &amp;= (z_1, \dotsc, z_n) &amp;\textcolor{#50C878}{= (0, 1, 1, 0, 0, 0, 1, 1)} \\
+\end  {aligned}
+\)</span></p>
+<p>Then <span class="math notranslate nohighlight">\(d(x, z)\)</span> is the number of places in which <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(z\)</span> differ. If we denote the set of these places by <span class="math notranslate nohighlight">\(U\)</span> then</p>
+<p><span class="math notranslate nohighlight">\(d(x, z) = |U| = |\{ i \mid x_i \ne z_i \}| \textcolor{#50C878}{= |\{ 0, 1, 3, 5, 6, 7\}| = 6}\)</span></p>
+<p>Let</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+S &amp;= \{ i \mid x_i \ne z_i \land x_i =   y_i \} \textcolor{#50C878}{= \{ 1, 5, 6 \}} \\
+T &amp;= \{ i \mid x_i \ne z_i \land x_i \ne y_i \} \textcolor{#50C878}{= \{ 0, 3, 7 \}} \\
+\end  {aligned}
+\)</span></p>
+<p>Then <span class="math notranslate nohighlight">\(U\)</span> is the disjoint union of <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span>. Thus</p>
+<p><span class="math notranslate nohighlight">\(d(x, z) = |S| + |T|\)</span></p>
+<p>It is immediate from the definition of <span class="math notranslate nohighlight">\(d(x, y)\)</span> that <span class="math notranslate nohighlight">\(x\)</span> differs from <span class="math notranslate nohighlight">\(y\)</span> in all the places in <span class="math notranslate nohighlight">\(T\)</span>. Thus</p>
+<p><span class="math notranslate nohighlight">\(|T| \le d(x, y)\)</span></p>
+<p>On the other hand if <span class="math notranslate nohighlight">\(i \in S\)</span> then <span class="math notranslate nohighlight">\(y_i = x_i \ne z_i\)</span>. Thus</p>
+<p><span class="math notranslate nohighlight">\(|S| \le d(y, z)\)</span></p>
+<p><span class="math notranslate nohighlight">\(d(x, z) = |S| + |T| \le d(x, y) + d(y, z)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset></section>
+<section id="definition-error-processor-and-error-detector">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Definition: error processor (and error detector)</a><a class="headerlink" href="#definition-error-processor-and-error-detector" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>An error processor <span class="math notranslate nohighlight">\(P\)</span> for <span class="math notranslate nohighlight">\(C\)</span> could just test each word <span class="math notranslate nohighlight">\(v\)</span> it receives to see if it is a code word or not and send an error signal for a non-code word, or it could attempt to correct certain non-code words. To give a flexible formal definition, we assume that when it receives a word <span class="math notranslate nohighlight">\(v\)</span> the processor puts out a word <span class="math notranslate nohighlight">\(u\)</span> and a signal (“good” or “bad”). The signal says whether the processor is putting out a code word or not.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Error Processor</b></p>
+<p>An <b><i>error processor</i></b> <span class="math notranslate nohighlight">\(P\)</span> for <span class="math notranslate nohighlight">\(C\)</span> is a map that accepts a received word <span class="math notranslate nohighlight">\(v\)</span> of length <span class="math notranslate nohighlight">\(n\)</span> and produces a pair <span class="math notranslate nohighlight">\((a, u)\)</span> where <span class="math notranslate nohighlight">\(a\)</span> takes on two values (“good” or “bad”) and <span class="math notranslate nohighlight">\(u\)</span> is a word of length <span class="math notranslate nohighlight">\(n\)</span>. The signal <span class="math notranslate nohighlight">\(a\)</span> has the value “good” when <span class="math notranslate nohighlight">\(u\)</span> is a code word and “bad” otherwise. An error processor that always leaves the received word unchanged is called an <b><i>error detector</i></b> and an error processor that always produces a code word is called <b><i>perfect</i></b>.</p>
+</div>
+<p>An error processor must start by testing the received word <span class="math notranslate nohighlight">\(v\)</span> to see if it is a code word or not. If <span class="math notranslate nohighlight">\(v\)</span> is a code word then the error processor’s job is done. It has no means of knowing what the message was and so it can do no better than accept the word it received as correct. It will transmit it unchanged with a “good” signal. This means that error patterns that distort one code word into another code word are undetectable and thus incorrectable.</p>
+</fieldset></section>
+<section id="definition-minimum-distance-of-a-code">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Definition: minimum distance of a code</a><a class="headerlink" href="#definition-minimum-distance-of-a-code" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>Suppose that we want to be able to detect all errors of weight at most <span class="math notranslate nohighlight">\(s\)</span>. It is necessary that any two distinct code words are at Hamming distance <span class="math notranslate nohighlight">\(s + 1\)</span>. It makes sense to introduce the notion for the smallest possible distance between distinct code words.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Definition: Minimum Distance</b></p>
+<p>Let <span class="math notranslate nohighlight">\(C\)</span> be an <span class="math notranslate nohighlight">\((n, m)\)</span>-code. The <b><i>minimum distance</i></b> <span class="math notranslate nohighlight">\(d(C)\)</span> of <span class="math notranslate nohighlight">\(C\)</span> is the smallest Hamming distance between distinct code words of <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</div>
+<p>This measure is so important that we sometimes call attention to it be describing <span class="math notranslate nohighlight">\(C\)</span> as an <span class="math notranslate nohighlight">\((n, m, d)\)</span>-code.</p>
+</fieldset></section>
+<section id="claim-condition-for-error-detection">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Claim: condition for error detection</a><a class="headerlink" href="#claim-condition-for-error-detection" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>The condition for error detection derived above is both necessary and sufficient.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>Let <span class="math notranslate nohighlight">\(C\)</span> be a code. Then it is possible for an error processor for <span class="math notranslate nohighlight">\(C\)</span> to detect all errors of weight <span class="math notranslate nohighlight">\(\le s\)</span> iff <span class="math notranslate nohighlight">\(d(C) \ge s + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\boxed{\exists D_{(C, s)} \iff d(C) \ge s + 1}\)</span></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>+-----------+
+|        s  |  1
+|     +-----|-----+
+|     u     |     v
++-----------+
+</pre></div>
+</div>
+</div>
+<p><b>Proof</b></p>
+<p><i>First Direction</i> <span class="math notranslate nohighlight">\(\lnot Q \implies \lnot P\)</span></p>
+<p>If two code words <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are at a distance at most <span class="math notranslate nohighlight">\(s\)</span> then one can be distorted into the other by an error of weight at most <span class="math notranslate nohighlight">\(s\)</span>. In that case no error processor for <span class="math notranslate nohighlight">\(C\)</span> can detect all errors of weight at most <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<p><i>Second Direction</i> <span class="math notranslate nohighlight">\(Q \implies P\)</span></p>
+<p>Conversely if any two code words are at distance at least <span class="math notranslate nohighlight">\(s + 1\)</span> then any error of weight <span class="math notranslate nohighlight">\(s\)</span> will distort a code word into a non-code word. An error detector can check whether a received word is a code word or not, for instance by looking it up in a table. Thus all errors of weight at most <span class="math notranslate nohighlight">\(s\)</span> are detectable.</p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset></section>
+<section id="claim-condition-for-error-correction">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Claim: condition for error correction</a><a class="headerlink" href="#claim-condition-for-error-correction" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>There is a similar condition for error correction. Suppose we wish to be able to correct all single errors. Then given a received word and the information that an error of weight one occurred there must be only one code word that could have been transmitted. In other words no two code words <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> may be at distance at most <span class="math notranslate nohighlight">\(1\)</span> from the same word <span class="math notranslate nohighlight">\(w\)</span>. Thus by the triangle inequality the code must have minimum distance at least <span class="math notranslate nohighlight">\(3\)</span>.</p>
+<p>A similar argument works for larger errors. If we are to be able to correct all errors of weight up to <span class="math notranslate nohighlight">\(t\)</span> then given a word and the information that an error of weight at most <span class="math notranslate nohighlight">\(t\)</span> occurred there must be a unique code word that could have been transmitted. So no two code words may be at distance at most <span class="math notranslate nohighlight">\(t\)</span> from the same word <span class="math notranslate nohighlight">\(w\)</span>. Thus the code has minimum distance at least <span class="math notranslate nohighlight">\(2t + 1\)</span>.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>There exists an error processor for the code <span class="math notranslate nohighlight">\(C\)</span> that corrects all errors of weight up to <span class="math notranslate nohighlight">\(t\)</span> iff <span class="math notranslate nohighlight">\(C\)</span> has minimum distance <span class="math notranslate nohighlight">\(2t + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\boxed{\exists P_{(C, t)} \iff d(C) \ge 2t + 1}\)</span></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>+-----------+     +-----------+
+|        t  |  1  |  t        |
+|     +-----|-----|-----+     |
+|     u     |     |     v     |
++-----------+     +-----------+
+</pre></div>
+</div>
+</div>
+<p><b>Proof</b></p>
+<p><i>First Direction</i> <span class="math notranslate nohighlight">\(\lnot Q \implies \lnot P\)</span></p>
+<p>Suppose the code contains two code words <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> at distance at most <span class="math notranslate nohighlight">\(2t\)</span>. Let <span class="math notranslate nohighlight">\(w\)</span> be a word that agrees with <span class="math notranslate nohighlight">\(u\)</span> at all places that <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> agree. Further let <span class="math notranslate nohighlight">\(w\)</span> agree with <span class="math notranslate nohighlight">\(u\)</span> at the first <span class="math notranslate nohighlight">\(t\)</span> places where <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> disagree and with <span class="math notranslate nohighlight">\(v\)</span> in the remaining places where <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> disagree. (If <span class="math notranslate nohighlight">\(d(u, v) \lt t\)</span> then take <span class="math notranslate nohighlight">\(w = u\)</span>.) Then <span class="math notranslate nohighlight">\(d(u, w) \le t\)</span> and <span class="math notranslate nohighlight">\(d(v, w) \le t\)</span>. Now suppose <span class="math notranslate nohighlight">\(w\)</span> is received together with the information that at most <span class="math notranslate nohighlight">\(t\)</span> errors occurred. Then either <span class="math notranslate nohighlight">\(u\)</span> or <span class="math notranslate nohighlight">\(v\)</span> could have been transmitted (and possibly even some other code word). There is no way that from the given information an error processor can decide with certainty which code word was transmitted. So it will fail to correct some errors of weight <span class="math notranslate nohighlight">\(\le t\)</span>.</p>
+<p><i>Second Direction</i> <span class="math notranslate nohighlight">\(Q \implies P\)</span></p>
+<p>Conversely suppose that the code has minimum distance <span class="math notranslate nohighlight">\(2t + 1\)</span> and a word <span class="math notranslate nohighlight">\(w\)</span> is received together with the information that an error of weight at most <span class="math notranslate nohighlight">\(t\)</span> has occurred. If there were two code words <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> at distance at most <span class="math notranslate nohighlight">\(t\)</span> from <span class="math notranslate nohighlight">\(w\)</span> then by the triangle inequality <span class="math notranslate nohighlight">\(d(u, v) \le 2t\)</span>, contradicting our hypothesis. Thus there is a unique code word <span class="math notranslate nohighlight">\(u\)</span> at distance at most <span class="math notranslate nohighlight">\(t\)</span> from <span class="math notranslate nohighlight">\(w\)</span> and we can deduce that <span class="math notranslate nohighlight">\(u\)</span> must have been transmitted.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+u &amp;= (1, 0, 1, 1, 0, 1, 0, 0) \\
+v &amp;= (0, 0, 1, 0, 1, 1, 0, 1) \\
+w &amp;= (0, 0, 1, 0, 0, 1, 0, 1) \\
+\end  {aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+</fieldset><hr class="docutils" />
+<div style="font-size: 18px">
+<p>The minimum distance <span class="math notranslate nohighlight">\(d(C)\)</span> determines the worst-case error-detecting and -correcting capabilities of code <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</div></section>
+<hr class="docutils" />
+<section id="claim-condition-for-simultaneous-error-detection-and-correction">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Claim: condition for simultaneous error detection and correction</a><a class="headerlink" href="#claim-condition-for-simultaneous-error-detection-and-correction" title="Link to this heading">#</a></h2>
+<fieldset style="border: 0.5px solid #0096FF; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
+<p>It may be the case that we do not just want to (1) detect all errors up to a given weight, or perhaps (2) correcting all errors that lie within the theoretical capabilities of the code is too time consuming or expensive. It is possible to take a hybrid approach and correct errors of weight up to some usually small value <span class="math notranslate nohighlight">\(t\)</span> and at the same time detect errors of weight up to <span class="math notranslate nohighlight">\(t + s\)</span>.</p>
+<div class="full-width" style="color: #0096FF;">
+<p><b>Claim</b></p>
+<p>A code <span class="math notranslate nohighlight">\(C\)</span> can correct all errors of weight up to <span class="math notranslate nohighlight">\(t\)</span> and at the same time detect all errors of weight up to <span class="math notranslate nohighlight">\(s + t\)</span> iff <span class="math notranslate nohighlight">\(d(C) \ge 2t + s + 1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\boxed{\exists P_{(C, s, t)} \iff d(C) \ge 2t + s + 1}\)</span></p>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>+-----------------------+
+|                       |
+|     +-----------+     |     +-----------+
+|     |        t  |  s  |  1  |  t        |
+|     |     +-----|-----|-----|-----+     |
+|     |     u     |     |     |     v     |
+|     +-----------+     |     +-----------+
+|                       |
++-----------------------+
+</pre></div>
+</div>
+</div>
+<p>Informally this says that error correction costs about twice as much as error detection. For every bit you attempt to correct you lose two bits in the number of errors you can detect. That is because if you are employing error correction an error that pushes a code word <span class="math notranslate nohighlight">\(u\)</span> close enough to another code word <span class="math notranslate nohighlight">\(v\)</span> will cause the error processor to choose <span class="math notranslate nohighlight">\(v\)</span> rather than content itself with the statement that the received word is erroneous.</p>
+</fieldset><hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="shannon-s-theorem">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Shannon’s Theorem</a><a class="headerlink" href="#shannon-s-theorem" title="Link to this heading">#</a></h2>
+<p>the theoretical optimum for average coding performance</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./m/coding/text__ECFF"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ECFF</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercises.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alphabet">Alphabet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-alphabet">Binary Alphabet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-channel-model">The Channel Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-for-the-binary-symmetric-channel">Coding for the binary symmetric channel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-codes">Block Codes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block">Definition: block</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-block-code">Definition: block code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-encoder">Definition: encoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-decoder">Definition: decoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-received-word">Definition: received word</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-of-weight-k">Definition: error of weight <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-hamming-distance-and-weight">Definition: Hamming distance and weight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-distance-function">Definition: distance function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-error-processor-and-error-detector">Definition: error processor (and error detector)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-minimum-distance-of-a-code">Definition: minimum distance of a code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-error-detection">Claim: condition for error detection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-error-correction">Claim: condition for error correction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#claim-condition-for-simultaneous-error-detection-and-correction">Claim: condition for simultaneous error detection and correction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shannon-s-theorem">Shannon’s Theorem</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
