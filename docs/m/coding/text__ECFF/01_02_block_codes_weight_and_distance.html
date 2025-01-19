@@ -1190,8 +1190,8 @@ w &amp;= (0, 0, 1, 0, 0, 1, 0, 1) \\
 </div>
 <p>Informally this says that error correction costs about twice as much as error detection. For every bit you attempt to correct you lose two bits in the number of errors you can detect. That is because if you are employing error correction an error that pushes a code word <span class="math notranslate nohighlight">\(u\)</span> close enough to another code word <span class="math notranslate nohighlight">\(v\)</span> will cause the error processor to choose <span class="math notranslate nohighlight">\(v\)</span> rather than content itself with the statement that the received word is erroneous.</p>
 <p><b>Proof</b></p>
-<p><i>First Direction</i> <span class="math notranslate nohighlight">\(Q \implies P\)</span></p>
 <p>Consider an error processor for the given code <span class="math notranslate nohighlight">\(C\)</span> that works as follows: if <span class="math notranslate nohighlight">\(w\)</span> is received and there is a unique code word <span class="math notranslate nohighlight">\(u\)</span> with <span class="math notranslate nohighlight">\(d(u, w) \le t\)</span> then correct <span class="math notranslate nohighlight">\(w\)</span> to that code word. Otherwise send an error signal.</p>
+<p><i>First Direction</i> <span class="math notranslate nohighlight">\(Q \implies P\)</span></p>
 <p>Assume <span class="math notranslate nohighlight">\(d(C) \gt 2t + s\)</span>. Then by the error correction condition our decoder will correct errors of weight <span class="math notranslate nohighlight">\(\le t\)</span> successfully.</p>
 <p>Suppose that <span class="math notranslate nohighlight">\(u\)</span> is transmitted and <span class="math notranslate nohighlight">\(w\)</span> is received, where</p>
 <p><span class="math notranslate nohighlight">\(t \lt d(u, w) \le t + s\)</span> (thus <span class="math notranslate nohighlight">\(s \ge 1\)</span>)</p>
@@ -1217,14 +1217,42 @@ d(u, v) \le d(u, w) + d(v, w) &amp;\le 2t + s \\
 <p><span class="math notranslate nohighlight">\(d(C) \le 2t + s\)</span></p>
 <p>If <span class="math notranslate nohighlight">\(d(C) \le 2t\)</span> then by the error correction condition <span class="math notranslate nohighlight">\(C\)</span> cannot correct all errors of weight <span class="math notranslate nohighlight">\(\le t\)</span>. So we may assume that</p>
 <p><span class="math notranslate nohighlight">\(d(C) \gt 2t\)</span></p>
+<p><span class="math notranslate nohighlight">\(\textcolor{#50C878}{2t + 1 \le d(C) \le 2t + s}\)</span></p>
 <p>Then by the triangle inequality there is never more than one code word at distance <span class="math notranslate nohighlight">\(\le t\)</span> from any received word <span class="math notranslate nohighlight">\(w\)</span>.</p>
-<p>Let <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> be two code words with <span class="math notranslate nohighlight">\(2t \lt d(u, v) \le 2t + s\)</span>. Divide the places in which <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> differ into two sets <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> with</p>
+<div class="full-width" style="color: #50C878;">
+<p>We can see this in the following way.</p>
+<p><span class="math notranslate nohighlight">\(t + t + 1 \quad \le \quad d(C) \le d(u, w) \le \quad d(u, v) + d(v, w)\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(t \le d(u, v)\)</span> then <span class="math notranslate nohighlight">\(t + 1 \le d(v, w)\)</span>. In other words <span class="math notranslate nohighlight">\(d(u, v)\)</span> and <span class="math notranslate nohighlight">\(d(v, w)\)</span> cannot both be <span class="math notranslate nohighlight">\(\le t\)</span>.</p>
+</div>
+<p>Let <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> be two code words with <span class="math notranslate nohighlight">\(2t + 1 \le d(u, v) \le 2t + s\)</span>.</p>
+<div class="full-width" style="color: #50C878;">
+<p>In other words, let the difference between <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> fall within the error detection capability of the code.</p>
+</div>
+<p>Divide the places in which <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> differ into two sets <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> with</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{rcases}
+\phantom{t \lt} |S| \le t \\
+         t \lt  |T| \le t + s \\
+\end  {rcases}
+|S| \le t \lt |T| \le t + s
+\)</span></p>
+<div class="full-width" style="color: #50C878;">
+<p>In other words</p>
+<p><span class="math notranslate nohighlight">\(d(u, v) = |S| + |T| \le 2t + s\)</span></p>
+<p>This makes sense since <span class="math notranslate nohighlight">\(2t + s\)</span> is the maximum difference between <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>.</p>
+</div>
+<p>Define <span class="math notranslate nohighlight">\(w\)</span> so that <span class="math notranslate nohighlight">\(w\)</span> agrees with <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> outside <span class="math notranslate nohighlight">\(S \cup T\)</span>, with <span class="math notranslate nohighlight">\(u \in S\)</span>, and with <span class="math notranslate nohighlight">\(v \in T\)</span>.</p>
+<div class="full-width" style="color: #50C878;">
 <p><span class="math notranslate nohighlight">\(
 \begin{aligned}
-|S| &amp; \lt t \\
-t \lt |T| &amp; \le s + t \\
+S &amp;= \{ i \mid w_i = u_i \ne v_i \} &amp;&amp; |S| = d(v, w) \\
+T &amp;= \{ i \mid u_i \ne v_i = w_i \} &amp;&amp; |T| = d(u, w) \\
 \end  {aligned}
 \)</span></p>
+</div>
+<p>Then</p>
+<p><span class="math notranslate nohighlight">\(d(v, w)  \le t \lt d(u, w) \lt s + t\)</span></p>
+<p>Thus if <span class="math notranslate nohighlight">\(u\)</span> is transmitted and <span class="math notranslate nohighlight">\(w\)</span> is received an error of weight <span class="math notranslate nohighlight">\(\le s + t\)</span> has occurred. Yet an error processor that corrects all errors of weight <span class="math notranslate nohighlight">\(\le t\)</span> will not send an error signal. Instead it will correct <span class="math notranslate nohighlight">\(w\)</span> to <span class="math notranslate nohighlight">\(v\)</span> because, as is seen, <span class="math notranslate nohighlight">\(v\)</span> is the only code word with <span class="math notranslate nohighlight">\(d(v, w) \le t\)</span>. Thus the code cannot successfully detect all errors of weight up to <span class="math notranslate nohighlight">\(s + t\)</span>.</p>
 <p><span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
 </fieldset><fieldset style="border: 0.5px solid #50C878; border-radius: 5px; margin: 0px 0px 15px 0px; padding: 15px 20px 0px 20px;">
 <div class="full-width" style="color: #50C878;">
