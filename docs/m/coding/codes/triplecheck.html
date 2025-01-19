@@ -781,6 +781,17 @@
 <hr class="docutils" />
 <section id="id1">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">Triple check code</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>SUMMARY OF PROPERTIES
+
+block length           n = 6
+rank                   m = 3
+rate                 m/n = 1/2
+minimum distance    d(C) = 3
+
+s = 2, t = 0    double-error detection, no error correction
+s = 0, t = 1    no error detection, single-error correction
+</pre></div>
+</div>
 <p>The message is divided into blocks of three bits <span class="math notranslate nohighlight">\(abc\)</span> where each of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> is <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. Three check bits <span class="math notranslate nohighlight">\(xyz\)</span> are added where each of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> is also <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>. This is done in such a way that the following three conditions are satisfied.</p>
 <ol class="arabic simple">
 <li><p>The number of <span class="math notranslate nohighlight">\(1\)</span> s in <span class="math notranslate nohighlight">\(abx\)</span> is even.</p></li>
@@ -830,10 +841,6 @@ b + c + z &amp;= 2k \\
 <li><p>Error Processor: (assume that the receiver adopts a correction strategy where possible) check the three conditions; if none fail, the word is correct; if one or two fail, correct the single bit involved in the failing conditions and not in the others; if all three fail, send an error signal</p></li>
 <li><p>Decoder: strip the last three bits off each block unless there is an error signal</p></li>
 </ul>
-<p>block length <span class="math notranslate nohighlight">\(n = 6\)</span></p>
-<p>rank <span class="math notranslate nohighlight">\(m = 3\)</span></p>
-<p>rate <span class="math notranslate nohighlight">\(1/2\)</span></p>
-<p><span class="math notranslate nohighlight">\(d(C) = 3\)</span></p>
 <hr class="docutils" />
 <hr class="docutils" />
 <hr class="docutils" />
