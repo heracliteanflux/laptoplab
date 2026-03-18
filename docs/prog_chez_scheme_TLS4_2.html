@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 2 - Do It, Do It Again, and Again, and Again… &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'prog_chez_scheme_TLS4_2';</script>
+    <script src="_static/script.js?v=712283cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 3 - Cons the Magnificent" href="prog_chez_scheme_TLS4_3.html" />
+    <link rel="prev" title="Chapter 1 - Toys" href="prog_chez_scheme_TLS4_1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Laptop Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="prog_chez_scheme_TLS4.html">TLS4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_1.html">Ch 1</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Ch 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_3.html">Ch 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_4.html">Ch 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_chinese_idx.html">Chinese</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lang_chinese_tonemes.html">Standard Chinese (Mandarin) Phonotactics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_hindi_idx.html">Hindi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_hindi_duo.html">Hindi with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_05.html">1.5 - Form basic sentences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_06.html">1.6 - Talk about food</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_07.html">1.7 - Form the plural</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_08.html">1.8 - Introduce people</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_09.html">1.9 - Describe your family</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/prog_chez_scheme_TLS4_2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 2 - Do It, Do It Again, and Again, and Again…</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-do-it-do-it-again-and-again-and-again">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Chapter 2 - Do It, Do It Again, and Again, and Again…</a><a class="headerlink" href="#chapter-2-do-it-do-it-again-and-again-and-again" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">1996</span></code> Friedman, Daniel P. &amp; Matthias Felleisen. <i>The Little Schemer</i>. 4e. <a class="reference external" href="https://mitpress.mit.edu/9780262560993/the-little-schemer/">MIT Press</a>.</p>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#chapter-2-do-it-do-it-again-and-again-and-again" id="id1">Chapter 2 - Do It, Do It Again, and Again, and Again…</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Chapter 2 - Do It, Do It Again, and Again, and Again...</span>
+
+<span class="c1">; LAT?</span>
+<span class="c1">;   determines whether a given list does not contain a list</span>
+<span class="c1">;   inputs: list</span>
+<span class="c1">;   output: bool</span>
+<span class="c1">;</span>
+<span class="c1">; constructing function lat?</span>
+<span class="c1">;   first  commandment (prelim) - always ask null? as the first question in expressing any function</span>
+<span class="c1">;   fourth commandment (prelim) - always change at least one argument while recurring; it must be changed to be closer to termination; the changing argument must be tested in the termination condition: when using cdr, test termination with null?.</span>
+<span class="c1">;   look at each S-expression in a list, in turn, and ask if it is an atom, until it runs out of S-expressions</span>
+<span class="c1">;   if it runs out of S-expressions without encountering a list, the return value is #t; if it encounters a list, the return value is #f</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">lat?</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">l</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span><span class="w">                                   </span><span class="c1">; there are three questions bc a list can be empty, have an atom in the first position, or have a list in the first position</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">l</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="w">                   </span><span class="p">)</span><span class="w">    </span><span class="c1">; 1) Is the list empty/null?</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nf">atom?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">l</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">lat?</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">l</span><span class="p">))</span><span class="w"> </span><span class="p">)</span><span class="w">    </span><span class="c1">; 2) Is the current S-expression an atom? If so, then recur on the remainder of the list.</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="no">#f</span><span class="w">                        </span><span class="p">))))</span><span class="w"> </span><span class="c1">; 3) Otherwise, the list is not a lat.</span>
+
+<span class="p">(</span><span class="nf">lat?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">Jack</span><span class="w"> </span><span class="nv">Sprat</span><span class="w"> </span><span class="nv">could</span><span class="w"> </span><span class="nv">eat</span><span class="w"> </span><span class="nv">no</span><span class="w"> </span><span class="nv">chicken</span><span class="w"> </span><span class="nv">fat</span><span class="p">))</span><span class="w">   </span><span class="c1">; #t -                         each S-expression in the list is an atom</span>
+<span class="p">(</span><span class="nf">lat?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="nf">Jack</span><span class="p">)</span><span class="w"> </span><span class="nv">Sprat</span><span class="w"> </span><span class="nv">could</span><span class="w"> </span><span class="nv">eat</span><span class="w"> </span><span class="nv">no</span><span class="w"> </span><span class="nv">chicken</span><span class="w"> </span><span class="nv">fat</span><span class="p">))</span><span class="w"> </span><span class="c1">; #f - it is not the case that each S-expression in the list is an atom</span>
+<span class="p">(</span><span class="nf">lat?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">Jack</span><span class="w"> </span><span class="p">(</span><span class="nf">Sprat</span><span class="w"> </span><span class="nv">could</span><span class="p">)</span><span class="w"> </span><span class="nv">eat</span><span class="w"> </span><span class="nv">no</span><span class="w"> </span><span class="nv">chicken</span><span class="w"> </span><span class="nv">fat</span><span class="p">))</span><span class="w"> </span><span class="c1">; #f - it is not the case that each S-expression in the list is an atom</span>
+<span class="p">(</span><span class="nf">lat?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span><span class="w">                                      </span><span class="c1">; #t -                         each S-expression in the list is an atom</span>
+<span class="p">(</span><span class="nf">lat?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">bacon</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">eggs</span><span class="p">))</span><span class="w">                        </span><span class="c1">; #t</span>
+<span class="w">  </span><span class="c1">; null? (bacon and eggs) - no</span>
+<span class="w">  </span><span class="c1">; atom? bacon - yes</span>
+<span class="w">  </span><span class="c1">;   null? (and eggs) - no</span>
+<span class="w">  </span><span class="c1">;   atom? and - yes</span>
+<span class="w">  </span><span class="c1">;     null? (eggs) - no</span>
+<span class="w">  </span><span class="c1">;     atom? eggs - yes</span>
+<span class="w">  </span><span class="c1">;       null? () - yes</span>
+<span class="w">  </span><span class="c1">;       #t</span>
+<span class="p">(</span><span class="nf">lat?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">bacon</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="nv">eggs</span><span class="p">)))</span><span class="w">                      </span><span class="c1">; #f</span>
+<span class="w">  </span><span class="c1">; null? (bacon (and eggs)) - no</span>
+<span class="w">  </span><span class="c1">; atom? bacon - yes</span>
+<span class="w">  </span><span class="c1">;   null? ((and eggs)) - no</span>
+<span class="w">  </span><span class="c1">;   atom? (and eggs) - no</span>
+<span class="w">  </span><span class="c1">;   #f</span>
+
+
+<span class="c1">; OR</span>
+<span class="c1">;   inputs: bool, bool</span>
+<span class="c1">;   output: bool</span>
+<span class="c1">;</span>
+<span class="c1">; asks two questions, one at a time</span>
+<span class="c1">; 1) if the first one is true it stops and answers true</span>
+<span class="c1">; 2) otherwise it asks the second question and answers with whatever the second question answers</span>
+<span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">d</span><span class="w"> </span><span class="nv">e</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="nv">g</span><span class="p">)))</span><span class="w">   </span><span class="c1">; #t</span>
+<span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">c</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()))</span><span class="w">     </span><span class="c1">; #t</span>
+<span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">c</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">atom</span><span class="p">)))</span><span class="w"> </span><span class="c1">; #f</span>
+
+
+<span class="c1">; MEMBER?</span>
+<span class="c1">;   determines whether a given atom is the same as at least one atom in a lat</span>
+<span class="c1">;   inputs: atom, lat</span>
+<span class="c1">;   output: bool</span>
+<span class="c1">;</span>
+<span class="c1">; constructing function member?</span>
+<span class="c1">;   first  commandment (prelim) - always ask null? as the first question in expressing any function</span>
+<span class="c1">;   first  commandment (final)  - when recurring on a list of atoms, lat, ask two questions about it: (null? lat) and else</span>
+<span class="c1">;   fourth commandment (prelim) - always change at least one argument while recurring; it must be changed to be closer to termination; the changing argument must be tested in the termination condition: when using cdr, test termination with null?.</span>
+<span class="c1">;   look at each atom in a lat, in turn, and ask if it is the given atom, until it runs out of atoms</span>
+<span class="c1">;   if it runs out of atoms without encountering the given atom, the return value is #f; if it encounters the given atom, the return value is #t</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">member?</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="w">                         </span><span class="p">)</span><span class="w">    </span><span class="c1">; 1)  Is the list empty/null?</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w">        </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w">           </span><span class="c1">; 2a) Is the current atom the same as the given atom?</span>
+<span class="w">                        </span><span class="p">(</span><span class="nf">member?</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span><span class="w"> </span><span class="c1">; 2b) If not, then recur on the remainder of the lat.</span>
+<span class="c1">; (define member?</span>
+<span class="c1">;   (lambda (a lat)</span>
+<span class="c1">;     (cond</span>
+<span class="c1">;       ( (null? lat)       #f                    )</span>
+<span class="c1">;       ( (eq? (car lat) a) #t                    )</span>
+<span class="c1">;       ( else              (member? a (cdr lat)) ))))</span>
+
+<span class="p">(</span><span class="nf">member?</span><span class="w"> </span><span class="ss">&#39;tea</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">coffee</span><span class="w"> </span><span class="nv">tea</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nv">milk</span><span class="p">))</span><span class="w">                </span><span class="c1">; #t</span>
+<span class="p">(</span><span class="nf">member?</span><span class="w"> </span><span class="ss">&#39;poached</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">fried</span><span class="w"> </span><span class="nv">eggs</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">scrambled</span><span class="w"> </span><span class="nv">eggs</span><span class="p">))</span><span class="w"> </span><span class="c1">; #f</span>
+<span class="p">(</span><span class="nf">member?</span><span class="w"> </span><span class="ss">&#39;meat</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">mashed</span><span class="w"> </span><span class="nv">potatoes</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">meat</span><span class="w"> </span><span class="nv">gravy</span><span class="p">))</span><span class="w">   </span><span class="c1">; #t</span>
+<span class="w">  </span><span class="c1">; null? (mashed potatoes and meat gravy) - no</span>
+<span class="w">  </span><span class="c1">; eq? mashed meat - no</span>
+<span class="w">  </span><span class="c1">; (or #f null? (potatoes and meat gravy)) - no</span>
+<span class="w">  </span><span class="c1">; (or #f eq? potatoes meat) - no</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f null? (and meat gravy))) - no</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f eq? and meat) - no</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f (or #f null? (meat gravy)))) - no</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f (or #f eq? meat meat))) - yes</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f (or #f #t)))</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f #t))</span>
+<span class="w">  </span><span class="c1">; (or #f #t)</span>
+<span class="w">  </span><span class="c1">; #t</span>
+<span class="p">(</span><span class="nf">member?</span><span class="w"> </span><span class="ss">&#39;liver</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">bagels</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">lox</span><span class="p">))</span><span class="w">                  </span><span class="c1">; #f</span>
+<span class="w">  </span><span class="c1">; null? (bagels and lox)</span>
+<span class="w">  </span><span class="c1">; eq? bagels liver</span>
+<span class="w">  </span><span class="c1">; (or #f null? (and lox))</span>
+<span class="w">  </span><span class="c1">; (or #f eq? and liver)</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f null? (lox)))</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f eq? lox liver))</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f (or #f null? ())))</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f (or #f #f)))</span>
+<span class="w">  </span><span class="c1">; (or #f (or #f #f))</span>
+<span class="w">  </span><span class="c1">; (or #f #f)</span>
+<span class="w">  </span><span class="c1">; #f</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="prog_chez_scheme_TLS4_1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 1 - Toys</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="prog_chez_scheme_TLS4_3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 3 - Cons the Magnificent</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

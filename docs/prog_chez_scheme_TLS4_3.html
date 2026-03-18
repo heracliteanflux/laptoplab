@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chapter 3 - Cons the Magnificent &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'prog_chez_scheme_TLS4_3';</script>
+    <script src="_static/script.js?v=712283cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 4 - Numbers Games" href="prog_chez_scheme_TLS4_4.html" />
+    <link rel="prev" title="Chapter 2 - Do It, Do It Again, and Again, and Again…" href="prog_chez_scheme_TLS4_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Laptop Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="prog_chez_scheme_TLS4.html">TLS4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_1.html">Ch 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_2.html">Ch 2</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Ch 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_4.html">Ch 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_chinese_idx.html">Chinese</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lang_chinese_tonemes.html">Standard Chinese (Mandarin) Phonotactics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_hindi_idx.html">Hindi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_hindi_duo.html">Hindi with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_05.html">1.5 - Form basic sentences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_06.html">1.6 - Talk about food</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_07.html">1.7 - Form the plural</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_08.html">1.8 - Introduce people</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_09.html">1.9 - Describe your family</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/prog_chez_scheme_TLS4_3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 3 - Cons the Magnificent</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-3-cons-the-magnificent">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Chapter 3 - Cons the Magnificent</a><a class="headerlink" href="#chapter-3-cons-the-magnificent" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">1996</span></code> Friedman, Daniel P. &amp; Matthias Felleisen. <i>The Little Schemer</i>. 4e. <a class="reference external" href="https://mitpress.mit.edu/9780262560993/the-little-schemer/">MIT Press</a>.</p>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#chapter-3-cons-the-magnificent" id="id1">Chapter 3 - Cons the Magnificent</a></p></li>
+</ul>
+</nav>
+<hr class="docutils" />
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Chapter 3 - Cons the Magnificent</span>
+
+<span class="c1">; REMBER - &quot;remove a member&quot;</span>
+<span class="c1">;   removes the first occurrence of a given atom from a lat</span>
+<span class="c1">;   inputs: atom, lat</span>
+<span class="c1">;   output: lat</span>
+<span class="c1">;</span>
+<span class="c1">; constructing function rember</span>
+<span class="c1">;   first  commandment (prelim) - always ask null? as the first question in expressing any function</span>
+<span class="c1">;   first  commandment (final)  - when recurring on a list of atoms, lat, ask two questions about it: (null? lat) and else</span>
+<span class="c1">;   second commandment          - use cons to build lists</span>
+<span class="c1">;   third  commandment          - when building a list, describe the first typical element, and then cons it onto the natural recursion</span>
+<span class="c1">;   fourth commandment (prelim) - always change at least one argument while recurring; it must be changed to be closer to termination; the changing argument must be tested in the termination condition: when using cdr, test termination with null?.</span>
+<span class="c1">;   look at each atom in a lat, in turn, and ask if it is the given atom, until it runs out of atoms</span>
+<span class="c1">;   if the current atom is not the given atom, it saves it to be consed to the final lat later</span>
+<span class="c1">;   if the current atom is     the given atom, it drops it and   conses the previous atoms back onto the rest of the lat</span>
+<span class="c1">;</span>
+<span class="c1">; (define rember</span>
+<span class="c1">;   (lambda (a lat)</span>
+<span class="c1">;     (cond</span>
+<span class="c1">;       ( (null? lat) &#39;()                                        )    ; 1)  Is the list empty/null?</span>
+<span class="c1">;       ( else (cond</span>
+<span class="c1">;                ( (eq? (car lat) a) (cdr lat)                )       ; 2a) Is the current atom the same as the given atom?</span>
+<span class="c1">;                                                                     ;     If so,  then return (cdr lat)</span>
+<span class="c1">;                ( else (cons (car lat) (rember a (cdr lat))) )) )))) ; 2b) If not, then cons the current atom and recur on the remainder of the lat.</span>
+<span class="c1">; ;                      ^^^^                                constructor of lists</span>
+<span class="c1">; ;                           ^^^^^^^^^                      typical element - atom</span>
+<span class="c1">; ;                                     ^^^^^^^^^^^^^^^^^^^^ natural recursion of rember</span>
+<span class="c1">;</span>
+<span class="c1">; simplification:</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">rember</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">((</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span>
+<span class="w">      </span><span class="p">((</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span>
+<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">rember</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))))))</span>
+
+<span class="p">(</span><span class="nf">rember</span><span class="w"> </span><span class="ss">&#39;mint</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">lamb</span><span class="w"> </span><span class="nv">chops</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">mint</span><span class="w"> </span><span class="nv">jelly</span><span class="p">))</span><span class="w">               </span><span class="c1">; (lamb chops and jelly)</span>
+<span class="p">(</span><span class="nf">rember</span><span class="w"> </span><span class="ss">&#39;mint</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">lamb</span><span class="w"> </span><span class="nv">chops</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">mint</span><span class="w"> </span><span class="nv">flavored</span><span class="w"> </span><span class="nv">mint</span><span class="w"> </span><span class="nv">jelly</span><span class="p">))</span><span class="w"> </span><span class="c1">; (lamb chops and flavored mint jelly)</span>
+<span class="p">(</span><span class="nf">rember</span><span class="w"> </span><span class="ss">&#39;toast</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">bacon</span><span class="w"> </span><span class="nv">lettuce</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">tomato</span><span class="p">))</span><span class="w">               </span><span class="c1">; (bacon lettuce and tomato)</span>
+<span class="p">(</span><span class="nf">rember</span><span class="w"> </span><span class="ss">&#39;cup</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">coffee</span><span class="w"> </span><span class="nv">cup</span><span class="w"> </span><span class="nv">tea</span><span class="w"> </span><span class="nv">cup</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">hick</span><span class="w"> </span><span class="nv">cup</span><span class="p">))</span><span class="w">          </span><span class="c1">; (coffee tea cup and hick cup)</span>
+<span class="p">(</span><span class="nf">rember</span><span class="w"> </span><span class="ss">&#39;bacon</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">bacon</span><span class="w"> </span><span class="nv">lettuce</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">tomato</span><span class="p">))</span><span class="w">               </span><span class="c1">; (lettuce and tomato)</span>
+<span class="w">  </span><span class="c1">; null? (bacon lettuce and tomato)</span>
+<span class="w">  </span><span class="c1">; eq? bacon bacon</span>
+<span class="w">  </span><span class="c1">; (lettuce and tomato)</span>
+<span class="p">(</span><span class="nf">rember</span><span class="w"> </span><span class="ss">&#39;and</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">bacon</span><span class="w"> </span><span class="nv">lettuce</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">tomato</span><span class="p">))</span><span class="w">                 </span><span class="c1">; (bacon lettuce tomato)</span>
+<span class="w">  </span><span class="c1">; null? (bacon lettuce and tomato)</span>
+<span class="w">  </span><span class="c1">; eq? bacon and</span>
+<span class="w">  </span><span class="c1">; (cons bacon null? (lettuce and tomato))</span>
+<span class="w">  </span><span class="c1">; (cons bacon eq? lettuce and tomato)</span>
+<span class="w">  </span><span class="c1">; (cons bacon (cons lettuce null? (and tomato)))</span>
+<span class="w">  </span><span class="c1">; (cons bacon (cons lettuce eq? and and))</span>
+<span class="w">  </span><span class="c1">; (cons bacon (cons lettuce (tomato)))</span>
+<span class="w">  </span><span class="c1">; (cons bacon (lettuce tomato))</span>
+<span class="w">  </span><span class="c1">; (bacon lettuce tomato)</span>
+<span class="p">(</span><span class="nf">rember</span><span class="w"> </span><span class="ss">&#39;sauce</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">soy</span><span class="w"> </span><span class="nv">sauce</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">tomato</span><span class="w"> </span><span class="nv">sauce</span><span class="p">))</span><span class="w">             </span><span class="c1">; (soy and tomato sauce)</span>
+
+
+<span class="c1">; FIRSTS</span>
+<span class="c1">;    composes a list containing the first S-expression of each member list in the given list</span>
+<span class="c1">;    inputs: list, either empty/null or a list which contains only non-empty lists</span>
+<span class="c1">;    output: list</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">firsts</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">l</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">l</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                              </span><span class="p">)</span><span class="w">    </span><span class="c1">; 1) Is the list empty/null?</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">l</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">firsts</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">l</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span><span class="w"> </span><span class="c1">; 2) Cons the first S-expression of the current member list and recur on the remainder of the given list.</span>
+<span class="c1">;             ^^^^                                constructor of lists</span>
+<span class="c1">;                       ^^^^^^^                   a member list in the given list</span>
+<span class="c1">;                  ^^^^^^^^^^^^^                  typical element - the first S-expression of a member list</span>
+<span class="c1">;                                ^^^^^^^^^^^^^^^^ natural recursion of firsts</span>
+
+<span class="p">(</span><span class="nf">firsts</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="nf">apple</span><span class="w"> </span><span class="nv">peach</span><span class="w"> </span><span class="nv">pumpkin</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nf">plum</span><span class="w"> </span><span class="nv">pear</span><span class="w"> </span><span class="nv">cherry</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nf">grape</span><span class="w"> </span><span class="nv">raisin</span><span class="w"> </span><span class="nv">pea</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nf">bean</span><span class="w"> </span><span class="nv">carrot</span><span class="w"> </span><span class="nv">eggplant</span><span class="p">)))</span><span class="w"> </span><span class="c1">; (apple plum grape bean)</span>
+<span class="p">(</span><span class="nf">firsts</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="nf">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">c</span><span class="w"> </span><span class="nv">d</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">e</span><span class="w"> </span><span class="nv">f</span><span class="p">)))</span><span class="w">      </span><span class="c1">; (a c e)</span>
+<span class="w">  </span><span class="c1">; null? ((a b) (c d) (e f))</span>
+<span class="w">  </span><span class="c1">; (cons a null? ((c d) (e f)))</span>
+<span class="w">  </span><span class="c1">; (cons a (cons c null? ((e f))))</span>
+<span class="w">  </span><span class="c1">; (cons a (cons c (cons e null? ())))</span>
+<span class="w">  </span><span class="c1">; (cons a (cons c (cons e ())))</span>
+<span class="w">  </span><span class="c1">; (cons a (cons c (e)))</span>
+<span class="w">  </span><span class="c1">; (cons a (c e))</span>
+<span class="w">  </span><span class="c1">; (a c e)</span>
+<span class="p">(</span><span class="nf">firsts</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span><span class="w">                       </span><span class="c1">; ()</span>
+<span class="p">(</span><span class="nf">firsts</span><span class="w"> </span><span class="o">&#39;</span><span class="p">((</span><span class="nf">five</span><span class="w"> </span><span class="nv">plums</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nf">four</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nf">eleven</span><span class="w"> </span><span class="nv">green</span><span class="w"> </span><span class="nv">oranges</span><span class="p">)))</span><span class="w"> </span><span class="c1">; (five four eleven)</span>
+<span class="p">(</span><span class="nf">firsts</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(((</span><span class="nf">five</span><span class="w"> </span><span class="nv">plums</span><span class="p">)</span><span class="w"> </span><span class="nv">four</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nf">eleven</span><span class="w"> </span><span class="nv">green</span><span class="w"> </span><span class="nv">oranges</span><span class="p">)</span>
+<span class="w">          </span><span class="p">((</span><span class="nf">no</span><span class="p">)</span><span class="w"> </span><span class="nv">more</span><span class="p">)))</span><span class="w">            </span><span class="c1">; ((five plums) eleven (no))</span>
+
+
+<span class="c1">; SECONDS</span>
+<span class="c1">;    composes a list containing the second S-expression of each member list in the given list</span>
+<span class="c1">;    inputs: list, either empty/null or a list which contains only non-empty lists</span>
+<span class="c1">;    output: list</span>
+<span class="c1">;</span>
+<span class="c1">; get the first  S-expression of a list    (car l)</span>
+<span class="c1">; get the second S-expression of a list    (car (cdr l))</span>
+<span class="c1">; get the third  S-expression of a list    (car (cdr (cdr l)))</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">seconds</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">l</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">l</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                     </span><span class="p">)</span><span class="w">    </span><span class="c1">; 1) Is the list empty/null?</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">l</span><span class="p">)))</span><span class="w"> </span><span class="p">(</span><span class="nf">seconds</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">l</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span><span class="w"> </span><span class="c1">; 2) Cons the first S-expression of the current member list and recur on the remainder of the given list.</span>
+<span class="c1">;             ^^^^                                       constructor of lists</span>
+<span class="c1">;                            ^^^^^^^                     a member list in the given list</span>
+<span class="c1">;                  ^^^^^^^^^^^^^^^^^^^                   typical element - the second S-expression of a member list</span>
+<span class="c1">;                                      ^^^^^^^^^^^^^^^^^ natural recursion of firsts</span>
+
+
+<span class="c1">; insertR</span>
+<span class="c1">;   inserts the new atom to the right of the first occurrence of the old atom in the lat</span>
+<span class="c1">;   inputs: new [atom], old [atom], lat [lat]</span>
+<span class="c1">;   output: lat</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">insertR</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                     </span><span class="p">)</span><span class="w">    </span><span class="c1">; 1)  Is the list empty/null?</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">old</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">)</span><span class="w">    </span><span class="c1">; 2a) Is the current atom the same as the given atom?</span>
+<span class="w">                                                                 </span><span class="c1">;     If so,  then return old + new + (cdr lat)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">insertR</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w">   </span><span class="p">))))</span><span class="w"> </span><span class="c1">; 2b) If not, then cons the current atom and recur on the remainder of the lat.</span>
+<span class="c1">;             ^^^^                                        constructor of lists</span>
+<span class="c1">;                  ^^^^^^^^^                              typical element - atom</span>
+<span class="c1">;                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion of insertR</span>
+
+<span class="p">(</span><span class="nf">insertR</span><span class="w"> </span><span class="ss">&#39;topping</span><span class="w"> </span><span class="ss">&#39;fudge</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">ice</span><span class="w"> </span><span class="nv">cream</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">fudge</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">dessert</span><span class="p">))</span><span class="w"> </span><span class="c1">; (ice cream with fudge topping for dessert)</span>
+<span class="p">(</span><span class="nf">insertR</span><span class="w"> </span><span class="ss">&#39;jalapeno</span><span class="w"> </span><span class="ss">&#39;and</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">tacos</span><span class="w"> </span><span class="nv">tamales</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">salsa</span><span class="p">))</span><span class="w">           </span><span class="c1">; (tacos tamales and jalapeno salsa)</span>
+<span class="p">(</span><span class="nf">insertR</span><span class="w"> </span><span class="ss">&#39;e</span><span class="w"> </span><span class="ss">&#39;d</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="nv">d</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="nv">d</span><span class="w"> </span><span class="nv">h</span><span class="p">))</span><span class="w">                            </span><span class="c1">; (a b c d e f g d h)</span>
+
+
+<span class="c1">; insertL</span>
+<span class="c1">;   inserts the new atom to the left of the first occurrence of the old atom in the lat</span>
+<span class="c1">;   inputs: new [atom], old [atom], lat [lat]</span>
+<span class="c1">;   output: lat</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">insertL</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                   </span><span class="p">)</span><span class="w">    </span><span class="c1">; 1)  Is the list empty/null?</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">old</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">                </span><span class="p">)</span><span class="w">    </span><span class="c1">; 2a) Is the current atom the same as the given atom?</span>
+<span class="w">                                                               </span><span class="c1">;     If so,  then return new + lat.</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">insertL</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span><span class="w"> </span><span class="c1">; 2b) If not, then cons the current atom and recur on the remainder of the lat.</span>
+<span class="c1">;             ^^^^                                        constructor of lists</span>
+<span class="c1">;                  ^^^^^^^^^                              typical element - atom</span>
+<span class="c1">;                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion of insertL</span>
+
+
+<span class="c1">; subst</span>
+<span class="c1">;   replaces the first occurrence of the old atom with the new atom in the lat</span>
+<span class="c1">;   inputs: new [atom], old [atom], lat [lat]</span>
+<span class="c1">;   output: lat</span>
+<span class="c1">;</span>
+<span class="c1">; insertR    (cons old (cons new (cdr lat)))</span>
+<span class="c1">; insertL              (cons new      lat )</span>
+<span class="c1">; subst                (cons new (cdr lat))</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">subst</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                 </span><span class="p">)</span><span class="w">    </span><span class="c1">; 1)  Is the list empty/null?</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">old</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w">        </span><span class="p">)</span><span class="w">    </span><span class="c1">; 2a) Is the current atom the same as the given atom?</span>
+<span class="w">                                                             </span><span class="c1">;     If so,  then return new + (cdr lat).</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">subst</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span><span class="w"> </span><span class="c1">; 2b) If not, then cons the current atom and recur on the remainder of the lat.</span>
+<span class="c1">;             ^^^^                                        constructor of lists</span>
+<span class="c1">;                  ^^^^^^^^^                              typical element - atom</span>
+<span class="c1">;                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion of subst</span>
+
+<span class="p">(</span><span class="nf">subst</span><span class="w"> </span><span class="ss">&#39;topping</span><span class="w"> </span><span class="ss">&#39;fudge</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">ice</span><span class="w"> </span><span class="nv">cream</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">fudge</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">dessert</span><span class="p">))</span><span class="w"> </span><span class="c1">; (ice cream with topping for dessert)</span>
+
+
+<span class="c1">; subst2</span>
+<span class="c1">;   replaces the first occurrence of either o1 or o2 with the new atom in the lat</span>
+<span class="c1">;   inputs: new [atom], o1 [atom], o2 [atom], lat [lat]</span>
+<span class="c1">;   output: lat</span>
+<span class="c1">;</span>
+<span class="c1">; (define subst2</span>
+<span class="c1">;   (lambda (new o1 o2 lat)</span>
+<span class="c1">;     (cond</span>
+<span class="c1">;       ( (null? lat) &#39;()                                    )</span>
+<span class="c1">;       ( (eq? (car lat) o1) (cons new (cdr lat))            )</span>
+<span class="c1">;       ( (eq? (car lat) o2) (cons new (cdr lat))            )</span>
+<span class="c1">;       ( else (cons (car lat) (subst2 new o1 o2 (cdr lat))) ))))</span>
+<span class="c1">;</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">subst2</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">new</span><span class="w"> </span><span class="nv">o1</span><span class="w"> </span><span class="nv">o2</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                    </span><span class="p">)</span><span class="w">    </span><span class="c1">; 1)  Is the list empty/null?</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">o1</span><span class="p">)</span>
+<span class="w">            </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">o2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w">       </span><span class="p">)</span><span class="w">    </span><span class="c1">; 2a) Is the current atom the same as the given atom?</span>
+<span class="w">                                                                </span><span class="c1">;     If so,  then return new + (cdr lat).</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">subst2</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">o1</span><span class="w"> </span><span class="nv">o2</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span><span class="w"> </span><span class="c1">; 2b) If not, then cons the current atom and recur on the remainder of the lat.</span>
+<span class="c1">;             ^^^^                                        constructor of lists</span>
+<span class="c1">;                  ^^^^^^^^^                              typical element - atom</span>
+<span class="c1">;                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion of subst2</span>
+
+
+<span class="c1">; multirember</span>
+<span class="c1">;   removes all occurrences of an atom from a list of atoms</span>
+<span class="c1">;   inputs: a [atom], lat [lat]</span>
+<span class="c1">;   output: lat</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">multirember</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                    </span><span class="p">)</span><span class="w">    </span><span class="c1">; 1)  Is the list empty/null?</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w">       </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">multirember</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w">  </span><span class="p">)</span><span class="w">    </span><span class="c1">; 2a) Is the current atom the same as the given atom?</span>
+<span class="w">                                                                </span><span class="c1">;     If so,  then                           recur on the remainder of the lat.</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">    </span><span class="p">(</span><span class="nf">multirember</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span><span class="w"> </span><span class="c1">; 2b) If not, then cons the current atom and recur on the remainder of the lat.</span>
+<span class="c1">;             ^^^^                                        constructor of lists</span>
+<span class="c1">;                  ^^^^^^^^^                              typical element - atom</span>
+<span class="c1">;                               ^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion of multirember</span>
+
+<span class="p">(</span><span class="nf">multirember</span><span class="w"> </span><span class="ss">&#39;cup</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">coffee</span><span class="w"> </span><span class="nv">cup</span><span class="w"> </span><span class="nv">tea</span><span class="w"> </span><span class="nv">cup</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">hick</span><span class="w"> </span><span class="nv">cup</span><span class="p">))</span><span class="w"> </span><span class="c1">; (coffee tea and hick)</span>
+<span class="w">  </span><span class="c1">; null? (coffee cup tea cup and hick cup)</span>
+<span class="w">  </span><span class="c1">; eq? coffee cup</span>
+<span class="w">  </span><span class="c1">; (cons coffee null? (cup tea cup and hick cup))</span>
+<span class="w">  </span><span class="c1">; (cons coffee eq? cup cup)</span>
+<span class="w">  </span><span class="c1">; (cons coffee null? (tea cup and hick cup))</span>
+<span class="w">  </span><span class="c1">; (cons coffee eq? tea cup)</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea null? (cup and hick cup)))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea eq? cup cup))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea null? (and hick cup)))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea eq? and cup))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea (cons and null? (hick cup))))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea (cons and eq? hick cup)))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea (cons and (cons hick null? (cup)))))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea (cons and (cons hick eq? cup cup))))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea (cons and (cons hick null? ()))))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea (cons and (cons hick ()))))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea (cons and (hick))))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (cons tea (and hick)))</span>
+<span class="w">  </span><span class="c1">; (cons coffee (tea and hick))</span>
+<span class="w">  </span><span class="c1">; (coffee tea and hick)</span>
+
+
+<span class="c1">; multiinsertR</span>
+<span class="c1">;   inserts an atom to the right of all occurrences of another atom in a list of atoms</span>
+<span class="c1">;   inputs: new [atom], old [atom], lat [lat]</span>
+<span class="c1">;   output: lat</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">multiinsertR</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                                                  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w">       </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">old</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="p">(</span><span class="nf">multiinsertR</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))))</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">                          </span><span class="p">(</span><span class="nf">multiinsertR</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w">  </span><span class="p">))))</span>
+
+<span class="p">(</span><span class="nf">multiinsertR</span><span class="w"> </span><span class="ss">&#39;fried</span><span class="w"> </span><span class="ss">&#39;fish</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">chips</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">fish</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nv">fish</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">fried</span><span class="p">))</span><span class="w"> </span><span class="c1">; (chips and fish fried or fish fried and fried)</span>
+
+
+<span class="c1">; multiinsertL</span>
+<span class="c1">;   inserts an atom to the left of all occurrences of another atom in a list of atoms</span>
+<span class="c1">;   inputs: new [atom], old [atom], lat [lat]</span>
+<span class="c1">;   output: lat</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">multiinsertL</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                                                  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w">       </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">old</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nf">multiinsertL</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))))</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">                          </span><span class="p">(</span><span class="nf">multiinsertL</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w">  </span><span class="p">))))</span>
+
+<span class="p">(</span><span class="nf">multiinsertL</span><span class="w"> </span><span class="ss">&#39;fried</span><span class="w"> </span><span class="ss">&#39;fish</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">chips</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">fish</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nv">fish</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">fried</span><span class="p">))</span><span class="w"> </span><span class="c1">; (chips and fried fish or fried fish and fried)</span>
+
+
+<span class="c1">; multisubst</span>
+<span class="c1">;   replaces all occurrences of one atom for another in a list of atoms</span>
+<span class="c1">;   inputs: new [atom], old [atom], lat [lat]</span>
+<span class="c1">;   output: lat</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">multisubst</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                                     </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w">       </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">old</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="p">(</span><span class="nf">multisubst</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">                </span><span class="p">(</span><span class="nf">multisubst</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">old</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="p">(</span><span class="nf">multisubst</span><span class="w"> </span><span class="ss">&#39;taco</span><span class="w"> </span><span class="ss">&#39;fish</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">chips</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">fish</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nv">fish</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">fried</span><span class="p">))</span><span class="w"> </span><span class="c1">; (chips and taco or taco and fried)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="prog_chez_scheme_TLS4_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 2 - Do It, Do It Again, and Again, and Again…</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="prog_chez_scheme_TLS4_4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 4 - Numbers Games</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
