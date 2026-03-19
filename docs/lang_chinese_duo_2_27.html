@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2.27 - Use indirect objects &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lang_chinese_duo_2_27';</script>
+    <script src="_static/script.js?v=712283cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2.28 - Ask for directions" href="lang_chinese_duo_2_28.html" />
+    <link rel="prev" title="2.26 - Discuss rental details" href="lang_chinese_duo_2_26.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Laptop Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="prog_chez_scheme_TLS4.html">TLS4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_1.html">Ch 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_2.html">Ch 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_3.html">Ch 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prog_chez_scheme_TLS4_4.html">Ch 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="lang_chinese_idx.html">Chinese</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lang_chinese_tonemes.html">Tonemes</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="lang_chinese_duo.html">Chinese with Duolingo</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_1_01.html">1.1 - Name food and drinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_1_02.html">1.2 - Talk about nationalities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_1_03.html">1.3 - Discuss professions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_1_04.html">1.4 - Discuss your courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_1_05.html">1.5 - Use possessive pronouns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_1_06.html">1.6 - Talk about places you visit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_1_07.html">1.7 - Order drinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_01.html">2.1 Use adjectives for description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_16.html">2.16 Shop for clothes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_17.html">2.17 Attend a concert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_18.html">2.18 Ask questions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_19.html">2.19 Expressing possession</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_20.html">2.20 - Express feelings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_21.html">2.21 - Talk about the weather</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_22.html">2.22 Talk about friends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_23.html">2.23 Describe your daily routine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_24.html">2.24 Manage daily tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_25.html">2.25 Shop online</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_26.html">2.26 - Discuss rental details</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">2.27 - Use indirect objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_28.html">2.28 - Ask for directions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_29.html">2.29 - Discuss sports excitement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_2_30.html">2.30 - Handle an emergency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_duo_3_01.html">3.1 - Navigate the city</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_hindi_idx.html">Hindi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_hindi_duo.html">Hindi with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_05.html">1.5 - Form basic sentences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_06.html">1.6 - Talk about food</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_07.html">1.7 - Form the plural</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_08.html">1.8 - Introduce people</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lang_hindi_duo_1_09.html">1.9 - Describe your family</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/lang_chinese_duo_2_27.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>2.27 - Use indirect objects</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="use-indirect-objects">
+<h1>2.27 - Use indirect objects<a class="headerlink" href="#use-indirect-objects" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>email                           yóu   jiàn               邮件📧
+essay                           zuò   wén                作文📓
+everyone                        měi   ge  rén            每个人
+group                           xiǎo  zǔ                 小组
+Italian language (spoken)       yì    dà  lì  yǔ         意大利语🇮🇹
+Italian person                  yì    dà  lì  rén        意大利人🇮🇹
+Italy                           yì    dà  lì             意大利🇮🇹
+last night                      zuó   wǎn                昨晚
+pen                             bǐ                       笔🖊️
+problem/question                wèn   tí                 问题🙋
+question/topic/subject/title    tí    mù                 题目
+thought/idea                    xiǎng fǎ                 想法💡
+when                            shén  me  shí hòu/hou    什么时候
+
+an email    yì fēng yóu jiàn    一封邮件
+a pen       yì zhī bǐ           一支笔
+
+see you tomorrow                míng tiān jiàn    明天见
+what to do?                     zěn  me   bàn?    怎么办？
+
+to ask                          wèn                      问
+to choose                       xuǎn                     选
+to complete/finish              wán   chéng              完成✅
+to discuss, to talk about       tǎo   lùn                讨论
+to give                         gěi                      给
+to lend, to borrow              jiè                      借
+to translate                    fān   yì                 翻译
+to turn in, to submit           jiāo                     交
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>哎呀，我没完成作业。āiyā, wǒ méi wánchéng zuòyè Oh no, I didn&#39;t complete the homework.
+翻译这个新闻很难。fānyì zhège xīnwén hěn nán Translating this news is difficult.
+给我你的电脑。gěi wǒ nǐ de diànnǎo Give me your computer.
+交作业。jiāo zuòyè Submit the homework.
+记得给我你的作文。jìde gěi wǒ nǐ de zuòwén Remember to give me your essays.
+借我你的作业。jiè wǒ nǐ de zuòyè Lend me your homework.
+今天我问了老师很多问题。jīntiān wǒ wènle lǎoshī hěnduō wèntí Today I asked the teacher many questions.
+今天我们要写作文。jīntiān wǒmen yào xiě zuòwén Today we&#39;re going to write an essay.
+老师借了我三本书。lǎoshī jièle wǒ sānběn shū The teacher lent me three books.
+老师借了我一本词典。lǎoshī jièle wǒ yìběn cídiǎn The teacher lent me a dictionary.
+两封新邮件。liǎngfēng xīn yóujiàn Two new emails.
+每个人都完成了作业。měige rén dōu wánchéngle zuòyè Everyone completed the homework.
+每个人都问了老师问题。měige rén dōu wènle lǎoshī wèntí Everyone asked the teacher questions.
+每个人都写了邮件吗？měige rén dōu xiěle yóujiàn ma? Did everyone write an email?
+每个人都写了作文对不对？měige rén dōu xiěle zuòwén duìbúduì? Everyone wrote an essay, right?
+每个人都需要帮助。měige rén dōu xūyào bāngzhù Everyone needs help.
+每个人都有好想法。měige rén dōu yǒu hǎo xiǎngfǎ Everyone has good thoughts.
+明天我们要交作业，对不对？míngtiān wǒmen yào jiāo zuòyè We will turn in our homework tomorrow, right?
+你会翻译英文吗？nǐ huì fānyì yīngwén ma? You know how to translate English?
+你交了作业吗？nǐ jiāole zuòyè ma? Did you submit the homework?
+你写了几封邮件？nǐ xiěle jǐfēng yóujiàn? How many emails did you write?
+你可以帮我吗？nǐ kěyǐ bāng wǒ ma? Can you help me?
+你可以翻译这封邮件吗？nǐ kěyǐ fānyì zhège yóujiàn ma? Can you translate this email?
+你可以告诉我你的想法吗？nǐ kěyǐ gàosù wǒ nǐ de xiǎngfǎ ma? Can you tell me your thoughts?
+你可以给我一支笔吗？nǐ kěyǐ gěi wǒ yìzhī bǐ ma? Can you give me a pen?
+你可以借我一支笔吗？nǐ kěyǐ jiè wǒ yìzhī bǐ ma? Can you lend me a pen?
+你可以借我这本书吗？nǐ kěyǐ jiè wǒ zhèběn shū ma? Can you lend me this book?
+你可以完成这封邮件吗？nǐ kěyǐ wánchéng zhèfēng yóujiàn ma? Can you complete this email?
+你完成了你的小说吗？nǐ wánchéngle nǐ de xiǎoshuō ma? Have you completed your novel?
+你选一个容易的题目。nǐ xuǎn yíge róngyì de tímù You choose an easy topic.
+你有几支笔？nǐ yǒu jǐ zhī bǐ? How many pens do you have?
+你有什么想法？nǐ yǒu shénme xiǎngfǎ? What thoughts do you have?
+你选了哪个小组？nǐ xuǎnle nǎge xiǎozǔ? Which group did you choose?
+你在哪个小组？nǐ zài nǎge xiǎozǔ? Which group are you in?
+你做了几个计划？nǐ zuòle jǐge jìhuà? How many plans did you make?
+你昨晚做了什么？nǐ zuówǎn zuòle shénme? What did you do last night?
+你们会说意大利语吗？nǐmen huì shuō yìdàlìyǔ ma? Can y&#39;all speak Italian?
+你们选了什么题目？nǐmen xuǎnle shénme tímù? What topic did y&#39;all choose?
+你们需要几本书？nǐmen xūyào jǐběn shū? How many books do y&#39;all need?
+请问，这个问题重要吗？qǐngwèn, zhège wèntí zhòngyào ma? Excuse me, is this question important?
+谁没完成作业？shéi méi wánchéng zuòyè? Who didn&#39;t finish the homework?
+数学问题。shùxué wèntí Math problems.
+他的帮助有用吗？tā de bāngzhù yǒuyòng ma? Is his help useful?
+他的作文怎么样？tā de zuòwén zěnmeyàng? How is his essay?
+他丢了一支笔。tā diūle yìzhī bǐ He lost a pen.
+他会说意大利语。tā huì shuō yìdàlìyǔ He can speak Italian.
+他没问我。tā méi wèn wǒ He didn&#39;t ask me.
+他明天交作业。tā míngtiān jiāo zuòyè He will submit the homework tomorrow.
+他问了我一个问题。tā wènle wǒ yíge wèntí He asked me a question.
+他们昨晚讨论了一些问题。tāmen zuówǎn tǎolùnle yìxiē wèntí They discussed some questions last night.
+晚安，明天见。wǎnān, míngtiānjiàn Goodnight, see you tomorrow.
+王老师，我们可以讨论几个问题？wǎng lǎoshī, wǒmen kěyǐ tǎolùn jǐge wèntí? Teacher Wang, can we discuss several questions?
+王明，明天见。wángmíng, míngtiānjiàn Wang Ming, see you tomorrow.
+我不会翻译日语。wǒ bú huì fānyì rìyǔ I don&#39;t know how to translate Japanese.
+我不会说法语，怎么办？wǒ bú huì shuō fǎyǔ, zěnmebàn? I don&#39;t know how to speak French, what should I do?
+我不想写作文。wǒ bù xiǎng xiě zuòwén I don&#39;t want to write an essay.
+我可以问两个问题吗？wǒ kěyǐ wèn liǎngge wèntí ma? Can I ask two questions?
+我可以问你一个问题吗？wǒ kěyǐ wèn nǐ yíge wèntí ma? Can I ask you a question?
+我没带那本书，怎么办？wǒ méi dài nàběn shū, zěnmebàn? I didn&#39;t brink that book, what should I do?
+我没写作文，怎么办？wǒ méi xiě zuòwén, zěnmebàn? I didn&#39;t write an essay, what do I do?
+我想问你一个问题。wǒ xiǎng wèn nǐ yíge wèntí I want to ask you a question.
+我想学意大利语。wǒ xiǎng xué yìdàlìyǔ I want to learn Italian.
+我喜欢这本书，这本书很有用。wǒ xǐhuān zhèběn shū, zhèběn shū hěn yǒuyòng I like this book, this book is useful.
+我选明天。wǒ xuǎn míngtiān I choose tomorrow.
+我有一个问题，我需要帮助。wǒ yǒu yíge wèntí, wǒ xūyào bāngzhù I have a question, I need help.
+我有一个想法。wǒ yǒu yíge xiǎngfǎ I have an idea.
+我在翻译英文报纸。wǒ zài fānyì yīngwén bàozhǐ I&#39;m translating English newspapers.
+我在写邮件。wǒ zài xiě yóujiàn I&#39;m writing an email.
+我昨晚翻译了邮件。wǒ zuówǎn fānyìle yóujiàn I translated the email last night.
+我们都会说意大利语。wǒmen dōu huì shuō yìdàlìyǔ We can all speak Italian.
+我们还在讨论题目。wǒmen hái zài tǎolùn tímù We&#39;re still discussing the topic.
+我们几点交作业？wǒmen jǐdiǎn jiāo zuòyè? What time do we hand in the homework?
+我们什么时候见面，明天还是今天？wǒmen shénmeshíhou jiànmiàn, míngtiān háishì jīntiān? When shall we meet, tomorrow or today?
+我们什么时候交作业？wǒmen shénmeshíhou jiāo zuòyè? When do we submit the homework?
+我们什么时候开始？wǒmen shénmeshíhou kāishǐ? When do we start?
+我们什么时候练习西班牙语？wǒmen shénmeshíhou liànxí xībānyáyǔ? When will we practice Spanish?
+我们先选作文的题目吧。wǒmen xiān xuǎn zuòwén de tímù bā Let&#39;s first choose the essay topic.
+我们想讨论这个问题。wǒmen xiǎng tǎolùn zhège wèntí We want to discuss this issue.
+我们需要几个会议室？wǒmen xūyào jǐge huìyìshì? How many meeting rooms do we need?
+我们需要几个题目？wǒmen xūyào jǐge tímù? How many topics do we need?
+我们应该问老师。wǒmen yīnggāi wèn lǎoshī We should ask the teacher.
+我们一起学意大利语吧。wǒmen yìqǐ xué yìdàlìyǔ bā Let&#39;s learn Italian together.
+我们有很多新问题。wǒmen yǒu hěnduō xīn wèntí We have lots of new questions.
+小说的题目。xiǎoshuō de tímù The novel&#39;s title.
+写作文很难。xiě zuòwén hěn nán Writing essays is difficult.
+一封邮件。yìfēng yóujiàn An email.
+张华问了我们一个问题。zhānghuá wènle wǒmen yíge wèntí Zhang Hua asked us a question.
+张老师给了我七支笔。zhāng lǎoshī gěile wǒ qīzhī bǐ Teacher Zhang gave me seven pens.
+这本词典很漂亮也很有用。zhèběn cídiǎn hěn piàoliang yě hěn yǒuyòng This dictionary is pretty and useful.
+这个题目怎么样？zhège tímù zěnmeyàng? How about this topic?
+这个网站有用吗？zhège wǎngzhàn yǒuyòng ma? Is this website useful?
+这个小组一共有七个人。zhège xiǎozǔ yígòng yǒu qīge rén This group has seven people altogether.
+这支笔是谁的？zhèzhī bǐ shì shéi de? Whose pen is this?
+昨晚你在哪里？zuówǎn nǐ zài nǎlǐ? Where were you last night?
+昨晚我特别忙。zuówǎn wǒ tèbié máng I was especially busy last night.
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lang_chinese_duo_2_26.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2.26 - Discuss rental details</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lang_chinese_duo_2_28.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.28 - Ask for directions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
