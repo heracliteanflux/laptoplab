@@ -386,6 +386,156 @@ document.write(`
 </ul>
 </nav>
 <hr class="docutils" />
+<div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">; n + 1, increase quantity n by unity</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">add1</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="c1">; n - 1, decrease quantity n by unity</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">sub1</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="c1">; n + m, nonnegative integer addition - unity added to quantity n, m times</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">o+</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="nv">n</span><span class="w">                 </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; n - m, nonnegative integer subtraction - unity subtracted from quantity n, m times</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">o-</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="nv">n</span><span class="w">                 </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="p">(</span><span class="nf">o-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; one-tup sum</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">addtup</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">tup</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">tup</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                          </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">tup</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">addtup</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">tup</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; n x m, nonnegative integer multiplication - quantity n added to itself m times</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">x</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; two-tup sum (elementwise)</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">tup+</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">tup1</span><span class="w"> </span><span class="nv">tup2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span><span class="w"> </span><span class="nv">tup2</span><span class="w">                                                   </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">tup2</span><span class="p">)</span><span class="w"> </span><span class="nv">tup1</span><span class="w">                                                   </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">tup2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">tup+</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">tup2</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; n &gt; m ?</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">&gt;</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="w">               </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="w">               </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; n &lt; m ?</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">&lt;</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="w">               </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="w">               </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; n = m ?</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">=</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w">    </span><span class="no">#t</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; n^m, nonnegative integer exponentiation - quantity n multiplied by itself m times</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">exp</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w">                </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nb">exp</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
+
+<span class="c1">; n/m, nonnegative integer division - the number of times quantity m fits inside of quantity n</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="err">÷</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="err">÷</span><span class="w"> </span><span class="p">(</span><span class="nf">o-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; get the length of a list</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">length</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; get the n-th element of a list</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">pick</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w">     </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">pick</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; remove the n-th element of a list</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">rempick</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w">                        </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">rempick</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
+
+<span class="c1">; remove all numbers from a list</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">no-nums</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w">   </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">no-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="nf">no-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
+
+<span class="c1">; remove all non-numbers from a list</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">all-nums</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                           </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">all-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w">                                </span><span class="p">(</span><span class="nf">all-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w">  </span><span class="p">))))</span>
+
+<span class="c1">; equals, atoms and numbers</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">eqan?</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">a1</span><span class="w"> </span><span class="nv">a2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w">   </span><span class="nv">a1</span><span class="w"> </span><span class="nv">a2</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w">  </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a2</span><span class="p">))</span><span class="w">          </span><span class="no">#f</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w">                            </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="nv">a2</span><span class="p">)</span><span class="w"> </span><span class="p">))))</span>
+
+<span class="c1">; get the number of occurrences of an element in a list</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">occur</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                                </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="nf">occur</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w">                    </span><span class="p">(</span><span class="nf">occur</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w">  </span><span class="p">))))</span>
+
+<span class="c1">; n = 1 ?</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">one?</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">rempick</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nf">one?</span><span class="w">                               </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">rempick</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
+</pre></div>
+</div>
+<hr class="docutils" />
 <div class="highlight-scheme notranslate"><div class="highlight"><pre><span></span><span class="c1">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Chapter 4 - Numbers Games</span>
 
 <span class="p">(</span><span class="nf">atom?</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="w">      </span><span class="c1">; #t</span>
@@ -409,33 +559,28 @@ document.write(`
 <span class="c1">; addition, nonnegative integer</span>
 <span class="c1">;   adds unity to n as many times as unity may be subtracted from m</span>
 <span class="c1">;   until m reaches null</span>
-<span class="c1">;   (rule: m cannot be negative)</span>
-<span class="c1">;</span>
-<span class="c1">; example</span>
-<span class="c1">;   (o+ 46 12)</span>
-<span class="c1">; produces</span>
-<span class="c1">;   58</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">o+</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">)))))))</span>
+<span class="c1">;       vvvvvvvvvvv                  Are there no more units to add to quantity n? If not, then return quantity n.</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="nv">n</span><span class="w">                 </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;             ^^^^                   constructor of numbers - add a   unit  to quantity n</span>
+<span class="c1">;                  ^^^^^^^^^^^^^^^   natural recursion      - add m-1 units to quantity n</span>
 <span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="mi">46</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="c1">; 58</span>
 
 <span class="c1">; subtraction, nonnegative integer</span>
 <span class="c1">;   subtracts unity from n as many times as unity may be subtracted from m</span>
 <span class="c1">;   until m reaches null</span>
 <span class="c1">;   (rule: m cannot be negative)</span>
-<span class="c1">;</span>
-<span class="c1">; example</span>
-<span class="c1">;   (o- 14 3)</span>
-<span class="c1">; produces</span>
-<span class="c1">;   11</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">o-</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="p">(</span><span class="nf">o-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">)))))))</span>
+<span class="c1">;       vvvvvvvvvvv                  Are there no more units to subtract from quantity n? If not, then return quantity n.</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="nv">n</span><span class="w">                 </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="p">(</span><span class="nf">o-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;             ^^^^                   constructor of numbers - subtract a   unit  from quantity n</span>
+<span class="c1">;                  ^^^^^^^^^^^^^^^   natural recursion      - subtract m-1 units from quantity n</span>
 <span class="p">(</span><span class="nf">o-</span><span class="w"> </span><span class="mi">14</span><span class="w">  </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; 11</span>
 <span class="p">(</span><span class="nf">o-</span><span class="w"> </span><span class="mi">17</span><span class="w">  </span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="c1">;  8</span>
 <span class="p">(</span><span class="nf">o-</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span><span class="w"> </span><span class="c1">; -7</span>
@@ -448,34 +593,29 @@ document.write(`
 
 <span class="c1">; addtup, nonnegative integer</span>
 <span class="c1">;   builds a number by totaling all the numbers in a tup</span>
-<span class="c1">;</span>
-<span class="c1">; example</span>
-<span class="c1">;   (addtup &#39;(1 2 3 4))</span>
-<span class="c1">; produces</span>
-<span class="c1">;   10</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">addtup</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">tup</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">null?</span><span class="w"> </span><span class="nv">tup</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">tup</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">addtup</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">tup</span><span class="p">)))))))</span>
-<span class="c1">;            ^^                              tup constructor</span>
-<span class="c1">;               ^^^^^^^^^                    typical element</span>
-<span class="c1">;                         ^^^^^^^^^^^^^^^^^^ natural recursion</span>
+<span class="c1">;       vvvvvvvvvvvvv                           Is the tup empty? If so, then return the empty number.</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">tup</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                          </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">tup</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">addtup</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">tup</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;             ^^                                constructor of numbers</span>
+<span class="c1">;                ^^^^^^^^^                      typical element - a number</span>
+<span class="c1">;                          ^^^^^^^^^^^^^^^^^^   natural recursion</span>
 <span class="p">(</span><span class="nf">addtup</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">8</span><span class="p">))</span><span class="w">     </span><span class="c1">; 18</span>
 <span class="p">(</span><span class="nf">addtup</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">15</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"> </span><span class="c1">; 43</span>
-
-
 
 <span class="c1">; multiplication, nonnegative integer</span>
 <span class="c1">;   builds up a number by adding a quantity n up m times</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">x</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">)))))))</span>
-<span class="c1">;            ^^                  constructor for numbers</span>
-<span class="c1">;               ^                typical element - the quantity</span>
-<span class="c1">;                 ^^^^^^^^^^^^^^ natural recursion of multiplication</span>
+<span class="c1">;       vvvvvvvvvvv                 Are there no more additions of quantity n? If not, then return the empty addition.</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;             ^^                    constructor of numbers</span>
+<span class="c1">;                ^                  typical element   -          the quantity n</span>
+<span class="c1">;                  ^^^^^^^^^^^^^^   natural recursion - multiply the quantity n by m-1 times</span>
 <span class="p">(</span><span class="nf">x</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; 15</span>
 <span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c1">; 52</span>
 <span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; 36</span>
@@ -490,8 +630,6 @@ document.write(`
 <span class="c1">; (+ 12 (+ 12 12)</span>
 <span class="c1">; (+ 12 24)</span>
 <span class="c1">; 36</span>
-
-
 
 <span class="c1">; tup+</span>
 <span class="c1">;   number-wise addition of two n-number tups</span>
@@ -521,12 +659,12 @@ document.write(`
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">tup+</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">tup1</span><span class="w"> </span><span class="nv">tup2</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">null?</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span><span class="w"> </span><span class="nv">tup2</span><span class="p">)</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">null?</span><span class="w"> </span><span class="nv">tup2</span><span class="p">)</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">tup2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">tup+</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">tup2</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
-<span class="c1">;            ^^^^                                                         constructor for lists</span>
-<span class="c1">;                 ^^^^^^^^^^^^^^^^^^^^^^^^^^                              typical element - the sum of the ith number of each tup</span>
-<span class="c1">;                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion on tup+</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span><span class="w"> </span><span class="nv">tup2</span><span class="w">                                                   </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">tup2</span><span class="p">)</span><span class="w"> </span><span class="nv">tup1</span><span class="w">                                                   </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nf">o+</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">tup2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">tup+</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">tup1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">tup2</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;             ^^^^                                                         constructor of lists</span>
+<span class="c1">;                  ^^^^^^^^^^^^^^^^^^^^^^^^^^                              typical element - the sum of the ith number of each tup</span>
+<span class="c1">;                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion on tup+</span>
 <span class="p">(</span><span class="nf">tup+</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">7</span><span class="p">))</span><span class="w"> </span><span class="c1">; (11 11 11 11 11)</span>
 <span class="p">(</span><span class="nf">tup+</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span><span class="w">              </span><span class="c1">; (6 9)</span>
 <span class="p">(</span><span class="nf">tup+</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span><span class="w">              </span><span class="c1">; (7 13)</span>
@@ -541,9 +679,7 @@ document.write(`
 <span class="p">(</span><span class="nf">tup+</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="c1">; (7 13 8 1)</span>
 <span class="p">(</span><span class="nf">tup+</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span><span class="w"> </span><span class="c1">; (7 13 8 1)</span>
 
-
-
-<span class="c1">; &gt; &quot;greater than&quot;</span>
+<span class="c1">; greater-than</span>
 <span class="c1">;   inputs: n [int], m [int]</span>
 <span class="c1">;   output: bool</span>
 <span class="c1">;</span>
@@ -553,18 +689,16 @@ document.write(`
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">&gt;</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
-<span class="c1">;                                 no constructor, we aren&#39;t constructing anything</span>
-<span class="c1">;           ^^^^^^^^^^^^^^^^^^^^^ natural recursion on &gt;</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="w">               </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="w">               </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;                                  no constructor, we aren&#39;t constructing anything</span>
+<span class="c1">;            ^^^^^^^^^^^^^^^^^^^^^ natural recursion on &gt;</span>
 <span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">133</span><span class="p">)</span><span class="w"> </span><span class="c1">; #f</span>
 <span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="mi">120</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="c1">; #t</span>
 <span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">    </span><span class="c1">; #f</span>
 
-
-
-<span class="c1">; &lt; &quot;less than&quot;</span>
+<span class="c1">; less-than</span>
 <span class="c1">;   inputs: n [int], m [int]</span>
 <span class="c1">;   output: book</span>
 <span class="c1">;</span>
@@ -578,18 +712,16 @@ document.write(`
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">&lt;</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
-<span class="c1">;                                 no constructor, we aren&#39;t constructing anything</span>
-<span class="c1">;           ^^^^^^^^^^^^^^^^^^^^^ natural recursion on &lt;</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="w">               </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="no">#t</span><span class="w">               </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;                                  no constructor, we aren&#39;t constructing anything</span>
+<span class="c1">;            ^^^^^^^^^^^^^^^^^^^^^ natural recursion on &lt;</span>
 <span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="c1">; #t</span>
 <span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; #f</span>
 <span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="c1">; #f</span>
 
-
-
-<span class="c1">; = &quot;equals&quot;</span>
+<span class="c1">; equals</span>
 <span class="c1">;   inputs: n [int], m [int]</span>
 <span class="c1">;   output: bool</span>
 <span class="c1">;</span>
@@ -610,40 +742,35 @@ document.write(`
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">=</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="no">#t</span><span class="p">)</span><span class="w"> </span><span class="p">)))</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="no">#f</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="no">#t</span><span class="w">    </span><span class="p">))))</span>
 
 <span class="c1">; exponentiation</span>
 <span class="c1">;   inputs: n [int], m [int]</span>
 <span class="c1">;   output: int</span>
-<span class="c1">;</span>
-<span class="c1">; 1) if m = 0 then return 1</span>
-<span class="c1">; 2) return n x n^(m-1)</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">exp</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nb">exp</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
-<span class="c1">;            ^                    constructor</span>
-<span class="c1">;              ^                  typical element - the quantity</span>
-<span class="c1">;                ^^^^^^^^^^^^^^^^ natural recursion of exp</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w">                </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">x</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nb">exp</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
+<span class="c1">;             ^                    constructor of numbers</span>
+<span class="c1">;               ^                  typical element   -       the quantity n</span>
+<span class="c1">;                 ^^^^^^^^^^^^^^^^ natural recursion - raise the quantity n to the m-1 power</span>
 <span class="p">(</span><span class="nb">exp</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">; 1</span>
 <span class="p">(</span><span class="nb">exp</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; 8</span>
 <span class="p">(</span><span class="nb">exp</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="c1">; 125</span>
 
 <span class="c1">; division, nonnegative integer</span>
 <span class="c1">;   counts how many times the second argument fits into the first one</span>
-<span class="c1">;</span>
-<span class="c1">; 1) If n &lt; m then return 0.</span>
-<span class="c1">; 2) 1 + n-m</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="err">÷</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="err">÷</span><span class="w"> </span><span class="p">(</span><span class="nf">o-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="p">)))))</span>
-<span class="c1">;            ^^^^                constructor</span>
-<span class="c1">;                 ^^^^^^^^^^^^^^ natural recursion of ÷</span>
+<span class="c1">;       vvvvvvvvv                   Is the dividend smaller than the divisor? If so, then the divisor does not go into the dividend.</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="err">÷</span><span class="w"> </span><span class="p">(</span><span class="nf">o-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nv">m</span><span class="p">)</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;             ^^^^                constructor of numbers - increase the number of times the divisor goes into the divident</span>
+<span class="c1">;                  ^^^^^^^^^^^^^^ natural recursion      - decrease the dividend by the divisor and recur</span>
 <span class="p">(</span><span class="err">÷</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="c1">; 3</span>
 <span class="c1">; (&lt; 15 4) - no</span>
 <span class="c1">; + 1 (÷ 11 4)</span>
@@ -661,25 +788,25 @@ document.write(`
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nb">length</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">lat</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
-<span class="c1">;            ^^^^                    constructor</span>
-<span class="c1">;                 ^^^^^^^^^^^^^^^^^^ natural recursion of length</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;             ^^^^                    constructor of numbers</span>
+<span class="c1">;                  ^^^^^^^^^^^^^^^^^^ natural recursion</span>
 <span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">hotdogs</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">mustard</span><span class="w"> </span><span class="nv">sauerkraut</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">pickles</span><span class="p">))</span><span class="w"> </span><span class="c1">; 6</span>
 <span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">ham</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nv">cheese</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="nv">rye</span><span class="p">))</span><span class="w">                       </span><span class="c1">; 5</span>
 
-<span class="c1">; ; pick</span>
-<span class="c1">; ;   inputs: n [int], lat [lat]</span>
-<span class="c1">; ;   output: atom</span>
-<span class="c1">; (define length</span>
-<span class="c1">;   (lambda (n lat)</span>
-<span class="c1">;     (cond</span>
-<span class="c1">;       ((zero? (sub1 n)) (car lat))</span>
-<span class="c1">;       (else (pick (sub1 n) (cdr lat)) ))))</span>
-<span class="c1">; ;                                     no constructor</span>
-<span class="c1">; ;           ^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion of pick</span>
-<span class="c1">; (pick 4 &#39;(lasagna spaghetti ravioli macaroni meatball)) ; macaroni</span>
-<span class="c1">; (pick 0 &#39;(a))                                           ; no answer</span>
+<span class="c1">; pick</span>
+<span class="c1">;   inputs: n [int], lat [lat]</span>
+<span class="c1">;   output: atom</span>
+<span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">pick</span>
+<span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="k">cond</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w">     </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">  </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">pick</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+<span class="c1">;                                      no constructor</span>
+<span class="c1">;            ^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion</span>
+<span class="p">(</span><span class="nf">pick</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">lasagna</span><span class="w"> </span><span class="nv">spaghetti</span><span class="w"> </span><span class="nv">ravioli</span><span class="w"> </span><span class="nv">macaroni</span><span class="w"> </span><span class="nv">meatball</span><span class="p">))</span><span class="w"> </span><span class="c1">; macaroni</span>
+<span class="p">(</span><span class="nf">pick</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span><span class="p">))</span><span class="w">                                           </span><span class="c1">; no answer</span>
 
 <span class="c1">; rempick</span>
 <span class="c1">;   inputs: n [int], lat [lat]</span>
@@ -687,16 +814,14 @@ document.write(`
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">rempick</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">n</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">zero?</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span>
-<span class="c1">;     ((one? n)         (cdr lat))</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">rempick</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
-<span class="c1">;            ^^^^                                        constructor</span>
-<span class="c1">;                 ^^^^^^^^^                              typical element - atom</span>
-<span class="c1">;                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion of rempick</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span>
+<span class="c1">;     ( (one? n)         (cdr lat))</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">rempick</span><span class="w"> </span><span class="p">(</span><span class="nf">sub1</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
+<span class="c1">;             ^^^^                                        constructor</span>
+<span class="c1">;                  ^^^^^^^^^                              typical element - atom</span>
+<span class="c1">;                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ natural recursion of rempick</span>
 <span class="p">(</span><span class="nf">rempick</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">hotdogs</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">hot</span><span class="w"> </span><span class="nv">mustard</span><span class="p">))</span><span class="w"> </span><span class="c1">; (hotdogs with mustard)</span>
 <span class="p">(</span><span class="nf">rempick</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">lemon</span><span class="w"> </span><span class="nv">meringue</span><span class="w"> </span><span class="nv">salty</span><span class="w"> </span><span class="nv">pie</span><span class="p">))</span><span class="w"> </span><span class="c1">; (lemon meringue pie)</span>
-
-
 
 <span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="ss">&#39;tomato</span><span class="p">)</span><span class="w"> </span><span class="c1">; #f</span>
 <span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="mi">76</span><span class="p">)</span><span class="w">      </span><span class="c1">; #t</span>
@@ -708,12 +833,12 @@ document.write(`
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">no-nums</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">lat</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">number?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">no-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">no-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
-<span class="c1">;            ^^^^                               constructor</span>
-<span class="c1">;                 ^^^^^^^^^                     typical element - atom</span>
-<span class="c1">;                           ^^^^^^^^^^^^^^^^^^^ natural recursion of no-nums</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w">   </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nf">no-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="nf">no-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">)))))</span>
+<span class="c1">;             ^^^^                                constructor</span>
+<span class="c1">;                  ^^^^^^^^^                      typical element - atom</span>
+<span class="c1">;                             ^^^^^^^^^^^^^^^^^^^ natural recursion of no-nums</span>
 <span class="p">(</span><span class="nf">no-nums</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="nv">pears</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="nv">prunes</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="nv">dates</span><span class="p">))</span><span class="w"> </span><span class="c1">; (pear prunes dates)</span>
 
 <span class="c1">; all-nums</span>
@@ -721,28 +846,28 @@ document.write(`
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">all-nums</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">lat</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">())</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">number?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">all-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))))</span>
-<span class="c1">;                           ^^^^ constructor of lists</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nf">all-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">()</span><span class="w">                                           </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">all-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w">                                </span><span class="p">(</span><span class="nf">all-nums</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w">  </span><span class="p">))))</span>
+<span class="c1">;                            ^^^^                                     constructor of lists</span>
 
 <span class="c1">; eqan</span>
 <span class="c1">;   true if its two arguments are the same atom</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">eqan?</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">a1</span><span class="w"> </span><span class="nv">a2</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="nv">a2</span><span class="p">))</span>
-<span class="w">      </span><span class="p">((</span><span class="k">or</span><span class="w">  </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a2</span><span class="p">))</span><span class="w"> </span><span class="no">#f</span><span class="p">)</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="nv">a2</span><span class="p">)</span><span class="w"> </span><span class="p">))))</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="k">and</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a2</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="nv">a2</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="k">or</span><span class="w">  </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">number?</span><span class="w"> </span><span class="nv">a2</span><span class="p">))</span><span class="w"> </span><span class="no">#f</span><span class="w">        </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="nv">a1</span><span class="w"> </span><span class="nv">a2</span><span class="p">)</span><span class="w">                          </span><span class="p">))))</span>
 
 <span class="c1">; occur</span>
 <span class="c1">;   counts the number of times an atom appears in a lat</span>
 <span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">occur</span>
 <span class="w">  </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nf">a</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="k">cond</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">      </span><span class="p">((</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="nf">occur</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))))</span>
-<span class="w">      </span><span class="p">(</span><span class="k">else</span><span class="w">                    </span><span class="p">(</span><span class="nf">occur</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w"> </span><span class="p">))))</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">null?</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="mi">0</span><span class="w">                                </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nb">eq?</span><span class="w"> </span><span class="p">(</span><span class="nb">car</span><span class="w"> </span><span class="nv">lat</span><span class="p">)</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nf">add1</span><span class="w"> </span><span class="p">(</span><span class="nf">occur</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">)))</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="p">(</span><span class="w"> </span><span class="k">else</span><span class="w">                    </span><span class="p">(</span><span class="nf">occur</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">cdr</span><span class="w"> </span><span class="nv">lat</span><span class="p">))</span><span class="w">  </span><span class="p">))))</span>
 
 <span class="c1">; one?</span>
 <span class="c1">;</span>
