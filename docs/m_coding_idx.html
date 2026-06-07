@@ -1,0 +1,883 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Error-Correcting Codes &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm_coding_idx';</script>
+    <script src="_static/script.js?v=712283cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Combinatorics" href="m_combinatorics_idx.html" />
+    <link rel="prev" title="Calculus" href="m_calculus_idx.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Laptop Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="b_TLS4_idx.html">TLS4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch01.html">Ch 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch02.html">Ch 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch03.html">Ch 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch04.html">Ch 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch05.html">Ch 5</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">More</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="c_ai_idx.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m_logic_idx.html">Logic</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_idx.html">Language</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lang_greek.html">Greek</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_chinese_idx.html">Chinese</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_tonemes.html">Tonemes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_chinese_duo.html">Chinese with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_01.html">1.1 - Name food and drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_02.html">1.2 - Talk about nationalities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_03.html">1.3 - Discuss professions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_04.html">1.4 - Discuss your courses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_05.html">1.5 - Use possessive pronouns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_06.html">1.6 - Talk about places you visit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_07.html">1.7 - Order drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_01.html">2.1 Use adjectives for description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_16.html">2.16 Shop for clothes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_17.html">2.17 Attend a concert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_18.html">2.18 Ask questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_19.html">2.19 Expressing possession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_20.html">2.20 - Express feelings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_21.html">2.21 - Talk about the weather</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_22.html">2.22 Talk about friends</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_23.html">2.23 Describe your daily routine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_24.html">2.24 Manage daily tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_25.html">2.25 Shop online</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_26.html">2.26 - Discuss rental details</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_27.html">2.27 - Use indirect objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_28.html">2.28 - Ask for directions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_29.html">2.29 - Discuss sports excitement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_30.html">2.30 - Handle an emergency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_3_01.html">3.1 - Navigate the city</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_hindi_idx.html">Hindi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_hindi_duo.html">Hindi with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_05.html">1.5 - Form basic sentences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_06.html">1.6 - Talk about food</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_07.html">1.7 - Form the plural</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_08.html">1.8 - Introduce people</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_09.html">1.9 - Describe your family</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="m_idx.html">Mathematics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="m_algebra_idx.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_automata_idx.html">Automata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_calculus_idx.html">Calculus</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_combinatorics_idx.html">Combinatorics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="p_idx.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="p_ancient.html">Ancient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_medieval.html">Medieval</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_modern.html">Early Modern</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_copernicus.html">Copernicus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kepler.html">Kepler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_galileo.html">Galileo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_descartes.html">Descartes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hobbes.html">Hobbes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_american.html">American</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_american_peirce.html">Peirce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_american_grosholz.html">Grosholz</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chinese.html">Chinese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_japanese.html">Japanese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_french.html">French</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_spanish.html">Spanish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_language.html">Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_math.html">Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_physics.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_biology.html">Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_science.html">Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_mind.html">Mind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_politics_law.html">Politics &amp; Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_history.html">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_metaphysics.html">Metaphysics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_love_friendship.html">Love &amp; Friendship</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="s_idx.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="s_astro.html">Astronomy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_systems.html">Systems</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/m_coding_idx.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Error-Correcting Codes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">YouTube</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="error-correcting-codes">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Error-Correcting Codes</a><a class="headerlink" href="#error-correcting-codes" title="Link to this heading">#</a></h1>
+<p>Mathematical Coding</p>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#error-correcting-codes" id="id1">Error-Correcting Codes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sections" id="id2">Sections</a></p></li>
+<li><p><a class="reference internal" href="#resources" id="id3">Resources</a></p>
+<ul>
+<li><p><a class="reference internal" href="#youtube" id="id4">YouTube</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#texts" id="id5">Texts</a></p></li>
+<li><p><a class="reference internal" href="#figures" id="id6">Figures</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id7">Terms</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<section id="sections">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Sections</a><a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.cs.cmu.edu/~venkatg/teaching/codingtheory/notes/notes1.pdf">https://www.cs.cmu.edu/~venkatg/teaching/codingtheory/notes/notes1.pdf</a></p>
+<p><a class="reference external" href="https://www.ams.org/journals/bull/1999-36-03/S0273-0979-99-00783-1/S0273-0979-99-00783-1.pdf">https://www.ams.org/journals/bull/1999-36-03/S0273-0979-99-00783-1/S0273-0979-99-00783-1.pdf</a></p>
+<section id="youtube">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">YouTube</a><a class="headerlink" href="#youtube" title="Link to this heading">#</a></h3>
+<p>Ben Eater</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=h0jloehRKas">y</a> ] Ben Eater. (2020). “What is error correction? Hamming codes in hardware”. YouTube.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=MgkhrBSjhag">y</a> ] Ben Eater. (2018). “Error detection: Parity checking”. YouTube.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=eq5YpKHXJDM">y</a> ] Ben Eater. (2018). “Reliable data transmission”. YouTube.</p></li>
+</ul>
+<p>3Blue1Brown</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=X8jsijhllIA">y</a> ] Grant Sanderson. (2020). “Hamming codes and error correction”. YouTube.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=b3NxrZOu_CE">y</a> ] Grant Sanderson. (2020). “Hamming codes part 2, the elegance of it all”. YouTube.</p></li>
+</ul>
+<p>more</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=_CPxe8yql0Q">y</a> ] <code class="docutils literal notranslate"><span class="pre">11-23-2023</span></code>. Primal Space. “Voyager’s 15 Billion Mile Software Update”.</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="texts">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Texts</a><a class="headerlink" href="#texts" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">FCCT</span></code> <code class="docutils literal notranslate"><span class="pre">1990</span></code> Hill, Raymond. <em>A First Course in Coding Theory</em>. Clarendon Press: Oxford Applied Mathematics and Computing Science Series.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ECFF</span></code> <code class="docutils literal notranslate"><span class="pre">1992</span></code> Pretzel, Oliver. <em>Error-Correcting Codes and Finite Fields</em>. Oxford University Press Applied Mathematics and Computing Science Series.</p>
+<ul class="simple">
+<li><p>Ball, Simeon. (2020). <em>A Course in Algebraic Error-Correcting Codes</em>.</p></li>
+<li><p>Berlekamp, Elwyn R. (2015). <em>Algebraic Coding Theory</em>.</p></li>
+<li><p>Bierbrauer, Jurgen. (2016). <em>Introduction to Coding Theory</em>.</p></li>
+<li><p>Biggs, Norman L. <em>Codes: An Introduction to Information Communication and Cryptography</em>. Springer Undergraduate Mathematics Series.</p></li>
+<li><p>Blahut, Richard E. (2003). <em>Algebraic Codes for Data Transmission</em>. Cambridge University Press.</p></li>
+<li><p>Brzezinski, Juliusz. (2018). <em>Galois Theory Through Exercises</em>. Springer.</p></li>
+<li><p>Csiszár, Imre &amp; János Körner. (2011). <em>Information Theory: Coding Theorems for Discrete Memoryless Systems</em>. Cambridge University Press.</p></li>
+<li><p>Golomb, Solomon W., Robert E. Peile, &amp; Robert A. Scholtz. (1994). <em>Basic Concepts in Information Theory and Coding: The Adventures of Secret Agent 00111</em>. Springer.</p></li>
+<li><p>Hamming, Richard W. (1985). <em>Coding and Information Theory</em>.</p></li>
+<li><p>Huffman, W. Cary. &amp; Vera Pless. (2010). <em>Fundamentals of Error-Correcting Codes</em>. Cambridge University Press.</p></li>
+<li><p>Humphreys, J. F. &amp; M. Y. Prest. (2004). <em>Numbers, Groups, and Codes, 2nd Ed</em>. Cambridge University Press.</p></li>
+<li><p>Jones, Gareth A. &amp; J. Mary Jones. (2000) <em>Information and Coding Theory</em>. Springer Undergraduate Mathematics Series.</p></li>
+<li><p>MacWilliams, F. J. &amp; N. J. A. Sloane. (1977). <em>The Theory of Error-Correcting Codes</em>.</p></li>
+<li><p>Moon, Todd K. (2021). <em>Error Correction Coding: Mathematical Methods and Algorithms</em>. Wiley.</p></li>
+<li><p>Moser, Stefan M. &amp; Po-Ning Chen. (2012). <em>A Student’s Guide to Coding and Information Theory</em>. Cambridge University Press.</p></li>
+<li><p>Neubauer, Andre. (2007). <em>Coding Theory: Algorithms, Architectures, and Applications</em>. Wiley.</p></li>
+<li><p>Peterson, W. Wesley. (1972). <em>Error-Correcting Codes</em>. 2nd Ed. MIT Press.</p></li>
+<li><p>Pierce, John R. (1980). <em>An Introduction to Information Theory: Symbols, Signals, and Noise</em>. Dover.</p></li>
+<li><p>Reza, Fazlollah M. (1994). <em>An Introduction to Information Theory</em>. Dover.</p></li>
+<li><p>Roman, Steven. (1997). <em>Introduction to Coding and Information Theory</em>. Springer Undergraduate Texts in Mathematics.</p></li>
+<li><p>Roman, Steven. (1992). <em>Coding and Information Theory</em>. Springer Graduate Texts in Mathematics.</p></li>
+<li><p>Roth, Ron. (2006). <em>Introduction to Coding Theory</em>. Cambridge University Press.</p></li>
+<li><p>Sanvicente, Emilio. (2019). <em>Understanding Error Control Coding</em>. Springer.</p></li>
+<li><p>Stepanov, Serguei A. (1999). <em>Codes on Algebraic Curves</em>. Springer.</p></li>
+<li><p>Sweeney, Peter. (2002). <em>Error Control Coding: From Theory to Practice</em>. Wiley.</p></li>
+<li><p>Tomlinson et al. (2017). <em>Error-Correction and Decoding: Bounds, Codes, Decoders, Analysis, and Applications</em>. Springer Signals and Communication Technology.</p></li>
+<li><p>Trappe, Wade &amp; Lawrence Washington. (2005). <em>Introduction to Cryptography with Coding Theory</em>. Pearson.</p></li>
+<li><p>Van Lint, J. H. (1999). <em>Introduction to Coding Theory, 3rd Ed</em>. Springer Graduate Texts in Mathematics.</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Figures</a><a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Claude_Berrou">w</a> ] <code class="docutils literal notranslate"><span class="pre">1951-----</span></code> Berrou, Claude</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Anne_Canteaut">w</a> ] <code class="docutils literal notranslate"><span class="pre">---------</span></code> Canteaut, Anne</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Peter_Elias">w</a> ] <code class="docutils literal notranslate"><span class="pre">1923-2001</span></code> Elias, Peter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Robert_Fano">w</a> ] <code class="docutils literal notranslate"><span class="pre">1917-2016</span></code> Fano, Robert</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Edgar_Gilbert">w</a> ] <code class="docutils literal notranslate"><span class="pre">1923-2013</span></code> Gilbert, Edgar</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Solomon_W._Golomb">w</a> ] <code class="docutils literal notranslate"><span class="pre">1932-2016</span></code> Golomb, Solomon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Frank_Gray_(researcher)">w</a> ] <code class="docutils literal notranslate"><span class="pre">1887-1969</span></code> Gray, Frank</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jacques_Hadamard">w</a> ] <code class="docutils literal notranslate"><span class="pre">1865-1963</span></code> Hadamard, Jacques</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Joachim_Hagenauer">w</a> ] <code class="docutils literal notranslate"><span class="pre">1941-----</span></code> Hagenauer, Joachim</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Richard_Hamming">w</a> ] <code class="docutils literal notranslate"><span class="pre">1915-1998</span></code> Hamming, Richard</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ralph_Hartley">w</a> ] <code class="docutils literal notranslate"><span class="pre">1888-1970</span></code> Hartley, Ralph</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/David_A._Huffman">w</a> ] <code class="docutils literal notranslate"><span class="pre">1925-1999</span></code> Huffman, David</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Abraham_Lempel">w</a> ] <code class="docutils literal notranslate"><span class="pre">1936-2023</span></code> Lempel, Abraham</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Vladimir_Levenshtein">w</a> ] <code class="docutils literal notranslate"><span class="pre">1935-2017</span></code> Levenshtein, Vladimir</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Michael_Luby">w</a> ] <code class="docutils literal notranslate"><span class="pre">---------</span></code> Luby, Michael</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/David_E._Muller">w</a> ] <code class="docutils literal notranslate"><span class="pre">1924-2008</span></code> Muller, David</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Irving_S._Reed">w</a> ] <code class="docutils literal notranslate"><span class="pre">1923-2012</span></code> Reed, Irving</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Claude_Shannon">w</a> ] <code class="docutils literal notranslate"><span class="pre">1916-2001</span></code> Shannon, Claude</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Amin_Shokrollahi">w</a> ] <code class="docutils literal notranslate"><span class="pre">1964-----</span></code> Shokrollahi, Amin</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gustave_Solomon">w</a> ] <code class="docutils literal notranslate"><span class="pre">1930-1996</span></code> Solomon, Gustave</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rom_Varshamov">w</a> ] <code class="docutils literal notranslate"><span class="pre">1927-1999</span></code> Varshamov, Rom</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Andrew_Viterbi">w</a> ] <code class="docutils literal notranslate"><span class="pre">1935-----</span></code> Viterbi, Andrew</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/John_Wozencraft">w</a> ] <code class="docutils literal notranslate"><span class="pre">1925-2009</span></code> Wozencraft, John</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jacob_Ziv">w</a> ] <code class="docutils literal notranslate"><span class="pre">1931-2023</span></code> Ziv, Jacob</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_coding">w</a> ] Arithmetic Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Asymmetric_numeral_systems">w</a> ] Asymmetric Numeral System</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_repeat_request">w</a> ] Automatic Repeat Request (ARQ)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Backward_channel">w</a> ] Backward Channel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ball_(mathematics)">w</a> ] Ball</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/BCH_code">w</a> ] BCH Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/BCJR_algorithm">w</a> ] BCJR Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binary-coded_decimal">w</a> ] Binary-Coded Decimal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Z-channel_(information_theory)">w</a> ] Binary Asymmetric Channel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_code">w</a> ] Binary Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_entropy_function">w</a> ] Binary Entropy Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_erasure_channel">w</a> ] Binary Erasure Channel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_symmetric_channel">w</a> ] Binary Symmetric Channel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bit_error_rate">w</a> ] Bit Error Rate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bit_rate">w</a> ] Bit Rate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_compression">w</a> ] Bit Rate Reduction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bit_slip">w</a> ] Bit Slip</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Block_code">w</a> ] Block Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Burst_error">w</a> ] Burst Error</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Burst_error-correcting_code">w</a> ] Burst Error-Correcting Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Burst_mode_(computing)">w</a> ] Burst Mode</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Burst_transmission">w</a> ] Burst Transmission</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cayley_table">w</a> ] Cayley Table</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Channel_capacity">w</a> ] Channel Capacity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Error_detection_and_correction">w</a> ] Channel Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Chen%E2%80%93Ho_encoding">w</a> ] Chen-Ho Encoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Code">w</a> ] Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Code_rate">w</a> ] Code Rate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Code_word">w</a> ] Code Word</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Coding_theory">w</a> ] Coding Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Comma_code">w</a> ] Comma Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Comma-free_code">w</a> ] Comma-Free Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Communication_channel">w</a> ] Communication Channel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Concatenated_error_correction_code">w</a> ] Concatenated Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing">w</a> ] Consistent Overhead Byte Stuffing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Context-adaptive_binary_arithmetic_coding">w</a> ] Context-Adaptive Binary Arithmetic Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Context-adaptive_variable-length_coding">w</a> ] Context-Adaptive Variable-Length Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Convolutional_code">w</a> ] Convolutional Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Coset">w</a> ] Coset</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Coset_leader">w</a> ] Coset Leader</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cryptography">w</a> ] Cryptography</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cyclic_code">w</a> ] Cyclic Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">w</a> ] Cyclic Redundancy Check (CRC)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Computation_of_cyclic_redundancy_checks">w</a> ] Cyclic Redundancy Check, Computation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_compression">w</a> ] Data Compression</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_signaling_rate">w</a> ] Data Signaling Rate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Decoding_methods">w</a> ] Decoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Deletion_channel">w</a> ] Deletion Channel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/ECC_memory">w</a> ] ECC Memory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Elias_Bassalygo_bound">w</a> ] Elias Bassalygo Bound</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Elias_delta_coding">w</a> ] Elias Delta Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Elias_gamma_coding">w</a> ] Elias Gamma Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Elias_omega_coding">w</a> ] Elias Omega Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Entropy_coding">w</a> ] Entropy Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Entropy_rate">w</a> ] Entropy Rate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Erasure_code">w</a> ] Erasure Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Error_detection_and_correction">w</a> ] Error Detection and Correction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Error_floor">w</a> ] Error Floor</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Error_correction_code">w</a> ] Error-Correcting Code (ECC)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Error-correcting_codes_with_feedback">w</a> ] Error-correcting codes with feedback</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Expander_code">w</a> ] Expander Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_coding">w</a> ] Fibonacci Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Error_detection_and_correction">w</a> ] Forward Error Correction (FEC)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fountain_code">w</a> ] Fountain Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Generalized_minimum-distance_decoding">w</a> ] Generalized Minimum-Distance Decoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gilbert%E2%80%93Varshamov_bound">w</a> ] Gilbert-Varshamov Bound</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Golay_code">w</a> ] Golay Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Golomb_coding">w</a> ] Golomb Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Goppa_code">w</a> ] Goppa Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gray_code">w</a> ] Gray Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Griesmer_bound">w</a> ] Griesmer Bound</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hadamard_code">w</a> ] Hadamard Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hamming(7,4)">w</a> ] Hamming (7, 4)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hamming_bound">w</a> ] Hamming Bound</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hamming_code">w</a> ] Hamming Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hamming_distance">w</a> ] Hamming Distance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hamming_weight">w</a> ] Hamming Weight</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Huffman_coding">w</a> ] Huffman Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hybrid_automatic_repeat_request">w</a> ] Hybrid Automatic Repeat Request (HARQ)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bit_rate#Information_rate">w</a> ] Information Rate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Information_theory">w</a> ] Information Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Iterative_Viterbi_decoding">w</a> ] Iterative Viterbi Decoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Johnson_bound">w</a> ] Johnson Bound</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Justesen_code">w</a> ] Justesan Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Las_Vegas_algorithm">w</a> ] Las Vegas Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Levenshtein_coding">w</a> ] Levenshtein Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Levenshtein_distance">w</a> ] Levenshtein Distance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Line_code">w</a> ] Line Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_code">w</a> ] Linear Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear-feedback_shift_register">w</a> ] Linear-Feedback Shift Register (LFSR)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Link_adaptation">w</a> ] Link Adaptation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/List_decoding">w</a> ] List Decoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Locally_decodable_code">w</a> ] Locally Decodable Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Locally_testable_code">w</a> ] Locally Testable Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Long_code_(mathematics)">w</a> ] Long Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Low-density_parity-check_code">w</a> ] Low-Density Parity-Check (LDPC) Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Luby_transform_code">w</a> ] LT Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/LZ77_and_LZ78">w</a> ] LZ77/LZ78</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_chain">w</a> ] Markov Chain</p></li>
+<li><p>[ w ] Maximum Likelihood Decoding</p></li>
+<li><p>[ w ] Minimum Distance Decoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Multidimensional_parity-check_code">w</a> ] Multidimensional Parity-Check Code</p></li>
+<li><p>[ w ] Nearest Neighbor Decoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Negafibonacci_coding">w</a> ] NegaFibonacci Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Noisy-channel_coding_theorem">w</a> ] Noisy-Channel Coding Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Noisy_channel_model">w</a> ] Noisy Channel Model</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Online_codes">w</a> ] Online Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Packet_erasure_channel">w</a> ] Packet Erasure Channel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">w</a> ] Parity Bit</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parity-check_matrix">w</a> ] Parity Check Matrix</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hamming_bound#Perfect_codes">w</a> ] Perfect Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Plotkin_bound">w</a> ] Plotkin Bound</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Polar_code_(coding_theory)">w</a> ] Polar Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Polynomial_code">w</a> ] Polynomial Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Prefix_code">w</a> ] Prefix Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Punctured_code">w</a> ] Punctured Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Range_coding">w</a> ] Range Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Raptor_code">w</a> ] Raptor Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reed%E2%80%93Muller_code">w</a> ] Reed-Muller Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction">w</a> ] Reed-Solomon Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Repeat-accumulate_code">w</a> ] Repeat-Accumulate Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Repetition_code">w</a> ] Repetition Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Return_channel">w</a> ] Return Channel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sardinas%E2%80%93Patterson_algorithm">w</a> ] Sardinas-Patterson Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Segal%27s_law">w</a> ] Segal’s Law</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Self-clocking_signal">w</a> ] Self-Clocking Signal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Self-synchronizing_code">w</a> ] Self-Synchronizing Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sequential_decoding">w</a> ] Sequential Decoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Serial_concatenated_convolutional_codes">w</a> ] Serial Concatenated Convolutional Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Shannon%E2%80%93Fano%E2%80%93Elias_coding">w</a> ] Shannon-Fano-Elias Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Shannon%E2%80%93Hartley_theorem">w</a> ] Shannon-Hartley Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Noisy-channel_coding_theorem">w</a> ] Shannon’s Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Shannon%27s_source_coding_theorem">w</a> ] Shannon’s Source Coding Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Singleton_bound">w</a> ] Singleton Bound</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_array">w</a> ] Slepian Array</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Soft-decision_decoder">w</a> ] Soft-Decision Decoder</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Soft-in_soft-out_decoder">w</a> ] Soft-In Soft-Out Decoder</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_compression">w</a> ] Source Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_array">w</a> ] Standard Array</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Symbol_rate">w</a> ] Symbol Rate</p></li>
+<li><p>[ w ] Syndrome</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Decoding_methods#Syndrome_decoding">w</a> ] Syndrome Decoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Systematic_code">w</a> ] Systematic Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ternary_Golay_code">w</a> ] Ternary Golay Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tornado_code">w</a> ] Tornado Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trellis_(graph)">w</a> ] Trellis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Triple_modular_redundancy">w</a> ] Triple Modular Redundancy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Turbo_code">w</a> ] Turbo Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unary_coding">w</a> ] Unary Coding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Universal_code_(data_compression)">w</a> ] Universal Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Variable-length_code">w</a> ] Variable-Length Code</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Varicode">w</a> ] Varicode</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Viterbi_algorithm">w</a> ] Viterbi Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Viterbi_decoder">w</a> ] Viterbi Decoder</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Word_(computer_architecture)">w</a> ] Word</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Wozencraft_ensemble">w</a> ] Wozencraft Ensemble</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Z-channel_(information_theory)">w</a> ] Z Channel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Zyablov_bound">w</a> ] Zyablov Bound</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="m_calculus_idx.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Calculus</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="m_combinatorics_idx.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Combinatorics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">YouTube</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
