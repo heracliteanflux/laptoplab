@@ -1,0 +1,1082 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Probability, Statistics, Stochastics &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm_probability_statistics_stochastics_idx';</script>
+    <script src="_static/script.js?v=712283cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Relations &amp; Order Theory" href="m_relations_order.html" />
+    <link rel="prev" title="General Theory of Polynomials in Several Variables" href="m_polynomials.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Laptop Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="b_TLS4_idx.html">TLS4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch01.html">Ch 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch02.html">Ch 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch03.html">Ch 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch04.html">Ch 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch05.html">Ch 5</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">More</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="c_ai_idx.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m_logic_idx.html">Logic</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_idx.html">Language</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lang_greek.html">Greek</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_chinese_idx.html">Chinese</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_tonemes.html">Tonemes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_chinese_duo.html">Chinese with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_01.html">1.1 - Name food and drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_02.html">1.2 - Talk about nationalities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_03.html">1.3 - Discuss professions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_04.html">1.4 - Discuss your courses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_05.html">1.5 - Use possessive pronouns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_06.html">1.6 - Talk about places you visit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_07.html">1.7 - Order drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_01.html">2.1 Use adjectives for description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_16.html">2.16 Shop for clothes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_17.html">2.17 Attend a concert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_18.html">2.18 Ask questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_19.html">2.19 Expressing possession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_20.html">2.20 - Express feelings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_21.html">2.21 - Talk about the weather</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_22.html">2.22 Talk about friends</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_23.html">2.23 Describe your daily routine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_24.html">2.24 Manage daily tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_25.html">2.25 Shop online</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_26.html">2.26 - Discuss rental details</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_27.html">2.27 - Use indirect objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_28.html">2.28 - Ask for directions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_29.html">2.29 - Discuss sports excitement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_30.html">2.30 - Handle an emergency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_3_01.html">3.1 - Navigate the city</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_hindi_idx.html">Hindi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_hindi_duo.html">Hindi with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_05.html">1.5 - Form basic sentences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_06.html">1.6 - Talk about food</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_07.html">1.7 - Form the plural</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_08.html">1.8 - Introduce people</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_09.html">1.9 - Describe your family</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="m_idx.html">Mathematics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="m_algebra_idx.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_automata_idx.html">Automata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_calculus_idx.html">Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_coding_idx.html">Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_combinatorics_idx.html">Combinatorics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_computability_idx.html">Computability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_decision_theory_idx.html">Decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_game_theory_idx.html">Games</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_geometry_idx.html">Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_linear_algebra_idx.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_linear_programming_idx.html">Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_number_theory_idx.html">Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_polynomials.html">Polynomials</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Probability &amp; Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_relations_order.html">Relations &amp; Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_set_theory_idx.html">Sets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="p_idx.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="p_ancient.html">Ancient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_medieval.html">Medieval</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_modern.html">Early Modern</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_copernicus.html">Copernicus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kepler.html">Kepler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_galileo.html">Galileo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_descartes.html">Descartes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hobbes.html">Hobbes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_american.html">American</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_american_peirce.html">Peirce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_american_grosholz.html">Grosholz</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chinese.html">Chinese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_japanese.html">Japanese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_french.html">French</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_spanish.html">Spanish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_language.html">Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_math.html">Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_physics.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_biology.html">Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_science.html">Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_mind.html">Mind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_politics_law.html">Politics &amp; Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_history.html">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_metaphysics.html">Metaphysics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_love_friendship.html">Love &amp; Friendship</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="s_idx.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="s_astro.html">Astronomy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_systems.html">Systems</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/m_probability_statistics_stochastics_idx.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Probability, Statistics, Stochastics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">YouTube</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="probability-statistics-stochastics">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Probability, Statistics, Stochastics</a><a class="headerlink" href="#probability-statistics-stochastics" title="Link to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#probability-statistics-stochastics" id="id1">Probability, Statistics, Stochastics</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sections" id="id2">Sections</a></p></li>
+<li><p><a class="reference internal" href="#resources" id="id3">Resources</a></p>
+<ul>
+<li><p><a class="reference internal" href="#youtube" id="id4">YouTube</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#figures" id="id5">Figures</a></p></li>
+<li><p><a class="reference internal" href="#texts" id="id6">Texts</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id7">Terms</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<section id="sections">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Sections</a><a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p>[ <a class="reference external" href="https://statisticaloddsandends.wordpress.com">h</a> ] Kenneth Tay’s Statistical Odds &amp; Ends</p>
+<p><code class="docutils literal notranslate"><span class="pre">08-22-2020</span></code> Hall, Brayton. “The Reasoning Behind Bessel’s Correction: n-1: And Why it’s Not Always a Correction”. Towards Data Science. <a class="reference external" href="https://towardsdatascience.com/the-reasoning-behind-bessels-correction-n-1-eeea25ec9bc9">https://towardsdatascience.com/the-reasoning-behind-bessels-correction-n-1-eeea25ec9bc9</a>.</p>
+<p><a class="reference external" href="https://nbviewer.org/url/norvig.com/ipython/Probability.ipynb">A concrete introduction to probability</a></p>
+<p><a class="reference external" href="https://online.stat.psu.edu/stat414/">STAT414</a></p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Playing_cards_in_Unicode">Playing cards in unicode</a></p>
+<section id="youtube">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">YouTube</a><a class="headerlink" href="#youtube" title="Link to this heading">#</a></h3>
+<p>3Blue1Brown</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=cy8r7WSuT1I">y</a> ] <code class="docutils literal notranslate"><span class="pre">04-02-2023</span></code>. “Why π is in the normal distribution (beyond integral tricks)”. YouTube.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=HZGCoVF3YvM">y</a> ] <code class="docutils literal notranslate"><span class="pre">12-22-2019</span></code>. “Bayes theorem, the geometry of changing beliefs”.</p></li>
+</ul>
+<p>Geek’s Lesson</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=hjZJIVWHnPE">y</a> ] <code class="docutils literal notranslate"><span class="pre">06-21-2019</span></code> “Statistic for beginners | Statistics for Data Science”.</p></li>
+</ul>
+<p>My Lesson</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=0GIwDazlUHs">y</a> ] <code class="docutils literal notranslate"><span class="pre">07-29-2021</span></code>. “Combinatorics and Probability (Complete Course) | Discrete Mathematics for Computer Science”.</p></li>
+</ul>
+<p>[ <a class="reference external" href="https://statquest.org/">h</a> ][ <a class="reference external" href="https://www.youtube.com/c/joshstarmer">y</a> ] StatQuest with Josh Starmer</p>
+<p>more</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=6YzrVUVO9M0">y</a> ] <code class="docutils literal notranslate"><span class="pre">06-17-2023</span></code>. Primer. “A Secret Weapon for Predicting Outcomes: The Binomial Distribution”.</p></li>
+</ul>
+<p>[ <a class="reference external" href="https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw">y</a> ] Stat Quest</p>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=YCzL96nL7j0">y</a> ] StatQuest. (07 Nov 2022). “Long Short-Term Memory (LSTM), Clearly Explained”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=khMzi6xPbuM">y</a> ] StatQuest. (19 Sep 2022). “Introduction to Coding Neural Networks with PyTorch and Lightning”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=AsNTP8Kwu80">y</a> ] StatQuest. (11 Jul 2022). “Recurrent Neural Networks (RNNs), Clearly Explained!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=FHdlXe1bSe4">y</a> ] StatQuest. (25 Apr 2022). “The StatQuest Introduction to PyTorch”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=L35fFDpwIM4">y</a> ] StatQuest. (28 Feb 2022). “Tensors for Neural Networks, Clearly Explained!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=HGwBXDKFk9I">y</a> ] StatQuest. (08 Mar 2021). “Neural Networks Part 8: Image Classification with Convolutional Neural Networks (CNNs)”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=xBEh66V9gZo">y</a> ] StatQuest. (01 Mar 2021). “Neural Networks Part 7: Cross Entropy Derivatives and Backpropagation”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=6ArSys5qHAU">y</a> ] StatQuest. (01 Mar 2021). “Neural Networks Part 6: Cross Entropy”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=KpKog-L9veg">y</a> ] StatQuest. (07 Feb 2021). “Neural Networks Part 5: ArgMax and SoftMax”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=83LYR-1IcjA">y</a> ] StatQuest. (01 Feb 2021). “Neural Networks Pt. 4: Multiple Inputs and Outputs”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=68BZ5f7P94E">y</a> ] StatQuest. (23 Nov 2020). “Neural Networks Pt. 3: ReLU In Action!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=GKZoOHXGcLo">y</a> ] StatQuest. (02 Nov 2020). “Backpropagation Details Pt. 2: Going bonkers with The Chain Rule”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=iyn2zdALii8">y</a> ] StatQuest. (02 Nov 2020). “Backpropagation Details Pt. 1: Optimizing 3 parameters simultaneously”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=IN2XmBhILt4">y</a> ] StatQuest. (19 Oct 2020). “Neural Networks Pt. 2: Backpropagation Main Ideas”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=CqOfi41LfDw">y</a> ] StatQuest. (31 Aug 2020). “Neural Networks Pt. 1: Inside the Black Box”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=GrJP9FLV3FE">y</a> ] StatQuest. (01 Aug 2020). “XGBoost in Python from Start to Finish”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=5koKb5B_YWo">y</a> ] StatQuest. (06 Jul 2020). “Alternative Hypotheses: Main Ideas!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=0oc49DyA3hU">y</a> ] StatQuest. (06 Jul 2020). “Hypothesis Testing and The Null Hypothesis, Clearly Explained!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=8A7L0GsBiLQ">y</a> ] StatQuest. (30 Jun 2020). “Support Vector Machines in Python from Start to Finish”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=q90UDEgYqeI">y</a> ] StatQuest. (06 Jun 2020). “Classification Trees in Python from Start to Finish”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=HDCOUXE3HMM">y</a> ] StatQuest. (04 May 2020). “p-hacking: What it is and how to avoid it!”</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=VX_M3tIyiYk">y</a> ] StatQuest. (04 May 2020). “Power Analysis, Clearly Explained!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=Rsc5znwR5FA">y</a> ] StatQuest. (04 May 2020). “Statistical Power, Clearly Explained!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=JQc3yx0-Q9E">y</a> ] StatQuest. (23 Mar 2020). “How to calculate p-values”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=vemZtEM63GY">y</a> ] StatQuest. (23 Mar 2020). “p-values: What they are and how to interpret them”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=oRrKeUCEbq8">y</a> ] StatQuest. (02 Mar 2020). “XGBoost Part 4 (of 4): Crazy Cool Optimizations”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=ZVFeW798-2I">y</a> ] StatQuest. (10 Feb 2020). “XGBoost Part 3 (of 4): Mathematical Details”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=8b1JEDvenQU">y</a> ] StatQuest. (13 Jan 2020). “XGBoost Part 2 (of 4): Classification”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=OtD8wVaFm6E">y</a> ] StatQuest. (16 Dec 2019). “XGBoost Part 1 (of 4): Regression”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=Qc5IyLW_hns">y</a> ] StatQuest. (04 Nov 2019). “Support Vector Machines Part 3: The Radial (RBF) Kernel (Part 3 of 3)”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=Toet3EiSFcM">y</a> ] StatQuest. (04 Nov 2019). “Support Vector Machines Part 2: The Polynomial Kernel (Part 2 of 3)”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=efR1C6CvhmE">y</a> ] StatQuest. (30 Sep 2019). “Support Vector Machines Part 1 (of 3): Main Ideas!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=wl1myxrtQHQ">y</a> ] StatQuest. (13 Jul 2019). “The Chain Rule”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=4jRBRDbJemM">y</a> ] StatQuest. (11 Jul 2019). “ROC and AUC, Clearly Explained!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=vMh0zPT0tLI">y</a> ] StatQuest. (13 May 2019). “Stochastic Gradient Descent, Clearly Explained!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=StWY5QWMXCw">y</a> ] StatQuest. (22 Apr 2019). “Gradient Boost Part 4 (of 4): Classification Details”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=jxuNLH5dXCs">y</a> ] StatQuest. (08 Apr 2019). “Gradient Boost Part 3 (of 4): Classification”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=2xudPOBz-vs">y</a> ] StatQuest. (01 Apr 2019). “Gradient Boost Part 2 (of 4): Regression Details”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=3CC4N4z3GJc">y</a> ] StatQuest. (25 Mar 2019). “Gradient Boost Part 1 (of 4): Regression Main Ideas”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=sDv4f4s2SB8">y</a> ] StatQuest. (05 Feb 2019). “Gradient Descent, Step-by-Step”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=LsK-xG1cLYA">y</a> ] StatQuest. (14 Jan 2019). “AdaBoost, Clearly Explained”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=1dKRdX9bfIo">y</a> ] StatQuest. (08 Oct 2018). “Regularization Part 3: Elastic Net Regression”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=NGf0voTMlcs">y</a> ] StatQuest. (01 Oct 2018). “Regularization Part 2: Lasso (L1) Regression”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=Q81RR3yKn30">y</a> ] StatQuest. (24 Sep 2018). “Regularization Part 1: Ridge (L2) Regression”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=EuBBz3bI-aA">y</a> ] StatQuest. (17 Sep 2018). “Machine Learning Fundamentals: Bias and Variance”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=YAlJCEDH2uY">y</a> ] StatQuest. (03 Sep 2018). “The Central Limit Theorem, Clearly Explained!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=oRvgq966yZg">y</a> ] StatQuest. (09 Apr 2018). “StatQuest: PCA - Practical Tips”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=FgakZw6K1QQ">y</a> ] StatQuest. (02 Apr 2018). “StatQuest: Principal Component Analysis (PCA), Step-by-Step”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=GEn-_dAyYME">y</a> ] StatQuest. (11 Dec 2017). “StatQuest: MDS and PCoA”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=A82brFpdr9g">y</a> ] StatQuest. (20 Mar 2017). “Standard Deviation vs Standard Error, Clearly Explained!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=VSi0Z04fWj0">y</a> ] StatQuest. (23 Feb 2017). “Logs (logarithms), Clearly Explained!!!”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=K8LQSvtjcEo">y</a> ] StatQuest. (10 Jan 2017). “False Discovery Rates, FDR, clearly explained”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=UFhJefdVCjE">y</a> ] StatQuest. (11 Oct 2016). “p-hacking and power calculations”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=azXCzI57Yfc">y</a> ] StatQuest. (10 Jul 2016). “StatQuest: Linear Discriminant Analysis (LDA) clearly explained”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=_UVHneBUBW0">y</a> ] StatQuest. (13 Aug 2015). “Principal Component Analysis (PCA) clearly explained (2015)”.</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Figures</a><a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Thomas_Bayes">w</a> ] <code class="docutils literal notranslate"><span class="pre">1701-1761</span></code> Bayes, Thomas</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jacob_Bernoulli">w</a> ] <code class="docutils literal notranslate"><span class="pre">1655-1705</span></code> Bernoulli, Jacob</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gerolamo_Cardano">w</a> ] <code class="docutils literal notranslate"><span class="pre">1501-1576</span></code> Cardano, Gerolamo</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pierre_de_Fermat">w</a> ] <code class="docutils literal notranslate"><span class="pre">1607-1665</span></code> Fermat, Pierre</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ronald_Fisher">w</a> ] <code class="docutils literal notranslate"><span class="pre">1890-1962</span></code> Fisher, Ronald</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Christiaan_Huygens">w</a> ] <code class="docutils literal notranslate"><span class="pre">1629-1695</span></code> Huygens, Christiaan</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Kiyosi_It%C3%B4">w</a> ] <code class="docutils literal notranslate"><span class="pre">1915-2008</span></code> Ito, Kiyoshi</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Kolmogorov">w</a> ] <code class="docutils literal notranslate"><span class="pre">1903-1987</span></code> Kolmogorov, Andrey</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pierre-Simon_Laplace">w</a> ] <code class="docutils literal notranslate"><span class="pre">1749-1827</span></code> Laplace, Pierre-Simon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Markov">w</a> ] <code class="docutils literal notranslate"><span class="pre">1856-1922</span></code> Markov, Andrey</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Blaise_Pascal">w</a> ] <code class="docutils literal notranslate"><span class="pre">1623-1662</span></code> Pascal, Blaise</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Karl_Pearson">w</a> ] <code class="docutils literal notranslate"><span class="pre">1857-1936</span></code> Pearson, Karl</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sim%C3%A9on_Denis_Poisson">w</a> ] <code class="docutils literal notranslate"><span class="pre">1781-1840</span></code> Poisson, Simeon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stanley_Smith_Stevens">w</a> ] <code class="docutils literal notranslate"><span class="pre">1906-1973</span></code> Stevens, Stanley</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/John_Tukey">w</a> ] <code class="docutils literal notranslate"><span class="pre">1915-2000</span></code> Tukey, John</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/John_Venn">w</a> ] <code class="docutils literal notranslate"><span class="pre">1834-1923</span></code> Venn, John</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Norbert_Wiener">w</a> ] <code class="docutils literal notranslate"><span class="pre">1894-1964</span></code> Wiener, Norbert</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="texts">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Texts</a><a class="headerlink" href="#texts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">2020</span></code> Bruce, Peter, Andrew Bruce, &amp; Peter Gedeck. <a class="reference external" href="https://github.com/gedeck/practical-statistics-for-data-scientists"><em>Practical Statistics for Data Scientists: 50+ Essential Concepts Using R and Python, 2nd Ed</em></a>. O’Reilly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2019</span></code> <a class="reference external" href="http://luthuli.cs.uiuc.edu/~daf/">Forsyth, David</a>. <em>Probability and Statistics for Computer Science</em>. Springer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2012</span></code> Givens, Geof H. &amp; Jennifer A. Hoeting. <em>Computational Statistics, 2nd Ed</em>. Wiley.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">????</span></code> Grus, Joel. <em>Data Science from Scratch</em> 2nd Ed. O’Reilly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">????</span></code> Kneusel, Ronald T. <em>Math for Deep Learning</em>. No Starch Press.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2019</span></code> Kurt, Will. <em>Bayesian Statistics the Fun Way: Understanding Statistics and Probability with Star Wars, LEGO, and Rubber Ducks</em>. No Starch Press.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2017</span></code> Mitzenmacher, Michael &amp; Eli Upfal. <em>Probability and Computing: Randomization and Probabilistic Techniques in Algorithms and Data Analysis, 2nd Ed</em>. Cambridge University Press.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">????</span></code> Nelson, Hala. <em>Essential Math for AI</em>. O’Reilly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">????</span></code> Nield, Thomas. <em>Essential Math for Data Science</em>. O’Reilly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">????</span></code> Orland, Paul. <em>Math for Programmers</em>. Manning.<a class="reference external" href="https://github.com/orlandpm/Math-for-Programmers">GitHub</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2015</span></code> Reinhart, Alex. <em>Statistics Done Wrong: The Woefully Complete Guide</em>. No Starch Press.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2007</span></code> Rizzo, Maria L. <em>Statistical Computing with R</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2019</span></code> Ross, Sheldon M. <em>Introduction to Probability Models, 12th Ed</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Ross, Sheldon M. <em>A First Course in Probability, 10th Ed</em>. Pearson.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2019</span></code> Tan, Pang-Ning et al. <em>Introduction to Data Mining</em>. 2nd Ed. Pearson. <a class="reference external" href="https://www-users.cse.umn.edu/~kumar001/dmbook/index.php">Home</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2022</span></code> Utts, Jessica M. &amp; Robert F. Heckard. <em>Mind on Statistics</em> 6e. <a class="reference external" href="https://www.cengage.com/c/mind-on-statistics-6e-utts-heckard/9781337793605/">Cengage</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">????</span></code> Wasserman, Larry. <a class="reference external" href="http://www.stat.cmu.edu/~larry/all-of-statistics/index.html"><em>All of Statistics: A Concise Course in Statistical Inference</em></a>.</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule">w</a> ] 68-95-99.7 Rule</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Accuracy_and_precision">w</a> ] Accuracy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Algebra_of_random_variables">w</a> ] Algebra of Random Variables</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Analysis_of_variance">w</a> ] Analysis of Variance (ANOVA)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Area_chart">w</a> ] Area Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_mean">w</a> ] Arithmetic Mean</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_mean">w</a> ] Average</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Average">w</a> ] Average</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Average_absolute_deviation">w</a> ] Average Absolute Deviation (AAD)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bar_chart">w</a> ] Bar Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bayes%27_theorem">w</a> ] Bayes’ Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_probability">w</a> ] Bayesian Probability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_statistics">w</a> ] Bayesian Statistics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bernoulli_distribution">w</a> ] Bernoulli Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bernoulli_trial">w</a> ] Bernoulli Trial</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bessel%27s_correction">w</a> ] Bessel’s Correction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Biplot">w</a> ] Bi Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_binning">w</a> ] Bin</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_data">w</a> ] Binary Data</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_distribution">w</a> ] Binomial Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">w</a> ] Bootstrapping</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Box_plot">w</a> ] Box Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Brownian_motion">w</a> ] Brownian Motion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bubble_chart">w</a> ] Bubble Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Categorical_variable">w</a> ] Categorical Variable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Centering_matrix">w</a> ] Centering Matrix</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Central_limit_theorem">w</a> ] Central Limit Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Central_moment">w</a> ] Central Moment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Central_tendency">w</a> ] Central Tendency</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Chi-squared_distribution">w</a> ] Chi-Squared Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Choropleth_map">w</a> ] Choropleth Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Confidence_interval">w</a> ] CI Confidence Interval</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Classical_definition_of_probability">w</a> ] Classical Probability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Codebook">w</a> ] Codebook</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_variation">w</a> ] Coefficient of Variation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Combinatorics">w</a> ] Combinatorics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Conditional_probability">w</a> ] Conditional Probability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Confidence_interval">w</a> ] Confidence Interval</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Continuous-time_Markov_chain">w</a> ] Continuous-Time Markov Chain (CTMC)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Correlation">w</a> ] Correlation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Count_data">w</a> ] Count Data</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Counting_process">w</a> ] Counting Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance">w</a> ] Covariance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">w</a> ] Cumulative Distribution Function (CDF)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data">w</a> ] Data</p></li>
+<li><p>[ w ] Data, Semi Structured</p></li>
+<li><p>[ w ] Data, Structured</p></li>
+<li><p>[ w ] Data, Unstructured</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_analysis">w</a> ] Data Analysis</p></li>
+<li><p>[ w ] Data Analytics</p></li>
+<li><p>[ w ] Data Attribute</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_augmentation">w</a> ] Data Augmentation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_cleansing">w</a> ] Data Cleaning</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_consistency">w</a> ] Data Consistency</p></li>
+<li><p>[ w ] Data Engineering</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_exploration">w</a> ] Data Exploration</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_governance">w</a> ] Data Governance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_integration">w</a> ] Data Integration</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_integrity">w</a> ] Data Integrity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_management">w</a> ] Data Management</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_mining">w</a> ] Data Mining</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mung_(computer_term)">w</a> ] Data Munging</p></li>
+<li><p>[ w ] Data Object</p></li>
+<li><p>[ w ] Data Observation</p></li>
+<li><p>[ w ] Data Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_preparation">w</a> ] Data Preparation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_profiling">w</a> ] Data Profiling</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_quality">w</a> ] Data Quality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_redundancy">w</a> ] Data Redundancy</p></li>
+<li><p>[ w ] Data Science</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_security">w</a> ] Data Security</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_set">w</a> ] Data Set</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_transformation_(statistics)">w</a> ] Data Transformation</p></li>
+<li><p>[ w ] Data Type</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_validation">w</a> ] Data Validation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_and_information_visualization">w</a> ] Data Visualization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Data_wrangling">w</a> ] Data Wrangling</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Decile">w</a> ] Decile</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics)">w</a> ] Degrees of Freedom</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Deming_regression">w</a> ] Deming Regression</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Descriptive_statistics">w</a> ] Descriptive Statistics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Deviation_(statistics)">w</a> ] Deviation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Diffusion_process">w</a> ] Diffusion Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dimensionality_reduction">w</a> ] Dimensionality Reduction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Discrete-time_Markov_chain">w</a> ] Discrete-Time Markov Chain (DTMC)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Discretization">w</a> ] Discretization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_dispersion">w</a> ] Dispersion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Distance_correlation">w</a> ] Distance Correlation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Distance_correlation">w</a> ] Distance Covariance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dummy_variable_(statistics)">w</a> ] Dummy Variable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Errors_and_residuals">w</a> ] Error</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Estimand">w</a> ] Estimand</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Estimation">w</a> ] Estimation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Estimator">w</a> ] Estimator</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Event_(probability_theory)">w</a> ] Event</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_value">w</a> ] Expectation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm">w</a> ] Expectation Maximization (EM)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_value">w</a> ] Expected Value</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Experiment_(probability_theory)">w</a> ] Experiment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Design_of_experiments">w</a> ] Experimental Design</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Exploratory_data_analysis">w</a> ] Exploratory Data Analysis (EDA)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_distribution">w</a> ] Exponential Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fat-tailed_distribution">w</a> ] Fat-Tailed Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Feature_engineering">w</a> ] Feature Engineering</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Feature_scaling">w</a> ] Feature Scaling</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Five-number_summary">w</a> ] Five-Number Summary</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Frequency_(statistics)">w</a> ] Frequency</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_probability">w</a> ] Frequentism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_inference">w</a> ] Frequentist Inference</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gambler%27s_fallacy">w</a> ] Gambler’s Fallacy</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Game_of_chance">w</a> ] Game of Chance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_process">w</a> ] Gaussian Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Geometric_Brownian_motion">w</a> ] Geometric Brownian Motion (GBM)</p></li>
+<li><p>[ w ] Geometric Random Walk</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gini_coefficient">w</a> ] Gini Coefficient</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Goodness_of_fit">w</a> ] Goodness of Fit</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hardware_random_number_generator">w</a> ] Hardware Random Number Generator</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Heavy-tailed_distribution">w</a> ] Heavy-Tailed Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hidden_Markov_model">w</a> ] Hidden Markov Model (HMM)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Histogram">w</a> ] Histogram</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_hypothesis_testing">w</a> ] Hypothesis Test</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Independence_(probability_theory)">w</a> ] Independence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables">w</a> ] Independent and Identical Distribution (IID)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables">w</a> ] Independent and Identically Distributed (IID)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Interquartile_mean">w</a> ] Inter Quartile Mean (IQM)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Interquartile_range">w</a> ] Inter Quartile Range (IQR)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Interval_estimation">w</a> ] Interval Estimation</p></li>
+<li><p>[ w ] Interval Scale</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/It%C3%B4_calculus">w</a> ] Ito Calculus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/It%C3%B4_calculus">w</a> ] Ito’s Calculus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/It%C3%B4%27s_lemma">w</a> ] Ito’s Lemma</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jump_diffusion">w</a> ] Jump Diffusion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jump_process">w</a> ] Jump Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_axioms">w</a> ] Kolmogorov Axioms</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Kurtosis">w</a> ] Kurtosis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/L-moment">w</a> ] L-Moment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_large_numbers">w</a> ] Law of Large Numbers</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_total_expectation">w</a> ] Law of Total Expectation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_total_variance">w</a> ] Law of Total Variance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Least_absolute_deviations">w</a> ] Least Absolute Deviation (LAD)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Level_of_measurement">w</a> ] Level of Measurement</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Level_of_measurement">w</a> ] Level/Scale of Measure(ment)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Line_chart">w</a> ] Line Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution">w</a> ] Log-Normal Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Long_tail">w</a> ] Long-Tailed Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Malliavin_calculus">w</a> ] Malliavin Calculus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo">w</a> ] Markov Chain Monte Carlo (MCMC)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_model">w</a> ] Markov Model</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_chain">w</a> ] Markov Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_property">w</a> ] Markov Property</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_cellular_automaton">w</a> ] Markov Random Field</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_statistics">w</a> ] Mathematical Statistics (MAD)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Maximum_and_minimum">w</a> ] Maximum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation">w</a> ] Maximum A Posteriori Estimate (MAP)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation">w</a> ] Maximum Likelihood Estimation (MLE)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_mean">w</a> ] Mean</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mean">w</a> ] Mean</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_difference">w</a> ] Mean Absolute Difference</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_error">w</a> ] Mean Absolute Error (MAE)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mean_squared_error">w</a> ] Mean Squared Error</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_mean">w</a> ] Mean, Arithmetic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Geometric_mean">w</a> ] Mean, Geometric</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Harmonic_mean">w</a> ] Mean, Harmonic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pythagorean_means">w</a> ] Mean, Pythagorean</p></li>
+<li><p>[ <a class="reference external" href="https://en.wiktionary.org/wiki/measurand">w</a> ] Measurand</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Observational_error">w</a> ] Measurement Error</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Measurement_uncertainty">w</a> ] Measurement Uncertainty</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Median">w</a> ] Median</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Median_absolute_deviation">w</a> ] Median Absolute Deviation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Median_absolute_deviation">w</a> ] Median Absolute Deviation (MAD)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Maximum_and_minimum">w</a> ] Minimum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mode_(statistics)">w</a> ] Mode</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Moment_(mathematics)">w</a> ] Moment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_method">w</a> ] Monte Carlo</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_method">w</a> ] Monte Carlo Method</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Monty_Hall_problem">w</a> ] Monty Hall Problem</p></li>
+<li><p>[ w ] Nominal Scale</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Nonparametric_statistics">w</a> ] Non Parametric Statistics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">w</a> ] Normal Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">w</a> ] Normal Distribution or Gaussian Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Normality_test">w</a> ] Normality Test</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Normality_test">w</a> ] Normality Testing</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Normalization_(statistics)">w</a> ] Normalization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Null_hypothesis">w</a> ] Null Hypothesis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Observational_error">w</a> ] Observational Error</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Odds">w</a> ] Odds</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Odds_ratio">w</a> ] Odds Ratio</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Online_analytical_processing">w</a> ] On-Line Analytical Processing (OLAP)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/One-hot">w</a> ] One-Hot Encoding</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/One-_and_two-tailed_tests">w</a> ] One-Tailed Test</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Optimality_criterion">w</a> ] Optimality Criterion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Order_statistic">w</a> ] Order Statistic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ordinal_data">w</a> ] Ordinal Data</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Outcome_(probability)">w</a> ] Outcome</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Outlier">w</a> ] Outlier</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/P-value">w</a> ] P Value</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_parameter">w</a> ] Parameter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pattern_recognition">w</a> ] Pattern Recognition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">w</a> ] Pearson Correlation Coefficient</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Percentile">w</a> ] Percentile</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Percentile">w</a> ] Percentile or Centile</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Philosophy_of_statistics">w</a> ] Philosophy of Statistics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pie_chart">w</a> ] Pie Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Plot_(graphics)">w</a> ] Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Point_estimation">w</a> ] Point Estimation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">w</a> ] Poisson Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_point_process">w</a> ] Poisson Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_population">w</a> ] Population</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Possibility_theory">w</a> ] Possibility Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Posterior_probability">w</a> ] Posterior Probability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Accuracy_and_precision">w</a> ] Precision</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Predictive_analytics">w</a> ] Predictive Analytics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Preferential_attachment">w</a> ] Preferential Attachment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Principle_of_indifference">w</a> ] Principle of Indifference</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Prior_probability">w</a> ] Prior Probability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_cellular_automaton">w</a> ] Probabilistic Cellular Automaton</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Probability">w</a> ] Probability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_density_function">w</a> ] Probability Density Function (PDF)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_distribution">w</a> ] Probability Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">w</a> ] Probability Mass Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_space">w</a> ] Probability Space</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_theory">w</a> ] Probability Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Classical_definition_of_probability">w</a> ] Probability, classical definition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">w</a> ] Pseudorandom Number Generator (PNG)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pseudorandomness">w</a> ] Pseudorandomness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quantile">w</a> ] Quantile</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_or_discrete_variable">w</a> ] Quantitative Variable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quartile">w</a> ] Quartile</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quickselect">w</a> ] Quickselect</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_cellular_automaton">w</a> ] Random Cellular Automaton</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Random_field">w</a> ] Random Field</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_process">w</a> ] Random Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Random_number_generation">w</a> ] Random Number Generator</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_process">w</a> ] Random Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Random_seed">w</a> ] Random Seed</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Random_variable">w</a> ] Random Variable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Random_walk">w</a> ] Random Walk</p></li>
+<li><p>[ w ] Random Walk, Geometric</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Randomness">w</a> ] Randomness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Range_(statistics)">w</a> ] Range</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ranking">w</a> ] Rank</p></li>
+<li><p>[ w ] Ratio Scale</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Deming_regression">w</a> ] Regression, Deming</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Empirical_probability">w</a> ] Relative Frequency</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Renewal_theory">w</a> ] Renewal Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Resampling_(statistics)">w</a> ] Resampling</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Errors_and_residuals">w</a> ] Residual</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Residual_sum_of_squares">w</a> ] Residual Sum of Squares</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Robust_measures_of_scale">w</a> ] Robust Measure of Scale</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Robust_statistics">w</a> ] Robust Statistics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sample_(statistics)">w</a> ] Sample</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sampling_(statistics)">w</a> ] Sample</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sample_mean_and_covariance">w</a> ] Sample Covariance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sample_maximum_and_minimum">w</a> ] Sample Maximum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sample_mean_and_covariance">w</a> ] Sample Mean</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sample_maximum_and_minimum">w</a> ] Sample Minimum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sample_size_determination">w</a> ] Sample Size</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sampling_(statistics)">w</a> ] Sampling</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sampling_distribution">w</a> ] Sampling Distribution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Scatter_plot">w</a> ] Scatter Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Seven-number_summary">w</a> ] Seven-Number Summary</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Skewness">w</a> ] Skewness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spaghetti_plot">w</a> ] Spaghetti Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_dispersion">w</a> ] Spread</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Squared_deviations_from_the_mean">w</a> ] Squared Deviation from the Mean (SDM)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_deviation">w</a> ] Standard Deviation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_error">w</a> ] Standard Error</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Standardized_moment">w</a> ] Standardized Moment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stationary_process">w</a> ] Stationary Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistic">w</a> ] Statistic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_assumption">w</a> ] Statistical Assumptions</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_data_type">w</a> ] Statistical Data Type</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_graphics">w</a> ] Statistical Graphics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_inference">w</a> ] Statistical Inference</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_learning_theory">w</a> ] Statistical Learning</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_model">w</a> ] Statistical Model</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_significance">w</a> ] Statistical Significance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_theory">w</a> ] Statistical Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistics">w</a> ] Statistics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stem-and-leaf_display">w</a> ] Stem and Leaf Plot</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic">w</a> ] Stochastic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_calculus">w</a> ] Stochastic Calculus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_cellular_automaton">w</a> ] Stochastic Cellular Automaton</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_differential_equation">w</a> ] Stochastic Differential Equation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_differential_equation">w</a> ] Stochastic Differential Equation (SDE)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_process">w</a> ] Stochastic Process</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic">w</a> ] Stochasticity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Summary_statistics">w</a> ] Summary Statistics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Survey_methodology">w</a> ] Survey</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Survival_analysis">w</a> ] Survival Analysis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Test_statistic">w</a> ] Test Statistic</p></li>
+<li><p>[ w ] Tidy Data</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_mean">w</a> ] Trimmed Mean</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/One-_and_two-tailed_tests">w</a> ] Two-Tailed Test</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unbiased_estimation_of_standard_deviation">w</a> ] Unbiased Estimation of Standard Deviation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unbiased_estimation_of_standard_deviation">w</a> ] Unbiased estimation of the standard deviation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Uncertainty">w</a> ] Uncertainty</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unit_of_observation">w</a> ] Unit of Observation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Statistical_dispersion">w</a> ] Variability</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Variance">w</a> ] Variance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/White_noise">w</a> ] White Noise</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Wiener_process">w</a> ] Wiener Process</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="m_polynomials.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">General Theory of Polynomials in Several Variables</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="m_relations_order.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Relations &amp; Order Theory</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">YouTube</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

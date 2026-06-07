@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>General Theory of Polynomials in Several Variables &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4.1.1/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm_polynomials';</script>
+    <script src="_static/script.js?v=712283cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Probability, Statistics, Stochastics" href="m_probability_statistics_stochastics_idx.html" />
+    <link rel="prev" title="Mathematical Optimization" href="m_optimization.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Laptop Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="b_TLS4_idx.html">TLS4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch01.html">Ch 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch02.html">Ch 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch03.html">Ch 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch04.html">Ch 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch05.html">Ch 5</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">More</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="c_ai_idx.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m_logic_idx.html">Logic</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_idx.html">Language</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lang_greek.html">Greek</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_chinese_idx.html">Chinese</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_tonemes.html">Tonemes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_chinese_duo.html">Chinese with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_01.html">1.1 - Name food and drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_02.html">1.2 - Talk about nationalities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_03.html">1.3 - Discuss professions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_04.html">1.4 - Discuss your courses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_05.html">1.5 - Use possessive pronouns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_06.html">1.6 - Talk about places you visit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_07.html">1.7 - Order drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_01.html">2.1 Use adjectives for description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_16.html">2.16 Shop for clothes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_17.html">2.17 Attend a concert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_18.html">2.18 Ask questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_19.html">2.19 Expressing possession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_20.html">2.20 - Express feelings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_21.html">2.21 - Talk about the weather</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_22.html">2.22 Talk about friends</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_23.html">2.23 Describe your daily routine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_24.html">2.24 Manage daily tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_25.html">2.25 Shop online</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_26.html">2.26 - Discuss rental details</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_27.html">2.27 - Use indirect objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_28.html">2.28 - Ask for directions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_29.html">2.29 - Discuss sports excitement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_30.html">2.30 - Handle an emergency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_3_01.html">3.1 - Navigate the city</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_hindi_idx.html">Hindi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_hindi_duo.html">Hindi with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_05.html">1.5 - Form basic sentences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_06.html">1.6 - Talk about food</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_07.html">1.7 - Form the plural</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_08.html">1.8 - Introduce people</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_09.html">1.9 - Describe your family</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="m_idx.html">Mathematics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="m_algebra_idx.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_automata_idx.html">Automata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_calculus_idx.html">Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_coding_idx.html">Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_combinatorics_idx.html">Combinatorics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_computability_idx.html">Computability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_decision_theory_idx.html">Decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_game_theory_idx.html">Games</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_geometry_idx.html">Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_linear_algebra_idx.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_linear_programming_idx.html">Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_number_theory_idx.html">Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_optimization.html">Optimization</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_probability_statistics_stochastics_idx.html">Probability &amp; Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_relations_order.html">Relations &amp; Order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_set_theory_idx.html">Sets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="p_idx.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="p_ancient.html">Ancient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_medieval.html">Medieval</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_modern.html">Early Modern</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_copernicus.html">Copernicus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kepler.html">Kepler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_galileo.html">Galileo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_descartes.html">Descartes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hobbes.html">Hobbes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_american.html">American</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_american_peirce.html">Peirce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_american_grosholz.html">Grosholz</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chinese.html">Chinese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_japanese.html">Japanese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_french.html">French</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_spanish.html">Spanish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_language.html">Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_math.html">Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_physics.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_biology.html">Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_science.html">Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_mind.html">Mind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_politics_law.html">Politics &amp; Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_history.html">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_metaphysics.html">Metaphysics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_love_friendship.html">Love &amp; Friendship</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="s_idx.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="s_astro.html">Astronomy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_systems.html">Systems</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/m_polynomials.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>General Theory of Polynomials in Several Variables</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-one-polynomial-equations-in-several-variables">Degree-one polynomial equations in several variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-two-polynomial-equations-in-several-variables">Degree-two polynomial equations in several variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminant">Discriminant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="general-theory-of-polynomials-in-several-variables">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">General Theory of Polynomials in Several Variables</a><a class="headerlink" href="#general-theory-of-polynomials-in-several-variables" title="Link to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#general-theory-of-polynomials-in-several-variables" id="id1">General Theory of Polynomials in Several Variables</a></p>
+<ul>
+<li><p><a class="reference internal" href="#degree-one-polynomial-equations-in-several-variables" id="id2">Degree-one polynomial equations in several variables</a></p></li>
+<li><p><a class="reference internal" href="#degree-two-polynomial-equations-in-several-variables" id="id3">Degree-two polynomial equations in several variables</a></p></li>
+<li><p><a class="reference internal" href="#discriminant" id="id4">Discriminant</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id5">Terms</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p><b>Comments on nomenclature</b></p>
+<p>In the general theory of polynomials (algebraic geometry), a <b>form</b> of degree <span class="math notranslate nohighlight">\(n\)</span> refers to a polynomial homogeneous in that degree. This means that the polynomial only contains degree-<span class="math notranslate nohighlight">\(n\)</span> terms. In this context, the term form has a technical meaning. On the other hand, a polynomial equation in degree <span class="math notranslate nohighlight">\(n\)</span> may contain lower order terms. We may speak of “the general form of” an equation, but this sense of the term form is not special.</p>
+<p>general <span class="math notranslate nohighlight">\(n\)</span>-th degree polynomial equation in <span class="math notranslate nohighlight">\(k\)</span> variables</p>
+<ul class="simple">
+<li><p>first-degree = linear</p></li>
+<li><p>second-degree = quadratic</p></li>
+<li><p>third-degree = cubic</p></li>
+<li><p>fourth-degree = quartic</p></li>
+<li><p>fifth-degree = quintic</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<section id="degree-one-polynomial-equations-in-several-variables">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Degree-one polynomial equations in several variables</a><a class="headerlink" href="#degree-one-polynomial-equations-in-several-variables" title="Link to this heading">#</a></h2>
+<div class="full-width" style="border: 0.5px solid #0096FF; border-radius: 1rem; padding: 1rem; margin: 1rem 0; box-sizing: border-box;">
+<p><span style="color: #0096FF;"><b>Linear in a single variable</b></span></p>
+<p>The general form of a linear equation in a single variables <span class="math notranslate nohighlight">\(x\)</span> is</p>
+<p><span class="math notranslate nohighlight">\(Ax + B = 0\)</span> where <span class="math notranslate nohighlight">\(A \ne 0\)</span></p>
+</div>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+Ax = -B \iff x = -\frac{B}{A}
+\end  {aligned}
+\)</span></p>
+<div class="full-width" style="border: 0.5px solid #0096FF; border-radius: 1rem; padding: 1rem; margin: 1rem 0; box-sizing: border-box;">
+<p><span style="color: #0096FF;"><b>Linear in two variables</b></span></p>
+<p>The general form of a linear equation in two variables <span class="math notranslate nohighlight">\(x, y\)</span> is</p>
+<p><span class="math notranslate nohighlight">\(Ax + By + C = 0\)</span> where <span class="math notranslate nohighlight">\(A \ne 0 \lor B \ne 0\)</span></p>
+</div>
+<p>From here we derive the <b>standard form of a line</b> (in which this <span class="math notranslate nohighlight">\(C\)</span> is the negative of the <span class="math notranslate nohighlight">\(C\)</span> above)</p>
+<p><span class="math notranslate nohighlight">\(Ax + By = C\)</span></p>
+<p>From here we derive the <b>slope-intercept form of a line</b> <span class="math notranslate nohighlight">\(y = mx + b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+Ax + By = C \iff By = -Ax + C \iff y = \underset{m}{\boxed{-\frac{A}{B}}}x + \underset{b}{\boxed{\frac{C}{B}}}
+\end  {aligned}
+\)</span></p>
+<p>From here we derive the <b>point-slope form of a line</b> <span class="math notranslate nohighlight">\(y - y_0 = m(x - x_0)\)</span> for a given point <span class="math notranslate nohighlight">\((x_0, y_0)\)</span> and slope <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(y = mx + b \iff b = -mx + y\)</span> for any <span class="math notranslate nohighlight">\((x, y)\)</span>. Let’s say <span class="math notranslate nohighlight">\(x = x_0\)</span> and <span class="math notranslate nohighlight">\(y = y_0\)</span>. Then <span class="math notranslate nohighlight">\(b = -mx_0 + y_0\)</span>. Now we can substitute this back into the original equation.</p>
+<p><span class="math notranslate nohighlight">\(y = mx + b = mx + (-mx_0 + y_0) = m(x - x_0) + y_0\)</span></p>
+<div class="full-width" style="border: 0.5px solid #0096FF; border-radius: 1rem; padding: 1rem; margin: 1rem 0; box-sizing: border-box;">
+<p><span style="color: #0096FF;"><b>Linear in several variables</b></span></p>
+<p>The general form of a linear equation in several variables <span class="math notranslate nohighlight">\(x_1, \dotsc, x_n\)</span> is</p>
+<p><span class="math notranslate nohighlight">\(a_1 x_1 + a_2 x_2 + \dotsb + a_n x_n + b = 0\)</span> where <span class="math notranslate nohighlight">\(a_1 \ne 0 \lor a_2 \ne 0 \lor \dotsb \lor a_n \ne 0\)</span></p>
+</div>
+<p>From here we derive linear forms in higher dimensions (the plane in three dimensions and the hyperplane in greater-than-three dimensions).</p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="degree-two-polynomial-equations-in-several-variables">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Degree-two polynomial equations in several variables</a><a class="headerlink" href="#degree-two-polynomial-equations-in-several-variables" title="Link to this heading">#</a></h2>
+<div class="full-width" style="border: 0.5px solid #0096FF; border-radius: 1rem; padding: 1rem; margin: 1rem 0; box-sizing: border-box;">
+<p><span style="color: #0096FF;"><b>General quadratic in one variable</b></span></p>
+<p>The general form of a quadratic equation in a single variable <span class="math notranslate nohighlight">\(x\)</span> is</p>
+<p><span class="math notranslate nohighlight">\(Ax^2 + Bx + C = 0\)</span> where <span class="math notranslate nohighlight">\(A \ne 0\)</span></p>
+</div><div class="full-width" style="border: 0.5px solid #0096FF; border-radius: 1rem; padding: 1rem; margin: 1rem 0; box-sizing: border-box;">
+<p><span style="color: #0096FF;"><b>General quadratic in two variables</b></span></p>
+<p>The general form of a quadratic equation in two variables <span class="math notranslate nohighlight">\(x, y\)</span></p>
+<p>with cross terms is</p>
+<p><span class="math notranslate nohighlight">\(Ax^2+Bxy+Cy^2+Dx+Ey+F=0\)</span> where <span class="math notranslate nohighlight">\(A\ne0\lor B\ne0\lor C\ne0\)</span></p>
+<p>without cross terms is</p>
+<p><span class="math notranslate nohighlight">\(Ax^2+By^2+Cx+Dy+E=0\)</span> where <span class="math notranslate nohighlight">\(A\ne0\lor B\ne0\)</span></p>
+</div>
+<p>In classical analytic geometry, this is the general equation of a conic section.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="discriminant">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Discriminant</a><a class="headerlink" href="#discriminant" title="Link to this heading">#</a></h2>
+<p>For a degree-<span class="math notranslate nohighlight">\(n\)</span> polynomial in a single variable</p>
+<p><span class="math notranslate nohighlight">\(p(x) = a_n x^n + \dotsb + a_1 x + a_0\)</span></p>
+<p>with roots <span class="math notranslate nohighlight">\(r_1, \dotsc, r_n\)</span> the discriminant is defined as</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{Disc}(p) = a_n^{2n - 2} \prod_{i \lt j} (r_i - r_j)^2
+\end  {aligned}
+\)</span></p>
+<p>For the degree-two polynomial equation in a single variable</p>
+<p><span class="math notranslate nohighlight">\(p(x) = a x^2 + b x + c\)</span></p>
+<p>this gives</p>
+<p><span class="math notranslate nohighlight">\(\text{Disc}(p) = b^2 - 4ac\)</span></p>
+<p>This tells us about the nature of the roots of the polynomial</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\text{Disc}(p) &amp;\gt 0 &amp;&amp; \text{two distinct real roots} \\
+\text{Disc}(p) &amp;=   0 &amp;&amp; \text{one repeated real root} \\
+\text{Disc}(p) &amp;\lt 0 &amp;&amp; \text{two complex roots} \\
+\end  {aligned}
+\)</span></p>
+<p>In the context of degree-<span class="math notranslate nohighlight">\(n\)</span> polynomial equations in a single variable, the discriminant is defined as a function of the coefficients. The vanishing of the discriminant is an indicator of degeneracy, and the condition of degeneracy is the multiplicity of the roots.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Abel%E2%80%93Ruffini_theorem">w</a> ] Abel-Ruffini Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Algebraic_equation">w</a> ] Algebraic Equation (Polynomial Equation)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Algebraic_expression">w</a> ] Algebraic Expression</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Solution_in_radicals">w</a> ] Algebraic Solution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bring_radical">w</a> ] Bring Radical</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Determinant">w</a> ] Determinant</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Discriminant">w</a> ] Discriminant</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Algebraic_equation">w</a> ] Equation, Algebraic (Polynomial)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Algebraic_equation">w</a> ] Equation, Polynomial (Algebraic)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Homogeneous_polynomial">w</a> ] Form (or Homogeneous Polynomial or Quantic)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Galois_theory">w</a> ] Galois Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">w</a> ] Homogeneous Coordinates</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Homogeneous_polynomial">w</a> ] Homogeneous Polynomial (or Form or Quantic)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hypersurface">w</a> ] Hypersurface</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Irreducible_polynomial">w</a> ] Irreducible Polynomial</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_form">w</a> ] Linear Form</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Irreducible_polynomial">w</a> ] Polynomial, Irreducible</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Algebraic_equation">w</a> ] Polynomial Equation (Algebraic Equation)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quadratic_form">w</a> ] Quadratic Form</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quadratic_formula">w</a> ] Quadratic Formula</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quadric">w</a> ] Quadric</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Homogeneous_polynomial">w</a> ] Quantic (or Form or Homogeneous Polynomial)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Radical_symbol">w</a> ] Radical Symbol</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Resultant">w</a> ] Resultant</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="m_optimization.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Mathematical Optimization</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="m_probability_statistics_stochastics_idx.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Probability, Statistics, Stochastics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-one-polynomial-equations-in-several-variables">Degree-one polynomial equations in several variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-two-polynomial-equations-in-several-variables">Degree-two polynomial equations in several variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminant">Discriminant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
