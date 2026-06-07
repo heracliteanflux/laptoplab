@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Linear Programming &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm_linear_programming_idx';</script>
+    <script src="_static/script.js?v=712283cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Number" href="m_number_theory_idx.html" />
+    <link rel="prev" title="Linear Algebra" href="m_linear_algebra_idx.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Laptop Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="b_TLS4_idx.html">TLS4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch01.html">Ch 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch02.html">Ch 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch03.html">Ch 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch04.html">Ch 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch05.html">Ch 5</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">More</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="c_ai_idx.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m_logic_idx.html">Logic</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_idx.html">Language</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lang_greek.html">Greek</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_chinese_idx.html">Chinese</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_tonemes.html">Tonemes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_chinese_duo.html">Chinese with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_01.html">1.1 - Name food and drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_02.html">1.2 - Talk about nationalities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_03.html">1.3 - Discuss professions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_04.html">1.4 - Discuss your courses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_05.html">1.5 - Use possessive pronouns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_06.html">1.6 - Talk about places you visit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_07.html">1.7 - Order drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_01.html">2.1 Use adjectives for description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_16.html">2.16 Shop for clothes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_17.html">2.17 Attend a concert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_18.html">2.18 Ask questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_19.html">2.19 Expressing possession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_20.html">2.20 - Express feelings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_21.html">2.21 - Talk about the weather</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_22.html">2.22 Talk about friends</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_23.html">2.23 Describe your daily routine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_24.html">2.24 Manage daily tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_25.html">2.25 Shop online</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_26.html">2.26 - Discuss rental details</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_27.html">2.27 - Use indirect objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_28.html">2.28 - Ask for directions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_29.html">2.29 - Discuss sports excitement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_30.html">2.30 - Handle an emergency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_3_01.html">3.1 - Navigate the city</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_hindi_idx.html">Hindi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_hindi_duo.html">Hindi with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_05.html">1.5 - Form basic sentences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_06.html">1.6 - Talk about food</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_07.html">1.7 - Form the plural</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_08.html">1.8 - Introduce people</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_09.html">1.9 - Describe your family</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="m_idx.html">Mathematics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="m_algebra_idx.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_automata_idx.html">Automata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_calculus_idx.html">Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_coding_idx.html">Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_combinatorics_idx.html">Combinatorics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_computability_idx.html">Computability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_decision_theory_idx.html">Decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_game_theory_idx.html">Games</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_geometry_idx.html">Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_linear_algebra_idx.html">Linear Algebra</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_number_theory_idx.html">Numbers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="p_idx.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="p_ancient.html">Ancient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_medieval.html">Medieval</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_modern.html">Early Modern</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_copernicus.html">Copernicus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kepler.html">Kepler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_galileo.html">Galileo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_descartes.html">Descartes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hobbes.html">Hobbes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_american.html">American</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_american_peirce.html">Peirce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_american_grosholz.html">Grosholz</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chinese.html">Chinese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_japanese.html">Japanese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_french.html">French</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_spanish.html">Spanish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_language.html">Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_math.html">Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_physics.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_biology.html">Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_science.html">Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_mind.html">Mind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_politics_law.html">Politics &amp; Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_history.html">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_metaphysics.html">Metaphysics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_love_friendship.html">Love &amp; Friendship</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="s_idx.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="s_astro.html">Astronomy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_systems.html">Systems</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/m_linear_programming_idx.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Linear Programming</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">YouTube</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-programming">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Linear Programming</a><a class="headerlink" href="#linear-programming" title="Link to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#linear-programming" id="id1">Linear Programming</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sections" id="id2">Sections</a></p></li>
+<li><p><a class="reference internal" href="#resources" id="id3">Resources</a></p>
+<ul>
+<li><p><a class="reference internal" href="#youtube" id="id4">YouTube</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#texts" id="id5">Texts</a></p></li>
+<li><p><a class="reference internal" href="#figures" id="id6">Figures</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id7">Terms</a></p></li>
+<li><p><a class="reference internal" href="#acknowledgments" id="id8">Acknowledgments</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<section id="sections">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Sections</a><a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<p>Linear Programming (LP) is a type of mathematical optimization problem in which the constraints and optimization function are represented by linear functions.</p>
+<p>Integer Programming (IP) is a type of mathematical optimization problem in which at least one variable is an integer.</p>
+<p>Mixed-Integer Programming (MIP) involves problems in which not all variables are constrained to be integers (and so at least one variable is a non integer).</p>
+<p>Integer Linear Programming (ILP) and Mixed-Integer Linear Programming (MILP) involve problems in which the non integer constraints (and optimization function) are linear.</p>
+<p>Zero-One Linear (or Binary Integer) Programming involves problems in which the variables are restricted to be 0 or 1.</p>
+<p>Quadratic Programming</p>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="resources">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Resources</a><a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Linear_Programming_Kit">https://en.wikipedia.org/wiki/GNU_Linear_Programming_Kit</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://web.mit.edu/15.053/www/AppliedMathematicalProgramming.pdf">https://web.mit.edu/15.053/www/AppliedMathematicalProgramming.pdf</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/opencobra/optlang">opencobra/optlang</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/opencobra/swiglpk">opencobra/swiglpk</a></p></li>
+<li><p><a class="reference external" href="https://drlvk.github.io/nm/chapter-linear-programming.html">https://drlvk.github.io/nm/chapter-linear-programming.html</a></p></li>
+<li><p><a class="reference external" href="https://people.orie.cornell.edu/dpw/orie6300/">ORIE 6300: Mathematical Programming I [Fall 2014]</a></p></li>
+<li><p>Keen, Ben Alex. <a class="reference external" href="https://benalexkeen.com/linear-programming-with-python-and-pulp-part-1/">Linear Programming with Python and PuLP</a>.</p></li>
+<li><p><a class="reference external" href="https://optimization.cbe.cornell.edu/index.php?title=Simplex_algorithm">https://optimization.cbe.cornell.edu/index.php?title=Simplex_algorithm</a></p></li>
+</ul>
+<section id="youtube">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">YouTube</a><a class="headerlink" href="#youtube" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=feb9j65Iz4w">y</a> ] <code class="docutils literal notranslate"><span class="pre">05-16-2019</span></code> MIT OpenCourseWare. “24. Linear Programming and Two-Person Games”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=WwMz2fJwUCg">y</a> ] <code class="docutils literal notranslate"><span class="pre">03-04-2016</span></code> MIT OpenCourseWare. “15. Linear Programming: LP, reductions, Simplex”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/watch?v=E72DWgKP_1Y">y</a> ] <code class="docutils literal notranslate"><span class="pre">07-04-2023</span></code> Tom S. “The Art of Linear Programming”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/playlist?list=PLbxFfU5GKZz2-4Y3YwRFVVDEMlmxYfY6y">y</a> ] <code class="docutils literal notranslate"><span class="pre">06-29-2020</span></code> wenshenpsu. “Math484 Linear Programming Short Videos, summer 2020”.</p></li>
+<li><p>[ <a class="reference external" href="https://www.youtube.com/playlist?list=PLbxFfU5GKZz1Tm_9RR5M_uvdOXpJJ8LC3">y</a> ] <code class="docutils literal notranslate"><span class="pre">12-07-2022</span></code> wenshenpsu. “Math484, Linear Programming, fall 2016”.</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+<hr class="docutils" />
+<section id="texts">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Texts</a><a class="headerlink" href="#texts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">2017</span></code> Beck, Amir. <em>First-Order Methods in Optimization</em>. Society for Industrial and Applied Mathematics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2015</span></code> [ <a class="reference external" href="https://arxiv.org/abs/1405.4980">P</a> ][ <a class="reference external" href="https://www.youtube.com/playlist?list=PLAPSKVSdi0oZPbS-UD_kwT4ePZQx_CiME">Y</a> ] Bubeck, Sébastien. <em>Convex Optimization: Algorithms and Complexity</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2001</span></code> Chong, Edwin K. P. &amp; Stanislaw H. Zak. <em>An Introduction to Optimization, 2nd Ed</em>. Wiley.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1997</span></code> Dantzig, George B. &amp; Mukund N. Thapa. <em>Linear Programming 1: Introduction</em>. Springer Series in Operations Research and Financial Engineering.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2003</span></code> Dantzig, George B. &amp; Mukund N. Thapa. <em>Linear Programming 2: Theory and Extensions</em>. Springer Series in Operations Research and Financial Engineering.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2003</span></code> Dechter, Rina. <em>Constraint Processing</em>. Morgan Kaufmann. [ <a class="reference external" href="https://ics.uci.edu/~dechter/books/index.html">home</a> ].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2003</span></code> Morse, Philip M. &amp; George E. Kimball. <em>Methods of Operations Research</em>. Dover Books on Computer Science.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2018</span></code> Nesterov, Yurii. <em>Lectures on Convex Optimization</em>. 2nd Ed. Springer: Springer Optimization and Its Applications.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1999</span></code> Nocedal, Jorge &amp; Stephen Wright. <em>Numerical Optimization</em>. Series in Operations Research and Financial Engineering.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2012</span></code> Oki, Eiji. <em>Linear Programming and Algorithms for Communication Networks: A Practical Guide to Network Design, Control, and Management</em>. CRC Press.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2021</span></code> Pardalos, Panos M., Varvara Rasskazova, &amp; Michael N. Vrahatis. <em>Black Box Optimization, Machine Learning, and No-Free Lunch Theorem</em>. Springer: Springer Optimization and Its Applications.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2008</span></code> Thie, Paul R. Gerard E. Keough. <em>An Introduction to Linear Programming and Game Theory</em>. 3rd Ed. <a class="reference external" href="https://www.wiley.com/en-us/An+Introduction+to+Linear+Programming+and+Game+Theory%2C+3rd+Edition-p-9780470232866">Wiley</a>.</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Figures</a><a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Richard_E._Bellman">w</a> ] <code class="docutils literal notranslate"><span class="pre">1920-1984</span></code> Bellman, Richard</p></li>
+<li><p>[ w ] <code class="docutils literal notranslate"><span class="pre">---------</span></code> Bland, Robert</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/George_Dantzig">w</a> ] <code class="docutils literal notranslate"><span class="pre">1914-2005</span></code> Dantzig, George</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Yefim_Dinitz">w</a> ] <code class="docutils literal notranslate"><span class="pre">---------</span></code> Dinitz, Yefim</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jack_Edmonds">w</a> ] <code class="docutils literal notranslate"><span class="pre">1934-----</span></code> Edmonds, Jack</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/L._R._Ford_Jr.">w</a> ] <code class="docutils literal notranslate"><span class="pre">1927-2017</span></code> Ford Jr., L. R.</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/D._R._Fulkerson">w</a> ] <code class="docutils literal notranslate"><span class="pre">1924-1976</span></code> Fulkerson, D. R.</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ted_Harris_(mathematician)">w</a> ] <code class="docutils literal notranslate"><span class="pre">1919-2005</span></code> Harris, Ted</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Narendra_Karmarkar">w</a> ] <code class="docutils literal notranslate"><span class="pre">---------</span></code> Karmarkar, Narendra</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Richard_M._Karp">w</a> ] <code class="docutils literal notranslate"><span class="pre">1935-----</span></code> Karp, Richard</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Leonid_Khachiyan">w</a> ] <code class="docutils literal notranslate"><span class="pre">1952-2005</span></code> Khachiyan, Leonid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Kolmogorov">w</a> ] <code class="docutils literal notranslate"><span class="pre">1903-1987</span></code> Kolmogorov, Andrey</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Manfred_W._Padberg">w</a> ] <code class="docutils literal notranslate"><span class="pre">1941-2014</span></code> Padberg, Manfred</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/John_von_Neumann">w</a> ] <code class="docutils literal notranslate"><span class="pre">1903-1957</span></code> Von Neumann, John</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Philip_Wolfe_(mathematician)">w</a> ] <code class="docutils literal notranslate"><span class="pre">1927-2016</span></code> Wolfe, Philip</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Affine_transformation">w</a> ] Affine Function/Map/Transformation [ <a class="reference external" href="https://mathworld.wolfram.com/AffineFunction.html">wolfram</a> ]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Approximation_algorithm">w</a> ] Approximation Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Basic_feasible_solution">w</a> ] Basic Feasible Solution</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bauer_maximum_principle">w</a> ] Bauer’s Maximum Principle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bland%27s_rule">w</a> ] Bland’s Rule</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Block_matrix">w</a> ] Block Matrix</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bounded_set">w</a> ] Boundedness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Calculus_of_variations">w</a> ] Calculus of Variations</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Closed_set">w</a> ] Closedness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Column_generation">w</a> ] Column Generation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Combinatorial_optimization">w</a> ] Combinatorial Optimization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Compact_space">w</a> ] Compactness</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Constrained_optimization">w</a> ] Constrained Optimization [ <a class="reference external" href="https://reference.wolfram.com/language/tutorial/ConstrainedOptimizationLinearProgramming.html">wolfram</a> ]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Constraint_(mathematics)">w</a> ] Constraint</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Constraint_satisfaction">w</a> ] Constraint Satisfaction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem">w</a> ] Constraint Satisfaction Problem (CSP)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_cone">w</a> ] Convex Cone</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_optimization">w</a> ] Convex Optimization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_polytope">w</a> ] Convex Polytope</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_set">w</a> ] Convex Set</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Criss-cross_algorithm">w</a> ] Criss-Cross Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cunningham%27s_rule">w</a> ] Cunningham’s Rule</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dantzig%E2%80%93Wolfe_decomposition">w</a> ] Dantzig-Wolfe Decomposition</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Decomposition_method_(constraint_satisfaction)">w</a> ] Decomposition Method</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Devex_algorithm">w</a> ] Devex Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dinic%27s_algorithm">w</a> ] Dinitz’s Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Directional_derivative">w</a> ] Directional Derivative</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dual_linear_program">w</a> ] Dual Linear Program</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Constraint_satisfaction_dual_problem">w</a> ] Dual Problem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Duality_(optimization)">w</a> ] Duality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Duality_gap">w</a> ] Duality Gap</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Edmonds%E2%80%93Karp_algorithm">w</a> ] Edmonds-Karp Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ellipsoid_method">w</a> ] Ellipsoid Method</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Farkas%27_lemma">w</a> ] Farkas’ Lemma</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Feasible_region">w</a> ] Feasible Region/Set</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Flow_network">w</a> ] Flow Network</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm">w</a> ] Ford-Fulkerson Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Fourier%E2%80%93Motzkin_elimination">w</a> ] Fourier-Motzkin Elimination</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Game_theory">w</a> ] Game Theory</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient">w</a> ] Gradient</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperplane">w</a> ] Hyperplane</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hypersurface">w</a> ] Hypersurface</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Integer_programming">w</a> ] Integer Programming</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Interior-point_method">w</a> ] Interior Point Methods</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Iterative_method">w</a> ] Iterative Method</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Karmarkar%27s_algorithm">w</a> ] Karmarkar’s Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">w</a> ] Lagrange Multiplier</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Level_set">w</a> ] Level Set [ <a class="reference external" href="https://mathworld.wolfram.com/LevelSet.html">wolfram</a> ]</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Line_(geometry)">w</a> ] Line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_equation">w</a> ] Linear Equality/Equation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_inequality">w</a> ] Linear Inequality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_map">w</a> ] Linear Function/Map/Transformation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_programming">w</a> ] Linear Programming</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_model">w</a> ] Mathematical Model</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mathematical_optimization">w</a> ] Mathematical Optimization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Max-flow_min-cut_theorem">w</a> ] Max-Flow Min-Cut Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Max%E2%80%93min_inequality">w</a> ] Max-Min Inequality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Maximum_flow_problem">w</a> ] Maximum Flow Problem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Minimax_theorem">w</a> ] Minimax Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Minimum-cost_flow_problem">w</a> ] Minimum-Cost Flow Problem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Network_flow_problem">w</a> ] Network Flow Problem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Network_simplex_algorithm">w</a> ] Network Simplex Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">w</a> ] Newton’s Method</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Nonlinear_programming">w</a> ] Non Linear Programming</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Loss_function">w</a> ] Objective Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Operations_research">w</a> ] Operations Research</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Optimization_problem">w</a> ] Optimization Problem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Plane_(geometry)">w</a> ] Plane</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Point_(geometry)">w</a> ] Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reduced_cost">w</a> ] Reduced Cost</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_programming_relaxation">w</a> ] Relaxation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Revised_simplex_method">w</a> ] Revised Simplex Method</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Simplex">w</a> ] Simplex</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Simplex_algorithm">w</a> ] Simplex Algorithm</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Slack_variable">w</a> ] Slack Variable</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Surface_(mathematics)">w</a> ] Surface</p></li>
+<li><p>[ w ] Unconstrainted Optimization</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Zadeh%27s_rule">w</a> ] Zadeh’s Rule</p></li>
+</ul>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Comparative_statics">w</a> ] Comparative Statics</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Envelope_theorem">w</a> ] Envelope Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gorman_polar_form">w</a> ] Gorman Polar Form</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hicksian_demand_function">w</a> ] Hicksian Demand Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Indirect_utility_function">w</a> ] Indirect Utility Function</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Shadow_price">w</a> ] Shadow Price</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="acknowledgments">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Acknowledgments</a><a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
+<p>Byrne, Christopher. <em>MATH 484 Linear Programs and Related Problems - Linear Programs I: A Clear, Concise, and Practical Introduction to Linear Programs and Duality Theory with Applications to Return On Investment (ROI)</em>. The Pennsylvania State University.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="m_linear_algebra_idx.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Linear Algebra</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="m_number_theory_idx.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Number</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#youtube">YouTube</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#texts">Texts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

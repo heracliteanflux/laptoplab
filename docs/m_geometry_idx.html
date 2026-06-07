@@ -1,0 +1,1241 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Geometry &#8212; Laptop Lab</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=36e98d3e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4.1.1/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'm_geometry_idx';</script>
+    <script src="_static/script.js?v=712283cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linear Algebra" href="m_linear_algebra_idx.html" />
+    <link rel="prev" title="Game Theory" href="m_game_theory_idx.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Laptop Lab</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Laptop Lab
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Current</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="b_TLS4_idx.html">TLS4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch01.html">Ch 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch02.html">Ch 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch03.html">Ch 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch04.html">Ch 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="b_TLS4_ch05.html">Ch 5</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">More</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="c_ai_idx.html">AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="m_logic_idx.html">Logic</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lang_idx.html">Language</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lang_greek.html">Greek</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_chinese_idx.html">Chinese</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lang_chinese_tonemes.html">Tonemes</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_chinese_duo.html">Chinese with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_01.html">1.1 - Name food and drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_02.html">1.2 - Talk about nationalities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_03.html">1.3 - Discuss professions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_04.html">1.4 - Discuss your courses</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_05.html">1.5 - Use possessive pronouns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_06.html">1.6 - Talk about places you visit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_1_07.html">1.7 - Order drinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_01.html">2.1 Use adjectives for description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_16.html">2.16 Shop for clothes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_17.html">2.17 Attend a concert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_18.html">2.18 Ask questions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_19.html">2.19 Expressing possession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_20.html">2.20 - Express feelings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_21.html">2.21 - Talk about the weather</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_22.html">2.22 Talk about friends</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_23.html">2.23 Describe your daily routine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_24.html">2.24 Manage daily tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_25.html">2.25 Shop online</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_26.html">2.26 - Discuss rental details</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_27.html">2.27 - Use indirect objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_28.html">2.28 - Ask for directions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_29.html">2.29 - Discuss sports excitement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_2_30.html">2.30 - Handle an emergency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_chinese_duo_3_01.html">3.1 - Navigate the city</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lang_hindi_idx.html">Hindi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="lang_hindi_duo.html">Hindi with Duolingo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_05.html">1.5 - Form basic sentences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_06.html">1.6 - Talk about food</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_07.html">1.7 - Form the plural</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_08.html">1.8 - Introduce people</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lang_hindi_duo_1_09.html">1.9 - Describe your family</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="m_idx.html">Mathematics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="m_algebra_idx.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_automata_idx.html">Automata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_calculus_idx.html">Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_coding_idx.html">Coding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_combinatorics_idx.html">Combinatorics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_computability_idx.html">Computability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_decision_theory_idx.html">Decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_game_theory_idx.html">Games</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_linear_algebra_idx.html">Linear Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_linear_programming_idx.html">Linear Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="m_number_theory_idx.html">Numbers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="p_idx.html">Philosophy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="p_ancient.html">Ancient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_medieval.html">Medieval</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_modern.html">Early Modern</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_copernicus.html">Copernicus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kepler.html">Kepler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_galileo.html">Galileo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_descartes.html">Descartes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hobbes.html">Hobbes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_spinoza.html">Spinoza</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_leibniz.html">Leibniz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_newton.html">Newton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_locke.html">Locke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_hume.html">Hume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_early_modern_kant.html">Kant</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="p_american.html">American</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="p_american_peirce.html">Peirce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="p_american_grosholz.html">Grosholz</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chinese.html">Chinese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_japanese.html">Japanese</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_french.html">French</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_spanish.html">Spanish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_language.html">Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_math.html">Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_music.html">Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_physics.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_biology.html">Biology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_science.html">Science</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_mind.html">Mind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_politics_law.html">Politics &amp; Law</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_history.html">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_metaphysics.html">Metaphysics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_epistemology.html">Epistemology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_ethics.html">Ethics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_aesthetics.html">Aesthetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p_love_friendship.html">Love &amp; Friendship</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="s_idx.html">Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="s_astro.html">Astronomy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_chemistry.html">Chemistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="s_systems.html">Systems</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/m_geometry_idx.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Geometry</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="geometry">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Geometry</a><a class="headerlink" href="#geometry" title="Link to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#geometry" id="id1">Geometry</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sections" id="id2">Sections</a></p></li>
+<li><p><a class="reference internal" href="#figures" id="id3">Figures</a></p></li>
+<li><p><a class="reference internal" href="#terms" id="id4">Terms</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<section id="sections">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Sections</a><a class="headerlink" href="#sections" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="figures">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Figures</a><a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Archimedes">w</a> ] <code class="docutils literal notranslate"><span class="pre">0287-0212</span> <span class="pre">BCE</span></code> Archimedes of Syracuse</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Measurement_of_a_Circle">w</a> ] <code class="docutils literal notranslate"><span class="pre">250</span> <span class="pre">BCE</span></code> <em>Measurement of a Circle</em> Κύκλου μέτρησις</p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Charles_Julien_Brianchon">w</a> ] <code class="docutils literal notranslate"><span class="pre">1783-1864</span></code> Brianchon, Charles Julien</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Henri_Brocard">w</a> ] <code class="docutils literal notranslate"><span class="pre">1845-1922</span></code> Brocard, Henri</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Giovanni_Ceva">w</a> ] <code class="docutils literal notranslate"><span class="pre">1647-1734</span></code> Ceva, Giovanni</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gaston_Albert_Gohierre_de_Longchamps">w</a> ] <code class="docutils literal notranslate"><span class="pre">1842-1906</span></code> De Longchamps, Gaston Albert Gohierre</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Euclid">w</a> ] <code class="docutils literal notranslate"><span class="pre">0300</span> <span class="pre">BCE</span></code> Euclid</p>
+<ul>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Euclid%27s_Elements">w</a> ] <em>Elements</em></p></li>
+</ul>
+</li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Eudoxus_of_Cnidus">w</a> ] <code class="docutils literal notranslate"><span class="pre">0408-0355</span> <span class="pre">BCE</span></code> Eudoxus of Cnidus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Harry_Clinton_Gossard">w</a> ] <code class="docutils literal notranslate"><span class="pre">1884-1954</span></code> Gossard, Harry Clinton</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Thomas_Heath_(classicist)">w</a> ] <code class="docutils literal notranslate"><span class="pre">1861-1940</span></code> Heath, T. L.</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Friedrich_Wilhelm_August_Ludwig_Kiepert">w</a> ] <code class="docutils literal notranslate"><span class="pre">1846-1934</span></code> Kiepert, Ludvig</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Clark_Kimberling">w</a> ] <code class="docutils literal notranslate"><span class="pre">1942-----</span></code> Kimberling, Clark</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/%C3%89mile_Lemoine">w</a> ] <code class="docutils literal notranslate"><span class="pre">1840-1912</span></code> Lemoine, Émile</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Frank_Morley">w</a> ] <code class="docutils literal notranslate"><span class="pre">1860-1937</span></code> Morley, Frank</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pappus_of_Alexandria">w</a> ] <code class="docutils literal notranslate"><span class="pre">0290-0350</span></code> Pappus of Alexandria</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/John_Playfair">w</a> ] <code class="docutils literal notranslate"><span class="pre">1748-1819</span></code> Playfair, John</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pythagoras">w</a> ] <code class="docutils literal notranslate"><span class="pre">0570-0495</span> <span class="pre">BCE</span></code> Pythagoras of Samos</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Edward_Routh">w</a> ] <code class="docutils literal notranslate"><span class="pre">1831-1907</span></code> Routh, Edward</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Kurt_Schiffler">w</a> ] <code class="docutils literal notranslate"><span class="pre">1896-1986</span></code> Schiffler, Kurt</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Jakob_Steiner">w</a> ] <code class="docutils literal notranslate"><span class="pre">1796-1863</span></code> Steiner, Jakob</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Christian_Heinrich_von_Nagel">w</a> ] <code class="docutils literal notranslate"><span class="pre">1803-1882</span></code> Von Nagel, Christian Heinrich</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+<hr class="docutils" />
+<section id="terms">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Terms</a><a class="headerlink" href="#terms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Biangular_coordinates">w</a> ] Biangular Coordinates</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bipolar_coordinates">w</a> ] Bipolar Coordinates</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Two-center_bipolar_coordinates">w</a> ] Bipolar Coordinates, Two-Center</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Elliptic_coordinate_system">w</a> ] Elliptic Coordinates</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Polar_coordinate_system">w</a> ] Polar Coordinates</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_coordinate_system">w</a> ] Spherical Coordinates</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Two-center_bipolar_coordinates">w</a> ] Two-Center Bipolar Coordinates</p></li>
+</ul>
+<ul class="simple">
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/3D_projection">w</a> ] 3D Projection</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Acute_and_obtuse_triangles">w</a> ] Acute Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Altitude_(triangle)">w</a> ] Altitude</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Angle">w</a> ] Angle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Central_angle">w</a> ] Angle, Central</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Internal_and_external_angles">w</a> ] Angle, External</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_angle">w</a> ] Angle, Hyperbolic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inscribed_angle">w</a> ] Angle, Inscribed</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Internal_and_external_angles">w</a> ] Angle, Internal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Right_angle">w</a> ] Angle, Right</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Subtended_angle">w</a> ] Angle, Subtended</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Angle_bisector_theorem">w</a> ] Angle Bisector Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Angle_trisection">w</a> ] Angle Trisection</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-ratio">w</a> ] Anharmonic Ratio (Cross-Ratio, Double Ratio)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Antiparallelogram">w</a> ] Antiparallelogram</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Antiprism">w</a> ] Antiprism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pentagonal_antiprism">w</a> ] Antiprism, Pentagonal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Apeirogon">w</a> ] Apeirogon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Infinite_skew_polygon">w</a> ] Apeirogon, Skew</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Apex_(geometry)">w</a> ] Apex</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Apsis">w</a> ] Apoapsis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Apollonian_circles">w</a> ] Apollonian Circle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Problem_of_Apollonius">w</a> ] Apollonius’ Problem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Apothem">w</a> ] Apothem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Apsis">w</a> ] Apsis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_arc">w</a> ] Arc, Circular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Arc_length">w</a> ] Arc Length</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Archimedean_solid">w</a> ] Archimedean Solid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Area">w</a> ] Area</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axial_symmetry">w</a> ] Axial Symmetry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axiality_(geometry)">w</a> ] Axiality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Perspective_(geometry)">w</a> ] Axis of Perspectivity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ball_(mathematics)">w</a> ] Ball</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Base_(geometry)">w</a> ] Base</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bipyramid">w</a> ] Bipyramid (Dipyramid, Double Pyramid)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pentagonal_bipyramid">w</a> ] Bipyramid, Pentagonal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bisection">w</a> ] Bisection</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Brianchon%27s_theorem">w</a> ] Brianchon’s Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Brocard_circle">w</a> ] Brocard Circle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Brocard_points">w</a> ] Brocard Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Brocard_triangle">w</a> ] Brocard Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Catalan_solid">w</a> ] Catalan Solid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cathetus">w</a> ] Cathetus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Centre_(geometry)">w</a> ] Center</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Homothetic_center">w</a> ] Center, Homothetic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Morley_centers">w</a> ] Center, Morley</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Nine-point_center">w</a> ] Center, Nine-Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Power_center_(geometry)">w</a> ] Center, Power</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spieker_center">w</a> ] Center, Spieker</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Triangle_center">w</a> ] Center, Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Perspective_(geometry)">w</a> ] Center of Perspectivity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Homothetic_center">w</a> ] Center of Similitude (Homothetic Center)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Central_angle">w</a> ] Central Angle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Central_line_(geometry)">w</a> ] Central Line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Centroid">w</a> ] Centroid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ceva%27s_theorem">w</a> ] Ceva’s Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cevian">w</a> ] Cevian</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Chiral_polytope">w</a> ] Chiral Polytope</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Chirality_(mathematics)">w</a> ] Chirality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Chord_(geometry)">w</a> ] Chord</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circle">w</a> ] Circle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Apollonian_circles">w</a> ] Circle, Apollonian</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Brocard_circle">w</a> ] Circle, Brocard</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circumscribed_circle">w</a> ] Circle, Circumscribed</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Incircle_and_excircles">w</a> ] Circle, Escribed</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Incircle_and_excircles">w</a> ] Circle, Inscribed</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Nine-point_circle">w</a> ] Circle, Nine-Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spieker_circle">w</a> ] Circle, Spieker</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_arc">w</a> ] Circular Arc</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_segment">w</a> ] Circular Segment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_triangle">w</a> ] Circular Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circumcircle">w</a> ] Circumcenter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circumconic_and_inconic">w</a> ] Circumconic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circumference">w</a> ] Circumference</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circumcircle">w</a> ] Circumradius</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circumscribed_circle">w</a> ] Circumscribed Circle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tangential_polygon">w</a> ] Circumscribed Polygon (Tangential Polygon)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circumscribed_sphere">w</a> ] Circumscribed Sphere</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cleaver_(geometry)">w</a> ] Cleaver</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Collinearity">w</a> ] Collinearity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Compass_(drawing_tool)">w</a> ] Compass</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Compass_equivalence_theorem">w</a> ] Compass Equivalence Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Complex_line">w</a> ] Complex Line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Complex_plane">w</a> ] Complex Plane</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cone">w</a> ] Cone</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Concentric_objects">w</a> ] Concentricity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Concurrent_lines">w</a> ] Concurrent Line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Concyclic_points">w</a> ] Concyclic Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Congruence_(geometry)">w</a> ] Congruence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Kiepert_conics">w</a> ] Conic, Kiepert</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Steiner_conic">w</a> ] Conic, Steiner</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Constructible_polygon">w</a> ] Constructible Polygon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_hull">w</a> ] Convex Hull</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_polygon">w</a> ] Convex Polygon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Conway_polyhedron_notation">w</a> ] Conway Polyhedron Notation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Real_coordinate_space">w</a> ] Coordinate Space, Real</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trilinear_coordinates">w</a> ] Coordinates, Trilinear</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Coplanarity">w</a> ] Coplanarity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-ratio">w</a> ] Cross-Ratio (Anharmonic Ratio, Double Ratio)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cube">w</a> ] Cube</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cubic_honeycomb">w</a> ] Cubic Honeycomb</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cuboid">w</a> ] Cuboid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rectangular_cuboid">w</a> ] Cuboid, Rectangular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Curve">w</a> ] Curve</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Intersection_curve">w</a> ] Curve, Intersection</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inverse_curve">w</a> ] Curve, Inverse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parallel_curve">w</a> ] Curve, Parallel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Curvilinear_perspective">w</a> ] Curvilinear Perspective</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cylinder">w</a> ] Cylinder</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Right_circular_cylinder">w</a> ] Cylinder, Right Circular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/De_Longchamps_point">w</a> ] De Longchamps Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Deltahedron">w</a> ] Deltahedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Diagonal">w</a> ] Diagonal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Diameter">w</a> ] Diameter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dihedron">w</a> ] Dihedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bipyramid">w</a> ] Dipyramid (Bipyramid, Double Pyramid)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Directrix">w</a> ] Directrix</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Discrete_geometry">w</a> ] Discrete Geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Disk_(mathematics)">w</a> ] Disk</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_segment">w</a> ] Disk Segment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line">w</a> ] distance from a point to a line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rhombic_dodecahedron">w</a> ] Dodecahedron, Rhombic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bipyramid">w</a> ] Double Pyramid (Bipyramid, Dipyramid)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-ratio">w</a> ] Double Ratio (Anharmonic Ratio, Cross-Ratio)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Doubling_the_cube">w</a> ] doubling the cube</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dual_polyhedron">w</a> ] Dual Polyhedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Edge_(geometry)">w</a> ] Edge</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Isotoxal_figure">w</a> ] Edge-Transitivity (Isotoxality)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Ellipse">w</a> ] Ellipse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Steiner_ellipse">w</a> ] Ellipse, Steiner</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Elongated_square_gyrobicupola">w</a> ] Elongated Square Gyrobicopula</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equiangular_polygon">w</a> ] Equiangular Polygon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equidistant">w</a> ] Equidistance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equilateral_polygon">w</a> ] Equilateral Polygon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equilateral_triangle">w</a> ] Equilateral Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Incircle_and_excircles">w</a> ] Escribed Circle (Excircle)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_geometry">w</a> ] Euclidean Geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_line">w</a> ] Euler Line</p></li>
+<li><p>[ [w](<a class="reference external" href="https://en.wikipedia.org/wiki/Euler%25">https://en.wikipedia.org/wiki/Euler%</a> 27s_theorem_in_geometry)] Euler’s Theorem, in geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Incircle_and_excircles">w</a> ] Excircle (Escribed Circle)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Exeter_point">w</a> ] Exeter Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Internal_and_external_angles">w</a> ] External Angle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Extouch_triangle">w</a> ] Extouch Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Face_(geometry)">w</a> ] Face</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Faceting">w</a> ] Faceting</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Frustum">w</a> ] Frustum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Galois_geometry">w</a> ] Galois Geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Generatrix">w</a> ] Generatrix</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Geodesic">w</a> ] Geodesic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Geometry">w</a> ] Geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Computational_geometry">w</a> ] Geometry, Computational</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Descriptive_geometry">w</a> ] Geometry, Descriptive</p></li>
+<li><p>[ w ] Geometry, Differential</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Diophantine_geometry">w</a> ] Geometry, Diophantine</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Discrete_geometry">w</a> ] Geometry, Discrete</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_geometry">w</a> ] Geometry, Euclidean</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Galois_geometry">w</a> ] Geometry, Galois</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/History_of_geometry">w</a> ] Geometry, history</p></li>
+<li><p>[ w ] Geometry, Hyperbolic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Incidence_geometry">w</a> ] Geometry, Incidence</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inversive_geometry">w</a> ] Geometry, Inversive</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Modern_triangle_geometry">w</a> ] Geometry, Modern Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Non-Euclidean_geometry">w</a> ] Geometry, Non Euclidean</p></li>
+<li><p>[ w ] Geometry, Projective</p></li>
+<li><p>[ w ] Geometry, Riemannian</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Solid_geometry">w</a> ] Geometry, Solid</p></li>
+<li><p>[ w ] Geometry, Spherical</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Symplectic_geometry">w</a> ] Geometry, Symplectic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Synthetic_geometry">w</a> ] Geometry, Synthetic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Glissette">w</a> ] Glissette</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Gossard_perspector">w</a> ] Gossard Perspector</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lemoine_point">w</a> ] Grebe Point (Lemoine Point, Symmedian Point)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Half-space_(geometry)">w</a> ] Half-Space</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Homothetic_center">w</a> ] Homothetic Center (Center of Similitude)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hosohedron">w</a> ] Hosohedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbola">w</a> ] Hyperbola</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_angle">w</a> ] Hyperbolic Angle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_motion">w</a> ] Hyperbolic Motion</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperplane">w</a> ] Hyperplane</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Supporting_hyperplane">w</a> ] Hyperplane, Supporting</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/N-sphere">w</a> ] Hypersphere (<span class="math notranslate nohighlight">\(n\)</span>-Sphere)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hypersurface">w</a> ] Hypersurface</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Hypotenuse">w</a> ] Hypotenuse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Icosahedron">w</a> ] Icosahedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Incenter">w</a> ] Incenter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Incidence_geometry">w</a> ] Incidence Geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Incircle_and_excircles">w</a> ] Incircle (Inscribed Circle)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circumconic_and_inconic">w</a> ] Inconic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inellipse">w</a> ] Inellipse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mandart_inellipse">w</a> ] Inellipse, Mandart</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Steiner_inellipse">w</a> ] Inellipse, Steiner</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Internal_and_external_angles">w</a> ] Internal Angle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inscribed_angle">w</a> ] Inscribed Angle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Incircle_and_excircles">w</a> ] Inscribed Circle (Incircle)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Intersection_(geometry)">w</a> ] Intersection</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Intersection_curve">w</a> ] Intersection Curve</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inverse_curve">w</a> ] Inverse Curve</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Inversive_geometry">w</a> ] Inversive Geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Isogonal_figure">w</a> ] Isogonality (Vertex-Transitivity)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Isotoxal_figure">w</a> ] Isotoxality (Edge-Transitivity)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Isosceles_triangle">w</a> ] Isosceles Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Johnson_solid">w</a> ] Johnson Solid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Kiepert_conics">w</a> ] Kiepert Conic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lemoine_point">w</a> ] Lemoine Point (Grebe Point, Symmedian Point)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lemoine%27s_problem">w</a> ] Lemoine’s Problem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lens_(geometry)">w</a> ] Lens</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Line_(geometry)">w</a> ] Line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Central_line_(geometry)">w</a> ] Line, Central</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Complex_line">w</a> ] Line, Complex</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Concurrent_lines">w</a> ] Line, Concurrent</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_line">w</a> ] Line, Euler</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Simson_line">w</a> ] Line, Simson</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Skew_lines">w</a> ] Line, Skew</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Supporting_line">w</a> ] Line, Supporting</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Line_element">w</a> ] Line Element</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Apsis">w</a> ] Line of Apsides</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Line_segment">w</a> ] Line Segment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Locus_(mathematics)">w</a> ] Locus</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lune_of_Hippocrates">w</a> ] Lune of Hippocrates</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mandart_inellipse">w</a> ] Mandart Inellipse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Medial_triangle">w</a> ] Medial Triangle (Midpoint Triangle)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Median_(geometry)">w</a> ] Median</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Midpoint">w</a> ] Midpoint</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Medial_triangle">w</a> ] Midpoint Triangle (Medial Triangle)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Mittenpunkt">w</a> ] Mittenpunkt</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Modern_triangle_geometry">w</a> ] Modern Triangle Geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Morley_centers">w</a> ] Morley Center</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Morley%27s_trisector_theorem">w</a> ] Moreley’s Trisector Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Myriagon">w</a> ] Myriagon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/N-sphere">w</a> ] <span class="math notranslate nohighlight">\(n\)</span>-Sphere (Hypersphere)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Nagel_point">w</a> ] Nagel Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Neusis_construction">w</a> ] Neusis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Nine-point_center">w</a> ] Nine-Point Center</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Nine-point_circle">w</a> ] Nine-Point Circle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Non-Euclidean_geometry">w</a> ] Non Euclidean Geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_(geometry)">w</a> ] Normal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Acute_and_obtuse_triangles">w</a> ] Obtuse Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Orthocenter">w</a> ] Orthocenter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Orthocentric_system">w</a> ] Orthocentric System</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Orthogonality">w</a> ] Orthogonality</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Oval">w</a> ] Oval</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pappus%27s_hexagon_theorem">w</a> ] Pappus’ Hexagon Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parabola">w</a> ] Parabola</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parallel_curve">w</a> ] Parallel Curve</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Distance_between_two_parallel_lines">w</a> ] Parallel Line, distance</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parallel_postulate">w</a> ] Parallel Postulate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parallelepiped">w</a> ] Parallelepiped</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parallel_(geometry)">w</a> ] Parallelism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parallelogon">w</a> ] Parallelogon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parallelogram">w</a> ] Parallelogram</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Parallelohedron">w</a> ] Parallelohedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pencil_(geometry)">w</a> ] Pencil</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pentagonal_antiprism">w</a> ] Pentagonal Antiprism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pentagonal_bipyramid">w</a> ] Pentagonal Bipyramid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Apsis">w</a> ] Periapsis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Perimeter">w</a> ] Perimeter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Perspective_(graphical)">w</a> ] Perspective</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Curvilinear_perspective">w</a> ] Perspective, Curvilinear</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Perspectivity">w</a> ] Perspectivity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Petersen%E2%80%93Morley_theorem">w</a> ] Petersen-Morley Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Plane_(mathematics)">w</a> ] Plane</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Complex_plane">w</a> ] Plane, Complex</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Playfair%27s_axiom">w</a> ] Playfair’s Axiom</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Point_(geometry)">w</a> ] Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Brocard_points">w</a> ] Point, Brocard</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Concyclic_points">w</a> ] Point, Concyclic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/De_Longchamps_point">w</a> ] Point, De Longchamps</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Exeter_point">w</a> ] Point, Exeter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lemoine_point">w</a> ] Point, Grebe (Lemoine, Symmedian)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lemoine_point">w</a> ] Point, Lemoine (Grebe, Symmedian)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Nagel_point">w</a> ] Point, Nagel</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Schiffler_point">w</a> ] Point, Schiffler</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Steiner_point_(triangle)">w</a> ] Point, Steiner</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lemoine_point">w</a> ] Point, Symmedian (Grebe, Lemoine)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trisected_perimeter_point">w</a> ] Point, Trisected Perimeter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Point_reflection">w</a> ] Point Reflection</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trilinear_polarity">w</a> ] Polarity, Trilinear</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Polygon">w</a> ] Polygon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tangential_polygon">w</a> ] Polygon, Circumscribed (Tangential)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Constructible_polygon">w</a> ] Polygon, Constructible</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Convex_polygon">w</a> ] Polygon, Convex</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equiangular_polygon">w</a> ] Polygon, Equiangular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equilateral_polygon">w</a> ] Polygon, Equilateral</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Regular_polygon">w</a> ] Polygon, Regular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Simple_polygon">w</a> ] Polygon, Simple</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Skew_polygon">w</a> ] Polygon, Skew</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Star_polygon">w</a> ] Polygon, Star</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tangential_polygon">w</a> ] Polygon, Tangential (Circumscribed)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Polygonal_chain">w</a> ] Polygonal Chain</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Polyhedron">w</a> ] Polyhedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Dual_polyhedron">w</a> ] Polyhedron, Dual</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quasiregular_polyhedron">w</a> ] Polyhedron, Quasiregular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Semiregular_polyhedron">w</a> ] Polyhedron, Semiregular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Snub_polyhedron">w</a> ] Polyhedron, Snub</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_polyhedron">w</a> ] Polyhedron, Spherical</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Polytope">w</a> ] Polytope</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Chiral_polytope">w</a> ] Polytope, Chiral</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Regular_polytope">w</a> ] Polytope, Regular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pons_asinorum">w</a> ] Pons Asinorum</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Power_center_(geometry)">w</a> ] Power Center</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Prism_(geometry)">w</a> ] Prism</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Prismatoid">w</a> ] Prismatoid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Triple_product">w</a> ] Product, Triple</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/3D_projection">w</a> ] Projection, 3D</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pyramid_(geometry)">w</a> ] Pyramid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Bipyramid">w</a> ] Pyramid, Double (Bipyramid, Dipyramid)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Pythagorean_theorem">w</a> ] Pythagorean Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quadrilateral">w</a> ] Quadrilateral</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Quasiregular_polyhedron">w</a> ] Quasiregular Polyhedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rotational_symmetry">w</a> ] Radial Symmetry (Rotational Symmetry)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Radian">w</a> ] Radian</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Radius">w</a> ] Radius</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-ratio">w</a> ] Ratio, Anharmonic (Cross, Double)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-ratio">w</a> ] Ratio, Cross (Anharmonic, Double)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-ratio">w</a> ] Ratio, Double (Anharmonic, Cross)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Real_coordinate_space">w</a> ] Real Coordinate Space</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rectangle">w</a> ] Rectangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rectangular_cuboid">w</a> ] Rectangular, Cuboid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reflection_(mathematics)">w</a> ] Reflection</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reflection_symmetry">w</a> ] Reflection Symmetry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Point_reflection">w</a> ] Reflection, Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Regular_polygon">w</a> ] Regular Polygon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Regular_polytope">w</a> ] Regular Polytope</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rhombic_dodecahedron">w</a> ] Rhombic Dodecahedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rhombohedron">w</a> ] Rhombohedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Riemann_sphere">w</a> ] Riemann Sphere</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Right_angle">w</a> ] Right Angle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Right_circular_cylinder">w</a> ] Right Circular Cylinder</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Right_triangle">w</a> ] Right Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Special_right_triangle">w</a> ] Right Triangle, Special</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rotational_symmetry">w</a> ] Rotational Symmetry (Radial Symmetry)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Routh%27s_theorem">w</a> ] Routh’s Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Straightedge_and_compass_construction">w</a> ] Ruler-and-Compass Construction</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sagitta_(geometry)">w</a> ] Sagitta</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Triangle#Type_of_triangles">w</a> ] Scalene Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Scaling_(geometry)">w</a> ] Scaling</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Schiffler_point">w</a> ] Schiffler Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Secant_line">w</a> ] Secant</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_segment">w</a> ] Segment, Circular (Disk)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_segment">w</a> ] Segment, Disk (Circular)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Line_segment">w</a> ] Segment, Line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_segment">w</a> ] Segment, Spherical</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Semicircle">w</a> ] Semicircle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Semiperimeter">w</a> ] Semiperimeter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Semiregular_polyhedron">w</a> ] Semiregular Polyhedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Similarity_(geometry)">w</a> ] Similarity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Simple_polygon">w</a> ] Simple Polygon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Simson_line">w</a> ] Simson Line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Infinite_skew_polygon">w</a> ] Skew Apeirogon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Skew_lines">w</a> ] Skew Line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Skew_polygon">w</a> ] Skew Polygon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Snub_polyhedron">w</a> ] Snub Polyhedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Archimedean_solid">w</a> ] Solid, Archimedean</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Catalan_solid">w</a> ] Solid, Catalan</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Johnson_solid">w</a> ] Solid, Johnson</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Solid_geometry">w</a> ] Solid Geometry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Real_coordinate_space">w</a> ] Space, Real Coordinate</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Special_right_triangle">w</a> ] Special Right Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Sphere">w</a> ] Sphere</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circumscribed_sphere">w</a> ] Sphere, Circumscribed</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Riemann_sphere">w</a> ] Sphere, Riemann</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_cap">w</a> ] Spherical Cap</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_polyhedron">w</a> ] Spherical Polyhedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spherical_segment">w</a> ] Spherical Segment</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spieker_center">w</a> ] Spieker Center</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spieker_circle">w</a> ] Spieker Circle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spiral">w</a> ] Spiral</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Spirolateral">w</a> ] Spirolateral</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Splitter_(geometry)">w</a> ] Splitter</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Squaring_the_circle">w</a> ] squaring the circle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Star_polygon">w</a> ] Star Polygon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Steiner_conic">w</a> ] Steiner Conic</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Steiner_ellipse">w</a> ] Steiner Ellipse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Steiner_inellipse">w</a> ] Steiner Inellipse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Steiner_point_(triangle)">w</a> ] Steiner Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Stellation">w</a> ] Stellation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Straightedge">w</a> ] Straightedge</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Subtended_angle">w</a> ] Subtended Angle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Supporting_hyperplane">w</a> ] Supporting Hyperplane</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Supporting_line">w</a> ] Supporting Line</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Surface_(mathematics)">w</a> ] Surface</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Symmedian">w</a> ] Symmedian</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Lemoine_point">w</a> ] Symmedian Point (Grebe Point, Lemoine Point)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Axial_symmetry">w</a> ] Symmetry, Axial</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rotational_symmetry">w</a> ] Symmetry, Radial (Rotational)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Reflection_symmetry">w</a> ] Symmetry, Reflection</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Rotational_symmetry">w</a> ] Symmetry, Rotational (Radial)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Translational_symmetry">w</a> ] Symmetry, Translational</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tangent">w</a> ] Tangent</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tangential_polygon">w</a> ] Tangential Polygon (Circumscribed Polygon)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tangential_triangle">w</a> ] Tangential Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tessellation">w</a> ] Tessellation</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tetrakis_hexahedron">w</a> ] Tetrakis Hexahedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Thales%27s_theorem">w</a> ] Thales’ Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tomahawk_(geometry)">w</a> ] Tomahawk</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Translational_symmetry">w</a> ] Translational Symmetry</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trapezohedron">w</a> ] Trapezohedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trigonal_trapezohedron">w</a> ] Trapezohedron, Trigonal</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trapezoid">w</a> ] Trapezoid</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Triangle">w</a> ] Triangle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Acute_and_obtuse_triangles">w</a> ] Triangle, Acute</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Brocard_triangle">w</a> ] Triangle, Brocard</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Circular_triangle">w</a> ] Triangle, Circular</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Equilateral_triangle">w</a> ] Triangle, Equilateral</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Extouch_triangle">w</a> ] Triangle, Extouch</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Isosceles_triangle">w</a> ] Triangle, Isosceles</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Medial_triangle">w</a> ] Triangle, Medial (Midpoint)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Medial_triangle">w</a> ] Triangle, Midpoint (Medial)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Acute_and_obtuse_triangles">w</a> ] Triangle, Obtuse</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Right_triangle">w</a> ] Triangle, Right</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Triangle#Type_of_triangles">w</a> ] Triangle, Scalene</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Special_right_triangle">w</a> ] Triangle, Special Right</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Tangential_triangle">w</a> ] Triangle, Tangential</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Triangle_center">w</a> ] Triangle Center</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_triangle_inequalities">w</a> ] Triangle Inequalities</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trigonal_trapezohedron">w</a> ] Trigonal Trapezohedron</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trilinear_coordinates">w</a> ] Trilinear Coordinates</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trilinear_polarity">w</a> ] Trilinear Polarity</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Triple_product">w</a> ] Triple Product</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Trisected_perimeter_point">w</a> ] Trisected Perimeter Point</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Angle_trisection">w</a> ] Trisection, Angle</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Unital_(geometry)">w</a> ] Unital</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Upper_bound_theorem">w</a> ] Upper Bound Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Vesica_piscis">w</a> ] Vesica Piscis</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Vertex_(geometry)">w</a> ] Vertex</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Isogonal_figure">w</a> ] Vertex-Transitivity (Isogonality)</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Viviani%27s_theorem">w</a> ] Viviani’s Theorem</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Volume">w</a> ] Volume</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Zonogon">w</a> ] Zonogon</p></li>
+<li><p>[ <a class="reference external" href="https://en.wikipedia.org/wiki/Zonohedron">w</a> ] Zonohedron</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+<p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Polygon">W</a>] Polygon</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Triangle">W</a>] Trigon (Triangle)</p>
+<ul>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Acute_and_obtuse_triangles">W</a>] Acute Triangle</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Equilateral_triangle">W</a>] Equilateral Triangle</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Isosceles_triangle">W</a>] Isosceles Triangle</p>
+<ul>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Golden_triangle_(mathematics)">W</a>] Golden Triangle</p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Acute_and_obtuse_triangles">W</a>] Obtuse Triangle</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Right_triangle">W</a>] Right Triangle</p>
+<ul>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Special_right_triangle">W</a>] Special Right Triangle</p></li>
+</ul>
+</li>
+<li><p>[W] Scalene Triangle</p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Quadrilateral">W</a>] Tetragon (Quadrilateral)</p>
+<ul>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Parallelogram">W</a>] Parallelogram</p>
+<ul>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Rhomboid">W</a>] Rhomboid</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Rectangle">W</a>] Rectangle</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Square">W</a>] Square</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Rhombus">W</a>] Rhombus</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Trapezoid">W</a>] Trapezoid</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Pentagon">W</a>] Pentagon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hexagon">W</a>] Hexagon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Heptagon">W</a>] Heptagon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Octagon">W</a>] Octagon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Nonagon">W</a>] Nonagon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Decagon">W</a>] Decagon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hendecagon">W</a>] Hendecagon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Dodecagon">W</a>] Dodecagon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Apeirogon">W</a>] Apeirogon</p></li>
+</ul>
+<p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Equilateral_polygon">W</a>] Equilateral Polygon</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Equilateral_pentagon">W</a>] Equilateral Pentagon</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Equilateral_triangle">W</a>] Equilateral Triangle</p></li>
+</ul>
+<p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Star_polygon">W</a>] Star Polygon</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Pentagram">W</a>] Pentagram</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hexagram">W</a>] Hexagram</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Heptagram">W</a>] Heptagram</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Octagram">W</a>] Octagram</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Enneagram_(geometry)">W</a>] Nonagram</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Decagram_(geometry)">W</a>] Decagram</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hendecagram">W</a>] Hendecagram</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Dodecagram">W</a>] Dodecagram</p></li>
+</ul>
+<p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Solid_geometry">W</a>] Solid Geometry</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Ball_(mathematics)">W</a>] Ball</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Cone">W</a>] Cone</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Cylinder">W</a>] Cylinder</p>
+<ul>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Right_circular_cylinder">W</a>] Right Circular Cylinder</p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Polyhedron">W</a>] Polyhedron</p>
+<ul>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Cuboid">W</a>] Cuboid</p>
+<ul>
+<li><p>Cube (Square Cuboid)</p></li>
+<li><p>Rectangular Cuboid</p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Pyramid_(geometry)">W</a>] Pyramid</p>
+<ul>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Square_pyramid">W</a>] Square Pyramid</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Quadric">W</a>] Quadric Surface</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Ellipsoid">W</a>] Ellipsoid</p>
+<ul>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Spheroid">W</a>] Ellipsoid of Revolution (Spheroid)</p>
+<ul>
+<li><p>Oblate Spheroid</p></li>
+<li><p>Prolate Spheroid</p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Sphere">W</a>] Sphere</p></li>
+</ul>
+</li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Paraboloid">W</a>] Paraboloid</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Hyperboloid">W</a>] Hyperboloid</p>
+<ul>
+<li><p>One-Sheet Hyperboloid (Hyperbolic Hyperboloid)</p></li>
+<li><p>Two-Sheet Hyperboloid (Elliptic Hyperboloid)</p></li>
+</ul>
+</li>
+</ul>
+<p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Superquadrics">W</a>] Superquadrics</p>
+<p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Platonic_solid">W</a>] Platonic Solid</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Cube">W</a>] Cube (Square Cuboid)</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Octahedron">W</a>] Octahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Regular_dodecahedron">W</a>] Regular Dodecahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Regular_icosahedron">W</a>] Regular Icosahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Tetrahedron">W</a>] Tetrahedron (Triangular Pyramid)</p></li>
+</ul>
+<p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Archimedean_solid">W</a>] Archimedean Solid</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Cuboctahedron">W</a>] Cuboctahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Icosidodecahedron">W</a>] Icosidodecahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Rhombicosidodecahedron">W</a>] Rhombicosidodecahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Rhombicuboctahedron">W</a>] Rhombicuboctahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Snub_cube">W</a>] Snub Cube</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Snub_dodecahedron">W</a>] Snub Dodecahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_cube">W</a>] Truncated Cube</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_cuboctahedron">W</a>] Truncated Cuboctahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_dodecahedron">W</a>] Truncated Dodecahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_icosahedron">W</a>] Truncated Icosahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_icosidodecahedron">W</a>] Truncated Icosidodecahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_octahedron">W</a>] Truncated Octahedron</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_tetrahedron">W</a>] Truncated Tetrahedron</p></li>
+</ul>
+<p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Catalan_solid">W</a>] Catalan Solid</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Rhombic_triacontahedron">W</a>] Rhombic Triacontahedron</p></li>
+</ul>
+<p>nd</p>
+<ul class="simple">
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Apeirotope">W</a>] Apeirotope</p></li>
+<li><p>[W] Hyperplane</p></li>
+<li><p>[W] Hypersurface</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Polytope">W</a>] Polytope</p></li>
+<li><p>[<a class="reference external" href="https://en.wikipedia.org/wiki/Simplex">W</a>] Simplex</p></li>
+</ul>
+<hr class="docutils" />
+<hr class="docutils" />
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="m_game_theory_idx.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Game Theory</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="m_linear_algebra_idx.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Linear Algebra</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sections">Sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terms">Terms</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By DF
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
